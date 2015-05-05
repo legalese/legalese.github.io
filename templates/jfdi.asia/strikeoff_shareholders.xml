@@ -1,0 +1,37 @@
+<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/" templateSpec="singlepage.indt">
+<letterhead><?= data.company.name ?></letterhead>
+<Firstpage_Sidebar>
+<?= data.company.name ?>
+
+<?= data.company.idtype ?> <span_ucnum><?= data.company.id ?></span_ucnum>
+<?= data.company.address ?>
+</Firstpage_Sidebar>
+<Story_Main>
+<basic_para>
+
+
+
+</basic_para>
+<chapter_header>Notice of Striking Off</chapter_header>
+
+<para_1><?= data.shareholder.name ?></para_1>
+<basic_para><?= data.shareholder.address ?>
+
+</basic_para>
+<para_1>
+
+<b>Regarding <?= data.company.name ?> (the "Company")</b>
+Notice is hereby given to all members of the Company that the Directors intend to apply to the Accounting and Corporate Regulatory Authority (ACRA) under Section 344 of the Companies Act (Cap. 50) to strike the name of the Company off the register.
+In this connection, we wish to seek your written consent for the aforesaid application. Kindly indicate your consent by signing below.
+If we do not hear from you within 30 days from the date of this letter, we will deem that you have no objection to the aforesaid application for striking off.
+</para_1>
+<? data.signature_comment = "Director" ?>
+<?!= include("inc_signature", data, data.parties.director[0]) ?>
+</Story_Main>
+<Bottom_Box>
+<para_1>I, <?= data.shareholder.name ?> (<?= data.shareholder.idtype ?> <span_ucnum><?= data.shareholder.id ?></span_ucnum>), being a shareholder of <?= data.company.name ?> hereby give my consent for an application to be made to ACRA for striking off, and declare that there are no outstanding debts due to me.
+</para_1>
+<? data.signature_comment = "Shareholder" ?>
+<?!= include("inc_signature", data, data.shareholder) ?>
+</Bottom_Box>
+</Root>

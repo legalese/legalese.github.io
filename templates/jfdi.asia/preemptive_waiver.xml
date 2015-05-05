@@ -1,0 +1,45 @@
+<?!= data.xml_declaration + data.whitespace_handling_use_tags ?>
+<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/" templateSpec="singlepage.indt">
+<letterhead><?= data.company.name ?></letterhead>
+<Firstpage_Sidebar>
+<sidebar><?= data.company.name ?></sidebar>
+<sidebar><?= data.company.idtype ?> <span_ucnum><?= data.company.id ?></span_ucnum></sidebar>
+<sidebar><?= data.company.address ?></sidebar>
+</Firstpage_Sidebar>
+<Story_Main>
+<basic_para>
+
+</basic_para>
+<chapter_header>Issuance Offer Notice</chapter_header>
+<basic_para>
+
+</basic_para>
+<para_1><?= data.shareholder.name ?></para_1>
+<?!= data.whitespace_handling_use_characters ?><basic_para><?= data.shareholder.address ?>
+
+</basic_para>
+<para_1><b>Issuance of New Shares in <?= data.company.name ?> (the "Company")</b></para_1>
+<para_1>Notice is hereby given to all members of the Company that the Directors intend to issue and allot <?= data.total_new_securities_on_offer ?> <?= data.security_type_long ?> ("<?= data.security_type_short_plural ?>"), at a price of <?= data.price_per_share ?> per share.</para_1>
+<? if (data.explanation) { ?><para_1><?= data.explanation ?></para_1><? } ?>
+<para_1>As a member of the Company, you possess the right under Article <?= data.article_for_preemptive_rights ?> of the Company's Articles of Association to participate in this issue of shares.
+Given that the Company is issuing <?= data.total_new_securities_on_offer ?> new <?= data.security_type_short_plural ?>, and you presently hold <?= data.shareholder.num_shares ?> out of <?= data.total_existing_securities_in_class ?> existing <?= data.security_type_short_plural ?>, you have the right to subscribe for up to <?= data.shareholder.pro_rata ?>% of this new issue: <?= (data.shareholder.pro_rata / 100 * asNum_(data.total_new_securities_on_offer)).toFixed(2) ?>
+ <?= data.security_type_short_plural ?> for <?= asCurrency_(currencyFor_(data.price_per_share), (data.shareholder.pro_rata / 100 * asNum_(data.total_round_size)).toFixed(2)) ?>.
+You may also have excess rights to subscribe beyond that amount -- if other shareholders do not take up their pro rata allotments, you may partcipate beyond yours, up to the total amount of <?= data.total_round_size ?>.
+If you wish to participate in this issue, please indicate, in the attached Issuance Offer Acceptance Notice, the level of your interest.
+There is no obligation to participate. If you do not, <?= commaAnd(data.parties.new_investor, "name") ?>
+ <?= plural_verb(data.parties.new_investor, "has") ?>
+ indicated the intent to subscribe for new <?= data.security_type_short_plural ?>, up to the total amount on offer.
+If we do not hear from you within <?= data.preemptive_rights_notice_period ?> days from the date of this letter, we will understand that you do not wish to participate.
+
+</para_1>
+<? data.signature_comment = "Director" ?>
+<?!= include("inc_signature", data, data.company) ?>
+</Story_Main>
+<Bottom_Box delete_if_empty="true">
+<? // TODO: add form fields https://www.echosign.adobe.com/content/dam/echosign/docs/pdfs/Forms%20-%20Text%20Tags%20Acrobat%20Form%20Fields%20Companion.pdf ?>
+<para_1>I, <?= newlinesToCommas(data.shareholder.name) ?> (<?= data.shareholder.idtype ?> <span_ucnum><?= data.shareholder.id ?></span_ucnum>), being a shareholder of <?= data.company.name ?> hereby decline to subscribe for new shares in this issue.
+</para_1>
+<? data.signature_comment = "Shareholder" ?>
+<?!= include("inc_signature", data, data.shareholder) ?>
+</Bottom_Box>
+</Root>

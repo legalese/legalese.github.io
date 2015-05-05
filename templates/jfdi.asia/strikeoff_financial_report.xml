@@ -1,0 +1,216 @@
+<?!= data.xml_declaration ?>
+<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
+<CoverTop><cover_title>Report of the Directors</cover_title>
+<noindent_centered addnewline="true">for the Financial Period</noindent_centered>
+<noindent_centered addnewline="true">from <?= data.financial_report_start_date ?><? if (data.financial_report_start_date === data.company.incorporation_date) { ?> (date of incorporation)<? } ?></noindent_centered>
+<noindent_centered addnewline="true">to <?= data.financial_report_end_date ?></noindent_centered>
+<noindent_centered addnewline="true"></noindent_centered>
+<cover_company_name><?= data.company.name ?></cover_company_name>
+<cover_company_id><?= data.company.idtype ?> <?= data.company.id ?></cover_company_id>
+</CoverTop>
+<CoverMid>
+</CoverMid>
+
+<CoverBottom_Logotype>
+<cover_corporate_logotype>Joyful Frog Digital Incubator</cover_corporate_logotype>
+</CoverBottom_Logotype>
+
+<CoverBottom_Address>
+<cover_address_block>Blk 71 Ayer Rajah Crescent
+#05-16   Singapore 139951</cover_address_block>
+</CoverBottom_Address>
+
+<CoverBottom_series>
+<centered><textvar name="Output Date" />&#8195;<span_smallcaps><textvar name="output time" /></span_smallcaps>
+</centered>
+<centered>version 1.0.0</centered>
+</CoverBottom_series>
+
+<Firstpage_Sidebar delete_if_empty="true"></Firstpage_Sidebar>
+<Story_Main>
+<chapter_header>Report of the Directors</chapter_header>
+<para_1><span_smallcaps>The directors are pleased</span_smallcaps> to present this report to the members of <?= data.company.name ?> (the "Company") together with the unaudited financial statements for the financial period from <?= data.financial_report_start_date ?><? if (data.financial_report_start_date === data.incorporation_date) { ?> (the date of incorporation)<? } ?> to <?= data.financial_report_end_date ?>.</para_1>
+<a_left_sidehead>Directors</a_left_sidehead>
+<para_1>The directors holding office at the date of this report are:</para_1>
+<? for (var i in data.parties.director) { ?>
+<bullets><?!= data.parties.director[i].name ?></bullets>
+<? } ?>
+<a_left_sidehead>Arrangements to Enable Directors to Acquire Shares &amp; Debentures</a_left_sidehead>
+<para_1>Neither at the end of nor at any time during the financial period was the Company a party to any arrangement whose object was to enable the directors of the Company to acquire benefits by means of the acquisition of shares or debentures of the Company or any other body corporate except for those mentioned in this report.</para_1>
+
+<a_left_sidehead>Directors' Interests in Shares &amp; Debentures</a_left_sidehead>
+<? var directors_and_shareholders = partiesWearingManyHats(data, data.company, ["director","shareholder"]); ?>
+<para_1>The directors holding office at the end of the financial period and their interests in the share capital of the Company and related corporations as recorded in the register of directors' shareholdings kept by the Company under Section 164 of the Companies Act (Cap. 50) were as follows:---</para_1>
+<table_enclosing_para>
+<Table aid:table="table" aid:tcols="3" aid:trows="<?= (directors_and_shareholders.length+2) ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+<Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c></cell_c></Cell>
+<Cell aid:ccols="2" aid:ccolwidth="112" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Number of ordinary shares and ordinary-share equivalents</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="56" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell_c>at beginning of period</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="56" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_c>at end of period</cell_c></Cell>
+<? for (var dsi = 0; dsi < directors_and_shareholders.length; dsi++) { with (directors_and_shareholders[dsi] ) { ?>
+<Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c><?= name ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="56" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell_c><?= shares_at_start ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="56" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_c><?= shares_at_end ?></cell_c></Cell>
+<? } } ?>
+</Table></table_enclosing_para>
+
+<a_left_sidehead>Directors' Contractual Benefits</a_left_sidehead>
+<para_1>Except as disclosed in the financial statements, since the date of incorporation, no director of the Company has received or become entitled to receive a benefit by reason of a contract made by the Company or a related corporation with the director, or with a firm of which the director is a member, or with a company in which the director has a substantial financial interest.</para_1>
+
+<a_left_sidehead>Share Options</a_left_sidehead>
+<para_1>During the financial period, no option to take up unissued shares of the Company was granted.
+At the end of the financial period, there were no shares of the Company issued by virtue of the exercise of any option to take up unissued shares.
+There are no unissued shares under option.
+
+</para_1>
+
+<? var signature_comment = "Director"; ?>
+<? for (var i = 0; i < data.parties.director.length; i++) { ?>
+<?!= include("inc_signature", data, data.parties.director[i]) ?>
+<? } ?>
+
+<chapter_header>Statement by Directors</chapter_header>
+<para_1>We, <? commaAnd(data.parties.director) ?>, being the directors of <?= data.company.name ?> state that in the opinion of the board of directors:---</para_1>
+<numbered_1_para restart="true">The accompanying unaudited financials are drawn up so as to give a true and fair view of the state of affairs of the Company as at <?= data.financial_report_end_date ?>, of the results of the business, changes in equity, and cash flows of the Company for the financial period then ended; and
+at the date of this statement there are reasonable grounds to believe that the Company will be able to pay its debts as and when they fall due.</numbered_1_para>
+
+<? var signature_comment = "Director"; ?>
+<? for (var i = 0; i < data.parties.director.length; i++) { ?>
+<?!= include("inc_signature", data, data.parties.director[i]) ?>
+<? } ?>
+
+<chapter_header>Statement of Financial Position</chapter_header>
+<chapter_header>Notes to the Financial Statements</chapter_header>
+
+<para_1>These note form an integral part of and should be read in conjunction with the accompanying financial statements.</para_1>
+
+<a_left_sidehead restart="true">Corporate Information</a_left_sidehead>
+<para_1>The Company is a limited liability company which is domiciled and incorporated in Singapore.
+The financial statements of the Company for the period ended <?= data.financial_report_end_date ?> were authorised for issue in accordance with a resolution of the directors on the date of Statement by Directors.
+The registered office and principal place of business of the Company is <?= newlinesToCommas(data.company.address ?>.
+The principal activities of the Company were those of software development. The Company had ceased business from <?= data.financial_report_end_date ?>.</para_1>
+
+<a_left_sidehead>Basis of Preparation</a_left_sidehead>
+<b_left_sidehead>Statement of Compliance</b_left_sidehead>
+<para_1>The financial statements have been prepared in accordance with Singapore Financial Reporting Standards (FRS).</para_1>
+
+<b_left_sidehead>Basis of Measurement</b_left_sidehead>
+<para_1>The financial statements have been prepared on the historical cost basis except as otherwise described below.</para_1>
+
+<b_left_sidehead>Functional and Presentation Currency</b_left_sidehead>
+<para_1>The financial statements are presented in Singapore DOllars, which is the Company's functional currency.</para_1>
+
+<b_left_sidehead>Use of estimates and judgments</b_left_sidehead>
+<para_1>The preparation of financial statements in conformity with FRS requires management to make judgments, estimates, and assumptions that affect the application of accounting policies and the reported amounts of assets, liabilities, income, and expenses. Actual results may differ from these estimates.
+Estimates and underlying assumptions are reviewed on an ongoing basis. Revisions to accounting estimates are recognised in the period in which the estimates are revised and in any future periods affected.</para_1>
+
+<a_left_sidehead>Significant Accounting Policies</a_left_sidehead>
+<para_1>The accounting policies set out below have been applied consistently to all periods presented in these financial statements.</para_1>
+<b_left_sidehead>Share Capital</b_left_sidehead>
+<numbered_3_para_fl><b>Ordinary Shares.</b> Ordinary shares are classified as equity. Incremental costs directly attributable to the issue of ordinary shares and share options are recognised as a deduction from equity, net of any tax effects.</numbered_3_para_fl>
+<? // this is where we would add comments on Preferred and F shares. ?>
+<b_left_sidehead>Revenue Recognition</b_left_sidehead>
+<para_1>Revenue from rendering of services is recognised upon completion of services rendered.</para_1>
+<b_left_sidehead>Related Parties</b_left_sidehead>
+<para_1>A related party is defined as follows:</para_1>
+<numbered_3_para_fl>A person or a close member of that person's family is related to the Company if that person:</numbered_3_para_fl>
+<numbered_4_para_fltab>has control or joint control over the Company;
+has significant influence over the Company; or
+is a member of the key management personnel of the Company or of a parent of the Company.</numbered_4_para_fltab>
+<numbered_3_para_fl>An entity is related to the Company if any of the following conditionsa pplies:</numbered_3_para_fl>
+<numbered_4_para_fltab>The entity and the Company are members of the same group (which means that each parent, subsidiary, and fellow subsidiary is related to the others).
+One entity is an associate or joint venture of the other entity (or an associate or joint venture of a member of a group in which the other entity is a membe).
+Both entities are joint ventures of the same third party.
+One entity is a joint venture of a third entity and the other entity is an associate of the third entity.
+The entity is a post-employment benefit plan for the benefit of employees of either the Company or an entity related to the Company. If the Company is itself such a plan, the sponsoring employers are also related to the Company;
+The entity is controlled or jointly controlled by a person identified in Clause 3.3.1 above;
+A person identified in Clause 3.3.1.1 above has significant influence over the entity or is a member of the key management personnel of the entity (or of a parent of the entity).</numbered_4_para_fltab>
+<a_left_sidehead>Significant Account Policies</a_left_sidehead>
+<b_left_sidehead>Income Tax</b_left_sidehead>
+<para_1>Income tax expense comprises current and deferred tax. Current and deferred tax are recognised in profit or loss except to the extent that it relates to items recognised directly in equity or in other comprehensive income.
+Current tax is the expected tax payable or receivable on the taxable income or loss for the year, using tax rates enacted or substantively enacted at the reporting date.
+Deferred tax is recognised in respect of temporary differences between the carrying amounts of assets and liabilities for financial reporting purposes and the amounts used for taxation purposes. Deferred tax is not recognised for temporary differences on the initial recognition fo assets and liabilities in a transaction that is not a business combination and that affects neither accounting nor taxable profit or loss to the extent that it is probable that they will not reverse in the foreseeable future.
+Deferred tax is measured at the tax rates that are expected to be applied to temporary differences when they reverse, based on the laws that have been enacted or substantively enacted by the reporting date.
+Deferred text assets and liabilities are offset if there is a legally enforceable right to offset current tax liabilities and assets, and they relate to taxes levied by the same tax authority on the same taxable entity, or on different tax entities, but they intend to settle current tax liabilities and assets on a net basis or their tax assets and liabilities will be realised simultaneously.
+Deferred tax asset is recognised for unused tax losses, tax credits, and deductible temporary differences, to the extent that it is probable that future taxable profits will be available against which they can be utilized. Deferred assets are reviewed at each reporting date and are reduced to the extent that it no longer probable that the related tax benefit will be realised.
+In ordinary course of business, there are many transactions and calculations for which the ultimate tax treatment is uncertain. Therefore, the Company recognizes tax liabilities based on estimates of whether additional taxes will be due. These tax liabilities liabilities are recognised when the company believes that certain positions may not be fully sustained upon review by tax authorities, despite the Company's belief that its tax return positions are supportable. The Company believes that it accrual for tax liabilities are adequate for all open tax years based on its assessment of many factors including interpretations of tax law and prior experience. This assessment relies on estimates and assumptions and may involve a series of multifaceted judgments about future events. New information may become available that causes the Company to change its judgment regarding the adequacy of existing tax liabilities; such changes to tax liabilities will impact tax expense in the period that such a determination is made.</para_1>
+
+<b_left_sidehead>New Standards and interpretations Not Adopted</b_left_sidehead>
+
+<para_1>A number of new standards, amendments to standards, and interpretations are effective for annual periods beginning after 10 September 2013, and have not been applied in preparing these financial statements. None of these are expected to have a significant effect on the financial statements of the Company.</para_1>
+
+<a_left_sidehead>Share capital</a_left_sidehead>
+
+<para_1>During the financial period, the Company issued XXX subscribers' shares at XXX each for cash consideration. The purpose of the allotment was to incorporate the company.
+The holder of the ordinary shares is entitled to receive dividends as declared from time to time and is entitled to one vote per share at meetings of the Company. All shares rank equally with regards to the Company's residual assets.
+
+<b_left_sidehead>Capital Management</b_left_sidehead>
+
+The Company defines capital as the total equity of the Company. The Company's primary objectives when managing capital are to achieve sustainable growth and ensure that the company has adequate capital to fund its operations. The management regularly assess and quantify the potential capital requirements of the Company in order to ensure the Company has adequate capital.
+
+<a_left_sidehead>Convertible Loan</a_left_sidehead>
+
+<para_1>XXX</para_1>
+
+<para_1>The loan denominated in SGD is provided as a convertible bond.</para_1>
+
+<a_left_sidehead>Loss before tax</a_left_sidehead>
+
+The above is arrived after charging/crediting.
+
+Income tax expense
+
+No income tax payable has been made in the financial statements as there is no chargeable income for the financial year.
+
+The income tax expense married from the amount of income tax expense to turn it by applying the Singapore income tax rate on 17% to profit before income tax as a result of the following differences:––
+
+Related parties transaction
+
+Compensation of key management personnel
+
+She mad personnel of the Company are those persons having those authorities and responsibilities for planning, directing, and controlling the activities of the company. The directors are considered as the management of the company.
+
+Financial risk management objectives and policies
+
+The company has no formal risk management policies and guidelines, which set out its overall business strategies, it's tolerance for risk and it's general risk management philosophy. It has however established informal processes to monitor and control such risks on a timely and accurate manner. Such policies are monitored and undertaken by the directors.
+
+Risk management is integral to the whole business of the companyThe management Kong can you believe monitors the companies risk management process to in sure that an appropriate balance between risk and control is achieved. Risk management policies and systems are reviewed regularly to reflect changes in market conditions and the Company's activities.
+
+No derivaties shall be understaken except for the use as hedging instruments where appropriate and cost-efficient. The Companyd does not apply hedge accounting.
+
+The key financial risks include foreign currency risk, credit risk, and liquidity risk. The following provide details regarding the Company's exposure to the risks and the objectives, policies, and processes for the management of these risks.
+
+Foreign Currency Risk
+
+There is no significant exposure to such risk.
+
+Credit Risk
+
+There is no significant exposure to such risk.
+
+Liquidity Risk
+
+Liquiditiy risk is the risk that the Company will encounter difficulty in meeting financial obligations due to shortage of funds.
+To manage liquidity risk, the Company monitors its net operating cash flows and maintains an adequate level of cash and cash equivalents and funding from the directors. The management reviews its working capital requirements regularly.
+
+Financial Instruments
+
+The fair value of financial assets and liabilities is at the amount at which the instrument could be exchanged or settled between knowledgeable and willing parties in an arm's-length transaction, other than in forced or liquidation sale.
+
+Fair value of financial instruments by classes that are not carried at fair value and whose carrying amounts are reasonable approximation of fair value.
+
+Comparative Figures
+
+No comparative figures are available as this is the first set of financial statements prepared by the company since its incorporation on <?= data.incorporation_date ?>.
+
+<b_left_sidehead>
+<para_1>
+
+<a_left_sidehead>
+<b_left_sidehead>
+<para_1>
+
+
+</Story_Main>
+</Root>

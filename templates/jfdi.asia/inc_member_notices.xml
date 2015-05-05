@@ -1,0 +1,15 @@
+<? if (data.egm_or_written_means == "EGM") { ?>
+<a_left_sidehead>Notice of EGM</a_left_sidehead>
+
+<para_1>That an Extraordinary General Meeting of the Company be held on <?= data.gm_date ?> for the purpose of considering and if thought fit, passing the above resolution<?= data.members_resolution_2 == undefined ? "" : "s" ?>.</para_1>
+
+<? } else if (data.egm_or_written_means == "AGM") { ?>
+<a_left_sidehead>Notice of AGM</a_left_sidehead>
+
+<para_1>That the Annual General Meeting of the Company be held on <?= data.gm_date ?> for the purpose of considering and if thought fit, passing the above resolution<?= data.members_resolution_2 == undefined ? "" : "s" ?>.</para_1>
+
+<? } else { ?>
+<a_left_sidehead>Resolution by Written Means</a_left_sidehead>
+
+<para_1>That the above resolution<?= data.members_resolution_2 == undefined ? "" : "s" ?> be circulated for passage by written means, under Section <?!= plural(data.parties.shareholder, "184G", "184A") ?> of the Companies Act (Cap. 50), in lieu of a General Meeting.</para_1>
+<? } ?>

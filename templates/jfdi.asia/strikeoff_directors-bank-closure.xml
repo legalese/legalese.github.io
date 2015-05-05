@@ -1,0 +1,29 @@
+<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/" templateSpec="singlepage.indt">
+<letterhead><?= data.company.name ?></letterhead>
+<Firstpage_Sidebar>
+<?= data.company.name ?>
+
+(the "Company")
+<?= data.company.idtype ?> <span_ucnum><?= data.company.id ?></span_ucnum>
+<?= data.company.address ?>
+</Firstpage_Sidebar>
+<Story_Main>
+<basic_para>
+
+
+
+</basic_para>
+<resolution_title>Directors' resolutions in writing&#8232;passed pursuant to Article <?= data.article_for_directors_resolution_in_writing ?> of the Company's Articles of Association</resolution_title>
+
+<chapter_header override="startParagraph=StartParagraph.ANYWHERE">Closure of Company's Bank Account</chapter_header>
+<para_1><span_smallcaps>Resolved that:---</span_smallcaps></para_1>
+<numbered_1_para>the Company do and hereby closes any and all accounts maintained with <?= data.bank.name ?> (the "Bank") with immediate effect; and
+a certified copy of this resolution be furnished to the Bank.</numbered_1_para>
+<para_1><span_smallcaps>Dated this:</span_smallcaps> <?= data.shutdown_process_begin_date ?></para_1>
+<? data.signature_comment = "Director" ?>
+<? for (var i=0;i<data.parties.director.length;i++) { ?>
+<?!= include("inc_signature", data, data.parties.director[i]) ?>
+<? } ?>
+</Story_Main>
+<Bottom_Box delete_if_empty="true" />
+</Root>

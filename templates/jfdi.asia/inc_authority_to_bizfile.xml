@@ -1,0 +1,5 @@
+<? if (data.skip_bizfile != true) { ?>
+<a_left_sidehead>Authority to Bizfile</a_left_sidehead>
+
+<para_1>That the Corporate Secretary of the Company (being at the time of writing <?= data.parties.corporate_secretary[0].name ?>) and/or its designated agents be authorised to file the <?= data._include.what || ("Notice of Resolution" + (data.r_num == 1 ? "" : "s")) ?> electronically with the <?= data.parties.state_regulator[0].name ?>.</para_1>
+<? } ?>

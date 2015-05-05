@@ -1,0 +1,22 @@
+<CoverTop>
+<cover_title><?= data._include.cover_title ?></cover_title>
+<cover_company_name>
+
+
+
+
+
+<?= data.parties.company[0].name ?>
+
+</cover_company_name>
+<cover_company_id><?= data.parties.company[0].idtype ?> <?= data.parties.company[0].id ?></cover_company_id>
+<centered addnewline="true" />
+<cover_company_name><?= data.parties.investor[0].name ?></cover_company_name>
+<cover_company_id><?= data.parties.investor[0].idtype ?> <?= data.parties.investor[0].id ?></cover_company_id>
+</CoverTop>
+<CoverMid>
+<? for (var f in data.parties.founder) { ?>
+<cover_parties_centered><?= data.parties.founder[f].name ?></cover_parties_centered>
+<? } ?>
+
+</CoverMid>

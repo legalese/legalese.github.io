@@ -1,0 +1,19 @@
+<? var prefix = data._include.prefix || "directors_resolution"; ?>
+<? for (var ar_i = 1; ar_i < 100; ar_i++) { 
+     if (data[prefix + "_" + ar_i]) { ?>
+<?     if (data._include.header) { ?>
+<?!= "<" + data._include.header ?>><?= data[prefix + "_"+ar_i+"_title"] ?><?!= "</" + data._include.header ?>>
+<?     } ?>
+<?     if (data[prefix + "_"+ar_i+"_bodystyle"] || data._include.bodystyle) { ?>
+<?!= "<" + (data[prefix + "_"+ar_i+"_bodystyle"] || data._include.bodystyle ) ?>><?
+       } ?>
+<?     var ar_match = data[prefix+"_"+ar_i].match(/^include\((\S+)\)/);
+       if (ar_match) { Logger.log("will run include(%s)", ar_match[1]); ?><?!= include(ar_match[1], data, data._include, data._include2) ?><?
+       } else { ?>
+<?!= data[prefix+"_"+ar_i] ?>
+<?     } ?>
+<?     if (data[prefix + "_"+ar_i+"_bodystyle"] || data._include.bodystyle) { ?>
+<?!= "</" + (data[prefix + "_"+ar_i+"_bodystyle"] || data._include.bodystyle || "para_2_hanging") ?>>
+<?     }
+     }
+   } ?>

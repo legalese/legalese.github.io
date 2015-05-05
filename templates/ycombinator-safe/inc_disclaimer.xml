@@ -1,0 +1,14 @@
+<? if (data._include.parastyle && data._include.parastyle.length) { ?><?!= '<'+data._include.parastyle+'>' ?><? }
+else if (data._include.parastyle == undefined) { ?><para_1><?}?>
+<? if (data._include.lowercase) { ?>this <? } else { ?>This <?}?>
+<? if ((data.jurisdiction && data.jurisdiction.match(/america|united states/i))
+  || data.company.state == "USA" || data.company.state == "United States") { ?>
+instrument and any securities issuable pursuant hereto have not been registered under the Securities Act of 1933, as amended (the "Securities Act"), or under the securities laws of certain states.  These securities may not be offered, sold or otherwise transferred, pledged or hypothecated except as permitted under the Act and applicable state securities laws pursuant to an effective registration statement or an exemption therefrom.
+<? } else if ((data.jurisdiction && data.jurisdiction.match(/singapore/i))
+  || data.company.state == 'Singapore') { ?>
+KISS is offered in reliance on one or more of the exemptions under sections 272a(1), 272b(1), 274, and 275(1) of the Securities and Futures Act. It is not made in or accompanied by a prospectus that is registered by the Monetary Authority of Singapore. Inasmuch as it is being acquired from the Company in a transaction not involving a public offering, under the Act and other applicable regulations this KISS may be resold only in certain limited circumstances.
+<? } else { ?>
+instrument and its associated security have not been registered with any regulatory authority, and are not for sale to retail investors. Their transfer is restricted.
+<? } ?>
+<? if (data._include.parastyle && data._include.parastyle.length) { ?><?!= '</'+data._include.parastyle+'>' ?><? }
+else if (data._include.parastyle == undefined) { ?></para_1><?}?>

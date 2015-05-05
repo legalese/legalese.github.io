@@ -1,0 +1,108 @@
+<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/" templateSpec="singlepage.indt" font-family="Helvetica Neue" font-style="Regular">
+<letterhead><?= data.parties.corporate_secretary[0].name ?></letterhead>
+<Firstpage_Sidebar>
+<?= data.parties.corporate_secretary[0].name ?>
+
+<?= data.parties.corporate_secretary[0].idtype ?> <span_ucnum><?= data.parties.corporate_secretary[0].id ?></span_ucnum>
+<?= data.parties.corporate_secretary[0].address ?>
+
+<?= data.parties.corporate_secretary[0].email ?>
+</Firstpage_Sidebar>
+<Story_Main>
+<resolution_title>Engagement of Corporate Secretary</resolution_title>
+<basic_para>
+<?= data.company.name ?>
+
+<?= data.company.address ?>
+
+</basic_para>
+<para_1>Dear Sirs,</para_1>
+
+<centered><b>Corporate secretarial services</b></centered>
+
+<para_1>We thank you for engaging us to provide services pertaining to your company secretarial matters.
+Our primary duty as your secretarial agent is to ensure that your company’s secretarial records are properly kept to comply with the requirements of the Companies Act, Cap. 50.</para_1>
+
+<centered></centered>
+<centered>SCOPE OF WORK</centered>
+
+<numbered_1_para>Filing of name approval application with ACRA;
+Filing of Company Registration with ACRA;
+Maintenance and updating of statutory registers and minutes books based on information given to us by the directors of the Company or as instructed;
+Preparation and submission of statutory returns of the Company with Accounting and Corporate Regulatory Authority (ACRA) as required by the Companies Act, Cap. 50;
+Preparation of minutes of meetings, resolution of recurring nature and forms required for filing with ACRA;
+General advice on matters pertaining to company secretarial matters; and
+Filing of duly completed forms and returns with ACRA on your behalf as instructed;
+Scanning and filing of all documents into the Shared Google Drive.
+Below are some routine matters for which directors’/shareholders’ resolutions, and filing of returns with ACRA are required. We need you to furnish us with timely information to ensure that your secretarial records are duly updated to comply with the requirements of the Companies Act, Cap.50: Late updating will incur a penalty.</numbered_1_para>
+
+<numbered_2_para_indent_noupspace>Appointment, resignation of directors, secretaries, managers, auditors, including changes in their particulars, namely, passport no., address, nationality, etc; (ACRA has to be notified within 30 days of such changes, otherwise penalty applies.)
+Changes in situation of registered office address; (ACRA has to be notified within 14 days of such changes)
+Allotment of shares; (ACRA has to be notified within 14 days of such changes)
+Transfer of shares; 
+Changes in particulars of shareholders;
+Amendments to the company’s memorandum and articles of association;
+Opening and closing of bank accounts;
+Acceptance of banking facilities;
+Creation and satisfaction of charges;
+Purchase and disposal of substantial assets of the company;
+Changes in directors’ shareholdings in the company and related corporations (inclusive of foreign incorporated companies);
+Holding of annual general meeting which has to be held once every calendar year and not more than 15 months from the date of the last annual general meeting. A newly incorporated company must hold its first annual general meeting within 18 months from the date of its incorporation. Audited or unaudited accounts, as the case may be, must be tabled at the annual general meeting.</numbered_2_para_indent_noupspace>
+
+<para_1>We would appreciate that all documents prepared by us to be checked to ensure that the contents therein are correct.</para_1>
+
+<centered></centered>
+<centered>SCHEDULE OF FEES</centered>
+<centered></centered>
+
+<table_enclosing_para>
+<Table aid:table="table" aid:tcols="3" aid:trows="6" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+<Cell aid:ccols="1" aid:ccolwidth="24" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Num</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="260" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Item</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="120" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Fee</cell_c></Cell>
+
+<Cell aid:ccols="1" aid:ccolwidth="24" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c>1</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="260" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c>Incorporation of private limited company&#8232;(this includes standard M&amp;A, common seal, minute book and share certificates)</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="120" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c>$865</cell_c></Cell>
+
+<Cell aid:ccols="1" aid:ccolwidth="24" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c>2</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="260" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c>Secretarial fee, first year&#8232;(startup discount 50% off usual price)</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="120" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c>$360&#8232;billed upon incorporation</cell_c></Cell>
+
+<Cell aid:ccols="1" aid:ccolwidth="24" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c>3</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="260" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c>Secretarial fee, subsequent years</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="120" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c>$60 per month&#8232;billed quarterly</cell_c></Cell>
+
+<Cell aid:ccols="1" aid:ccolwidth="24" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c>4</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="260" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c>Nominee Director&#8232;(<span_smallcaps>Optional</span_smallcaps> -- only if all founders are not resident in Singapore and do not have a local friend willing to perform this service.)</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="120" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c>$3,600 per year&#8232;billed in advance; subject to separate contract and letter of indemnity</cell_c></Cell>
+
+<Cell aid:ccols="1" aid:ccolwidth="24" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c>5</cell_c></Cell>
+<Cell aid:ccols="2" aid:ccolwidth="380" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c>Disbursements and out-of-pocket expenses such as filing fees with ACRA, stamp duties paid on transfer of shares, transport, photocopy charges and postages will be billed separately.</cell_c></Cell>
+
+</Table>
+</table_enclosing_para>
+
+<para_1>Our engagement will continue from year to year unless terminated, amended, or superseded in writing.</para_1>
+
+<para_1>Yours faithfully,
+For and on behalf of Prima Management Services Pte. Ltd.</para_1>
+
+<? for (var i = 0; i < data.parties.corporate_secretary.length; i++) { ?>
+  <?!= include("inc_signature", data, data.parties.corporate_secretary[i]) ?>
+<? } ?>
+
+
+
+
+<chapter_header>Acceptance of Terms</chapter_header>
+<para_1>We, the promoters of the Company, hereby confirm our agreement to the terms of engagement stated above.</para_1>
+
+<? for (var i = 0; i < data.parties.founder.length; i++) { ?>
+  <?!= include("inc_signature", data, data.parties.founder[i]) ?>
+<? } ?>
+
+</Story_Main>
+<Bottom_Box delete_if_empty="true">
+</Bottom_Box>
+</Root>

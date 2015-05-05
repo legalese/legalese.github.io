@@ -1,0 +1,59 @@
+#+TITLE: E-Signature API Requirements
+
+* Introduction
+After Legalese produces the desired agreements, it submits those agreements to a third-party e-signature backend. The backend takes care of notifying the parties and collecting their signatures.
+
+There are a number of e-signature services on the market. Some of them have APIs.
+
+The first backend to be supported was Adobe EchoSign. Their REST API is documented at https://secure.echosign.com/public/docs/restapi/v3
+
+Legalese can plug in to other e-signature backends as well, as long as they support the same set of API services.
+
+The rest of this document uses the term "backend" generically; you can substitute "EchoSign", "DocuSign", "HelloSign" etc wherever you encounter it.
+
+* API services
+
+Legalese uses the following set of API services. The vocabulary is drawn from EchoSign's REST API.
+
+** OAuth login
+
+EchoSign distinguishes between CUSTOMER applications and PARTNER applications.
+
+Legalese at present runs in CUSTOMER mode but before a public launch will need to be upgraded to run in PARTNER mode.
+
+What's the difference? Customer apps have one API key per end-user. Partner apps have one API key per Legalese app.
+
+If you're made your own installation of Legalese and are not using the standard Google Add-On release, then you will need to create an OAuth application in your chosen backend, to obtain a set of API keys.
+
+** OAauth scopes
+
+- user_login
+- agreement_read
+- agreement_write
+- agreement_send
+
+** Users
+
+Legalese v1.0 assumes that you have previously created a user account at the backend of your choice.
+
+If the end-user hasn't previously created an account, what happens?
+
+In future the app may automatically help the end-user create a new backend user account.
+
+We can do this because we know the end-user's Google Docs account email.
+
+** transientDocuments
+
+We POST a transientDocument into the backend. In EchoSign, this is a separate step to submitting an agreement for signature. First the doc is created, then the agreement is created, pointing to the doc.
+
+** agreements
+
+We POST an agreement, defining a JSON data structure with
+- name: title of the agreement
+- message: short explanatory message to recipients
+- Tos: email addresses of people expected to sign; role=SIGNER
+- CCs: email addresses people to be kept in the loop
+- daysUntilSigningDeadline: expiration date
+- signatureFlow: PARALLEL is preferred
+
+** 

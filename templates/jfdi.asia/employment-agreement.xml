@@ -1,0 +1,177 @@
+<?!= data.xml_declaration ?>
+<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
+<CoverTop>
+<cover_title>Employment Agreement</cover_title>
+<cover_company_name>
+
+
+
+
+<?= data.parties.company[0].name ?></cover_company_name>
+<cover_company_id><?= data.parties.company[0].idtype ?> <?= data.parties.company[0].id ?></cover_company_id>
+<cover_company_name>
+<?= data.parties.employee[0].name ?></cover_company_name>
+<cover_company_id><?= data.parties.employee[0].idtype ?> <?= data.parties.employee[0].id ?></cover_company_id>
+</CoverTop>
+<CoverMid>
+</CoverMid>
+
+<CoverBottom_Logotype>
+</CoverBottom_Logotype>
+
+<CoverBottom_Address>
+</CoverBottom_Address>
+
+<CoverBottom_series>
+<centered><textvar name="Output Date" />&#8195;<span_smallcaps><textvar name="output time" /></span_smallcaps></centered>
+<centered>version 1.0.0</centered>
+</CoverBottom_series>
+
+<Firstpage_Sidebar>
+</Firstpage_Sidebar>
+
+<Story_Main><chapter_header>Employment Agreement</chapter_header>
+<para_1>This agreement is dated <textvar name="Output Date" /></para_1>
+<para_1><span_smallcaps>between</span_smallcaps>:</para_1>
+<parties><?!= include("inc_party", data, data.parties.employee[0]) ?> (the "Employee"), and</parties>
+<parties><?!= include("inc_party", data, data.company) ?> (the "Company")</parties>
+<para_1>(each a <b>"Party"</b> and collectively, the <b>"Parties"</b>)</para_1>
+<para_1><span_smallcaps>Whereas:</span_smallcaps></para_1>
+<recitals>The Company shall employ the Employee and the Employee agrees to be employed in the capacity of <?= data.role ?>, subject to the terms and conditions specified in this Agreement;</recitals>
+<recitals>The Company and the Employee now enter into this Agreement to regulate the terms of employment;
+to confirm ownership of certain Achievements (as defined below) that may be created during the Employee&#8217;s term of service with the Company; and
+to regulate other matters concerning intellectual property rights, non-competition, and confidentiality.</recitals>
+<para_1><span_smallcaps>Now it is hereby agreed</span_smallcaps> as follows:</para_1>
+<a_left_sidehead>Definitions</a_left_sidehead>
+<para_1>In this Agreement and in the Recitals abovementioned, unless the context otherwise requires:</para_1>
+<definition>Affiliated Corporation	in relation to any persons or corporation means a corporation that directly or indirectly through one or more intermediaries, Controls, or is Controlled by, or is under common Control with that first-mentioned person or corporation;</definition>
+<definition>Competitor	means any third party engaged in or carrying on business activities which are similar to or competitive with the Business, as determined by the Board;</definition>
+<definition>Company	shall include its successors, assigns and respective legal representatives;</definition>
+<definition>Company Business	means the business and undertakings of the Company which the Company may now or hereafter engage, comprising, amongst other things, all the businesses, services, undertaking, assets and activities of, related to, or arising from, <?= data.company.name ?>, which is <?= data.company_business_activity ?>, including but not limited to all of the Company&#8217;s actual or demonstrably anticipated research and development activities.</definition>
+<definition>Company-Owned Achievements	means Achievements of Work and all other Achievements assigned to the Company pursuant to this Agreement.</definition>
+<definition>Achievements	means all inventions, discoveries, designs, processes, formulæ, innovations, developments and improvements, all types of works (including but not limited to computer software, articles, reports, drawings, technical drawings, blueprints, advertisements, sales materials and logos), whether or not patentable, registrable or copyrightable; knowhow; and trade secrets.</definition>
+<definition>Achievements of Work	means all Achievements that are conceived, created, developed, reduced into practice or expressed in a tangible form by the Employee (solely or jointly with other persons) during the Employee&#8217;s period of service with the Company (including any period of Employeeship or employment prior or subsequent to the date of this Agreement) and that fulfil at least one of the following two conditions:</definition>
+<definition_list>relate to an essential aspect of the Company Business;</definition_list>
+<definition_list>constitute works for hire, works of employment, invention-creations of employment or other technological results of employment under applicable laws and regulations.</definition_list>
+<definition>Intellectual Property Rights	includes the full benefit (subject to the obligations) of all patents, trademarks and other marks, registered designs (and applications for all the same), copyrights, trade and business names, supply distributorship agency and other like agreements, inventions, discoveries, improvements, designs, techniques, computer programs and other confidential processes and information and knowhow and any licences in connection with any of the same and full right to all intellectual property and legal protection relating to the same and in every case (unless the context otherwise requires) of or belonging to the Company;</definition>
+<definition>Opensource Project	means works which are licensed under any license approved by the Open Source Initiative (opensource.org/licenses);</definition>
+<para_1>and other defined terms, if not defined above, have the same meaning as used in the Company&#8217;s Articles of Association.</para_1>
+<para_1>Except where the context otherwise requires, words importing the singular include the plural and vice versa, words importing a gender include every gender and references to persons include bodies corporate or unincorporated, any state or any agency thereof and any other entity.</para_1>
+<para_1>Headings, marginal sidenotes, and graphic art are for ease of reference only and have no legal effect. Reference to Clauses are to Clauses of this Agreement and references to this Agreement includes any amendments or supplementals thereto.</para_1>
+<para_1>Except where the context otherwise requires, references to any person include its successors and permitted assignees.</para_1>
+<para_1>References in this Agreement to a time of day are to Singapore time.</para_1>
+<para_1>Any document expressed to be in the &#8220;approved form&#8221; means a document in the form or substantially in the form approved by (and signed for identification by or on behalf of) the Parties.</para_1>
+<para_1>Except where the context otherwise requires, Clauses which refer to the &#8220;Company&#8221; shall apply mutatis mutandis to subsidiaries or successors of the Company which may from time to time be established.</para_1>
+<para_1>This Agreement shall be governed by and interpreted in accordance with the laws of the Republic of Singapore.</para_1>
+<a_left_sidehead>Employee&#8217;s term of service</a_left_sidehead>
+<numbered_2_para>This Agreement shall be effective upon execution and shall remain in full force and effect until the execution of any subsequent Employment Agreement. This Agreement may be extended by the Parties through a contract extension agreement.</numbered_2_para>
+<a_left_sidehead>Scope of Service</a_left_sidehead>
+<numbered_2_para>The Employee shall be employed in the capacity of <?= data.role ?>, described in more detail in the Annex.</numbered_2_para>
+<a_left_sidehead>Hours of Work</a_left_sidehead>
+<numbered_2_para>The Employee&#8217;s normal hours of work are 40 hours a week. The Employee shall however, work such hours as are necessary for the proper performance of his/her duties and he/she is not entitled to receive any additional remuneration for work outside the normal hours of the Company.</numbered_2_para>
+<a_left_sidehead>Salary</a_left_sidehead>
+<numbered_2_para>The Company shall pay to the Employee a basic annual salary of <?= data.annual_salary ?> per annum, payable by twelve equal monthly instalments in arrears on or around the last business day of each calendar month.</numbered_2_para>
+<numbered_2_para>If a Singapore Permanent Resident or Citizen, the Employees&#8217;s salary including any bonus, or other sum due to him from the Company shall be subject to deductions of Central Provident Fund or as otherwise may be required by law to be made.</numbered_2_para>
+<numbered_2_para>The Company reserves the right to withold all or any part of the Employee&#8217;s base remuneration including any bonus, or other sum due to him from the Company towards the payment of any and all income tax and other taxes which the Employee is liable to pay to the appropriate tax authorities.</numbered_2_para>
+<a_left_sidehead>Start Date</a_left_sidehead>
+<numbered_2_para>Employment shall commence on <?= data.start_date ?>.</numbered_2_para>
+<a_left_sidehead>Notice Period</a_left_sidehead>
+<numbered_2_para>This Agreement may be terminated by either the Employee and the Company with a notice period of <?= data.notice_period ?>.</numbered_2_para>
+<a_left_sidehead>Probation</a_left_sidehead>
+<numbered_2_para>The term of regular employment shall be preceded by a period of <?= data.probation_period ?> (the "Probation Period").</numbered_2_para>
+<numbered_2_para>During the Probation Period, the Notice Period shall be <?= data.probation_notice_period ?>, or as otherwise agreed by the Parties.</numbered_2_para>
+<a_left_sidehead>Annual Leave</a_left_sidehead>
+<numbered_2_para>The Employee shall be entitled to <?= data.leave_entitlement ?> days of leave per year.
+This entitlement may be increased from time to time by the Company.</numbered_2_para>
+<numbered_2_para>The Employee shall be entitled to receive his/her normal remuneration for all public holidays, statutory paid leave where applicable. The Employee may only take his/her leave at such times as are agreed in advance by the Company.</numbered_2_para>
+<numbered_2_para>If the Employee works part time or his/her employment commenced or terminates part way, the Employees&#8217;s entitlement to leave for that year will be assessed on a <i>pro rata</i> basis.</numbered_2_para>
+<numbered_2_para>On the termination of the Employment, the Employee is required to take any unused annual leave during their notice period. There will not be any cash payments made for unused annual leave.</numbered_2_para>
+<numbered_2_para>Where the Employee has not used all of their annual leave balance during a calendar year, they are permitted at the sole discretion of the Company to carry forward <?= data.leave_carryforward ?> of annual leave to the next calendar year. Annual leave in excess of <?= data.leave_carryforward ?> remaining at the end of the calendar year will be forfeited.</numbered_2_para>
+<a_left_sidehead>Sick Leave</a_left_sidehead>
+<numbered_2_para>If the Employee is absent from work due to sickness or injury, the Employee must comply with the requirements of this Clause and the Company&#8217;s rules from time to time in force regarding notification of absence and doctor&#8217;s certificates.</numbered_2_para>
+<numbered_2_para>Unless otherwise permitted by the Company, the Employee must provide the Company with a medical certificate from his/her GP or other registered medical practitioner for any periods of sickness absence.</numbered_2_para>
+<a_left_sidehead>Non-competition</a_left_sidehead>
+<numbered_2_para>The Employee shall not and or permit to be done any of the following:</numbered_2_para>
+<numbered_3_para>either solely or jointly with or on behalf of any person directly or indirectly carry on or be engaged or interested in or otherwise manage or assist any business which is substantially similar or materially identical to the Company Business (unless such business is a subsidiary, parent, or otherwise part of the same group of holdings as the Company) up to the expiration of a <?= data.noncompete_period ?> period after the termination of this Agreement or the termination of their Employment;</numbered_3_para>
+<numbered_3_para>solicit or entice away or endeavour to solicit or entice away any director, Employee, employee of the Company at any time during the duration of this Agreement or for a period of <?= data.noncompete_period ?> after such employee has terminated their employment in the Company; or</numbered_3_para>
+<numbered_3_para>cause or permit any person directly or indirectly under its Control to do any of the foregoing acts or things.</numbered_3_para>
+<numbered_2_para>Each undertaking contained in the clause above shall be read and construed independently of the other covenants therein contained so that if one or more should be held to be invalid as an unreasonable restraint of trade or for any other reason whatsoever then the remaining covenants shall be valid to the extent that they are not held to be so invalid.</numbered_2_para>
+<numbered_2_para>While the covenants in that clause above are considered by the Parties to be reasonable in all the circumstances, if one or more should be held invalid as an unreasonable restraint of trade or for any other reason whatsoever but would have been held valid if part of the wording thereof had been deleted or the period thereof reduced or the range of activities or area dealt with thereby reduced in scope, the said covenants shall apply with such modifications as may be necessary to make them valid and effective.</numbered_2_para>
+<a_left_sidehead>Disclaimer and Assignment of Intellectual Property Rights </a_left_sidehead>
+<numbered_2_para>The Employee hereby assigns all Achievements created during the Term of Service, and which fulfill the definition of &#8220;Achievements of Work&#8221;, to the Company. All Achievements of Work shall be the sole property of the Company and shall belong to the Company in all countries and regions of the world, with the exception of the Employee&#8217;s right to claim authorship and the right not to suffer false attribution of authorship that can only vest in the Employee according to law.</numbered_2_para>
+<numbered_2_para>Any Achievements created by the Employee during or prior to the Term of Service, which do not fulfill the definition of &#8220;Achievements of Work&#8221;, and are not incorporated into a Company product, process or machine, shall remain with the Employee. The Employee represents and warrants that he/she has attached to this Agreement, as Exhibit A, a list describing with particularity inventions, original works of authorship, developments, improvements and trade secrets which were made by him prior to the term of employment with the Company (collectively referred to as &#8220;<b>Prior Inventions</b>&#8221;), which belong solely to him or belong to him jointly with another, which may relate in any way to the Company Business and which are not assigned to the Company under this Agreement. This list shall not be considered exhaustive, and the absence of such a list shall not imply that such Achievements do not exist. </numbered_2_para>
+<numbered_2_para>If, during the Term of Service, the Employee incorporates into a Company product, process or machine (a) a prior invention owned by the Employee or in which the Employee holds a vested, accrued or pending interest whether legally or beneficially, or (b) an Achievement created during the Term of Service which does not fulfill the definition of &#8220;Achievement of Work&#8221;, the Company is hereby granted and shall have a royalty-free, irrevocable, perpetual, worldwide license (with the right to sublicense) to make, have made, copy, modify, make derivative works of, use, sell and otherwise distribute such Prior Invention as part of or in connection with such product, process or machine. The Employee represents and warrants that the provisions of this Agreement whether or not such Prior Invention is listed in Exhibit A apply to all Achievements in which the Employee has any rights or interests, and the Employee hereby releases the Company and its successors, assigns, affiliates, licensees, directors, employees and agents (collectively, &#8220;<b>Affiliates</b>&#8221;) from all liability to the Employee based on the use or disclosure of any such Achievements by the Company or any Affiliate.</numbered_2_para>
+<numbered_2_para>The Employee shall not be required to assign to the Company any Achievements that fulfill all of the following conditions:</numbered_2_para>
+<numbered_3_para>that the Employee created entirely on his/her own time, without using any of the Company&#8217;s equipment, supplies, facilities or trade secrets;</numbered_3_para>
+<numbered_3_para>that do not relate in any way, directly or indirectly, to the Company Business; and</numbered_3_para>
+<numbered_3_para>that do not result, directly or indirectly, from any work that the Employee performs for the Company;</numbered_3_para>
+<numbered_2_para>The Employee shall not be required to assign to the Company any Achievements that are contributed to an Opensource Project to which the Employee was already a recognized contributor prior to the Term of this Agreement. A list of such projects may be attached to this Agreement, as Exhibit B, but any such list shall not be considered exhaustive and the absence of such a list shall not imply that such Achievements do not exist.</numbered_2_para>
+<numbered_2_para>The Employee shall disclose to the Company in confidence all such Achievements, whether created solely by the Employee or jointly with other persons, during the Term of Service, that the Employee considers to be his/her property or part of an Opensource Project, and not subject to the provisions of this Agreement, together with such supporting documents as the Company may reasonably request.</numbered_2_para>
+<numbered_2_para>The Employee further agrees that, except as expressly provided in this Agreement or as otherwise agreed in writing by the Company, he or she has no right to, and will not directly or indirectly:</numbered_2_para>
+<numbered_3_para>reproduce, adapt, modify, translate, manufacture, market, publish, distribute, sell, license or sublicense, transfer, rent, lease, transmit, broadcast, display or use the Company-owned Achievements or any portion or copy thereof in any form, in a fashion beyond the Company&#8217;s control;</numbered_3_para>
+<numbered_3_para>create derivative works from, provide access electronically to, or enter into computer memory beyond the Company&#8217;s control the Company-owned Achievements or any portion or copy thereof in any form;</numbered_3_para>
+<numbered_3_para>apply for, or apply to register, any patent, copyright, trademark or other industrial property right or intellectual property right in or related to the Company-owned Achievements, in Singapore or any other country or region;</numbered_3_para>
+<numbered_3_para>cause other persons to do any of the above;</numbered_3_para>
+<para_1>but nothing in this Clause shall prevent the Employee from maintaining a working copy of Company-owned Achievements on the Employee&#8217;s personal computing devices during the term of service provided always that all such devices shall be secured at least with a password and preferably disk encryption.</para_1>
+<numbered_2_para>Where applicable laws and regulations require that certain rights in any Company-Owned Achievement must vest in the Employee and do not permit the parties contractually to agree otherwise with respect to such vesting, the parties hereto agree to handle the matter in accordance with the following provisions:</numbered_2_para>
+<numbered_3_para>Where applicable laws and regulations permit the assignment of all or part of such rights, the Employee shall assign such rights to the Company to the fullest extent possible.</numbered_3_para>
+<numbered_3_para>If, under applicable laws and regulations, the Employee is unable to assign all or any part of such rights to the Company, or if approval of such assignment is required from a government authority and such approval is not granted, the Employee hereby licenses to the Company such rights as cannot be assigned, in order that the Company and its successors shall have the complete right to use and right to exploit the Company-Owned Achievement (and modified and derivative works). The license of rights under this clause shall be perpetual, free of charge, irrevocable, exclusive (excluding both the Employee and all third parties), worldwide and transferable, and the Company shall have the right to sub-license.</numbered_3_para>
+<numbered_3_para>The Employee agrees not to exercise any rights in the Company-Owned Achievement that by law cannot be assigned or licensed to the Company pursuant to the two subclauses above, including but not limited to right to claim authorship and the right not to suffer false attribution of authorship, except with the prior written consent of the Company.</numbered_3_para>
+<numbered_2_para>The Employee agrees that any Achievement that relates to an essential aspect of the Company Business and that the Employee discloses to a third person or describes in any application to register any form of intellectual property or propriety right (filed by the Employee or on behalf of the Employee) within one (1) year following termination of service shall be deemed to be a Company-Owned Achievement subject to the terms and conditions of this Agreement, unless the Employee proves that such Achievement was conceived, created or developed, and first reduced into practice or expressed in a tangible form, by the Employee following termination of service without any use of the Company&#8217;s Confidential Information (as defined below), resources or Achievements.</numbered_2_para>
+<a_left_sidehead>Confidentiality</a_left_sidehead>
+<numbered_2_para>With respect to technical information (such as methods, know-how, formulæ, compositions, processes, discoveries, machines, models, devices, specifications, inventions, computer programs, research projects and similar items), business information (such as information about costs, profits, purchasing, market, sales or customer lists), information about future developments (such as research and development or future marketing or merchandising), and other secret or proprietary information or data (&#8220;<b>Confidential Information</b>&#8221;) that the Company provides to the Employee or that the Employee otherwise has access to during the term of service, the Employee undertakes to use the Confidential Information only for the fulfillment of his or her job-related duties as assigned by the Company and promptly to return the Confidential Information and all copies thereof to the Company upon request. The Employee further agrees not to disclose or convey any Confidential Information to any third persons without prior, written authorization from the Company.</numbered_2_para>
+<numbered_2_para>All records, computer programs, computer-stored information, computer disks and other media, files, drawings, sketches, blueprints, manuals, letters, notes, notebooks, reports, memoranda, customer lists, other documents, equipment and the like relating in any way to the Company Business, whether or not prepared by the Employee, shall remain the Company&#8217;s sole property, and shall not be permanently removed from the Company&#8217;s premises or control without the Company&#8217;s prior, written consent. The Employee shall not make unauthorized copies of any such information or items. Upon termination of service, or otherwise upon the Company&#8217;s request, the Employee shall promptly return to the Company all tangible forms of such information or items, and all copies and extracts thereof, and delete any such items in the Employee&#8217;s personal possession. The Employee agrees not to make or retain any copies or extracts of any such information or items, and agrees to provide written confirmation to the Company upon termination of service or otherwise upon the Company&#8217;s request.</numbered_2_para>
+<numbered_2_para>The Employee agrees to obtain the written consent of the Company prior to any publication, written or oral, of any information not already public regarding any aspect of the Company&#8217;s business, customers, suppliers, employees, Employees, shareholders, directors or managers. The Employee acknowledges that the Company shall have the authority to decide whether or not such information may be published and the Company may exercise such authority without any liability to the Employee.</numbered_2_para>
+<numbered_2_para>The Employee recognises that the Company has received and in the future will receive from third parties their confidential or proprietary information subject to a duty on the Company&#8217;s part to maintain the confidentiality of such information and to use it only for certain limited purposes. The Employee agrees to hold all such confidential or proprietary information in the strictest confidence and not to disclose it to any person, firm or corporation or to use it except as necessary in carrying out work for the Company consistent with the Company&#8217;s agreement with such third party.</numbered_2_para>
+<numbered_2_para>The Employee&#8217;s obligations under this Clause shall survive the expiration or termination of this Agreement and the termination of the service relationship between the Company and the Employee.</numbered_2_para>
+<a_left_sidehead>Other Undertakings</a_left_sidehead>
+<numbered_2_para>The Employee represents and warrants to the Company that he/she has not concluded any agreement with any other person that would preclude the Employee&#8217;s full compliance with the terms and conditions of this Agreement.</numbered_2_para>
+<numbered_2_para>The Employee represents and warrants to the Company that he/she has not brought, will not bring, and will not use in the performance of his/her duties with the Company or induce the Company to use, any inventions or proprietary or confidential information of a former employer without that employer&#8217;s written consent. The Employee agrees not to disclose to the Company any trade secrets of any former employer. The Employee further represents and warrants to the Company that his/her service with the Company will not cause him/her to violate any obligation to any other person or disclose any confidence of any other person.</numbered_2_para>
+<numbered_2_para>If under applicable laws and regulations, approvals, registrations or other procedures are required for the provisions of this Agreement to become effective, or approvals or other procedures are necessary for the Employee to perform its obligations hereunder, then the Employee undertakes to assist the Company in carrying out the relevant procedures and to sign all necessary documents.</numbered_2_para>
+<numbered_2_para>The Employee undertakes to provide without compensation, during and after the term of service with the Company, all assistance requested by the Company (the Company will reimburse actual costs) to protect and secure the Company&#8217;s rights and interests in all Company-Owned Achievements and any copyrights, patents, trademarks or other intellectual property rights relating thereto, including but not limited to signing documents and giving testimony required in the course of the Company applying for or maintaining any patent or copyright, or in the course of any litigation or other legal proceeding related to any Company-Owned Achievements, anywhere in the world. For example, but without limiting the generality of the foregoing, the Employee agrees to execute all applications, specifications, oaths, assignments, recordations, and all other instruments which the Company shall deem necessary in order to apply for, obtain, maintain and transfer such rights and in order to assign and convey to the Company, its successors, assigns and nominees the sole and exclusive rights, title and interest in and to such Company-Owned Achievements, and any copyrights, patents, or other intellectual property rights relating thereto and that his obligation to execute or cause to be executed, when it is in his power to do so, any such instrument or papers shall continue after the termination of this Agreement until the expiration of the last such intellectual property right to expire in any country of the world.
+The Employee hereby irrevocably designates and appoints the Company and its duly authorized officers and agents as his agent and attorney in fact, in the event the Company is unable because of the Employee&#8217;s mental or physical incapacity or unavailability or for any other reason to secure the Employee&#8217;s signature to apply for or to pursue any application for any Singapore or foreign patents or copyright registrations covering the Company-Owned Achievements, to act for and on his behalf and stead to execute and file any such applications and to do all other lawfully permitted acts to further the application for, prosecution, issuance, maintenance or transfer of letters patent or copyright registrations thereon with the same legal force and effect as if originally executed by the Employee.
+The Employee hereby waives and irrevocably quits claim to the Company any and all claims, of any nature whatsoever, which the Employee now or hereafter has for infringement of any and all rights assigned to the Company.</numbered_2_para>
+<? if (data.esop == true) { ?>
+<a_left_sidehead>ESOP</a_left_sidehead>
+<numbered_2_para>The Company has established an <?= data.esop_name ?> ("ESOP").
+Under this plan, the Employee shall be entitled to <?= data.esop_shares ?> shares (or share equivalents) from the ESOP pool (the "ESOP Entitlement"). These are equivalent, at the date of this Agreement, to approximately <?= data.esop_percentage ?> of the fully-diluted capitalization of the Company.
+The ESOP Entitlement shall be subject to a vesting period of <?= data.esop_vesting_period ?> with a cliff of <?= data.esop_cliff ?> (the "Cliff Period").
+The Cliff Period shall include the Probation Period.</numbered_2_para><? } ?>
+<a_left_sidehead>Miscellaneous</a_left_sidehead>
+<numbered_2_para>This Agreement shall be governed by the laws of Singapore without regard to the principles of conflict of laws. All disputes, controversies or differences arising out of or in connection with this agreement shall be submitted to the Singapore Mediation Centre and the Singapore International Arbitration Centre for resolution by med-arb in accordance with the SMC-SIAC Med-Arb Procedure for the time being in force, which procedure is deemed to be incorporated by reference into this clause.</numbered_2_para>
+<numbered_2_para>The Employee acknowledges that, in executing this Agreement, he/she has had the opportunity to seek the advice of independent legal counsel, and he/she has read and understood all of the terms and provisions of this Agreement. This Agreement shall not be construed against any party by reason of the drafting or preparation hereof.</numbered_2_para>
+<numbered_2_para>Where any part of this Agreement is invalid, the other parts of this Agreement shall continue in full force and effect.</numbered_2_para>
+<numbered_2_para>This Agreement shall be binding on the parties and their respective successors and assigns.</numbered_2_para>
+<numbered_2_para>To be effective, all amendments to this Agreement require a written agreement signed by both parties.</numbered_2_para>
+<numbered_2_para>Any subsequent change or changes in the Employee&#8217;s duties, obligations, rights or compensation, including without limitation termination of the Employee Agreement or conversion of the relationship to employment, will not affect the validity or scope of this Agreement.</numbered_2_para>
+<numbered_2_para>This Agreement sets forth the entire agreement and understanding between the parties relating to the subject matter herein and supersedes all prior discussions between them.</numbered_2_para>
+<numbered_2_para>This Agreement is signed in the English language.</numbered_2_para>
+<numbered_2_para>The provisions of this Agreement shall survive the termination of Employment with the Company and the assignment of this Agreement by the Company to any successor in interest or other assignee.</numbered_2_para>
+
+
+<chapter_header>Signatures</chapter_header>
+<para_1>Intending to be bound by this agreement the Parties hereby set their hands:</para_1>
+<b_left_sidehead_nonum>The Employee<?= data.parties.employee.length == 1 ? "" : "s" ?></b_left_sidehead_nonum>
+<? for (var i = 0; i < data.parties.employee.length; i++) { ?>
+<?!= include("inc_signature", data, data.parties.employee[i]) ?>
+<? } ?>
+<b_left_sidehead_nonum>For the Company <?= data.company.name ?></b_left_sidehead_nonum>
+<?!= include("inc_signature", data, data.company) ?>
+
+<chapter_header>Exhibit A: Disclosure of Prior Inventions</chapter_header>
+<centered><i>A list of Works which the Employee previously created and owns, and are related to some aspect of the Company Business, but which are not assigned to the Company</i></centered>
+<? for (var text_i = 1; data["exhibit_a_text_" + text_i.toString()] != undefined; text_i++) { ?>
+<para_1><?= data["exhibit_a_text_" + text_i.toString()] ?></para_1>
+<? } ?>
+<chapter_header>Exhibit B: Disclosure of Opensource Projects</chapter_header>
+<centered><i>A list of Opensource Projects to which the Employee contributes Work which the Company does not own</i></centered>
+<? for (var text_i = 1; data["exhibit_b_text_" + text_i.toString()] != undefined; text_i++) { ?>
+<para_1><?= data["exhibit_b_text_" + text_i.toString()] ?></para_1>
+<? } ?>
+<chapter_header>Annex: Description of Role</chapter_header>
+<centered><i>Details of the work</i></centered>
+<? for (var text_i = 1; data["annex_text_" + text_i.toString()] != undefined; text_i++) { ?>
+<para_1><?= data["annex_text_" + text_i.toString()] ?></para_1>
+<? } ?>
+</Story_Main>
+</Root>

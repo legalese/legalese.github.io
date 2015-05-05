@@ -1,0 +1,68 @@
+<? data.xml_declaration ?>
+<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
+<CoverTop>
+  <cover_title>Memorandum and Articles of Association</cover_title>
+  <cover_company_name>
+
+
+
+
+
+<?= data.parties.company[0].name ?></cover_company_name>
+  <cover_company_id><?= data.parties.company[0].idtype ?> <?= data.parties.company[0].id ?></cover_company_id>
+  <centered addnewline=true />
+</CoverTop>
+<CoverMid>
+<? for (var f in data.parties.shareholder) { ?>
+  <cover_parties_centered><?= data.parties.shareholder[f].name ?></cover_parties_centered>
+<? } ?>
+</CoverMid>
+<?!= include("inc_cover_jfdi", data, { in_series:"01" }) ?>
+<Firstpage_Sidebar delete_if_empty="true">
+</Firstpage_Sidebar>
+<Story_Main>
+  <chapter_header>Memorandum of Association</chapter_header>
+  <centered><?= data.company.name ?></centered>
+  <centered><?= data.company.idtype ?> <span_ucnum><?= data.company.id ?></span_ucnum></centered>
+  <centered>(Incorporated in the Republic of Singapore)</centered>
+  <centered>(the "Company")</centered>
+  <centered></centered>
+  <numbered_1_para>The name of the company is <?= data.company.name ?></numbered_1_para>
+  <numbered_1_para>The Registered Office of the Company will be situated in Singapore, at</numbered_1_para>
+  <para_2><?= data.company.address ?></para_2>
+  <numbered_1_para>The liability of the members is limited. </numbered_1_para>
+  <numbered_1_para>Subject to the provisions of the Companies Act (Cap. 50) and this Memorandum and Articles of Association, the Company has full capacity, rights and powers to carry on or undertake any business or activity and to do any act or enter into any transactions and/or arrangements. </numbered_1_para>
+  <numbered_2_para>Without limiting the generality of the foregoing, for statistical reporting purposes our Principal Activities may be described using SIC <?!= plural(data.company.principal_activities_2 ? 2 : 1, "code") ?> <?= data.company.principal_activities_1 ?><? if (data.company.principal_activities_2) { ?> and <?= data.company.principal_activities_2 ?><? } ?>.</numbered_2_para>
+  <numbered_1_para>The total paid-up capital of the company is <?= data.company.commitment ?>.<? if (! data.different_share_prices) { ?> Each ordinary share is being issued at <?= data.price_per_share ?> per share at the date of incorporation.<? } ?></numbered_1_para>
+  <numbered_1_para>The shares in the original or any increased capital may be divided into several classes, and there may be attached thereto respectively any preferential, deferred or other special rights, privileges, conditions or restrictions as to dividend, capital, voting or otherwise. </numbered_1_para>
+  <numbered_1_para><? if (data.parties.shareholder.length > 1) { ?>We, the several persons whose names, citizenship, and addresses are hereunto subscribed are<?} else {?>
+I, the sole shareholder whose name, citizenship, and address are hereunto subscribed am<? } ?>
+ desirous of incorporating a company in pursuance of this Memorandum of Association and <?= plural(data.parties.shareholder.length, "I hereby", "we respectively") ?> agree to take the number of shares in the capital of the Company set opposite <?= plural(data.parties.shareholder.length, "my name", "our respective names") ?>. </numbered_1_para>
+  <table_enclosing_para>
+	<Table aid:table="table" aid:tcols="5" aid:trows="<?= data.parties.shareholder.length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+<Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Citizenship</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="76" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>ID</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="120" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Address</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Number of Shares Held</cell_c></Cell>
+<? for (var i = 0; i<data.parties.shareholder.length; i++) { with(data.parties) { ?>
+<Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= shareholder[i].name ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= shareholder[i].state ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="76" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= shareholder[i].idtype ?> <span_ucnum><?= shareholder[i].id ?></span_ucnum></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="120" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= shareholder[i].address ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= digitCommas_(shareholder[i].num_shares) ?> ordinary shares for <?= shareholder[i].commitment ?></cell_c></Cell>
+<? } } ?>
+</Table>
+</table_enclosing_para>
+
+<para_1 override="keepWithNext=1">Affirming the above <?= plural(data.parties.shareholder, "I", "we") ?>
+ hereby set <?= plural(data.parties.shareholder, "my hand", "our hands") ?>:---</para_1>
+
+	<? for (var i = 0; i < data.parties.shareholder.length; i++) { ?>
+	<?!= include("inc_signature", data, data.parties.shareholder[i] ) ?>
+	<? } ?>
+
+<?!= include("jfdi_articles_2015", data) ?>
+
+</Story_Main>
+</Root>

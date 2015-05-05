@@ -1,0 +1,78 @@
+<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
+<CoverTop>
+<cover_title>Notice Regarding Pre-Emptive Rights
+</cover_title>
+<centered></centered>
+<centered></centered>
+<centered></centered>
+<centered></centered>
+<cover_company_id><i>to the shareholders of</i></cover_company_id>
+<cover_company_name><?= data.company.name ?></cover_company_name>
+<cover_company_id><?= data.company.idtype ?> <?= data.company.id ?></cover_company_id>
+<centered></centered>
+<cover_company_id><i>regarding</i></cover_company_id>
+<cover_company_name><?= data.parties.startup[0].name ?></cover_company_name>
+<cover_company_name><?= data.parties.startup[0].idtype ?> <?= data.parties.startup[0].id ?></cover_company_name>
+</CoverTop>
+<CoverMid>
+<centered></centered>
+<noindent_centered><span_smallcaps>CONFIDENTIAL</span_smallcaps></noindent_centered>
+<centered></centered>
+<centered></centered>
+<noindent_justified>This newsletter is intended for holders of Preferred &#8216;A&#8217; Shares in <?= data.company.name ?> The information set forth is being furnished on a confidential basis to the recipient. This document is confidential and has been prepared solely for the information of the intended recipient. It may not be reproduced, distributed, or used for any other purpose. Nothing contained herein constitutes financial, legal, or tax advice. We make no representation that the information and opinions expressed herein are accurate, complete, or current. This is not an offer for shares.</noindent_justified>
+
+</CoverMid>
+
+<CoverBottom_Logotype>
+<cover_corporate_logotype>Joyful Frog Digital Incubator</cover_corporate_logotype>
+</CoverBottom_Logotype>
+
+<CoverBottom_Address>
+<cover_address_block>Blk 71 Ayer Rajah Crescent</cover_address_block>
+<cover_address_block>#05-16   Singapore 139951</cover_address_block>
+</CoverBottom_Address>
+
+<CoverBottom_series>
+<centered><textvar name="Output Date" />&#8195;<span_smallcaps><textvar name="output time" /></span_smallcaps></centered>
+<centered>version 2.0.0</centered>
+</CoverBottom_series>
+
+<Firstpage_Sidebar>
+How do pre-emptive rights work? <span_ucnum><?= data.company.short_name ?></span_ucnum> is a <?= data.stake ?>% shareholder in <?= data.parties.startup[0].short_name ?>, so <span_ucnum><?= data.company.short_name ?></span_ucnum> now has the right to participate in this round to maintain its <?= data.stake ?>% stake. You are, in turn, a<? if(data.shareholder.pro_rata_in_class){?> <?=data.shareholder.pro_rata_in_class?>%<?}?> shareholder in <span_ucnum><?= data.company.short_name ?></span_ucnum>. JFDI&#8217;s decision to exercise our pre-emptive rights depends on you. If you want to put money into the startup via <span_ucnum><?= data.company.short_name ?></span_ucnum>, we need to receive your expressions of interest by <?= data.expiry_date ?>. We would then transfer our rights to you so you can invest. The actual amount of your participation will depend on how many other <span_ucnum><?= data.company.short_name ?></span_ucnum> shareholders want to participate. If only you want to invest, and nobody else wants to, then you would get the full amount accorded by our pre-emptive rights, and you would become a <?= data.post_percentage ?>% shareholder in <?= data.parties.startup[0].short_name ?>. If other JFDI shareholders also want to join the round, then that <?= data.stake ?>% would be divided among the other shareholders, pro-rata. If other shareholders decline the round, you will have the opportunity to subscribe for their excess rights.
+</Firstpage_Sidebar>
+
+<Story_Main><chapter_header>Investor Notice Regarding <?= data.parties.startup[0].name ?></chapter_header>
+    <para_1>Dear <span_ucnum><?= data.company.short_name ?></span_ucnum> shareholder,</para_1>
+    <para_1>We are pleased to announce that one of our portfolio startups <?= data.parties.startup[0].name ?> (&#8220;<?= data.parties.startup[0].short_name ?>&#8221;) has received an investment proposition which they intend to accept. They seek to raise up to <?= data.amount_raising ?> by issuing <?= data.security_type ?> at a pre-money valuation of <?= data.pre_money_valuation ?>.</para_1>
+    <para_2>For background, please refer to our previous communication, the <i>Investor Newsletter for Holders of Preferred &#8216;A&#8217; Shares Regarding Pre-Emptive Rights</i>.</para_2>
+    <para_2>There are two ways for you to participate in this round: directly, or indirectly through <span_ucnum><?= data.company.short_name ?></span_ucnum>.</para_2>
+    <b_left_sidehead_nonum>Direct Route to Investment</b_left_sidehead_nonum>
+    <para_1>The direct route is simpler; you join the round as an investor like any other. If a deal is not oversubscribed, this is the likely route. Please contact the startup directly to explore this option.</para_1>
+    <b_left_sidehead_nonum>Indirect Route to Investment</b_left_sidehead_nonum>
+    <para_1>The indirect route involves JFDI&#8217;s pre-emptive rights. This route is relevant if the round is oversubscribed and it is difficult for you to get in through the direct route. In this case, the startup may not offer as much information for your due diligence as we would prefer. JFDI is a shareholder, not a director, in the company, so the startup is not obligated to send us information beyond financial statements.</para_1>
+    <b_left_sidehead_nonum>Next Steps</b_left_sidehead_nonum>
+    <para_1>If you are not interested in participating, you don't need to do anything. We are required to give you notice, but you are not obligated to take action. You will continue to have rights in future rounds, just at a diluted percentage.</para_1>
+    <para_1>If you <i>are</i> interested in <?= data.parties.startup[0].name ?>&#8217;s current round, <i>sign this document</i>. We will follow up to ask much money you want like to commit.</para_1>
+    <para_2><b>If the round is not oversubscribed:</b> we will refer you to the startup for direct investment.
+<b>If the round is oversubscribed:</b> we will attempt to transfer our pre-emptive rights to you to exercise. JFDI has the right to participate in new issues to avoid dilution. As a <?= data.stake ?>% shareholder in <?= data.parties.startup[0].name ?>, JFDI has the right to participate in <?= data.stake ?>% of any new issue.<? if(data.shareholder.pro_rata_in_class){ ?> (In turn, you, <?= data.shareholder.name ?>, are a <?= data.shareholder.pro_rata_in_class ?>% shareholder in <?= data.company.name ?>, within your class of RCPS.)<? } ?> In this <?= data.amount_raising ?> round, JFDI is entitled to invest up to <?= data.allocation ?>. If there are multiple interested JFDI shareholders, that <?= data.allocation ?> will be divided pro rata according to your relative shareholdings. If JFDI&#8217;s shareholders took up the entire <?= data.allocation ?> available to us, those shareholders would end up owning approximately <?= data.post_percentage ?>% of the overall shares.</para_2>
+<para_1>JFDI needs to know your decision by <?= data.expiry_date ?>. You do not need to transfer funds; you only need to express commitment. Lack of an affirmative response to JFDI by that date will be taken as a decline. Please note that we are not in a position to recommend that you make an investment into any security &#8211; if in doubt, don&#8217;t!</para_1>
+<para_2>Based on the responses we receive from yourself and the other shareholders, we will let interested parties know how the investment will proceed: through the direct or indirect route, and what amount each shareholder should be prepared to commit, by what date.</para_2>
+
+<chapter_header>Model response to notice regarding <?= data.parties.startup[0].name ?></chapter_header>
+<para_1>Dear JFDI,</para_1>
+<para_1>Please convey to <?= data.parties.startup[0].name ?> my interest in the <?= data.security_type ?> on offer.
+I would like to subscribe for $			 worth of those securities, with the understanding that a total of <?= data.amount_raising ?> are on offer at a valuation of <?= data.pre_money_valuation ?>.</para_1>
+<para_1>I understand that the amount available for subscription depends on the level of interest by other potential investors, and that I may not be able to take up the full amount of my interest.</para_1>
+<para_1>Please advise.</para_1>
+<para_1>Regards, etc.</para_1>
+
+
+<chapter_header>Expression of Interest</chapter_header>
+
+<b_left_sidehead_nonum>Sign only if you want to participate in the round.</b_left_sidehead_nonum>
+
+<? data.signature_comment = "Sign only if you want to invest!"; ?>
+<?!= include("inc_signature", data, data.shareholder) ?>
+
+</Story_Main>
+  </Root>
