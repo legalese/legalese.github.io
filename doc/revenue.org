@@ -1,0 +1,65 @@
+#+TITLE: Revenue models
+
+* Constraints
+
+** if you want to practice law, you need to be a lawyer.
+http://en.wikipedia.org/wiki/Practice_of_law
+
+http://en.wikipedia.org/wiki/Legal_document_assistant
+
+http://napavalleyregister.com/business/columnists/mary-luros/practicing-law-without-a-license-is-illegal/article_5e15bfc4-a41f-11e3-9c1d-001a4bcf887a.html
+
+** the practice of law includes the preparation of legal documents and the giving of advice in relation thereto. 
+
+** Structuring
+
+| stage                                | fee  | desc                                                 | comment                                                 |
+|--------------------------------------+------+------------------------------------------------------+---------------------------------------------------------|
+| google app                           | free | anyone can install the google app                    |                                                         |
+|--------------------------------------+------+------------------------------------------------------+---------------------------------------------------------|
+| access to documents                  | free | all documents are available for free                 |                                                         |
+|--------------------------------------+------+------------------------------------------------------+---------------------------------------------------------|
+| consultation credit                  | $$$  | voucher redeemable for an N-minute conversation      | need to check how this squares with Cap. 161 33(3)      |
+|                                      |      | with lawyer associated with the doc                  |                                                         |
+|--------------------------------------+------+------------------------------------------------------+---------------------------------------------------------|
+| conversion to PDF                    | free | InDesign converts to PDF                             |                                                         |
+|--------------------------------------+------+------------------------------------------------------+---------------------------------------------------------|
+| conversion to Word                   | $    | Something converts to a Word Doc                     |                                                         |
+|--------------------------------------+------+------------------------------------------------------+---------------------------------------------------------|
+| auto submission to e-signing service | $    | if you don't want to pay, you can submit it yourself | free tier will be subject to signing service's minimums |
+|                                      |      |                                                      |                                                         |
+
+*** the docs and the app are free. you pay for a downstream stage.
+
+**** google app is free
+
+**** access to document
+
+**** user pays for putting the PDF into an e-signing service.
+
+
+* Possible revenue models for Legalese
+** remove the "prepared by Legalese.io" watermark
+** change the font
+** allow the end user to customize by adding a logo
+** number of agreements per month -- first docset is free, subsequent are X bucks
+** priority compilation – float to the top of the processing queue so the PDFs appear in 5 minutes rather than 20 minutes
+** download the Word version of the agreement
+** auto-insert into EchoSign
+** customize the agreement using Google Docs
+** private templates
+** PDF is free, Word costs.
+** advisory servces for startups to review the terms and give an opinion regarding valuation.
+** due diligence services for investors to ask us to look over a startup.
+** consultation service work to import new agreements (this moves closer to the hotdocs business)
+** for a fee we search bizfile to construct your cap table
+** you send us a copy of all of your corporate documentation and we construct your cap table for you
+** we refer you to a corp sec to get things cleaned up, for a referral fee
+** we construct a cap table for you on eshares, captable.io, or other website for a low fee of say $400
+** e-signing revenue share: $10 for each document pushed through for signature
+maybe e-signing is a FNAP, and the whole product for e-signature actually rides on top of something else major.
+** donations lol
+** Investor Channels
+support accelerators, incubators, angel associations, and seed funds as channels; revenue share with them.
+** pledge
+upon raising Series A the startup pledges to pay $6,000 to legalese.

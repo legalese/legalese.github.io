@@ -1,0 +1,17 @@
+* Sysadmin Notes
+The www.legalese.io website is served via Github Pages.
+
+The repository is legalese-io/legalese-io.github.io.
+
+Meng has an account with the DNS provider iwantmyname.com.
+
+The DNS provider configures a CNAME record for legalese.io pointing to legalese-io.github.io.
+
+https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/
+
+The DNS provider also configures A records pointing to Google.
+https://admin.google.com/AdminHome#Domains:
+
+The rest of legalese.io -- everything besides the website -- is hosted by Google. That mostly means Gmail.
+
+At Google, legalese.io is configured to redirect to www.legalese.io.
