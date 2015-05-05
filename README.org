@@ -5,21 +5,39 @@ Legalese.io is what happens when software eats law -- starting with contracts --
 
 * Aesthetics
 
-#+BEGIN_QUOTE
-What I'd like to see is legal contracts written up in a kind of code
-similar to computer code; something that can be checked for validity,
-evaluated, perhaps even unit tested. We could perhaps generate natural
-language descriptions of the code in varying complexity (maybe even
-generate legalese, which could be useful if you're using the code to
-create custom contracts), or it could be accurately visualized in some
-way. My fear is that in writing such code to deal with real-world
-issues, you'd also need a *model* of the real world, and that would be
-incredibly hard to define.
+We want to support entire workflows in a document-set of multiple documents.
 
--- email from Michael Wayne Goodman <goodmami@u.washington.edu> 20140815
-#+END_QUOTE
+We want to be open, allowing anyone to contribute templates.
 
-* Documentation
+We want our templates to be smart, with support for if/else conditional logic and convenient management of parties and signature blocks.
+
+* Repositories
+
+The project is split up across multiple repositories.
+
+** WWW
+The website and the XML templates.
+
+Also most of the project documentation that doesn't fit anywhere else.
+
+** Google-Apps
+The code that runs in Google Apps as an Add-On.
+
+Developers can run this themselves by uploading the script bound to a given spreadsheet.
+
+Produces one or more XML files in Google Drive.
+
+Submits the corresponding PDFs to an e-signature back-end.
+
+** InDesign
+ExtendScript code that tells InDesign to convert the XML files into PDFs.
+
+** Compiler
+A research project to compile a formal language to a natural language.
+
+See the [[http://www.legalese.io/#academic][academic R&D]] part of the main webpage for links to research into computable contracts.
+
+
 * Branding
 
 ** Project Title
