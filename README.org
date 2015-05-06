@@ -3,6 +3,18 @@
 
 Legalese.io is what happens when software eats law -- starting with contracts -- starting with term sheets.
 
+* Customer Problem
+
+"Hey, do you happen to have a template for an employment agreement/NDA/term sheet that you can share with me?"
+
+"I know you're not a lawyer. That's exactly why I'm asking you. I don't want to pay a lawyer $2,800 for an employment agreement/NDA/term sheet. My startup/SME is only six months old. We don't have a lot of money."
+
+"I know there are workflow sites out there like Shakelaw and Rocketlawyer. But they're aimed at the US market, so they don't work for me."
+
+"Even the template sites like LawDepot and Docracy are configured for U.S. law. My company isn't a Delaware corporation; it's a Singapore / UK / Indonesia / Finland corporation. Where can I find a local adaptation?"
+
+"Fine, I'll pay a lawyer to get the paperwork translated. But after I've had the work done, I want to share it for the benefit of the next guy. Maybe we can even do some sort of retroactive crowdfunding so that I get my costs covered if enough people download the templates I put in."
+
 * Differentiating Aesthetics
 
 Most existing "download a free template" systems only give users a single document. But in the real world, often, multiple documents are needed to consummate a certain business operation. We produce a /Document Set/, not a single document.
@@ -88,10 +100,6 @@ It would be cool if our project could easily output each one of those flavours, 
 http://imgs.xkcd.com/comics/standards.png
 
 What would encourage the "installed base", the legacy users, to adopt Legalese 2.0? Some kind of openness, allowing users to contribute, edit, fork, etc, their preferred "distribution" of documents. We can do this without opensourcing the entire project.
-
-* Customer Segments
-
-** Early Adopters
 
 * Existing Alternatives
 
