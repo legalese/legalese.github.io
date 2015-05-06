@@ -1,5 +1,6 @@
 <?
-  var start = data._include.numbering_level ? '<numbered_'+data._include.numbering_level+'_para>' : '<numbered_2_para>';
+  var start = data._include.para_style ? data._include.para_style :
+              data._include.numbering_level ? '<numbered_'+data._include.numbering_level+'_para>' : '<numbered_2_para>';
   var end = '</' + start.substr(1).replace(/ .*/, ">");
 ?>
 <?!=start?>This Agreement (and any dispute, controversy, proceedings or claim of whatever nature arising out of this Agreement or its formation) shall be governed by and construed in accordance with the laws of Singapore and the Parties irrevocably submit to the jurisdiction of the Courts of the Republic of Singapore. <?!=end?>

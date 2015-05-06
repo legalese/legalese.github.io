@@ -70,9 +70,9 @@ If the requested Confidential Information is still required by the Receiving Par
 
 <numbered_1_para>This Agreement shall not be modified except by a written agreement dated subsequent to the date of this Agreement and signed by both Parties. None of the provisions or part thereof of this Agreement shall be deemed to have been waived by any act or acquiescence on the part of the Disclosing Party, its agents or employees, unless by an instrument in writing signed by both Parties. No waiver of any provision of this Agreement shall constitute a waiver of the same or any other provision(s) in this Agreement on another occasion.</numbered_1_para>
 
-<numbered_1_para>Regarding governing law:---</numbered_1_para>
+<numbered_1_para xname="medarb">Regarding governing law:---</numbered_1_para>
 
-<?!= include("inc_mediation_arbitration", data) ?>
+<?!= include("inc_mediation_arbitration", data, { para_style: "numbered_2_para_indent" } ) ?>
 
 <numbered_1_para>This Agreement shall come into effect on <? if (data.agreement_date) { ?><?= data.agreement_date ?><?} else {?><textvar name="Output Date" /><?}?> and shall remain effective notwithstanding the completion or termination of any Purpose.</numbered_1_para>
 
