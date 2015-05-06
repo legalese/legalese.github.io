@@ -1,5 +1,5 @@
 <?
-  var start = data._include.para_style ? data._include.para_style :
+  var start = data._include.para_style ? "<"+data._include.para_style+">" :
               data._include.numbering_level ? '<numbered_'+data._include.numbering_level+'_para>' : '<numbered_2_para>';
   var end = '</' + start.substr(1).replace(/ .*/, ">");
 ?>
