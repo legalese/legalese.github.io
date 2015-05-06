@@ -3,13 +3,17 @@
 
 Legalese.io is what happens when software eats law -- starting with contracts -- starting with term sheets.
 
-* Aesthetics
+* Differentiating Aesthetics
 
-Most existing "download a free template" systems only give users a single document. But in the real world, often, multiple documents are needed to consummate a certain business operation. We thus have the notion of a configuration data structure which fills multiple templates, producing a /Document Set/.
+Most existing "download a free template" systems only give users a single document. But in the real world, often, multiple documents are needed to consummate a certain business operation. We produce a /Document Set/, not a single document.
 
-Most existing services are limited geographically. We want to be open, allowing anyone to contribute templates.
+Most existing services are limited by geographic jurisdiction. Many don't look outside the US. We want to support end-users no matter where they are or what language they speak.
 
-We want our templates to be smart, with support for if/else conditional logic and convenient management of parties and signature blocks.
+Most existing services limit document creation to the existing priesthood. We want to be open, allowing anyone to contribute, fork, and republish templates.
+
+Most templates are purely "fill-in-the-blanks". We want our templates to be smart, with support for if/else conditional logic and convenient management of parties and signature blocks.
+
+Some systems use a wizard to configure whole clauses in or out. But nobody wants to march through a wizard more than once. You don't have to be a power user to find yourself in need of revision. We configure a deal in an open spreadsheet which any end-user can access and update.
 
 * Challenges and Innovations
 
