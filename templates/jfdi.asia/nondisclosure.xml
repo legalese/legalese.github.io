@@ -39,6 +39,15 @@ Either Party may from time to time disclose to the other Party (so making them t
 
 <numbered_1_para>The Receiving Party expressly understands that the Confidential Information disclosed by the Disclosing Party under this Agreement is of a commercially valuable and highly sensitive nature. In the event that the Disclosing Party discovers that the Receiving Party, its Related Persons (whether individually or collectively) has made or makes or intends to make or causes to be made or permits to be made any unauthorised disclosure of the Confidential Information, the Disclosing Party will be entitled to take out an injunction against any such party to restrain it from making any such disclosure. In addition or in the alternative, as the case may be, the Disclosing Party will be entitled to exercise such legal and equitable remedies as are available in respect of the breach of this Agreement and to further protect the Confidential Information.</numbered_1_para>
 
+<numbered_1_para>The Parties understand that the Disclosing Party does not have any obligation to provide Confidential Information to the Receiving Party, that the Disclosing Party does not make any representation or warranty with respect to the accuracy or completeness of the Confidential Information, and that the Disclosing Party shall not be liable to the Receiving Party for any loss or damage resulting from the use of or reliance on any of the Confidential Information, except as otherwise provided in a formal written agreement executed between the Parties for a Purpose.</numbered_1_para>
+
+<numbered_1_para>Upon termination of any Purpose for whatever reason, the Receiving Party shall not make further use of the Confidential Information related to such Purpose and shall return all of the Confidential Information to the Disclosing Party, including all copies or reproductions, extracts, summaries or notes, or destroy the same in accordance with the directions of the Disclosing Party and certify the same have been destroyed.</numbered_1_para>
+
+<numbered_1_para>The Disclosing Party may, at any time direct the Receiving Party to return all Confidential Information to the Disclosing Party, or part thereof, and not to make further use of the Confidential Information to be returned. Upon receipt of such directions, the Receiving Party shall promptly deliver the requested Confidential Information without retaining any copies or excerpts thereof to the Disclosing Party.<?
+if (data.nature_of_relationship == "vendor") {?>
+If the requested Confidential Information is still required by the Receiving Party to perform any services under contract with the Disclosing Party, then in such event, both Parties shall endeavour to obtain alternative information from other sources so that the Receiving Party can proceed with the performance of their services.<?}?>
+</numbered_1_para>
+
 <numbered_1_para>The provisions of this Agreement shall not apply to:</numbered_1_para>
 
 <numbered_2_para_indent>Information which at the time of disclosure is in the public domain.</numbered_2_para_indent>
@@ -52,15 +61,6 @@ Either Party may from time to time disclose to the other Party (so making them t
 <numbered_2_para_indent>Information which is required to be used or disclosed by reason of any law, governmental or other regulations or the requirements, orders, directions, instructions or notices of any regulatory authority including any stock exchange, provided however that the Receiving Party shall promptly notify the Disclosing Party of such requirements and shall use its best efforts to limit the scope of the use or disclosure.</numbered_2_para_indent>
 
 <numbered_2_para_indent>Confidential Information which is disclosed to third parties with the prior written consent of the Disclosing Party.</numbered_2_para_indent>
-
-<numbered_1_para>The Parties understand that the Disclosing Party does not have any obligation to provide Confidential Information to the Receiving Party, that the Disclosing Party does not make any representation or warranty with respect to the accuracy or completeness of the Confidential Information, and that the Disclosing Party shall not be liable to the Receiving Party for any loss or damage resulting from the use of or reliance on any of the Confidential Information, except as otherwise provided in a formal written agreement executed between the Parties for a Purpose.</numbered_1_para>
-
-<numbered_1_para>Upon termination of any Purpose for whatever reason, the Receiving Party shall not make further use of the Confidential Information related to such Purpose and shall return all of the Confidential Information to the Disclosing Party, including all copies or reproductions, extracts, summaries or notes, or destroy the same in accordance with the directions of the Disclosing Party and certify the same have been destroyed.</numbered_1_para>
-
-<numbered_1_para>The Disclosing Party may, at any time direct the Receiving Party to return all Confidential Information to the Disclosing Party, or part thereof, and not to make further use of the Confidential Information to be returned. Upon receipt of such directions, the Receiving Party shall promptly deliver the requested Confidential Information without retaining any copies or excerpts thereof to the Disclosing Party.<?
-if (data.nature_of_relationship == "vendor") {?>
-If the requested Confidential Information is still required by the Receiving Party to perform any services under contract with the Disclosing Party, then in such event, both Parties shall endeavour to obtain alternative information from other sources so that the Receiving Party can proceed with the performance of their services.<?}?>
-</numbered_1_para>
 
 <numbered_1_para>Unless expressly assigned to the other Party, whether in this Agreement or in some other document made between the Parties, all patents, patent applications, copyrights, design rights, trademarks or such other proprietary rights, belonging to the respective Parties shall remain vested in the Party concerned.</numbered_1_para>
 
