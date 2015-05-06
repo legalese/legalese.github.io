@@ -17,11 +17,11 @@ Legalese.io is what happens when software eats law -- starting with contracts --
 
 * Differentiating Aesthetics
 
-Most existing "download a free template" systems only give users a single document. But in the real world, often, multiple documents are needed to consummate a certain business operation. We produce a /Document Set/, not a single document.
+Most existing "download a free template" systems only give users a single document. But, often, multiple documents are needed to consummate a given business operation. We produce a /Document Set/, not a single document.
 
 Most existing services are limited by geographic jurisdiction. Many don't look outside the US. We want to support end-users no matter where they are or what language they speak.
 
-Most existing services limit document creation to the existing priesthood. We want to be open, allowing anyone to contribute, fork, and republish templates.
+Most existing services limit document creation to the existing priesthood. While confidence in the system is important, We want to be open, allowing anyone to contribute, fork, and republish templates. We think we can develop confidence in other ways more consonant with the age of the platform. In other words, reputation systems with transparency.
 
 Most templates are purely "fill-in-the-blanks". We want our templates to be smart, with support for if/else conditional logic and convenient management of parties and signature blocks.
 
