@@ -17,10 +17,8 @@
 <para_1><span_smallcaps>Whereas:</span_smallcaps></para_1>
 
 <recitals><? if (data.nda_type == "unilateral") { ?>
-The Disclosing Party may from time to time disclose information to the Receiving Party
-<? } else { ?>
-Either Party may from time to time disclose to the other Party (so making them the "Disclosing Party" and "Receiving Party" respectively) information
-<? } ?>
+The Disclosing Party may from time to time disclose information to the Receiving Party<? } else { ?>
+Either Party may from time to time disclose to the other Party (so making them the "Disclosing Party" and "Receiving Party" respectively) information<? } ?>
  which is of a confidential nature to facilitate the business dealings, operations, cooperation or discussions between the Parties, or to perform its obligations under any agreement with the other Party (each a “Purpose”).</recitals>
 
 <recitals>The Parties agree to maintain strict confidentiality of such information on the terms of this Agreement.</recitals>
