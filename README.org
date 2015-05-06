@@ -5,11 +5,32 @@ Legalese.io is what happens when software eats law -- starting with contracts --
 
 * Aesthetics
 
-We want to support entire workflows in a document-set of multiple documents.
+Most existing "download a free template" systems only give users a single document. But in the real world, often, multiple documents are needed to consummate a certain business operation. We thus have the notion of a configuration data structure which fills multiple templates, producing a /Document Set/.
 
-We want to be open, allowing anyone to contribute templates.
+Most existing services are limited geographically. We want to be open, allowing anyone to contribute templates.
 
 We want our templates to be smart, with support for if/else conditional logic and convenient management of parties and signature blocks.
+
+* Challenges and Innovations
+
+** Regulatory Innovation
+
+The provision of legal services is limited to licensed lawyers.
+
+This is similar to the challenges faced by Uber and Airbnb.
+
+By providing customized contracts for signature, are we violating the guidelines of legal profession?
+
+Do we need a lawyer on the team? Does Legalese need to be a law firm?
+
+(Similarly, does Uber need to obtain a taxi license in each operating jurisdiction? Greyloft has gone ahead to obtain realtor certification.)
+
+** Commercial Opensource
+
+We want to pioneer a new model of "commercial opensource" business, in which participants are computationally compensated for their involvement, in both cash and equity.
+
+** The Legalese Compiler
+More on this later, but as we get into the weeds of document assembly let's not forget that compiled computational contracts are what will disrupt even document assembly solutions in a few years.
 
 * Repositories
 
