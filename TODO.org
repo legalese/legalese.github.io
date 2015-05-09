@@ -25,6 +25,7 @@ how to install the google app in your own spreadsheet
 
 how to fill in the API keys for your backend of choice
 
+* TODO add qryo-style QR stamping on each page
 * TODO write simple contributor(lawyer)-facing onboarding
 
 how to draft a new document by forking an existing XML

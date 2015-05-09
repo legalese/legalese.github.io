@@ -52,13 +52,14 @@ http://napavalleyregister.com/business/columnists/mary-luros/practicing-law-with
 ** advisory servces for startups to review the terms and give an opinion regarding valuation.
 ** due diligence services for investors to ask us to look over a startup.
 ** consultation service work to import new agreements (this moves closer to the hotdocs business)
-** for a fee we search bizfile to construct your cap table
+** too lazy to input your own date? for a fee we search bizfile to construct your cap table
 ** you send us a copy of all of your corporate documentation and we construct your cap table for you
 ** we refer you to a corp sec to get things cleaned up, for a referral fee
 ** we construct a cap table for you on eshares, captable.io, or other website for a low fee of say $400
 ** e-signing revenue share: $10 for each document pushed through for signature
 maybe e-signing is a FNAP, and the whole product for e-signature actually rides on top of something else major.
 ** donations lol
+** qryo-style QR codes on each page redirecting to the authoritative page in a document repository
 ** Investor Channels
 support accelerators, incubators, angel associations, and seed funds as channels; revenue share with them.
 ** pledge
