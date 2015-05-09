@@ -76,10 +76,10 @@ If the requested Confidential Information is still required by the Receiving Par
 
 <numbered_1_para>This Agreement shall come into effect on <? if (data.agreement_date) { ?><?= data.agreement_date ?><?} else {?><textvar name="Output Date" /><?}?> and shall remain effective notwithstanding the completion or termination of any Purpose.</numbered_1_para>
 
-<b_left_sidehead_nonum>For the Company:</b_left_sidehead_nonum>
+<b_left_sidehead_nonum>For the <? if (data.nda_type == "unilateral") { ?>Disclosing Party<? } else { ?>Company<?}?>:</b_left_sidehead_nonum>
 <?!= include("inc_signature", data, data.company) ?>
 
-<b_left_sidehead_nonum>For the Counterparty:</b_left_sidehead_nonum>
+<b_left_sidehead_nonum>For the <? if (data.nda_type == "unilateral") { ?>Receiving Party<? } else { ?>Counterparty<?}?>:</b_left_sidehead_nonum>
 <?!= include("inc_signature", data, data.counterparty) ?>
 
 </Story_Main>
