@@ -68,7 +68,7 @@ For every ten drafters there is one coder.
 
 Legalese XML isn't that different from HTML. We have some of the same ideas, like <i> for italics and <b> for bold.
 
-We do use different tags for paragraphs -- <numbered_1_para> and <numbered_2_para> for instance.
+We do use different tags for paragraphs -- <numbered_1_para> and <numbered_2_para> for instance. Numbered paragraphs, basically, prefixed with (N.) and (N.N.) respectively.
 
 Legalese XML isn't that different from PHP. It supports <?=variable?> and <?logic?> tags.
 
