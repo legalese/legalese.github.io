@@ -6,7 +6,8 @@
 <sidebar><?= data.company.idtype ?> <span_ucnum><?= data.company.id ?></span_ucnum></sidebar>
 <sidebar><?= data.company.address ?></sidebar>
 </Firstpage_Sidebar>
-<? data._total_new_shares = digitCommas_(data.parties.new_investor.map(function(p){return p.num_new_shares}).reduce(function(a,b){return a+b}, 0)); ?>
+<? data._total_new_shares_ =              data.parties.new_investor.map(function(p){return p.num_new_shares}).reduce(function(a,b){return a+b}, 0); ?>
+<? data._total_new_shares  = digitCommas_(data._total_new_shares_); ?>
 <? Logger.log("about to sum across %s", data.parties.new_investor.map(function(p){return p.new_commitment || p.commitment})); ?>
 <? var mysum = data.parties.new_investor.map(function(p){return Number((p.new_commitment||p.commitment).replace(/[^\d\.]+/g,""))}).reduce(function(a,b){return a+b}); ?>
 <? Logger.log("sum = %s", mysum); ?>
@@ -19,14 +20,14 @@
 <basic_para><?= data.parties.corporate_secretary[0].address ?></basic_para>
 <basic_para addnewline="true" />
 <basic_para addnewline="true" />
-<chapter_header override="startParagraph=StartParagraph.ANYWHERE">Allotment of <?= data.security_type_long ?></chapter_header>
-<para_1>Regarding the allotment of shares to the <?= plural(data.parties.new_investor, "new investor") ?> <?= commaAnd(data.parties.new_investor.map(function(p){return p.name})) ?>,</para_1>
+<chapter_header override="startParagraph=StartParagraph.ANYWHERE">Allotment of <?= data.security_type_plural ?></chapter_header>
+<para_1>Regarding the allotment of <?= data.security_type_plural ?> to the <?= plural(data.parties.new_investor, "new investor") ?> <?= commaAnd(data.parties.new_investor.map(function(p){return p.name})) ?>,</para_1>
 <numbered_1_para>We hereby confirm that:</numbered_1_para>
 
 <numbered_2_para>the Company's <?= plural(data.parties.new_investor, "allotment") ?>
- of <?= data._total_new_shares ?> <?= data.security_type_short ?> <?= plural_verb(data.parties.new_investor, "is") ?>
+ of <?= data._total_new_shares ?> <?= data.security_type_short_plural ?> <?= plural_verb(data.parties.new_investor, "is") ?>
  for cash consideration;
-subscription monies amounting to <?= data._total_commitment ?> have been received by the Company in respect of the allotment of <?= data._total_new_shares ?> <?= data.security_type_short ?> in the capital of the Company;
+subscription monies amounting to <?= data._total_commitment ?> have been received by the Company in respect of the allotment of <?= data._total_new_shares ?> <?= data.security_type_short_plural ?> in the capital of the Company;
 we have established the identity of the new <?= plural(data.parties.new_investor, "investor") ?>, <?= commaAnd(data.parties.new_investor.map(function(p){return p.name})) ?>;
 and we confirm that all is in order. </numbered_2_para>
 
@@ -42,7 +43,7 @@ and we confirm that all is in order. </numbered_2_para>
 <Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= new_investor[i].name ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="76" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= new_investor[i].idtype ?> <span_ucnum><?= new_investor[i].id ?></span_ucnum></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= new_investor[i].address ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="90" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= digitCommas_(new_investor[i].num_new_shares) ?> <?= new_investor[i].share_type ?> for <?= new_investor[i].new_commitment || new_investor[i].commitment ?><?= new_investor[i].commitment_comment ? new_investor[i].commitment_comment : "" ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="90" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= digitCommas_(new_investor[i].num_new_shares) ?> <?= new_investor[i].share_type ||data.security_type_short_plural ?> for <?= new_investor[i].new_commitment || new_investor[i].commitment ?><?= new_investor[i].commitment_comment ? new_investor[i].commitment_comment : "" ?></cell_c></Cell>
 <? } } ?>
 </Table>
 </para_1>

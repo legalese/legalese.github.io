@@ -2,7 +2,7 @@
 <?!= include("inc_dr_start", data, {
   director_or_member:"Director",
   article_pursuant:data.article_for_directors_resolution_in_writing,
-  chapter_header:"Allotment of " + data.security_type_long,
+  chapter_header:"Allotment of " + data.security_type_plural,
   r_num: 3 }) ?>
 <a_left_sidehead>Shares to be Issued</a_left_sidehead>
 <? if (data.share_issue_specialcase_text) { ?><para_1><?!= data.share_issue_specialcase_text ?></para_1><? } else { ?>
@@ -25,11 +25,11 @@
 commaAnd((data.parties.promoter ? [data.parties.promoter[0].name] : []).concat(
 data.parties.new_investor.map(function(p){return p.name}))) ?>,</para_2>
 <? } ?>
-<para_2>the Company do hereby approve the allotment of <?= digitCommas_(data._total_new_shares) ?> <?= data.security_type_long ?> ("<?= data.security_type_short ?>") in the share capital of the Company at <?= (data.sgd_price_per_share || data.price_per_share) ?> each for cash consideration as follows:</para_2>
+<para_2>the Company do hereby approve the allotment of <?= digitCommas_(data._total_new_shares) ?> <?= data.security_type_plural ?> ("<?= data.security_type_short_plural ?>") in the share capital of the Company at <?= (data.sgd_price_per_share || data.price_per_share) ?> each for cash consideration as follows:</para_2>
 <para_1>
 <Table aid:table="table" aid:tcols="3" aid:trows="<?= data.parties.new_investor.length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
 <Cell aid:ccols="1" aid:ccolwidth="150" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="56" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Number of <?= data.security_type_short ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="56" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Number of <?= data.security_type_short_plural ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="80" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Consideration</cell_c></Cell>
 <? for (var i = 0; i<data.parties.new_investor.length; i++) { with(data.parties.new_investor[i]) {
   var my_commitment = data.parties.new_investor[i].sgd_commitment ? sgd_commitment :

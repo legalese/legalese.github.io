@@ -1,289 +1,319 @@
-<?!= data.xml_declaration + data.whitespace_handling_use_tags ?>
-<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
-  <CoverTop>
-    <cover_title>Share Subscription Agreement</cover_title>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <cover_company_id></cover_company_id>
- </CoverTop>
-  <CoverMid>
-    <noindent>
-      <span_ucnum>CONFIDENTIAL</span_ucnum></noindent>
-    <noindent></noindent>
- </CoverMid>
-  <CoverBottom_Logotype>
-    <cover_corporate_logotype>Joyful Frog Digital Incubator</cover_corporate_logotype>
- </CoverBottom_Logotype>
-  <CoverBottom_Address>
-    <cover_address_block>Blk 71 Ayer Rajah Crescent</cover_address_block>
-    <cover_address_block>#05-16   Singapore 139951</cover_address_block>
- </CoverBottom_Address>
-  <CoverBottom_series>
-    <centered>4 January 2015 <span_ucnum>1:30 AM SGT</span_ucnum></centered>
-    <centered>version 2.0.0</centered>
- </CoverBottom_series>
-  <Firstpage_Sidebar></Firstpage_Sidebar>
-  <Story_Main></Story_Main>
-  <table_enclosing_para>
-    <para_1>
-      <span_smallcaps>THIS subscription AGREEMENT</span_smallcaps> (this &#8220;Agreement&#8221;) is made on the [date of agreement] <span_smallcaps>BETWEEN</span_smallcaps>:</para_1>
-    <parties>(the &#8220;Company&#8221;);</parties>
-    <parties>(the &#8220;Investor&#8221;);</parties>
-    <parties>The Founders as set out in Schedule 3;</parties>
-    <parties>
-      <span_ucnum>JFDI.2014</span_ucnum> Pte. Ltd. (UEN: [uen]), (the &#8220;Existing Shareholder&#8221;)</parties>
-    <para_1>(the Company, the Investor, the Founders and the &#8220;Existing Shareholder&#8221; shall collectively be known as the &#8220;Parties&#8221; and, each, a &#8220;Party&#8221;).</para_1>
-    <para_1>
-      <span_smallcaps>WHEREAS</span_smallcaps>:-</para_1>
-    <recitals>The Company is a private company incorporated in Singapore limited by shares and has at the date of this Agreement an issued and paid-up share capital as set out in Schedule 2.</recitals>
-    <recitals>The Company proposes to allot and issue the Subscription Shares to the Investor and the Investor has agreed to subscribe for the Subscription Shares, on the terms and subject to the conditions of this Agreement.</recitals>
-    <para_1>
-      <span_smallcaps>IT IS HEREBY AGREED</span_smallcaps> as follows:</para_1>
-    <a_left_sidehead>DEFINITIONS</a_left_sidehead>
-    <para_1>In this Agreement (including the Recitals and the Schedules), except to the extent that the context otherwise requires, the following terms shall have the meanings set forth below:-</para_1>
-    <definition_nonum>
-      <i>Act	</i>means the Companies Act, Chapter 50 of Singapore;</definition_nonum>
-    <definition_nonum>
-      <i>Articles	</i>means the Articles of Association of the Company;</definition_nonum>
-    <definition_nonum>
-      <i>Board	</i>means the board of directors for the time being of the Company;</definition_nonum>
-    <definition_nonum>
-      <i>Business Day	</i>means a day on which banks are open for business in Singapore (but excluding Saturdays, Sundays and public holidays);</definition_nonum>
-    <definition_nonum>
-      <i>Completion	</i>means the completion of the subscription by the Investor for, and the allotment and issue by the Company of, the Subscription Shares in accordance with this Agreement;</definition_nonum>
-    <definition_nonum>
-      <i>Completion Date	</i>means the date [completion_date] or such other date as mutually agreed by the Parties in writing;</definition_nonum>
-    <definition_nonum>
-      <i>Convertible Loan Agreement	</i>means the Convertible Loan Agreement dated [cla_agreement.date] between JFDI and the Company;</definition_nonum>
-    <definition_nonum>
-      <i>Intellectual Property	</i>means all patents (whether in the form of utility patents or design patents), trademarks, service marks, trade names, designs, logos, trade dress, trade styles and copyrights (whether or not registered), and applications, licenses and rights with respect to the foregoing, and all trade secrets, including know-how, inventions, research records, designs, proprietary rights, processes, works of authorship, computer programs (including without limitation computer programs embodied in semiconductor chips or otherwise embodied, and related flow-charts, programmer notes, whether in object or source code form), semiconductor chip design (whether or not registered as mask works or topographies) and technical data and information;</definition_nonum>
-    <definition_nonum>
-      <i>JFDI	</i>means the existing shareholder <span_ucnum>JFDI.2014</span_ucnum> Pte. Ltd;</definition_nonum>
-    <definition_nonum>
-      <i>Liquidity Event	</i>means either an Initial Public Offering or a Trade Sale;</definition_nonum>
-    <definition_nonum>
-      <i>Ordinary Shares	</i>means the ordinary voting shares in the capital of the Company;</definition_nonum>
-    <definition_nonum>
-      <i>Shareholders	</i>mean the shareholders for the time being of the Company;</definition_nonum>
-    <definition_nonum>
-      <i>Shareholders Agreement	</i>means the Shareholders Agreement dated [shareholder_agreement.date];</definition_nonum>
-    <definition_nonum>
-      <i>Subscription Price	</i>has the meaning given to it in Clause 3.2;</definition_nonum>
-    <definition_nonum>
-      <i>Subscription Shares	</i>means [N] Ordinary Shares to be subscribed by the Investor, and to be allotted and issued by the Company pursuant to Clause 3.1;</definition_nonum>
-    <definition_nonum>
-      <i>Trade Sale	</i>means a single transaction involving the sale by the Company or any or all of its subsidiaries of the whole or substantially the whole of the business, assets and undertaking of the Company and its subsidiaries, either by way of a share sale, an asset sale or a combination of both;</definition_nonum>
-    <definition_nonum>
-      <i>Warranties	</i>means the representations, warranties and undertakings of the Company set out in Clause 6, and &#8220;Warranty&#8221; means any one of them; and</definition_nonum>
-    <definition_nonum>
-      <i>S$	</i>means the lawful currency of Singapore.</definition_nonum>
-    <para_1>In this Agreement, unless the context otherwise requires:-</para_1>
-    <bullet_list_1>references to Recitals and Schedules are to be construed as references to the recitals and schedules to this Agreement and references to this Agreement include its Schedules;</bullet_list_1>
-    <bullet_list_1>words importing the singular include the plural and vice versa, words importing a gender include every gender;</bullet_list_1>
-    <bullet_list_1>references to a person shall be construed as including references to an individual, firm, company, corporation, unincorporated body of persons or any State or any agency thereof;</bullet_list_1>
-    <bullet_list_1>any reference to a statutory provision shall include such provision and any regulations made in pursuance thereof as from time to time modified or re-enacted;</bullet_list_1>
-    <bullet_list_1>headings are for convenience of reference only and shall not affect the interpretation of this Agreement; and</bullet_list_1>
-    <bullet_list_1>references to any persons related with another shall include corporations so related by virtue of Section 6 of the Act.</bullet_list_1>
-    <a_left_sidehead>SHAREHOLDING STRUCTURE</a_left_sidehead>
-    <numbered_2_para>The corporate information and the shareholding structure of the Company as at the date of this Agreement is set out in Schedule 1 and 2 respectively.</numbered_2_para>
-    <a_left_sidehead>SUBSCRIPTION OF SHARES</a_left_sidehead>
-    <b_left_sidehead>Subscription of Subscription Shares</b_left_sidehead>
-    <para_1>Subject to the terms and conditions of this Agreement, the Investor shall, on Completion, subscribe for the Subscription Shares, and the Company shall effect the allotment and issue of the Subscription Shares in accordance with Clause 5.</para_1>
-    <b_left_sidehead>Subscription Price</b_left_sidehead>
-    <para_1>The aggregate issue price for all the Subscription Shares shall be [subscription_price] (the &#8220;Subscription Price&#8221;).</para_1>
-    <b_left_sidehead>Terms of Issue</b_left_sidehead>
-    <numbered_3_para_fl>The Subscription Shares shall be issued to the Investor free from all claims, charges, liens and other encumbrances.</numbered_3_para_fl>
-    <numbered_3_para_fl>The Subscription Shares to be allotted and issued pursuant to Clause 3.1 shall rank in all respects pari passu with each other, and with the existing Ordinary Shares.</numbered_3_para_fl>
-    <numbered_3_para_fl>Each of the Subscription Shares to be allotted and issued to the Investor pursuant to Clause 3.1 shall be fully-paid by the Investor at the time of issue by the Company in accordance with Clause 5.1.3.2.</numbered_3_para_fl>
-    <a_left_sidehead>CONDITIONS</a_left_sidehead>
-    <b_left_sidehead>Conditions Precedent</b_left_sidehead>
-    <para_1>Completion is conditional upon the fulfilment (to the reasonable satisfaction of the Investor) of the following, on or prior to the date hereof:</para_1>
-    <numbered_3_para>An extraordinary general meeting of the shareholders of the company having been duly convened and the approval of the shareholders of the company at such general meeting having been obtained for the issue and allotment of the Subscription Shares to the Investor in accordance with Section 161 of the Act; and</numbered_3_para>
-    <numbered_3_para>Where applicable, all necessary approvals and consents from all relevant governmental, regulatory or other authorities and third parties for the issue, allotment and subscription of the Subscription Shares having been obtained by the company on terms and conditions acceptable to the Investor and continuing to be in force;</numbered_3_para>
-    <numbered_3_para>the Warranties remaining true and accurate as at Completion.</numbered_3_para>
-    <b_left_sidehead>Non-Fulfilment/Waiver</b_left_sidehead>
-    <numbered_3_para>In relation to Clause 4.1, the Company shall use its best endeavours to ensure the satisfaction of the conditions set out therein however, should any eventuality arise to seek waiver, the Investor will grant the waivers sought for bonafide reasons.</numbered_3_para>
-    <numbered_3_para>If any of the conditions contained in Clause 4.1 above has not been satisfied or waived, as the case may be, on or prior to the date hereof, this Agreement shall terminate and be of no further effect (except for the Surviving Clauses which shall remain in full force and effect) and neither Party hereto shall be under any liability to any other Party in respect of this Agreement.</numbered_3_para>
-    <a_left_sidehead>COMPLETION</a_left_sidehead>
-    <b_left_sidehead>Completion</b_left_sidehead>
-    <numbered_3_para>Completion shall take place on the Completion Date at the registered office of the Company (or at such other place as may be agreed between the Parties).</numbered_3_para>
-    <numbered_3_para>On Completion, the Company shall:</numbered_3_para>
-    <numbered_4_para>deliver or cause to be delivered to the Investor:</numbered_4_para>
-    <numbered_5_para>certified true copies of the Board and shareholders&#8217; resolutions, approving (as applicable):</numbered_5_para>
-    <numbered_6_para>the allotment and issue of the Subscription Shares to the Investor;</numbered_6_para>
-    <numbered_6_para>the entry of the name of the Investor in the register of members of the Company as the registered holder of the Subscription Shares;</numbered_6_para>
-    <numbered_6_para>the issue and delivery to the Investor of a share certificate for its number of Subscription Shares; and</numbered_6_para>
-    <numbered_6_para>the execution by the Company of this Agreement.</numbered_6_para>
-    <numbered_5_para>effect the allotment and issue of the Subscription Shares to the Investor, including  the entry of the name of the Investor in the register of members of the Company as the registered holder of the Subscription Shares and the issue and delivery to the Investor of a share certificate for its number of Subscription Shares.</numbered_5_para>
-    <numbered_3_para>On Completion, the Investor shall:</numbered_3_para>
-    <numbered_4_para>subscribe for the Subscription Shares;</numbered_4_para>
-    <numbered_4_para>pay the Subscription Price to the Company by telegraphic transfer to the Company&#8217;s account set out below:</numbered_4_para>
-    <numbered_5_para>Name of Account: </numbered_5_para>
-    <numbered_5_para>Account Number: </numbered_5_para>
-    <numbered_5_para>Bank Name: </numbered_5_para>
-    <numbered_4_para>deliver to the Company the execution by the Investor of this Agreement and the Deed of Ratification and Accession.</numbered_4_para>
-    <b_left_sidehead>Right to Terminate</b_left_sidehead>
-    <para_1>If any of the documents required to be delivered or any condition to be fulfilled by any party on the Completion Date is not forthcoming or fulfilled for any reason or if in any other respect the foregoing provisions of this Clause 5 are not fully complied with by any Party, such occurrence shall not give rise to any right to damages or compensation to any Party except that the Party not in default shall be entitled:</para_1>
-    <numbered_3_para>to elect to terminate this Agreement (other than the Surviving Clauses) without liability on the part of the terminating Party;</numbered_3_para>
-    <numbered_3_para>to effect Completion so far as practicable having regard to the defaults which have occurred; or</numbered_3_para>
-    <numbered_3_para>to fix a new date for Completion (not being more than 60 Business Days after the Completion Date).</numbered_3_para>
-    <a_left_sidehead>WARRANTIES</a_left_sidehead>
-    <b_left_sidehead>Warranties by the Company</b_left_sidehead>
-    <para_1>The Company hereby represents and warrants to and undertakes with the Investor at the date hereof as follows:</para_1>
-    <c_left_sidehead>Capacity and Title of the Company</c_left_sidehead>
-    <numbered_4_para_fl>that it has full power and authority to enter into and perform this Agreement and this Agreement constitutes valid and binding obligations on the Company, in accordance with its terms;</numbered_4_para_fl>
-    <numbered_4_para_fl>that the execution and delivery of, and the performance by the Company of its obligations under, this Agreement will not:</numbered_4_para_fl>
-    <numbered_5_para_fltab>result in breach of any provision of its Articles or any other agreement to which it is a party; or</numbered_5_para_fltab>
-    <numbered_5_para_fltab>result in a breach of any order, judgment or decree of any court, governmental agency or regulatory body to which the Company is a party or by which the Company is bound;</numbered_5_para_fltab>
-    <c_left_sidehead>Allotment and Issue of Subscription Shares</c_left_sidehead>
-    <numbered_4_para_fl>that it will on Completion be entitled to or is otherwise able to allot and issue to the Investor the full legal and beneficial ownership of the Subscription Shares, respectively, on the terms of this Agreement without the consent of any person;</numbered_4_para_fl>
-    <numbered_4_para_fl>the Company is not a party to any other agreement, arrangements or undertaking relating to the allotment, issue, sale or transfer of any shares of the Company other than</numbered_4_para_fl>
-    <numbered_5_para_fltab>the Articles,</numbered_5_para_fltab>
-    <numbered_5_para_fltab>the Shareholders Agreement,</numbered_5_para_fltab>
-    <numbered_5_para_fltab>the Class F Agreement, and</numbered_5_para_fltab>
-    <numbered_5_para_fltab>the Convertible Loan Agreement;</numbered_5_para_fltab>
-    <numbered_4_para_fl>immediately before Completion, no person has the right (whether exercisable now or in the future and whether contingent or not) to call for the allotment, issue, sale or transfer of any share or loan capital of the Company under any option or other agreement (including conversion rights), and there are no claims, charges, liens, equities or encumbrances on the shares of the Company;</numbered_4_para_fl>
-    <c_left_sidehead>Supply of Information</c_left_sidehead>
-    <numbered_4_para_fl>all information contained in this Agreement (including the information set out in Schedules) and all other information which has been given by or on behalf of the Company or by any of the directors, officials or professional advisers of the Company to any of the directors, officials or professional advisers of the Investor in the course of the negotiations leading to this Agreement was when given true, complete and accurate in all respects and the Company is not aware of any fact or matter or circumstances not disclosed in writing to the Investor which renders any such information untrue, inaccurate or misleading or the disclosure of which might reasonably affect the willingness of the Investor to purchase the Subscription Shares or the price at or terms upon which the Investor would be willing to purchase them;</numbered_4_para_fl>
-    <numbered_4_para_fl>the copies of the Articles, the Shareholders Agreement, the Class F Agreement and the Convertible Loan Agreement delivered to the Investor are complete and accurate in all respects, and in the case of the Articles, the Shareholders Agreement, the Class F Agreement and the Convertible Loan Agreement contain full details of the rights and restrictions attached to the share capital of the Company and have attached to them copies of all such resolutions and agreements as are required by law to be delivered to the Accounting and Corporate Regulatory Authority for filing and all other resolutions passed by the Company;</numbered_4_para_fl>
-    <c_left_sidehead>Assets and Finance</c_left_sidehead>
-    <numbered_4_para_fl>as at Completion, all charges and other security issued by the Company have been duly released and none of the assets of the Company is the subject of any option, right to acquire, assignment, mortgage, charge, lien or hypothecation or other encumbrance whatsoever (excepting only liens arising by operation of law in the normal course of trading) or the subject of any factoring arrangement, hirepurchase, conditional sale or credit sale agreement;</numbered_4_para_fl>
-    <c_left_sidehead>Compliance with Laws</c_left_sidehead>
-    <numbered_4_para_fl>the Company has carried on its business in accordance with applicable laws, regulations and byelaws in Singapore and in any relevant foreign country and there is no investigation or enquiry by, or order, decree or judgment of, any court or any governmental agency or regulatory body outstanding or anticipated against the Company which may have a material adverse effect upon its assets or business;</numbered_4_para_fl>
-    <numbered_4_para_fl>all statutory, municipal and other licences, consents, permits and authorities necessary or desirable for the carrying on of the business of the Company as now carried on have been obtained and are valid and subsisting and all conditions applicable to any such licence, consent (including any planning consent) permit or authority have been complied with and none of such licences, consents, permits or authorities has been breached or is likely to be suspended, cancelled, refused or revoked;</numbered_4_para_fl>
-    <numbered_4_para_fl>the Company is not at present engaged whether as plaintiff or defendant or otherwise in any legal action, proceedings or arbitration nor is the Company being prosecuted for any criminal offence and there are no such proceedings or prosecutions pending or threatened;</numbered_4_para_fl>
-    <numbered_4_para_fl>there are no investigations, disciplinary proceedings or other circumstances likely to lead to any such claim or legal action, proceedings or arbitration (other than as aforesaid) or prosecution;</numbered_4_para_fl>
-    <c_left_sidehead>Employees</c_left_sidehead>
-    <numbered_4_para_fl>there are no amounts owing to any present or former directors or employees of the Company other than remuneration accrued due or for the reimbursement of business expenses and no directors or employees of the Company have given or been given notice terminating their contracts of employment;</numbered_4_para_fl>
-    <c_left_sidehead>Taxation</c_left_sidehead>
-    <numbered_4_para_fl>all returns, computations and notices which are or have been required to be made or given by the Company for any taxation purpose</numbered_4_para_fl>
-    <numbered_5_para_fltab>have been made or given within the requisite periods and on a proper basis and are up-to-date and correct, and</numbered_5_para_fltab>
-    <numbered_5_para_fltab>none of them is, or is likely to be, the subject of any dispute with the Singapore taxation authorities;</numbered_5_para_fltab>
-    <numbered_4_para_fl>the Company has at all times since its incorporation been resident for taxation purposes in Singapore, and will be so resident at the Completion Date; and</numbered_4_para_fl>
-    <b_left_sidehead>Warranties by the Investor</b_left_sidehead>
-    <para_1>The Investor hereby represents and warrants to and undertakes with the Company at the date hereof and at the Completion Date as follows:</para_1>
-    <c_left_sidehead>Capacity and Title of the Investor</c_left_sidehead>
-    <numbered_4_para_fl>that it has full power and authority to enter into and perform this Agreement and this Agreement constitutes valid and binding obligations on the Company, in accordance with its terms;</numbered_4_para_fl>
-    <numbered_4_para_fl>that the execution and delivery of, and the performance by the Company of its obligations under, this Agreement will not:</numbered_4_para_fl>
-    <numbered_5_para_fltab>result in breach of any provision of its Articles or any other agreement by which it is bound; or</numbered_5_para_fltab>
-    <numbered_5_para_fltab>result in a breach of any order, judgment or decree of any court, governmental agency or regulatory body to which the Company is a party or by which the Company is bound;</numbered_5_para_fltab>
-    <c_left_sidehead>Securities Law Compliance</c_left_sidehead>
-    <numbered_4_para_fl>that it has not been formed solely for the purpose of making this investment and is purchasing the Subscription Shares to be acquired by the Investor hereunder for its own account for investment, not as a nominee or agent, and not with a view to, or for resale in connection with, the distribution thereof, and the Investor has no present intention of selling, granting any participation in, or otherwise distributing the same. The Investor has such knowledge and experience in financial and business matters that the Investor is capable of evaluating the merits and risks of such investment, is able to incur a complete loss of such investment without impairing the Investor&#8217;s financial condition and is able to bear the economic risk of such investment for an indefinite period of time;</numbered_4_para_fl>
-    <c_left_sidehead>Access to Information</c_left_sidehead>
-    <numbered_4_para_fl>that it acknowledges that the Company has given the Investor access to the corporate records and accounts of the Company and to all information in its possession relating to the Company, has made its officers and representatives available for interview by the Investor, and has furnished the Investor with all documents and other information required for the Investor to make an informed decision with respect to the purchase of the Subscription Shares; and</numbered_4_para_fl>
-    <c_left_sidehead>No Public Market</c_left_sidehead>
-    <numbered_4_para_fl>that it understands that no public market now exists for any of the securities issued by the Company, and that the Company has made no assurances that a public market will ever exist for the securities.</numbered_4_para_fl>
-    <b_left_sidehead>Termination</b_left_sidehead>
-    <para_1>If prior to Completion:</para_1>
-    <numbered_3_para>it shall be found that any of the representations, warranties and undertakings contained in this Agreement on the part of the Company have not been carried out or complied with to the Investor&#8217;s reasonable satisfaction, the Investor shall be entitled by notice in writing to the Company to terminate this Agreement, but the occurrence of such an event shall not give rise to any right to damages or compensation to any Party.</numbered_3_para>
-    <b_left_sidehead>Indemnity</b_left_sidehead>
-    <numbered_3_para>The Company hereby covenants with the Investor to indemnify and save harmless the Investor from and against any and all Losses which the Investor may incur or suffer as a result of or arising out of a breach or breaches of the representations, warranties and undertakings contained in this Agreement on the part of the Company.</numbered_3_para>
-    <numbered_3_para>The maximum aggregate liability of the Company with respect to the Investor under this Clause 6.4 shall not exceed the Subscription Price the Investor actually paid to the Company pursuant to this Agreement, and notwithstanding anything to the contrary contained in this Agreement, the Company shall not be liable for any Loss, and will not have any indemnity obligation, with respect to</numbered_3_para>
-    <numbered_4_para>any indirect, special, incidental, consequential, or punitive damages, or any claim for lost profits, or</numbered_4_para>
-    <numbered_4_para>any Losses directly resulting from the gross negligence or wilful misconduct of the Investor.</numbered_4_para>
-    <numbered_3_para>The Investor hereby covenants with the Company to indemnify and save harmless the Company from and against any and all Losses which the Company may incur or suffer as a result of or arising out of a breach or breaches of the representations, warranties and undertakings contained in this Agreement on the part of the Investor. Notwithstanding anything to the contrary contained in this Agreement, the Investor shall not be liable for any Losses, and will not have any indemnity obligation, with respect to</numbered_3_para>
-    <numbered_4_para>any indirect, special, incidental, consequential, or punitive damages, or</numbered_4_para>
-    <numbered_4_para>any Losses directly resulting from the gross negligence or wilful misconduct of the Company or any of its respective directors, officers, employees or agents.</numbered_4_para>
-    <a_left_sidehead>CONFIDENTIALITY</a_left_sidehead>
-    <numbered_2_para>Each Party to this Agreement agrees to keep strictly secret and confidential, and under no circumstances to disclose to any person or entity which is not a party hereto, any confidential information arising from or in connection with this Agreement unless disclosure of such information is expressly permitted by the prior written consent in writing of the other parties.</numbered_2_para>
-    <numbered_2_para>Notwithstanding Clause 7.1, the confidentiality obligation shall not apply to:-</numbered_2_para>
-    <numbered_3_para>any information obtained from any party hereto which becomes generally known to the public, other than by reason of any wilful or negligent act or omission of any party hereto or any of its agents, advisers, directors, officers, employees or representatives;</numbered_3_para>
-    <numbered_3_para>any information which is required to be disclosed pursuant to any applicable laws or to any competent governmental or statutory authority or pursuant to rules or regulations of any relevant regulatory, administrative or supervisory body (including, without limitation, any relevant stock exchange or securities council);</numbered_3_para>
-    <numbered_3_para>any information disclosed by any of the parties to their respective bankers, financial advisers, consultants and legal or other advisers for the purposes of this Agreement; and</numbered_3_para>
-    <numbered_3_para>Disclosure by the Company of the fact of the investment and the identity of the parties to this Agreement, but not the dollar amounts involved.</numbered_3_para>
-    <a_left_sidehead>General</a_left_sidehead>
-    <b_left_sidehead>Whole Agreement</b_left_sidehead>
-    <para_1>This Agreement and the Deed of Ratification and Accession set forth the entire agreement and understanding between the parties or any of them in connection with the matters dealt with and described herein.</para_1>
-    <b_left_sidehead>Remedies</b_left_sidehead>
-    <para_1>Each of the Party&#8217;s rights and remedies contained in this Agreement are cumulative and not exclusive of rights or remedies provided by law.</para_1>
-    <b_left_sidehead>Indulgence, Waiver etc</b_left_sidehead>
-    <para_1>The failure to exercise or delay in exercising a right or remedy provided by this Agreement or by law does not impair or constitute a waiver of the right or remedy or an impairment of or a waiver of other rights or remedies. No single or partial exercise of a right or remedy provided by this Agreement or by law prevents further exercise of the right or remedy or the exercise of another right or remedy.</para_1>
-    <b_left_sidehead>Acknowledgement of Understanding</b_left_sidehead>
-    <para_1>Each Party to this Agreement confirms that it fully understands the nature and consequences of this Agreement, and that it has had the opportunity to seek independent legal advice relating to all the matters provided for in this Agreement.</para_1>
-    <b_left_sidehead>Continuing Effect</b_left_sidehead>
-    <para_1>All provisions of this Agreement shall so far as they are capable of being performed or observed continue in full force and effect notwithstanding Completion except in respect of those matters then already performed.</para_1>
-    <b_left_sidehead>Successors and Assigns</b_left_sidehead>
-    <para_1>This Agreement is personal to the Parties. Accordingly, neither Party may, without the prior written consent of the other Party, assign, hold on trust or otherwise transfer the benefit of all or any of the other Party&#8217;s obligations under this Agreement, or any benefit arising under or out of this Agreement.</para_1>
-    <b_left_sidehead>Third Party Rights</b_left_sidehead>
-    <para_1>A person who is not a party to this Agreement has no right under the Contracts (Rights of Third Parties) Act, Chapter <span_smallcaps>53B</span_smallcaps> of Singapore to enforce any term of this Agreement.</para_1>
-    <b_left_sidehead>Variation</b_left_sidehead>
-    <para_1>No variation nor any further promise or agreement in connection with the subject matter of this Agreement is binding upon any Party unless made in writing, signed by the Parties or the respective authorised representatives of the Parties.</para_1>
-    <b_left_sidehead>Costs</b_left_sidehead>
-    <para_1>Each Party shall bear its own costs and expenses in respect of the preparation, negotiations, finalisation and execution of this Agreement and the other agreements or documents contemplated herein.</para_1>
-    <b_left_sidehead>Notices</b_left_sidehead>
-    <numbered_3_para_fl>Any notice or request with reference to this Agreement shall be deemed to have been sufficiently served or given for all purposes herein on the seventh day after being mailed by prepaid mail or on the second day after being sent by reputable express courier addressed to the Parties at their respective addresses as shown below:</numbered_3_para_fl>
-    <indented_3_para></indented_3_para>
-    <indented_3_para>The Company</indented_3_para>
-    <indented_3_para>Address:</indented_3_para>
-    <indented_3_para>E-mail:</indented_3_para>
-    <indented_3_para>For the attention of: </indented_3_para>
-    <indented_3_para></indented_3_para>
-    <indented_3_para>The Investor</indented_3_para>
-    <indented_3_para>Address: </indented_3_para>
-    <indented_3_para>E-mail: </indented_3_para>
-    <indented_3_para>For the attention of: </indented_3_para>
-    <numbered_3_para_fl>Any Party may change its mailing address or email address for the purposes of this Clause 8.10 by written notice to the other Party. Notices shall be effective:</numbered_3_para_fl>
+<?!= data.xmlRoot() ?>
+<?!= include("inc_cover_2_parties", data, {cover_title:"Ordinary Share Subscription Agreement", party1:data.company, party2:data.new_investor}) ?>
+<?!= include("inc_cover_jfdi", data) ?>
+<? data._total_new_shares_ =              data.parties.new_investor.map(function(p){return p.num_new_shares}).reduce(function(a,b){return a+b}, 0); ?>
+<? data._total_new_shares  = digitCommas_(data._total_new_shares_); ?>
+<? Logger.log("about to sum across %s", data.parties.new_investor.map(function(p){return p.new_commitment || p.commitment})); ?>
+<? var mysum = data.parties.new_investor.map(function(p){return Number((p.new_commitment||p.commitment).replace(/[^\d\.]+/g,""))}).reduce(function(a,b){return a+b}); ?>
+<? Logger.log("sum = %s", mysum); ?>
+<? Logger.log("formatting with %s", data.parties.new_investor[0]._format_new_commitment || data.parties.new_investor[0]._format_commitment); ?>
+<? data._total_commitment = asCurrency_(data.parties.new_investor[0]._format_new_commitment || data.parties.new_investor[0]._format_commitment, mysum); ?>
+<? Logger.log("data._total_commitment = %s", data._total_commitment); ?>
+<Firstpage_Sidebar><sidebar>This document records the purchase of shares by an investor.</sidebar></Firstpage_Sidebar>
+<Story_Main>
+<chapter_header>Subscription for Ordinary Shares</chapter_header>
+<para_1><span_smallcaps>This subscription agreement</span_smallcaps> (the "Agreement") is made on <?!= data.agreement_date || data.investment_agreement_date || '<textvar name="Output Date" />' ?> between:---</para_1>
+<parties><?!= include("inc_party", data, data.company) ?> (the "Company") and</parties>
+<parties><?!= include("inc_party", data, data.new_investor) ?> (the "New Investor")</parties>
+
+<para_1>(collectively the <b>"Parties"</b> and individually a <b>"Party"</b>).</para_1>
+
+<para_1><span_smallcaps>Whereas</span_smallcaps>:---</para_1>
+<recitals>The Company proposes to allot and issue the Subscription Shares to the Investor and the Investor has agreed to subscribe for the Subscription Shares, on the terms and subject to the conditions of this Agreement,</recitals>
+<para_1><span_smallcaps>It is hereby agreed</span_smallcaps> as follows:---</para_1>
+<a_left_sidehead>Definitions</a_left_sidehead>
+<para_1>In this Agreement (including the Recitals and the Schedules), except to the extent that the context otherwise requires, the following terms shall have the meanings set forth below:-</para_1>
+<definition_nonum>Act	means the Companies Act (Cap. 50) of Singapore;</definition_nonum>
+<definition_nonum>Articles	means the Articles of Association of the Company;</definition_nonum>
+<definition_nonum>Board	means the board of directors for the time being of the Company;</definition_nonum>
+<definition_nonum>Business Day	means a day on which banks are open for business in Singapore (but excluding Saturdays, Sundays and public holidays);</definition_nonum>
+<definition_nonum>Completion	means the completion of the subscription by the Investor for, and the allotment and issue by the Company of, the Subscription Shares in accordance with this Agreement;</definition_nonum>
+<?if(data.subscription_completion_date){?>
+<definition_nonum>Completion Date	means the date <?= data.subscription_completion_date ?> or such other date as mutually agreed by the Parties in writing;</definition_nonum>
+<?}?>
+<?if(data.jfdi_investment_agreement_title){?>
+<definition_nonum><?= data.jfdi_investment_agreement_title ?>	means the Agreement dated <?= data.jfdi_investment_agreement_date ?> between <?= data.jfdi_party_name ?> and the Company;</definition_nonum>
+<?}?>
+<?if(data.other_agreement_title){?>
+<definition_nonum><?= data.other_agreement_title ?>	means the <?= data.other_agreement_title.match(/s$/) ? "Agreements" : "Agreement" ?> dated on or about <?= data.other_agreement_date ?> between <?= data.other_agreement_parties ?> and the Company;</definition_nonum>
+<?}?>
+<definition_nonum>Ordinary Shares	means the ordinary voting shares in the capital of the Company;</definition_nonum>
+<? if (data.parties.new_investor.length > 1 || data.parties.pending_investor) { data._other_new_investors = true; ?>
+<definition_nonum>Other New Investors	means the parties thus identified in <xref to="new_investors" /> of <xref to="schedule_shareholding" />;</definition_nonum>
+<? }?>
+<definition_nonum>Shareholders	mean the shareholders for the time being of the Company;</definition_nonum>
+<definition_nonum>Shareholders Agreement	means the Shareholders Agreement dated <?= data.shareholders_agreement_date ?>;</definition_nonum>
+<definition_nonum>Subscription Price	has the meaning given to it in Clause <xref to="subscription_price"/>;</definition_nonum>
+<definition_nonum>Subscription Shares	means <?= data.new_investor.num_new_shares ?> Ordinary Shares to be subscribed by the Investor, and to be allotted and issued by the Company pursuant to Clause <xref to="terms_of_issue" /></definition_nonum>
+<definition_nonum>Surviving Clauses	means Clauses <xref to="indemnity" format="Paragraph Number (text)" />, <xref to="confidentiality" format="Paragraph Number (text)" />, and <xref to="medarb" format="Paragraph Number (text)" />.</definition_nonum>
+<definition_nonum>Warranties	means the representations, warranties and undertakings of the Company set out in Clause <xref to="warranties" />, and "Warranty" means any one of them; and</definition_nonum>
+<definition_nonum>$ or <span_smallcaps>S$</span_smallcaps>	means the lawful currency of Singapore.</definition_nonum>
+
+<para_1>In this Agreement, unless the context otherwise requires:---</para_1>
+<para_2>references to Recitals and Schedules are to be construed as references to the recitals and schedules to this Agreement and references to this Agreement include its Schedules;</para_2>
+<para_2>words importing the singular include the plural and vice versa, words importing a gender include every gender;</para_2>
+<para_2>references to a person shall be construed as including references to an individual, firm, company, corporation, unincorporated body of persons or any State or any agency thereof;</para_2>
+<para_2>any reference to a statutory provision shall include such provision and any regulations made in pursuance thereof as from time to time modified or re-enacted;</para_2>
+<para_2>headings are for convenience of reference only and shall not affect the interpretation of this Agreement; and</para_2>
+<para_2>references to any persons related with another shall include corporations so related by virtue of Section 6 of the Act.</para_2>
+
+<a_left_sidehead>Shareholding Structure</a_left_sidehead>
+<numbered_2_para>The corporate information and shareholding structure of the Company as at the date of this Agreement are set out in Schedule 1 and 2 respectively.</numbered_2_para>
+
+<a_left_sidehead>Subscription of Shares</a_left_sidehead>
+<b_left_sidehead>Subscription of Subscription Shares</b_left_sidehead>
+<para_1>Subject to the terms and conditions of this Agreement, the Investor shall, on Completion, subscribe for the Subscription Shares, and the Company shall effect the allotment and issue of the Subscription Shares in accordance with Clause <xref to="completion" /> (<xref to="completion" format="Paragraph Text" />).</para_1>
+
+<b_left_sidehead xname="subscription_price">Subscription Price</b_left_sidehead>
+<para_1>The aggregate issue price for all the Subscription Shares shall be <?= data._total_commitment ?> (the "Subscription Price").</para_1>
+
+<b_left_sidehead xname="terms_of_issue">Terms of Issue</b_left_sidehead>
+<numbered_3_para_fl>The Subscription Shares shall be issued to the Investor free from all claims, charges, liens and other encumbrances.</numbered_3_para_fl>
+<numbered_3_para_fl>The Subscription Shares to be allotted and issued pursuant to this Clause <xref to="terms_of_issue"/> shall rank in all respects pari passu with each other, and with the existing Ordinary Shares.</numbered_3_para_fl>
+<numbered_3_para_fl>The Subscription Shares to be allotted and issued to the Investor pursuant to this Clause <xref to="terms_of_issue"/> <? if(data.previously_paid){?>are already considered fully paid at the time of this Agreement.<?}else{?>
+shall be fully-paid by the Investor at the time of issue by the Company in accordance with Clause <xref to="completion_investor"/>.<?}?></numbered_3_para_fl>
+<? if (data._other_new_investors) {?>
+<numbered_3_para_fl>The Investor hereby waives any pre-emptive rights to subscribe for the new shares alluded to in <xref to="new_investors" /> of <xref to="schedule_shareholding"/>, provided that those shares are offered to the Other New Investors within three months of the date of this agreement.</numbered_3_para_fl>
+<? }?>
+
+<a_left_sidehead xname="conditions">Conditions</a_left_sidehead>
+<b_left_sidehead xname="conditions_precedent">Conditions Precedent</b_left_sidehead>
+<para_1>Completion is conditional upon the fulfilment (to the reasonable satisfaction of the Investor) of the following, on or prior to the date hereof:</para_1>
+<numbered_3_para>An extraordinary general meeting of the shareholders of the company having been duly convened and the approval of the shareholders of the company at such general meeting having been obtained for the issue and allotment of the Subscription Shares to the Investor in accordance with Section 161 of the Act; (or members' resolutions in writing having been duly passed in lieu of an extraordinary general meeting;) and</numbered_3_para>
+<numbered_3_para>Where applicable, all necessary approvals and consents from all relevant governmental, regulatory or other authorities and third parties for the issue, allotment and subscription of the Subscription Shares having been obtained by the company on terms and conditions acceptable to the Investor and continuing to be in force;</numbered_3_para>
+<numbered_3_para>the Warranties remaining true and accurate as at Completion.</numbered_3_para>
+
+<b_left_sidehead>Non-Fulfilment/Waiver</b_left_sidehead>
+<numbered_3_para>In relation to Clause <xref to="conditions_precedent"/>, the Company shall use its best endeavours to ensure the satisfaction of the conditions set out therein however, should any eventuality arise to seek waiver, the Investor will grant the waivers sought for bona fide reasons.</numbered_3_para>
+<numbered_3_para>If any of the conditions contained in Clause <xref to="conditions_precedent"/> above have not been satisfied or waived, as the case may be, on or prior to the Completion Date, this Agreement shall then terminate and have no further effect (except for the Surviving Clauses which shall remain in full force and effect) and neither Party hereto shall be under any liability to any other Party in respect of this Agreement.</numbered_3_para>
+
+
+
+<a_left_sidehead xname="completion">Completion</a_left_sidehead>
+
+<b_left_sidehead>Completion</b_left_sidehead>
+
+<?if(data.subscription_completion_date){?>
+<numbered_3_para>Completion shall take place on the Completion Date at the registered office of the Company (or at such other place as may be agreed between the Parties).</numbered_3_para>
+<?}else if(data.previously_paid){?>
+<numbered_3_para>As the Shares have been previously paid in full, Completion shall be deemed to occur once the Conditions Precedent in Clause <xref to="conditions_precedent" /> and the Completion Conditions in Clause <xref to="completion_investor"/> have been satisfied, or (if they are already satisfied) upon the signature of this Agreement.</numbered_3_para>
+<?}?>
+
+<numbered_3_para>On Completion, the Company shall:</numbered_3_para>
+ <numbered_4_para>deliver or cause to be delivered to the Investor:</numbered_4_para>
+  <numbered_5_para>certified true copies of the Board and shareholders' resolutions, approving (as applicable):</numbered_5_para>
+   <numbered_6_para>the allotment and issue of the Subscription Shares to the Investor;</numbered_6_para>
+   <numbered_6_para>the entry of the name of the Investor in the register of members of the Company as the registered holder of the Subscription Shares;</numbered_6_para>
+   <numbered_6_para>the issue and delivery to the Investor of a share certificate for its number of Subscription Shares; and</numbered_6_para>
+   <numbered_6_para>the execution by the Company of this Agreement.</numbered_6_para>
+ <numbered_4_para>effect the allotment and issue of the Subscription Shares to the Investor, including  the entry of the name of the Investor in the register of members of the Company as the registered holder of the Subscription Shares and the issue and delivery to the Investor of a share certificate for its number of Subscription Shares.</numbered_4_para>
+
+<numbered_3_para xname="completion_investor">On Completion, the Investor shall:</numbered_3_para>
+ <numbered_4_para>subscribe for the Subscription Shares;</numbered_4_para>
+<?if(! data.previously_paid){?>
+ <numbered_4_para>pay the Subscription Price to the Company by transfer to the Company's account set out below:</numbered_4_para>
+  <numbered_5_para>Name of Account: </numbered_5_para>
+  <numbered_5_para>Account Number: </numbered_5_para>
+  <numbered_5_para>Bank Name: </numbered_5_para>
+<?}?>
+
+ <numbered_4_para>deliver to the Company an executed Deed of Ratification and Accession to the Shareholders' Agreement.</numbered_4_para>
+
+ <b_left_sidehead xname="terminate">Right to Terminate</b_left_sidehead>
+ <para_1>If any of the documents required to be delivered or any condition to be fulfilled by any party on the Completion Date is not forthcoming or fulfilled for any reason or if in any other respect the foregoing provisions of this Clause <xref to="completion"/> are not fully complied with by any Party, such occurrence shall not give rise to any right to damages or compensation to any Party except that the Party not in default shall be entitled:</para_1>
+ <numbered_3_para>to elect to terminate this Agreement (other than the Surviving Clauses) without liability on the part of the terminating Party;</numbered_3_para>
+ <numbered_3_para>to effect Completion so far as practicable having regard to the defaults which have occurred; or</numbered_3_para>
+ <numbered_3_para>to fix a new date for Completion (not being more than 60 Business Days after the Completion Date).</numbered_3_para>
+
+
+ <a_left_sidehead xname="warranties">Warranties</a_left_sidehead>
+
+ <b_left_sidehead xname="warranties_company">Warranties by the Company</b_left_sidehead>
+ <para_1>The Company hereby represents and warrants to and undertakes with the Investor at the date hereof as follows:</para_1>
+
+ <c_left_sidehead>Capacity and Title of the Company</c_left_sidehead>
+ <numbered_4_para_fl>that it has full power and authority to enter into and perform this Agreement and this Agreement constitutes valid and binding obligations on the Company, in accordance with its terms;</numbered_4_para_fl>
+ <numbered_4_para_fl>that the execution and delivery of, and the performance by the Company of its obligations under, this Agreement will not:</numbered_4_para_fl>
+ <numbered_5_para_fltab>result in breach of any provision of its Articles or any other agreement to which it is a party; or</numbered_5_para_fltab>
+ <numbered_5_para_fltab>result in a breach of any order, judgment or decree of any court, governmental agency or regulatory body to which the Company is a party or by which the Company is bound;</numbered_5_para_fltab>
+
+ <c_left_sidehead>Allotment and Issue of Subscription Shares</c_left_sidehead>
+ <numbered_4_para_fl>that it will on Completion be entitled to or is otherwise able to allot and issue to the Investor the full legal and beneficial ownership of the Subscription Shares, respectively, on the terms of this Agreement without the consent of any person;</numbered_4_para_fl>
+ <numbered_4_para_fl>the Company is not a party to any other agreement, arrangements or undertaking relating to the allotment, issue, sale or transfer of any shares of the Company other than</numbered_4_para_fl>
+ <?if(data.other_undertakings){?>
+ <numbered_5_para_fltab><?=data.other_undertakings?>;</numbered_5_para_fltab>;<?}?>
+ <?if(data.other_agreement_title){?>
+ <numbered_5_para_fltab>the <?=data.other_agreement_title?></numbered_5_para_fltab><?}?>
+ <?if(data.jfdi_investment_agreement_title){?>
+ <numbered_5_para_fltab>the <?=data.jfdi_investment_agreement_title?>;</numbered_5_para_fltab><?}?>
+ <?if(data._other_new_investors){?>
+ <numbered_5_para_fltab>agreements, similar to this one, made with Other New Investors;</numbered_5_para_fltab><?}?>
+ <numbered_5_para_fltab>the Shareholders' Agreement; and</numbered_5_para_fltab>
+ <numbered_5_para_fltab>the Articles;</numbered_5_para_fltab>
+
+ <numbered_4_para_fl>immediately before Completion, no person <? if(data._other_new_investors){?>(except an Other New Investor) <?}?>has the right (whether exercisable now or in the future and whether contingent or not) to call for the allotment, issue, sale or transfer of any share or loan capital of the Company under any option or other agreement (including conversion rights), and there are no claims, charges, liens, equities or encumbrances on the shares of the Company;</numbered_4_para_fl>
+
+
+ <c_left_sidehead>Supply of Information</c_left_sidehead>
+ <numbered_4_para_fl>all information contained in this Agreement (including the information set out in Schedules) and all other information which has been given by or on behalf of the Company or by any of the directors, officials or professional advisers of the Company to any of the directors, officials or professional advisers of the Investor in the course of the negotiations leading to this Agreement was when given true, complete and accurate in all respects and the Company is not aware of any fact or matter or circumstances not disclosed in writing to the Investor which renders any such information untrue, inaccurate or misleading or the disclosure of which might reasonably affect the willingness of the Investor to purchase the Subscription Shares or the price at or terms upon which the Investor would be willing to purchase them;</numbered_4_para_fl>
+
+ <numbered_4_para_fl>the copies of the Articles, the Shareholders Agreement, the <?=data.other_agreement_title?>, and the <?=data.jfdi_investment_agreement_title?> delivered to the Investor are complete and accurate in all respects, and contain full details of the rights and restrictions attached to the share capital of the Company and have attached to them copies of all such resolutions and agreements as are required by law to be delivered to the Accounting and Corporate Regulatory Authority for filing and all other resolutions passed by the Company;</numbered_4_para_fl>
+
+ <c_left_sidehead>Assets and Finance</c_left_sidehead>
+ <numbered_4_para_fl>as at Completion, all charges and other security issued by the Company have been duly released and none of the assets of the Company is the subject of any option, right to acquire, assignment, mortgage, charge, lien or hypothecation or other encumbrance whatsoever (excepting only liens arising by operation of law in the normal course of trading) or the subject of any factoring arrangement, hire-purchase, conditional sale or credit sale agreement;</numbered_4_para_fl>
+
+ <c_left_sidehead>Compliance with Laws</c_left_sidehead>
+ <numbered_4_para_fl>the Company has carried on its business in accordance with applicable laws, regulations and bylaws in Singapore and in any relevant foreign country and there is no investigation or enquiry by, or order, decree or judgment of, any court or any governmental agency or regulatory body outstanding or anticipated against the Company which may have a material adverse effect upon its assets or business;</numbered_4_para_fl>
+ <numbered_4_para_fl>all statutory, municipal and other licences, consents, permits and authorities necessary or desirable for the carrying on of the business of the Company as now carried on have been obtained and are valid and subsisting and all conditions applicable to any such licence, consent (including any planning consent) permit or authority have been complied with and none of such licences, consents, permits or authorities has been breached or is likely to be suspended, cancelled, refused or revoked;</numbered_4_para_fl>
+ <numbered_4_para_fl>the Company is not at present engaged whether as plaintiff or defendant or otherwise in any legal action, proceedings or arbitration nor is the Company being prosecuted for any criminal offence and there are no such proceedings or prosecutions pending or threatened;</numbered_4_para_fl>
+ <numbered_4_para_fl>there are no investigations, disciplinary proceedings or other circumstances likely to lead to any such claim or legal action, proceedings or arbitration (other than as aforesaid) or prosecution;</numbered_4_para_fl>
+
+
+ <c_left_sidehead>Employees</c_left_sidehead>
+ <numbered_4_para_fl>there are no amounts owing to any present or former directors or employees of the Company other than remuneration accrued due or for the reimbursement of business expenses and no directors or employees of the Company have given or been given notice terminating their contracts of employment;</numbered_4_para_fl>
+
+ <c_left_sidehead>Taxation</c_left_sidehead>
+ <numbered_4_para_fl>all returns, computations and notices which are or have been required to be made or given by the Company for any taxation purpose</numbered_4_para_fl>
+ <numbered_5_para_fltab>have been made or given within the requisite periods and on a proper basis and are up-to-date and correct, and</numbered_5_para_fltab>
+ <numbered_5_para_fltab>none of them is, or is likely to be, the subject of any dispute with the Singapore taxation authorities;</numbered_5_para_fltab>
+ <numbered_4_para_fl>the Company has at all times since its incorporation been resident for taxation purposes in Singapore, and will be so resident at the Completion Date.</numbered_4_para_fl>
+
+
+
+ <b_left_sidehead xname="warranties_investor">Warranties by the Investor</b_left_sidehead>
+
+ <para_1>The Investor hereby represents and warrants to and undertakes with the Company at the date hereof and at the Completion Date as follows:</para_1>
+
+ <c_left_sidehead>Capacity and Title of the Investor</c_left_sidehead>
+ <numbered_4_para_fl>that it has full power and authority to enter into and perform this Agreement and this Agreement constitutes valid and binding obligations on the Investor, in accordance with its terms;</numbered_4_para_fl>
+ <numbered_4_para_fl>that the execution and delivery of, and the performance by the Investor of its obligations under, this Agreement will not:</numbered_4_para_fl>
+ <numbered_5_para_fltab>result in breach of any <?if(data.new_investor.party_type=="company"){?>provision of its Articles or any other <?}?>agreement by which it is bound; or</numbered_5_para_fltab>
+ <numbered_5_para_fltab>result in a breach of any order, judgment or decree of any court, governmental agency or regulatory body to which the Investor is a party or by which the Investor is bound;</numbered_5_para_fltab>
+
+
+ <c_left_sidehead>Securities Law Compliance</c_left_sidehead>
+ <numbered_4_para_fl>that it <?if(data.new_investor.party_type=="company" && ! data.new_investor.spv_ok && ! data.spv_ok){?>has not been formed solely for the purpose of making this investment and <?}?>is purchasing the Subscription Shares to be acquired by the Investor hereunder for its own account for investment, not as a nominee or agent, and not with a view to, or for resale in connection with, the distribution thereof, and the Investor has no present intention of selling, granting any participation in, or otherwise distributing the same. The Investor has such knowledge and experience in financial and business matters that the Investor is capable of evaluating the merits and risks of such investment, is able to incur a complete loss of such investment without impairing the Investor's financial condition and is able to bear the economic risk of such investment for an indefinite period of time;</numbered_4_para_fl>
+
+
+ <c_left_sidehead>Access to Information</c_left_sidehead>
+ <numbered_4_para_fl>that it acknowledges that the Company has offered the Investor access to the corporate records and accounts of the Company and to all information in its possession relating to the Company, has made its officers and representatives available for interview by the Investor, and has furnished the Investor with all documents and other information required for the Investor to make an informed decision with respect to the purchase of the Subscription Shares; and</numbered_4_para_fl>
+
+ <c_left_sidehead>No Public Market</c_left_sidehead>
+ <numbered_4_para_fl>that it understands that no public market now exists for any of the securities issued by the Company, and that the Company has made no assurances that a public market will ever exist for the securities.</numbered_4_para_fl>
+
+ <b_left_sidehead>Termination</b_left_sidehead>
+ 
+ <numbered_3_para_fl>If prior to Completion it shall be found that any of the representations, warranties and undertakings contained in this Agreement on the part of the Company have not been carried out or complied with to the Investor's reasonable satisfaction,</numbered_3_para_fl>
+ <para_2>the Investor shall be entitled by notice in writing to the Company to terminate this Agreement,</para_2>
+ <para_2>but the occurrence of such an event shall not give rise to any right to damages or compensation to any Party.</para_2>
+
+
+ <b_left_sidehead xname="indemnity">Indemnity</b_left_sidehead>
+ <numbered_3_para_fl>The Company hereby covenants with the Investor to indemnify and save harmless the Investor from and against any and all Losses which the Investor may incur or suffer as a result of or arising out of a breach or breaches of the representations, warranties and undertakings contained in this Agreement on the part of the Company.</numbered_3_para_fl>
+ <numbered_3_para_fl>The maximum aggregate liability of the Company with respect to the Investor under this Clause <xref to="indemnity"/> shall not exceed the Subscription Price the Investor actually paid to the Company pursuant to this Agreement, and notwithstanding anything to the contrary contained in this Agreement, the Company shall not be liable for any Loss, and will not have any indemnity obligation, with respect to</numbered_3_para_fl>
+ <numbered_4_para_fltab>any indirect, special, incidental, consequential, or punitive damages, or any claim for lost profits, or</numbered_4_para_fltab>
+ <numbered_4_para_fltab>any Losses directly resulting from the gross negligence or wilful misconduct of the Investor.</numbered_4_para_fltab>
+ <numbered_3_para_fl>The Investor hereby covenants with the Company to indemnify and save harmless the Company from and against any and all Losses which the Company may incur or suffer as a result of or arising out of a breach or breaches of the representations, warranties and undertakings contained in this Agreement on the part of the Investor. Notwithstanding anything to the contrary contained in this Agreement, the Investor shall not be liable for any Losses, and will not have any indemnity obligation, with respect to</numbered_3_para_fl>
+ <numbered_4_para_fltab>any indirect, special, incidental, consequential, or punitive damages, or</numbered_4_para_fltab>
+ <numbered_4_para_fltab>any Losses directly resulting from the gross negligence or wilful misconduct of the Company or any of its respective directors, officers, employees or agents.</numbered_4_para_fltab>
+
+
+ <a_left_sidehead xname="confidentiality">Confidentiality</a_left_sidehead>
+ <numbered_2_para xname="secret">Each Party to this Agreement agrees to keep strictly secret and confidential, and under no circumstances to disclose to any person or entity which is not named in this Agreement, any confidential information arising from or in connection with this Agreement unless disclosure of such information is expressly permitted by the prior written consent in writing of the other parties.</numbered_2_para>
+ <numbered_2_para>Notwithstanding Clause <xref to="secret"/>, the confidentiality obligation shall not apply to:---</numbered_2_para>
+ <numbered_3_para>any information obtained from any party hereto which becomes generally known to the public, other than by reason of any wilful or negligent act or omission of any party hereto or any of its agents, advisers, directors, officers, employees or representatives;</numbered_3_para>
+ <numbered_3_para>any information which is required to be disclosed pursuant to any applicable laws or to any competent governmental or statutory authority or pursuant to rules or regulations of any relevant regulatory, administrative or supervisory body (including, without limitation, any relevant stock exchange or securities council);</numbered_3_para>
+ <numbered_3_para>any information disclosed by any of the parties to their respective bankers, financial advisers, consultants and legal or other advisers for the purposes of this Agreement; and</numbered_3_para>
+ <numbered_3_para>disclosure by the Company of the fact of the investment and the identity of the parties to this Agreement, but not of the dollar amounts involved.</numbered_3_para>
+
+
+ <a_left_sidehead>General</a_left_sidehead>
+
+ <b_left_sidehead>Whole Agreement</b_left_sidehead>
+ <para_1>This Agreement and the Deed of Ratification and Accession set forth the entire agreement and understanding between the parties or any of them in connection with the matters dealt with and described herein.</para_1>
+ <b_left_sidehead>Remedies</b_left_sidehead>
+ <para_1>Each of the Party's rights and remedies contained in this Agreement are cumulative and not exclusive of rights or remedies provided by law.</para_1>
+ <b_left_sidehead>Indulgence, Waiver etc</b_left_sidehead>
+ <para_1>The failure to exercise or delay in exercising a right or remedy provided by this Agreement or by law does not impair or constitute a waiver of the right or remedy or an impairment of or a waiver of other rights or remedies. No single or partial exercise of a right or remedy provided by this Agreement or by law prevents further exercise of the right or remedy or the exercise of another right or remedy.</para_1>
+ <b_left_sidehead>Acknowledgement of Understanding</b_left_sidehead>
+ <para_1>Each Party to this Agreement confirms that it fully understands the nature and consequences of this Agreement, and that it has had the opportunity to seek independent legal advice relating to all the matters provided for in this Agreement.</para_1>
+ <b_left_sidehead>Continuing Effect</b_left_sidehead>
+ <para_1>All provisions of this Agreement shall so far as they are capable of being performed or observed continue in full force and effect notwithstanding Completion except in respect of those matters then already performed.</para_1>
+ <b_left_sidehead>Successors and Assigns</b_left_sidehead>
+ <para_1>This Agreement is personal to the Parties. Accordingly, neither Party may, without the prior written consent of the other Party, assign, hold on trust or otherwise transfer the benefit of all or any of the other Party's obligations under this Agreement, or any benefit arising under or out of this Agreement.</para_1>
+ <b_left_sidehead>Third Party Rights</b_left_sidehead>
+ <para_1>A person who is not a party to this Agreement has no right under the Contracts (Rights of Third Parties) Act, Chapter <span_smallcaps>53B</span_smallcaps> of Singapore to enforce any term of this Agreement.</para_1>
+ <b_left_sidehead>Variation</b_left_sidehead>
+ <para_1>No variation nor any further promise or agreement in connection with the subject matter of this Agreement is binding upon any Party unless made in writing, signed by the Parties or the respective authorised representatives of the Parties.</para_1>
+ <b_left_sidehead>Costs</b_left_sidehead>
+ <para_1>Each Party shall bear its own costs and expenses in respect of the preparation, negotiations, finalisation and execution of this Agreement and the other agreements or documents contemplated herein.</para_1>
+ <b_left_sidehead xname="notices">Notices</b_left_sidehead>
+ <numbered_3_para_fl>Any notice or request with reference to this Agreement shall be deemed to have been sufficiently served or given for all purposes herein:</numbered_3_para_fl>
     <numbered_4_para_fltab>if delivered personally, on the date of despatch;</numbered_4_para_fltab>
     <numbered_4_para_fltab>in the case of domestic mail, if transmitted by prepaid registered mail, on the date two days after posting;</numbered_4_para_fltab>
     <numbered_4_para_fltab>in the case of international mail, if transmitted by prepaid registered air-mail, on the date seven days after posting; and</numbered_4_para_fltab>
     <numbered_4_para_fltab>if transmitted by electronic mail, on the date of the transmission,</numbered_4_para_fltab>
     <para_1>whichever shall first occur.</para_1>
+
+	<numbered_3_para_fl>Any Party may change its mailing address or email address for the purposes of this Clause <xref to="notices"/> by written notice to the other Party.</numbered_3_para_fl>
+
     <b_left_sidehead>Payments</b_left_sidehead>
     <para_1>All payments made by any Party under this Agreement shall be made gross, free of right of counterclaim or set off and without deduction or withholding of any kind other than any deductions or withholding required by law.</para_1>
+	
     <b_left_sidehead>Severability</b_left_sidehead>
     <para_1>The invalidity or unenforceability of any provisions of this Agreement shall not affect the validity or enforceability of any other provision of this Agreement, which shall remain in full force and effect.</para_1>
+	
     <b_left_sidehead>No Partnership</b_left_sidehead>
     <para_1>Save as specifically provided, none of the provisions herein shall be deemed to constitute a partnership between the parties and none of them shall have authority to bind the others in any way other than as expressly provided herein.</para_1>
+	
     <b_left_sidehead>Counterparts</b_left_sidehead>
-    <para_1>This Agreement may be executed in any number of counterparts, each of which when executed and delivered is an original and all of which together evidence the same agreement..</para_1>
-    <b_left_sidehead xname="medarb">Governing Law and Arbitration</b_left_sidehead>
-  <?!= include("inc_mediation_arbitration", data, { numbering_level: 3 }) ?>
+    <para_1>This Agreement may be executed in any number of counterparts, each of which when executed and delivered is an original and all of which together evidence the same agreement.</para_1>
 
-    <chapter_header>SCHEDULE 1</chapter_header>
-    <centered>PARTICULARS OF THE COMPANY</centered>
-    <noindent>Registration Number			:</noindent>
-    <noindent>Registered Office				:</noindent>
-    <noindent>Date of Incorporation			:</noindent>
-    <noindent>Issued and Fully Paid Up Share Capital</noindent>
-    <noindent>as at the date of this Agreement		:</noindent>
-    <noindent>Shareholders and shares held as at the date</noindent>
-    <noindent>of this Agreement				:	See Schedule 2</noindent>
-    <noindent>Directors					:</noindent>
-    <chapter_header>SCHEDULE 2</chapter_header>
-    <centered>Shareholders Prior To The Date Of This Agreement</centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered></centered>
-    <centered>Shareholders Subsequent To Completion</centered>
-    <centered></centered>
-    <chapter_header>SCHEDULE 3</chapter_header>
-    <centered>Particulars Of The Founders</centered>
- </table_enclosing_para>
+    <b_left_sidehead xname="medarb">Governing Law and Arbitration</b_left_sidehead>
+  <?!= include("inc_mediation_arbitration", data, { para_style: "numbered_3_para_fl" }) ?>
+
+<schedule_header>Details of the Company</schedule_header>
+<p><Table aid:table="table" aid:tcols="2" aid:trows="7" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell><?= data.company.idtype ?>:</cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="240" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><span_ucnum><?= data.company.id ?></span_ucnum></cell_fl></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>Registered Office:</cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="240" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.company.address ?></cell_fl></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>Date and Place of Incorporation:</cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="240" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.company.date_of_incorporation ?> in <?= data.company.state ?></cell_fl></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>Directors:</cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="240" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.parties.director.map(function(p){return p.name}).join("\n") ?></cell_fl></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>Secretary:</cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="240" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.parties.corporate_secretary.map(function(p){return p.name}).join("\n") ?></cell_fl></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>Auditors:</cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="240" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.parties.auditor ? data.parties.auditor.map(function(p){return p.name}).join("\n") : "Exempt from statutory auditing requirements" ?></cell_fl></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>Accounting Reference Date:</cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="240" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.company.accounting_reference_date || "December 31" ?></cell_fl></Cell>
+</Table></p>
+
+<schedule_header xname="schedule_shareholding">Shareholding Structure</schedule_header>
+
+<schedule_parts>Existing Shareholders</schedule_parts>
+<? for (var i = 0; i < data.parties.shareholder.length; i++) { var myShareholder = data.parties.shareholder[i]; ?>
+<bullets><?= newlinesToCommas(myShareholder.name) ?> holds <?= digitCommas_(myShareholder.num_shares) ?> ordinary shares and <?= digitCommas_(myShareholder.f_unrestricted + myShareholder.f_restricted) ?> Class F preference shares.</bullets>
+<? } ?>
+
+<schedule_parts xname="new_investors">New Investors</schedule_parts>
+<para_1>The investors named in this Part shall be considered "Other New Investors" for the purposes of Clause <xref to="warranties_company"/>.</para_1>
+
+<? for (var i = 0; i < data.parties.new_investor.length; i++) {
+  var myShareholder = data.parties.new_investor[i];
+  if (myShareholder == data.new_investor) { continue }
+?>
+<bullets><?= newlinesToCommas(myShareholder.name) ?> is party to an agreement similar to this one, and is expected to hold <?= digitCommas_(myShareholder.num_shares) ?> ordinary shares upon completion of that agreement.</bullets>
+<? } ?>
+
+
+<?if (data.parties.pending_investor){?>
+<b_left_sidehead_nonum>Pending Investors</b_left_sidehead_nonum>
+<? for (var i = 0; i < data.parties.pending_investor.length; i++) { var myShareholder = data.parties.pending_investor[i]; ?>
+<bullets><?= newlinesToCommas(myShareholder.name) ?> may in the future become a shareholder.</bullets>
+<? } ?>
+<?}?>
+	
+</Story_Main>
 </Root>

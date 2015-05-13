@@ -48,7 +48,7 @@
 
 <Story_Main>
 <chapter_header>Deed of Ratification and Accession</chapter_header>
-<para_1><span_smallcaps>This deed</span_smallcaps> is made on <?= data.agreement_date ?> between</para_1>
+<para_1><span_smallcaps>This deed</span_smallcaps> is made on <?= data.agreement_date || '<textvar name="Output Date" />' ?> between</para_1>
 
 <parties><?!= include("inc_party", data, data.company) ?> (the "Company");</parties>
 
@@ -71,7 +71,7 @@
    }
    data._subscription_agreement_dates = commaAnd(data._subscription_agreement_dates);
  ?>
-<recitals>A shareholders' agreement was entered into on <?= data.previous_shareholder_agreement_date ?> by and among the Current <?= plural(data.parties.shareholder, "Shareholder") ?> and the Company (as may have been modified, amended or supplemented from time to time) (the "Shareholders' Agreement"), a copy of which the New <?= plural(data.parties.new_investor, "Shareholder") ?> hereby <?= plural_verb(data.parties.new_investor, "confirms") ?> that <?= plural(data.parties.new_investor, "it has been", "they have been") ?> supplied with and <?= plural_verb(data.parties.new_investor, "acknowledges") ?> the terms therein.</recitals>
+<recitals>A shareholders' agreement was entered into on <?= data.previous_shareholder_agreement_date || data.shareholders_agreement_date ?> by and among the Current <?= plural(data.parties.shareholder, "Shareholder") ?> and the Company (as may have been modified, amended or supplemented from time to time) (the "Shareholders' Agreement"), a copy of which the New <?= plural(data.parties.new_investor, "Shareholder") ?> hereby <?= plural_verb(data.parties.new_investor, "confirms") ?> that <?= plural(data.parties.new_investor, "it has been", "they have been") ?> supplied with and <?= plural_verb(data.parties.new_investor, "acknowledges") ?> the terms therein.</recitals>
 <recitals>The New <?= plural(data.parties.new_investor, "Shareholder") ?> <?= plural_verb(data.parties.new_investor, "is") ?> or will be issued <?= commaAnd(data._new_security_issues) ?> <?= data.security_type ?><?= data.parties.new_investor.length==1 ? " " : " respectively " ?>("New Shares") in the capital of the Company by virtue of <?= plural(data.parties.new_investor, "subscription agreement") ?> dated <?= data._subscription_agreement_dates ?>.</recitals>
 <recitals>In accordance with the provisions of the Shareholders' Agreement, it is a condition precedent to the registration by the Company of the issuance and allotment to the New <?= plural(data.parties.new_investor, "Shareholder") ?> of the New Shares that the New <?= plural(data.parties.new_investor, "Shareholder") ?> execute this Deed.</recitals>
 <para_1><span_smallcaps>Now this deed witnesseth</span_smallcaps> as follows:</para_1>
@@ -85,8 +85,8 @@
 <para_1>This Deed shall hereafter be read and construed in conjunction and as one document with the Shareholders' Agreement and references in the Shareholders' Agreement to "the Agreement" or "this Agreement", and references in all other instruments and documents executed thereunder or pursuant thereto to the Shareholders' Agreement, shall for all purposes refer to the Shareholders' Agreement incorporating and as supplemented by this Deed.  Except to the extent that it is expressly amended by this Deed, the Shareholders' Agreement and all other documents or instruments executed pursuant to, or in connection with, the Shareholders' Agreement shall remain in full force and effect.</para_1>
 <a_left_sidehead>Execution of Deed</a_left_sidehead>
 <para_1>This Deed may be executed in any number of counterparts, all of which taken together shall constitute one and the same instrument.  Any party may enter into this Deed by signing any such counterpart.</para_1>
-<a_left_sidehead>Governing Law and Jurisdiction</a_left_sidehead>
-<para_1>This Deed shall be governed by, and construed in accordance with, the laws of Singapore.  In relation to any legal action or proceedings arising out of or in connection with this Agreement, each of the parties hereto hereby irrevocably submits to the non-exclusive jurisdiction of the courts of Singapore.</para_1>
+<a_left_sidehead xname="medarb">Governing Law and Jurisdiction</a_left_sidehead>
+  <?!= include("inc_mediation_arbitration", data, { para_style: "para_1", agreement_or_deed: "Deed" }) ?>
 
 <schedule_header>Current Shareholders</schedule_header>
 <p>
