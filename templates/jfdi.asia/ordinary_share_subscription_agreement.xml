@@ -1,8 +1,8 @@
 <?!= data.xmlRoot() ?>
 <?!= include("inc_cover_2_parties", data, {cover_title:"Ordinary Share Subscription Agreement", party1:data.company, party2:data.new_investor}) ?>
 <?!= include("inc_cover_jfdi", data) ?>
-<? data._total_new_shares_ =              data.parties.new_investor.map(function(p){return p.num_new_shares}).reduce(function(a,b){return a+b}, 0); ?>
-<? data._total_new_shares  = digitCommas_(data._total_new_shares_); ?>
+<? data._total_new_shares_ =              data.parties.new_investor.map(function(p){return Number(p.num_new_shares)}).reduce(function(a,b){return a+b}, 0); ?>
+<? data._total_new_shares  = digitCommas_(data._total_new_shares_, 0); ?>
 <? Logger.log("about to sum across %s", data.parties.new_investor.map(function(p){return p.new_commitment || p.commitment})); ?>
 <? var mysum = data.parties.new_investor.map(function(p){return Number((p.new_commitment||p.commitment).replace(/[^\d\.]+/g,""))}).reduce(function(a,b){return a+b}); ?>
 <? Logger.log("sum = %s", mysum); ?>
@@ -36,13 +36,16 @@
 <?}?>
 <?if(data.other_agreement_title){?>
 <definition_nonum><?= data.other_agreement_title ?>	means the <?= data.other_agreement_title.match(/s$/) ? "Agreements" : "Agreement" ?> dated on or about <?= data.other_agreement_date ?> between <?= data.other_agreement_parties ?> and the Company;</definition_nonum>
+<?    if(data.other_agreement_parties.match(/Founder/)) { ?>
+<definition_nonum>Founders	means <?= commaAnd(data.parties.founder.map(function(p){return p.name})) ?>;</definition_nonum>
+<?    } ?>
 <?}?>
 <definition_nonum>Ordinary Shares	means the ordinary voting shares in the capital of the Company;</definition_nonum>
 <? if (data.parties.new_investor.length > 1 || data.parties.pending_investor) { data._other_new_investors = true; ?>
 <definition_nonum>Other New Investors	means the parties thus identified in <xref to="new_investors" /> of <xref to="schedule_shareholding" />;</definition_nonum>
 <? }?>
 <definition_nonum>Shareholders	mean the shareholders for the time being of the Company;</definition_nonum>
-<definition_nonum>Shareholders Agreement	means the Shareholders Agreement dated <?= data.shareholders_agreement_date ?>;</definition_nonum>
+<definition_nonum>Shareholders' Agreement	means the Shareholders' Agreement dated <?= data.shareholders_agreement_date ?>;</definition_nonum>
 <definition_nonum>Subscription Price	has the meaning given to it in Clause <xref to="subscription_price"/>;</definition_nonum>
 <definition_nonum>Subscription Shares	means <?= data.new_investor.num_new_shares ?> Ordinary Shares to be subscribed by the Investor, and to be allotted and issued by the Company pursuant to Clause <xref to="terms_of_issue" /></definition_nonum>
 <definition_nonum>Surviving Clauses	means Clauses <xref to="indemnity" format="Paragraph Number (text)" />, <xref to="confidentiality" format="Paragraph Number (text)" />, and <xref to="medarb" format="Paragraph Number (text)" />.</definition_nonum>
@@ -106,18 +109,20 @@ shall be fully-paid by the Investor at the time of issue by the Company in accor
    <numbered_6_para>the entry of the name of the Investor in the register of members of the Company as the registered holder of the Subscription Shares;</numbered_6_para>
    <numbered_6_para>the issue and delivery to the Investor of a share certificate for its number of Subscription Shares; and</numbered_6_para>
    <numbered_6_para>the execution by the Company of this Agreement.</numbered_6_para>
- <numbered_4_para>effect the allotment and issue of the Subscription Shares to the Investor, including  the entry of the name of the Investor in the register of members of the Company as the registered holder of the Subscription Shares and the issue and delivery to the Investor of a share certificate for its number of Subscription Shares.</numbered_4_para>
+ <numbered_4_para>effect the allotment and issue of the Subscription Shares to the Investor, including the entry of the name of the Investor in the register of members of the Company as the registered holder of the Subscription Shares and the issue and delivery to the Investor of a share certificate for its number of Subscription Shares.</numbered_4_para>
 
 <numbered_3_para xname="completion_investor">On Completion, the Investor shall:</numbered_3_para>
- <numbered_4_para>subscribe for the Subscription Shares;</numbered_4_para>
 <?if(! data.previously_paid){?>
  <numbered_4_para>pay the Subscription Price to the Company by transfer to the Company's account set out below:</numbered_4_para>
   <numbered_5_para>Name of Account: </numbered_5_para>
   <numbered_5_para>Account Number: </numbered_5_para>
   <numbered_5_para>Bank Name: </numbered_5_para>
 <?}?>
-
+<?if(!data.skip_dora){?>
  <numbered_4_para>deliver to the Company an executed Deed of Ratification and Accession to the Shareholders' Agreement.</numbered_4_para>
+<?}?>
+
+<?if(data.skip_dora && data.previously_paid){?><numbered_4_para>not need to do anything.</numbered_4_para><?}?>
 
  <b_left_sidehead xname="terminate">Right to Terminate</b_left_sidehead>
  <para_1>If any of the documents required to be delivered or any condition to be fulfilled by any party on the Completion Date is not forthcoming or fulfilled for any reason or if in any other respect the foregoing provisions of this Clause <xref to="completion"/> are not fully complied with by any Party, such occurrence shall not give rise to any right to damages or compensation to any Party except that the Party not in default shall be entitled:</para_1>
@@ -157,7 +162,7 @@ shall be fully-paid by the Investor at the time of issue by the Company in accor
  <c_left_sidehead>Supply of Information</c_left_sidehead>
  <numbered_4_para_fl>all information contained in this Agreement (including the information set out in Schedules) and all other information which has been given by or on behalf of the Company or by any of the directors, officials or professional advisers of the Company to any of the directors, officials or professional advisers of the Investor in the course of the negotiations leading to this Agreement was when given true, complete and accurate in all respects and the Company is not aware of any fact or matter or circumstances not disclosed in writing to the Investor which renders any such information untrue, inaccurate or misleading or the disclosure of which might reasonably affect the willingness of the Investor to purchase the Subscription Shares or the price at or terms upon which the Investor would be willing to purchase them;</numbered_4_para_fl>
 
- <numbered_4_para_fl>the copies of the Articles, the Shareholders Agreement, the <?=data.other_agreement_title?>, and the <?=data.jfdi_investment_agreement_title?> delivered to the Investor are complete and accurate in all respects, and contain full details of the rights and restrictions attached to the share capital of the Company and have attached to them copies of all such resolutions and agreements as are required by law to be delivered to the Accounting and Corporate Regulatory Authority for filing and all other resolutions passed by the Company;</numbered_4_para_fl>
+ <numbered_4_para_fl>the copies of the Articles, the Shareholders' Agreement, the <?=data.other_agreement_title?>, and the <?=data.jfdi_investment_agreement_title?> delivered to the Investor are complete and accurate in all respects, and contain full details of the rights and restrictions attached to the share capital of the Company and have attached to them copies of all such resolutions and agreements as are required by law to be delivered to the Accounting and Corporate Regulatory Authority for filing and all other resolutions passed by the Company;</numbered_4_para_fl>
 
  <c_left_sidehead>Assets and Finance</c_left_sidehead>
  <numbered_4_para_fl>as at Completion, all charges and other security issued by the Company have been duly released and none of the assets of the Company is the subject of any option, right to acquire, assignment, mortgage, charge, lien or hypothecation or other encumbrance whatsoever (excepting only liens arising by operation of law in the normal course of trading) or the subject of any factoring arrangement, hire-purchase, conditional sale or credit sale agreement;</numbered_4_para_fl>
@@ -230,7 +235,8 @@ shall be fully-paid by the Investor at the time of issue by the Company in accor
  <a_left_sidehead>General</a_left_sidehead>
 
  <b_left_sidehead>Whole Agreement</b_left_sidehead>
- <para_1>This Agreement and the Deed of Ratification and Accession set forth the entire agreement and understanding between the parties or any of them in connection with the matters dealt with and described herein.</para_1>
+ <para_1>This Agreement<?if(!data.skip_dora){?>, the Deed of Ratification and Accession,<?}?> and the Shareholders' Agreement together set forth the entire agreement and understanding between the parties or any of them in connection with the matters dealt with and described herein.</para_1>
+ <?if(data.whole_agreement_extra){?><para_1><?= data.whole_agreement_extra ?></para_1><?}?>
  <b_left_sidehead>Remedies</b_left_sidehead>
  <para_1>Each of the Party's rights and remedies contained in this Agreement are cumulative and not exclusive of rights or remedies provided by law.</para_1>
  <b_left_sidehead>Indulgence, Waiver etc</b_left_sidehead>
@@ -294,17 +300,20 @@ shall be fully-paid by the Investor at the time of issue by the Company in accor
 
 <schedule_parts>Existing Shareholders</schedule_parts>
 <? for (var i = 0; i < data.parties.shareholder.length; i++) { var myShareholder = data.parties.shareholder[i]; ?>
-<bullets><?= newlinesToCommas(myShareholder.name) ?> holds <?= digitCommas_(myShareholder.num_shares) ?> ordinary shares and <?= digitCommas_(myShareholder.f_unrestricted + myShareholder.f_restricted) ?> Class F preference shares.</bullets>
+<bullets><?= newlinesToCommas(myShareholder.name) ?> holds <?= digitCommas_(myShareholder.num_shares, 0) ?> ordinary shares and <?= digitCommas_(myShareholder.f_unrestricted + myShareholder.f_restricted, 0) ?> Class F preference shares.</bullets>
 <? } ?>
 
 <schedule_parts xname="new_investors">New Investors</schedule_parts>
-<para_1>The investors named in this Part shall be considered "Other New Investors" for the purposes of Clause <xref to="warranties_company"/>.</para_1>
+
+<?if(data._other_new_investors){?>
+
+<para_1>Investors named in this Part shall be considered "Other New Investors" for the purposes of Clause <xref to="warranties_company"/>.</para_1>
 
 <? for (var i = 0; i < data.parties.new_investor.length; i++) {
   var myShareholder = data.parties.new_investor[i];
   if (myShareholder == data.new_investor) { continue }
 ?>
-<bullets><?= newlinesToCommas(myShareholder.name) ?> is party to an agreement similar to this one, and is expected to hold <?= digitCommas_(myShareholder.num_shares) ?> ordinary shares upon completion of that agreement.</bullets>
+<bullets><?= newlinesToCommas(myShareholder.name) ?> is party to an agreement similar to this one, and is expected to hold <?= digitCommas_(myShareholder.num_new_shares || myShareholder.num_shares, 0) ?> ordinary shares upon completion of that agreement.</bullets>
 <? } ?>
 
 
@@ -314,6 +323,9 @@ shall be fully-paid by the Investor at the time of issue by the Company in accor
 <bullets><?= newlinesToCommas(myShareholder.name) ?> may in the future become a shareholder.</bullets>
 <? } ?>
 <?}?>
-	
+
+<?}else{?><para_1>There are no Other New Investors.</para_1>
+<?}?>
+
 </Story_Main>
 </Root>

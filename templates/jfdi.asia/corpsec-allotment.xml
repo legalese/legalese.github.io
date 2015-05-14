@@ -6,8 +6,8 @@
 <sidebar><?= data.company.idtype ?> <span_ucnum><?= data.company.id ?></span_ucnum></sidebar>
 <sidebar><?= data.company.address ?></sidebar>
 </Firstpage_Sidebar>
-<? data._total_new_shares_ =              data.parties.new_investor.map(function(p){return p.num_new_shares}).reduce(function(a,b){return a+b}, 0); ?>
-<? data._total_new_shares  = digitCommas_(data._total_new_shares_); ?>
+<? data._total_new_shares_ =              data.parties.new_investor.map(function(p){return Number(p.num_new_shares||p.num_shares)}).reduce(function(a,b){return a+b}, 0); ?>
+<? data._total_new_shares  = digitCommas_(data._total_new_shares_,0); ?>
 <? Logger.log("about to sum across %s", data.parties.new_investor.map(function(p){return p.new_commitment || p.commitment})); ?>
 <? var mysum = data.parties.new_investor.map(function(p){return Number((p.new_commitment||p.commitment).replace(/[^\d\.]+/g,""))}).reduce(function(a,b){return a+b}); ?>
 <? Logger.log("sum = %s", mysum); ?>
@@ -43,7 +43,7 @@ and we confirm that all is in order. </numbered_2_para>
 <Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= new_investor[i].name ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="76" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= new_investor[i].idtype ?> <span_ucnum><?= new_investor[i].id ?></span_ucnum></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= new_investor[i].address ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="90" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= digitCommas_(new_investor[i].num_new_shares) ?> <?= new_investor[i].share_type ||data.security_type_short_plural ?> for <?= new_investor[i].new_commitment || new_investor[i].commitment ?><?= new_investor[i].commitment_comment ? new_investor[i].commitment_comment : "" ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="90" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= digitCommas_(new_investor[i].num_new_shares||new_investor[i].num_shares, 0) ?> <?= new_investor[i].share_type ||data.security_type_short_plural ?> for <?= new_investor[i].new_commitment || new_investor[i].commitment ?><?= new_investor[i].commitment_comment ? new_investor[i].commitment_comment : "" ?></cell_c></Cell>
 <? } } ?>
 </Table>
 </para_1>

@@ -28,7 +28,7 @@
 
   <para_1>Whereas:</para_1>
 
-  <recitals>As at the date of this Agreement, the Company has an issued and paid-up share capital of <?= data.company.commitment ?> divided into <?= digitCommas_(data.company.num_shares) ?> Ordinary Shares. </recitals>
+  <recitals>As at the date of this Agreement, the Company has an issued and paid-up share capital of <?= data.company.commitment ?> divided into <?= digitCommas_(data.company.num_shares, 0) ?> Ordinary Shares. </recitals>
   <recitals>Pursuant to a Founder Agreement dated <?= data.founder_agreement_date ?>, and in conjunction with </recitals>
   <para_2>a "Class F Agreement" between the Founders and the Company, by which the Founders subscribe to Class F Preference Shares whose rights of redemption are governed by a vesting schedule described therein; and </para_2>
   <para_2>a "<?= data.security_type ?> Agreement" dated <?= data.investment_agreement_date ?>, by which the Investor shall become a shareholder upon <?= data.security_type_operation ?>; </para_2>
@@ -39,7 +39,7 @@
 <recitals>To regulate the relationship of the Parties inter se being present and prospective members of the Company, and the conduct of the business and affairs of the Company, <? if (data.parties.existing_investor && data.previously_incorporated && data.previous_investors && data.previous_incorporation_locale != "Singapore") { ?>
 and to protect the interests of the <?= plural(data.parties.existing_investor, "Existing Investor") ?> by ensuring fair representation in the Company, <? } ?>
 in the spirit of mutual confidence and co-operation, the Parties have agreed to enter into this Agreement on the terms and conditions hereinafter set out. </recitals>
-  <para_1>Now it is hereby agreed as follows:- </para_1>
+  <para_1>Now it is hereby agreed as follows:---</para_1>
   <a_left_sidehead>Definitions </a_left_sidehead>
   <para_1 override="keepWithNext=1">In this Agreement and in the Recitals abovementioned, unless the context otherwise requires:</para_1>
   <definition>Act	means the Singapore Companies Act (Cap. 50) and includes any provision thereof as from time to time modified or re-enacted; </definition>

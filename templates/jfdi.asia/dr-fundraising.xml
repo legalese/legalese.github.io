@@ -1,6 +1,14 @@
 <?!= include("inc_dr_start", data, { director_or_member:"Director", article_pursuant:data.article_for_directors_resolution_in_writing, r_num: 3, skip_resolved:true }) ?>
-<? data._total_new_shares_ =              data.parties.new_investor.map(function(p){return p.num_new_shares}).reduce(function(a,b){return a+b}, 0); ?>
-<? data._total_new_shares  = digitCommas_(data._total_new_shares_); ?>
+<? data._total_new_shares_ =              data.parties.new_investor.map(function(p){
+Logger.log("INFO: dr_fundraising: p.name=%s",p.name);
+Logger.log("INFO: dr_fundraising: p.num_new_shares=%s (%s)",p.num_new_shares,(p.num_new_shares==undefined?"undef":p.num_new_shares.constructor.name));
+Logger.log("INFO: dr_fundraising: p.num_shares=%s (%s)",p.num_shares,(p.num_shares==undefined?"undef":p.num_shares.constructor.name));
+var toreturn = Number(p.num_new_shares||p.num_shares);
+Logger.log("INFO: dr_fundraising: returning total_new_shares=%s",toreturn);
+return toreturn;
+}).reduce(function(a,b){return a+b}, 0); ?>
+<? data._total_new_shares  = digitCommas_(data._total_new_shares_, 0); ?>
+<? Logger.log("INFO: dr_fundraising: data._total_new_shares = %s",data._total_new_shares); ?>
 <? var mysum = data.parties.new_investor.map(function(p){return Number((p.new_commitment || p.commitment).replace(/[^\d\.]+/g,""))}).reduce(function(a,b){return a+b}); ?>
 <? data._total_commitment = asCurrency_(data.parties.new_investor[0]._format_commitment, mysum); ?>
 
@@ -30,7 +38,9 @@ the said <?= data.parties.director[data.signing_director_index||0].name ?> be au
 <numbered_2_para xname="signing_authority">the now twice-said <?= data.parties.director[data.signing_director_index||0].name ?> be authorised to do all acts or things necessary or desirable in connection with the foregoing including without limitation, signing and executing such documents or approving any modifications to such documents as he may deem necessary or expedient for the foregoing purpose and that the signing thereof by such director be conclusive of such approval.</numbered_2_para>
 
 <a_left_sidehead>Deed of Ratification and Accession</a_left_sidehead>
-
+<?if(data.skip_dora){?>
+<para_1>It is noted that a Deed of Ratification and Accession is not necessary in this instance as the Investor has previously executed the Shareholders' Agreement dated <?= data.previous_shareholder_agreement_date || data.shareholders_agreement_date ?> in anticipation of this issue.</para_1>
+<?}else{?>
 <b_left_sidehead_nonum>Whereas:---</b_left_sidehead_nonum>
 
 <numbered_2_para>A copy of the shareholders' agreement entered into on <?= data.previous_shareholder_agreement_date || data.shareholders_agreement_date ?> by and among the Current Shareholders and the Company (as modified, amended, or supplemented from time to time) (the "Shareholders' Agreement") has been supplied to the <?= plural(data.parties.new_investor, "Investor") ?>;
@@ -50,5 +60,5 @@ In accordance with the provisions of the Shareholders' Agreement, it is a condit
 <b_left_sidehead_nonum>It is hence resolved:---</b_left_sidehead_nonum>
 <numbered_2_para>that the Company execute a Deed of Ratification and Accession (the "Instrument") between the <?= plural(data.parties.new_investor, "Investor") ?>, the current Shareholders, and the Company; and
 that, pursuant to the authority granted in the aforementioned Resolution <xref to="signing_authority" />, the hand of the now thrice-above-named <?= data.parties.director[data.signing_director_index||0].name ?> be the instrument of the Company's abovementioned ratification of the abovementioned Instrument.</numbered_2_para>
-
+<?}?>
 <?!= include("inc_dr_end", data, { member_or_director: "Director" } ) ?>

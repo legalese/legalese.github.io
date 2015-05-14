@@ -50,7 +50,7 @@ I, the sole shareholder whose name, citizenship, and address are hereunto subscr
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= shareholder[i].state ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="76" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= shareholder[i].idtype ?> <span_ucnum><?= shareholder[i].id ?></span_ucnum></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="120" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= shareholder[i].address ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= digitCommas_(shareholder[i].num_shares) ?> ordinary shares for <?= shareholder[i].commitment ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= digitCommas_(shareholder[i].num_shares, 0) ?> ordinary shares for <?= shareholder[i].commitment ?></cell_c></Cell>
 <? } } ?>
 </Table>
 </table_enclosing_para>

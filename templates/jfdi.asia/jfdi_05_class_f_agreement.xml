@@ -58,11 +58,11 @@
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Monthly</cell></Cell>
 <? for (var i = 0; i<data.parties.founder.length; i++) { with(data.parties) { ?>
 <Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_fl><?= founder[i].name ?></cell_fl></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= digitCommas_(founder[i].num_shares) ?></cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= digitCommas_(founder[i].f_unrestricted) ?></cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= digitCommas_(founder[i].f_restricted) ?></cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= digitCommas_(founder[i].f_cliff) ?></cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= digitCommas_(founder[i].f_monthly) ?></cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= digitCommas_(founder[i].num_shares, 0) ?></cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= digitCommas_(founder[i].f_unrestricted, 0) ?></cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= digitCommas_(founder[i].f_restricted, 0) ?></cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= digitCommas_(founder[i].f_cliff, 0) ?></cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= digitCommas_(founder[i].f_monthly, 0) ?></cell></Cell>
 <? } } ?>
 </Table>
   </table_enclosing_para>

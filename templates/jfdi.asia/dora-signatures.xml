@@ -48,7 +48,7 @@
 
 <Story_Main>
 <chapter_header>Deed of Ratification and Accession</chapter_header>
-<para_1><span_smallcaps>This deed</span_smallcaps> is made on <?= data.agreement_date || '<textvar name="Output Date" />' ?> between</para_1>
+<para_1><span_smallcaps>This deed</span_smallcaps> is made on <?!= data.agreement_date || '<textvar name="Output Date" />' ?> between</para_1>
 
 <parties><?!= include("inc_party", data, data.company) ?> (the "Company");</parties>
 

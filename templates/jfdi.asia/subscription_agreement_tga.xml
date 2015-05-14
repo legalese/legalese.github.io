@@ -43,7 +43,7 @@
 <recitals>JFDI intends to offer its shareholders the benefit of participation in this round, by way of the pre-emptive rights held by JFDI.</recitals>
 <recitals>In other circumstances JFDI would transfer or assign its pre-emptive rights to any shareholders desirous of participating in TradeGecko's raise. In the current circumstances, however, JFDI proposes to hold TradeGecko's CPS in trust, using a special-purpose class of <i>TradeGecko-A preference shares</i> in JFDI ("TGA Shares") created for the purpose of representing TradeGecko's CPS. So the holders of TGA Shares will be beneficial owners of TradeGecko's CPS.</recitals>
 <recitals>Toward that end, the New Investor has agreed to subscribe for, and the Company has agreed to issue, TGA Shares on the terms and subject to the conditions described in this Agreement.</recitals>
-<recitals>To wit, in short, <?= data.new_investor.name ?> is to purchase approximately <?= digitCommas_(data.new_investor.num_new_shares) ?> TGA Shares at <?= data.price_per_share ?> per share, for <?= data.new_investor.new_commitment ?> or approximately <?= data.new_investor.sgd_commitment ?>. (The exact amount depends on exchange rate fluctuations and will be advised by the Company in a subsequent email.)</recitals>
+<recitals>To wit, in short, <?= data.new_investor.name ?> is to purchase approximately <?= digitCommas_(data.new_investor.num_new_shares, 0) ?> TGA Shares at <?= data.price_per_share ?> per share, for <?= data.new_investor.new_commitment ?> or approximately <?= data.new_investor.sgd_commitment ?>. (The exact amount depends on exchange rate fluctuations and will be advised by the Company in a subsequent email.)</recitals>
 <para_1><span_smallcaps>It is agreed</span_smallcaps> as follows:</para_1>
 <a_left_sidehead>Interpretation</a_left_sidehead>
 
@@ -108,7 +108,7 @@
 
 <a_left_sidehead>Subscription</a_left_sidehead>
 <numbered_2_para>Subject to the terms and conditions of this Agreement, the New Investor shall subscribe and pay for, and the Company shall effect the issuance and allotment of, the Subscription Shares, free from all Encumbrances and together with all rights and advantages now and hereafter attaching thereto.
-The number of Subscription Shares shall be <?= digitCommas_(data.new_investor.num_new_shares) ?>.
+The number of Subscription Shares shall be <?= digitCommas_(data.new_investor.num_new_shares, 0) ?>.
 The Subscription Price of the Subscription Shares shall be <?= data.price_per_share ?> per TGAS (the same issue price per share as for the underlying TradeGecko CPS) or the equivalent in Singapore Dollars according to an exchange rate to be prescribed by the Company, making an aggregate Subscription Consideration of <?= data.new_investor.new_commitment ?>.</numbered_2_para>
 
 
