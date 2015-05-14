@@ -1,5 +1,13 @@
 #+TITLE: things todo
 
+* TODO fix the document numbering -- when there are more than 9 documents, the 1-9 don't get 0 prefixed, but 10 does, so you get 010 lol
+* TODO timezone support -- the indesign textvar for output date will run with SGT but maybe some users will generate spreadsheets in some other timezone.
+* TODO automatically record the dates that an agreement was executed
+there are two parts to this -- every agreement should have a unique variable name for its signing date.
+when an agreement is created, we should record that date as a provisional, right in the spreadsheet.
+when we notice that the e-signature system has recorded a signature complete state for the agreement, we promote the provisional to confirmed.
+
+i think the way to do this is we create a _provisional extension to each whatever_agreement_date.
 * TODO write simple user-facing onboarding
 
 ** NDA
@@ -19,6 +27,8 @@ how to draft and issue a basic director's resolution.
 ** members' resolutions
 a two-step workflow: drafting and issue a basic member's resolution by written means.
 
+* TODO write a module system so that common operations can be factored out
+like the share counting in the allocation and ordinary shares workflows.
 * TODO write simple developer-facing onboarding
 
 how to install the google app in your own spreadsheet
