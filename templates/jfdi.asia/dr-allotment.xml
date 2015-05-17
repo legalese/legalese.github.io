@@ -1,10 +1,13 @@
-<? data._total_new_shares = digitCommas_(data.parties.new_investor.map(function(p){return p.num_new_shares||p.num_shares}).reduce(function(a,b){return a+b}, 0)); ?>
 <?!= include("inc_dr_start", data, {
   director_or_member:"Director",
   article_pursuant:data.article_for_directors_resolution_in_writing,
   chapter_header:"Allotment of " + data.security_type_plural,
   r_num: 3 }) ?>
 <a_left_sidehead>Shares to be Issued</a_left_sidehead>
+<? data._total_new_shares = include("mod_party_sum", data, { partynames: "new_investor", attrs:"num_new_shares" }); ?>
+<? Logger.log("dr-allotment INFO: data._total_new_shares = %s",data._total_new_shares); ?>
+<? data._total_commitments = include("mod_party_sum", data, { partynames: "new_investor", attrs: "new_commitment" }); ?>
+<? Logger.log("dr-allotment INFO: data._total_commitments = %s",data._total_commitments); ?>
 <? if (data.share_issue_specialcase_text) { ?><para_1><?!= data.share_issue_specialcase_text ?></para_1><? } else { ?>
 <para_1>That pursuant to the authority given to the Directors <?
   if (data.egm_or_written_means == "EGM") { ?>at the Extraordinary General Meeting of <?= data.company.name ?> (the "Company") held on <?= data.gm_date ?>
@@ -25,7 +28,7 @@
 commaAnd((data.parties.promoter ? [data.parties.promoter[0].name] : []).concat(
 data.parties.new_investor.map(function(p){return p.name}))) ?>,</para_2>
 <? } ?>
-<para_2>the Company do hereby approve the allotment of <?= digitCommas_(data._total_new_shares, 0) ?> <?= data.security_type_plural ?> ("<?= data.security_type_short_plural ?>") in the share capital of the Company at <?= (data.sgd_price_per_share || data.price_per_share) ?> each for cash consideration as follows:</para_2>
+<para_2>the Company do hereby approve the allotment of <?= data._total_new_shares ?> <?= data.security_type_plural ?> ("<?= data.security_type_short_plural ?>") in the share capital of the Company at <?= (data.sgd_price_per_share || data.price_per_share) ?> each for cash consideration as follows:</para_2>
 <para_1>
 <Table aid:table="table" aid:tcols="3" aid:trows="<?= data.parties.new_investor.length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
 <Cell aid:ccols="1" aid:ccolwidth="150" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
@@ -36,7 +39,7 @@ data.parties.new_investor.map(function(p){return p.name}))) ?>,</para_2>
   data.parties.new_investor[i].new_commitment ? new_commitment :
   commitment; ?>
 <Cell aid:ccols="1" aid:ccolwidth="150" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= name ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="56" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= digitCommas_(data.parties.new_investor[i].num_new_shares?num_new_shares:num_shares, 0) ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="56" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= data.parties.new_investor[i].num_new_shares ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="80" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= my_commitment ?></cell_c></Cell>
 <? } } ?>
 </Table>

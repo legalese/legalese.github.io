@@ -1,24 +1,16 @@
 <?!= include("inc_dr_start", data, { director_or_member:"Director", article_pursuant:data.article_for_directors_resolution_in_writing, r_num: 3, skip_resolved:true }) ?>
-<? data._total_new_shares_ =              data.parties.new_investor.map(function(p){
-Logger.log("INFO: dr_fundraising: p.name=%s",p.name);
-Logger.log("INFO: dr_fundraising: p.num_new_shares=%s (%s)",p.num_new_shares,(p.num_new_shares==undefined?"undef":p.num_new_shares.constructor.name));
-Logger.log("INFO: dr_fundraising: p.num_shares=%s (%s)",p.num_shares,(p.num_shares==undefined?"undef":p.num_shares.constructor.name));
-var toreturn = Number(p.num_new_shares||p.num_shares);
-Logger.log("INFO: dr_fundraising: returning total_new_shares=%s",toreturn);
-return toreturn;
-}).reduce(function(a,b){return a+b}, 0); ?>
-<? data._total_new_shares  = digitCommas_(data._total_new_shares_, 0); ?>
+<? data._total_new_shares = include("mod_party_sum", data, { partynames: "new_investor", attrs: "num_new_shares"}); ?>
 <? Logger.log("INFO: dr_fundraising: data._total_new_shares = %s",data._total_new_shares); ?>
-<? var mysum = data.parties.new_investor.map(function(p){return Number((p.new_commitment || p.commitment).replace(/[^\d\.]+/g,""))}).reduce(function(a,b){return a+b}); ?>
-<? data._total_commitment = asCurrency_(data.parties.new_investor[0]._format_commitment, mysum); ?>
+<? data._total_commitments = include("mod_party_sum", data, { partynames: "new_investor", attrs: "new_commitment" }); ?>
+<? Logger.log("INFO: dr_fundraising: data._total_commitments = %s",data._total_commitments); ?>
 
 <a_left_sidehead>Issue of <?= data.security_type_plural ?></a_left_sidehead>
 
 <b_left_sidehead_nonum>Whereas:---</b_left_sidehead_nonum>
 
-<numbered_2_para>For the purpose of <?= data.fundraising_purpose || "raising working capital to serve the operational needs of the Company" ?>, the Company intends to <?= data.company_intends_to ? data.company_intends_to + " " : "" ?>issue <?=
-(data._total_new_shares != "NaN" && data._total_new_shares != undefined) ? data._total_new_shares :
-mysum ? data._total_commitment + " of" :
+<numbered_2_para>For the purpose of <?= data.fundraising_purpose || "raising working capital to serve the operational needs of the Company" ?>, the Company intends to <?= data.company_intends_to ? data.company_intends_to + " " : "" ?>issue <?= 
+(data._total_new_shares != "undefined") ? data._total_new_shares :
+data._total_commitments? data._total_commitments + " of" :
 "up to " + data.amount_raising + " of" ?> <?=data.security_type_plural?> ("<?=data.security_type_short_plural?>") <?
 if (data._origparties.company[0].name != data.company.name) {?> in the capital of <?=data._origparties.company[0].name ?> <?}?>
 to <?!= commaAnd(data.parties.new_investor,
