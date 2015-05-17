@@ -24,7 +24,7 @@
    data._subscription_agreement_dates_array = data._subscription_agreement_dates;
    data._subscription_agreement_dates = commaAnd(data._subscription_agreement_dates);
  ?>
-<para_2>and pursuant to the <?= data.agreement_name || "Subscription" ?> <?= plural(data._subscription_agreement_dates_array, "Agreement") ?> dated <?= data._subscription_agreement_dates ?> signed among the Company, <?=
+<para_2>and pursuant to the <?= data.security_type + (data.security_type.match(/Class F/, "i") ? "" : " Subscription") ?> <?= plural(data._subscription_agreement_dates_array, "Agreement") ?> dated <?= data._subscription_agreement_dates ?> signed among the Company, <?=
 commaAnd((data.parties.promoter ? [data.parties.promoter[0].name] : []).concat(
 data.parties.new_investor.map(function(p){return p.name}))) ?>,</para_2>
 <? } ?>
