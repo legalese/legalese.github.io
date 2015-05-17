@@ -38,7 +38,7 @@
   <para_1>Except where the context otherwise requires, references to any person include its successors and permitted assignees. Clauses which refer to the "Company" shall apply mutatis mutandis to subsidiaries or successors of the Company which may from time to time be established. For purposes of this Agreement, employment with the Company shall include employment with a parent or subsidiary of the Company. </para_1>
   <para_1>References in this Agreement to a time of day are to Singapore time. </para_1>
   <a_left_sidehead>Purchase of Shares</a_left_sidehead>
-  <para_1>The Company shall issue and sell to the Holder, and the Holder shall purchase from the Company, subject to the terms and conditions set forth in this Agreement, Class F Preference shares (the "Shares") of the Company, at a purchase price of <?= data.price_per_f_share ?> per share (the "Issue Price"). The aggregate purchase price for the Shares shall be paid by the Holder in cash or cheque. The number of Shares purchased by each Holder shall be the total of the numbers shown in the Restricted and Unrestricted columns in the table below. Upon receipt of payment by the Company, the Company shall issue to the Holder one or more certificates in the name of the Holder for that number of Shares purchased by the Holder. The Holder agrees that the Shares shall be subject to the purchase options and restrictions on transfer set forth in this Agreement and in the Articles of Association. </para_1>
+  <para_1>The Company shall issue and sell to the Holder, and the Holder shall purchase from the Company, subject to the terms and conditions set forth in this Agreement, Class F Preference shares (the "Shares") of the Company, at a purchase price of <?= data.price_per_share ?> per share (the "Issue Price"). The aggregate purchase price for the Shares shall be paid by the Holder in cash or cheque. The number of Shares purchased by each Holder shall be the total of the numbers shown in the Restricted and Unrestricted columns in the table below. Upon receipt of payment by the Company, the Company shall issue to the Holder one or more certificates in the name of the Holder for that number of Shares purchased by the Holder. The Holder agrees that the Shares shall be subject to the purchase options and restrictions on transfer set forth in this Agreement and in the Articles of Association. </para_1>
   <para_2> For convenience of reference the table below indicates in the column titled Ordinary the number of ordinary shares presently held by each Holder.  </para_2>
   <para_2> </para_2>
   <a_left_sidehead xname="redemption">Redemption</a_left_sidehead>
@@ -169,7 +169,7 @@
   <para_2>Q	Restricted Shares remain. </para_2>
   <para_1>Pursuant to the Class F Agreement we hereby give notice that we intend to redeem the Q remaining Restricted Shares. </para_1>
   <para_1>The completion shall be fourteen days from the date hereof (unless otherwise agreed in writing between ourselves.) </para_1>
-  <para_1>By that date we shall make payment of <?= data.price_per_f_share?> per share (the "Redemption Price") for a total of S$1.23. </para_1>
+  <para_1>By that date we shall make payment of <?= data.price_per_share?> per share (the "Redemption Price") for a total of S$1.23. </para_1>
   <para_1> </para_1>
   <para_1>Name: </para_1>
   <para_1>Signature: </para_1>
