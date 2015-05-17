@@ -23,7 +23,7 @@
 <numbered_2_para>the Company's <?= plural(data.parties.new_investor, "allotment") ?>
  of <?= data._total_new_shares ?> <?= data.security_type_short_plural ?> <?= plural_verb(data.parties.new_investor, "is") ?>
  for cash consideration;
-subscription monies amounting to <?= data._total_commitment ?> have been received by the Company in respect of the allotment of <?= data._total_new_shares ?> <?= data.security_type_short_plural ?> in the capital of the Company;
+subscription monies amounting to <?= data._total_commitments ?> have been received by the Company in respect of the allotment of <?= data._total_new_shares ?> <?= data.security_type_short_plural ?> in the capital of the Company;
 we have established the identity of the new <?= plural(data.parties.new_investor, "investor") ?>, <?= commaAnd(data.parties.new_investor.map(function(p){return p.name})) ?>;
 and we confirm that all is in order. </numbered_2_para>
 
