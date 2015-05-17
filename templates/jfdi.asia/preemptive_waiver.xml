@@ -21,17 +21,16 @@
 <para_1><b>Issuance of New Shares in <?= data.company.name ?> (the "Company")</b></para_1>
 <para_1>Notice is hereby given to all members of the Company that the Directors intend to issue and allot <?= data.total_new_securities_on_offer ?> <?= data.security_type_plural ?> ("<?= data.security_type_short_plural ?>")<? if(data.price_per_share){?>, at a price of <?= data.price_per_share ?> per share<?}?>.</para_1>
 <? if (data.explanation) { ?><para_1><?= data.explanation ?></para_1><? } ?>
-<para_1>As a member of the Company, you possess the right under the Company's Articles of Association to participate in this issue of shares.
-Given that the Company is issuing <?= data.total_new_securities_on_offer ?> new <?= data.security_type_short_plural ?>, and you presently hold <?= data.shareholder.num_shares ?> out of <?= data.total_existing_securities_in_class ?> existing <?= data.security_type_short_plural ?>, you have the right to subscribe for up to <?= data.shareholder.pro_rata ?>% of this new issue: <?= (data.shareholder.pro_rata / 100 * asNum_(data.total_new_securities_on_offer)).toFixed(0) ?>
+<para_2>As a member of the Company, you possess the right under the Company's Articles of Association to participate in this issue of shares.
+Given that the Company is issuing <?= data.total_new_securities_on_offer ?> new <?= data.security_type_short_plural ?>, and you presently hold <?= data.shareholder.num_shares ?> out of <?= data.company.num_shares ?> existing shares, you have the right to subscribe for up to <?= data.shareholder.pro_rata ?>% of this new issue: <?= digitCommas_(data.shareholder.pro_rata / 100 * asNum_(data.total_new_securities_on_offer), 0) ?>
  <?= data.security_type_short_plural ?> for <?= asCurrency_(currencyFor_(data.price_per_share), (data.shareholder.pro_rata / 100 * asNum_(data.amount_raising)).toFixed(2)) ?>.
-You may also have excess rights to subscribe beyond that amount -- if other shareholders do not take up their pro rata allotments, you may partcipate beyond yours, up to the total amount of <?= data.amount_raising ?>.
+You may also have excess rights to subscribe beyond that amount -- if other shareholders do not take up their pro rata allotments, you may participate beyond yours, up to the total amount of <?= data.amount_raising ?>.
 If you wish to participate in this issue, please indicate, in the attached Issuance Offer Acceptance Notice, the level of your interest.
 There is no obligation to participate. If you do not, <?= commaAnd(data.parties.new_investor, "name") ?>
  <?= plural_verb(data.parties.new_investor, "has") ?>
  indicated the intent to subscribe for new <?= data.security_type_short_plural ?>, up to the total amount on offer.
 If we do not hear from you within <?= data.preemptive_rights_notice_period || 7 ?> days from the date of this letter, we will understand that you do not wish to participate.
-
-</para_1>
+</para_2>
 <? data.signature_comment = "Director" ?>
 <?!= include("inc_signature", data, data.company) ?>
 </Story_Main>

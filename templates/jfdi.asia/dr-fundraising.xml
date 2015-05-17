@@ -15,7 +15,7 @@ data._total_commitments? data._total_commitments + " of" :
 if (data._origparties.company[0].name != data.company.name) {?> in the capital of <?=data._origparties.company[0].name ?> <?}?>
 to <?!= commaAnd(data.parties.new_investor,
 function(p){return p.name + " (" + p.idtype + " <span_ucnum>" + p.id + "</span_ucnum>)" }) ?> (the "<?= plural(data.parties.new_investor, "Investor") ?>
-") who <?= plural_verb(data.parties.new_investor, "has") ?> <? if(data.previously_paid){?>previously paid in full<?}else{?>agreed to subscribe<?}?> for the said <?= data._total_new_shares ? plural(data._total_new_shares_, data.security_type_short_singular, data.security_type_short_plural) : data.security_type_short_plural ?><?
+") who <?= plural_verb(data.parties.new_investor, "has") ?> <? if(data.previously_paid){?>previously paid in full<?}else{?>agreed to subscribe<?}?> for the said <?= data._total_new_shares ? plural(data._total_new_shares, data.security_type_short_singular, data.security_type_short_plural) : data.security_type_short_plural ?><?
 if (data.security_essential == "equity" && data.price_per_share) { ?> at a subscription price of <?= data.price_per_share ?> per share<?}?>
 .</numbered_2_para>
 <numbered_2_para>The abovenamed parties have agreed to enter into a Subscription Agreement (annexed) to memorialise the above intents and purposes.</numbered_2_para>
