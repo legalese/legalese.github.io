@@ -436,6 +436,37 @@ if concatenateMode == false then, then N normal agreements plsu M exploding agre
 
 the uploader knows how to key into the data structure to pull out the correct to/cc set.
 
+** from Cap Table to Entities and Agreement sheets
+
+A startup runs through several rounds of paperwork.
+
+The docsets include
+- incorporation
+- creation and issue of class F shares
+- class F agreements
+- pre-JFDI round of friends & family investors
+  - each of which may be done as a convertible note or a share agreement
+- JFDI investment agreement
+- post-JFDI angel investment
+- NRF TIS seed fund investment
+- Series A investment
+
+Each of the investment rounds requires its own set of paperwork.
+
+Until about [2015-05-17 Sun], the ENTITIES table was the primary data source for the investment documents.
+
+This became unwieldy.
+
+In a given investment round, we started describing "num shares" and "num new shares", with "commitment" and "new commitment"; one would describe the number of existing (ordinary) shares, and the other would describe the new (preferred) shares (or debt). To issue the paperwork, we would have to configure the parties as "shareholder" versus "new investor"; after the papers were produced, we would have to manually convert "new investor" into "shareholder".
+
+On [2015-05-17 Sun] we started refactoring the investment details into a more sensible framework: the cap table.
+
+A JFDI-style cap table accurately and precisely describes the detailed shareholdings for each party, at each investment round.
+
+It is therefore possible to compute an Agreement spreadsheet from a given 3-column from the cap table.
+
+We need a way to parse a cap table, and its constituent investment rounds, into a data structure. That data structure can then populate an agreement sheet.
+
 * Templates
 Public templates live inside the legalese-io.github.io repository, under templates.
 
