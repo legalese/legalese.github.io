@@ -11,7 +11,7 @@
 <? for (var i in data.parties.founder) { ?>
 <parties><?!= include("inc_party", data, data.parties.founder[i]) ?><? if (data.parties.founder.length == 1) { ?> (the "Founder")<?}?>;</parties>
 <? } ?>
-<?   if (data.parties.founder.length > 1)           { ?><para_1>(collectively the "Founders" and individually a "Founder"); and</para_1><?}?>
+<?   if (data.parties.founder.length > 1)           { ?><para_1>(collectively the <b>"Founders"</b> and individually a "Founder"); and</para_1><?}?>
 
   <parties><?!= include("inc_party", data, data.company) ?> ("Company").</parties>
 
@@ -147,7 +147,7 @@
   <a_left_sidehead xname="medarb">Governing Law</a_left_sidehead>
   <?!= include("inc_mediation_arbitration", data) ?>
   <chapter_header>Signatures</chapter_header>
-  <para_1>In witness whereof we have hereunto set our hand on <?= data.shareholders_agreement_date ?></para_1>
+  <para_1>In witness whereof we have hereunto set our hand on <?= data.class_f_agreement_date ?></para_1>
   <para_1><i>For the Founders:</i></para_1>
 <? for (var i = 0; i < data.parties.founder.length; i++) { ?>
 <?!= include("inc_signature", data, data.parties.founder[i]) ?>
