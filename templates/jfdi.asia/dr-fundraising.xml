@@ -9,29 +9,35 @@
 <b_left_sidehead_nonum>Whereas:---</b_left_sidehead_nonum>
 
 <numbered_2_para>For the purpose of <?= data.fundraising_purpose || "raising working capital to serve the operational needs of the Company" ?>, the Company intends to <?= data.company_intends_to ? data.company_intends_to + " " : "" ?>issue <?= 
-(data._total_new_shares != "undefined") ? data._total_new_shares :
+(data._total_new_shares != "undefined" && data._total_new_shares != "NaN") ? data._total_new_shares :
 data._total_commitments? data._total_commitments + " of" :
 "up to " + data.amount_raising + " of" ?> <?=data.security_type_plural?> ("<?=data.security_type_short_plural?>") <?
 if (data._origparties.company[0].name != data.company.name) {?> in the capital of <?=data._origparties.company[0].name ?> <?}?>
 to <?!= commaAnd(data.parties.new_investor,
 function(p){return p.name + " (" + p.idtype + " <span_ucnum>" + p.id + "</span_ucnum>)" }) ?> (the "<?= plural(data.parties.new_investor, "Investor") ?>
-") who <?= plural_verb(data.parties.new_investor, "has") ?> <? if(data.previously_paid){?>previously paid in full<?}else{?>agreed to subscribe<?}?> for the said <?= data._total_new_shares ? plural(data._total_new_shares, data.security_type_short_singular, data.security_type_short_plural) : data.security_type_short_plural ?><?
+") <? if (data.share_grant) {?>
+for no consideration<? } else { ?>
+who <?= plural_verb(data.parties.new_investor, "has") ?> <? if(data.previously_paid){?>previously paid in full<?}else{?>agreed to subscribe<?}?> for the said <?= data._total_new_shares ? plural(data._total_new_shares, data.security_type_short_singular, data.security_type_short_plural) : data.security_type_short_plural ?><?
 if (data.security_essential == "equity" && data.price_per_share) { ?> at a subscription price of <?= data.price_per_share ?> per share<?}?>
+<?}?>
 .</numbered_2_para>
-<numbered_2_para>The abovenamed parties have agreed to enter into a Subscription Agreement (annexed) to memorialise the above intents and purposes.</numbered_2_para>
+<? if (! data.share_grant) { ?><numbered_2_para>The abovenamed parties have agreed to enter into a Subscription Agreement (annexed) to memorialise the above intents and purposes.</numbered_2_para><? } ?>
 
 <b_left_sidehead_nonum>It is hence resolved that:---</b_left_sidehead_nonum>
 
-<numbered_2_para>the Agreement annexed be noted, approved, and adopted;
+<numbered_2_para><? if (data.share_grant) { ?>
+It is in the interests of the Company to grant the shares; and
+<?} else {?>
+the Agreement annexed be noted, approved, and adopted;
 it is in the interests of the Company to enter into the Agreement;
 the Company enters into the Agreement;
 <?= data.parties.director[data.signing_director_index||0].name ?> be authorised to sign the same on behalf of the Company;
-the said <?= data.parties.director[data.signing_director_index||0].name ?> be authorised in his absolute discretion to approve any amendment, alternation, or modification to the Agreement and that the signing and sealing thereof or of a copy thereof be conclusive evidence of such approval; and</numbered_2_para>
-<numbered_2_para xname="signing_authority">the now twice-said <?= data.parties.director[data.signing_director_index||0].name ?> be authorised to do all acts or things necessary or desirable in connection with the foregoing including without limitation, signing and executing such documents or approving any modifications to such documents as he may deem necessary or expedient for the foregoing purpose and that the signing thereof by such director be conclusive of such approval.</numbered_2_para>
+the said <?= data.parties.director[data.signing_director_index||0].name ?> be authorised in his absolute discretion to approve any amendment, alternation, or modification to the Agreement and that the signing and sealing thereof or of a copy thereof be conclusive evidence of such approval; and<? } ?>
+</numbered_2_para><numbered_2_para xname="signing_authority"><?= data.parties.director[data.signing_director_index||0].name ?> be authorised to do all acts or things necessary or desirable in connection with the foregoing including without limitation, signing and executing such documents or approving any modifications to such documents as he may deem necessary or expedient for the foregoing purpose and that the signing thereof by such director be conclusive of such approval.</numbered_2_para>
 
 <a_left_sidehead>Deed of Ratification and Accession</a_left_sidehead>
 <?if(data.skip_dora){?>
-<para_1>It is noted that a Deed of Ratification and Accession is not necessary in this instance as the Investor has previously executed the Shareholders' Agreement dated <?= data.previous_shareholder_agreement_date || data.shareholders_agreement_date ?> in anticipation of this issue.</para_1>
+<para_1>It is noted that a Deed of Ratification and Accession is not necessary in this instance as the Investor has previously executed the Shareholders' Agreement dated <?= data.previous_shareholder_agreement_date || data.shareholders_agreement_date ?>.</para_1>
 <?}else{?>
 <b_left_sidehead_nonum>Whereas:---</b_left_sidehead_nonum>
 
@@ -47,7 +53,7 @@ the said <?= data.parties.director[data.signing_director_index||0].name ?> be au
    data._subscription_agreement_dates_array = data._subscription_agreement_dates;
    data._subscription_agreement_dates = commaAnd(data._subscription_agreement_dates);
  ?>
-The <?= plural(data.parties.new_investor, "Investor") ?> <?= plural_verb(data.parties.new_investor, "is") ?> or will be issued new shares in the capital of the Company, by virtue of the Subscription <?= plural(data._subscription_agreement_dates_array, "Agreement") ?> dated <?= data._subscription_agreement_dates ?> in respect thereof; and
+The <?= plural(data.parties.new_investor, "Investor") ?> <?= plural_verb(data.parties.new_investor, "is") ?> or will be issued new shares in the capital of the Company<? if (! data.share_grant) { ?>, by virtue of the Subscription <?= plural(data._subscription_agreement_dates_array, "Agreement") ?> dated <?= data._subscription_agreement_dates ?> in respect thereof<? } ?>; and
 In accordance with the provisions of the Shareholders' Agreement, it is a condition precedent to the registration by the Company of the issuance and allotment of the new shares that the <?= plural(data.parties.new_investor, "Investor") ?> <?= plural_verb(data.parties.new_investor, "executes") ?> a Deed of Ratification and Accession.</numbered_2_para>
 <b_left_sidehead_nonum>It is hence resolved:---</b_left_sidehead_nonum>
 <numbered_2_para>that the Company execute a Deed of Ratification and Accession (the "Instrument") between the <?= plural(data.parties.new_investor, "Investor") ?>, the current Shareholders, and the Company; and

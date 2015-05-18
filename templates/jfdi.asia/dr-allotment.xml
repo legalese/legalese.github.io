@@ -24,11 +24,13 @@
    data._subscription_agreement_dates_array = data._subscription_agreement_dates;
    data._subscription_agreement_dates = commaAnd(data._subscription_agreement_dates);
  ?>
+<? if (! data.share_grant) { ?>
 <para_2>and pursuant to the <?= data.security_type + (data.security_type.match(/Class F/, "i") ? "" : " Subscription") ?> <?= plural(data._subscription_agreement_dates_array, "Agreement") ?> dated <?= data._subscription_agreement_dates ?> signed among the Company, <?=
 commaAnd((data.parties.promoter ? [data.parties.promoter[0].name] : []).concat(
 data.parties.new_investor.map(function(p){return p.name}))) ?>,</para_2>
 <? } ?>
-<para_2>the Company do hereby approve the allotment of <?= data._total_new_shares ?> <?= data.security_type_plural ?> ("<?= data.security_type_short_plural ?>") in the share capital of the Company at <?= (data.sgd_price_per_share || data.price_per_share) ?> each for cash consideration as follows:</para_2>
+<? } ?>
+<para_2>the Company do hereby approve the allotment of <?= data._total_new_shares ?> <?= data.security_type_plural ?> ("<?= data.security_type_short_plural ?>") in the share capital of the Company <? if (data.sgd_price_per_share || data.price_per_share) { ?>at <?= (data.sgd_price_per_share || data.price_per_share) ?> each for cash consideration <?}?>as follows:</para_2>
 <para_1>
 <Table aid:table="table" aid:tcols="3" aid:trows="<?= data.parties.new_investor.length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
 <Cell aid:ccols="1" aid:ccolwidth="150" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
@@ -37,7 +39,7 @@ data.parties.new_investor.map(function(p){return p.name}))) ?>,</para_2>
 <? for (var i = 0; i<data.parties.new_investor.length; i++) { with(data.parties.new_investor[i]) {
   var my_commitment = data.parties.new_investor[i].sgd_commitment ? sgd_commitment :
   data.parties.new_investor[i].new_commitment ? new_commitment :
-  commitment; ?>
+  "none"; ?>
 <Cell aid:ccols="1" aid:ccolwidth="150" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= name ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="56" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= data.parties.new_investor[i].num_new_shares ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="80" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= my_commitment ?></cell_c></Cell>
