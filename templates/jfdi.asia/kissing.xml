@@ -54,7 +54,10 @@
 <a_left_sidehead>Definitions</a_left_sidehead>
 <para_1>In this Agreement, except to the extent that the context otherwise requires, the following terms shall have the meanings set forth below:</para_1>
 <definition>Valuation Cap	shall mean <?= data.pre_money_valuation ?>.</definition>
-<definition>Discount	shall mean <?= data.discount ?>%.</definition>
+<definition>Discount	<? if(data.discount=="formula") {?>
+shall mean <?=data.discount_formula_start?>% plus <?=data.discount_formula_monthly?>% per month that elapses between the date of this Agreement and the date of the Next Equity Financing, up to a maximum of <?=data.discount_formula_cap?>%.<? } else { ?>
+shall mean <?= data.discount ?>%.<?}?>
+</definition>
 <? if (data.security_essential == "debt") { ?><definition>Interest Rate	shall mean <?= data.interest ?>%.</definition>
 <? } ?>
 <definition>Purchase Price	shall mean <?= data.new_investor.commitment ?>.</definition>

@@ -56,7 +56,7 @@
 <?!= cell_l ?>Investment Amount</cell></Cell>
 <?!= cell_r ?>The amount invested by an Investor for the purchase of such Investor's <?= data.security_type_plural ?> (the "Investment Amount")</cell_fl></Cell>
 <?!= cell_l ?>Definitive Agreement</cell></Cell>
-<?!= cell_r ?>The <?= data.security_type_short_plural ?> will be issued and sold pursuant to a purchase agreement prepared by the Company (the "<?= data.security_type_short_singular ?> Agreement").</cell_fl></Cell>
+<?!= cell_r ?>The <?= data.security_type_short_plural ?> will be issued and sold pursuant to a subscription or purchase agreement prepared by the Company (the "<?= data.security_type_short_singular ?> Agreement").</cell_fl></Cell>
 <? var and_interest_on = "of" ?>
 <? if (data.security_essential == "debt") { ?>
 <?!= cell_l ?>Interest</cell></Cell>
@@ -75,7 +75,7 @@ The <?= data.security_type_short_plural ?> shall be interest-free.<? } ?></cell_
 <?!= cell_r ?>The issuing of equity securities, or securities convertible to equity, in a transaction or series of related transactions resulting in aggregate gross proceeds to the Company of at least <?= data.qualified_financing_proceeds ?>, excluding conversion of the <?=data.security_type_short_plural?> and any other indebtedness.</cell_fl></Cell>
 <?!= cell_l ?>Conversion Price</cell></Cell>
 <?!= cell_r_addnewline ?>The "Conversion Price" is the lesser of</cell_fl>
-<cell_numbered_1><?= 100 - data.discount ?>% of the per share price paid by the purchasers of securities in the Qualified Financing (the "Discounted Conversion Price"), or
+<cell_numbered_1><? if (data.discount != "formula") {?><?= 100 - data.discount ?>% of the <?}else{?>The <?}?>per share price paid by the purchasers of securities in the Qualified Financing (the "Discounted Conversion Price")<? if (data.discount=="formula") {?>less a discount ranging between <?=data.discount_formula_start?>% and <?=data.discount_formula_cap?>%<?}?>, or
 the price per share equal to <?= data.pre_money_valuation ?> divided by the aggregate number of outstanding shares of the Company's Common Stock as of immediately before the initial closing of the Qualified Financing (assuming full conversion or exercise of all convertible and exercisable securities then outstanding other than the <?=data.security_type_short_plural?>) (the "Valuation Cap").</cell_numbered_1>
 </Cell>
 <?!= cell_l ?>Automatic Conversion</cell></Cell>
