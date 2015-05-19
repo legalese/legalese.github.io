@@ -9,8 +9,8 @@
 <b_left_sidehead_nonum>Whereas:---</b_left_sidehead_nonum>
 
 <numbered_2_para>For the purpose of <?= data.fundraising_purpose || "raising working capital to serve the operational needs of the Company" ?>, the Company intends to <?= data.company_intends_to ? data.company_intends_to + " " : "" ?>issue <?= 
-(data._total_new_shares != "undefined" && data._total_new_shares != "NaN") ? data._total_new_shares :
-data._total_commitments? data._total_commitments + " of" :
+(data._total_new_shares != "undefined" && data._total_new_shares != "NaN" && ! isNaN(data._total_new_shares)) ? data._total_new_shares :
+(data._total_commitments && !isNaN(data._total_commitments)) ? data._total_commitments + " of" :
 "up to " + data.amount_raising + " of" ?> <?=data.security_type_plural?> ("<?=data.security_type_short_plural?>") <?
 if (data._origparties.company[0].name != data.company.name) {?> in the capital of <?=data._origparties.company[0].name ?> <?}?>
 to <?!= commaAnd(data.parties.new_investor,
