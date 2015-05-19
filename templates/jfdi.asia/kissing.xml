@@ -2,7 +2,7 @@
 <? data.has_major_investor_rights = (data._orig_major_investor_minimum !== ""); ?>
 <?!= data.xmlRoot() ?>
 <CoverTop>
-<cover_title>KISS(Sing) Agreement (<?= data.security_essential == "warrant" ? "Equity" : "Debt" ?>)
+<cover_title>KISS(Sing) Agreement (<?= data.security_essential.match(/warrant|equity/,"i") ? "Equity" : "Debt" ?>)
 </cover_title>
 <cover_company_name>
 
@@ -60,7 +60,7 @@ shall mean <?= data.discount ?>%.<?}?>
 </definition>
 <? if (data.security_essential == "debt") { ?><definition>Interest Rate	shall mean <?= data.interest ?>%.</definition>
 <? } ?>
-<definition>Purchase Price	shall mean <?= data.new_investor.commitment ?>.</definition>
+<definition>Purchase Price	shall mean <?= data.new_investor.new_commitment ?>.</definition>
 <definition>Maximum Round Size 	shall mean <?= data.amount_raising ?>.</definition>
 <definition>Next Equity Financing 	shall mean the next sale (or series of related sales) by the Company of its Preferred Stock following the Date of Issuance from which the Company receives gross proceeds of <b>not less than <?= data.qualified_financing_proceeds ?></b> (excluding the aggregate amount of securities converted into Common or Preferred Stock in connection with such sale (or series of related sales)).</definition>
 <definition>Conversion Shares	shall mean:</definition>
@@ -171,7 +171,9 @@ the Corporate Transaction Payment<? } ?>
 <xref to="payment" format="Paragraph Number (firstbold)" />,
 <xref to="successors" format="Paragraph Number (firstbold)" />,
 <xref to="transfer" format="Paragraph Number (firstbold)" />, <?
-if (data.preemptive_rights_transferable_to_investors_members) {?><xref to="transfer_of_preemptive_rights" format="Paragraph Number (firstbold)" />, <? } ?>
+if (data.preemptive_rights_transferable_to_investors_members) {?>
+
+<xref to="transfer_of_preemptive_rights" format="Paragraph Number (firstbold)" />, <? } ?>
 and
 <xref to="entire_agreement" format="Paragraph Number (firstbold)" />
 </bullets>
