@@ -1,16 +1,5 @@
 #+TITLE: things todo
 
-* TODO add support to xml2pdf-lib.jsx for extracting <Sidebar> elements into an anchored object
-* TODO review all the .xml files to see if any numerics need to be handled different now that they're strings.
-google-app 79e5b5f recorded a whole bunch of changes. the upshot: formatify_ now always emits a String. if any of the xmls do something like add two numbers we need those operations to operate on the _orig number and then formatify to the _format string.
-* TODO fix the document numbering -- when there are more than 9 documents, the 1-9 don't get 0 prefixed, but 10 does, so you get 010 lol
-* TODO timezone support -- the indesign textvar for output date will run with SGT but maybe some users will generate spreadsheets in some other timezone.
-* TODO automatically record the dates that an agreement was executed
-there are two parts to this -- every agreement should have a unique variable name for its signing date.
-when an agreement is created, we should record that date as a provisional, right in the spreadsheet.
-when we notice that the e-signature system has recorded a signature complete state for the agreement, we promote the provisional to confirmed.
-
-i think the way to do this is we create a _provisional extension to each whatever_agreement_date.
 * TODO write simple user-facing onboarding
 
 ** NDA
@@ -29,8 +18,19 @@ how to draft and issue a basic director's resolution.
 
 ** members' resolutions
 a two-step workflow: drafting and issue a basic member's resolution by written means.
+* TODO add support to xml2pdf-lib.jsx for extracting <Sidebar> elements into an anchored object
+* DONE review all the .xml files to see if any numerics need to be handled different now that they're strings.
+google-app 79e5b5f recorded a whole bunch of changes. the upshot: formatify_ now always emits a String. if any of the xmls do something like add two numbers we need those operations to operate on the _orig number and then formatify to the _format string.
+* TODO fix the document numbering -- when there are more than 9 documents, the 1-9 don't get 0 prefixed, but 10 does, so you get 010 lol
+* TODO timezone support -- the indesign textvar for output date will run with SGT but maybe some users will generate spreadsheets in some other timezone.
+* TODO automatically record the dates that an agreement was executed
+there are two parts to this -- every agreement should have a unique variable name for its signing date.
+when an agreement is created, we should record that date as a provisional, right in the spreadsheet.
+when we notice that the e-signature system has recorded a signature complete state for the agreement, we promote the provisional to confirmed.
 
-* TODO write a module system so that common operations can be factored out
+i think the way to do this is we create a _provisional extension to each whatever_agreement_date.
+
+* DONE write a module system so that common operations can be factored out
 like the share counting in the allocation and ordinary shares workflows.
 * TODO write simple developer-facing onboarding
 
