@@ -1,5 +1,8 @@
 #+TITLE: things todo
 
+* TODO import each document in the Y Combinator Series AA series
+particularly the CoI amendments to the articles of association
+for taembe
 * TODO write simple user-facing onboarding
 
 ** NDA
@@ -63,7 +66,6 @@ create Google Spreadsheets API interface to read key/value config
 user-facing documentation to edit cap tables
 
 
-import each document in the Y Combinator Series AA series
 
 import each document in the Y Combinator SAFE series
 
