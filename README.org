@@ -192,6 +192,31 @@ the recommended documents
 
 * Business Models
 app store for contracts -- anybody can upload, and we curate and charge a commission on downloads of templates.
+
+* what is unauthorized practice of law?
+
+http://en.wikipedia.org/wiki/IANAL
+
+http://en.wikipedia.org/wiki/Unauthorized_practice_of_law
+
+
+** In Singapore
+
+[[http://statutes.agc.gov.sg/aol/search/display/view.w3p;page=0;query=CompId%253A3ee799a7-48a6-4e27-85c2-dba1dbef7104;rec=0;resUrl=http%253A%252F%252Fstatutes.agc.gov.sg%252Faol%252Fbrowse%252FtitleResults.w3p%253Bletter%253DL%253BpNum%253D1%253Btype%253DactsAll;whole=yes][Legal Profession Act (Cap. 161)]] sections 33 and 34.
+
+** In the USA
+
+http://www.thefreelibrary.com/Internet+wars%3a+the+bar+against+the+websites-a0363687297
+
+http://www.thefreelibrary.com/New+roles+for+non-lawyers+to+increase+access+to+justice-a0371969850
+
+http://www.thefreelibrary.com/LPO+Company+Named+in+Unauthorized+Practice+of+Law+Writ+in+India.-a0221785697
+
+http://www.thefreelibrary.com/When+public+policies+collide%3A+legal+%22self-help%22+software+and+the...-a075707100
+
+more results: http://www.thefreelibrary.com/_/search/Search.aspx?By=0&SearchBy=0&q=Unauthorized%20Practice
+
+
 * See Also
 
 If you have just wandered across this, you should know that the project contains a few other resources:
