@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Legalese.io: Turing-Complete Contracts</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Legalese 2.0</h1>
+        <h2>Software is eating law.</h2>
+        <a href="https://github.com/legalese-io/" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+
+		  <h1>Turing-Complete Contracts</h1>
+
+		  <p>The Legalese team has started work on a JavaScript-to-English compiler. This is a research project.</p>
+
+		  <h2><a name="inspiration"></a>Where does the anger come from?</h2>
+
+		  <p>Once upon a time, a programmer received an investment contract containing the following text, verbatim:</p>
+
+		  <blockquote class="quotation">If the investment for the purpose of the Series B Funding is valued at not more than S$32.5 Million, then the investors in the Note shall be entitled to convert the Note into Shares at a fixed valuation of S$27.5 million.</blockquote>
+
+		  <blockquote class="quotation">If the investment for the purpose of the Series B Funding is valued at less than S$ 40 million but not below S$32.5 million, investors in the Convertible Note will be entitled to convert the Note into Shares at a 15% discount over the valuation of the Series B Funding (for instance, if the series B Funding is at a valuation of S$35 million, then the investors in the Note shall be entitled to convert at a valuation of 35M less 15% discount);</blockquote>
+
+		  <blockquote class="quotation">If the investment for the purpose of the Series B Funding is valued at not less than S$ 40 million but less than S$47.06 million, investors in the Convertible Note will be entitled to convert the Note into Shares at a 15% discount over the valuation of the Series B Funding (for instance, if the series B Funding is at a valuation of S$47.06 million, then the investors in the Note shall be entitled to convert at a pre-money valuation of 40M i.e. S$47.06 million less 15% discount);</blockquote>
+
+		  <blockquote class="quotation">If the investment for the purpose of the Series B Funding is valued at not less than S$ 47.06 million but less than S$80 million, investors in the Convertible Note will be entitled to convert the Note into Shares at a fixed pre-money valuation of S$40 million;</blockquote>
+
+		  <blockquote class="quotation">If the investment for the purpose of the Series B Funding is valued at not less than S$80 million but less than S$100 million, investors in the Convertible Note will be entitled to convert the Note into Shares at a fixed pre-money valuation of S$45 million; and</blockquote>
+
+		  <blockquote class="quotation">If the investment for the purpose of the Series B Funding is valued at not less than S$100 million, investors in the Convertible Note will be entitled to convert the Note into Shares at a fixed pre-money valuation of S$50 million.</blockquote>
+
+		  <p style="margin-top:1.6em">Ten minutes and a strong cup of tea later, the notes in the margin read:</p>
+
+<code style="white-space: pre-wrap">// why isn't this just
+if      (seriesB < 32.5)  { conversion = 27.5 }
+else if (seriesB < 40)    { conversion = seriesB * 0.85 }
+else if (seriesB < 47.06) { conversion = seriesB * 0.85 } // then why the above line?
+else if (seriesB < 80)    { conversion = 40 }
+else if (seriesB < 100)   { conversion = 45 }
+else                      { conversion = 50 }</code>
+
+		  <p style="margin-top:1.6em">The next step is obvious: What if contracts could be written in a formal language first, and then compiled to natural language? A powerful idea.</p>
+
+		  <p>Imagine contracts in different languages &ndash; each translation provably identical to the others. Contracts amenable to formal methods: code verification can prove that a contract is internally consistent, free of contradiction, and complete. Contracts that execute themselves in software, integrated with business processes, interacting with other contracts. This is the vision of <a href="http://szabo.best.vwh.net/contractlanguage.html">Nick Szabo (2002)</a>, of <a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2216866">Harry Surden (2012)</a>, of <a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2538224">Flood &amp; Goodenough (2014)</a>.</p>
+
+		  <p>Implementing the vision is a <a href="http://www.catb.org/jargon/html/S/SMOP.html">simple matter of programming</a>.</p>
+		  
+		</section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/cofounders/legalese/zipball/master" class="button">
+            <small>Install the</small>
+            Google App
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/legalese">Legalese</a> is a <a href="https://jfdi.asia/">JFDI.Asia</a> spinoff, initially hosted by <a href="https://github.com/cofounders">Cofounders</a> and later moved to its own project.</p>
+
+		            <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
