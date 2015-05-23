@@ -1,0 +1,21 @@
+#+TITLE: Legalese User Experience
+
+* Acquisition: Interested User Encounters Legalese
+
+User might remember Legalese from seeing it at the bottom of some other legal agreement they signed in the last couple of years.
+
+User has experienced a trigger event which gives rise to a pain point:
+
+** hiring a new employee
+*** now needs an employment agreement and a corresponding ESOP
+doesn't know they might also need a dora
+
+if the ESOP is being set up for the first time, might need an alteration to the articles
+and all the consents that that implies.
+** hiring a new cofounder
+*** now needs a vesting agreement and to extend the shareholder agreement
+
+
+* Activation: Browse
+
+

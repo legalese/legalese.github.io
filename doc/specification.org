@@ -1,0 +1,163 @@
+#+TITLE: Legalese 2.0
+* Introduction
+Term sheets 
+
+* Requirements
+** Cases
+*** Garuda Investment
+#+BEGIN_SRC yaml
+  ---
+  legalese_version: 2.0
+  author: mengwong
+  documents:
+    - name: Garuda Robotics Angel Round
+      genre: term sheet
+      template: mengwong v0.1
+      flavor: convertible debt
+      jurisdiction: Singapore
+      stage: angel
+      parties:
+        partygroup:
+          - Investors:
+              - name: Wong Meng Weng
+                identifier_name: NRIC
+                identifier_val: S7533422B
+                address: 5 Chancery Hill Road, Singapore 30944
+          - the Company:
+              - name: Garuda Robotics
+                identifier_type: UEN
+                identifier_val: XXXXXXX
+                address: XXXXXXXXXX
+                country: Singapore
+                alias: the Company
+          - the Founders:
+              - name: Mark Yong
+              - name: Pulkit Jaiswal
+      currency: SGD
+      total_amount: 300_000
+      tranches: 2
+      premoney_valuation:
+        tranche_1: 1_500_000
+        tranche_2: 3_500_000
+      tranche_conditions: as described in Appendix :Tranche:
+      existing_securities:
+        ordinary_shares: 1000000
+      security: default
+      definitive_documents: default
+      reserved_matters: default
+      use_of_proceeds: default
+      pre_emptive_rights: default
+      information_rights: default
+      post_execution_obligations: default
+      expenses: default
+      confidentiality: default
+      governing_law: default
+      nonbinding_exceptions: default
+      closings: default
+      definitive_agreement: default
+      maturity_date: 3y
+      interest: 8%
+      appendices:
+        Tranche:
+          title: Disbursement Conditions
+          contents:
+            - p: "Disbursement of the tranches, and the issuance of securities, shall be determined as follows."
+            - h1: "First Tranche Conditions"
+            - p: customer LOIs
+            - h1: "Second Tranche Conditions"
+  
+#+END_SRC
+*** Temasys
+* Prior Art
+** Term Sheet Wizards
+*** [[http://www.wsgr.com/WSGR/Display.aspx?SectionName%3Dpractice/termsheet.htm][Wilson Sonsini Term Sheet Generator]]
+*** http://cooleygo.com/
+** Repositories
+*** http://www.lawdepot.com/
+*** [[http://bansea.org/index.php?option%3Dcom_content&view%3Darticle&id%3D131&Itemid%3D229][BANSEA legals]]
+** Template Web Apps
+(and repositories)
+*** https://lawcanvas.com/
+*** http://legal.cf.sg/
+** Formats Standards
+*** http://www.akomantoso.org/
+*** http://en.wikipedia.org/wiki/Legal_XML
+* Theory
+** Are contracts copyrighted by law firms?
+*** Adams, Kenneth. Copyright and the Contract Drafter. New York Law Journal, 2006.
+http://www.adamsdrafting.com/downloads/Copyright-NYLJ-8.23.06.pdf
+*** 
+* Lay Observations
+** document configuration
+*** genre
+term sheets | employment contract | nda | creative commons license | ...
+*** school
+seriesseed | y combinator safe | y combinator aa | techstars | jfdi | ...
+*** jurisdiction
+usa | eu | singapore | ...
+*** stage
+angel | seed | series a | series b
+** minimal validity
+a document of a given genre must conform to certain requirements to be considered a well-formed instance of the dtd.
+default terms
+** articles / clauses / terms
+** defaults
+e.g. confidentiality -- either in or out, but no tweaking
+* technologies
+** [[http://www.frameless.io/xslt/][frameless]] XPath 2
+** XSLT
+http://www.w3schools.com/xsl/xsl_value_of.asp
+** outputting to Microsoft Word .docx
+[[http://msdn.microsoft.com/en-us/library/ee872374(v%3Doffice.12).aspx][http://msdn.microsoft.com/en-us/library/ee872374(v=office.12).aspx]]
+* workflows
+** generation
+*** start with yaml
+*** yaml to json
+*** json to xml data document
+*** xslt-expand
+examines the xml data document to pick the appropriate template
+
+calls an xslt engine to fill in the template.
+
+maybe node.js xslt?
+
+produces one or more outputs, as specified on the command line
+
+by default produces all outputs
+
+**** output formats
+***** xml
+verbose comprehensive version includes everything imaginable
+***** word
+***** html
+***** post-html suitable for legal.cf.sg
+*** summary term sheet
+*** definitive doucmentation
+** backward-compatibility parsing
+*** start with a docx file
+**** deduce back to yaml and json
+** interfaces
+*** wizard to generate it
+* test cases
+TDD FTW!
+see [[*Temasys%20Investment][temasys]] for a test case.
+** parsing the YAML
+
+#+BEGIN_SRC sh
+  20140729-00:11:07 mengwong@venice:~% perl -nle 'print /..(.*)/ if (/BEGIN_SRC/../END_SRC/ and not /SRC/)' < ~/Google\ Drive/JFDI\ Shared/JFDI\ itself\ -\ Fannie/src/Legalese/specification.org  | perl -MYAML -le 'my $in = Load(join "",<>); print $in->{legalese_version}'
+  2.0
+#+END_SRC
+
+* questions
+** conditional logic
+how to represent "in the event of this, then that; elsif this, then that"
+** variables
+how to represent variable declarations and expressions?
+
+for example, a weighted average ratchet clause.
+
+what gets defined in the preamble section and what gets defined later?
+** overrides
+should be able to override any standard term with arbitrary text
+** support for cross-references?
+yes, xml does this. http://msdn.microsoft.com/en-us/library/ms950811.aspx
