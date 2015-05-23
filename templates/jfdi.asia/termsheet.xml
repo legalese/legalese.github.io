@@ -69,7 +69,11 @@ The <?= data.security_type_short_plural ?> shall be interest-free.<? } ?></cell_
 <? } ?>
 <? if (data.has_term) { ?>
 <?!= cell_l ?>Maturity Date</cell></Cell>
+<?   if (data.security_essential == "debt") { ?>
 <?!= cell_r ?>Principal <?= and_interest_on ?> the <?=data.security_type_short_plural?> will be due and payable <?= data.term ?> from the date of the <?= data.security_type_short_singular ?> Agreement (the "Maturity Date").</cell_fl></Cell>
+<?   } else { ?>
+<?!= cell_r ?><?= data.term ?> after the date of the <?= data.security_type_short_singular ?> Agreement (the "Maturity Date"), the Investor may opt for <?= data.security_type_operation ?><? if (data.maturity_conversion_discount && parseFloat(data.maturity_conversion_discount) > 0) { ?> at a <?= data.maturity_conversion_discount ?> discount<? } ?>.</cell_fl></Cell>
+<?   } ?>
 <? } ?>
 <?!= cell_l ?>Qualified Financing</cell></Cell>
 <?!= cell_r ?>The issuing of equity securities, or securities convertible to equity, in a transaction or series of related transactions resulting in aggregate gross proceeds to the Company of at least <?= data.qualified_financing_proceeds ?>, excluding conversion of the <?=data.security_type_short_plural?> and any other indebtedness.</cell_fl></Cell>
