@@ -39,16 +39,23 @@ http://napavalleyregister.com/business/columnists/mary-luros/practicing-law-with
 
 
 * Possible revenue models for Legalese
+** allow in-house counsel to do private cloud.
+but why aren't in-house counsel already using an existing document assembly solution?
+** is there an opportunity for brandsoftheworld.com for entity data like UEN, address, etc?
 ** remove the "prepared by Legalese.io" watermark
 ** change the font
 ** allow the end user to customize by adding a logo
+** pay us with a promissory note -- after you get funded, you pay us $1000.
 ** number of agreements per month -- first docset is free, subsequent are X bucks
 ** priority compilation – float to the top of the processing queue so the PDFs appear in 5 minutes rather than 20 minutes
+** PDF is free, Word costs.
 ** download the Word version of the agreement
 ** auto-insert into EchoSign
+** contract lifecycle management
+** and interactions with corporate calendar on deliverables, renewals, expiration dates, probation dates, etc etc that trigger actions.
+charge money to create calendar entries or entries in your task management system
 ** customize the agreement using Google Docs
 ** private templates
-** PDF is free, Word costs.
 ** advisory servces for startups to review the terms and give an opinion regarding valuation.
 ** due diligence services for investors to ask us to look over a startup.
 ** consultation service work to import new agreements (this moves closer to the hotdocs business)
