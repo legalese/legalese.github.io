@@ -76,3 +76,12 @@ You use those special tags to include or exclude words, sentences, or paragraphs
 
 Thanks to these tags, Legalese offers easy ways to pluralize words: for example, <?=plural(data.parties.investor,"Investor")?> counts the number of investors and inserts the word "Investor" or "Investors" as appropriate.
 
+* outcome visualization
+like a choose-your-own-adventure -- show the longitudinal study on what happened to people in whatever situation who went with whatever combination of options.
+
+a tree structure, showing which paths have been least explored.
+
+* mascot
+
+** orca
+because they drag sharks upside down for amusement until they die, and eat their livers
