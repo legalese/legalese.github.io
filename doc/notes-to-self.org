@@ -473,3 +473,85 @@ Public templates live inside the legalese-io.github.io repository, under templat
 They are served via the web.
 
 Private templates should be saved inside each end-user's Google Drive.
+
+* User Experience for Document Generation End-Users
+
+** First Encounter
+
+*** From Main Page
+
+User is funneled to a preview page.
+
+If User comes from front page, we give user a choice of
+
+Show me a [ NDA        ] for [ Singapore     ].
+Show me a [ term sheet ] for [ Singapore     ].
+Show me a [ NDA        ] for [ United States ].
+Show me a [ term sheet ] for [ United States ].
+
+They select one ... *CLICKCOUNT*
+
+And the preview that comes up has a generic agreement Acme Inc. as the party.
+
+*** Deeplinked from Search Engine
+
+User searched for a specific term, say, /Singapore NDA/.
+
+They go straight to the preview page.
+
+** Preview Page
+
+Let's pretend the user landed at an [ NDA ] [ Singapore ] preview.
+
+On the preview page there is a link to "Customize this agreement".
+
+User clicks the "Customize this agreement" link. *CLICKCOUNT*
+
+User is prompted by Google Docs to make a copy of the spreadsheet. *CLICKCOUNT*
+
+The link copies a Legalese spreadsheet to their Google Drive, and they see a spreadsheet with instructions.
+
+https://docs.google.com/spreadsheets/d/1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw/copy?id=1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw&copyCollaborators=false&copyComments=false&title=My%20First%20Legalese%20Demo&usp=sheets_web
+
+The resulting spreadsheet is titled "My First Legalese - NDA". If we can set the new title that would be good.
+
+The code.gs add-on is part of the copy. The user is immediately able to generate PDFs.
+
+The instructions read: "Click Add-ons / Legalese / Generate PDFs" to view your customized agreement.
+
+User does so. *CLICKCOUNT*
+
+The source code realizes that the user is running things for the first time. It updates the existing Entities sheet, adding a User row counterpartying /Acme Pte. Ltd./ in the Entities sheet, with the end-user's actual email address.
+
+#+BEGIN_CODE: javascript
+var email = Session.getActiveUser().getEmail();
+#+END_CODE
+
+If they don't touch anything besides the "User" row, then "Generate PDFs" produces the usual folder.
+
+If the user changes the Company field away from Acme Pte. Ltd. we require that they fill in the EULA if they want to proceed.
+
+** UX Alternative 2 -- EULA
+
+User sees a link to "Learn How To Use Legalese".
+
+*CLICKCOUNT*
+
+Copy the EULA template agreement to their own spreadsheet.
+
+Instructions say:
+
+Welcome to Legalese! Click on Add-Ons / Legalese / Generate PDFs.
+
+*CLICKCOUNT*
+
+When they do, the template agreement is pre-filled with Legalese.io as the Company and the user's address.
+
+We generate the PDF and deliver a dialog that shows the result URL.
+
+"Let's pretend you're a third party user. You don't fill out this spreadsheet, because you don't have access it. Instead, you fill in this form: XXX".
+
+*CLICKCOUNT*
+
+User goes to a form where they are asked for their name and address.
+
