@@ -1,0 +1,77 @@
+<?!= data.xml_declaration ?>
+<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/" templateSpec="eula.indt">
+  <Story_Main>
+	<cover_title>Welcome to Legalese</cover_title>
+	<chapter_header override="startParagraph=StartParagraph.ANYWHERE">End-User License Agreement</chapter_header>
+	<centered>comprising Warranty Disclaimers and Copyright Claims</centered>
+
+	<para_1><span_smallcaps>This agreement</span_smallcaps> is made this <? if (data.agreement_date) { ?><?= data.agreement_date ?><?} else {?><textvar name="Output Date" /><?}?> between:---</para_1>
+
+	<parties><?!= include("inc_party", data, data.company) ?> ("<?= data.company.short_name?>") and</parties>
+	<parties><?!= include("inc_party", data, data.user) ?> (you, the "User")</parties>
+
+	<para_1>hereinafter referred to individually as <b>"a Party"</b> or collectively as <b>"the Parties"</b>.</para_1>
+
+	<para_1><span_smallcaps>Whereas:</span_smallcaps></para_1>
+
+	<recitals>The User desires to try out the software and content made available by Legalese; and</recitals>
+	<recitals>Legalese desires to demonstrate its capabilities; but</recitals>
+	<recitals>Legalese does not want to get into trouble with the law or with the User,</recitals>
+
+	<para_1><span_smallcaps>The parties agree</span_smallcaps> as follows:</para_1>
+
+	<a_left_sidehead>Agreement</a_left_sidehead>
+
+	<numbered_2_para>This End-User License Agreement ("Agreement") is a legal agreement between the User (either an individual or a single entity) and Legalese regarding the software and content made available by and through Legalese, which includes software, text, and template content hosted on third-party services such as Google Drive and Github, "online" or electronic documentation, and Internet-based services ("Software").</numbered_2_para>
+
+	<numbered_2_para><span_smallcaps>The User agrees to be bound by the terms of this Agreement by installing, copying, or otherwise using the software. <i>If you do not agree, do not install, copy, or use the software.</i></span_smallcaps></numbered_2_para>
+
+	<a_left_sidehead>Approved Use for No Fee</a_left_sidehead>
+
+	<numbered_2_para>Legalese's software is intended to automate the customisation and production of documents in formats including <span_smallcaps>XML, PDF</span_smallcaps>, Google Docs, Word, and <span_smallcaps>docx</span_smallcaps> (the "Legalese Service").</numbered_2_para>
+
+	<numbered_2_para>Legalese affirms, and the User acknowledges, that the Legalese Service, and its enabling Software, including any text and template content, are being provided to the User with no expectation of any fee, gain, or reward.</numbered_2_para>
+
+	<numbered_2_para>The User affirms that should the Software be used to draw up or prepare any documents or instruments intended for execution, lodgment, filing, seal, signature, or delivery, the User either:---</numbered_2_para>
+
+	<numbered_3_para>does so personally for himself only in any matter or proceeding to which he is a party;</numbered_3_para>
+	<numbered_3_para>is legal counsel (by whatever name called) in an entity acting solely for the entity in a matter to which it is a party;</numbered_3_para>
+	<numbered_3_para>is a qualified lawyer currently entitled and certified to practise law in the relevant jurisdiction; or</numbered_3_para>
+	<numbered_3_para>is a person explicitly exempted from the requirements limiting the practise of law to qualified lawyers</numbered_3_para>
+	<para_1>(the "Approved Uses").</para_1>
+
+	<a_left_sidehead>Third-Party Services</a_left_sidehead>
+
+	<numbered_2_para>The Legalese Service is being provided over the Internet, in conjunction with third-party services (such as Internet Service, Google Drive, Adobe EchoSign/Document Cloud, DocuSign, HelloSign, or another electronic signature service) which may be offered for a fee, or for an expectation of a fee, gain, or reward. The User agrees that such <b>"Third Party Services"</b> are independent of the Legalese Service.</numbered_2_para>
+
+	<numbered_2_para>The Software may be offered in affiliation with technical support services, business advisory services, corporate secretarial services, information services, or advertising ("Commercial Services"). The User agrees that:</numbered_2_para>
+	<numbered_3_para>such services are independent of the Legalese Service;</numbered_3_para>
+	<numbered_3_para>use of the Legalese Service does not entitle the User to Commercial Services; and</numbered_3_para>
+	<numbered_3_para>any use of Commercial Services shall not be construed as being made in satisfaction of any expectation of fee, gain, or reward arising from use of the Legalese Service.</numbered_3_para>
+
+	<a_left_sidehead>Disclaimer of Warranty</a_left_sidehead>
+
+	<numbered_2_para>There is no warranty for the Software, to the extent permitted by applicable law. Except when otherwise stated in writing the copyright holders and/or other parties provide the Software "as is" without warranty of any kind, either expressed or implied, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose. The entire risk as to the quality and performance of the Software is with you. Should the Software prove defective, you assume the cost of all necessary servicing, repair or correction.</numbered_2_para>
+
+	<numbered_2_para>The Software is not intended to substitute for legal or other professional advice. Templates and contracts, whether generic or customised, may fail to meet the User's needs. Use of the Software does not create a solicitor-client relationship between the User and Legalese, or between the User and anyone else.</numbered_2_para>
+
+	<numbered_2_para>Legalese recommends, and the User understands, that only after consulting a qualified lawyer regarding the particulars of the User's situation, should the User use Legalese to prepare documents under the guidance of such a lawyer. (Unless, of course, the User <i>is</i> a qualified lawyer.)</numbered_2_para>
+
+	<a_left_sidehead>Limitation of Liability</a_left_sidehead>
+
+	<numbered_2_para>In no event unless required by applicable law or agreed to in writing will Legalese, any copyright holder, or any other party who modifies and/or conveys the program as permitted above, be liable to the User for damages, including any general, special, incidental or consequential damages arising out of the use or inability to use the program (including but not limited to embarrassment in commerce, loss of money, loss of data, or data being rendered inaccurate or losses sustained by you or third parties or a failure of the program to operate with any other programs), even if such holder or other party has been advised of the possibility of such damages.</numbered_2_para>
+
+	<numbered_2_para>If the Disclaimer of Warranty and Limitation of Liability provided above cannot be given local legal effect according to their terms, reviewing courts, mediators, or arbitrators shall apply local law that most closely approximates an absolute waiver of all civil liability in connection with the Software, unless a warranty or assumption of liability accompanies a copy of the Software in return for a fee.</numbered_2_para>
+
+	<chapter_header>Signatures</chapter_header>
+
+	<para_1><?= data.signature_phrase || "Intending to be bound by this Agreement, the Parties hereby set their hands:" ?></para_1>
+
+	<b_left_sidehead_nonum>For the User:</b_left_sidehead_nonum>
+	<?!= include("inc_signature", data, data.user) ?>
+
+	<b_left_sidehead_nonum>For Legalese:</b_left_sidehead_nonum>
+	<?!= include("inc_signature", data, data.company) ?>
+
+  </Story_Main>
+</Root>
