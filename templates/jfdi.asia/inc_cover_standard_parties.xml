@@ -6,10 +6,10 @@
 
 
 
-<?= data.parties.company[0].name ?>
+<?= data.parties.company.name ?>
 
 </cover_company_name>
-<cover_company_id><?= data.parties.company[0].idtype ?> <?= data.parties.company[0].id ?></cover_company_id>
+<cover_company_id><?= data.parties.company.idtype ?> <?= data.parties.company.id ?></cover_company_id>
 <centered addnewline="true" />
 <cover_company_name><?= data.parties.investor[0].name ?></cover_company_name>
 <cover_company_id><?= data.parties.investor[0].idtype ?> <?= data.parties.investor[0].id ?></cover_company_id>
