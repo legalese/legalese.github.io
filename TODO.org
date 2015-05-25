@@ -1,5 +1,11 @@
 #+TITLE: things todo
 
+* TODO integration with third party project management software like task management and calendaring
+because the signing of a contract creates certain obligations which if unmet constitute breach
+
+so a company needs to take those obligations seriously.
+
+* TODO write to the Readme the list of To: and CC: for when the user is submitting to EchoSign manually.
 * TODO import each document in the Y Combinator Series AA series
 particularly the CoI amendments to the articles of association
 for taembe
@@ -197,7 +203,7 @@ see JFDI.BOOTCAMP.pdf from JFDI.2012 -- this text should go inside the Memo
 ** confirm that https://some-legalese-thing.github.io works so we close at least one MITM attack vector for code insertion in the xml templates
 ** TODO chuck kiss and safe into it
 * TODO add gender pronoun
-* TODO for xml2pdf-lib.jsx, any paragraph that ends in ":" or ":--+" should have a "keep with next" turned on.
+* DONE for xml2pdf-lib.jsx, any paragraph that ends in ":" or ":--+" should have a "keep with next" turned on.
 * TODO poll the esignature backend and automatically download all signed documents back into the agreement's add_to folder
 * TODO if the template points to a google drive url then it's a private template and we need to retrieve it specially.
 * for [2015-03-26 Thu] at thehub
