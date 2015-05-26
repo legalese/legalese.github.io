@@ -3,20 +3,23 @@
   <Story_Main>
 	<cover_title>Welcome to Legalese</cover_title>
 	<chapter_header override="startParagraph=StartParagraph.ANYWHERE">End-User License Agreement</chapter_header>
-	<centered>comprising Warranty Disclaimers and Copyright Claims</centered>
+	<centered>comprising a Warranty Disclaimer and Limitation of Liability</centered>
 
 	<para_1><span_smallcaps>This agreement</span_smallcaps> is made this <? if (data.agreement_date) { ?><?= data.agreement_date ?><?} else {?><textvar name="Output Date" /><?}?> between:---</para_1>
 
 	<parties><?!= include("inc_party", data, data.company) ?> ("<?= data.company.short_name?>") and</parties>
+<? if (data.user.address) {?>
 	<parties><?!= include("inc_party", data, data.user) ?> (you, the "User")</parties>
-
+<? } else { ?>
+    <parties><?= data.user.name ?> <?=data.user.email?> (you, the "User")</parties>
+<? } ?>
 	<para_1>hereinafter referred to individually as <b>"a Party"</b> or collectively as <b>"the Parties"</b>.</para_1>
 
 	<para_1><span_smallcaps>Whereas:</span_smallcaps></para_1>
 
 	<recitals>The User desires to try out the software and content made available by Legalese; and</recitals>
-	<recitals>Legalese desires to demonstrate its capabilities; but</recitals>
-	<recitals>Legalese does not want to get into trouble with the law or with the User,</recitals>
+	<recitals override="spaceBefore=0">Legalese desires to demonstrate its capabilities; but</recitals>
+	<recitals override="spaceBefore=0">Legalese does not want to get into trouble with the law or with the User,</recitals>
 
 	<para_1><span_smallcaps>The parties agree</span_smallcaps> as follows:</para_1>
 
@@ -24,7 +27,7 @@
 
 	<numbered_2_para>This End-User License Agreement ("Agreement") is a legal agreement between the User (either an individual or a single entity) and Legalese regarding the software and content made available by and through Legalese, which includes software, text, and template content hosted on third-party services such as Google Drive and Github, "online" or electronic documentation, and Internet-based services ("Software").</numbered_2_para>
 
-	<numbered_2_para><span_smallcaps>The User agrees to be bound by the terms of this Agreement by installing, copying, or otherwise using the software. <i>If you do not agree, do not install, copy, or use the software.</i></span_smallcaps></numbered_2_para>
+	<numbered_2_para>The User agrees to be bound by the terms of this Agreement by installing, copying, or otherwise using the software. <i>If you do not agree, do not install, copy, or use the software.</i></numbered_2_para>
 
 	<a_left_sidehead>Approved Use for No Fee</a_left_sidehead>
 
@@ -63,15 +66,11 @@
 
 	<numbered_2_para>If the Disclaimer of Warranty and Limitation of Liability provided above cannot be given local legal effect according to their terms, reviewing courts, mediators, or arbitrators shall apply local law that most closely approximates an absolute waiver of all civil liability in connection with the Software, unless a warranty or assumption of liability accompanies a copy of the Software in return for a fee.</numbered_2_para>
 
-	<chapter_header>Signatures</chapter_header>
+	<chapter_header>Signature</chapter_header>
 
-	<para_1><?= data.signature_phrase || "Intending to be bound by this Agreement, the Parties hereby set their hands:" ?></para_1>
+	<para_1><?= data.signature_phrase || "Intending to be bound by this Agreement, the User hereby executes this agreement:" ?></para_1>
 
-	<b_left_sidehead_nonum>For the User:</b_left_sidehead_nonum>
 	<?!= include("inc_signature", data, data.user) ?>
-
-	<b_left_sidehead_nonum>For Legalese:</b_left_sidehead_nonum>
-	<?!= include("inc_signature", data, data.company) ?>
 
   </Story_Main>
 </Root>
