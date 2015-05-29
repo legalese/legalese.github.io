@@ -13,8 +13,9 @@
 <? } ?>
 <?   if (data.parties.founder.length > 1)           { ?><para_1>(collectively the "Founders" and individually a "Founder");</para_1><?}?>
 
+<? if (data.parties.investor && data.parties.investor.length) { ?>
   <parties><?!= include("inc_party", data, data.parties.investor[0]) ?> (the "Investor"); and</parties>
-
+<? } ?>
 <? if (data.parties.existing_investor) { ?>
 <? for (var i in data.parties.existing_investor) { ?>
 <parties><?!= include("inc_party", data, data.parties.existing_investor[i]) ?><? if (data.parties.existing_investor.length == 1) { ?> (the "Existing Investor")<?}?>;</parties>
@@ -31,7 +32,9 @@
   <recitals>As at the date of this Agreement, the Company has an issued and paid-up share capital of <?= data.company.commitment ?> divided into <?= digitCommas_(data.company.num_shares, 0) ?> Ordinary Shares. </recitals>
   <recitals>Pursuant to a Founder Agreement dated <?= data.founder_agreement_date ?>, and in conjunction with </recitals>
   <para_2>a "Class F Agreement" between the Founders and the Company, by which the Founders subscribe to Class F Preference Shares whose rights of redemption are governed by a vesting schedule described therein; and </para_2>
-  <para_2>a "<?= data.security_type ?> Agreement" dated <?= data.investment_agreement_date ?>, by which the Investor shall become a shareholder upon <?= data.security_type_operation ?>; </para_2>
+<? if (data.parties.investor) { ?>
+<para_2>a "<?= data.security_type ?> Agreement" dated <?= data.investment_agreement_date ?>, by which the Investor shall become a shareholder upon <?= data.security_type_operation ?>; </para_2>
+<? }?>
 <? if (data.parties.existing_investor && data.previously_incorporated && data.previous_investors && data.previous_incorporation_locale != "Singapore") { ?>
 <recitals>The <?= plural(data.parties.existing_investor, "Existing Investor") ?> <?= plural_verb(data.parties.existing_investor, "has") ?> invested in a Previous Company <?!= include("inc_party", data, data.parties.previous_company[0]) ?> whose economic interests will henceforth be represented by the Company instead;</recitals>
 <? } ?>
@@ -51,9 +54,11 @@ in the spirit of mutual confidence and co-operation, the Parties have agreed to 
   <definition>Control	means the possession, direct or indirect, of the power to direct or cause the direction of the management and policies of a corporation, whether through the ownership of voting securities, by contract, or otherwise and derivative terms thereof (including <b>"Controlling"</b>, <b>"Controlled by"</b>; and "under common Control with") shall also bear such meaning as aforesaid. For the purpose of this definition, the holding of an interest (within the meaning of the Act) of more than 50% of the equity share capital of the relevant corporation shall be deemed to be "Control" of this corporation; </definition>
   <definition>Deed of Ratification	means a deed of ratification and accession whereby the signatory thereof enters into, becomes a party to and undertakes to be legally bound by the terms of this Agreement;  </definition>
   <definition>Director	means a director of the Company for the time being, including where applicable an alternate director; </definition>
-  <definition>External Investor	means a debt-, warrant-, option-, or equity-holder other than the Founders and <span_ucnum>JFDI.2014</span_ucnum>; </definition>
+  <definition>External Investor	means a debt-, warrant-, option-, or equity-holder other than <? if (data.parties.investor) {?> and <span_ucnum><?!= commaAnd(["the Founders"].concat(data.parties.investor.map(function(p){return p.name}))) ?></span_ucnum><? } else { ?>the Founders<? } ?>; </definition>
   <definition>External Financing	means a fund-raising event which involves an External Investor, in which the company raises no less than <?= data.qualified_financing_round_size?></definition>
+<? if (data.parties.investor) { ?>
   <definition>Investment	means the amount invested in the Company by the Investor in the form of the Convertible Note; </definition>
+<?}?>
   <definition>Trade Sale	means a sale of 75% or more of the issued Ordinary share capital of the Company to a third party buyer; </definition>
   <definition>Memorandum	means the Memorandum of Association of the Company; </definition>
   <definition>Ordinary Shares	means the ordinary shares in the capital of the Company; </definition>
@@ -91,15 +96,19 @@ in the spirit of mutual confidence and co-operation, the Parties have agreed to 
   <numbered_1_para>Should one or more Shareholders offer to sell their shares to a third Party or Parties such that the new Parties would hold more than 25% of the voting stock of the company, those Shareholders must offer all other Shareholders an opportunity, calculated pro rata, to sell their shares also. </numbered_1_para>
   <b_left_sidehead_nonum>New Parties  </b_left_sidehead_nonum>
   <numbered_2_para>New Shareholders shall be required to execute a Deed of Ratification and be bound by this Agreement. </numbered_2_para>
+<? if (data.parties.investor) { ?>
   <numbered_2_para>While the Investor at the date of the signing of this Agreement is holder of Convertible Debt and not a Shareholder, upon conversion whether in whole or in part, the Investor shall be deemed to have ratified and acceded to this Agreement and agrees to be bound by the terms of this Agreement. </numbered_2_para>
+<? } ?>
   <b_left_sidehead_nonum>Transferability of Rights </b_left_sidehead_nonum>
   <numbered_1_para>The Articles of Association give shareholders pre-emptive rights (on the issue of new securities) and rights of first refusal (to purchase existing securities). These rights shall be transferable on a commercial basis, so that if a deal is oversubscribed, each holder of shares or convertible instruments can delegate their position to one or more favourite investors. </numbered_1_para>
+<? if (data.previously_incorporated) { ?>
   <b_left_sidehead_nonum>Related Companies and Existing Proprietary Assets </b_left_sidehead_nonum>
   <numbered_1_para>Pursuant to the Founder Agreement, should the Founders jointly or severally control an existing business (the "Previous Company") whose proprietary assets will be used in the Company's current business, then those Founders shall, at the election of the Investor but in any event prior to the Next External Financing defined in the <?=data.security_type?> Agreement of <?= data.investment_agreement_date ?>, procure</numbered_1_para>
   <bullets>the transfer of those assets, or
 the transfer of controlling equity in that existing business, or
 a perpetual, irrevocable, royalty-free, exclusive, worldwide license of the Previous Company's assets</bullets>
 <para_2>to the Company for a nominal fee.</para_2>
+<? } ?>
 
 <? if (data.previously_incorporated && data.previous_incorporation_locale != "Singapore") { ?>
 <b_left_sidehead_nonum>New Investors' Interests to be Protected</b_left_sidehead_nonum>
@@ -151,9 +160,11 @@ any distribution of profits of the Company.</numbered_2_para_indent>
 <? for (var i = 0; i < data.parties.founder.length; i++) { ?>
 <?!= include("inc_signature", data, data.parties.founder[i]) ?>
 <? } ?>
+<? if (data.parties.investor && data.parties.investor.length) { ?>
   <para_1><i>For and on behalf of the Investor:</i></para_1>
 <?!= include("inc_signature", data, data.parties.investor[0]) ?>
-  <para_1><i>For and on behalf of the Company:</i></para_1>
+<?}?>
+<para_1><i>For and on behalf of the Company:</i></para_1>
 <?!= include("inc_signature", data, data.company) ?>
 <? if (data.parties.existing_investor) { ?>
   <para_1><i>The Existing <?= plural(data.parties.existing_investor, "Investor") ?>:</i></para_1>

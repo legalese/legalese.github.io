@@ -31,7 +31,7 @@
   <definition>Vested / Unrestricted	in relation to a Share means that the Company has waived its right of redemption in regard to that Share; </definition>
   <definition>Unvested / Restricted	in relation to a Share means that the Company possesses a right of redemption over that Share; </definition>
   <definition>Redemption	in relation to a Share means that the Company purchases, and the Holder sells, that share; </definition>
-  <definition>External Investor	means a debt-, warrant-, option-, or equity-holder other than the Founders and JFDI.2014 Pte. Ltd.; </definition>
+  <definition>External Investor	means a debt-, warrant-, option-, or equity-holder other than <? if (data.parties.investor) {?> and <span_ucnum><?!= commaAnd(["the Founders"].concat(data.parties.investor.map(function(p){return p.name}))) ?></span_ucnum><? } else { ?>the Founders<? } ?>; </definition>
   <definition>External Financing	means a fund-raising event which involves an External Investor, in which the company raises no less than <?= data.qualified_financing_round_size ?>;</definition>
   <para_1>Except where the context otherwise requires, words importing the singular include the plural and vice versa, words importing a gender include every gender and references to persons include bodies corporate or unincorporated, any state or any agency thereof and any other entity. </para_1>
   <para_1>Headings, marginal sidenotes, and graphic art are for ease of reference only and have no legal effect. Reference to Clauses and Sections are, unless otherwise indicated, to Clauses and Sections of this Agreement and references to this Agreement includes any amendments or supplementals thereto. </para_1>
