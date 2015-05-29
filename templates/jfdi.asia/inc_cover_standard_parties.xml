@@ -11,8 +11,10 @@
 </cover_company_name>
 <cover_company_id><?= data.parties.company.idtype ?> <?= data.parties.company.id ?></cover_company_id>
 <centered addnewline="true" />
+<? if (data.parties.investor && data.parties.investor.length) { ?>
 <cover_company_name><?= data.parties.investor[0].name ?></cover_company_name>
 <cover_company_id><?= data.parties.investor[0].idtype ?> <?= data.parties.investor[0].id ?></cover_company_id>
+<? } ?>
 </CoverTop>
 <CoverMid>
 <? for (var f in data.parties.founder) { ?>
