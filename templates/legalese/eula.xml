@@ -11,7 +11,7 @@
 <? if (data.user.address) {?>
 	<parties><?!= include("inc_party", data, data.user) ?> (you, the "User")</parties>
 <? } else { ?>
-    <parties><?= data.user.name ?> <?=data.user.email?> (you, the "User")</parties>
+    <parties><?= data.user.name ?> &lt;<?=data.user.email?>&gt; (you, the "User")</parties>
 <? } ?>
 	<para_1>hereinafter referred to individually as <b>"a Party"</b> or collectively as <b>"the Parties"</b>.</para_1>
 
