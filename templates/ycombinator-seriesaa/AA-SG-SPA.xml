@@ -83,7 +83,7 @@ The most recent financial statements of the Company are annexed at Schedule <xre
 
 <numbered_2_firstbold>Access to Data.  The Investor has had an opportunity to ask questions of, and receive answers from, the officers of the Company concerning the Agreements, the exhibits and schedules attached hereto and thereto and the transactions contemplated by the Agreements, as well as the Company’s business, management and financial affairs, which questions were answered to its satisfaction. The Investor believes that it has received all the information such Investor considers necessary or appropriate for deciding whether to purchase the Shares and the Conversion Shares. The Investor understands that such discussions, as well as any information issued by the Company, were intended to describe certain aspects of the Company’s business and prospects, but were not necessarily a thorough or exhaustive description. The Investor acknowledges that any business plans prepared by the Company have been, and continue to be, subject to change and that any projections included in such business plans or otherwise are necessarily speculative in nature, and it can be expected that some or all of the assumptions underlying the projections will not materialize or will vary significantly from actual results. The Investor also acknowledges that it is not relying on any statements or representations of the Company or its agents for legal advice with respect to this investment or the transactions contemplated by the Agreements.</numbered_2_firstbold>
 
-<? if(data.investor.accredited_investor == true){ ?>
+<? if(data.new_investor.accredited_investor == true){ ?>
 <numbered_2_firstbold>Accredited Investor.  The Investor is an "accredited investor" within the meaning of Section 4A(1)(a) of the Securities and Futures Act and shall submit to the Company such further assurances of such status as may be reasonably requested by the Company.</numbered_2_firstbold>
 <? } ?>
 
@@ -128,7 +128,7 @@ The most recent financial statements of the Company are annexed at Schedule <xre
 <para_2>Each such notice or other communication shall for all purposes of this Agreement be treated as effective or having been given when delivered if delivered personally, or, if sent by mail, at the earlier of its receipt or 72 hours after the same has been deposited in a regularly maintained receptacle for the deposit of postal mail, addressed and mailed as aforesaid or, if sent by facsimile, upon confirmation of facsimile transfer or, if sent by electronic mail, upon confirmation of delivery when directed to the electronic mail address set forth on the Schedule of Investors.</para_2>
 
 <numbered_2_firstbold xname="medarb">Governing Law and Dispute Resolution</numbered_2_firstbold>
-  <?!= include("inc_mediation_arbitration", data, { para_style = "numbered_3_para" } ) ?>
+  <?!= include("inc_mediation_arbitration", data, { para_style : "numbered_3_para" } ) ?>
 
   <numbered_2_firstbold>Expenses.  The Company and the Investors shall each pay their own expenses in connection with the transactions contemplated by this Agreement.
 Successors and Assigns.  This Agreement, and any and all rights, duties and obligations hereunder, shall not be assigned, transferred, delegated or sublicensed by any Investor without the prior written consent of the Company. Any attempt by an Investor without such permission to assign, transfer, delegate or sublicense any rights, duties or obligations that arise under this Agreement shall be void. Subject to the foregoing and except as otherwise provided herein, the provisions of this Agreement shall inure to the benefit of, and be binding upon, the successors, assigns, heirs, executors and administrators of the parties hereto.</numbered_2_firstbold>
@@ -169,3 +169,6 @@ Successors and Assigns.  This Agreement, and any and all rights, duties and obli
 <? if(data.financial_statements=="newco"){?>
 <schedule_header xname="financial_statements">Financial Statements</schedule_header>
 <? } ?>
+
+</Story_Main>
+</Root>
