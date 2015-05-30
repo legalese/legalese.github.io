@@ -467,6 +467,64 @@ It is therefore possible to compute an Agreement spreadsheet from a given 3-colu
 
 We need a way to parse a cap table, and its constituent investment rounds, into a data structure. That data structure can then populate an agreement sheet.
 
+*** Desired Variables
+a given template will be /scoped/ to a specific deal columnset of the captable. that columnset is called the *cap.col*.
+
+Our code library needs to be able to parse these variables from the captable:
+
+- data.cap.col.num_shares.pre.ordinary
+- data.cap.col.num_shares.pre.f
+- data.cap.col.num_shares.pre.yc_aa
+- data.cap.col.num_shares.pre.esop.total
+- data.cap.col.num_shares.pre.esop.reserved
+- data.cap.col.num_shares.pre.esop.issued
+- data.cap.col.num_shares.post.ordinary
+- data.cap.col.num_shares.post.f
+- data.cap.col.num_shares.post.yc_aa
+- data.cap.col.num_shares.post.esop.total
+- data.cap.col.num_shares.post.esop.reserved
+- data.cap.col.num_shares.post.esop.issued
+- data.cap.col.sheetname
+- data.cap.col.pre_money_valuation
+- data.cap.col.security_type
+
+Each columnset has a corresponding tab in the spreadsheet which fills in the rest of the details of the deal, under data.* :
+
+- Pre-Money Valuation:
+- Amount Raising:
+- Default Currency:
+- Discount:
+- Discount Formula Start:
+- Discount Formula Monthly:
+- Discount Formula Cap:
+- Maturity Conversion Discount:
+- Investment Agreement Date:
+- Shareholders Agreement Date:
+- Qualified Financing Proceeds:
+- Qualified Round Type:
+- Converts to:
+- Security Type:
+- Security Type Operation:
+- Security Type Plural:
+- Security Type Short Plural:
+- Security Type Short Singular:
+- High Resolution:
+- Security Essential:
+- Has Term:
+- Term:
+- Interest:
+- Liquidation Preference:
+- Acquisition Preference:
+- Notice Period:
+- Participation Notice Period:
+- New Issue Notice Period:
+- MFN:
+- Major Investor Minimum:
+- Jurisdiction:
+- Transfers Have ROFR:
+- Preemptive Rights Transferable to Investors' Members
+- Subsection 161(4):
+
 * Templates
 Public templates live inside the legalese-io.github.io repository, under templates.
 
