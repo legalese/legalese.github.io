@@ -6,7 +6,8 @@
 
 <?!= include("inc_additional_resolutions", data, {
   header:data.members_resolution_headerstyle || "b_left_sidehead",
-  prefix:"members_resolution" } ) ?>
+  prefix:"members_resolution",
+  bodystyle:data.members_resolution_bodystyle } ) ?>
 
 <?!= include("inc_member_notices", data) ?>
 
