@@ -43,7 +43,7 @@
 and to protect the interests of the <?= plural(data.parties.existing_investor, "Existing Investor") ?> by ensuring fair representation in the Company, <? } ?>
 in the spirit of mutual confidence and co-operation, the Parties have agreed to enter into this Agreement on the terms and conditions hereinafter set out. </recitals>
   <para_1>Now it is hereby agreed as follows:---</para_1>
-  <a_left_sidehead>Definitions </a_left_sidehead>
+  <a_left_sidehead>Definitions</a_left_sidehead>
   <para_1 override="keepWithNext=1">In this Agreement and in the Recitals abovementioned, unless the context otherwise requires:</para_1>
   <definition>Act	means the Singapore Companies Act (Cap. 50) and includes any provision thereof as from time to time modified or re-enacted; </definition>
   <definition>Agreement	(also Shareholders' Agreement) means this Agreement and shall include all modifications and supplements thereto from time to time in force; </definition>
@@ -74,7 +74,7 @@ in the spirit of mutual confidence and co-operation, the Parties have agreed to 
   <para_1>Any reference in this Agreement to a Shareholder procuring and derivative terms thereof (including "shall procure"), shall only oblige the Shareholder to exercise its voting rights in the Company to vote in favour of the Company performing its obligation as required. </para_1>
   <para_1>This Agreement shall be governed by and interpreted in accordance with the laws of the Republic of Singapore. </para_1>
   <b_left_sidehead_nonum>Founder Stock Vesting Scheme </b_left_sidehead_nonum>
-  <numbered_1_para>The Company shall issue and the Shareholders may subscribe to Class F Shares as described in the Class F Agreement. These shares provide a mechanism for: </numbered_1_para>
+  <numbered_1_para>The Company shall issue and the Shareholders may subscribe to Class F Shares as described in the Class F Agreement. These shares provide a mechanism for:</numbered_1_para>
   <numbered_2_para_indent>recognizing different degrees of commitment and different levels of contribution from each Founder; </numbered_2_para_indent>
   <numbered_2_para_indent>respecting the need of each Founder to balance compensation between cash and equity; and </numbered_2_para_indent>
   <numbered_2_para_indent>amicably resolving scenarios in which one or more Founders leave the company. </numbered_2_para_indent>
