@@ -732,6 +732,10 @@ blockquote.quotation {
   border-left: 10px;
 }
 
+blockquote.quotation.smaller {
+  font-size: 1em;
+}
+
 blockquote.credit {
   padding: 0 0 0 0px;
   text-align: right;
