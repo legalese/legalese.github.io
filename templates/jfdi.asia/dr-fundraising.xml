@@ -21,7 +21,7 @@ who <?= plural_verb(data.parties.new_investor, "has") ?> <? if(data.previously_p
 if (data.security_essential == "equity" && data.price_per_share) { ?> at a subscription price of <?= data.price_per_share ?> per share<?}?>
 <?}?>
 .</numbered_2_para>
-<? if (! data.share_grant) { ?><numbered_2_para>The abovenamed parties have agreed to enter into a Subscription Agreement (annexed) to memorialise the above intents and purposes.</numbered_2_para><? } ?>
+<? if (! data.share_grant) { ?><numbered_2_para>The abovenamed parties have <?if(data.previously_paid){?>previously entered<?}else{?>agreed to enter<?}?> into a Subscription Agreement (annexed) to memorialise the above intents and purposes.</numbered_2_para><? } ?>
 
 <b_left_sidehead_nonum>It is hence resolved that:---</b_left_sidehead_nonum>
 
@@ -29,15 +29,16 @@ if (data.security_essential == "equity" && data.price_per_share) { ?> at a subsc
 It is in the interests of the Company to grant the shares; and
 <?} else {?>
 the Agreement annexed be noted, approved, and adopted;
-it is in the interests of the Company to enter into the Agreement;
-the Company enters into the Agreement;
+it <?if(data.previously_paid){?>was<?}else{?>is<?}?> in the interests of the Company to enter into the Agreement;
+<?if(! data.previously_paid){?>the Company enters into the Agreement;
+<?}?>
 <?= data.parties.director[data.signing_director_index||0].name ?> be authorised to sign the same on behalf of the Company;
 the said <?= data.parties.director[data.signing_director_index||0].name ?> be authorised in his absolute discretion to approve any amendment, alternation, or modification to the Agreement and that the signing and sealing thereof or of a copy thereof be conclusive evidence of such approval; and<? } ?>
 </numbered_2_para><numbered_2_para xname="signing_authority"><?= data.parties.director[data.signing_director_index||0].name ?> be authorised to do all acts or things necessary or desirable in connection with the foregoing including without limitation, signing and executing such documents or approving any modifications to such documents as he may deem necessary or expedient for the foregoing purpose and that the signing thereof by such director be conclusive of such approval.</numbered_2_para>
 
 <a_left_sidehead>Deed of Ratification and Accession</a_left_sidehead>
 <?if(data.skip_dora){?>
-<para_1>It is noted that a Deed of Ratification and Accession is not necessary in this instance as the Investor has previously executed the Shareholders' Agreement dated <?= data.previous_shareholder_agreement_date || data.shareholders_agreement_date ?>.</para_1>
+<para_1>It is noted that a Deed of Ratification and Accession is not necessary in this instance as the Investor has previously executed or ratified the Shareholders' Agreement dated <?= data.previous_shareholder_agreement_date || data.shareholders_agreement_date ?>.</para_1>
 <?}else{?>
 <b_left_sidehead_nonum>Whereas:---</b_left_sidehead_nonum>
 
