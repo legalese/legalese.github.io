@@ -21,7 +21,7 @@
 <cover_parties_centered><?= data.parties.founder[f].name ?></cover_parties_centered>
 <? } ?>
 <? if (data._include.disclaimer) { ?>
-<centered>This offer is made in reliance on the exemptions under sections <?if (data._orig_amount_raising < 5000000){?>272A(1), <?}?>272B(1), 274, and 275(1) of the Securities and Futures Act. It is not made in or accompanied by a prospectus that is registered by the Monetary Authority of Singapore.</centered>
+<?!= include("inc_disclaimer", data, { parastyle:"noindent_justified" })?>
 <? } ?>
 
 </CoverMid>
