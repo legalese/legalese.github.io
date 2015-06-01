@@ -41,24 +41,6 @@
 
 		  <p>These are the documents produced by Legalese's Singapore Incorporation workflow. In the future, Legalese will offer incorporation workflows for every jurisdiction in the world, so you can form a Delaware corporation, a BVI / Cayman vehicle, etc. For now, we use the Singapore example, because that's where the frogs happen to live.</p>
 
-		  <h3>What's special about a corporation done through Legalese?</h3>
-
-		  <p>Legalese's default Articles of Association extends the standard government-provided regulations with a few extra features.</p>
-
-		  <p><b>Preemptive Rights for New Issues of Shares.</b> If the Company wants to issue new shares (or securities convertible to shares) to new investors, it has to first offer existing shareholders <i>pro rata</i> rights to purchase those shares. (<b>Rights of first refusal</b> are likewise defined for when a shareholder wants to transfer shares to somebody else.)</p>
-		  
-		  <p><b>Definition of a Change of Control Event.</b> This covers a trade sale / acquisition or other in which 50% of the controlling shares of company change hands. This may trigger liquidation preferences for some securities.</p>
-
-		  <p>As you read the next few sections it might help to think about "ordinary", or "common", as the default object class for shares; they have basic attributes like voting rights and price per share. A particular ordinary share of common stock is an instance of a class, constructed by a procedure called <i>issue and allotment</i>. "Preferred" classes of shares extend the default class with new properties and methods.</p>
-		  
-		  <p><b>Class definition for Series YC-AA Shares.</b> The Articles define a class of preferred shares called Series YC-AA Shares. These are logically equivalent to Y Combinator's Series AA shares, just adapted for the local jurisdiction. Properties include broad-based weighted-average anti-dilution, non-participating preferred, with a liquidation preference defined by the subscription agreement. These shares are convertible and non-redeemable.</p>
-		  
-		  <p><b>Class definition for Class F Shares.</b> The Articles define a class of preferred shares called F Shares. These were originally designed by JFDI. They are the mechanism by which your startup can implement founder vesting and employee stock ownership plans. These shares are redeemable and convertible. By default, they start out being redeemable (by the Company) and not convertible (by the Holder). As the shares vest, they stop being redeemable and start being convertible to ordinary shares, at the option of the Holder.</p>
-
-		  <p>These preferred share classes are defined, waiting around for you to use them, but you don't have to instantiate them until you're ready. When will you be ready? In the case of AA shares, when you have a new investor who wants to do an equity round. In the case of F shares, when you have founders and set up vesting scheme. It's never too early to set up a vesting scheme, or to reserve an ESOP pool.</p>
-
-		  <p>To instantiate shares, you need a subscription agreement. Legalese provides that. More about that in another demo.</p>
-		  
 		  <h2>Clone the Google Spreadsheet</h2>
 
 <img src="images/screenshot-spreadsheet-2015-01-08-02.35.29.png" alt="Google Docs Spreadsheet with Legalese Menu" />
@@ -73,20 +55,54 @@
 
 		  <p>Click <i>Add-ons / Legalese / Generate PDFs</i>.</p>
 
+		  <p>By default, Legalese will boot up a corporation with a few extra features over and above what a typical corporate secretary will give you.</p>
+
+		  <p>These differences are true across jurisdictions. At present Legalese produces Singapore companies but soon will produce U.S. companies too. For now, if you need a U.S. company incorporated, you should use something like <a href="http://www.clerky.com/">Clerky</a>.
+		  
 		  <img src="images/crop-generate.png" alt="Generate Papers" />
 
 		  <p>What documents are created? Assuming you're in Singapore jurisdiction, you get:</p>
 
-		  <p>A Memorandum and Articles of Association: <a href="images/01 - Memorandum and Articles of Association.pdf"><img src="images/01 - Memorandum and Articles of Association.png" width="200px" border="1"></a></p>
+		  <h3>Memorandum and Articles of Association</h3>
 		  
-		  <p>A Shareholders' Agreement: <a href="images/02 - Shareholders' Agreement.pdf"><img src="images/02 - Shareholders' Agreement.png" width="200px" border="1"></a></p>
-		  
-		  <p>A Volunteer Agreement, containing a non-compete, confidentiality, and assignment of Intellectual Property: <a href="images/03 - Volunteer Agreement for tadpole@frogporridge.example.com.pdf"><img src="images/03 - Volunteer Agreement for tadpole@frogporridge.example.com.png" width="200px" border="1"></a></p>
+		  <p>Legalese's default Articles of Association extends the standard government-provided regulations with a few extra features.</p>
 
-		  <p>A set of Consents to Act As Director: <a href="images/04 - Form 45 Consent to Act as a Director for tadpole@frogporridge.example.com.pdf"><img src="images/04 - Form 45 Consent to Act as a Director for legs@frogporridge.example.com.pdf" width="200px" border="1"></a></p>
-
-		  <p>First Directors' Resolutions, which initialize the company with a set of decisions.</p>
+		  <p><b>Preemptive Rights for New Issues of Shares.</b> If the Company wants to issue new shares (or securities convertible to shares) to new investors, it has to first offer existing shareholders <i>pro rata</i> rights to purchase those shares. (<b>Rights of first refusal</b> are likewise defined for when a shareholder wants to transfer shares to somebody else.)</p>
 		  
+		  <p><b>Definition of a Change of Control Event.</b> This covers a trade sale / acquisition or other in which 50% of the controlling shares of company change hands. This may trigger liquidation preferences for some securities.</p>
+
+		  <p>As you read the next few sections it might help to think about "ordinary", or "common", as the default object class for shares; they have basic attributes like voting rights and price per share. A particular ordinary share of common stock is an instance of a class, constructed by a procedure called <i>issue and allotment</i>. "Preferred" classes of shares extend the default class with new properties and methods.</p>
+		  
+		  <p><b>Class definition for Series YC-AA Shares.</b> The Articles define a class of preferred shares called Series YC-AA Shares. These are logically equivalent to Y Combinator's Series AA shares, just adapted for the local jurisdiction. Properties include broad-based weighted-average anti-dilution, non-participating preferred, with a liquidation preference defined by the subscription agreement. These shares are convertible and non-redeemable.</p>
+		  
+		  <p><b>Class definition for Class F Shares.</b> The Articles define a class of preferred shares called F Shares. These were originally designed by JFDI. They are the mechanism by which your startup can implement founder vesting and employee stock ownership plans. These shares are redeemable and convertible. By default, they start out being redeemable (by the Company) and not convertible (by the Holder). As the shares vest, they stop being redeemable and start being convertible to ordinary shares, at the option of the Holder.</p>
+
+		  <p>These preferred share classes are defined, waiting around for you to use them, but you don't have to instantiate them until you're ready. When will you be ready? In the case of AA shares, when you have a new investor who wants to do an equity round. In the case of F shares, when you have founders and set up vesting scheme. It's never too early to set up a vesting scheme, or to reserve an ESOP pool.</p>
+
+		  <p>To instantiate shares, you need a subscription agreement. Legalese provides that. More about that in the next demo.</p>
+
+		  <p><a href="images/01 - Memorandum and Articles of Association.pdf"><img src="images/01 - Memorandum and Articles of Association.png" width="200px" border="1"></a></p>
+		  
+		  <h3>Shareholders' Agreement</h3>
+
+		  <p>Legalese asks the founders to sign a shareholders' agreement, which defines drags and tags, a share valuation policy, reserved matters, and a few required actions for the founders like buying insurance.</p>
+		  
+		  <p><a href="images/02 - Shareholders' Agreement.pdf"><img src="images/02 - Shareholders' Agreement.png" width="200px" border="1"></a></p>
+
+		  <h3>Volunteer Agreement</h3>
+
+		  <p>Legalese asks the founders to sign a volunteer agreement, containing a non-compete, confidentiality, and assignment of Intellectual Property: <a href="images/03 - Volunteer Agreement for tadpole@frogporridge.example.com.pdf"><img src="images/03 - Volunteer Agreement for tadpole@frogporridge.example.com.png" width="200px" border="1"></a></p>
+
+		  <h3>Director Consents</h3>
+
+		  <p>Form 45 is required by the government: <a href="images/04 - Form 45 Consent to Act as a Director for tadpole@frogporridge.example.com.pdf"><img src="images/04 - Form 45 Consent to Act as a Director for legs@frogporridge.example.com.pdf" width="200px" border="1"></a></p>
+
+		  <h3>First Directors' Resolutions</h3>
+
+		  <p>The promoters initialize the company with a set of resolutions.</p>
+		  
+		  <h3>All these PDFs need your review.</h3>
+
 		  <p>Every time you <em>Generate PDFs</em>, Legalese creates a new folder under <i>Legalese Root</i> in your Google Drive. If you ever feel the urge to clean up, you can just delete everything under Legalese Root, and start over. You can even delete Legalese Root itself.</p>
 
 <img src="images/crop-xml.png" alt="Generated XML" />
