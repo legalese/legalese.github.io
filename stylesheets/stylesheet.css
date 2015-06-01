@@ -497,6 +497,17 @@ header h2 {
   max-width: 100%;
 }
 
+img.rhs {
+  border-style: solid;
+  border: 1px;
+  border-color: blue;
+  padding: 6px;
+  width: 200px;
+  float:right;
+}
+
+.clear { clear: both }
+
 aside#sidebar {
   float: right;
   width: 200px;
