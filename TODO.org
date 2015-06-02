@@ -1,11 +1,19 @@
 #+TITLE: things todo
 
+* TODO poll the e-signature backend to find out when a document is signed. update the spreadsheet.
+** TODO automatically record the dates that an agreement was executed
+there are two parts to this -- every agreement should have a unique variable name for its signing date.
+when an agreement is created, we should record that date as a provisional, right in the spreadsheet.
+when we notice that the e-signature system has recorded a signature complete state for the agreement, we promote the provisional to confirmed.
+
+i think the way to do this is we create a _provisional extension to each whatever_agreement_date.
+** TODO poll the esignature backend and automatically download all signed documents back into the agreement's add_to folder
 * TODO integration with third party project management software like task management and calendaring
 because the signing of a contract creates certain obligations which if unmet constitute breach
 
 so a company needs to take those obligations seriously.
 
-* TODO write to the Readme the list of To: and CC: for when the user is submitting to EchoSign manually.
+* DONE write to the Readme the list of To: and CC: for when the user is submitting to EchoSign manually.
 * TODO import each document in the Y Combinator Series AA series
 particularly the CoI amendments to the articles of association
 for taembe
@@ -30,14 +38,8 @@ a two-step workflow: drafting and issue a basic member's resolution by written m
 * TODO add support to xml2pdf-lib.jsx for extracting <Sidebar> elements into an anchored object
 * DONE review all the .xml files to see if any numerics need to be handled different now that they're strings.
 google-app 79e5b5f recorded a whole bunch of changes. the upshot: formatify_ now always emits a String. if any of the xmls do something like add two numbers we need those operations to operate on the _orig number and then formatify to the _format string.
-* TODO fix the document numbering -- when there are more than 9 documents, the 1-9 don't get 0 prefixed, but 10 does, so you get 010 lol
+* DONE fix the document numbering -- when there are more than 9 documents, the 1-9 don't get 0 prefixed, but 10 does, so you get 010 lol
 * TODO timezone support -- the indesign textvar for output date will run with SGT but maybe some users will generate spreadsheets in some other timezone.
-* TODO automatically record the dates that an agreement was executed
-there are two parts to this -- every agreement should have a unique variable name for its signing date.
-when an agreement is created, we should record that date as a provisional, right in the spreadsheet.
-when we notice that the e-signature system has recorded a signature complete state for the agreement, we promote the provisional to confirmed.
-
-i think the way to do this is we create a _provisional extension to each whatever_agreement_date.
 
 * DONE write a module system so that common operations can be factored out
 like the share counting in the allocation and ordinary shares workflows.
@@ -47,12 +49,12 @@ how to install the google app in your own spreadsheet
 
 how to fill in the API keys for your backend of choice
 
-* TODO add qryo-style QR stamping on each page
+* TODO [#C] add qryo-style QR stamping on each page
 * TODO write simple contributor(lawyer)-facing onboarding
 * TODO produce the entire universe of contracts with at least the company's details prefilled
 how to draft a new document by forking an existing XML
 * TODO explain the ad agency model
-* TODO latin phrase for holy water
+* DONE latin phrase for holy water
 * TODO get in touch with https://angel.co/darbywong
 https://www.linkedin.com/profile/view?id=1848548&authType=NAME_SEARCH&authToken=8t52&locale=en_US&srchid=16928181431323245278&srchindex=1&srchtotal=4&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A16928181431323245278%2CVSRPtargetId%3A1848548%2CVSRPcmpt%3Aprimary%2CVSRPnm%3Atrue
 * TODO import each document in the legal.cf.sg _posts and establish backward compatibility [0/9]
@@ -102,13 +104,13 @@ http://e27.co/one-singapores-top-corporate-tech-lawyers-helping-little-guys-2015
 
 - help to filter the range based on which are acceptable to investors.
 
-* TODO make Legalese a library
+* DONE make Legalese a library
 that people can just import, similar to the OAuth library.
 
-* TODO make Legalese an add-on
+* TODO [#A] make Legalese an add-on
 that doesn't import a library.
 
-* TODO obtain a CUSTOMER api key for integration against echosign; get blessing.
+* TODO [#A] obtain a CUSTOMER api key for integration against echosign; get blessing.
 * for jfdi.2014
 ** DONE add to explanatory statement
 *** this is a formality and we do not expect anyone to object
@@ -126,7 +128,7 @@ that doesn't import a library.
 because we are aware of the schema we should autopopulate the sheet with those variables, and only those variables, that are expected in the xml.
 we have previously done a little work in this direction, titled something like introspector.
 ** TODO this linter should verify, just before a run, that all the variables that an XML expects are available from the spreadsheet
-* TODO clean up the overlap between the new share class creation variables and the new share issue variables. 
+* DONE clean up the overlap between the new share class creation variables and the new share issue variables. 
 * TODO figure out a better way to track the agreement dates (TODAY vs the actual signed date in the spreadsheet.)
 * TODO collapse multiple hats to a single signer -- if the same email address is signing in multiple roles, give them the same esnum
 right now we send two emails and they are confusing.
@@ -202,9 +204,8 @@ see JFDI.BOOTCAMP.pdf from JFDI.2012 -- this text should go inside the Memo
 ** republish all the currently private content under cofounders to legalese, with the echosign oauth creds scrubbed
 ** confirm that https://some-legalese-thing.github.io works so we close at least one MITM attack vector for code insertion in the xml templates
 ** TODO chuck kiss and safe into it
-* TODO add gender pronoun
+* TODO add gender pronoun for parties
 * DONE for xml2pdf-lib.jsx, any paragraph that ends in ":" or ":--+" should have a "keep with next" turned on.
-* TODO poll the esignature backend and automatically download all signed documents back into the agreement's add_to folder
 * TODO if the template points to a google drive url then it's a private template and we need to retrieve it specially.
 * for [2015-03-26 Thu] at thehub
 ** TODO import KISSsing
