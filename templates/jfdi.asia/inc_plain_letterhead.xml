@@ -1,5 +1,6 @@
 <?!= data.xml_declaration ?>
-<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/" templateSpec="singlepage.indt">
+<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/" templateSpec="singlepage.indt"<?
+if (data._config.save_indd && data._config.save_indd.value) { ?> saveIndd="true"<?}?>>
 <Firstpage_Sidebar>
 <sidebar><?= data.company.name ?></sidebar>
 <sidebar><?= data.company.address ?></sidebar>
