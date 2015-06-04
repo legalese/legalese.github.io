@@ -48,17 +48,51 @@
 
 		  <h1><a name="tutorials"></a>Tutorials</h1>
 
-		  <p>These tutorials create working agreement PDFs, so you can experience Legalese for yourself.</p>
+		  <p>These tutorials create working agreement PDFs that you can actually sign. You represent the company, and you create agreements of increasing complexity with third-party signatories, or counterparties.</p>
+
+		  <h2>Tutorial 1: the EULA</h2>
 		  
-		  <p><a href="https://docs.google.com/a/jfdi.asia/forms/d/1RIB2E2-SfXBTLKVlwhRx08UnUeYoN5yjnaJrvqZavUE/viewform">Tutorial 1: You, a <b>signatory</b>, fill in a simple form giving your name and email address.</a> Shortly thereafter, you receive a PDF agreement, by email, for e-signature. Soon, you will be able to send out forms like this yourself!</p>
+		  <p>Your third-party <b>signatory</b> fills in a Google Form and get back an agreement to sign. They don't even have to know Legalese exists.</p>
 
-		  <p><a href="https://docs.google.com/spreadsheets/d/1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw/copy?id=1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw&copyCollaborators=false&copyComments=false&title=Legalese%20Tutorial%202&usp=sheets_web">Tutorial 2: You, a <b>power user</b>, edit the spreadsheet</a> which creates the agreement. (Say yes to "Make a copy?") You tweak terms and enter party particulars, then create an agreement PDF by clicking Add-ons / Legalese / Generate PDFs. Outcome: a "Hello World" agreement PDF in Google Drive.</p>
+		  <ol>
+			<li> In this tutorial, you see how Legalese might appear to a third-party signatory.</li>
+			<li> Legalese.io takes the role of a Company, providing you an End-User License Agreement.</li>
+			<li> You take the role of an end-user signing the License Agreement.</li>
+			<li> In future, you will take the role of the Company generating agreements for others.</li>
+			<li> Legalese.io invites you to <a href="https://docs.google.com/a/jfdi.asia/forms/d/1RIB2E2-SfXBTLKVlwhRx08UnUeYoN5yjnaJrvqZavUE/viewform">fill in a simple form with your name and email address.</a></li>
+			<li> A few minutes thereafter, you should receive a PDF agreement for signature. If you don't receive the EULA, that's because there is a bug in the software that does OAuth integration with EchoSign. Sorry, this is still alpha software.</li>
+			<li> To complete the tutorial, sign the EULA.</li>
+		  </ol>
 
-		  <p>Tutorial 3: You, a <b>power user</b>, inject the agreement PDF into an e-signature service which mails it to signatories.</p>
+		  <p><i>After running this tutorial, you will have:</i> seen what Legalese's Particulars form looks like to a third-party signatory, seen the output PDF, and signed it.</p>
 
-		  <p>Tutorial 4: You, a <b>power user</b>, configure the spreadsheets to create <i>multiple</i> agreements within a single document set.</p>
+		  <h2>Tutorial 2: Hello, World!</h2>
 		  
-		  <p>Tutorial 5: You, a <b>power user</b>, choose the docset you need to create, and learn how to selectively <i>ignore:</i> individual docs.</p>
+		  <p><a href="https://docs.google.com/spreadsheets/d/1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw/copy?id=1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw&copyCollaborators=false&copyComments=false&title=My%20Legalese%20Tutorial%202&usp=sheets_web">You, a <b>power user</b>, set up a Yellow Spreadsheet</a>. (Say yes to "Make a copy?") You tweak terms and enter party particulars by hand, then create an agreement by clicking <i>Add-ons / Legalese / Generate PDFs</i>. Outcome: a "Hello World" agreement PDF in Google Drive. Click the link in cell E6 of the spreadsheet to open the output folder in Google Drive. You should see an XML file. Wait three minutes for the XML to turn into a PDF. (While you wait, you might check out the README file.)</p>
+
+		  <p> <i>After running this tutorial, you will have:</i> gotten comfortable with Legalese's Yellow Spreadsheets, created a PDF of your own, read the README, and glanced at the XML source files.</p>
+
+		  <h2>Tutorial 3: Send for Signature</h2>
+
+		  <p>You, a <b>power user</b>, inject the <i>Hello World</i> PDF into an e-signature service which mails it to signatories.</p>
+
+		  <ol>
+			<li> Open the Google Drive folder in which the PDF lives.</li>
+			<li> Begin by going back to the yellow spreadsheet.</li>
+			<li> To find it, search your Google Drive for <b>My Legalese Tutorial</b>; or, starting from <i>My Drive</i>, open <i>Legalese Root</i>, then find <i>My Legalese Tutorial</i>.</li>
+			<li> Go to the <i>Hello World</i> tab.</li>
+		  </ol>
+			
+		  <h2>Tutorial 4: A Real Nondisclosure Agreement</h2>
+		  
+		  <p>You, a <b>power user</b>, choose a real-world docset, and create a real-world agreement.</p>
+		  <ol>
+			<li> Look at the row of tabs at the bottom of the spreadsheet.</li>
+			<li> You will see tabs with names like <i>NDA</i>, <i>Incorporation</i>, <i>Creation of Class F Shares</i>, and <i>Seed Round</i>.</li>
+			<li> Let's start with a simple agreement: a nondisclosure.</li>
+		  </ol>
+		  
+		  <p>Tutorial 5: You, a <b>power user</b>, configure the spreadsheets to create <i>multiple</i> agreements within a single document set.</p>
 		  
 		  <p>Tutorial 6: You, a <b>power user</b>, browse all the docsets that are available in Legalese.</p>
 		  
@@ -412,12 +446,11 @@
 
 		  <h3>The Spreadsheet</h3>
 
-		  <p>At the heart of each step is a Google Docs spreadsheet. To get it working for you, install
-		  the <i>Legalese</i> Google Add-On from the Add-On Store. (This step is still in development.)</p>
+		  <p>At the heart of each step is a Google Docs spreadsheet. If you haven't already run Tutorial 2, <a href="https://docs.google.com/spreadsheets/d/1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw/copy?id=1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw&copyCollaborators=false&copyComments=false&title=Legalese%20Tutorial%202&usp=sheets_web">copy a saple spreadsheet</a> to your Google Drive.</p>
 
-		  <p>The spreadsheet contains information about the parties.</p>
+		  <p>A Legalese spreadsheet contains information about your company and the parties it deals with, usually under the Entities tab. That's where you inscribe the particulars about founders, investors, employees, volunteers, etc.</p>
 
-		  <p>The spreadsheet also contains information about the terms of the agreement.</p>
+		  <p>Each tab in the spreadsheet produces one or more documents &ndash; a <em>docset</em>.</p>
 
 		  <p>The templates are filled based on the information in the spreadsheet.</p>
 
