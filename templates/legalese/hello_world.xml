@@ -20,9 +20,10 @@
 <para_1><span_smallcaps>Whereas:</span_smallcaps></para_1>
 
 <recitals>The Company possesses a <?= data.the_thing ?> that it doesn't want; and</recitals>
+
 <recitals>The <?=data.buyer.short_name?> has <?=data.consideration?> burning a hole in its pocket,</recitals>
 
-<para_1><span_smallcaps>The parties</span_smallcaps> hereby agree:</para_1>
+<para_1><span_smallcaps>The parties</span_smallcaps> hereby agree to pretend (this not being a real agreement, but just a demonstration document):</para_1>
 
 <numbered_1_para>That the Company shall sell to the Buyer a <?= data.the_thing ?>;</numbered_1_para>
 
