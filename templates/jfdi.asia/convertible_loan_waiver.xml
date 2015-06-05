@@ -63,7 +63,7 @@ if (data.relationship_plural   == undefined) { data.relationship_plural   = "cre
 <? } ?>
 We<?
    if (data.parties.investor.filter(function(inv){return inv.investortype == "company"})) { ?>, being appointed corporate representatives of<? } ?>
-<?  if (data.parties.investor.length > 1)           { ?> the Investors<?   }
+<?  if (data.parties.investor.length > 1)           { ?> the Investors<? }
     else                                            { ?> the Investor<?  } ?>
  do hereby agree and declare that we irrevocably and unconditionally waive with immediate effect the <?= data.security ?> due by the Company in its entirety, and that we release and discharge the Company absolutely from the said <?= data.security_shortname ?>,
 <? if (data.extra_text_2 != undefined) { ?><?= data.extra_text_2 ?>
