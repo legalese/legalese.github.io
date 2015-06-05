@@ -1,0 +1,47 @@
+#+TITLE: Legalese.io the Company
+
+* Inspirations
+
+** opensource projects
+
+** opensource businesses
+
+** "Teal" organizations
+as described in
+- http://www.reinventingorganizations.com/
+- http://www.holacracy.org/how-it-works/
+
+* Innovation: Ambiguous Particpation
+
+Adhocracies tend to be highly informal, with 
+
+* Innovation: Compensation
+
+* Innovation: Bail-only Design
+
+By analogy with [[http://en.wikipedia.org/wiki/Crash-only_software][crash-only software design]], a bail-only organizational structure aims to increase robustness by removing critical dependence on any individual, allowing any participant to leave the company at any time, and rejoin at any later time, or never.
+
+Swappable *roles* are emphasized over job titles and fixed areas of authority/responsibility. Any individual who satisfies the prerequisites to assume a role may do so.
+
+* Innovation: Teal Architecture
+
+** The advice process.
+
+Before making a decision, a role player MUST seek the advice of all parties who will be substantively affected by that decision.
+
+** The request process.
+
+Any participant can submit a request to any other participant about the way they play their role generally, or about a particular action specifically.
+
+** The dispute resolution process.
+
+If a conflict arises which is not naturally resolved within a circle, dispute resolution process defines an escalation pathway: a dispute resolution committee involving representatives from all advisory parties MUST be convened. If the dispute is not resolved within that committee, larger and larger advisory committees are convened. (In practice, the dispute is referred to larger and larger gatherings of the community. (There is a tension between the frequency of such referenda, and the size of the dispute. The decision to refer to a larger committee may be made by the dispute resolution committee.)
+
+* Innovation: Training for Aesthetics
+
+In organizations expressing design-driven innovations, important decisions often fall into an aesthetic rather than technical or economic domain.
+
+Part of new-participant onboarding MUST involve recruitment for, and training in, the dominant aesthetics, principles, values, vision, and tensions of the project.
+
+Minority or opposition opinions should be actively sought and aired. Consider the 
+
