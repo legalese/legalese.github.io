@@ -75,13 +75,13 @@ A special category of "end-user" or "customer" exists. They are not considered a
 
 ** Roles
 
-A Role expresses a set of work processes. In a restaurant, Roles might be Waiter, Chef, Host, or Cashier. An individual at the restaurant might enact mulitple roles: in a small restaurant, the Host might also act as a Cashier and a Waiter.
+A Role expresses a set of work processes. In a restaurant, Roles might be Waiter, Chef, Host, or Cashier. An individual at the restaurant might enact multiple roles: in a small restaurant, the Host might also act as a Cashier and a Waiter.
 
 Individual participants can be onboarded to one or more Roles in a company.
 
 ** Circles
 
-If multiple individuals play the same Role, they form a group called a Circle. Circles are a unit of abstraction and MUST exhibit consensus when dealing with other parties.
+If multiple individuals play the same Role, they form a group called a Circle. Circles are a unit of abstraction and MUST exhibit consensus when dealing with other parties, even if that consensus is simply a statement explaining that there is no consensus yet, and describing the conflicting positions.
 
 In a restaurant with multiple chefs, the Circle might be called Kitchen, and the waiters might deal with the Kitchen as a unit of abstraction: orders go in, dishes come out. Waiters don't want to know which chef is preparing which dish. Chefs don't want to know which waiter is serving which table. There is just a hole in the wall and a little bell that goes "ding!"
 
