@@ -31,7 +31,7 @@ Many opensource efforts have much in common with Teal organizations.
 
 - email :: Google Groups
 
-- source code, legal templates, and some documents : Github
+- source code, legal templates, and some documents :: Github
 
 - other documents :: Google Drive
 
