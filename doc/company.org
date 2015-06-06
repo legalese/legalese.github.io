@@ -117,6 +117,10 @@ Any participant can submit a request to any other participant about the way they
 
 If a conflict arises which is not naturally resolved within a circle, dispute resolution process defines an escalation pathway: a dispute resolution committee involving representatives from all advisory parties MUST be convened. If the dispute is not resolved within that committee, larger and larger advisory committees are convened. (In practice, the dispute is referred to larger and larger gatherings of the community. (There is a tension between the frequency of such referenda, and the size of the dispute. The decision to refer to a larger committee may be made by the dispute resolution committee.)
 
+** The contribution process.
+
+Content contributors and technology developers are subject to the [[https://guides.github.com/activities/contributing-to-open-source/][usual conventions of software projects]]. They may submit pull requests or have merge authority. The circle of Maintainers is usually smaller than the circle of Contributors. Contributors may be promoted to Maintainers by consensus of the Maintainer circle.
+
 * Innovation: Training for Aesthetics
 
 In organizations expressing design-driven innovations, important decisions often fall into an aesthetic rather than technical or economic domain.
