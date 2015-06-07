@@ -227,6 +227,42 @@
 
 		  <p>Legalese takes openness to a new level: the templates sit in public Github repositories (right now, the templates are in XML, which admittedly might scare off some people.) And the configuration spreadsheets live in Google Spreadsheets. So you can import and export your data as you see fit.</p>
 
+		  <p>For Unix hackers, this is pseudocode for what happens behind the scenes of the Web UI:</p>
+		  
+		  <code>% make seedround
+loading captable.csv...
+loading parties.xml...
+parsing articles-of-association.pdf
+fetching missing information via regulatory APIs...
+computing amendments to constitutional documents...
+computing corporate actions and resolutions required...
+computing prerequisites for seed round financing...
+producing PDF: Directors' Resolutions In Favour of Fundraising
+producing PDF: New Articles of Association describing Vesting/ESOP and Series AA shares
+producing PDF: Members' Resolutions Approving Alterations to Articles of Association
+producing PDF: Volunteer Agreements -- IP Assignment, Confidentiality, Noncompete
+producing PDF: Shareholder Agreements -- Drags and Tags, Preemptive Rights, Information Rights
+producing PDF: Description of Vesting Scheme
+producing PDF: Directors' Resolutions Announcing Vesting Scheme
+producing PDF: Members' Resolutions Approving Vesting Scheme
+producing PDF: Directors' Resolutions Announcing Issue of New Shares for Vesting Scheme
+producing PDF: Members' Resolutions Approving Issue of New Shares for Vesting Scheme
+producing PDF: Directors Notify Shareholders of Pro Rata Rights
+producing PDF: Shareholders' Waivers of Pro Rata Rights
+producing PDF: Directors' Resolutions to Issue and Allot New Vesting Shares
+producing PDF: Instruction to Corporate Secretary to File Vesting Shares
+producing PDF: Term Sheet for Seed Round
+producing PDF: Checklist Bundle for Conditions Precedent
+producing PDF: Cap Table, before Series AA
+producing PDF: Cap Table, after Series AA
+producing PDF: Investment Agreement for Seed Round Series AA
+producing PDF: Deed of Ratification and Accession for Seed Round Series AA
+producing PDF: Directors' Resolutions to Issue and Allot New Series AA Shares
+producing PDF: Instruction to Corporate Secretary to File Series AA Shares
+producing PDF: Series AA Share Certificates
+sending PDFs for signature via Adobe EchoSign...
+seed round paperwork complete. Please check your email.</code>
+			
 		  <p>Legalese also has global ambitions. Most of the above services focus on one, at most two jurisdictions. Legalese serves people who live outside the U.S. too.</p>
 		  
 		  <p>Programmers should already be nodding their heads, but let's walk through an example that shows how it all comes together.</p>
