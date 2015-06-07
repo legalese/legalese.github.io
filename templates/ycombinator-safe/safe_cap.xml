@@ -19,8 +19,8 @@ Cap Only, No Discount</cover_title>
 </Firstpage_Sidebar>
 <Story_Main>
 <?!= include("inc_disclaimer", data, { flavor: data.company.state } ) ?>
-<para_1><span_smallcaps>This certifies that</span_smallcaps> in exchange for the payment by <?= data.investor.name ?>
- (the "Investor") of <?= data.investor.commitment ?>
+<para_1><span_smallcaps>This certifies that</span_smallcaps> in exchange for the payment by <?= data.new_investor.name ?>
+ (the "Investor") of <?= data.new_investor.commitment ?>
  (the "Purchase Amount") on or about <?= data.agreement_date ?>
 , <?= data.company.name ?>, a <?= data.company.state ?>
  corporation (the "Company"), hereby issues to the Investor the right to certain shares of the Company's capital stock, subject to the terms set forth below.
@@ -73,7 +73,7 @@ The "Valuation Cap" is <?= data.pre_money_valuation?>.  See Section <xref to="de
 <chapter_header>Signatures </chapter_header>
 <para_1>IN WITNESS WHEREOF, the undersigned have caused this instrument to be duly executed and delivered.</para_1>
 
-<?!= include("inc_signature", data, data.investor) ?>
+<?!= include("inc_signature", data, data.new_investor) ?>
 <?!= include("inc_signature", data, data.company) ?>
 
 </Story_Main>
