@@ -102,14 +102,14 @@
 
 		  <ol>
 			<li> Look at the row of tabs at the bottom of the spreadsheet.</li>
-			<li> You will see tabs with names like <i>NDA</i>, <i>Incorporation</i>, <i>Creation of Class F Shares</i>, and <i>Seed Round</i>.</li>
+			<li> You will see tabs with names like <i>NDA</i>, <i>Entities</i>, <i>Incorporation</i>, <i>Class F</i>, and <i>Seed Round</i>.</li>
 			<li> Let's start with a simple agreement: a nondisclosure.</li>
 			<li> Go to the <b>NDA</b> tab.</li>
 			<li> Note that one of the section headings is <i>INCLUDE Hello World</i>. That tells Legalese to load the <i>Entities</i> data from the <i>Hello World</i> tab.</li>
 			<li> Generate PDFs and wait a couple minutes for the PDF to show up.</li>
 			<li> This time, you should see that the PDF is now a nondisclosure agreement.</li>
 			<li> There are two kinds of NDAs: unilateral and bilateral. Change cell B9 to suit, and generate again, if necessary.</li>
-			<li> If you actually want to send this out, repeat the steps from <a href="#t3">Tutorial 3</a>.
+			<li> If you actually want to send a real NDA, update the Entities in Hello Word with real particulars, then repeat the steps from <a href="#t3">Tutorial 3</a>.
 		  </ol>
 
 		  <p> <i>After running this tutorial, you will have:</i> created a real NDA ready for execution.</p>
@@ -120,9 +120,35 @@
 		  
 		  <h2 id="t5">Tutorial 5: Other Docsets</h2>
 		  <p>You, a <b>power user</b>, browse all the docsets that are available in Legalese.</p>
+
+		  <ol>
+			<li> Look at the row of tabs at the bottom of the spreadsheet.</li>
+			<li> You will see tabs with names like <i>NDA</i>, <i>Entities</i>, <i>Incorporation</i>, <i>Class F</i>, and <i>Seed Round</i>.</li>
+			<li> You can generate dummy agreements by going to each tab (except Entities) and clicking Generate PDFs.</li>
+		  </ol>
+
+		  <h3 id="t5_entities">Entities</h3>
+		  <p>This tab is special. It contains the particulars of the parties to your agreements. It doesn't generate any agreements; other agreements refer to this.</p>
+		  <p>Why? Because the names and addresses of your company, founders, employees, and investors are details used by multiple different agreements. The DRY principle says we should keep all that information in one place and not repeat it. So it lives in the <b>Entities</b> tab instead of repeating across multiple tabs.</p>
+
+		  <h3 id="t5_incorporation">Incorporation</h3>
+		  <p>All the paperwork involved in an incorporation is available here:</p>
+		  <h4 id="t5_ma">Memorandum and Articles of Assocation</h4>
+		  <h4 id="t5_form45">Form 45</h4>
+		  <h4 id="t5_sha">JFDI Standard Shareholders Agreement</h4>
+		  <h4 id="t5_va">JFDI Standard Volunteer Agreement</h4>
 		  
 		  <h2 id="t6">Tutorial 6</h2>
-		  <p>: You, a <b>power user</b>, configure the spreadsheets to create <i>multiple</i> agreements within a single document set.</p>
+		  <p>You, a <b>power user</b>, configure the spreadsheets to create <i>multiple</i> agreements within a single document set.</p>
+
+		  <ol>
+			<li> Go to the <i>Incorporation</i> tab.</li>
+			<li> Generate PDFs.</li>
+			<li> In a few minutes you should see dummy documents for Frog Porridge Pte. Ltd., a company with three froggy founders and one wormy intern.</li>
+			<li> Look under the <i>Configuration</i> section. You'll see a line that says <i>Templates:</i>, followed by four templates named <i>jfdi_memorandum</i>, <i>form45</i>, <i>jfdi_shareholders_agreement</i>, and <i>jfdi_volunteer_agreement</i>. When you click <i>Generate PDFs</i>, those templates get filled.</li>
+			<li> If you happen to actually be generating a Singapore company, put real particulars into the <i>Entities</i> tab.</li>
+			<li> You'll also need to put real particulars into the <i>Roles</i> section. You might need to have a heart-to-heart with your co-founders before you fill in <i>num_shares</i>.</li>
+		  </ol>
 		  
 		  <h2 id="t7">Tutorial 7</h2>
 		  <p>: You, a <b>content developer</b>, tweak an existing template for your own use, using Github. This involves learning a little bit of XML. You learn how to publish your template both publicly and privately. You instruct Legalese to use your template.</p>
