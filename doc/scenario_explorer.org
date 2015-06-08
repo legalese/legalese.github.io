@@ -1,0 +1,6 @@
+#+TITLE: Scenario Explorer
+
+Given a proposed set of terms, what happens in various scenarios?
+
+Software helps users understand that happens in multiple "what-if" scenarios.
+

@@ -1,0 +1,227 @@
+#+TITLE: Legalese 2.0
+#+OPTIONS: toc:nil
+
+Legalese.io is what happens when software eats law -- starting with contracts -- starting with term sheets.
+
+* Customer Problem
+
+"Hey, do you happen to have a template for an employment agreement/NDA/term sheet that you can share with me?"
+
+"I know you're not a lawyer. That's exactly why I'm asking you. I don't want to pay a lawyer $2,800 for an employment agreement/NDA/term sheet. My startup/SME is only six months old. We don't have a lot of money."
+
+"I know there are workflow sites out there like Shakelaw and Rocketlawyer. But they're aimed at the US market, so they don't work for me."
+
+"Even the template sites like LawDepot and Docracy are configured for U.S. law. My company isn't a Delaware corporation; it's a Singapore / UK / Indonesia / Finland corporation. Where can I find a local adaptation?"
+
+"Fine, I'll pay a lawyer to get the paperwork translated. But after I've had the work done, I want to share it for the benefit of the next guy. Maybe we can even do some sort of retroactive crowdfunding so that I get my costs covered if enough people download the templates I put in."
+
+* Differentiating Aesthetics
+
+Most existing "download a free template" sites only give users a single document. But, often, multiple documents are needed to consummate a given business operation. We produce a /Document Set/, not a single document.
+
+Most existing services are limited by geographic jurisdiction. Many don't look outside the US. We want to support end-users no matter where they are or what language they speak.
+
+Most existing services limit document creation to the existing legal priesthood. While confidence in the system is important, we want to be open, allowing anyone to contribute, fork, and republish templates. We think we can develop confidence in other ways more consonant with the age of the platform. Think reputation systems with transparency.
+
+Most templates are purely "fill-in-the-blanks". We want our templates to be smart, with support for if/else conditional logic and convenient management of parties and signature blocks.
+
+Some systems use a wizard to configure whole clauses in or out. But nobody wants to march through a wizard more than once. You don't have to be a power user to need to revise an agreement multiple times. We configure a deal in an open spreadsheet which any end-user can access and update. You don't edit the text of the agreement; you configure it.
+
+Aesthetics matter. We use Adobe InDesign, the same software used to produce books, magazines, and newspapers, to typeset a handsome PDF whose clause numbers and cross-references are guaranteed correct.
+
+Convenience and speed matter. Most existing systems just give you a Word doc. Getting it signed often involves printers and couriers -- days to weeks. Once you approve the PDFs, we submit them straight into an e-signature backend.
+
+In fact, we're so paperless and so open that all the documents live in Google Drive, not on our system. There's no way to export your data from Legalese because it doesn't live there in the first place!
+
+Opensource matters. Legalese is an opensource project and if you find a bug, well, you get to fix it.
+
+The templates themselves are also opensource -- we release them under Creative Commons. So you can fork and share your versions. Github and Docracy are great inspirations.
+
+We aren't anti-lawyer. There is still an escalation pathway into Official Legal. We will identify lawyers who we believe are familiar with Legalese in general and specific documents in particular. If you want professional help -- if you can afford it, you should definitely get it -- we can connect you to a lawyer who would be happy to take you offline.
+
+* Challenges and Innovations
+
+** Regulatory Innovation
+
+The provision of legal services is limited to licensed lawyers.
+
+This is similar to the challenges faced by Uber and Airbnb.
+
+By providing customized contracts for signature, are we violating the guidelines of the legal profession?
+
+Do we need a lawyer on the team? Does Legalese need to be a law firm?
+
+(Similarly, does Uber need to obtain a taxi license in each operating jurisdiction? Greyloft has gone ahead to obtain realtor certification.)
+
+** Commercial Opensource
+
+We want to pioneer a new model of "commercial opensource" business, in which participants are computationally compensated for their involvement, in both cash and equity.
+
+** The Legalese Compiler
+More on this later, but as we get into the weeds of document assembly let's not forget that compiled computational contracts are what will disrupt even document assembly solutions in a few years.
+
+* Repositories
+
+The project is split up across multiple repositories.
+
+** WWW
+The website and the XML templates.
+
+Also most of the project documentation that doesn't fit anywhere else.
+
+** Google-Apps
+The code that runs in Google Apps as an Add-On.
+
+Developers can run this themselves by uploading the script bound to a given spreadsheet.
+
+Produces one or more XML files in Google Drive.
+
+Submits the corresponding PDFs to an e-signature back-end.
+
+** InDesign
+ExtendScript code that tells InDesign to convert the XML files into PDFs.
+
+** Compiler
+A research project to compile a formal language to a natural language.
+
+See the [[http://www.legalese.io/#academic][academic R&D]] part of the main webpage for links to research into computable contracts.
+
+
+* Branding
+
+** Project Title
+
+Legalese 2.0
+
+* Onboarding and Learning Curve
+
+** How do people discover Legalese 2.0?
+
+* Backward Compatibility
+
+The closest things to free, standardized legals -- actually adopted by the startup community -- might be the standard docs offered by Y Combinator, TechStars, Series Seed, and other parties.
+
+http://www.startupcompanylawyer.com/2010/03/14/how-do-the-sample-series-seed-financing-documents-differ-from-typical-series-a-financing-documents/
+
+http://avc.com/2010/03/standardized-venture-funding-docs/
+
+"The nice thing about standards is that you have so many to choose from."
+
+It would be cool if our project could easily output each one of those flavours, just by making a single configuration change; think of how you can Save As a PDF, a Word Doc, as HTML, as RTF, as Pages. Of course there are semantic differences but the idea is to factor out the commonalities.
+
+http://imgs.xkcd.com/comics/standards.png
+
+What would encourage the "installed base", the legacy users, to adopt Legalese 2.0? Some kind of openness, allowing users to contribute, edit, fork, etc, their preferred "distribution" of documents. We can do this without opensourcing the entire project.
+
+* Existing Alternatives
+
+* Inspirations
+
+If the investment for the purpose of the Series B Funding is valued at not more than S$32.5 Million, then the investors in the Note shall be entitled to convert the Note into Shares at a fixed valuation of S$27.5 million.  
+If the investment for the purpose of the Series B Funding is valued at less than S$ 40 million but not below S$32.5 million, investors in the Convertible Note will be entitled to convert the Note into Shares at a 15% discount over the valuation of the Series B Funding (for instance, if the series B Funding is at a valuation of S$35 million, then the investors in the Note shall be entitled to convert at a valuation of 35M less 15% discount);
+If the investment for the purpose of the Series B Funding is valued at not less than S$ 40 million but less than S$47.06 million, investors in the Convertible Note will be entitled to convert the Note into Shares at a 15% discount over the valuation of the Series B Funding (for instance, if the series B Funding is at a valuation of S$47.06 million, then the investors in the Note shall be entitled to convert at a pre-money valuation of 40M i.e. S$47.06 million less 15% discount);
+If the investment for the purpose of the Series B Funding is valued at not less than S$ 47.06 million but less than S$80 million, investors in the Convertible Note will be entitled to convert the Note into Shares at a fixed pre-money valuation of S$40 million;
+If the investment for the purpose of the Series B Funding is valued at not less than S$80 million but less than S$100 million, investors in the Convertible Note will be entitled to convert the Note into Shares at a fixed pre-money valuation of S$45 million; and
+If the investment for the purpose of the Series B Funding is valued at not less than S$100 million, investors in the Convertible Note will be entitled to convert the Note into Shares at a fixed pre-money valuation of S$50 million.
+
+That really ought to be
+
+if      (next_round <=  32500000) { conversion_valuation = 27500000 }
+else if (next_round <=  40000000) { conversion_valuation = 0.85 * next_round }
+else if (next_round <=  47060000) { conversion_valuation = 0.85 * next_round }
+else if (next_round <=  80000000) { conversion_valuation = 40000000 }
+else if (next_round <= 100000000) { conversion_valuation = 45000000 }
+else                              { conversion_valuation = 50000000 }
+
+* Research Notes
+
+http://www.theenterprisearchitect.eu/blog/2009/05/06/dsl-development-7-recommendations-for-domain-specific-language-design-based-on-domain-driven-design/
+
+legal.cf.sg
+
+Helena Haapio, Next Generation Contracts
+
+* Market Insight / Motivating Trend -- the Democratization of Early Stage Investing
+
+The increasing capital efficiency of software startups and the democratization of early stage investing through crowdfunding and angelist have brought a new wave of first-time angels and first-time entrepreneurs to the startup landscape. Being inexperienced they need help constructing agreements. Being poor they don't want to use lawyers. So they turn to free online resources like Brad Feld's blog on term sheets; they plagiarise existing work off LawDepot and Docracy, and they download the model contracts made available by Y Combinator, TechStars, Series Seed, and others. They use wizards such as those offered by WSGR, Orrick, and Cooley (which are themselves often based on business-integrity.com's document automation tools).
+
+However, none of these solutions combine convenience, power, accessibility, and agility.
+
+* Technical Insight
+
+Computer science isn't really about computers. It's about information. Software is eating the world. And law is next.
+
+Startups like Lex Machina attempt to analyze case law to assist litigators. Startups like Docracy and Clerky smooth the incorporation and investment workflows by providing standard document templates.
+
+Those approaches are valuable. In contrast, we are more aligned with movements around design, visualization, and computational law. We bring computational thinking to the legal field: formal methods to prove correctness, domain specific languages to express essentials concisely, coverage testing, revision control, online collaboration for negotiation, data visualization.
+
+* The Larger Market Opportunity
+
+Zooming out from investment term sheets: what else can software eat?
+
+Contracts generally. Contracts tend to fall into genres, and within each genre of contract it is possible to start with a standard form and customize it as necessary.
+
+Business generally. The first wave of computational business happened decades ago: [EDI](http://en.wikipedia.org/wiki/Electronic_data_interchange). The next wave brings even more automation: automatic document assembly for directors' and shareholders' resolutions. Smart contracts.
+
+Legalese 2.0 will obsolete lawyers, or at least put them back in their place -- in court doing dispute resolution, not in front of Microsoft Word charging $500/hour to copy and paste boilerplate.
+
+After that, we'll obsolete corporate secretaries. Bookkeepers. Accountants. Corporate Secretaries. Tax specialists. The entire back office. With enough smarts, they can be automated.
+
+* Existing Models
+
+** Abstract Representation
+
+Term sheet generator wizards create an intermediate representation that captures all the input submitted by the end-user. That representation is used to compile the long-form agreement. But the intermediate representation is not exposed to the end-user. Often, it is implicit in the implementation and never treated as a first-class object in its own right. Power users would prefer to access that representation, and edit it directly, because don't want to click through a wizard each time. Power users from the Unix tradition would prefer to see that representation in a plain-text format.
+
+** Collaboration
+
+* User Experience
+
+** Angel Investor
+
+fill in the pieces of information that you have so far
+- pre-money valuation?
+- discount?
+- investment amount?
+
+as you do so, the universe of possible documents shrinks
+
+- the kind of startup that you are?
+
+the recommended documents
+
+* Business Models
+app store for contracts -- anybody can upload, and we curate and charge a commission on downloads of templates.
+
+* what is unauthorized practice of law?
+
+http://en.wikipedia.org/wiki/IANAL
+
+http://en.wikipedia.org/wiki/Unauthorized_practice_of_law
+
+
+** In Singapore
+
+[[http://statutes.agc.gov.sg/aol/search/display/view.w3p;page=0;query=CompId%253A3ee799a7-48a6-4e27-85c2-dba1dbef7104;rec=0;resUrl=http%253A%252F%252Fstatutes.agc.gov.sg%252Faol%252Fbrowse%252FtitleResults.w3p%253Bletter%253DL%253BpNum%253D1%253Btype%253DactsAll;whole=yes][Legal Profession Act (Cap. 161)]] sections 33 and 34.
+
+** In the USA
+
+http://www.thefreelibrary.com/Internet+wars%3a+the+bar+against+the+websites-a0363687297
+
+http://www.thefreelibrary.com/New+roles+for+non-lawyers+to+increase+access+to+justice-a0371969850
+
+http://www.thefreelibrary.com/LPO+Company+Named+in+Unauthorized+Practice+of+Law+Writ+in+India.-a0221785697
+
+http://www.thefreelibrary.com/When+public+policies+collide%3A+legal+%22self-help%22+software+and+the...-a075707100
+
+more results: http://www.thefreelibrary.com/_/search/Search.aspx?By=0&SearchBy=0&q=Unauthorized%20Practice
+
+
+* See Also
+
+If you have just wandered across this, you should know that the project contains a few other resources:
+- Evernote's CFSG Legal Shared Notebook
+- Github: https://github.com/cofounders/legal.git
+- Google Hangouts team chat
+- Email correspondence dating around July / August 2014
+

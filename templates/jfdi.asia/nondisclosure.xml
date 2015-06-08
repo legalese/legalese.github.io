@@ -1,0 +1,87 @@
+<?!= include("inc_plain_letterhead", data) ?>
+
+<chapter_header override="startParagraph=StartParagraph.ANYWHERE">Nondisclosure Agreement</chapter_header>
+
+<para_1><span_smallcaps>This agreement is made</span_smallcaps> this <? if (data.agreement_date) { ?><?= data.agreement_date ?><?} else {?><textvar name="Output Date" /><?}?> between:---</para_1>
+
+<? if (data.nda_type == "unilateral") { ?>
+<parties><?!= include("inc_party", data, data.company) ?> (the "Disclosing Party"); and</parties>
+<parties><?!= include("inc_party", data, data.counterparty) ?> (the "Receiving Party")</parties>
+<? } else { ?>
+<parties><?!= include("inc_party", data, data.company) ?> (the "Company"); and</parties>
+<parties><?!= include("inc_party", data, data.counterparty) ?> (the "Counterparty")</parties>
+<? } ?>
+
+<para_1>hereinafter referred individually as <b>"a Party"</b> or collectively as <b>"the Parties"</b>.</para_1>
+
+<para_1><span_smallcaps>Whereas:</span_smallcaps></para_1>
+
+<recitals><? if (data.nda_type == "unilateral") { ?>
+The Disclosing Party may from time to time disclose information to the Receiving Party<? } else { ?>
+Either Party may from time to time disclose to the other Party (so making them the <b>"Disclosing Party"</b> and <b>"Receiving Party"</b> respectively) information<? } ?>
+ which is of a confidential nature to facilitate the business dealings, operations, cooperation or discussions between the Parties, or to perform its obligations under any agreement with the other Party (each a “Purpose”).</recitals>
+
+<recitals>The Parties agree to maintain strict confidentiality of such information on the terms of this Agreement.</recitals>
+
+<para_1><span_smallcaps>The parties agree</span_smallcaps> as follows:</para_1>
+
+<numbered_1_para>The Receiving Party acknowledges that the Disclosing Party operates in a highly competitive industry and that any and all information relating to a Purpose, if disclosed (whether directly or indirectly) to a third party without the express authorisation of the Disclosing Party would have a detrimental effect on the business of the Disclosing Party. In consideration of being made privy to the Confidential Information, the Receiving Party hereby agrees to observe and be bound by the terms of this Agreement.</numbered_1_para>
+
+<numbered_1_para>In this Agreement, "Confidential Information" shall include but is not limited to information, personal data, knowledge and data, whether or not in relation to a Purpose and howsoever obtained or disclosed or accessed, including copies and reproductions thereof, which are of an intellectual, technical, scientific, financial, commercial or marketing nature (which for the avoidance of doubt includes Disclosing Party data or any part thereof) which is not in the public domain and in which the Disclosing Party has a business, proprietary or ownership interest or has a legal duty to protect, which the Disclosing Party considers to be confidential and which is identified by the Disclosing Party as confidential and/or any information which a reasonable third party acting in good faith would recognise as being confidential in nature.</numbered_1_para>
+
+<numbered_1_para>For the avoidance of doubt, ‘the Disclosing Party data’ includes any information belonging to the Disclosing Party or provided by the Disclosing Party for a Purpose including all data, information and computer programs provided by or derived from third parties whether concerning inventory, logistics, customers, suppliers, operational data, billing information or otherwise, and personal data (of the customers or users of the Disclosing Party or otherwise), as well as all compilations or databases containing such data and information.</numbered_1_para>
+
+<numbered_1_para>The Receiving Party hereby agrees to use the Confidential Information only for a Purpose and hereby undertakes that the Confidential Information shall only be disclosed to those of its employees, servants, officers, agents, advisors, consultants, and contractors ("Related Persons") on a need-to-know basis for a Purpose.</numbered_1_para>
+
+<numbered_1_para>The Receiving Party further agrees to keep the Confidential Information in strictest confidence and treat with the same degree of care it extends to its own Confidential Information and shall not, directly or indirectly, use for itself or on behalf of or disclose to any third party any Confidential Information received from the Disclosing Party. The Receiving Party will protect and retain Confidential Information that consists of personal data in accordance with the provisions of the Personal Data Protection Act 2012 of Singapore (No 26 of 2012).</numbered_1_para>
+
+<numbered_1_para>The Receiving Party shall cause its Related Persons involved for a Purpose to observe or be similarly bound by the terms of this Agreement. The Receiving Party, as principal party, shall be responsible and held liable for any breach of Non-disclosure by any of its Related Persons. In addition, the Receiving Party undertakes to take all such steps as shall from time to time be necessary to ensure compliance by its Related Persons involved for a Purpose with the provisions of this clause.</numbered_1_para>
+
+<numbered_1_para>The Receiving Party expressly understands that the Confidential Information disclosed by the Disclosing Party under this Agreement is of a commercially valuable and highly sensitive nature. In the event that the Disclosing Party discovers that the Receiving Party, its Related Persons (whether individually or collectively) has made or makes or intends to make or causes to be made or permits to be made any unauthorised disclosure of the Confidential Information, the Disclosing Party will be entitled to take out an injunction against any such party to restrain it from making any such disclosure. In addition or in the alternative, as the case may be, the Disclosing Party will be entitled to exercise such legal and equitable remedies as are available in respect of the breach of this Agreement and to further protect the Confidential Information.</numbered_1_para>
+
+<numbered_1_para>The Parties understand that the Disclosing Party does not have any obligation to provide Confidential Information to the Receiving Party, that the Disclosing Party does not make any representation or warranty with respect to the accuracy or completeness of the Confidential Information, and that the Disclosing Party shall not be liable to the Receiving Party for any loss or damage resulting from the use of or reliance on any of the Confidential Information, except as otherwise provided in a formal written agreement executed between the Parties for a Purpose.</numbered_1_para>
+
+<numbered_1_para>Upon termination of any Purpose for whatever reason, the Receiving Party shall not make further use of the Confidential Information related to such Purpose and shall return all of the Confidential Information to the Disclosing Party, including all copies or reproductions, extracts, summaries or notes, or destroy the same in accordance with the directions of the Disclosing Party and certify the same have been destroyed.</numbered_1_para>
+
+<numbered_1_para>The Disclosing Party may, at any time direct the Receiving Party to return all Confidential Information to the Disclosing Party, or part thereof, and not to make further use of the Confidential Information to be returned. Upon receipt of such directions, the Receiving Party shall promptly deliver the requested Confidential Information without retaining any copies or excerpts thereof to the Disclosing Party.<?
+if (data.nature_of_relationship == "vendor") {?>
+If the requested Confidential Information is still required by the Receiving Party to perform any services under contract with the Disclosing Party, then in such event, both Parties shall endeavour to obtain alternative information from other sources so that the Receiving Party can proceed with the performance of their services.<?}?>
+</numbered_1_para>
+
+<numbered_1_para>The provisions of this Agreement shall not apply to:</numbered_1_para>
+
+<numbered_2_para_indent>Information which at the time of disclosure is in the public domain.</numbered_2_para_indent>
+
+<numbered_2_para_indent>Information which becomes part of or enters the public domain other than in breach of this Agreement or other than due to the default or wilful or negligent act or omission of the Receiving Party or any of its Related Persons involved for a Purpose.</numbered_2_para_indent>
+
+<numbered_2_para_indent>Information which was known to the Receiving Party prior to receipt from the Disclosing Party provided such prior knowledge can be adequately substantiated by documentary evidence antedating the disclosure by the Disclosing Party.</numbered_2_para_indent>
+
+<numbered_2_para_indent>Information which has been independently developed or obtained by the Receiving Party or obtained by the Receiving Party from a third party other than in breach by either of them of their respective obligations to maintain confidentiality.</numbered_2_para_indent>
+
+<numbered_2_para_indent>Information which is required to be used or disclosed by reason of any law, governmental or other regulations or the requirements, orders, directions, instructions or notices of any regulatory authority including any stock exchange, provided however that the Receiving Party shall promptly notify the Disclosing Party of such requirements and shall use its best efforts to limit the scope of the use or disclosure.</numbered_2_para_indent>
+
+<numbered_2_para_indent>Confidential Information which is disclosed to third parties with the prior written consent of the Disclosing Party.</numbered_2_para_indent>
+
+<numbered_1_para>Unless expressly assigned to the other Party, whether in this Agreement or in some other document made between the Parties, all patents, patent applications, copyrights, design rights, trademarks or such other proprietary rights, belonging to the respective Parties shall remain vested in the Party concerned.</numbered_1_para>
+
+<numbered_1_para>Neither Party shall assign its benefits, rights and obligations under this Agreement to any third party (including its subsidiaries, associated companies or affiliates) without the prior written consent of the other Party. Subject to the above limitation, this Agreement will inure to the benefit of and be binding upon the Parties, their successors and assigns.</numbered_1_para>
+
+<numbered_1_para>If for any reason any provision or part thereof of this Agreement is found to be unenforceable, such provision or part thereof shall be deemed to be severed from this Agreement and the remainder of the Agreement shall remain in full force and effect and may be enforced to the fullest extent possible.</numbered_1_para>
+
+<numbered_1_para>This Agreement shall not be modified except by a written agreement dated subsequent to the date of this Agreement and signed by both Parties. None of the provisions or part thereof of this Agreement shall be deemed to have been waived by any act or acquiescence on the part of the Disclosing Party, its agents or employees, unless by an instrument in writing signed by both Parties. No waiver of any provision of this Agreement shall constitute a waiver of the same or any other provision(s) in this Agreement on another occasion.</numbered_1_para>
+
+<numbered_1_para xname="medarb">Regarding governing law:---</numbered_1_para>
+
+<?!= include("inc_mediation_arbitration", data, { para_style: "numbered_2_para_indent" } ) ?>
+
+<numbered_1_para>This Agreement shall come into effect on <? if (data.agreement_date) { ?><?= data.agreement_date ?><?} else {?><textvar name="Output Date" /><?}?> and shall remain effective notwithstanding the completion or termination of any Purpose.</numbered_1_para>
+
+<b_left_sidehead_nonum>For the <? if (data.nda_type == "unilateral") { ?>Disclosing Party<? } else { ?>Company<?}?>:</b_left_sidehead_nonum>
+<?!= include("inc_signature", data, data.company) ?>
+
+<b_left_sidehead_nonum>For the <? if (data.nda_type == "unilateral") { ?>Receiving Party<? } else { ?>Counterparty<?}?>:</b_left_sidehead_nonum>
+<?!= include("inc_signature", data, data.counterparty) ?>
+
+</Story_Main>
+<Bottom_Box delete_if_empty="true" />
+</Root>

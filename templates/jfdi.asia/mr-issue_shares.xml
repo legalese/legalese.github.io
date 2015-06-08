@@ -1,0 +1,24 @@
+<?!= include("inc_dr_start", data, {
+  director_or_member:"Member",
+  article_pursuant:data.article_allowing_shareholders_resolution_in_writing,
+  r_num: 1,
+  chapter_header:"Authority to Issue Shares",
+  skip_resolved:true,
+}) ?>
+
+<?!= include("inc_resolved_mr", data) ?>
+
+<a_left_sidehead>Ordinary Resolution -- Authority to Issue Shares</a_left_sidehead>
+<?!= include("mr_authority_to_issue_shares", data) ?>
+
+<?!= include("inc_additional_resolutions", data, { header:"a_left_sidehead", prefix:"members_resolution" } ) ?>
+
+<? if (data.explanatory_statement) { ?>
+<chapter_header>Explanatory Statement</chapter_header>
+<para_1><?!= data.explanatory_statement ?>
+</para_1>
+<? } ?>
+
+<chapter_header>Signatures</chapter_header>
+
+<?!= include("inc_dr_end", data, { director_or_member:"Member", }) ?>

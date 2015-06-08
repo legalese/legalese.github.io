@@ -1,0 +1,128 @@
+<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/" defaultMaster="B-Master" signatureMaster="A-Master">
+<CoverTop>
+<? if (data.parties.new_investor.length == 1) { ?>
+<cover_title>Deed of &#8232;Ratification and &#8232;Accession</cover_title>
+<? } else { ?>
+<cover_title>Deed of Ratification and Accession</cover_title>
+<?   for (var i=data.parties.new_investor.length; i<4; i++) { ?>
+<noindent_centered addnewline="true"></noindent_centered>
+<?   } ?>
+<? } ?>
+<noindent_centered addnewline="true"></noindent_centered>
+<noindent_centered addnewline="true"></noindent_centered>
+<noindent_centered addnewline="true"></noindent_centered>
+<cover_company_name><?= data.company.name ?></cover_company_name>
+<cover_company_id><?= data.company.idtype ?> <?= data.company.id?></cover_company_id>
+<noindent_centered addnewline="true"></noindent_centered>
+<? if (data.parties.new_investor.length == 1) { ?>
+<cover_company_name><?= data.parties.new_investor[0].name ?></cover_company_name>
+<cover_company_id><?= data.parties.new_investor[0].idtype ?> <?= data.parties.new_investor[0].id ?></cover_company_id>
+<? } else { ?>
+<?   for (var i = 0; i < data.parties.new_investor.length; i++) { ?>
+<cover_parties>&#9;<?= data.parties.new_investor[i].name ?>&#9;<?= data.parties.new_investor[i].idtype ?> <span_ucnum><?= data.parties.new_investor[i].id ?></span_ucnum></cover_parties>
+<?   } ?>
+<? } ?>
+</CoverTop>
+<CoverMid>
+<? for (var i = 0; i < data.parties.shareholder.length; i++) { ?>
+<cover_parties_centered><?= newlinesToCommas(data.parties.shareholder[i].name) ?></cover_parties_centered>
+<? } ?>
+</CoverMid>
+
+<CoverBottom_Logotype>
+<cover_corporate_logotype>Joyful Frog Digital Incubator</cover_corporate_logotype>
+</CoverBottom_Logotype>
+
+<CoverBottom_Address>
+<cover_address_block>Blk 71 Ayer Rajah Crescent</cover_address_block>
+<cover_address_block>#05-16   Singapore 139951</cover_address_block>
+</CoverBottom_Address>
+
+<CoverBottom_series>
+<centered><textvar name="Output Date" />&#8195;<span_smallcaps><textvar name="output time" /></span_smallcaps></centered>
+<centered>version 1.2.0</centered>
+</CoverBottom_series>
+
+<Firstpage_Sidebar><sidebar>Every time a new shareholder joins the company, it is unfortunately necessary for all existing shareholders to sign this deed. If they didn't, then there would be no agreement between the old parties and the new.</sidebar>
+</Firstpage_Sidebar>
+
+<Story_Main>
+<chapter_header>Deed of Ratification and Accession</chapter_header>
+<para_1><span_smallcaps>This deed</span_smallcaps> is made on <?!= data.agreement_date || '<textvar name="Output Date" />' ?> between</para_1>
+
+<parties><?!= include("inc_party", data, data.company) ?> (the "Company");</parties>
+
+<? for (var i in data.parties.new_investor) { ?>
+<parties><?!= include("inc_party", data, data.parties.new_investor[i]) ?><? if (data.parties.new_investor.length == 1) { ?> (the "New Shareholder")<?}?>;</parties>
+<? } ?>
+<?   if (data.parties.new_investor.length > 1)           { ?><para_1>(collectively the "New Shareholders" and individually a "New Shareholder"); and</para_1><?}?>
+
+<parties>the persons whose names are set out in Schedule 1 of this Deed (collectively the <b>"Current Shareholders"</b> and individually a "Current Shareholder").</parties>
+
+<para_1><span_smallcaps>Whereas:</span_smallcaps></para_1>
+<? data._new_security_issues = data.parties.new_investor.map(function(p){return p.num_shares}); ?>
+<? data._subscription_agreement_dates = data.parties.new_investor.map(function(p){Logger.log("trying to convert date of subscription agreement " + p.date_of_subscription_agreement);
+  return Utilities.formatDate(new Date(p.date_of_subscription_agreement),
+                              data._timezone,
+                             "d MMMM YYYY")});
+   if (data._subscription_agreement_dates.filter(function(d){return d===data._subscription_agreement_dates[0]}).length
+                                                                          == data._subscription_agreement_dates.length) { // all the same
+      data._subscription_agreement_dates = data._subscription_agreement_dates.splice(0,1);
+   }
+   data._subscription_agreement_dates = commaAnd(data._subscription_agreement_dates);
+ ?>
+<recitals>A shareholders' agreement was entered into on <?= data.previous_shareholder_agreement_date || data.shareholders_agreement_date ?> by and among the Current <?= plural(data.parties.shareholder, "Shareholder") ?> and the Company (as may have been modified, amended or supplemented from time to time) (the "Shareholders' Agreement"), a copy of which the New <?= plural(data.parties.new_investor, "Shareholder") ?> hereby <?= plural_verb(data.parties.new_investor, "confirms") ?> that <?= plural(data.parties.new_investor, "it has been", "they have been") ?> supplied with and <?= plural_verb(data.parties.new_investor, "acknowledges") ?> the terms therein.</recitals>
+<recitals>The New <?= plural(data.parties.new_investor, "Shareholder") ?> <?= plural_verb(data.parties.new_investor, "is") ?> or will be issued <?= commaAnd(data._new_security_issues) ?> <?= data.security_type ?><?= data.parties.new_investor.length==1 ? " " : " respectively " ?>("New Shares") in the capital of the Company by virtue of <?= plural(data.parties.new_investor, "a subscription agreement", "subscription agreements") ?> dated <?= data._subscription_agreement_dates ?>.</recitals>
+<recitals>In accordance with the provisions of the Shareholders' Agreement, it is a condition precedent to the registration by the Company of the issuance and allotment to the New <?= plural(data.parties.new_investor, "Shareholder") ?> of the New Shares that the New <?= plural(data.parties.new_investor, "Shareholder") ?> execute this Deed.</recitals>
+<para_1><span_smallcaps>Now this deed witnesseth</span_smallcaps> as follows:</para_1>
+<a_left_sidehead>Terms Defined or Construed in the Shareholders' Agreement</a_left_sidehead>
+<para_1>In this Deed, unless the context otherwise requires, words and expressions respectively defined or construed in the Shareholders' Agreement shall have the same meanings when used or referred to herein.</para_1>
+<a_left_sidehead>Ratification by New Shareholder</a_left_sidehead>
+<para_1>The New <?= plural(data.parties.new_investor, "Shareholder") ?> hereby <?= plural_verb(data.parties.new_investor, "accedes") ?> to and <?= plural_verb(data.parties.new_investor, "ratifies", "ratify") ?> the Shareholders' Agreement and covenants and <?= plural_verb(data.parties.new_investor, "agrees") ?> with the Current Shareholders and the Company, with effect from the date on which the New <?= plural(data.parties.new_investor, "Shareholder") ?> <?= plural_verb(data.parties.new_investor, "is") ?> registered as <?= plural(data.parties.new_investor, "a shareholder", "shareholders") ?> of the Company, to be bound by the terms and conditions of the Shareholders' Agreement as if <?= plural(data.parties.new_investor, "it", "they") ?> had been a party thereto and to duly and punctually perform and discharge all liabilities and obligations whatsoever from time to time to be performed or discharged by it under or by virtue of the Shareholders' Agreement in all respects as if named as a party therein.</para_1>
+<a_left_sidehead>Covenant by Current Shareholders and the Company</a_left_sidehead>
+<para_1>Each of the Current Shareholders and the Company covenants and agrees that the New <?= plural(data.parties.new_investor, "Shareholder") ?> shall be entitled to all the benefits of the terms and conditions of the Shareholders' Agreement to the intent and effect that the New <?= plural(data.parties.new_investor, "Shareholder") ?> shall be deemed, with effect from the date on which the New <?= plural(data.parties.new_investor, "Shareholder") ?> <?= plural_verb(data.parties.new_investor, "is") ?> registered as <?= plural(data.parties.new_investor, "a shareholder", "shareholders") ?> of the Company, to be party to the Shareholders' Agreement.</para_1>
+<a_left_sidehead>Deed to be Construed in Conjunction with Shareholders' Agreement</a_left_sidehead>
+<para_1>This Deed shall hereafter be read and construed in conjunction and as one document with the Shareholders' Agreement and references in the Shareholders' Agreement to "the Agreement" or "this Agreement", and references in all other instruments and documents executed thereunder or pursuant thereto to the Shareholders' Agreement, shall for all purposes refer to the Shareholders' Agreement incorporating and as supplemented by this Deed.  Except to the extent that it is expressly amended by this Deed, the Shareholders' Agreement and all other documents or instruments executed pursuant to, or in connection with, the Shareholders' Agreement shall remain in full force and effect.</para_1>
+<a_left_sidehead>Execution of Deed</a_left_sidehead>
+<para_1>This Deed may be executed in any number of counterparts, all of which taken together shall constitute one and the same instrument.  Any party may enter into this Deed by signing any such counterpart.</para_1>
+<a_left_sidehead xname="medarb">Governing Law and Jurisdiction</a_left_sidehead>
+  <?!= include("inc_mediation_arbitration", data, { para_style: "para_1", agreement_or_deed: "Deed" }) ?>
+
+<schedule_header>Current Shareholders</schedule_header>
+<p>
+<Table aid:table="table" aid:tcols="4" aid:trows="<?= data.parties.shareholder.length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+<Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="64" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>ID</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="190" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Address</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="42" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Number of Shares Held</cell_c></Cell>
+<? for (var i = 0; i<data.parties.shareholder.length; i++) { with(data.parties.shareholder[i]) { ?>
+<Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= name ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="64" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= idtype ?> <span_ucnum_nobreak><?= id ?></span_ucnum_nobreak></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="190" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= address ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="42" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= num_shares ?>&#8232;<?= data.parties.shareholder[i].share_type || "Ordinary Shares" ?></cell_c></Cell>
+<? } } ?>
+</Table>
+</p>
+<chapter_header>Signatures</chapter_header>
+<para_1><span_smallcaps>In witness whereof</span_smallcaps> this Deed has been declared and delivered on the date first above written.
+
+</para_1>
+
+<b_left_sidehead_nonum>The New <?= plural(data.parties.new_investor, "Shareholder") ?></b_left_sidehead_nonum>
+
+<? for (var i = 0; i < data.parties.new_investor.length; i++) { ?>
+<?!= include("inc_signature", data, data.parties.new_investor[i]) ?>
+<? } ?>
+
+<b_left_sidehead_nonum>The Company</b_left_sidehead_nonum>
+
+<?!= include("inc_signature", data, data.company) ?>
+
+<b_left_sidehead_nonum>The Current <?= plural(data.parties.shareholder, "Shareholder") ?></b_left_sidehead_nonum>
+
+<? for (var i = 0; i < data.parties.shareholder.length; i++) { ?>
+<?!= include("inc_signature", data, data.parties.shareholder[i]) ?>
+<? } ?>
+
+</Story_Main>
+</Root>

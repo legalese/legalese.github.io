@@ -1,0 +1,228 @@
+#+TITLE: things todo
+
+* TODO poll the e-signature backend to find out when a document is signed. update the spreadsheet.
+** TODO automatically record the dates that an agreement was executed
+there are two parts to this -- every agreement should have a unique variable name for its signing date.
+when an agreement is created, we should record that date as a provisional, right in the spreadsheet.
+when we notice that the e-signature system has recorded a signature complete state for the agreement, we promote the provisional to confirmed.
+
+i think the way to do this is we create a _provisional extension to each whatever_agreement_date.
+** TODO poll the esignature backend and automatically download all signed documents back into the agreement's add_to folder
+* TODO integration with third party project management software like task management and calendaring
+because the signing of a contract creates certain obligations which if unmet constitute breach
+
+so a company needs to take those obligations seriously.
+
+* DONE write to the Readme the list of To: and CC: for when the user is submitting to EchoSign manually.
+* TODO import each document in the Y Combinator Series AA series
+particularly the CoI amendments to the articles of association
+for taembe
+* TODO write simple user-facing onboarding
+
+** NDA
+how to create and execute the simplest possible agreement -- an NDA
+
+** NDA 2
+how to get the other party to fill in their details using the form
+
+in future we will auto-send the document for execution
+
+** basic letterhead
+how to create a good-lookin' singlepage document that has your company's name across the top -- "letterhead".
+
+** directors' resolutions
+how to draft and issue a basic director's resolution.
+
+** members' resolutions
+a two-step workflow: drafting and issue a basic member's resolution by written means.
+* TODO add support to xml2pdf-lib.jsx for extracting <Sidebar> elements into an anchored object
+* DONE review all the .xml files to see if any numerics need to be handled different now that they're strings.
+google-app 79e5b5f recorded a whole bunch of changes. the upshot: formatify_ now always emits a String. if any of the xmls do something like add two numbers we need those operations to operate on the _orig number and then formatify to the _format string.
+* DONE fix the document numbering -- when there are more than 9 documents, the 1-9 don't get 0 prefixed, but 10 does, so you get 010 lol
+* TODO timezone support -- the indesign textvar for output date will run with SGT but maybe some users will generate spreadsheets in some other timezone.
+
+* DONE write a module system so that common operations can be factored out
+like the share counting in the allocation and ordinary shares workflows.
+* TODO write simple developer-facing onboarding
+
+how to install the google app in your own spreadsheet
+
+how to fill in the API keys for your backend of choice
+
+* TODO [#C] add qryo-style QR stamping on each page
+* TODO write simple contributor(lawyer)-facing onboarding
+* TODO produce the entire universe of contracts with at least the company's details prefilled
+how to draft a new document by forking an existing XML
+* TODO explain the ad agency model
+* DONE latin phrase for holy water
+* TODO get in touch with https://angel.co/darbywong
+https://www.linkedin.com/profile/view?id=1848548&authType=NAME_SEARCH&authToken=8t52&locale=en_US&srchid=16928181431323245278&srchindex=1&srchtotal=4&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A16928181431323245278%2CVSRPtargetId%3A1848548%2CVSRPcmpt%3Aprimary%2CVSRPnm%3Atrue
+* TODO import each document in the legal.cf.sg _posts and establish backward compatibility [0/9]
+
+2013-12-12-term_sheet_for_convertible_note.html
+2013-11-03-convertible_loan_agreement.html
+2013-12-01-purchase_agreement_for_convertible_note.html
+2013-11-03-resolution_of_transfer_of_shares.html
+2013-11-03-share_transfer_instrument.html
+2013-11-03-shareholders_agreement.html
+2013-11-14-consulting_agreement.html
+
+create Google Spreadsheets API interface to read cap table
+
+create Google Spreadsheets API interface to read key/value config
+
+user-facing documentation to edit cap tables
+
+
+
+import each document in the Y Combinator SAFE series
+
+read the SAFE primer
+
+import each document in the Techstars model docs series
+
+import JFDI's Founder Agreement
+
+import JFDI's
+
+http://e27.co/one-singapores-top-corporate-tech-lawyers-helping-little-guys-20150413/
+
+** what are the essentials?
+
+- parties. infer jurisdiction from company location.
+- amount.
+- valuation. (enter the cap table.)
+- discount
+- type of security
+
+** View the drafts
+
+- visualization of the terms and implications for each party
+- easily try a different security type
+
+** display range of possibilities
+
+- help to filter the range based on which are acceptable to investors.
+
+* DONE make Legalese a library
+that people can just import, similar to the OAuth library.
+
+* TODO [#A] make Legalese an add-on
+that doesn't import a library.
+
+* TODO [#A] obtain a CUSTOMER api key for integration against echosign; get blessing.
+* for jfdi.2014
+** DONE add to explanatory statement
+*** this is a formality and we do not expect anyone to object
+*** what happens if you don't sign the agreement
+*** what if you want to put more money in
+
+* TODO [#C] figure out how to do PDF form elements so that EchoSigners can check various boxes and enter text amounts.
+* TODO refactor the signature page and cover page so that all parties are automatically represented by default.
+* DONE support cross references
+* TODO support table of contents and TOC bookmarks
+* TODO preemptive rights response form inspired by the example set by crayondata. need to do form response logic.
+* TODO V39A
+* DONE concatenate PDFs doesn't quite do the right thing -- ensure individual docs don't each get the full set of recipients
+* TODO improve schema management -- we should be able to create a new startup, a new agreement, etc faster, with correctly populated templates.
+because we are aware of the schema we should autopopulate the sheet with those variables, and only those variables, that are expected in the xml.
+we have previously done a little work in this direction, titled something like introspector.
+** TODO this linter should verify, just before a run, that all the variables that an XML expects are available from the spreadsheet
+* DONE clean up the overlap between the new share class creation variables and the new share issue variables. 
+* TODO figure out a better way to track the agreement dates (TODAY vs the actual signed date in the spreadsheet.)
+* TODO collapse multiple hats to a single signer -- if the same email address is signing in multiple roles, give them the same esnum
+right now we send two emails and they are confusing.
+* for Kark
+** DONE sent out the issue & allotment workflow
+* [2015-03-22 Sun 14:53] for tradegecko
+** DONE draft amendment to articles of association describing the new share class
+*** as regards the relationship with the underlying security
+**** jfdi.2012 holds shares of TradeGecko in trust for the TGA shareholders
+**** proceeds from the issuance of TGA shares shall be used solely to purchase additional shares in TradeGecko 
+*** as regards other classes of shares in JFDI.2012 -- ordinary and Preferred 'A'
+**** the TGA class shall be firewalled from the rest of JFDI.2014 and enjoy no voting, notification, or preemption rights vis-a-vis the regular RCPS and Ordinary Shares, though of course any rights that TGA holders hold by virtue of their membership in the company via other classes of shares shall not be affected. 
+**** TODO similarly the RCPS and other shareholders shall be firewalled from the TGA series except as required by law
+*** as regards voting
+**** as a minority shareholder we do not expect our vote to be decisive
+**** shareholders of the TGA series will grant the JFDI.2012 directors discretion to
+***** vote
+***** offer other consents
+***** act as a shareholder
+**** certain votes at the director's discretion will be referred to the TGA shareholders who will vote within their share class
+** DONE draft members resolutions for issue of new share class
+** DONE draft initial directors resolutions under 184A -- alteration of AA
+*** to represent the interests of our shareholders with respect to TradeGecko we resolve to issue a new class of shares, "TGA", with the properties described in the attached Schedule of proposed amendments to the articles of association
+*** to seek Member approval for
+**** the creation of the new class
+**** the issue of up to $$$ of new shares
+*** give the corp sec authority to bizfile
+** DONE draft subscription and shareholders agreement to new class of TGA shares
+*** subscription agreement
+**** pursuant to the JFDI.2012 subscription agreement which states that preemptive rights may be transferred to RCPS shareholders on commercial terms,
+**** payment instructions to JFDI.2012
+*** shareholder agreement
+**** transfer limited to TGA, then JFDI.2012, then JFDI group shareholders, then TradeGecko shareholders
+** WAIT draft subsequent directors resolutions under 184A -- issue and allotment
+this is basically done -- we have this docset ready.
+*** to issue new shares to everybody who has subscribed
+*** if the members give approval, to give corporate secretary authority to bizfile
+** TODO fix up 3A using the same ab styling and get it submitted as a change
+* bugfixes
+** TODO [#A] if the controller defines a form here and a form there do those forms' onsubmits find the right sheet to update?
+* for 2015a
+** DONE [#A] reformat all of Table A into the articles of association so we have something that's submissible to banks and so on
+** TODO [#A] review articles of association from 2013B and see if there are significant omissions in our 2015a version.
+** CANCELLED the issue of F shares also needs a preemptive waiver workflow for any shareholders who are not founders.
+no they don't -- 115.9 covers this.
+** DONE [#A] previously incorporated companies to adopt new articles.
+** CANCELLED [#A] draft paperwork to effect share exchange with Indian shareholders
+there are potential complications regarding foreign ownership of Indian companies. for now i have added text to the shareholder agreement to protect new Investors' interests.
+** DONE need a combo bold and ucnum character class for the form45.xml
+** DONE [#A] setup a workflow for each new company to authorise and issue class F shares to the founders.
+** DONE [#A] setup a workflow for each new company for the directors to authorise the issue of the convertible note to JFDI.
+*** DONE [#A] this will include a resolution for the directors to sign the agreements
+*** the issue of securities to JFDI needs to be preceded by section 161 workflow, with resolutions of directors and members. maybe this only happens at time of conversion or exercise. but better to get it out of the way now.
+** one of these workflows can be inside the regular Incorporation and the other will have to be separate because they both use the same variables.
+** DONE add a director's consent to legalese
+** DONE update the creation of class f agreements for those teams that have already incorporated. create new sheet for those. create ROLES rows.
+- Taembe.com
+- Bakipa
+- BoxGreen
+** DONE issue founder agreement to neuroware at 5%
+** DONE import memorandum of association
+see JFDI.BOOTCAMP.pdf from JFDI.2012 -- this text should go inside the Memo
+** DONE import convertible note agreement
+** DONE import shareholder agreement
+** DONE import class f agreement
+** DONE import volunteer agreement
+** TODO [#C] merge employment agreement and internship agreement into volunteer agreement
+** TODO [#C] create directors and members resolution docset to waive AGM for first two years until such time as the company ceases to be an exempt private limited.
+* TODO for launch of legalese
+** go register a legalese project identity on github
+** restructure code.gs so that people can use it without having to actually have access to my echosign oauth credentials 
+** restructure code.gs so it's easier for people to use as an add-on without having to have (staling) source in each spreadsheet
+** republish all the currently private content under cofounders to legalese, with the echosign oauth creds scrubbed
+** confirm that https://some-legalese-thing.github.io works so we close at least one MITM attack vector for code insertion in the xml templates
+** TODO chuck kiss and safe into it
+* TODO add gender pronoun for parties
+* DONE for xml2pdf-lib.jsx, any paragraph that ends in ":" or ":--+" should have a "keep with next" turned on.
+* TODO if the template points to a google drive url then it's a private template and we need to retrieve it specially.
+* for [2015-03-26 Thu] at thehub
+** TODO import KISSsing
+** TODO import SAFE US
+** TODO import SAFE Singapore
+** TODO import Darius's Note
+** TODO import TechStars model docs
+** TODO import Series Seed
+*** IN
+*** EU -- FI
+*** US
+** TODO import YC Series AA
+** TODO import
+* potential brands
+** http://en.wikipedia.org/wiki/Asperges
+** Notwithstanding
+** Lex Populi
+have registered lexpopu.li and lexpopuli.co
+and others at iwantmyname.co
+

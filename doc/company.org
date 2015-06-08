@@ -1,0 +1,145 @@
+#+TITLE: Legalese.io the Company
+
+What organizational structure, governance model, and communication processes does Legalese use?
+
+* Inspirations
+
+** Opensource Projects
+
+Legalese belongs to the opensource and Creative Commons traditions of Wikipedia, Git, Linux, and Public.Resource.Org, to name a few.
+
+The Internet is built on open software and open standards. Legalese aims to be a major infrastructural pillar of Internet-enabled future commerce, in the same way that Wikipedia has become a major pillar of online education and research.
+
+** Opensource Businesses
+
+Legalese costs money to run. Where will that money come from?
+
+Some opensource infrastructure projects are embarrassingly underfunded. [[http://www.technologyreview.com/view/526386/the-underfunded-project-keeping-the-web-secure/][OpenSSL]] and [[http://www.propublica.org/article/the-worlds-email-encryption-software-relies-on-one-guy-who-is-going-broke][GPG]] recently put out calls for donations. Legalese must be more sustainable than just relying on donations. That means incorporating as a business, maybe getting venture funding. There are many precedents for opensource businesses, including [[http://en.wikipedia.org/wiki/MariaDB][MariaDB]].
+
+
+** "Teal" organizations
+
+Self-managing organizations are better suited to Internet-era postindustrial conditions. See also
+- http://www.reinventingorganizations.com/
+- http://www.holacracy.org/how-it-works/
+
+Many opensource efforts have much in common with Teal organizations.
+
+* Communication Channels
+
+- realtime chat :: Slack
+
+- email :: Google Groups
+
+- source code, legal templates, and some documents :: Github
+
+- other documents :: Google Drive
+
+- project management and task tracking :: Asana
+
+** deprecated channels
+
+- project management and forum :: basecamp
+* Innovation: Bail-only Design
+
+Adhocracies tend to be highly informal, with people joining and leaving projects all the time.
+
+By analogy with [[http://en.wikipedia.org/wiki/Crash-only_software][crash-only software design]], a bail-only organizational structure aims to increase robustness by removing critical dependence on any individual, allowing any participant to leave the company at any time, and rejoin at a later time -- or never!
+
+Swappable *roles* are emphasized over job titles and fixed areas of authority/responsibility. Any individual who satisfies the prerequisites to assume a role may do so.
+
+* Innovation: Compensation
+
+In a purely volunteer not-for-profit project, little is needed beyond an IP/copyright assignment.
+
+In the case of Legalese, which may take a commercial, for-profit form to maximize sustainability and satisfy investors, how will participants be rewarded?
+
+We draw on the conventions established in the startup industry to manage expectations. If the company has cash available, and participants need to draw a salary from Legalese to continue contributing, then an employment or contractor relationship can be established. If the participant is willing to trade equity for cash, then the participant can be registered in the stock pool. Ideally, cash and equity should be interchangeable.
+
+Compensation should be determined by a participant's fellow Circle members and immediate business units.
+
+* Innovation: Teal Architecture
+
+#+BEGIN_QUOTE
+Any sufficiently complicated company w/o management contains an ad hoc, informally-specified, bug-ridden, slow implementation of management.
+https://twitter.com/wycats/status/368752712894017536
+#+END_QUOTE
+
+A Teal or Holacratic architecture doesn't mean anarchy. It doesn't mean absence of management. It means self-management. In a Teal organization, people spend /more/ time doing management than in a traditional business. The difference is, people manage themselves and one another; they don't manage up and down.
+
+** Participants
+
+Individual human beings elect to participate in the company. Volunteers, interns, employees, contractors, opensource developers, content contributors, mailing list subscribers -- all are Participants. By participating in the company, they agree to abide by this governance model, and they have the right under this governance model to make requests, ask for advice, and be asked for advice. They also agree to subject themselves to the dispute resolution process.
+
+A special category of "end-user" or "customer" exists. They are not considered a "participant" operating under this governance model until they take on a differentiated role, such as moderator, community leader, or opensource contributor. When they do, they are onboarded to this governance model, mostly by reading this document.
+
+** Roles
+
+A Role expresses a set of work processes. In a restaurant, Roles might be Waiter, Chef, Host, or Cashier. An individual at the restaurant might enact multiple roles: in a small restaurant, the Host might also act as a Cashier and a Waiter.
+
+Individual participants can be onboarded to one or more Roles in a company.
+
+** Circles
+
+If multiple individuals play the same Role, they form a group called a Circle. Circles are a unit of abstraction and MUST exhibit consensus when dealing with other parties, even if that consensus is simply a statement explaining that there is no consensus yet, and describing the conflicting positions.
+
+In a restaurant with multiple chefs, the Circle might be called Kitchen, and the waiters might deal with the Kitchen as a unit of abstraction: orders go in, dishes come out. Waiters don't want to know which chef is preparing which dish. Chefs don't want to know which waiter is serving which table. There is just a hole in the wall and a little bell that goes "ding!"
+
+A Circle may appoint a member or members to act as Lead Links -- representatives of the Circle to other parts of the organization. If a waiter hears consistently from diners that the steaks are coming out too rare, that waiter needs to be able to raise the issue either with the entire Kitchen circle, or with one representative of the Kitchen who collates the feedback.
+
+** Transparency.
+
+It is annoying to not be able to find information when you need it. It is annoying when people interrupt what you are doing to request information.
+
+All information relevant to other people in the company, particularly information that crosses the organizational boundary, SHOULD be recorded in a shared location accessible by other participants. This includes questions, discussions, decisions, policies, and processes.
+
+Chat logs and mailing list logs are available and searchable in the messaging system. Note that direct messaging between participants about company business is discouraged. Even if there are only two participants of a Circle, the discussions within those participants should be conducted in a shared venue, and logged for the benefit of other participants of the company, and for the benefit of future members of the Circle!
+
+Some exceptions exist.
+
+Confidential information relating to private matters regarding participant/employee health, family, etc, may be excluded.
+
+Private, ephemeral chats about non-company business may be excluded. "Lunch?" "Yoga?" etc.
+
+Confidential, sensitive, or proprietary information such as passwords, competitive trade secrets, and user data protected by personal data privacy legislation may be excluded from the general transparency rule. In such cases, participants, roles, and circles may elect to share data within circles instead of with the whole company.
+
+By default, all information should be fully public, even to non-participants of the company, unless there is a compelling reason to keep it private. Reasons to keep information within the company include: half-baked discussions-in-progress should not be exposed to misinterpretation by an uninformed public; competitive strategy may hurt the company if disclosed at the wrong time or in the wrong way; information relating to partnerships may be covered by NDA.
+
+** The advice process.
+
+Before making a decision, a role player (acting on behalf of their circle) MUST seek the advice of all parties who will be substantively affected by that decision.
+
+** The request process.
+
+Any participant can submit a request to any other participant about the way they play their role generally, or about a particular action specifically.
+
+** The dispute resolution process.
+
+If a conflict arises which is not naturally resolved within a circle, dispute resolution process defines an escalation pathway: a dispute resolution committee involving representatives from all advisory parties MUST be convened. If the dispute is not resolved within that committee, larger and larger advisory committees are convened. (In practice, the dispute is referred to larger and larger gatherings of the community. (There is a tension between the frequency of such referenda, and the size of the dispute. The decision to refer to a larger committee may be made by the dispute resolution committee.)
+
+** The contribution process.
+
+Content contributors and technology developers are subject to the [[https://guides.github.com/activities/contributing-to-open-source/][usual conventions of software projects]]. They may submit pull requests or have merge authority. The circle of Maintainers is usually smaller than the circle of Contributors. Contributors may be promoted to Maintainers by consensus of the Maintainer circle.
+
+* Innovation: Training for Aesthetics
+
+In organizations expressing design-driven innovations, important decisions often fall into an aesthetic rather than technical or economic domain.
+
+Part of new-participant onboarding MUST involve recruitment for, and training in, the dominant aesthetics, principles, values, vision, and tensions of the project.
+
+Minority or opposition opinions should be actively sought and aired. Consider the "Devil's Advocate" process.
+
+* Corporate Form
+
+As of 2015-06-06 Legalese has not been incorporated. This section proposes a corporate form.
+
+Because it represents a high-potential, high-tech, high-impact innovation with commercial potential, Legalese needs to be able to take venture funding.
+
+Legalese will be incorporated in Singapore as a Private Limited company.
+
+Legalese needs to be scrupulously aware of the Legal Profession Act.
+
+Legalese offers a number of products and services. Some of those products and services are free. Some are paid.
+
+
+

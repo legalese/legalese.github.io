@@ -1,0 +1,12 @@
+<CoverBottom_Logotype>
+<cover_corporate_logotype>Joyful Frog Digital Incubator</cover_corporate_logotype>
+</CoverBottom_Logotype>
+<CoverBottom_Address>
+<cover_address_block>Blk 71 Ayer Rajah Crescent</cover_address_block>
+<cover_address_block>#05-16   Singapore 139951</cover_address_block>
+</CoverBottom_Address>
+<CoverBottom_series>
+<? if (data._include.in_series) { ?><centered>document <?= data._include.in_series ?> in a series</centered><? } ?>
+<centered><textvar name="Output Date" />&#8195;<span_smallcaps><textvar name="output time" /></span_smallcaps></centered>
+<centered>version <?= data.document_version || "1.2.2" ?></centered>
+</CoverBottom_series>

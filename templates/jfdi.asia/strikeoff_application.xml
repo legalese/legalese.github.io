@@ -1,0 +1,32 @@
+<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/" templateSpec="singlepage.indt">
+<letterhead><?= data.company.name ?></letterhead>
+<Firstpage_Sidebar>
+<?= data.company.name ?>
+
+(the "Company")
+<?= data.company.idtype ?> <span_ucnum><?= data.company.id ?></span_ucnum>
+<?= data.company.address ?>
+</Firstpage_Sidebar>
+<Story_Main>
+<basic_para>
+
+
+
+</basic_para>
+<resolution_title>Instruction to and Indemnification of Corporate Secretary</resolution_title>
+
+<chapter_header override="startParagraph=StartParagraph.ANYWHERE">Application for Striking Off&#8232;Pursuant to Section 344&#8232;of the Companies Act (Cap. 50)&#8232;<?= data.company.name ?>&#8232;<?= data.company.idtype ?> <span_ucnum><?= data.company.id ?></span_ucnum></chapter_header>
+<para_1><?= plural(data.parties.director, "I", "We") ?>, the undersigned, hereby declare as follows:</para_1>
+<numbered_1_para>That the information provided and declaration made on my forms and attachments pertaining to the application for striking off pursuant to Section 344 of the Companies Act (Cap. 50) are true and correct.
+That we hereby authorise <?= data.parties.corporate_secretary[0].name ?> ("<?= data.parties.corporate_secretary[0].short_name ?>") and its designated agents to initiate the filing electronically with the <?= data.parties.state_regulator[0].name ?> ("<?= data.parties.state_regulator[0].short_name ?>") and to communicate with <?= data.parties.state_regulator[0].short_name ?> for any errors and/or omissions if necessary.
+That we fully indemnify and hold <?= data.parties.corporate_secretary[0].short_name ?> harmless from any loss, cost, or damages in respect of inaccurate or incomplete information filed through the service howsoever arising; and
+That we fully indemnify and hold <?= data.parties.corporate_secretary[0].short_name ?> harmless from and against all claims or liabilities from any party concerned.
+</numbered_1_para>
+<para_1><span_smallcaps>Declared by:</span_smallcaps></para_1>
+<? data.signature_comment = "Director" ?>
+<? for (var i=0;i<data.parties.director.length;i++) { ?>
+<?!= include("inc_signature", data, data.parties.director[i]) ?>
+<? } ?>
+</Story_Main>
+<Bottom_Box delete_if_empty="true" />
+</Root>

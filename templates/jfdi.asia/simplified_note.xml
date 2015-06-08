@@ -1,0 +1,136 @@
+<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
+<CoverTop>
+<cover_title>Simplified Convertible Loan Agreement</cover_title>
+<cover_company_name>
+
+
+
+
+<?= data.parties.company[0].name ?></cover_company_name>
+<cover_company_id><?= data.parties.company[0].idtype ?> <?= data.parties.company[0].id ?></cover_company_id>
+<? for (var i in data.parties.investor) { ?>
+<cover_company_name>
+<?= data.parties.investor[i].name ?></cover_company_name>
+<cover_company_id><?= data.parties.investor[i].idtype ?> <?= data.parties.investor[i].id ?></cover_company_id>
+<? } ?>
+</CoverTop>
+<CoverMid>
+</CoverMid>
+
+<CoverBottom_Logotype>
+<cover_corporate_logotype>Joyful Frog Digital Incubator</cover_corporate_logotype>
+</CoverBottom_Logotype>
+
+<CoverBottom_Address>
+<cover_address_block>Blk 71 Ayer Rajah Crescent</cover_address_block>
+<cover_address_block>#05-16   Singapore 139951</cover_address_block>
+</CoverBottom_Address>
+
+<CoverBottom_series>
+<centered><textvar name="Output Date" />&#8195;<span_smallcaps><textvar name="output time" /></span_smallcaps></centered>
+<centered>version 1.0.0</centered>
+</CoverBottom_series>
+
+<Firstpage_Sidebar>
+</Firstpage_Sidebar>
+
+<Story_Main><chapter_header>Convertible Loan Agreement</chapter_header>
+<para_1><span_smallcaps>This agreement</span_smallcaps> is made on <textvar name="Output Date" /> between</para_1>
+<? for (var i in data.parties.investor) { ?>
+<parties><?!= include("inc_party", data, data.parties.investor[i]) ?></parties>
+<? } ?>
+<para_1><?   if (data.parties.investor.length > 1)           { ?>(the "Investors")
+<?   } else                                          { ?>(the "Investor")<?  } ?></para_1>
+
+<parties><?!= include("inc_party", data, data.company) ?> (the "Company")</parties>
+<para_1>(collectively, the "Parties")</para_1>
+
+<para_1><span_smallcaps>Whereas:</span_smallcaps></para_1>
+  <recitals>The Company is a private company incorporated in Singapore limited by shares.</recitals>
+  <recitals>The Investor wishes to invest in the Company.</recitals>
+  <recitals>The Investor and the Company desire and wish to enter into this Agreement to regulate the affairs of the Company and the relationship between the Parties.</recitals>
+  <para_1><span_smallcaps>It is hereby agreed</span_smallcaps> as follows:</para_1>
+
+
+
+  <a_left_sidehead>Definitions</a_left_sidehead>
+  <numbered_2_para>In this Agreement, except to the extent that the context otherwise requires, the following terms shall have the meanings set forth below:</numbered_2_para>
+  <definition>Qualified Financing	The issuing of equity securities (&#8220;Equity Securities&#8221;) in a transaction or series of related transactions resulting in aggregate gross proceeds to the Company of at least <?= data.qualified_financing ?> excluding conversion of the Notes and any other indebtedness.</definition>
+  <a_left_sidehead>Subscription</a_left_sidehead>
+  <numbered_2_para>The Investor agrees to invest a total consideration worth <?= data.investor.commitment ?> (the &#8220;Investment Amount&#8221;) in the Company by way of convertible promissory notes (the &#8220;Notes&#8221;) issued by the Company to the Investor.</numbered_2_para>
+
+  <a_left_sidehead>Total Round Size</a_left_sidehead>
+  <numbered_2_para>The Notes issued to the Investor form part of a series of such Notes issued on essentially identical terms except that the Investor, Investment Amount<?= data.variable_terms ?> and Closing Date may change from Note to Note. The total amount of the Series shall not exceed <?= data.amount_raising ?> without the written agreement of all the holders of the Notes in the Series currently outstanding.</numbered_2_para>
+
+  <a_left_sidehead>Maturity Date</a_left_sidehead>
+  <numbered_2_para>The Principal <? if (data.interest != 0) { ?>and unpaid accrued interest on<? } else { ?>of<? } ?> the Notes will be due and payable <?= data.term ?> from the date of the signing of this Agreement (the &#8220;<b>Maturity Date</b>&#8221;).</numbered_2_para>
+
+
+  <a_left_sidehead>Interest</a_left_sidehead>
+  <numbered_2_para><? if (data.interest != 0) { ?>
+Interest on the Notes will accrue on an annual basis at the rate of <?= data.interest ?>% per annum based on a 365 days year.<? } else { ?>
+The Notes shall bear no interest. <? } ?>
+</numbered_2_para>
+
+
+  <a_left_sidehead>Conversion Price</a_left_sidehead>
+  <numbered_2_para>The &#8220;Conversion Price&#8221; is the lesser of</numbered_2_para>
+  <numbered_3_para><?= 100-data.discount ?>% of the per share price paid by the purchasers of such Equity Securities in the Qualified Financing (the &#8220;<b>Discounted Conversion Price</b>&#8221;), or</numbered_3_para>
+  <numbered_3_para>the price per share equal to <?= data.pre_money_valuation ?> divided by the aggregate number of outstanding shares of the Company&#8217;s common stock as of immediately after the initial closing of the Qualified Financing (assuming full conversion or exercise of all convertible and exercisable securities then outstanding other than the Notes) (the &#8220;<b>Valuation Cap</b>&#8221;).</numbered_3_para>
+  <a_left_sidehead>Automatic Conversion</a_left_sidehead>
+  <numbered_2_para><b>Automatic Conversion in a Qualified Financing.</b> If the Company issues Equity Securities in a Qualified Financing, then the Notes<? if (data.interest != 0) { ?>, and any accrued but unpaid interest thereon,<? } ?> will automatically convert into the equity securities issued pursuant to the Qualified Financing at the Conversion Price.</numbered_2_para>
+  <numbered_2_para><b>Automatic Conversion at the Maturity Date.</b> If the Notes have not been previously converted pursuant to a Qualified Financing, then, effective upon the Maturity Date, the Notes, and any accrued but unpaid interest thereon, will automatically convert into Equity Securities at <?= 100 - data.maturity_conversion_discount ?>% of the Valuation Cap.</numbered_2_para>
+
+
+  <a_left_sidehead>Optional Conversion</a_left_sidehead>
+  <numbered_2_para>If the Maturity Date or a Qualified Financing has not occurred, the Investor may elect to convert the entire Investment Amount into Equity Securities at the Valuation Cap.</numbered_2_para>
+
+
+
+  <a_left_sidehead>Sale of the Company</a_left_sidehead>
+  <numbered_2_para>If a Qualified Financing has not occurred and the Company elects to consummate a sale of the Company prior to the Maturity Date, then at the election of the Investor, either</numbered_2_para>
+  <numbered_3_para>the Investor shall receive a payment equal to <?= data.acquisition_preference ?> times the Notes, or</numbered_3_para>
+  <numbered_3_para>the entire Investment Amount shall convert into Equity Securities at the Valuation Cap.</numbered_3_para>
+
+
+
+  <a_left_sidehead>Pre-Payment</a_left_sidehead>
+  <numbered_2_para>The Note may not be prepaid unless approved in writing by Investors holding Notes whose aggregate principal amount represents a majority of the outstanding principal amount of all then-outstanding Notes (the &#8220;<b>Requisite Holders</b>&#8221;).</numbered_2_para>
+
+
+
+  <a_left_sidehead>Participation Right</a_left_sidehead>
+  <numbered_2_para>The Investor will have the right to participate in future financing rounds of the Company in order to maintain their percentage shareholding in the Company, calculated on fully-diluted basis.
+When a Qualified Financing triggers conversion of the Note to Equity Securities, the Investor will have the right to participate in that Qualified Financing.
+Should the Company issue equity securities or securities convertible to equity, subsequent to the current Series, but prior to the Qualified Financing, the Company shall give the Investor notice of the terms of that financing, and the Investor shall possess the right to participate in that financing in a pro rata basis.</numbered_2_para>
+
+  <a_left_sidehead>Amendment and Waiver</a_left_sidehead>
+  <numbered_2_para>The terms of this Agreement and the Notes may be amended, or any term thereof waived, upon the written consent of the Company and the Requisite Holders.</numbered_2_para>
+
+
+  <a_left_sidehead>No Security Interest</a_left_sidehead>
+  <numbered_2_para>The Notes will be a general unsecured obligation of the Company.</numbered_2_para>
+
+
+  <a_left_sidehead>Investor Rights</a_left_sidehead>
+  <numbered_2_para><? if (data.information_rights == "quarterly then yearly") { ?>The Investor will have customary information and inspection rights, including receiving an annual budget, annual unaudited financial statements, quarterly unaudited financial statements, and any other information reports prepared for shareholders while the Notes remains outstanding.<? } else { ?>
+The Investor shall have no information rights over the financials of the company beyond those required by law.<? } ?>
+</numbered_2_para>
+
+
+  <a_left_sidehead>Fees And Expenses</a_left_sidehead>
+  <numbered_2_para>The Parties will bear their own fees and expenses incurred in the transaction.</numbered_2_para>
+
+  <a_left_sidehead>Governing Law and Jurisdiction</a_left_sidehead>
+  <numbered_2_para>This Agreement shall be governed by and construed according to the laws of Singapore.</numbered_2_para>
+
+<chapter_header>Signatures</chapter_header>
+    <para_1><span_smallcaps>In witness whereof</span_smallcaps> we have hereunto set our hands.</para_1>
+<b_left_sidehead_nonum>The Investor<?= data.parties.investor.length == 1 ? "" : "s" ?></b_left_sidehead_nonum>
+<? for (var i = 0; i < data.parties.investor.length; i++) { ?>
+<?!= include("inc_signature", data, data.parties.investor[i]) ?>
+<? } ?>
+<b_left_sidehead_nonum>For the Company <?= data.company.name ?></b_left_sidehead_nonum>
+<?!= include("inc_signature", data, data.company) ?>
+</Story_Main>
+</Root>

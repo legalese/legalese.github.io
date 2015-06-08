@@ -1,0 +1,138 @@
+<!-- This document is source-code controlled under the legalese repository.
+     https://github.com/cofounders/legalese/
+
+     The master document is darius.ghtml.
+
+     From there it flows to a Google Apps Script HTML file called "darius.html",
+     within a script project bound to the "Legalese: My First Project" spreadsheet:
+     https://docs.google.com/a/jfdi.asia/spreadsheets/d/1zbTIO2TAAttTxX1FZOEJA2vgUQMreGxUvtw5G52dYN4/edit#gid=1472952978
+
+   * How do I edit this template?
+
+     If you have duplicated the spreadsheet and are now producing documents using Legalese,
+     and need to edit the template on a quick-and-dirty basis, you can do so directly within
+     the Script Gallery.
+
+     If you want to submit your changes to the main branch for the benefit of third parties,
+     you should fork the Legalese repository on Github and submit a pull request.
+
+     This is a good idea because as the main branch evolves you don't want your fork to
+     fall out of sync!
+--->
+
+<? if (data.interest) { data.plus_interest = " and unpaid accrued interest" } else { data.plus_interest = "" } ?>
+
+<h1>Purchase Agreement for Convertible Note</h1>
+<p><b>This agreement</b> (the "Agreement") is made on <?= data.agreement_date ?> (the "Agreement Date")</p>
+<p><b>between:</b></p>
+<ul>
+    <li><?= data.company.name ?>, (<?= data.company.idtype ?> <?= data.company.id ?>) a company incorporated in <?= data.company.state ?> with its registered office at <?= data.company.address ?> (the "Company"); and</li>
+    <li><?= data.investor.name ?>, (<?= data.investor.idtype ?> <?= data.investor.id ?>) of <?= data.investor.address ?> (the "Investor")</li>
+</ul>
+<p>(the Company and the Investor shall collectively be known as the "Parties" and each, a "Party").</p>
+<p><b>Whereas:</b></p>
+<ul>
+  <li>The Company is a private company incorporated in <?= data.company.state ?> limited by shares;</li>
+  <li>The Investor and the Company desire and wish to enter into this Agreement to regulate the affairs of the Company and the relationship between the Parties.</li>
+  <li>This Agreement may be one of a series of similar agreements (the "Series") issued by the Company to several investors with identical terms and on the same form as set forth herein (except that the Investor, Investment Amount, and certain Dates may differ).</li>
+</ul>
+<p><b>It is hereby agreed</b> as follows:</p>
+  
+<?!= newclause(1, "Definitions") ?>
+<p>In this Agreement, except to the extent that the context otherwise requires, the following terms shall have the meanings set forth below:</p>
+
+<?!= newclause(2, "Qualified Financing") ?>
+
+        <p>The issuing of equity securities ("Equity Securities") in a transaction or series of related transactions resulting in aggregate gross proceeds to the Company of at least <?= data.qualified_financing_minimum_raise ?>, excluding conversion of the Notes and any other indebtedness.</p>
+
+<?!= newclause(1, "Subscription") ?>
+
+      <p>The Investor agrees to invest <?= data.investor.commitment ?>, (the "Investment Amount") in the Company by way of the convertible promissory notes (the "Notes") issued by the Company to the Investor.</p>
+
+<?!= newclause(1, "Maturity Date") ?>
+      <p>The Notes<?= data.plus_interest ?> will be due and payable <?= data.term ?> from the date of the signing of this Agreement (the "Maturity Date").</p>
+
+<?!= newclause(1, "Interest") ?>
+    <? if (data.interest != 0) { ?>
+    <p>Interest on the Notes will accrue on an annual basis at the rate of <?= data.interest ?>% per annum based on a 365-day year.</p>
+    <? } else { ?>
+    <p>The notes shall not bear interest.</p>
+    <? } ?>
+
+<?!= newclause(1, "Conversion Price") ?>
+
+      <p>The "Conversion Price" is the lesser of</p>
+        <ol>
+          <li>
+            <?= 100 - data.conversion_discount ?>% of the per share price paid by the purchasers of such Equity Securities in the Qualified Financing (the "Discounted Conversion Price"), or
+          </li>
+          <li>
+            the price per share equal to <?= data.premoney_valuation ?> divided by the aggregate number of outstanding shares of the Company's common stock as of immediately before the initial closing of the Qualified Financing (the "Valuation Cap").
+          </li>
+        </ol>
+
+<?!= newclause(1, "Automatic Conversion") ?>
+
+<?!= newclause(2, "... in a Qualified Financing") ?>
+
+    <p>If the Company issues Equity Securities in a Qualified Financing, then the Notes<? if (data.interest) { ?>, and any accrued but unpaid interest thereon,<? } ?> will automatically convert into the equity securities issued pursuant to the Qualified Financing at the Conversion Price.</p>
+
+<?!= newclause(2, "... at the Maturity Date") ?>
+
+	<p>At the Maturity Date, the Notes<? if (data.interest) { ?>, and any accrued but unpaid interest thereon,<? } ?> will automatically convert into Equity Securities at <?= 100 - data.maturity_conversion_discount ?>% of the Valuation Cap.</p>
+
+<?!= newclause(1, "Optional Conversion") ?>
+      <p>If the Maturity Date or a Qualified Financing has not occurred, the Investor may elect to convert the entire Investment Amount into Equity Securities at the Valuation Cap.</p>
+
+<?!= newclause(1, "Sale of the Company") ?>
+      <p>
+        If a Qualified Financing has not occurred and the Company elects to consummate a sale of the Company prior to the Maturity Date, then at the election of the Investor, either</p>
+        <ol>
+          <li>the Investor shall receive a payment equal to <?= data.acquisition_preference ?> times the Notes, or</li>
+          <li>the entire Investment Amount shall convert into Equity Securities at the Valuation Cap.</li>
+        </ol>
+
+<?!= newclause(1, "Pre-Payment") ?>
+
+    <p>The Investment Amount<?= data.plus_interest ?> may not be prepaid unless approved in writing by Investors holding Notes whose aggregate principal amount represents a majority of the outstanding principal amount of all then-outstanding Notes (the "Requisite Holders").</p>
+
+<?!= newclause(1, "Participation Rights") ?>
+    <p>After converting to Equity Securities upon the conditions laid out in clauses <?= clausenum("Automatic Conversion") ?> and <?= clausenum("Optional Conversion") ?>, Investor will have the rights to participate in subsequent financing rounds of the Company in order to maintain their percentage (%) shareholding in the Company.</p>
+
+<?!= newclause(1, "Amendment and Waiver") ?>
+      <p>The terms of this Agreement and the Notes may be amended, or any term thereof waived, upon the written consent of the Company and the Requisite Holders.</p>
+
+<?!= newclause(1, "No Security Interest") ?>
+      <p>The Notes will be a general unsecured obligation of the Company.</p>
+
+<?!= newclause(1, "Investor Rights") ?>
+
+  <? if (data.information_rights.toLowerCase() == "none") { ?>
+  <p>INVESTORS HAVE NO INFORMATION RIGHTS LOL</p>
+  <? } else { ?>
+
+      <p>The Investor will have customary information and inspection rights, including receiving an annual budget, annual unaudited financial statements, quarterly unaudited financial statements, and any other information reports prepared for shareholders while the Notes remains outstanding.</p>
+  <? } ?>
+  
+<?!= newclause(1, "Fees And Expenses") ?>
+      <p>The Parties will bear their own fees and expenses incurred in the transaction.</p>
+
+<?!= newclause(1, "Governing Law and Jurisdiction") ?>
+<p>This Agreement (and any dispute, controversy, proceedings or claim of whatever nature arising out of this Agreement or its formation) shall be governed by and construed in accordance with the laws of Singapore and the Parties irrevocably submit to the exclusive jurisdiction of the Courts of the Republic of Singapore.</p>
+<p>Notwithstanding any provisions to the contrary in this Agreement, in the event of any dispute or difference arising out of or in connection with this Agreement (including any question regarding its existence, validity or termination) whether during the continuance of this Agreement or at any time after the termination hereof, the parties shall first attempt to resolve the same by negotiation in good faith or through mediation at the Singapore Mediation Centre ("SMC") between the appointed representative of the respective Parties.</p>
+<p>In the event that the dispute or difference remain unresolved within thirty (30) days upon conclusion of such negotiation or mediation, any Party shall be entitled to refer the dispute to arbitration in Singapore in accordance with the Law Society of Singapore Arbitration Scheme ("LSAS") following the LawSoc Arbitration Rules 2011 for the time being in force, which rules are deemed to be incorporated by reference to this Clause. The arbitral tribunal shall consist of a sole arbitrator, who shall be appointed by the President of the Law Society of Singapore, under the LawSoc Arbitration Rules 2011. The language of the arbitration shall be English. Any award made hereunder shall be final and binding upon the Parties and judgement on such award may be entered in any court or tribunal having jurisdiction thereof.</p>
+<p>Pending the resolution or final determination of the dispute or difference pursuant to this Clause, the Parties shall procure that the Company shall, as far as practicable, continue to carry on its day-to-day business, having regard to the dispute or difference.</p>
+<p>Notwithstanding the foregoing, each of the Parties reserves its right to immediately commence any interim Court action such as an injunction against any of the other Parties to enforce the terms of this Agreement in a forum of its choice.</p>
+<p>This Clause shall survive the termination of this Agreement for any reason whatsoever.</p>
+
+<?!= newclause(1, "Attribution") ?>
+      <p>The text of this Agreement was based on a template by Darius Cheung (<a href="http://twitter.com/Rius">@rius</a>), licensed under Creative Commons Attribution 3.0 Singapore (CC BY 3.0 SG), original source available at http://legal.cf.sg. Document assembly was performed by legalese.io.</p>
+
+<h1>Signature</h1>
+<p>This Agreement has been signed by or on behalf of each of the Parties hereto the day and year first before written.</p>
+
+<p><?= data.company.name ?></p>
+
+<p>Signed by <?= data.founders[0].name ?> for and on behalf of <?= data.company.name ?></p>
+
+<p>Signed by <?= data.investor.name ?></p>

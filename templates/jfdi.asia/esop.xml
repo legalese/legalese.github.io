@@ -1,0 +1,45 @@
+<?!= data.xmlRoot() ?>
+<?!= include("inc_cover_standard_parties", data, {cover_title:"ESOP"}) ?>
+<?!= include("inc_cover_jfdi", data, { in_series:"11" }) ?>
+<Firstpage_Sidebar>
+<sidebar>This document sets out the terms of the Employee Stock Ownership Plan.</sidebar>
+</Firstpage_Sidebar>
+<Story_Main>
+<chapter_header>Employee Stock Ownership Plan</chapter_header>
+
+<a_left_sidehead>Introduction</a_left_sidehead>
+
+<numbered_2_para>This document sets out the terms of the Employee Stock Ownership Plan ("ESOP"), by which founders and early employees may be compensated in equity as an alternative to, or in addition to, cash salaries.</numbered_2_para>
+
+<numbered_2_para>The Company's Articles of Association may contain text to the effect of:</numbered_2_para>
+
+<quotation>Notwithstanding any Articles regarding Rights of First Refusal, Pre-emptive Rights, or Pro-Rata rights, the Company may issue new Class F Shares, and transfer existing Class F Shares, without first offering the shares to existing Members, provided that such transfers and issues occur as part of a vesting scheme or some other share option plan, share ownership plan, or equity-based remuneration scheme previously approved by the Company.</quotation>
+
+<para_1>This plan qualifies as an aforementioned share ownership plan, and having the approval of the Members of the Company by ordinary resolution shall authorize the Directors to act accordingly.</para_1>
+
+<numbered_2_para>The Company may have executed a Class F Agreement with the founders and other parties, stating:</numbered_2_para>
+
+<quotation>The Directors intend to permit a Holder who is also an employee or consultant to balance his compensation from time to time in favour of cash or equity according to preference and circumstance. Accordingly, the Holder may in any given month, with the approval of the Directors, elect to subscribe for additional Unrestricted F Shares at the Discretionary Subscription Price (defined below) up to the maximum amount of his monthly pay.</quotation>
+
+<para_1>The Unrestricted F Shares described above may or may not be drawn from the present ESOP allocation. The Directors may decide this.</para_1>
+
+<a_left_sidehead xname="class">Class of ESOP Shares</a_left_sidehead>
+
+<numbered_2_para>The ESOP Shares shall be Class F shares, which are subject to vesting and redemption.</numbered_2_para>
+
+<a_left_sidehead xname="reservation">Reservation of ESOP Shares</a_left_sidehead>
+
+<numbered_2_para>The Company shall establish in its capitalization table a pool of shares reserved for allotment according to the terms of this ESOP. Shares in this pool shall count toward the Company's fully-diluted capitalization, even if they are notional and have not been issued or allotted to specific holders.</numbered_2_para>
+
+<numbered_2_para>At the time of establishment of the ESOP pool, the ESOP shall constitute <?=data.cap.col.num_shares.post.esop.total?> shares, <? if (data.cap.col.num_shares.post.esop._orig_reserved == data.cap.col.num_shares.post.esop._orig_total) { ?>all of which shall be reserved for subsequent allocation.<?}else{?>of which <?=data.cap.col.num_shares.post.esop.issued?> shall be issued and <?=data.cap.col.num_shares.post.esop.reserved?> shall remain reserved.<?}?></numbered_2_para>
+
+<a_left_sidehead xname="issue">Issue of ESOP Shares</a_left_sidehead>
+
+<numbered_2_para>The Directors may issue and allot ESOP shares to founders, employees, or key contractors ("Holders") without first offering those shares to Members.</numbered_2_para>
+
+<a_left_sidehead xname="redemption">Redemption of ESOP Shares</a_left_sidehead>
+
+<numbered_2_para>Redemption and acceleration shall be described in specific agreements negotiated by the Directors with Holders from time to time.</numbered_2_para>
+
+</Story_Main>
+</Root>

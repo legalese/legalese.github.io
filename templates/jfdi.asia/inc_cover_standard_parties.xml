@@ -1,0 +1,27 @@
+<CoverTop>
+<cover_title><?= data._include.cover_title ?></cover_title>
+<cover_company_name>
+
+
+
+
+
+<?= data.company.name ?>
+
+</cover_company_name>
+<cover_company_id><?= data.company.idtype ?> <?= data.company.id ?></cover_company_id>
+<centered addnewline="true" />
+<? if (data.new_investor && data.new_investor.length) { ?>
+<cover_company_name><?= data.new_investor.name ?></cover_company_name>
+<cover_company_id><?= data.new_investor.idtype ?> <?= data.new_investor.id ?></cover_company_id>
+<? } ?>
+</CoverTop>
+<CoverMid>
+<? for (var f in data.parties.founder) { ?>
+<cover_parties_centered><?= data.parties.founder[f].name ?></cover_parties_centered>
+<? } ?>
+<? if (data._include.disclaimer) { ?>
+<?!= include("inc_disclaimer", data, { parastyle:"noindent_justified" })?>
+<? } ?>
+
+</CoverMid>

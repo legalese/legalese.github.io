@@ -1,0 +1,44 @@
+<?!= data.xml_declaration ?>
+<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/" templateSpec="singlepage.indt">
+<Story_Main>
+<chapter_header>Simple Test Document</chapter_header>
+<para_1>This Agreement is a test document.</para_1>
+<numbered_1_para>This is a numbered 1 paragraph. In this paragraph we display a plain text variable defined in terms: test_a_var_1=<?= data.test_a_var_1 ?></numbered_1_para>
+<numbered_2_para>This is a numbered 2 paragraph.</numbered_2_para>
+<para_2>This is a para_2. We display a Currency variable defined in terms, with 3 decimal digits: test_a_var_2=<?= data.test_a_var_2 ?>
+
+We also display test_a_var_3, which is a Number variable with 3 significant digits: <?= data.test_a_var_3 ?>
+
+test_a_var_4 has no decimal places: <?= data.test_a_var_4 ?>
+
+test_a_var_5 is a currency with no decimal places: <?= data.test_a_var_5 ?>
+
+test_a_var_6 has 5 decimal places and should end in 0: <?= data.test_a_var_6 ?>
+
+test_a_var_7 is automatic: <?= data.test_a_var_7 ?>
+</para_2>
+<numbered_2_para xname="lol1">This is a numbered 2 paragraph with a crossreference target painted on it.</numbered_2_para>
+<numbered_2_para>This is another numbered 2 paragraph.</numbered_2_para>
+<a_left_sidehead>This is an A Left Sidehead.</a_left_sidehead>
+<numbered_2_para>This is a numbered 2 paragraph.</numbered_2_para>
+<numbered_2_para xname="lol2">This is a numbered 2 paragraph with a second crossreference target painted on it.</numbered_2_para>
+<b_left_sidehead>This is a B Left Sidehead.</b_left_sidehead>
+<numbered_2_para>This is a numbered 2 paragraph.</numbered_2_para>
+<para_1>This is a plain paragraph with a crossreference source in it, which goes to the first target <xref to="lol1" format="Paragraph Number" /> showing the paragraph number.</para_1>
+<numbered_2_para>This is the last numbered 2 paragraph.</numbered_2_para>
+<a_left_sidehead>Module Tests</a_left_sidehead>
+<para_1>Modules allow multiple templates to share the same code. Modules don't produce any XML output; they just perform computations and save the results back into data.*.</para_1>
+<b_left_sidehead>mod_test1_modules</b_left_sidehead>
+<? Logger.log("running include(mod_test1_modules)"); ?>
+<? include("mod_test1_modules", data); ?>
+<para_1>The total number of shares across all shareholders is <?= data._total_shareholder_num_shares ?>.</para_1>
+<b_left_sidehead>mod_party_sum</b_left_sidehead>
+<? data._total_new_shares = include("mod_party_sum", data, { partynames: "founder", attrs: [ "num_new_shares", "num_shares" ]}); ?>
+<? Logger.log("INFO: data._total_new_shares = %s",data._total_new_shares); ?>
+<? data._total_commitments = include("mod_party_sum", data, { partynames: "founder", attrs: [ "new_commitment", "commitment" ] }); ?>
+<? Logger.log("INFO: data._total_commitments = %s",data._total_commitments); ?>
+<para_1>total new shares = <?= data._total_new_shares ?></para_1>
+<para_1>total new commitments = <?= data._total_commitments ?></para_1>
+<?!= include("inc_signature", data, data.company) ?>
+</Story_Main>
+</Root>

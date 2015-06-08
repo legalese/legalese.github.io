@@ -1,0 +1,169 @@
+<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
+<?!= include("inc_cover_standard_parties", data, {cover_title:"JFDI "+data.security_type+" Agreement"}) ?>
+<?!= include("inc_cover_jfdi", data, { in_series:"03" }) ?>
+<Firstpage_Sidebar>
+<sidebar>This document governs the investment.</sidebar>
+</Firstpage_Sidebar>
+<Story_Main>
+  <chapter_header><?=data.security_type?> Agreement</chapter_header>
+  <a_left_sidehead>Essentials </a_left_sidehead>
+  <numbered_2_para>Pursuant to the Founder Agreement executed on <?= data.founder_agreement_date ?> between the promoters of <?= data.company.name ?> (the "Company") and <?!= include("inc_party", data, data.parties.investor[0]) ?> ("JFDI"), which requires the Company to <i>"authorise and issue <? if (data.jfdi_standard_valuation != false) {
+  ?>convertible debt, equity, or other such security in the corporation such that, immediately prior to the Next External Financing, <?=data.parties.investor[0].short_name || data.parties.investor[0].name ?> will own a certain percentage (the "Conversion Percentage") of the total capital in the Startup, on a fully-diluted, as-if-converted basis<? }
+  else { ?><?= data.nonstandard_valuation_text ?><? } ?>"</i>;
+And concurrently with the issue of Class F Shares to the founders and shareholders of the Company ("the Founders") and of other securities to other parties with rights and interests in the Company at the time of execution of this Agreement (together, "Existing Holders"), </numbered_2_para>
+<numbered_2_para>The Company will issue, and JFDI will take up, a <?= data.security_type ?> in the total amount of <?= data.parties.investor[0].commitment?> (the "<?=data.security_type_short_singular?>"), with the expectation that the <?=data.security_type_short_singular?> will, upon <?= data.security_type_operation ?> at the next round of financing, make <?= data.parties.investor[0].short_name ?> a holder of <? if (data.agreed_percentage_minimum) { ?><?=data.agreed_percentage_minimum?>--<?}?>
+<?=data.agreed_percentage?>% of the fully-diluted capital of the Company.</numbered_2_para>
+  <a_left_sidehead>Definitions </a_left_sidehead>
+  <para_1>In this agreement, unless the context otherwise requires:- </para_1>
+  <definition>Act	means the Singapore Companies Act (Cap. 50) and includes any provision thereof as from time to time modified or re-enacted; </definition>
+  <definition>Articles	means the Articles of Association of the Company; </definition>
+  <definition>Board	means the board of Directors for the time being of the Company; </definition>
+  <definition>Change of Control	is as defined in the Articles; </definition>
+  <definition>Director	means a director of the Company for the time being, including where applicable an alternate director; </definition>
+  <definition>Investor	means <span_ucnum>JFDI.2014</span_ucnum> Pte. Ltd.; </definition>
+  <definition>JFDI	also means <span_ucnum>JFDI.2014</span_ucnum> Pte. Ltd.; </definition>
+<?if(data.term){?>  <definition>Maturity Date	<?=data.term?> from date of issue of the <?=data.security_type_short_singular?>, or such other date as may be mutually agreed between the Parties; </definition>
+<?}?>
+<?if(data.interest != undefined){?>
+<definition>Interest Rate	The <?=data.security_type_short_singular?> <? if (data.interest > 0) { ?>accrues <?= data.interest ?>% simple interest, to be payable in full on the earlier of the Maturity Date or the date on which the <?=data.security_type_short_singular?> is converted or redeemed in full,<?}else{?>carries no interest.<?}?></definition>
+<?}?>
+  <definition>Trade Sale	means a sale of 75% or more of the voting share capital of the Company to a third party buyer; </definition>
+  <definition>Memorandum	means the Memorandum of Association of the Company; </definition>
+  <definition>Ordinary Shares	means the ordinary shares in the capital of the Company; </definition>
+  <definition>Shares	means shares in the capital of the Company whether ordinary or preferred; </definition>
+<? if (data.local_director) {?>  <definition>Unresponsiveness	in the context of a Donor / Donee relationship, means any of the following events:</definition>
+  <definition_list>the Donee is unable to contact the Donor for a cumulative period of more than two (2) calendar months by email and registered mail; or</definition_list>
+  <definition_list>the Donor becomes mentally or physically incapacitated or in any other way unable to perform his duties as a Member of the Company for a cumulative period of more than two (2) calendar months.</definition_list>
+<? } ?>
+  <definition><span_smallcaps>S$</span_smallcaps> or $	means the lawful currency for the time being of the Republic of Singapore; and </definition>
+  <para_1>Except where the context otherwise requires, words importing the singular include the plural and vice versa, words importing a gender include every gender and references to persons include bodies corporate or unincorporated, any state or any agency thereof and any other entity. </para_1>
+  <para_1>Headings, marginal sidenotes, and graphic art are for ease of reference only and have no legal effect. Reference to Clauses are to Clauses of this Agreement and references to this Agreement include any amendments or supplementals thereto. </para_1>
+  <para_1>Except where the context otherwise requires, references to any person include its successors and permitted assignees. Except where the context otherwise requires, Clauses which refer to the "Company" shall apply mutatis mutandis to subsidiaries or successors of the Company which may from time to time be established. </para_1>
+  <para_1>References in this Agreement to a time of day are to Singapore time. </para_1>
+  <para_1>This Agreement shall be governed by and interpreted in accordance with the laws of the Republic of Singapore. </para_1>
+  <a_left_sidehead>Conditions Precedent </a_left_sidehead>
+  <numbered_2_para>The obligations of the parties under this agreement are conditional upon:&#8212; </numbered_2_para>
+  <numbered_3_para>approvals and consents (including any governmental, regulatory and/or corporate approvals and consents, such as Section 161 authorisations and waivers of pre-emptive / pro-rata rights of first refusal held by existing members of the Company) in the form and substance satisfactory to JFDI (where applicable), for the transactions contemplated under this agreement, being obtained and not withdrawn or amended, on or before the Completion Date;
+representations and warrants by the Company that all intellectual property and other rights necessary to pursue the business are the full legal, beneficial, and unencumbered property of the Company;<? if (data.jfdi_standard_valuation == false || data.valuation_basis == "fixed") { ?><? }else{ ?> and<?}?>
+
+disclosure of the details of existing incorporated entities, if any, that represent the business of the Company<?
+if (data.jfdi_standard_valuation == false || data.valuation_basis == "fixed") { ?>; and
+full and accurate disclosure by the Company of information used to calculate the valuation of the Company and JFDI's shareholding percentage, consistent with JFDI's valuation methodology, and consistent with previous representations and warrants by the Company made at the time of the signing of the Founder Agreement<? } ?>.
+</numbered_3_para>
+<a_left_sidehead xname="conversion"><?= data.security_type_operation?></a_left_sidehead>
+  <numbered_2_para>The <?=data.security_type_short_singular?> shall be <?=data.security_type_operation=="conversion"?"converted":"exercised"?> in accordance with this Clause <xref to="conversion" />. </numbered_2_para>
+  <numbered_2_para>At the closing of the first subsequent financing<? if (data.qualified_round_type == "debt or equity") { ?>, whether equity or debt,<?}else{?> of equity securities<?}?> in which the company raises no less than <?= data.qualified_financing_round_size?> within a single round or series of securities (the "Next Financing Round"), the <?=data.security_type_short_singular?> shall automatically <? if (data.security_type_operation=="conversion"){?>convert into<?}else{?>be deemed to have been exercised, resulting in the issue of<?}?> such securities of the Company as are issued in that Next Financing Round (the "Conversion Shares"), such that 
+<?= data.parties.investor[0].name ?> shall own <?=data.agreed_percentage?>% ("Conversion Percentage") of the total share capital in the Company, such total being calculated </numbered_2_para>
+<numbered_3_para>immediately prior to the issues due to the Next Financing Round; and
+taking all possible conversions, exercises of securities, and dilutions into account, including </numbered_3_para>
+<numbered_3_para>conversion of all Class F shares to ordinary shares.</numbered_3_para>
+<numbered_2_para>Should multiple forms of securities be issued in the Next Financing Round, then JFDI shall have the option to choose its class of Conversion Shares from amongst all those forms.</numbered_2_para>
+<? if(data.agreed_percentage_adjustable && data.agreed_percentage_minimum){ ?><numbered_2_para>The Conversion Percentage may be adjusted by mutual agreement of the Company and the Investor to no lower than <?= data.agreed_percentage_minimum ?>% according to the terms of the Founder Agreement, but shall in any event be fixed by <?= data.agreed_percentage_adjustment_date ?>.</numbered_2_para>
+<?}?>
+  <numbered_2_para>The Company shall within 14 days after the conversion date be obliged to allot, issue, and procure the transfer of the Conversion Shares to JFDI and/or its nominee(s), free from all liens, charges and encumbrances and with all rights attaching thereto. </numbered_2_para>
+<? if (data.security_type_operation == "exercise") {?><numbered_2_para>JFDI shall pay the Company the exercise price of the Warrant.</numbered_2_para><?}?>
+  <numbered_2_para>Automatic <?=data.security_type_operation?> shall be deemed to have occurred immediately prior to the closing of the Next Financing Round. For the avoidance of doubt: JFDI shall enjoy pre-emptive rights (as described in Article <?= data.aa_preemptive_clause_number || "41" ?>), and related rights accorded to Members of the Company with respect to the Next Financing Round and to subsequent rounds. </numbered_2_para>
+  <numbered_2_para>The pre-emptive rights accruing to JFDI shall be transferable at JFDI's sole discretion to non-members notwithstanding Article <?= data.aa_preemptive_clause_number || "41" ?> of the Articles of Association; and the Founders shall procure such authorisation from the Members. </numbered_2_para>
+<?if(data.security_type=="Convertible Note"){?>  <numbered_2_para>Should the <?=data.security_type_short_singular?> fail to <?=data.security_type_operation=="conversion"?"convert":"exercise"?> by the maturity date (the "Maturity Date"), JFDI may at any time thereafter redeem in full the outstanding principal <?if(data.interest){?>and accrued interest <?}?>of the <?=data.security_type_short_singular?>. </numbered_2_para>
+<?}?>
+  <numbered_2_para>The Company shall procure that the Existing Shareholders shall waive any and all rights of pre-emption which they have (or may have) with respect to the allotment and issue of the Conversion Shares to JFDI, whether pursuant to the Memorandum or Articles of Association of the Company, by contract or otherwise.</numbered_2_para>
+<?if(data.security_type=="Convertible Note"){?>  <a_left_sidehead>Repayment </a_left_sidehead>
+  <numbered_2_para>So long as the <?=data.security_type_short_singular?> has not been <?=data.security_type_operation=="conversion"?"converted":"exercised"?> pursuant to the terms set out in this <?=data.security_type_short_singular?>, if at any time and for any reason (and whether within or beyond the control of any party to this Agreement) any Event of Default has occurred, then at any time thereafter JFDI may by serving a Repayment Notice on the Company to declare the <?=data.security_type_short_singular?> to be immediately due and payable at the Repayment Amount. </numbered_2_para>
+  <numbered_2_para>For the purposes of this <?=data.security_type_short_singular?>, the following events are Events of Default:--</numbered_2_para>
+  <numbered_3_para>a material breach of any of the warranties, undertakings and conditions contained herein or in any document in connection therewith; including the Founder Agreement signed as a condition of acceptance into the JFDI bootcamp; such breach being capable of remedy, but not so remedied within 30 days after notice of such breach having been given by JFDI to the Company or the Founders; </numbered_3_para>
+  <numbered_3_para>the company ceases or threatens to cease to carry on its business; </numbered_3_para>
+  <numbered_3_para>the resignation or termination of one-half or more of the Founders from the Company; </numbered_3_para>
+  <numbered_3_para>the departure of all of the Founders from Singapore and the failure of the Founders to respond to JFDI communications in a timely fashion; </numbered_3_para>
+  <numbered_3_para>an encumbrancer takes possession of, or a receiver, manager or other similar officer is appointed over, the whole or any part of the property or assets of the Company; </numbered_3_para>
+  <numbered_3_para>any liquidation or winding-up proceedings are commenced against the Company; </numbered_3_para>
+  <numbered_3_para>the Company substantially sells or otherwise disposes of the whole or substantially all of its undertakings or assets; or </numbered_3_para>
+  <numbered_3_para>it is or will become unlawful for the Company to perform or comply with any one or more of its obligations under the <?=data.security_type_short_singular?>. </numbered_3_para>
+  <numbered_2_para>Upon receipt of a repayment notice by the Company sent by JFDI, the Company shall repay JFDI the repayment amount within 14 days from the date of the repayment notice. </numbered_2_para>
+  <numbered_2_para>Subject to a repayment notice being delivered to the Company on or after the occurrence of an Event of Default, the amount to be repaid by the Company to JFDI under this <?=data.security_type_short_singular?> (the "Repayment Amount") shall be the amount equal to the principal amount and unpaid interest (if any) accruing from the closing date until the date of the Automatic Conversion, Maturity Date, or Default date. </numbered_2_para>
+  <numbered_2_para>Upon receipt of the Repayment Amount subsequent to an Event of Default, this Loan shall terminate and there will be no further liability owing or owed by the Company to JFDI. </numbered_2_para>
+<a_left_sidehead>Redemption at the option of the Company</a_left_sidehead>
+  <numbered_2_para>The Company shall have the option to redeem the <?=data.security_type_short_singular?> in the event of Default by JFDI. The repayment amount shall be <?= data.parties.investor[0].commitment ?>. Redemption must be in whole, not in part. </numbered_2_para>
+  <numbered_2_para>Any of the following events occurring prior to the Maturity Date constitutes Default by JFDI: </numbered_2_para>
+  <numbered_3_para>A material breach by JFDI of any of the warranties, undertakings and conditions contained herein or in any document in connection therewith; including the Founder Agreement signed as a condition of acceptance into the JFDI bootcamp; such breach being capable of remedy, but not so remedied within 30 days after notice of such breach having been given in writing by the Company and/or the Founders to JFDI; </numbered_3_para>
+  <numbered_3_para>JFDI ceases or threatens to cease to carry on its business; </numbered_3_para>
+  <numbered_3_para>the departure of JFDI from Singapore and the failure of JFDI to respond to communications from Founders in a timely fashion; </numbered_3_para>
+  <numbered_3_para>an encumbrancer takes possession of, or a receiver, manager or other similar officer is appointed over, the whole or any part of the property or assets of JFDI; </numbered_3_para>
+  <numbered_3_para>any liquidation or winding-up proceedings are commenced against JFDI; or </numbered_3_para>
+  <numbered_3_para>it is or will become unlawful for JFDI to perform or comply with any one or more of its obligations under the <?=data.security_type_short_singular?>.</numbered_3_para>
+
+<a_left_sidehead>Liquidation Prior to next Financing Round</a_left_sidehead>
+<para_1>In the event of a Trade Sale or Change of Control prior to the Next Financing Round, then the Company shall redeem this <?=data.security_type_short_singular?> for <?= data.acquisition_preference || 2 ?>× the amount paid by JFDI.</para_1>
+<?}?>
+  <a_left_sidehead>Negative Pledge </a_left_sidehead>
+  <para_1>The Company shall not, without the consent in writing of JFDI, create or allow the creation of any security interest upon the whole or any part of its property or assets, present or future, in order to secure, for the benefit of any creditor of the Company (other than the holders of the <?=data.security_type_short_singular?>), without according to JFDI at the same time, either the same security as is created or is outstanding in respect of such issue or such other security or guarantee as is not materially less benefical to JFDI.</para_1>
+  <a_left_sidehead>Use of proceeds </a_left_sidehead>
+  <para_1>The Company is not to use the proceeds raised from the <?=data.security_type_short_singular?> issuance for any purpose other than the meeting of the Company's operating expenses and capital expenditure. For the avoidance of doubt, operating expenses include the living expenses of the Founders in Singapore and their families.</para_1>
+  <a_left_sidehead>Costs </a_left_sidehead>
+  <para_1>All legal and other costs and expenses incurred in connection with this <?=data.security_type_short_singular?> shall be borne by the parties initiating those expenses. </para_1>
+  <a_left_sidehead>Service of Notices </a_left_sidehead>
+  <para_1>Any notice, communication or demand required to be given, made or served for any purpose of this <?=data.security_type_short_singular?> shall be given, made or served by delivering the same in person by letter, or by e-mail, or by facsimile, or made by telephone (but in the case of notification by telephone with subsequent confirmation by facsimile despatched, or letter delivered in person, within twenty-four (24) hours). Such notice or demand shall take effect at the time of delivering such letter, despatching such facsimile, sending such e-mail, or making such telephone call if so delivered, despatched or made to the principal or registered address of each party. </para_1>
+  <a_left_sidehead>In Good Standing </a_left_sidehead>
+  <para_1>The Founders shall have the responsibility to maintain the Company as a legal entity in good standing at all times with the Singapore authorities.</para_1>
+  <a_left_sidehead>Further Assurance </a_left_sidehead>
+  <para_1>The parties hereto shall execute and do and procure all other persons if necessary, to execute and do all such further deeds, assurances, acts and things as may be reasonably required whether before or after completion so that full effect may be given to the terms and conditions of this <?=data.security_type_short_singular?>. </para_1>
+  <a_left_sidehead>Third Parties' Rights </a_left_sidehead>
+  <para_1>Nothing in this <?=data.security_type_short_singular?> is intended to grant to any third party any right to enforce any term of this <?=data.security_type_short_singular?> or to confer on any third party any benefits under this <?=data.security_type_short_singular?> for the purposes of the Contract (Rights of Third Parties) Chapter 53b and any re-enactment thereof, the application of which legislation is hereby expressly excluded. </para_1>
+  <a_left_sidehead>Discharge of Obligations </a_left_sidehead>
+  <para_1>This <?=data.security_type_short_singular?> is issued pursuant to the Company's obligations under the Founder Agreement executed on <?=data.founder_agreement_date?>, which requires the Company to <i>"authorise and issue <? if (data.jfdi_standard_valuation != false) {
+  ?>convertible debt, equity, or other such security in the corporation such that, immediately prior to the Next External Financing, <?=data.parties.investor[0].short_name || data.parties.investor[0].name ?> will own a certain percentage (the "Conversion Percentage") of the total capital in the Startup, on a fully-diluted, as-if-converted basis.<? }
+  else { ?><?= data.nonstandard_valuation_text ?><? } ?>"</i> That obligation shall be considered discharged upon the conversion of this <?=data.security_type_short_singular?>. </para_1>
+  <a_left_sidehead xname="medarb">Law and Jurisdiction </a_left_sidehead>
+  <?!= include("inc_mediation_arbitration", data) ?>
+
+  <? if (data.local_director) { ?>
+<a_left_sidehead>Limited Powers of Attorney for Maintenance of Good Standing</a_left_sidehead>
+
+<b_left_sidehead>Grant of Limited Power of Attorney</b_left_sidehead>
+
+<numbered_3_para_fl>Each Founder (in this context the "Donor") hereby irrevocably designates and appoints the Investor and its duly authorized officers and agents as his agent and attorney in fact (in this context the "Donee"), to act for and on his behalf and stead,</numbered_3_para_fl>
+<para_2>if and only if the Donee is unable because of the Donor's Unresponsiveness to secure the Donor's signature or other authorisation to effect any compliance paperwork or other filings necessary to maintain the Company's good standing status with government authorities, </para_2>
+<para_2>to execute and file any such applications or documents and to do all other lawfully permitted acts to further the application for, prosecution and issuance including striking off or winding down of the Company, thereon with the same legal force and effect as if originally executed by the Donor.</para_2>
+
+<numbered_3_para_fl>The Donor hereby waives and irrevocably quits claim to the Investor any and all claims, of any nature whatsoever, which the Donor now or hereafter has for infringement of any and all rights assigned to the Donee.</numbered_3_para_fl>
+
+<b_left_sidehead>Exercise of Limited Power of Attorney</b_left_sidehead>
+
+<numbered_3_para_fl>If, one month prior to the latest date the Company may legally convene an AGM, the Company has not issued notice of an AGM (unless the Members have dispensed with AGMs under Section 175A),</numbered_3_para_fl>
+<para_2>or if, two months prior to the annual return filing deadline prescribed by law, the Company's Directors have not signed the Directors' Report and Statement by Directors in respect of the financial statements,
+then the Company shall be deemed to be in danger of failing to maintain its good standing,
+and the Investor shall have the right to exercise its power of attorney to commence winding-up, dissolution, or striking-off proceedings.
+</para_2>
+
+<? } ?>
+
+  <chapter_header>Signatures</chapter_header>
+  <para_1>IN WITNESS WHEREOF we have hereunto set our hand on <?= data.investment_agreement_date ?></para_1>
+  <para_1><i>For the Founders:</i></para_1>
+<? for (var i = 0; i < data.parties.founder.length; i++) { ?>
+<?!= include("inc_signature", data, data.parties.founder[i]) ?>
+<? } ?>
+  <para_1><i>For and on behalf of the Company:</i></para_1>
+<?!= include("inc_signature", data, data.company) ?>
+  <para_1><i>For and on behalf of the Investor:</i></para_1>
+<?!= include("inc_signature", data, data.parties.investor[0]) ?>
+
+<?if(data.security_type=="Convertible Note"){?>
+  <chapter_header>Exhibit A </chapter_header>
+  <swash_header> </swash_header>
+  <swash_header>Repayment Notice </swash_header>
+  <para_1> </para_1>
+  <para_1>Dear Sirs,</para_1>
+  <para_1>We refer to the <?=data.security_type?> Agreement Dated <?=data.investment_agreement_date?>. </para_1>
+  <para_1>All terms defined in the <?=data.security_type_short_singular?> shall bear the same meaning when used in this letter. </para_1>
+  <para_1>We hereby give you notice that we require you to repay the <?=data.security_type?> in accordance with the terms and conditions as set out in the <?=data.security_type_short_singular?>. </para_1>
+  <para_1>Please make payment of $x therefor. </para_1>
+  <para_2> </para_2>
+  <para_2> </para_2>
+  <para_2> </para_2>
+  <para_1>Name: </para_1>
+  <para_1>Signature: </para_1>
+  <para_1>Date: </para_1>
+  <para_2> </para_2>
+<?}?>
+</Story_Main>
+</Root>

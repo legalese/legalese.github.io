@@ -1,0 +1,18 @@
+<? if (data._include.director_or_member == "Member") { ?>
+<para_1><?!= plural(data.parties.shareholder, "I", "We") ?>, the undersigned, being the <?!= plural(data.parties.shareholder, "sole member", "Shareholders") ?> of the Company, do hereby pass the foregoing Resolution<?= data.members_resolution_2 ? "s" : "" ?> by written means:---</para_1>
+<? } ?>
+<para_1>
+<span_smallcaps>Dated this:</span_smallcaps> <?= (data._include.date) || data._todays_date ?></para_1>
+<? data.signature_comment = (data._include.director_or_member) || "Director"; ?>
+<? if (data._include.director_or_member == "Member") { ?>
+<? for (var i=0;i<data.parties.shareholder.length;i++) { ?><?!= include("inc_signature", data, data.parties.shareholder[i]) ?><? } ?>
+<? } else { ?>
+<? for (var i=0;i<data.parties.director.length;i++) { ?><?!= include("inc_signature", data, data.parties.director[i]) ?><? } ?>
+<? } ?>
+<? Logger.log("_include = %s", data._include); ?>
+<? Logger.log("butWaitTheresMore = %s", data._include.butWaitTheresMore); ?>
+<? if (! (data._include.butWaitTheresMore)) { ?>
+</Story_Main>
+<Bottom_Box delete_if_empty="true" />
+</Root>
+<? } ?>

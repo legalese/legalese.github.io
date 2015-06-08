@@ -1,0 +1,10 @@
+<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
+<?!= include("inc_cover_standard_parties", data, {cover_title:"Articles of Association"}) ?>
+<?!= include("inc_cover_jfdi", data, { in_series:"02" }) ?>
+<Firstpage_Sidebar>
+<sidebar>See statutes.agc.gov.sg Cap 50.</sidebar>
+</Firstpage_Sidebar>
+<Story_Main>
+<?!= include("jfdi_articles_2015", data) ?>
+</Story_Main>
+</Root>

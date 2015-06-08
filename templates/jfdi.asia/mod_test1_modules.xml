@@ -1,0 +1,16 @@
+<?
+Logger.log("mod_test1_modules: this is a test module.");
+Logger.log("mod_test1_modules: this demonstrates that we are able to compute something from the parent data and can save it back into data.");
+
+data._orig_total_shareholder_num_shares = data.parties.shareholder.map(function(p){
+  var toreturn = p._orig_num_shares;
+  Logger.log("mod_test1_modules: working with %s.num_shares = %s",p.name, toreturn);
+  return toreturn;
+}).reduce(function(a,b){
+  return a+b;
+}, 0);
+
+data._total_shareholder_num_shares  = digitCommas_(data._orig_total_shareholder_num_shares, 0);
+Logger.log("mod_test1_modules: returning %s (orig=%s)", data._total_shareholder_num_shares, data._orig_total_shareholder_num_shares);
+
+?>
