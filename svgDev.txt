@@ -29,5 +29,5 @@ i am guessing some input variablesNUm would be needed, otherwise how to show the
 // To output chart variables
 //-----------------------------------------------------------------------------------------------------
 
-Likely that the svg outputter relies on certain variables. Go read up and find out. 
+Likely that the svg outputter relies on certain variables.
  
