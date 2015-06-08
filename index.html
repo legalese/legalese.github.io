@@ -176,6 +176,7 @@
 			<li> <a href="http://www.judicata.com/">Judicata</a></li>
 			<li> <a href="http://www.lexmachina.com/">Lex Machina</a></li>
 			<li> <a href="http://www.lawgeex.com/">LawGeex</a> translates Legalese into English</li>
+			<li> <a href="https://www.vizlegal.com/">VizLegal</a> for legal research</li>
 		  </ul>
 		  
 		  <h3><a id="academic">Academic Research and Development</a></h3>
@@ -225,45 +226,56 @@
 			
 		  <p>Legalese is both workflow-oriented and open. Each workflow in Legalese produces one or more agreements for the parties to execute. Instead of editing the document directly, you describe the particulars of the parties and the terms of the deal in a separate spreadsheet. Legalese compiles your workflow's <i>docset</i> by combining the spreadsheet with the templates. To rebuild your docs, just hit <code>make</code>.</p>
 
-		  <p>Legalese takes openness to a new level: the templates sit in public Github repositories (right now, the templates are in XML, which admittedly might scare off some people.) And the configuration spreadsheets live in Google Spreadsheets. So you can import and export your data as you see fit.</p>
-
 		  <p>For Unix hackers, this is pseudocode for what happens behind the scenes of the Web UI:</p>
 		  
-		  <code>% make seedround
-<br />loading captable.csv...
-<br />loading parties.xml...
-<br />parsing articles-of-association.pdf
+		  <code>% make model seedround send
+<br />loading negotiated term sheet from Google Sheets...
+<br />loading cap table from Google Sheets...
+<br />loading party particulars from Google Sheets...
+<br />downloading latest legal rule engine for relevant jurisdiction...
 <br />fetching missing information via regulatory APIs...
-<br />computing amendments to constitutional documents...
+<br />fetching latest version of agreement templates from Github...
+<br />computing amendments required for constitutional documents...
+<br />parsing articles-of-association.pdf
 <br />computing corporate actions and resolutions required...
-<br />computing prerequisites for seed round financing...
-<br />producing PDF: Directors' Resolutions In Favour of Fundraising
-<br />producing PDF: New Articles of Association describing Vesting/ESOP and Series AA shares
-<br />producing PDF: Members' Resolutions Approving Alterations to Articles of Association
-<br />producing PDF: Volunteer Agreements -- IP Assignment, Confidentiality, Noncompete
-<br />producing PDF: Shareholder Agreements -- Drags/Tags, Preemptive &amp; Information Rights
-<br />producing PDF: Description of Vesting Scheme
-<br />producing PDF: Directors' Resolutions Announcing Vesting Scheme
-<br />producing PDF: Members' Resolutions Approving Vesting Scheme
-<br />producing PDF: Directors' Resolutions Announcing Issue of New Shares for Vesting Scheme
-<br />producing PDF: Members' Resolutions Approving Issue of New Shares for Vesting Scheme
-<br />producing PDF: Directors Notify Shareholders of Pro Rata Rights
-<br />producing PDF: Shareholders' Waivers of Pro Rata Rights
-<br />producing PDF: Directors' Resolutions to Issue and Allot New Vesting Shares
-<br />producing PDF: Instruction to Corporate Secretary to File Vesting Shares
-<br />producing PDF: Term Sheet for Seed Round
-<br />producing PDF: Checklist Bundle for Conditions Precedent
-<br />producing PDF: Cap Table, before Series AA
-<br />producing PDF: Cap Table, after Series AA
-<br />producing PDF: Investment Agreement for Seed Round Series AA
-<br />producing PDF: Deed of Ratification and Accession for Seed Round Series AA
-<br />producing PDF: Directors' Resolutions to Issue and Allot New Series AA Shares
-<br />producing PDF: Instruction to Corporate Secretary to File Series AA Shares
-<br />producing PDF: Series AA Share Certificates
-<br />sending PDFs for signature via Adobe EchoSign...
-<br />seed round paperwork complete. Please check your email.</code>
-			
-		  <p>Legalese also has global ambitions. Most of the above services focus on one, at most two jurisdictions. Legalese serves people who live outside the U.S. too.</p>
+<br />parsing history of corporate actions... 16 PDFs found...
+<br />analysis complete. constructing company model... done.
+<br />computing dependency graph for seed round financing... staging... producing PDFs...
+<br />stage 1 PDF: Term Sheet for Seed Round
+<br />stage 1 PDF: New Articles of Association describing Vesting/ESOP and Series AA shares
+<br />stage 1 PDF: Directors' Resolutions Announcing Fundraising and Alterations to Articles
+<br />stage 1 PDF: Members' Resolutions Approving Alterations to Articles of Association
+<br />stage 1 PDF: Volunteer Agreements -- IP Assignment, Confidentiality, Noncompete
+<br />stage 1 PDF: Shareholder Agreements -- Drags/Tags, Preemptive &amp; Information Rights
+<br />stage 1 PDF: Description of Vesting Scheme and ESOP
+<br />stage 1 PDF: Directors' Resolutions Announcing Vesting Scheme and ESOP
+<br />stage 1 PDF: Members' Resolutions Approving Vesting Scheme and ESOP
+<br />stage 1 PDF: Directors' Resolutions Announcing Issue of New Shares for Vesting/ESOP
+<br />stage 1 PDF: Members' Resolutions Approving Issue of New Shares for Vesting/ESOP
+<br />stage 1 PDF: Directors Notify Shareholders of Pro Rata Rights for Vesting/ESOP
+<br />stage 1 PDF: Shareholders Waive Pro Rata Rights for Vesting/ESOP
+<br />stage 1 PDF: Directors' Resolutions to Issue and Allot New Vesting/ESOP Shares
+<br />stage 1 PDF: Instruction to Corporate Secretary to File Vesting/ESOP Shares
+<br />stage 2 PDF: Checklist Bundle for Conditions Precedent
+<br />stage 2 PDF: Cap Table, before Series AA
+<br />stage 2 PDF: Cap Table, after Series AA
+<br />stage 2 PDF: Investment Agreement for Seed Round Series AA
+<br />stage 2 PDF: Deed of Ratification and Accession for Seed Round Series AA
+<br />stage 3 PDF: Directors' Resolutions to Issue and Allot New Series AA Shares
+<br />stage 3 PDF: Instruction to Corporate Secretary to File Series AA Shares
+<br />stage 3 PDF: Series AA Share Certificates
+<br />sending Stage 1 PDFs for signature via Adobe EchoSign...
+<br />seed round Stage 1 paperwork sent. Please check your email.
+<br />will poll Stage 1 paperwork status once an hour.
+<br />will send Stage 2 PDFs when all Stage 1 PDFs are received.
+<br />will send Stage 3 PDFs when all Stage 2 PDFs are received and funds arrive.</code>
+
+		  <p />
+		  <p>Legalese takes openness to a new level: the templates sit in public Github repositories (right now, the templates are in XML, which admittedly might scare off some people.) And the configuration spreadsheets live in Google Spreadsheets. So you can import and export your data as you see fit.</p>
+
+		  <p>Legalese has global ambitions. Most of the above services focus on one, at most two jurisdictions. Legalese serves people who live outside the U.S. too.</p>
+
+		  <p>Legalese is Web 2.0 the way YouTube, Wikipedia, and Github are Web 2.0. Convincing or paying lawyers to upload their precious precedents doesn't scale. We're betting on user-generated content. Maybe only one in a hundred users will upload their lawyer-drafted documents into Legalese; with enough users, that should be enough. Maybe we'll even have Kickstarter for desired contracts!</p>
 		  
 		  <p>Programmers should already be nodding their heads, but let's walk through an example that shows how it all comes together.</p>
 
