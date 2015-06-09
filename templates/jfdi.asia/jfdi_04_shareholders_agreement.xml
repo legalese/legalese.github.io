@@ -30,10 +30,10 @@
   <para_1>Whereas:</para_1>
 
   <recitals>As at the date of this Agreement, the Company has an issued and paid-up share capital of <?= data.company.commitment ?> divided into <?= digitCommas_(data.company.num_shares, 0) ?> Ordinary Shares. </recitals>
-  <recitals>Pursuant to a Founder Agreement dated <?= data.founder_agreement_date ?>, and in conjunction with </recitals>
-  <para_2>a "Class F Agreement" between the Founders and the Company, by which the Founders subscribe to Class F Preference Shares whose rights of redemption are governed by a vesting schedule described therein; and </para_2>
+  <recitals><? if(data.founder_agreement_date){?>Pursuant to a Founder Agreement dated <?= data.founder_agreement_date ?>, and in<?}else{?>In<?}?> conjunction with </recitals>
+  <para_2_hanging>a "Class F Agreement" between the Founders and the Company, by which the Founders subscribe to Class F Preference Shares whose rights of redemption are governed by a vesting schedule described therein; and </para_2_hanging>
 <? if (data.parties.investor) { ?>
-<para_2>a "<?= data.security_type ?> Agreement" dated <?= data.investment_agreement_date ?>, by which the Investor shall become a shareholder upon <?= data.security_type_operation ?>; </para_2>
+<para_2_hanging>a "<?= data.security_type ?> Agreement" dated <?= data.investment_agreement_date ?>, by which the Investor shall become a shareholder upon <?= data.security_type_operation ?>; </para_2_hanging>
 <? }?>
 <? if (data.parties.existing_investor && data.previously_incorporated && data.previous_investors && data.previous_incorporation_locale != "Singapore") { ?>
 <recitals>The <?= plural(data.parties.existing_investor, "Existing Investor") ?> <?= plural_verb(data.parties.existing_investor, "has") ?> invested in a Previous Company <?!= include("inc_party", data, data.parties.previous_company[0]) ?> whose economic interests will henceforth be represented by the Company instead;</recitals>

@@ -2,7 +2,7 @@
 <?!= include("inc_cover_2_parties", data, {cover_title:"Volunteer Agreement", party1:data.company, party2:data.volunteer}) ?>
 <?!= include("inc_cover_jfdi", data, { in_series:"06" }) ?>
 <Firstpage_Sidebar>
-<sidebar>This document establishes confidentiality, non-compete, and IP assignment between the Company and the founders, who are unpaid volunteers.</sidebar>
+<sidebar>This document establishes confidentiality, non-compete, and IP assignment between the Company and its unpaid volunteers.</sidebar>
 </Firstpage_Sidebar>
 <Story_Main>
   <chapter_header>Volunteer Agreement</chapter_header>
