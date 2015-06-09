@@ -28,7 +28,7 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-		  <h2 id="t1">Tutorial 1: the EULA</h2>
+		  <h2 id="t1">Tutorial 1: the EULA<a href="images/Legalese EULA for mengwong@jfdi.asia.pdf"><img class="rhs" src="images/Legalese EULA for mengwong@jfdi.asia.png"></a></h2>
 		  
 		  <p>A <b>signatory</b> fills in a Google Form and get back an agreement to sign. They don't even have to know Legalese exists.</p>
 
@@ -44,7 +44,9 @@
 
 		  <p><i>After running this tutorial, you will have:</i> seen what Legalese's Particulars form looks like to a third-party signatory, seen the output PDF, and signed it.</p>
 
-		  <h2 id="t2">Tutorial 2: Hello, World!</h2>
+		  <hr />
+		  
+		  <h2 id="t2">Tutorial 2: Hello, World!<a href="images/Hello World for mengwong+buyer@jfdi.asia.pdf"><img class="rhs whitebg" src="images/Hello World for mengwong+buyer@jfdi.asia.png"></a></h2>
 		  
 		  <p>You set up a Yellow Spreadsheet for the first time. You are now a <b>power user</b>!</p>
 		  <ol>
@@ -69,7 +71,11 @@
 
 		  <p><b>Are the yellow spreadsheets shared?</b> No, the yellow spreadsheets are not shared with the Legalese Robot. The robot only has access to your XML, which it needs to generate the PDFs.</p>
 		  
-		  <h2 id="t3">Tutorial 3: Send for Signature</h2>
+		  <hr />
+		  
+		  <h2 id="t3">Tutorial 3: Send for Signature
+			<a href="images/Screen Shot 2015-06-10 at 1.16.04 am.png"><img class="rhs whitebg" src="images/Screen Shot 2015-06-10 at 1.16.04 am.png"></a>
+		  </h2>
 
 		  <p>You, a <b>power user</b>, inject the <i>Hello World</i> PDF into an e-signature service which emails it to you for signing.</p>
 
@@ -96,7 +102,11 @@
 
 		  <p><b>What if I prefer DocuSign / HelloSign / some other e-signature backend?</b> That's fine; you can certainly do that. The advantage of EchoSign is that the PDFs contain embedded Signature Blocks which EchoSign knows how to read. If you use some other signature service, you will need to manually place the signature blocks.</p>
 
-		  <h2 id="t4">Tutorial 4: A Real Nondisclosure Agreement</h2>
+		  <hr />
+		  
+		  <h2 id="t4">Tutorial 4: A Real Nondisclosure Agreement
+			<a href="images/Nondisclosure Agreement for mengwong+buyer@jfdi.asia.pdf"><img class="rhs whitebg" src="images/Nondisclosure Agreement for mengwong+buyer@jfdi.asia.png"></a>
+		  </h2>
 		  
 		  <p>You, a <b>power user</b>, choose a real-world docset, and create a real-world agreement, taking advantage of the <i>INCLUDE</i> keyword to reuse the entities from a different tab.</p>
 
@@ -114,31 +124,43 @@
 
 		  <p> <i>After running this tutorial, you will have:</i> created a real NDA ready for execution.</p>
 
-		  <p><b>What does the <i>Counterparty</i> line in the <i>ROLES</i> section mean?</b> The NDA template uses two parties: the Company, and the Counterparty. Cell B13 says <i>[Buyer]</i>, which means: every Buyer is a Counterparty, so if you're looking for a Counterparty, substitute in the Buyer from the <i>Hello World</i> tab.</p>
+		  <p><b>What does the <i>Counterparty</i> line in the <i>ROLES</i> section mean?</b> The NDA template uses two parties: the Company, and the Counterparty. Cell B13 says <i>[Buyer]</i>, which means: every Buyer is a Counterparty, so Legalese defines Counterparties by substituting the Buyer from the <i>Hello World</i> tab.</p>
 
-		  <hr /><p>The tutorials below are still under construction.</p><hr />
-		  
+		  <hr />
+
 		  <h2 id="t5">Tutorial 5: Other Docsets</h2>
 		  <p>You, a <b>power user</b>, browse all the docsets that are available in Legalese.</p>
 
 		  <ol>
 			<li> Look at the row of tabs at the bottom of the spreadsheet.</li>
 			<li> You will see tabs with names like <i>NDA</i>, <i>Entities</i>, <i>Incorporation</i>, <i>Class F</i>, and <i>Seed Round</i>.</li>
-			<li> You can generate dummy agreements by going to each tab (except Entities) and clicking Generate PDFs.</li>
+			<li> You can generate dummy agreements by going to each tab and clicking Generate PDFs. Each tab except <i>Entities</i>, that is.</li>
 		  </ol>
 
-		  <h3 id="t5_entities">Entities</h3>
+		  <h3 id="t5_entities">Entities
+			<a href="images/Screen Shot 2015-06-10 at 1.30.10 am.png"><img class="rhs" src="images/Screen Shot 2015-06-10 at 1.30.10 am.png"></a>
+		  </h3>
 		  <p>This tab is special. It contains the particulars of the parties to your agreements. It doesn't generate any agreements; other agreements refer to this.</p>
 		  <p>Why? Because the names and addresses of your company, founders, employees, and investors are details used by multiple different agreements. The DRY principle says we should keep all that information in one place and not repeat it. So it lives in the <b>Entities</b> tab instead of repeating across multiple tabs.</p>
 
-		  <h3 id="t5_incorporation">Incorporation</h3>
+		  <h3 id="t5_incorporation" class="clear">Incorporation
+		  	<a href="images/03 - Shareholders' Agreement.pdf"><img class="rhs whitebg" src="images/03 - Shareholders' Agreement.png"></a>
+</h3>
 		  <p>All the paperwork involved in an incorporation is available here:</p>
-		  <h4 id="t5_ma">Memorandum and Articles of Assocation</h4>
-		  <h4 id="t5_form45">Form 45</h4>
-		  <h4 id="t5_sha">JFDI Standard Shareholders Agreement</h4>
-		  <h4 id="t5_va">JFDI Standard Volunteer Agreement</h4>
+		  <ul>
+			<li>Memorandum and Articles of Assocation</li>
+			<li>Form 45 (if Singapore)</li>
+			<li>JFDI Standard Shareholders Agreement</li>
+			<li>JFDI Standard Volunteer Agreement</li>
+		  </ul>
+
+		  <p>In the next tutorial, you produce all the paperwork needed for incorporation.</p>
 		  
-		  <h2 id="t6">Tutorial 6</h2>
+		  <hr class="clear" />
+		  
+		  <h2 id="t6">Tutorial 6
+		  	<a href="images/01 - Memorandum and Articles of Association.pdf"><img class="rhs whitebg" src="images/01 - Memorandum and Articles of Association.png"></a>
+</h2>
 		  <p>You, a <b>power user</b>, configure the spreadsheets to create <i>multiple</i> agreements within a single document set.</p>
 
 		  <ol>
@@ -149,6 +171,8 @@
 			<li> If you happen to actually be generating a Singapore company, put real particulars into the <i>Entities</i> tab.</li>
 			<li> You'll also need to put real particulars into the <i>Roles</i> section. You might need to have a heart-to-heart with your co-founders before you fill in <i>num_shares</i>.</li>
 		  </ol>
+		  
+		  <hr /><p>The tutorials below are still under construction.</p><hr />
 		  
 		  <h2 id="t7">Tutorial 7</h2>
 		  <p>: You, a <b>content developer</b>, tweak an existing template for your own use, using Github. This involves learning a little bit of XML. You learn how to publish your template both publicly and privately. You instruct Legalese to use your template.</p>
