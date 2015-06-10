@@ -7,14 +7,6 @@
 
 	<para_1><span_smallcaps>This agreement</span_smallcaps> is made this <? if (data.agreement_date) { ?><?= data.agreement_date ?><?} else {?><textvar name="Output Date" /><?}?> between:---</para_1> 
 
-***[Alexis:  This should be how companies and individuals ought to be described: 
-
-[COMPANY] (Registration Number/UEN), a company incorporated in [Singapore] with its registered office at [■] (the "Company"); 
-
-[■] (NRIC No: [■]) of [■] ("Mr X");
-
-[■], a resident of [■] (Passport No: [■]) of [■] ("Mr Y");]
-
 	</b><parties><?!= include("inc_party", data, data.company) ?> ("<?= data.company.short_name?>") and</parties>
 <? if (data.user.address) {?>
 	<parties><?!= include("inc_party", data, data.user) ?> (you, the <b>"User"</b>)</parties>
