@@ -779,6 +779,8 @@ div.li-inline ul    { list-style-type: disc; margin-top: 0 }
 div.li-inline ul li { display: inline; }
 div.li-inline li:not(:first-child)::before { content: "\00b7 " }
 
+div.li-inline p.nobold { font-weight: normal; padding-left: 20px; }
+
 dl dd {
   font-style: italic;
   font-weight: 100;
