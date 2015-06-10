@@ -7,7 +7,7 @@
 
 	<para_1><span_smallcaps>This agreement</span_smallcaps> is made this <? if (data.agreement_date) { ?><?= data.agreement_date ?><?} else {?><textvar name="Output Date" /><?}?> between:---</para_1> 
 
-	</b><parties><?!= include("inc_party", data, data.company) ?> ("<?= data.company.short_name?>") and</parties>
+	<parties><?!= include("inc_party", data, data.company) ?> ("<?= data.company.short_name?>") and</parties>
 <? if (data.user.address) {?>
 	<parties><?!= include("inc_party", data, data.user) ?> (you, the <b>"User"</b>)</parties>
 <? } else { ?>
