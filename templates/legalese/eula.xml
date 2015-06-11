@@ -22,7 +22,7 @@
 
 	<recitals>User desires to copy, install, and/or use this Software; and</recitals>
 	<recitals override="spaceBefore=0">Legalese desires to demonstrate its software capabilities; but</recitals>
-	<recitals override="spaceBefore=0">Legalese does not want to get into trouble with the law or with User.</recitals>
+	<recitals override="spaceBefore=0">Legalese does not want to get into trouble with the law or with the User.</recitals>
 	<recitals override="spaceBefore=0">User has on <b>insert time/date stamp from form submission here</b>, confirmed the following:-</recitals>
 	<bullets>The Software does not perform any validation or fact checking on behalf of User:  what User types in the Software is exactly what will appear in any of the documents generated.</bullets>
 	<bullets>Once signed PDFs have been generated on the Software, no further changes can be made to any documents so generated.</bullets>
