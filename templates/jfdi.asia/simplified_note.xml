@@ -14,19 +14,7 @@
 <CoverMid>
 </CoverMid>
 
-<CoverBottom_Logotype>
-<cover_corporate_logotype>Joyful Frog Digital Incubator</cover_corporate_logotype>
-</CoverBottom_Logotype>
-
-<CoverBottom_Address>
-<cover_address_block>Blk 71 Ayer Rajah Crescent</cover_address_block>
-<cover_address_block>#05-16   Singapore 139951</cover_address_block>
-</CoverBottom_Address>
-
-<CoverBottom_series>
-<centered><textvar name="Output Date" />&#8195;<span_smallcaps><textvar name="output time" /></span_smallcaps></centered>
-<centered>version 1.0.0</centered>
-</CoverBottom_series>
+<?!= include("inc_cover_jfdi", data) ?>
 
 <Firstpage_Sidebar>
 </Firstpage_Sidebar>
@@ -52,7 +40,7 @@
   <numbered_2_para>The Investor agrees to invest a total consideration worth <?= data.new_investor.new_commitment ?> (the &#8220;Investment Amount&#8221;) in the Company by way of convertible promissory notes (the &#8220;Notes&#8221;) issued by the Company to the Investor.</numbered_2_para>
 
   <a_left_sidehead>Total Round Size</a_left_sidehead>
-  <numbered_2_para>The Notes issued to the Investor form part of a series of such Notes issued on essentially identical terms except that the Investor, Investment Amount<?= data.variable_terms ?> and Closing Date may change from Note to Note. The total amount of the Series shall not exceed <?= data.amount_raising ?> without the written agreement of all the holders of the Notes in the Series currently outstanding.</numbered_2_para>
+  <numbered_2_para>The Notes issued to the Investor may form part of a series of such Notes issued on essentially identical terms except that the Investor, Investment Amount<?= data.variable_terms ?> and Closing Date may change from Note to Note. The total amount of the Series shall not exceed <?= data.amount_raising ?> without the written agreement of all the holders of the Notes in the Series currently outstanding.</numbered_2_para>
 
   <a_left_sidehead>Maturity Date</a_left_sidehead>
   <numbered_2_para>The Principal <? if (data.interest != 0) { ?>and unpaid accrued interest on<? } else { ?>of<? } ?> the Notes will be due and payable <?= data.term ?> from the date of the signing of this Agreement (the &#8220;<b>Maturity Date</b>&#8221;).</numbered_2_para>
@@ -66,9 +54,14 @@ The Notes shall bear no interest. <? } ?>
 
 
   <a_left_sidehead>Conversion Price</a_left_sidehead>
+<? if (data.fixed_conversion) { // special case priced round -- we use the valuation cap as the valuation itself ?>
+<numbered_2_para>The "Conversion Price" shall be fixed at <? } else { ?>  
   <numbered_2_para>The &#8220;Conversion Price&#8221; is the lesser of</numbered_2_para>
   <numbered_3_para><?= 100-data.discount ?>% of the per share price paid by the purchasers of such Equity Securities in the Qualified Financing (the &#8220;<b>Discounted Conversion Price</b>&#8221;), or</numbered_3_para>
-  <numbered_3_para>the price per share equal to <?= data.pre_money_valuation ?> divided by the aggregate number of outstanding shares of the Company&#8217;s common stock as of immediately after the initial closing of the Qualified Financing (assuming full conversion or exercise of all convertible and exercisable securities then outstanding other than the Notes) (the &#8220;<b>Valuation Cap</b>&#8221;).</numbered_3_para>
+  <numbered_3_para><? } ?>the price per share equal to <?= data.pre_money_valuation ?> divided by the aggregate number of outstanding shares of the Company&#8217;s common stock as of immediately after the initial closing of the Qualified Financing (assuming full conversion or exercise of all convertible and exercisable securities then outstanding other than the Notes) (the &#8220;<b>Valuation Cap</b>&#8221;).</numbered_3_para>
+
+
+
   <a_left_sidehead>Automatic Conversion</a_left_sidehead>
   <numbered_2_para><b>Automatic Conversion in a Qualified Financing.</b> If the Company issues Equity Securities in a Qualified Financing, then the Notes<? if (data.interest != 0) { ?>, and any accrued but unpaid interest thereon,<? } ?> will automatically convert into the equity securities issued pursuant to the Qualified Financing at the Conversion Price.</numbered_2_para>
   <numbered_2_para><b>Automatic Conversion at the Maturity Date.</b> If the Notes have not been previously converted pursuant to a Qualified Financing, then, effective upon the Maturity Date, the Notes, and any accrued but unpaid interest thereon, will automatically convert into Equity Securities at <?= 100 - data.maturity_conversion_discount ?>% of the Valuation Cap.</numbered_2_para>
