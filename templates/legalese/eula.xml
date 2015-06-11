@@ -1,9 +1,11 @@
 <?!= data.xml_declaration ?>
 <Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/" templateSpec="eula.indt">
   <Story_Main>
-	<cover_title>Welcome to Legalese!</cover_title>
+	<cover_title>Welcome to Legalese</cover_title>
 	
-<chapter_header override="startParagraph=StartParagraph.ANYWHERE">Legalese End-User Software License Agreement</chapter_header>
+	<chapter_header override="startParagraph=StartParagraph.ANYWHERE">Legalese End-User Software License Agreement</chapter_header>
+
+	<para_1>Please read this Agreement carefully. By using all or any portion of Legalese, you are agreeing to this Agreement. You also agree that this Agreement is like any written negotiated agreement signed by you, and shall be entirely enforceable against you. If you do not agree to the terms of this Agreement, you are not authorised to use Legalese. At all times, please be reminded that Legalese is not intended to substitute for legal or any other professional advice. Documents generated -- whether generic or customised -- may fail to meet your needs.</para_1>
 
 	<para_1><span_smallcaps>This agreement</span_smallcaps> is made this <? if (data.agreement_date) { ?><?= data.agreement_date ?><?} else {?><textvar name="Output Date" /><?}?> between:---</para_1> 
 
@@ -14,10 +16,6 @@
     <parties><?= data.user.name ?> &lt;<?=data.user.email?>&gt; (<b>"you"</b>),</parties>
 <? } ?>
 <para_1>(collectively, the <b>"Parties"</b> and each a <b>"Party"</b>.</para_1>
-
-
-<para_1>Please read this Agreement carefully. By using all or any portion of Legalese, you are agreeing to this Agreement. You also agree that this Agreement is like any written negotiated agreement signed by you, and shall be entirely enforceable against you. If you do not agree to the terms of this Agreement, you are not authorised to use Legalese. At all times, please be reminded that Legalese is not intended to substitute for legal or any other professional advice. Documents generated - whether generic or customised - may fail to meet your needs.</para_1>
-
 
 	<para_1><span_smallcaps>Whereas:-</span_smallcaps></para_1>
 
