@@ -52,11 +52,13 @@ Swappable *roles* are emphasized over job titles and fixed areas of authority/re
 
 In a purely volunteer not-for-profit project, little is needed beyond an IP/copyright assignment.
 
-In the case of Legalese, which may take a commercial, for-profit form to maximize sustainability and satisfy investors, how will participants be rewarded?
+Legalese may take a commercial, for-profit form to maximize sustainability and satisfy investors. How will participants be rewarded?
 
 We draw on the conventions established in the startup industry to manage expectations. If the company has cash available, and participants need to draw a salary from Legalese to continue contributing, then an employment or contractor relationship can be established. If the participant is willing to trade equity for cash, then the participant can be registered in the stock pool. Ideally, cash and equity should be interchangeable.
 
 Compensation should be determined by a participant's fellow Circle members and immediate business units.
+
+Or maybe we do a next-generation approach using some kind of [[http://swarm.fund/][Swarm]] or [[http://www.assembly.com/][Assembly]] or other [[http://www.scribd.com/doc/255347578/SWARM-Working-Paper-Distributed-Networks-and-the-Law][Distributed Collaborative Organisation]] model.
 
 * Innovation: Teal Architecture
 
