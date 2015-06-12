@@ -1,0 +1,44 @@
+<?!= data.xml_declaration ?>
+<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/" templateSpec="singlepage.indt"<?
+if (data._config.save_indd && data._config.save_indd.value) { ?> saveIndd="true"<?}?>>
+<letterhead><?= data.company.name ?></letterhead>
+<Firstpage_Sidebar>
+<sidebar><?= data.company.name ?></sidebar>
+<sidebar><?= data.company.idtype ?> <span_ucnum><?= data.company.id ?></span_ucnum></sidebar>
+<sidebar><?= data.company.address ?></sidebar>
+</Firstpage_Sidebar>
+<Story_Main>
+<resolution_title override="appliedFont='Bickham Script Pro'  fontStyle='Bold'  pointSize=36">A "Hello World" Example</resolution_title>
+<chapter_header override="startParagraph=StartParagraph.ANYWHERE">Sample Agreement Paperwork Boilerplate</chapter_header>
+
+<para_1><span_smallcaps>This agreement is made</span_smallcaps> on <? if (data.agreement_date) { ?><?= data.agreement_date ?><?} else {?><textvar name="Output Date" /><?}?> between:---</para_1>
+
+<parties><?!= include("inc_party", data, data.company) ?> (the "Company"), and</parties>
+<parties><?!= include("inc_party", data, data.buyer) ?> (the "<?=data.buyer.short_name?>")</parties>
+
+<para_1>(each a <b>"Party"</b> and collectively, the <b>"Parties"</b>).</para_1>
+
+<para_1><span_smallcaps>Whereas:</span_smallcaps></para_1>
+
+<recitals>The Company possesses a <?= data.the_thing ?> that it doesn't want; and</recitals>
+
+<recitals>The <?=data.buyer.short_name?> has <?=data.consideration?> burning a hole in its pocket,</recitals>
+
+<para_1><span_smallcaps>The parties</span_smallcaps> hereby agree to pretend (this not being a real agreement, but just a demonstration document):</para_1>
+
+<numbered_1_para>That the Company shall sell to the Buyer a <?= data.the_thing ?>;</numbered_1_para>
+
+<numbered_1_para>for good and valuable consideration of <?= data.consideration ?>;</numbered_1_para>
+
+<numbered_1_para>each to be delivered to the other Party as soon as possible.</numbered_1_para>
+
+<b_left_sidehead_nonum>Signatures</b_left_sidehead_nonum>
+
+<para_1><?= data.signature_phrase ?></para_1>
+
+<?!= include("inc_signature", data, data.company) ?>
+<?!= include("inc_signature", data, data.buyer) ?>
+
+</Story_Main>
+<Bottom_Box delete_if_empty="true" />
+</Root>
