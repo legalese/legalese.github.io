@@ -18,4 +18,78 @@ and all the consents that that implies.
 
 * Activation: Browse
 
+One "productization" effort might create a single-page app for Legalese.
 
+** Page 1: pick a predicament
+
+Jurisdiction: [ USA / Singapore / India / Malaysia / Other ]
+
+*** I haven't incorporated a startup yet.
+If your high-tech business is getting cofounders, revenue, or investment, you need a corporation.
+
+You get:
+- a Singapore corporation with a standard M&A
+- a walkthrough of how to incorporate the company by yourself if you have a Singpass
+- a shareholder's agreement
+- an initial AGM
+- a founder vesting scheme
+- an ESOP plan
+- a cap table
+- bookkeeping services including filing of annual reports
+- an online corporate secretary including first year's AGM
+- a volunteer agreement for each founder
+- Bonus: 24 month financial projections based on configurable number of founder volunteers and interns, assuming zero revenue.
+
+*** I'm raising money and need term sheet and investment agreements.
+I'm planning to raise $X00,000 on a $Y,000,000 pre-money valuation from friends & family, angel investors, or a seed fund.
+
+You get:
+- a SAFE term sheet and investment agreement ready for an investor to sign
+- a KISS term sheet and investment agreement ready for an investor to sign
+- a convertible note term sheet and investment agreement ready for an investor to sign
+- an ordinary share subscription term sheet and investment agreement ready for an investor to sign
+- a DORA for the new investors to join the shareholders' agreement
+- directors' and members' resolutions to effect the above, including amendments to the articles of association with new class definitions
+- notices for existing investors to join or waive participation
+
+If your situation is more complex than the above, then we will refer you to a collection of lawyers who may be able to help.
+
+For instance, you may require:
+- cleanups needed to make your startup a Legalese company with the above items in place
+- post facto agreements needed to record investments made by friends & family investors
+- an updated cap table recording any friends & family investors
+- instructions for how to file your updated cap table with the government
+
+
+*** NDA, employees, interns
+I need a simple, one-off agreement.
+
+You get:
+- a nondisclosure agreement
+- an employment agreement for salary but no equity
+- a contractor agreement for cash fees
+- an internship agreement including nondisclosure, noncompete, and assignment of intellectual property
+
+** Page 2: download templates
+
+Download these sample templates to see if they match your situation.
+
+** Page 3: configure agreements
+
+Refine those templates with the details of the deals and particulars of the parties.
+
+Answer a few questions to set up your cap table, then edit the cap table to make sure it's correct.
+
+Pay for an optional expert opinion if you're confused about how to work a cap table.
+
+** Page 4: download the customized agreements
+
+** Page 5: add the configuration spreadsheets to your Google Drive
+so you can keep working with them in future, and keep the cap table updated as future deals occur.
+
+** Page 6: sign up to prevent inadvertent breach
+
+
+* Activation: Gem Install
+
+For the hackers who want to take a totally self-help approach to this, gem install some kind of software package that's configurable with JSON to produce CSV for Legalese and eventually outputs PDFs.
