@@ -1,25 +1,23 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="file://localhost/Users/admin/Sites/org-style.css" />
 
-// visualisation of contracts
+* visualisation of contracts
 
 To turn text-heavy contracts into graphics. Soving a most challenging problem in making contracts understandable to ordinary people. 
 
-// Possible tools
+** Possible tools
 
 1.  Astor plot D3.js
 2.  Tableau
 
 
-//-----------------------------------------------------------------------------------------------------
-// First we have to code up a comparable economic and control provisions of all the contract templates.
-//-----------------------------------------------------------------------------------------------------
+* First we have to code up a comparable economic and control provisions of all the contract templates.
 
 work-in-progress googlesheet here 
 https://docs.google.com/spreadsheets/d/1eQd-eFdfOkT6w37_s-JHPGPN5xDmMNoXh0k1YMxJ3Q8/edit#gid=0
 
 i am guessing some input variablesNUm would be needed, otherwise how to show the strength of each arc.
 
-20150612 update:
+** 20150612 update:
 Encountering some difficulties in the thinking process. How to represent terms that are very specific to each type of contract. Using 500 KISS (debt) as an example, it has very specific treatment on a major investment right clause: "Condition: Investor has invested at least 50k. 
 1.  Information rights, and 
 2.  Participation rights of 1x the original investment." 
@@ -33,14 +31,11 @@ The solution could be:
 2.  perhaps check out circos?
 
 
-//-----------------------------------------------------------------------------------------------------
-// Then, we suck everything out of the googlesheet
-//-----------------------------------------------------------------------------------------------------
+* Then, we suck everything out of the googlesheet
 
 
-//-----------------------------------------------------------------------------------------------------
-// To output chart variables
-//-----------------------------------------------------------------------------------------------------
+
+* To output chart variables
 
 Likely that the svg outputter relies on certain variables.
 
