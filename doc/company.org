@@ -91,11 +91,13 @@ A Circle may appoint a member or members to act as Lead Links -- representatives
 
 ** Transparency.
 
-It is annoying to not be able to find information when you need it. It is annoying when people interrupt what you are doing to request information.
+It is annoying to not be able to find information when you need it. It is also annoying to be interrupted by people asking you for information.
 
 All information relevant to other people in the company, particularly information that crosses the organizational boundary, SHOULD be recorded in a shared location accessible by other participants. This includes questions, discussions, decisions, policies, and processes.
 
 Chat logs and mailing list logs are available and searchable in the messaging system. Note that direct messaging between participants about company business is discouraged. Even if there are only two participants of a Circle, the discussions within those participants should be conducted in a shared venue, and logged for the benefit of other participants of the company, and for the benefit of future members of the Circle!
+
+So long as non-Asperger humans are involved in the project, face-to-face and tele/video conversations between team members are unlikely to ever be stamped out, but they MUST be minuted in a forum/archive accessible either to the relevant circle or, preferably, company-wide. The point here is that ephemeral discussions may live on in the memory traces of the participants, but the human mind is a fallible thing; [[http://www.english.illinois.edu/-people-/faculty/debaron/482/482readings/phaedrus.html][over Thamus's objections, we adopted writing]], and we should make the most of it.
 
 Some exceptions exist.
 
