@@ -23,7 +23,7 @@
 	<recitals>You desire to use any or all portions of Legalese; and</recitals>
 	<recitals override="spaceBefore=0">we desire to demonstrate the software capabilities of Legalese; but</recitals>
 	<recitals override="spaceBefore=0">we do not want to get into trouble with you or the law.</recitals>
-	<recitals override="spaceBefore=0">You have on <b>insert time/date stamp from form submission here</b>, indicated your understanding and acceptance of the following:-</recitals>
+	<recitals override="spaceBefore=0">You have on <? if (data.agreement_date) { ?><?= data.agreement_date ?><?} else {?><textvar name="Output Date" /><?}?>, indicated your understanding and acceptance of the following:-</recitals>
 	<bullets>Legalese does not perform any validation on your behalf; what you type in Legalese is exactly what will appear in any of the documents customised and/or generated on Legalese.</bullets>
 	<bullets>Once signed PDFs have been generated on Legalese, no further changes can be made to any documents so generated.</bullets>
 	<!---probably need a FAQ section to tell people what to do if they want to retract it -->
