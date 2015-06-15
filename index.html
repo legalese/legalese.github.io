@@ -30,11 +30,11 @@
         <section id="main-content">
 
 		  <blockquote class="quotation">"These are really smart people,” said one lawyer who works with startups. “They believe in world-domination of the engineering class; everything can be reduced to an algorithm, and legal documents are not going to be spared."</blockquote>
-		  <blockquote class="credit">&ndash; <a target="blank" href="http://techcrunch.com/2015/01/10/documents-just-want-to-be-free/">TechCrunch, January 10 2015</a></blockquote>
+		  <blockquote class="credit">&ndash; <a target="_blank" href="http://techcrunch.com/2015/01/10/documents-just-want-to-be-free/">TechCrunch, January 10 2015</a></blockquote>
 
           <h1>Signup here</h1>
 
-		  <p>To be notified when we launch, <a href="http://goo.gl/forms/95r7fvaYv9">sign up for our waiting list.</a></p>
+		  <p>To be notified when we launch, <a target="_blank" href="http://goo.gl/forms/95r7fvaYv9">sign up for our waiting list.</a></p>
 
 		  <h1>Help, I need legal agreements!</h1>
 
@@ -49,8 +49,8 @@
 		  <p>That's why we made Legalese. It produces complete, consistent, coordinated sets of documents that confidently move your company's state vector from A to B. We've gathered all the free early-stage fundraising agreements from good folks like YC and 500 Startups, marked them up, and turned them into Legalese templates. You only have to fill in your details once, and we'll generate all the agreements that you want. Many startups are outside the U.S., so we've also added an i18n layer to internationalize the agreements for jurisdictions like Singapore and India. All the templates are open-source, so if you don't find what you're looking for, send a pull request!</p>
 		  
 		  <ul>
-			<li> <a href="demo/incorporation-1.html">Demo: Legalese streamlines startup incorporation.</a></li>
-			<li> <a href="demo/">Demo: Legalese streamlines an angel/seed early-stage fundraising.</a></li>
+			<li> <a target="_blank" href="demo/incorporation-1.html">Demo: Legalese streamlines startup incorporation.</a></li>
+			<li> <a target="_blank" href="demo/">Demo: Legalese streamlines an angel/seed early-stage fundraising.</a></li>
 			<li> <i>Legalese provides an employment agreement, a volunteer agreement, an internship agreement. (under construction)</i></li>
 		  </ul>
 
@@ -59,21 +59,86 @@
 		  <p>These tutorials create PDFs that you can actually sign. On behalf of a company, you will create agreements of increasing complexity for execution by third-party signatories.</p>
 
 		  <ol>
-			<li> <a href="tutorials.html#t1">the EULA</a></li>
-			<li> <a href="tutorials.html#t2">Hello, World!</a></li>
-			<li> <a href="tutorials.html#t3">Send for Signature!</a></li>
-			<li> <a href="tutorials.html#t4">A Real Nondisclosure Agreement</a></li>
-			<li> <a href="tutorials.html#t5">What Docsets Are Available?</a></li>
-			<li> <a href="tutorials.html#t6">Generating Multiple Documents &ndash; Incorporation</a></li>
+			<li> <a target="_blank" href="tutorials.html#t1">the EULA</a></li>
+			<li> <a target="_blank" href="tutorials.html#t2">Hello, World!</a></li>
+			<li> <a target="_blank" href="tutorials.html#t3">Send for Signature!</a></li>
+			<li> <a target="_blank" href="tutorials.html#t4">A Real Nondisclosure Agreement</a></li>
+			<li> <a target="_blank" href="tutorials.html#t5">What Docsets Are Available?</a></li>
+			<li> <a target="_blank" href="tutorials.html#t6">Generating Multiple Documents &ndash; Incorporation</a></li>
 		  </ol>
+
+		  <h1>General Info</h1>
+
+		  <ol>
+			<li> <a href="#userguide">User Guide</a>
+			  <p>Quickstart guide. Important concepts. FAQ.</p></li>
+			<li> <a href="#priorart">Prior Art and Alternative Resources</a>
+			  <p>There are many other resources similar to this one. We list all the ones we know about. Where does Legalese fit in?</p></li>
+			<li> <a href="#bizdev">Content Contributor Guide</a>
+			  <p>For power users and legal professionals who want to tweak templates and fork new ones.</p></li>
+			<li> <a href="#techdev">Technical Developer Guide</a>
+			  <p>For software developers to work on the source code of Legalese itself.</p></li>
+			<li> <a href="#theory">The Theory of Turing-Complete Contracts</a>
+			  <p>Template automation is just the beginning. Why not compile contracts from JavaScript to English? That's Legalese 3.0.</p></li>
+		  </ol>
+
+		  <h2 id="userguide">User Guide</h2>
+		  
+		  <p>Legalese 2.0 helps non-lawyers discover and execute the appropriate legal paperwork, by filling in
+		  spreadsheets, generating PDFs, and sending them out for signature.</p>
+
+		  <p>You will need a Google Apps account. If you use <a href="https://docs.google.com/">Google Docs</a> or <a href="https://drive.google.com/">Google Drive</a>, you already have one.</p>
+
+		  <p>If you want to send papers out for e-signature, you will need
+		  an <a href="https://www.echosign.adobe.com">Adobe EchoSign</a> account. You can start with a trial. If you
+		  don't want to use EchoSign, you can just circulate the PDFs by email, and remind your recipients
+		  that <a href="http://9to5mac.com/2014/02/15/how-to-use-preview-to-put-signatures-on-pdfs-pages-documents-and-mail-messages/">Preview
+		  can create e-signatures</a>. In future we may add support for <a href="http://fitsmallbusiness.com/best-electronic-signature-software/">other signing services</a>.</p>
+
+		  <h3>FAQ</h3>
+
+		  <p>These workflows, the first few to be published, are designed to support incorporation and early-stage fundraising. In future we may add more workflows to support other scenarios. Note that each paper may be customized for a different legal jurisdiciction &ndash; US, EU, UK, SG, IN. Not all papers support all jurisdictions yet.</p>
+
+		  <h3>The Spreadsheet</h3>
+
+		  <p>At the heart of each step is a Google Docs spreadsheet. If you haven't already run Tutorial 2, <a href="https://docs.google.com/spreadsheets/d/1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw/copy?id=1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw&copyCollaborators=false&copyComments=false&title=Legalese%20Tutorial%202&usp=sheets_web">copy a sample spreadsheet</a> to your Google Drive.</p>
+
+		  <p>A Legalese spreadsheet contains information about your company and the parties it deals with, usually under the Entities tab. That's where you inscribe the particulars about founders, investors, employees, volunteers, etc.</p>
+
+		  <p>Each tab in the spreadsheet produces one or more documents &ndash; a <em>docset</em>.</p>
+
+		  <p>The templates are filled based on the information in the spreadsheet.</p>
+
+		  <p>You should be able to fill in the <i>Terms</i> section of the spreadsheet on your own.</p>
+
+		  <p>If you don't have all the particulars of each party, you can interrogate them directly, or Legalese can create a form from the spreadsheet, and you can just ask the parties to fill in the form with their details.</p>
+
+		  <p>The spreadsheet is configured at the bottom of the README sheet.</p>
+
+		  <h3>Generating Papers</h3>
+
+		  <p>Once all the parties are fleshed out, and the terms are correct, click <i>Legalese / Generate Papers</i>.
+		  It'll grind away for a few minutes, then the templates will fill in, and you'll see a Google Docs draft of
+		  each resulting paper. That draft is editable, but not beautiful. You should see a beautiful version &ndash; a PDF
+		  generated by Adobe InDesign. This is done over the cloud, because most end-users don't have Indesign
+		  installed.</p>
+
+		  <p>What about a Word version? That's a premium feature. If there's enough crowdfunding demand for that
+		  feature, we'll add it.</p>
+
+		  <h3>Sending out for Signature</h3>
+
+		  <p>When you're happy with the document, hit <i>Legalese / Send to EchoSign</i>. You'll need an EchoSign
+		  account, of course. The system will prompt you to sign in to EchoSign using OAuth.</p>
+
 	  
-		  <h1 id="priorart">Prior Art and Alternative Resources</h1>
+		  <h2 id="priorart">Prior Art and Alternative Resources</h2>
 
 		  <p>Legalese comes with a bit of a learning curve. Before you dive in, check out the competition &ndash; a wave of entrepreneurs are <a href="http://techcrunch.com/2014/12/06/legal-tech-startups-have-a-short-history-and-a-bright-future/">busy trying to disrupt law</a>, and Legalese has enormous respect for their work. If we didn't like the prior art, we wouldn't be eating it.</p>
 
 		  <div class="li-inline">
 		  
-		  <h2>Law Online</h2>
+		  <h3>Law Online</h3>
 
 			<p>Early Stage Investment Templates for Startups</p>
 		  <ul>
@@ -211,7 +276,7 @@
 			<li> <a href="https://twitter.com/StanfordLaw/lists/abafutures">ABA Futures</a> and <a href="http://www.abajournal.com/legalrebels/article/welcome_to_the_future_a_travel_guide_to_tomorrows_lawyer_careers?utm_source=internal&utm_medium=navigation&utm_campaign=navbar">ABA Journal</a></li>
 		  </ul>
 
-		  <h2>Electronic Signatures</h2>
+		  <h3>Electronic Signatures</h3>
 
 			<ul>
 			  <li> <a href="http://echosign.adobe.com/">Adobe EchoSign</a> is the well-respected granddaddy, modulo <a href="https://medium.com/@mengwong/why-after-a-year-with-adobe-echosign-i-m-taking-my-business-elsewhere-835cbd23d4a6">some grumpiness</a>  </li>
@@ -354,140 +419,8 @@
 		  <p>Because the terms of a given deal reside in the spreadsheet, Legalese is aware of the semantics of your deal. Because Legalese already contains all the standard templates, you can switch from one to the next just by changing one config option. If you take a snapshot of your latest negotiation and put it into Legalese, the system will automatically pick the template that fits best. If the negotiation evolves, Legalese takes changes in stride: by changing a single cell, you can switch from a Debt KISS to a Cap-and-Discount SAFE. Two more clicks recompile the documents and send them out to investors for review.</p>
 
 		  <p>Legalese keeps your deal configuration in Google Spreadsheets, not in a one-off wizard, so you can fiddle with it until it works.</p>
-		  
-          <h1>Workflows and Papers</h1>
 
-		  <p>Legalese aims to provide end-to-end support for getting a startup through every major state transition.</p>
-
-		  <p><b>Incorporation:</b> <i>Articles of Incorporation</i>. <i>Constitutional Documents</i>. <i>Memorandum of Association</i>. <i>Articles of Association.</i></p>
-
-		  <p><b>Raising Early-Stage Investment:</b> Learn from <a href="http://www.feld.com/archives/2005/08/term-sheet-series-wrap-up.html">Brad Feld's blog</a> or <a href="http://www.amazon.com/Venture-Deals-Smarter-Lawyer-Capitalist-ebook/dp/B00AO2PWOI/">book</a>, also <a href="http://www.amazon.com/Term-Sheets-Valuations-Intricacies-Valutions-ebook/dp/B003XYERWM/">Wilmerding's <i>Term Sheets &amp; Valuations</i></a>. The negotiation starts with a <i>Term Sheet</i>. For friends-and-family rounds, <i>Common Stock / Ordinary Shares Subscription Agreement</i> is usually sufficient. For seed rounds involving professional angels, <i>Convertible Note</i>, <a href="http://500.co/kiss">KISS</a>, or <a href="http://www.ycombinator.com/documents/">SAFE</a> agreements are usually used. These documents originated in the US. In other jurisdictions they need to be adapted. For example, Series Seed in <a href="http://www.seriesseed.fi/">Finland</a> and <a href="http://seriesseed.in/">India</a>.
-
-<p>Alongside the main investment agreement, you'll need a bunch of other paperwork: <i>Shareholder Agreement</i>. <i>Investor Rights Agreement</i>. <i>Directors' Resolutions Proposing Issue of New Securities</i>. <i>Members' Resolutions Authorising Issue of New Securities</i>. <i>Pre-Emptive Rights Notice to Shareholders</i>. <a href="https://vcexperts.com/buzz_articles/1384">How binding are term sheets, anyway?</a></p>
-
-		  <p><b>Employment:</b> <i>Volunteer Agreement</i>. <a href="/templates/jfdi.asia/employment-agreement.xml">Employment Agreement</a>. <i>Vesting Agreement</i>. <i>ESOP Agreement</i>. <i>Termination</i>. </p>
-
-		  <p><b>Doing Business:</b> <i>Nondisclosure Agreement (NDA)</i>. <i>Product Contract</i>. <i>Service Contract</i>. </p>
-		  
-		  <p><b>Termination:</b> <i>Striking Off</i>. <i>Winding Up</i>. </p>
-
-		  <p><b>Other Guides:</b> In future we may add support for other workflows. If you can't wait, <a href="#devguide">add your own</a>!</p>
-
-		  <h1>Guides</h1>
-
-		  <ol>
-			<li> <a href="#userguide">User Guide</a>
-			  <p>Quickstart guide. Important concepts. FAQ.</p></li>
-			<li> <a href="#priorart">Prior Art and Alternative Resources</a>
-			  <p>There are many other resources similar to this one. We list all the ones we know about. Where does Legalese fit in?</p></li>
-			<li> <a href="#bizdev">Content Contributor Guide</a>
-			  <p>For power users and legal professionals who want to tweak templates and fork new ones.</p></li>
-			<li> <a href="#techdev">Technical Developer Guide</a>
-			  <p>For software developers to work on the source code of Legalese itself.</p></li>
-			<li> <a href="#theory">The Theory of Turing-Complete Contracts</a>
-			  <p>Template automation is just the beginning. Why not compile contracts from JavaScript to English? That's Legalese 3.0.</p></li>
-		  </ol>
-
-		  <h1>Products &amp; Services</h1>
-
-		  <p>The source code is opensource. The legal agreements are Creative Commons. To keep the lights on, we offer commercial services.</p>
-
-		  <p>All our services are either</p>
-		  <ol>
-			<li><b>outsourced secretarial</b>,</li>
-			<li><b>information</b>, or</li>
-			<li><b>business advisory</b> services.</li>
-		  </ol>
-
-		  <h2>Outsourced secretarial services</h2>
-
-		  <p>Obtaining the particulars of parties and filling in the blanks of an agreement; typesetting those legal agreements to look good on the page; and sending completed agreements out to third-party e-signature services for execution.</p>
-
-		  <ol>
-			<li> <a href="services.html#obtain_particulars">Obtaining Particulars: $200</a>
-			  <p>We look up the identifying particulars for your counterparties. It's easiest for you to just ask them, but if you're too shy to ask, we will use public sources to look up the bits of company information that are needed in a contract &ndash; the company registration number, full name, and official address.</p>
-				
-			<li> <a href="services.html#basic_cap">Construction of Basic Cap Table: $700</a>
-			  <p>We construct a cap table in Google Spreadsheets to represent your existing investment structure. We review any paper that exists between the company, the founders, and any investors. <b>Deliverable:</b> A cap table showing a snapshot of your company, using our Google Spreadsheets format. <b>Suitable for:</b> startups about to raise seed or Series A funds, if they have ever taken funding from any third parties, including friends and family. If only the founders own shares, and the company has not set up a vesting schedule or an option pool, then this is not necessary.</p></li>
-
-			<li> <a href="services.html#advanced_cap">Construction of Advanced Cap Table: $1,000 (includes Basic)</a>
-			  <p>In addition to constructing your cap table in Google Spreadsheets, we also build it in any one third party tool of your choice, e.g. Valuative or captable.io. These third party tools let you model your exits across a range of scenarios.</p></li>
-
-			
-			<li> <a href="services.html#esignature">Insertion Into E-Signature Service</a>
-			  <p>When you've reviewed the documents Legalese produces, we will insert the documents into an e-signature backend and send them out for signature.</p>
-
-		  </ol>
-
-		  <h2>Information services</h2>
-
-		  <p>Educational in nature. We offer generic facts and opinions on a range of subjects. For example, we identify the major statutes and regulations which may be relevant to people seeking financing, starting a company, or wondering about tax incentives.</p>
-
-		  <p>This stuff is mostly free and sprinkled throughout this website.</p>
-		  
-		  <h2>Business advisory services</h2>
-
-		  <p>includes learning about your situation, explaining market conventions, discussing what other people in your situation did, and exploring terms and conditions likely to be accepted by a counterparty.</p>
-		  
-		  <ol>
-			<li> <a href="services.html#cap_table_opinion#">Opinion on Cap Table: $400</a>
-			  <p>We offer a one-page opinion about how your cap table compares to other startups at approximately the same level of maturity.</p></li>
-		  </ol>
-
-		  <h2>We do not offer legal advice</h2>
-
-		  <p>We <b>do not</b> tell you how to interpret legislation, what the terms of art mean, or how to apply the law to your specific situation. If you have questions about legal terms, or about any clauses beyond the core commercial terms of the agreements, or are contemplating a conflict or compliance situation, you should consult a lawyer with experience in your domain.</p>
-
-		  <h2 id="userguide">User Guide</h2>
-		  
-		  <p>Legalese 2.0 helps non-lawyers discover and execute the appropriate legal paperwork, by filling in
-		  spreadsheets, generating PDFs, and sending them out for signature.</p>
-
-		  <p>You will need a Google Apps account. If you use <a href="https://docs.google.com/">Google Docs</a> or <a href="https://drive.google.com/">Google Drive</a>, you already have one.</p>
-
-		  <p>If you want to send papers out for e-signature, you will need
-		  an <a href="https://www.echosign.adobe.com">Adobe EchoSign</a> account. You can start with a trial. If you
-		  don't want to use EchoSign, you can just circulate the PDFs by email, and remind your recipients
-		  that <a href="http://9to5mac.com/2014/02/15/how-to-use-preview-to-put-signatures-on-pdfs-pages-documents-and-mail-messages/">Preview
-		  can create e-signatures</a>. In future we may add support for <a href="http://fitsmallbusiness.com/best-electronic-signature-software/">other signing services</a>.</p>
-
-		  <h3>FAQ</h3>
-
-		  <p>These workflows, the first few to be published, are designed to support incorporation and early-stage fundraising. In future we may add more workflows to support other scenarios. Note that each paper may be customized for a different legal jurisdiciction &ndash; US, EU, UK, SG, IN. Not all papers support all jurisdictions yet.</p>
-
-		  <h3>The Spreadsheet</h3>
-
-		  <p>At the heart of each step is a Google Docs spreadsheet. If you haven't already run Tutorial 2, <a href="https://docs.google.com/spreadsheets/d/1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw/copy?id=1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw&copyCollaborators=false&copyComments=false&title=Legalese%20Tutorial%202&usp=sheets_web">copy a saple spreadsheet</a> to your Google Drive.</p>
-
-		  <p>A Legalese spreadsheet contains information about your company and the parties it deals with, usually under the Entities tab. That's where you inscribe the particulars about founders, investors, employees, volunteers, etc.</p>
-
-		  <p>Each tab in the spreadsheet produces one or more documents &ndash; a <em>docset</em>.</p>
-
-		  <p>The templates are filled based on the information in the spreadsheet.</p>
-
-		  <p>You should be able to fill in the <i>Terms</i> section of the spreadsheet on your own.</p>
-
-		  <p>If you don't have all the particulars of each party, you can interrogate them directly, or Legalese can create a form from the spreadsheet, and you can just ask the parties to fill in the form with their details.</p>
-
-		  <p>The spreadsheet is configured at the bottom of the README sheet.</p>
-
-		  <h3>Generating Papers</h3>
-
-		  <p>Once all the parties are fleshed out, and the terms are correct, click <i>Legalese / Generate Papers</i>.
-		  It'll grind away for a few minutes, then the templates will fill in, and you'll see a Google Docs draft of
-		  each resulting paper. That draft is editable, but not beautiful. You should see a beautiful version &ndash; a PDF
-		  generated by Adobe InDesign. This is done over the cloud, because most end-users don't have Indesign
-		  installed.</p>
-
-		  <p>What about a Word version? That's a premium feature. If there's enough crowdfunding demand for that
-		  feature, we'll add it.</p>
-
-		  <h3>Sending out for Signature</h3>
-
-		  <p>When you're happy with the document, hit <i>Legalese / Send to EchoSign</i>. You'll need an EchoSign
-		  account, of course. The system will prompt you to sign in to EchoSign using OAuth.</p>
-
-<h3>So ... why Legalese?</h3>
+		  <h3>So ... why Legalese?</h3>
 
 		  <p>Gosh. That's a lot of prior art. Law firms serving startups. Startups eating law firms. Is there really a
 		  reason to launch yet another effort?</p>
@@ -547,6 +480,74 @@
 		  <p>Just over the horizon is a shining vision: contracts defined in a formal language, compiled to legalese in one or more natural languages, each translation being provably identical to the other. Contracts amenable to formal methods: code verification can prove that a contract is internally consistent, free of contradiction, and complete. Contracts that execute themselves in software, integrated with business processes, interacting with other contracts. This is the vision of <a href="http://szabo.best.vwh.net/contractlanguage.html">Nick Szabo (2002)</a>, of <a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2216866">Harry Surden (2012)</a>, of <a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2538224">Flood &amp; Goodenough (2014)</a>.</p>
 
 		  <p>The Legalese team has started work on a JavaScript-to-English compiler. More on this as work progresses.</p>
+		  
+          <h1>Workflows and Papers</h1>
+
+		  <p>Legalese aims to provide end-to-end support for getting a startup through every major state transition.</p>
+
+		  <p><b>Incorporation:</b> <i>Articles of Incorporation</i>. <i>Constitutional Documents</i>. <i>Memorandum of Association</i>. <i>Articles of Association.</i></p>
+
+		  <p><b>Raising Early-Stage Investment:</b> Learn from <a href="http://www.feld.com/archives/2005/08/term-sheet-series-wrap-up.html">Brad Feld's blog</a> or <a href="http://www.amazon.com/Venture-Deals-Smarter-Lawyer-Capitalist-ebook/dp/B00AO2PWOI/">book</a>, also <a href="http://www.amazon.com/Term-Sheets-Valuations-Intricacies-Valutions-ebook/dp/B003XYERWM/">Wilmerding's <i>Term Sheets &amp; Valuations</i></a>. The negotiation starts with a <i>Term Sheet</i>. For friends-and-family rounds, <i>Common Stock / Ordinary Shares Subscription Agreement</i> is usually sufficient. For seed rounds involving professional angels, <i>Convertible Note</i>, <a href="http://500.co/kiss">KISS</a>, or <a href="http://www.ycombinator.com/documents/">SAFE</a> agreements are usually used. These documents originated in the US. In other jurisdictions they need to be adapted. For example, Series Seed in <a href="http://www.seriesseed.fi/">Finland</a> and <a href="http://seriesseed.in/">India</a>.
+
+<p>Alongside the main investment agreement, you'll need a bunch of other paperwork: <i>Shareholder Agreement</i>. <i>Investor Rights Agreement</i>. <i>Directors' Resolutions Proposing Issue of New Securities</i>. <i>Members' Resolutions Authorising Issue of New Securities</i>. <i>Pre-Emptive Rights Notice to Shareholders</i>. <a href="https://vcexperts.com/buzz_articles/1384">How binding are term sheets, anyway?</a></p>
+
+		  <p><b>Employment:</b> <i>Volunteer Agreement</i>. <a href="/templates/jfdi.asia/employment-agreement.xml">Employment Agreement</a>. <i>Vesting Agreement</i>. <i>ESOP Agreement</i>. <i>Termination</i>. </p>
+
+		  <p><b>Doing Business:</b> <i>Nondisclosure Agreement (NDA)</i>. <i>Product Contract</i>. <i>Service Contract</i>. </p>
+		  
+		  <p><b>Termination:</b> <i>Striking Off</i>. <i>Winding Up</i>. </p>
+
+		  <p><b>Other Guides:</b> In future we may add support for other workflows. If you can't wait, <a href="#devguide">add your own</a>!</p>
+
+		  <h1>Products &amp; Services</h1>
+
+		  <p>The source code is opensource. The legal agreements are Creative Commons. To keep the lights on, we offer commercial services.</p>
+
+		  <p>All our services are either</p>
+		  <ol>
+			<li><b>outsourced secretarial</b>,</li>
+			<li><b>information</b>, or</li>
+			<li><b>business advisory</b> services.</li>
+		  </ol>
+
+		  <h2>Outsourced secretarial services</h2>
+
+		  <p>Obtaining the particulars of parties and filling in the blanks of an agreement; typesetting those legal agreements to look good on the page; and sending completed agreements out to third-party e-signature services for execution.</p>
+
+		  <ol>
+			<li> <a href="services.html#obtain_particulars">Obtaining Particulars: $200</a>
+			  <p>We look up the identifying particulars for your counterparties. It's easiest for you to just ask them, but if you're too shy to ask, we will use public sources to look up the bits of company information that are needed in a contract &ndash; the company registration number, full name, and official address.</p>
+				
+			<li> <a href="services.html#basic_cap">Construction of Basic Cap Table: $700</a>
+			  <p>We construct a cap table in Google Spreadsheets to represent your existing investment structure. We review any paper that exists between the company, the founders, and any investors. <b>Deliverable:</b> A cap table showing a snapshot of your company, using our Google Spreadsheets format. <b>Suitable for:</b> startups about to raise seed or Series A funds, if they have ever taken funding from any third parties, including friends and family. If only the founders own shares, and the company has not set up a vesting schedule or an option pool, then this is not necessary.</p></li>
+
+			<li> <a href="services.html#advanced_cap">Construction of Advanced Cap Table: $1,000 (includes Basic)</a>
+			  <p>In addition to constructing your cap table in Google Spreadsheets, we also build it in any one third party tool of your choice, e.g. Valuative or captable.io. These third party tools let you model your exits across a range of scenarios.</p></li>
+
+			
+			<li> <a href="services.html#esignature">Insertion Into E-Signature Service</a>
+			  <p>When you've reviewed the documents Legalese produces, we will insert the documents into an e-signature backend and send them out for signature.</p>
+
+		  </ol>
+
+		  <h2>Information services</h2>
+
+		  <p>Educational in nature. We offer generic facts and opinions on a range of subjects. For example, we identify the major statutes and regulations which may be relevant to people seeking financing, starting a company, or wondering about tax incentives.</p>
+
+		  <p>This stuff is mostly free and sprinkled throughout this website.</p>
+		  
+		  <h2>Business advisory services</h2>
+
+		  <p>includes learning about your situation, explaining market conventions, discussing what other people in your situation did, and exploring terms and conditions likely to be accepted by a counterparty.</p>
+		  
+		  <ol>
+			<li> <a href="services.html#cap_table_opinion#">Opinion on Cap Table: $400</a>
+			  <p>We offer a one-page opinion about how your cap table compares to other startups at approximately the same level of maturity.</p></li>
+		  </ol>
+
+		  <h2>We do not offer legal advice</h2>
+
+		  <p>We <b>do not</b> tell you how to interpret legislation, what the terms of art mean, or how to apply the law to your specific situation. If you have questions about legal terms, or about any clauses beyond the core commercial terms of the agreements, or are contemplating a conflict or compliance situation, you should consult a lawyer with experience in your domain.</p>
 
         </section>
 
