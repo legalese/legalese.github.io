@@ -59,7 +59,7 @@
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_restricted ?></cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_cliff ?></cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_monthly ?></cell></Cell>
-<? } } ?>
+
 </Table>
   </table_enclosing_para>
 
