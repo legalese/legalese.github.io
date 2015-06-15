@@ -218,7 +218,14 @@
 			<li>Your URL has to be accessible by anyone on the Net. Try loading that URL with an Incognitive Mode window. If that doesn't work, Legalese won't be able to retrieve your template.</li>
 			<li>Set the To and CC fields to be the parties that will be signing the agreement.</li>
 			<li>Set Nocache=1. If you don't, your development cycle may be slowed, because by default Legalese caches all fetches for 5 minutes.</li>
-			<li>Back in your terms spreadsheet, under <i>Configuration</i>, name your template under the <i>Templates:</i> config.</li>
+			<li>Back in your terms spreadsheet, under <i>CONFIGURATION</i>, name your template under the <i>Templates:</i> config.</li>
+			<li>Also in your terms spreadsheet, all the way under the <i>CONFIGURATION</i> section, add two <i>INCLUDE</i> lines:</li>
+			<ul>
+			  <li>INCLUDE https://docs.google.com/spreadsheets/d/1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw/edit#gid=981127052</li>
+			  <li>INCLUDE My Templates</li>
+			</ul>
+			<li>You can see an example at the bottom of <a href="https://docs.google.com/spreadsheets/d/1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw/edit#gid=1382748166">the Hello World tab</a> for an example.</li>
+			<li>That should be a literal string, <b>My Templates</b>, or whatever you named your new tab.</li>
 			<li>Run <i>Generate PDFs</i> to see your template in action!</li>
 		  </ol>
 
