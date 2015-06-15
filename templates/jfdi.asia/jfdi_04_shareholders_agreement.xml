@@ -1,35 +1,16 @@
 <Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
 <?!= include("inc_cover_standard_parties", data, {cover_title:"Shareholders' Agreement"}) ?>
 <?!= include("inc_cover_jfdi", data, { in_series:"04" }) ?>
-<Firstpage_Sidebar>
-<sidebar>This document governs the relationship between members of the company.</sidebar>
-</Firstpage_Sidebar>
+<Firstpage_Sidebar><sidebar>This document governs the relationship between members of the company.</sidebar></Firstpage_Sidebar>
 <Story_Main>
   <chapter_header>Shareholders' Agreement</chapter_header>
-  <para_1>This agreement is dated <?= data.shareholders_agreement_date ?></para_1>
-  <para_1>between:</para_1>
-<? for (var i in data.parties.founder) { ?>
-<parties><?!= include("inc_party", data, data.parties.founder[i]) ?><? if (data.parties.founder.length == 1) { ?> (the "Founder")<?}?>;</parties>
-<? } ?>
-<?   if (data.parties.founder.length > 1)           { ?><para_1>(collectively the "Founders" and individually a "Founder");</para_1><?}?>
 
-<? if (data.parties.investor && data.parties.investor.length) { ?>
-  <parties><?!= include("inc_party", data, data.parties.investor[0]) ?> (the "Investor"); and</parties>
-<? } ?>
-<? if (data.parties.existing_investor) { ?>
-<? for (var i in data.parties.existing_investor) { ?>
-<parties><?!= include("inc_party", data, data.parties.existing_investor[i]) ?><? if (data.parties.existing_investor.length == 1) { ?> (the "Existing Investor")<?}?>;</parties>
-<? } ?>
-<?   if (data.parties.existing_investor.length > 1)           { ?><para_1>(collectively the "Existing Investors" and individually an "Existing Investor");</para_1><?}?>
-<? } ?>
-
-  <parties><?!= include("inc_party", data, data.company) ?> (the "Company")</parties>
+  <para_1><span_smallcaps>This agreement is dated</span_smallcaps> <?= data.shareholders_agreement_date ?> between:</para_1>
+  <?!= include("inc_enumerate_parties", data, rcpts_to) ?>
 
 <para_1>(collectively, the "Parties").</para_1>
 
-  <para_1>Whereas:</para_1>
-
-  <recitals>As at the date of this Agreement, the Company has an issued and paid-up share capital of <?= data.company.commitment ?> divided into <?= digitCommas_(data.company.num_shares, 0) ?> Ordinary Shares. </recitals>
+  <recitals>As of the date of this Agreement, the Company has an issued and paid-up share capital of <?= data.company.commitment ?> divided into <?= data.company.num_shares ?> Ordinary Shares. </recitals>
   <recitals><? if(data.founder_agreement_date){?>Pursuant to a Founder Agreement dated <?= data.founder_agreement_date ?>, and in<?}else{?>In<?}?> conjunction with </recitals>
   <para_2_hanging>a "Class F Agreement" between the Founders and the Company, by which the Founders subscribe to Class F Preference Shares whose rights of redemption are governed by a vesting schedule described therein; and </para_2_hanging>
 <? if (data.parties.investor) { ?>
@@ -155,23 +136,7 @@ any distribution of profits of the Company.</numbered_2_para_indent>
   <para_1>Should the Company not raise External Financing, but recognize total revenue of at least S$250,000, then this provision shall apply with equal force. </para_1>
 
   <chapter_header>Signatures</chapter_header>
-  <para_1>In witness whereof we have hereunto set our hand on <?= data.shareholders_agreement_date ?></para_1>
-  <para_1><i>The Founders:</i></para_1>
-<? for (var i = 0; i < data.parties.founder.length; i++) { ?>
-<?!= include("inc_signature", data, data.parties.founder[i]) ?>
-<? } ?>
-<? if (data.parties.investor && data.parties.investor.length) { ?>
-  <para_1><i>For and on behalf of the Investor:</i></para_1>
-<?!= include("inc_signature", data, data.parties.investor[0]) ?>
-<?}?>
-<para_1><i>For and on behalf of the Company:</i></para_1>
-<?!= include("inc_signature", data, data.company) ?>
-<? if (data.parties.existing_investor) { ?>
-  <para_1><i>The Existing <?= plural(data.parties.existing_investor, "Investor") ?>:</i></para_1>
-<?   for (var i = 0; i < data.parties.existing_investor.length; i++) { ?>
-<?!=   include("inc_signature", data, data.parties.existing_investor[i]) ?>
-<?   } ?>
-<? } ?>
+  <para_1><span_smallcaps>In witness whereof</span_smallcaps> we have hereunto set our hand on <?= data.shareholders_agreement_date ?></para_1>
 
 
 </Story_Main>

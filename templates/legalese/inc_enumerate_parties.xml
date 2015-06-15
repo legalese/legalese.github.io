@@ -1,0 +1,12 @@
+<? var rcpts_to = data._include; ?>
+<? for (var pp in rcpts_to) {?>
+<?   for (var pi in rcpts_to[pp]) { ?>
+<parties><?!= include("inc_party", data, rcpts_to[pp][pi]) ?><?
+if (rcpts_to[pp].length == 1) { ?> (the "<?=lingua({locale:"en", term:pp, context:"party type", form:"singular", xform:"titleCase"})?>")<?}?>;</parties>
+<?   } ?>
+<?   if (rcpts_to[pp].length > 1)           { ?><para_1>(collectively the "<b><?=lingua({locale:"en", term:pp, context:"party type", form:"plural", xform:"titleCase"})?></b>" and individually <?=lingua_a_an({locale:"en", term:pp})?> "<b><?=lingua({locale:"en", term:pp, context:"party type", form:"singular", xform:"titleCase"})?></b>");</para_1><?}?>
+
+<? } ?>
+
+<para_1>(collectively, the "Parties").</para_1>
+
