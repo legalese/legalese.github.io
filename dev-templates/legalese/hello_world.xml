@@ -8,7 +8,7 @@ if (data._config.save_indd && data._config.save_indd.value) { ?> saveIndd="true"
 <sidebar><?= data.company.address ?></sidebar>
 </Firstpage_Sidebar>
 <Story_Main>
-<resolution_title override="appliedFont='Bickham Script Pro'  fontStyle='Bold'  pointSize=36">A "Hello World" Example</resolution_title>
+<resolution_title override="appliedFont='Bickham Script Pro'  fontStyle='Bold'  pointSize=36">My Test Template</resolution_title>
 <chapter_header override="startParagraph=StartParagraph.ANYWHERE">Sample Agreement Paperwork Boilerplate</chapter_header>
 
 <para_1><span_smallcaps>This agreement is made</span_smallcaps> on <? if (data.agreement_date) { ?><?= data.agreement_date ?><?} else {?><textvar name="Output Date" /><?}?> between:---</para_1>
