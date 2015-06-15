@@ -94,9 +94,8 @@ The Investor shall have no information rights over the financials of the company
 
 <chapter_header>Signatures</chapter_header>
     <para_1><span_smallcaps>In witness whereof</span_smallcaps> we have hereunto set our hands.</para_1>
-<b_left_sidehead_nonum>The Investor</b_left_sidehead_nonum>
-<?!= include("inc_signature", data, data.new_investor) ?>
-<b_left_sidehead_nonum>For the Company <?= data.company.name ?></b_left_sidehead_nonum>
-<?!= include("inc_signature", data, data.company) ?>
+
+	<?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: {} }) ?>
+	
 </Story_Main>
 </Root>
