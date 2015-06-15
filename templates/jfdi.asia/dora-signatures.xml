@@ -1,48 +1,6 @@
-<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/" defaultMaster="B-Master" signatureMaster="A-Master">
-<CoverTop>
-<? if (data.parties.new_investor.length == 1) { ?>
-<cover_title>Deed of &#8232;Ratification and &#8232;Accession</cover_title>
-<? } else { ?>
-<cover_title>Deed of Ratification and Accession</cover_title>
-<?   for (var i=data.parties.new_investor.length; i<4; i++) { ?>
-<noindent_centered addnewline="true"></noindent_centered>
-<?   } ?>
-<? } ?>
-<noindent_centered addnewline="true"></noindent_centered>
-<noindent_centered addnewline="true"></noindent_centered>
-<noindent_centered addnewline="true"></noindent_centered>
-<cover_company_name><?= data.company.name ?></cover_company_name>
-<cover_company_id><?= data.company.idtype ?> <?= data.company.id?></cover_company_id>
-<noindent_centered addnewline="true"></noindent_centered>
-<? if (data.parties.new_investor.length == 1) { ?>
-<cover_company_name><?= data.parties.new_investor[0].name ?></cover_company_name>
-<cover_company_id><?= data.parties.new_investor[0].idtype ?> <?= data.parties.new_investor[0].id ?></cover_company_id>
-<? } else { ?>
-<?   for (var i = 0; i < data.parties.new_investor.length; i++) { ?>
-<cover_parties>&#9;<?= data.parties.new_investor[i].name ?>&#9;<?= data.parties.new_investor[i].idtype ?> <span_ucnum><?= data.parties.new_investor[i].id ?></span_ucnum></cover_parties>
-<?   } ?>
-<? } ?>
-</CoverTop>
-<CoverMid>
-<? for (var i = 0; i < data.parties.shareholder.length; i++) { ?>
-<cover_parties_centered><?= newlinesToCommas(data.parties.shareholder[i].name) ?></cover_parties_centered>
-<? } ?>
-</CoverMid>
-
-<CoverBottom_Logotype>
-<cover_corporate_logotype>Joyful Frog Digital Incubator</cover_corporate_logotype>
-</CoverBottom_Logotype>
-
-<CoverBottom_Address>
-<cover_address_block>Blk 71 Ayer Rajah Crescent</cover_address_block>
-<cover_address_block>#05-16   Singapore 139951</cover_address_block>
-</CoverBottom_Address>
-
-<CoverBottom_series>
-<centered><textvar name="Output Date" />&#8195;<span_smallcaps><textvar name="output time" /></span_smallcaps></centered>
-<centered>version 1.2.0</centered>
-</CoverBottom_series>
-
+<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
+<?!= include("inc_cover_standard_parties", data, {cover_title:"Deed of &#8232;Ratification and &#8232;Accession", rcpts_to:rcpts_to}) ?>
+<?!= include("inc_cover_jfdi", data) ?>
 <Firstpage_Sidebar><sidebar>Every time a new shareholder joins the company, it is unfortunately necessary for all existing shareholders to sign this deed. If they didn't, then there would be no agreement between the old parties and the new.</sidebar>
 </Firstpage_Sidebar>
 
@@ -108,21 +66,7 @@
 
 </para_1>
 
-<b_left_sidehead_nonum>The New <?= plural(data.parties.new_investor, "Shareholder") ?></b_left_sidehead_nonum>
-
-<? for (var i = 0; i < data.parties.new_investor.length; i++) { ?>
-<?!= include("inc_signature", data, data.parties.new_investor[i]) ?>
-<? } ?>
-
-<b_left_sidehead_nonum>The Company</b_left_sidehead_nonum>
-
-<?!= include("inc_signature", data, data.company) ?>
-
-<b_left_sidehead_nonum>The Current <?= plural(data.parties.shareholder, "Shareholder") ?></b_left_sidehead_nonum>
-
-<? for (var i = 0; i < data.parties.shareholder.length; i++) { ?>
-<?!= include("inc_signature", data, data.parties.shareholder[i]) ?>
-<? } ?>
+  <?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: {} }) ?>
 
 </Story_Main>
 </Root>

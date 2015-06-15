@@ -1,5 +1,5 @@
 <Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
-<?!= include("inc_cover_standard_parties", data, {cover_title:"Series YC-AA Preferred Share Purchase Agreement", disclaimer:true}) ?>
+<?!= include("inc_cover_standard_parties", data, {cover_title:"Series YC-AA Preferred Share Purchase Agreement", disclaimer:true, rcpts_to:rcpts_to}) ?>
 <Firstpage_Sidebar>
 <sidebar>This document records a <?=data.new_investor.new_commitment?> investment by <?=data.new_investor.name?> into <?=data.company.name?> in the form of Series YC-AA Convertible Preference Shares. This agreement is modeled on on the Series AA model documents published by Y Combinator.</sidebar>
 </Firstpage_Sidebar>

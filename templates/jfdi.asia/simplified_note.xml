@@ -1,37 +1,20 @@
 <Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
-<CoverTop>
-<cover_title>Simplified Convertible Loan Agreement</cover_title>
-<cover_company_name>
-
-
-
-
-<?= data.company.name ?></cover_company_name>
-<cover_company_id><?= data.company.idtype ?> <?= data.company.id ?></cover_company_id>
-<cover_company_name><?= data.new_investor.name ?></cover_company_name>
-<cover_company_id><?= data.new_investor.idtype ?> <?= data.new_investor.id ?></cover_company_id>
-</CoverTop>
-<CoverMid>
-</CoverMid>
-
+<?!= include("inc_cover_2_parties", data, {cover_title:"Simplified Convertible Loan Agreement", party1:data.company, party2:data.new_investor}) ?>
 <?!= include("inc_cover_jfdi", data) ?>
-
-<Firstpage_Sidebar>
-</Firstpage_Sidebar>
-
-<Story_Main><chapter_header>Convertible Loan Agreement</chapter_header>
+<Firstpage_Sidebar></Firstpage_Sidebar>
+<Story_Main>
+  <chapter_header>Convertible Loan Agreement</chapter_header>
 <para_1><span_smallcaps>This agreement</span_smallcaps> is made on <textvar name="Output Date" /> between</para_1>
 <parties><?!= include("inc_party", data, data.new_investor) ?>(the "Investor")</parties>
 <parties><?!= include("inc_party", data, data.company) ?> (the "Company")</parties>
-<para_1>(collectively, the "Parties")</para_1>
+<para_1>(collectively, the "Parties").</para_1>
 
 <para_1><span_smallcaps>Whereas:</span_smallcaps></para_1>
   <recitals>The Company is a private company incorporated in Singapore limited by shares.</recitals>
   <recitals>The Investor wishes to invest in the Company.</recitals>
   <recitals>The Investor and the Company desire and wish to enter into this Agreement to regulate the affairs of the Company and the relationship between the Parties.</recitals>
+
   <para_1><span_smallcaps>It is hereby agreed</span_smallcaps> as follows:</para_1>
-
-
 
   <a_left_sidehead>Definitions</a_left_sidehead>
   <numbered_2_para>In this Agreement, except to the extent that the context otherwise requires, the following terms shall have the meanings set forth below:</numbered_2_para>
@@ -58,7 +41,7 @@ The Notes shall bear no interest. <? } ?>
 <numbered_2_para>The "Conversion Price" shall be fixed at <? } else { ?>  
   <numbered_2_para>The &#8220;Conversion Price&#8221; is the lesser of</numbered_2_para>
   <numbered_3_para><?= 100-data.discount ?>% of the per share price paid by the purchasers of such Equity Securities in the Qualified Financing (the &#8220;<b>Discounted Conversion Price</b>&#8221;), or</numbered_3_para>
-  <numbered_3_para><? } ?>the price per share equal to <?= data.pre_money_valuation ?> divided by the aggregate number of outstanding shares of the Company&#8217;s common stock as of immediately after the initial closing of the Qualified Financing (assuming full conversion or exercise of all convertible and exercisable securities then outstanding other than the Notes) (the &#8220;<b>Valuation Cap</b>&#8221;).</numbered_3_para>
+  <numbered_3_para><? } ?>the price per share equal to <?= data.pre_money_valuation ?> divided by the aggregate number of outstanding shares of the Company&#8217;s common stock as of immediately after the initial closing of the Qualified Financing (assuming full conversion or exercise of all convertible and exercisable securities then outstanding other than the Notes) (the &#8220;<b>Valuation Cap</b>&#8221;).<? if (data.fixed_conversion) { ?></numbered_2_para><?}else{?></numbered_3_para><?}?>
 
 
 
