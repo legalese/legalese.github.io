@@ -27,9 +27,12 @@ How to represent that in a variableNum format? This is quite unlike frogscore wh
 Hmm..
 
 The solution could be:
-1.  that the major investor slice be hightlighted and user seeing that slice is highlighted can then manually check out that clause in the contract itself.
-2.  perhaps check out circos?
+1. that the major investor slice be hightlighted and user seeing that slice is highlighted can then manually check out that clause in the contract itself.
+2. perhaps check out circos?
 
+** 20150615 update:
+
+The commonality for the clauses falls into either ownership on exit or control over the board === voting rights. Will start with these two premise.
 
 * Then, we suck everything out of the googlesheet
 
@@ -48,3 +51,6 @@ Results would be:
 6. YC SAFE MFN.svg
 
 etc etc
+
+
+
