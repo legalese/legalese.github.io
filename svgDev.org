@@ -52,5 +52,7 @@ Results would be:
 
 etc etc
 
+** 20150615 update:
+Outputting a svg for each template does not represent the soul of the agreement. It would be far better to output a svg based on the input parameters of ownership on exit and voting rights as this will enable user to make an informed decision on the implications of the contracts.
 
 
