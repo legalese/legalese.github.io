@@ -1,4 +1,4 @@
 <?=    newlinesToCommas(data._include.name) ?> (<?= data._include.idtype ?> <span_ucnum><?= data._include.id ?></span_ucnum>), <?
-     if (data._include.party_type.toLowerCase() == "company") { ?>
+     if (data._include.party_type && data._include.party_type.toLowerCase() == "company") { ?>
 a company incorporated in <?= data._include.state ?> with its registered office at <?= newlinesToCommas(data._include.address) ?><?     } else { ?>
 a citizen of <?= data._include.state ?> receiving notices at <?= newlinesToCommas(data._include.address) ?><?     } ?>
