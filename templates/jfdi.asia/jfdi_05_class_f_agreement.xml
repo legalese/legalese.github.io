@@ -32,17 +32,10 @@
   <para_1>Headings, marginal sidenotes, and graphic art are for ease of reference only and have no legal effect. Reference to Clauses and Sections are, unless otherwise indicated, to Clauses and Sections of this Agreement and references to this Agreement includes any amendments or supplementals thereto. </para_1>
   <para_1>Except where the context otherwise requires, references to any person include its successors and permitted assignees. Clauses which refer to the "Company" shall apply mutatis mutandis to subsidiaries or successors of the Company which may from time to time be established. For purposes of this Agreement, employment with the Company shall include employment with a parent or subsidiary of the Company. </para_1>
   <para_1>References in this Agreement to a time of day are to Singapore time. </para_1>
-  <a_left_sidehead>Purchase of Shares</a_left_sidehead>
+  <a_left_sidehead xname="hazTable">Purchase of Shares</a_left_sidehead>
   <para_1>The Company shall issue and sell to the Holder, and the Holder shall purchase from the Company, subject to the terms and conditions set forth in this Agreement, Class F Preference shares (the "Shares") of the Company, at a purchase price of <?= data.price_per_share ?> per share (the "Issue Price"). The aggregate purchase price for the Shares shall be paid by the Holder in cash or cheque. The number of Shares purchased by each Holder shall be the total of the numbers shown in the Restricted and Unrestricted columns in the table below. Upon receipt of payment by the Company, the Company shall issue to the Holder one or more certificates in the name of the Holder for that number of Shares purchased by the Holder. The Holder agrees that the Shares shall be subject to the purchase options and restrictions on transfer set forth in this Agreement and in the Articles of Association. </para_1>
   <para_2>For convenience of reference the table below indicates in the column titled Ordinary the number of ordinary shares presently held by the Holder.  </para_2>
   <para_2> </para_2>
-  <a_left_sidehead xname="redemption">Redemption</a_left_sidehead>
-  <numbered_2_para>Subject to Sections <xref to="cause" />, <xref to="good reason" />, and <xref to="termination" /> below, </numbered_2_para>
-  <numbered_3_para>in the event that the Holder is discharged by the Company from employment or volunteership, with Cause (as defined below) and prior to a Change of Control event, the Company shall have the right and option (the "Redemption Right") to purchase from the Holder, at a price per share equal to the Issue Price (the "Redemption Price"), up to the total number of Shares that have not vested according to the table in Section 2 (the "Restricted Shares"). </numbered_3_para>
-  <numbered_3_para>the number of shares in the Restricted column of the above table shall initially be subject to the Redemption Right. </numbered_3_para>
-  <numbered_3_para>the number of shares in the Unrestricted column of the above table shall not be subject to the Redemption Right; they shall be deemed vested upon issue and are convertible to Ordinary Shares. </numbered_3_para>
-  <numbered_3_para>the number of shares in the Cliff column of the above table shall vest on <?= data.f_cliff_end_date ?>. </numbered_3_para>
-  <numbered_3_para>thereafter, the number of shares in the Monthly column of the above table shall vest on the last business day of each month until such time as all Shares are fully vested. </numbered_3_para>
   <table_enclosing_para>
 	<Table aid:table="table" aid:tcols="6" aid:trows="2" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
 <Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_fl>Name</cell_fl></Cell>
@@ -61,6 +54,14 @@
 
 </Table>
   </table_enclosing_para>
+
+  <a_left_sidehead xname="redemption">Redemption</a_left_sidehead>
+  <numbered_2_para>Subject to Sections <xref to="cause" />, <xref to="good reason" />, and <xref to="termination" /> below, </numbered_2_para>
+  <numbered_3_para>in the event that the Holder is discharged by the Company from employment or volunteership, with Cause (as defined below) and prior to a Change of Control event, the Company shall have the right and option (the "Redemption Right") to purchase from the Holder, at a price per share equal to the Issue Price (the "Redemption Price"), up to the total number of Shares that have not vested according to the table in Section <xref to="hazTable" /> (the "Restricted Shares"). </numbered_3_para>
+  <numbered_3_para>the number of shares in the Restricted column of the above table shall initially be subject to the Redemption Right. </numbered_3_para>
+  <numbered_3_para>the number of shares in the Unrestricted column of the above table shall not be subject to the Redemption Right; they shall be deemed vested upon issue and are convertible to Ordinary Shares. </numbered_3_para>
+  <numbered_3_para>the number of shares in the Cliff column of the above table shall vest on <?= data.f_cliff_end_date ?>. </numbered_3_para>
+  <numbered_3_para>thereafter, the number of shares in the Monthly column of the above table shall vest on the last business day of each month until such time as all Shares are fully vested. </numbered_3_para>
 
   <numbered_2_para xname="cause">For purposes of this Agreement, <b>"Cause"</b> shall mean </numbered_2_para>
   <numbered_3_para>any act or omission which constitutes a material breach by the Holder of the terms of </numbered_3_para>
