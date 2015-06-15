@@ -1,13 +1,6 @@
-<?!= data.xmlRoot() ?>
-<?!= include("inc_cover_standard_parties", data, {cover_title:"ESOP"}) ?>
-<?!= include("inc_cover_jfdi", data, { in_series:"11" }) ?>
-<Firstpage_Sidebar>
-<sidebar>This document sets out the terms of the Employee Stock Ownership Plan.</sidebar>
-</Firstpage_Sidebar>
-<Story_Main>
 <chapter_header>Employee Stock Ownership Plan</chapter_header>
 
-<a_left_sidehead>Introduction</a_left_sidehead>
+<a_left_sidehead restart="true">Introduction</a_left_sidehead>
 
 <numbered_2_para>This document sets out the terms of the Employee Stock Ownership Plan ("ESOP"), by which founders and early employees may be compensated in equity as an alternative to, or in addition to, cash salaries.</numbered_2_para>
 
@@ -41,5 +34,6 @@
 
 <numbered_2_para>Redemption and acceleration shall be described in specific agreements negotiated by the Directors with Holders from time to time.</numbered_2_para>
 
-</Story_Main>
-</Root>
+<a_left_sidehead xname="approval">Approval of the Company Required</a_left_sidehead>
+
+<numbered_2_para>For this Plan to be valid the Company must approve it by special resolution.</numbered_2_para>
