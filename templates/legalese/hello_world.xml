@@ -13,10 +13,7 @@ if (data._config.save_indd && data._config.save_indd.value) { ?> saveIndd="true"
 
 <para_1><span_smallcaps>This agreement is made</span_smallcaps> on <? if (data.agreement_date) { ?><?= data.agreement_date ?><?} else {?><textvar name="Output Date" /><?}?> between:---</para_1>
 
-<parties><?!= include("inc_party", data, data.company) ?> (the "Company"), and</parties>
-<parties><?!= include("inc_party", data, data.buyer) ?> (the "<?=data.buyer.short_name?>")</parties>
-
-<para_1>(each a <b>"Party"</b> and collectively, the <b>"Parties"</b>).</para_1>
+<?!= include("inc_enumerate_parties", data, rcpts_to) ?>
 
 <para_1><span_smallcaps>Whereas:</span_smallcaps></para_1>
 
@@ -36,8 +33,7 @@ if (data._config.save_indd && data._config.save_indd.value) { ?> saveIndd="true"
 
 <para_1><?= data.signature_phrase ?></para_1>
 
-<?!= include("inc_signature", data, data.company) ?>
-<?!= include("inc_signature", data, data.buyer) ?>
+<?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: {} }) ?>
 
 </Story_Main>
 <Bottom_Box delete_if_empty="true" />
