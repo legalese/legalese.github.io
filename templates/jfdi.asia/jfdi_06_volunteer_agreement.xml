@@ -2,7 +2,7 @@
 <?!= include("inc_cover_2_parties", data, {cover_title:"Volunteer Agreement", party1:data.company, party2:data.volunteer}) ?>
 <?!= include("inc_cover_jfdi", data, { in_series:"06" }) ?>
 <Firstpage_Sidebar>
-<sidebar>This document establishes confidentiality, non-compete, and IP assignment between the Company and the founders, who are unpaid volunteers.</sidebar>
+<sidebar>This document establishes confidentiality, non-compete, and IP assignment between the Company and its unpaid volunteers.</sidebar>
 </Firstpage_Sidebar>
 <Story_Main>
   <chapter_header>Volunteer Agreement</chapter_header>
@@ -57,7 +57,7 @@
   <numbered_3_para>that do not result, directly or indirectly, from any work that the Volunteer performs for the Company; </numbered_3_para>
   <numbered_2_para>The Volunteer shall not be required to assign to the Company any Achievements that are contributed to an Opensource Project to which the Volunteer was already a recognized contributor prior to the Term of this Agreement. A list of such projects may be attached to this Agreement, as Exhibit B, but any such list shall not be considered exhaustive and the absence of such a list shall not imply that such Achievements do not exist. </numbered_2_para>
   <numbered_2_para>The Volunteer shall disclose to the Company in confidence all such Achievements, whether created solely by the Volunteer or jointly with other persons, during the Term of Service, that the Volunteer considers to be his property or part of an Opensource Project, and not subject to the provisions of this Agreement, together with such supporting documents as the Company may reasonably request. </numbered_2_para>
-  <numbered_2_para xname="copy">>The Volunteer further agrees that, except as expressly provided in this Agreement or as otherwise agreed in writing by the Company, he or she has no right to, and will not directly or indirectly: </numbered_2_para>
+  <numbered_2_para xname="copy">The Volunteer further agrees that, except as expressly provided in this Agreement or as otherwise agreed in writing by the Company, he or she has no right to, and will not directly or indirectly: </numbered_2_para>
   <numbered_3_para>reproduce, adapt, modify, translate, manufacture, market, publish, distribute, sell, license or sublicense, transfer, rent, lease, transmit, broadcast, display or use the Company-owned Achievements or any portion or copy thereof in any form, in a fashion beyond the Company's control; </numbered_3_para>
   <numbered_3_para>create derivative works from, provide access electronically to, or enter into computer memory beyond the Company's control the Company-owned Achievements or any portion or copy thereof in any form; </numbered_3_para>
   <numbered_3_para>apply for, or apply to register, any patent, copyright, trademark or other industrial property right or intellectual property right in or related to the Company-owned Achievements, in Singapore or any other country or region; </numbered_3_para>

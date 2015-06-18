@@ -1,0 +1,12 @@
+<?var rcpts_to = data._include.rcpts_to;
+  var _include2= data._include._include2;
+?>
+<? for (var pp in rcpts_to) { if (rcpts_to[pp].length == 0) { continue } ?>
+<b_left_sidehead_nonum><?if (rcpts_to[pp].length == 1) { ?>The <?=lingua({locale:"en", term:pp, context:"party type", form:"singular", xform:"titleCase"})?><?}?>
+<?                       if (rcpts_to[pp].length >  1) { ?>The <?=lingua({locale:"en", term:pp, context:"party type", form:"plural",   xform:"titleCase"})?><?}?>
+</b_left_sidehead_nonum>
+<?   for (var pi in rcpts_to[pp]) { ?>
+<?!= include("inc_signature", data, rcpts_to[pp][pi], _include2) ?>
+<?   } ?>
+<? } ?>
+

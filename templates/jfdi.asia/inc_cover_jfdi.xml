@@ -1,3 +1,4 @@
+<?if(data._config.jfdi_cover){?>
 <CoverBottom_Logotype>
 <cover_corporate_logotype>Joyful Frog Digital Incubator</cover_corporate_logotype>
 </CoverBottom_Logotype>
@@ -10,3 +11,4 @@
 <centered><textvar name="Output Date" />&#8195;<span_smallcaps><textvar name="output time" /></span_smallcaps></centered>
 <centered>version <?= data.document_version || "1.2.2" ?></centered>
 </CoverBottom_series>
+<?}else{?><?!= include("inc_cover_legalese", data) ?><?}?>

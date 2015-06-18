@@ -1,25 +1,21 @@
 <Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
-<?!= include("inc_cover_standard_parties", data, {cover_title:"Class F Agreement"}) ?>
+<?!= include("inc_cover_2_parties", data, {cover_title:"Class F Agreement", party1:data.company, party2:data.new_investor}) ?>
 <?!= include("inc_cover_jfdi", data, { in_series:"05" }) ?>
 <Firstpage_Sidebar>
-<sidebar>This document prescribes the vesting schedule for the founders. If you're new to vesting, you should read http://pando.com/2012/04/26/founders-should-give-their-stock-back-why-vesting-is-in-your-startups-best-interest/</sidebar>
+<sidebar>This document prescribes a vesting schedule for founders and early employees. If you're new to vesting, you should read http://pando.com/2012/04/26/founders-should-give-their-stock-back-why-vesting-is-in-your-startups-best-interest/</sidebar>
 </Firstpage_Sidebar>
 <Story_Main>
   <chapter_header>Class F Agreement</chapter_header>
-  <para_1>This agreement is dated <?= data.class_f_agreement_date ?></para_1>
+  <para_1><span_smallcaps>This agreement is dated</span_smallcaps> <?= data.class_f_agreement_date ?></para_1>
   <para_1>between:</para_1>
-<? for (var i in data.parties.founder) { ?>
-<parties><?!= include("inc_party", data, data.parties.founder[i]) ?><? if (data.parties.founder.length == 1) { ?> (the "Founder")<?}?>;</parties>
-<? } ?>
-<?   if (data.parties.founder.length > 1)           { ?><para_1>(collectively the <b>"Founders"</b> and individually a "Founder"); and</para_1><?}?>
+  <parties><?!= include("inc_party", data, data.new_investor) ?> (the "Holder"); and</parties>
+  <parties><?!= include("inc_party", data, data.company) ?> (the "Company").</parties>
 
-  <parties><?!= include("inc_party", data, data.company) ?> ("Company").</parties>
-
-  <para_1>Whereas:</para_1>
+  <para_1><span_smallcaps>Whereas:</span_smallcaps></para_1>
   <recitals>The Company's Articles of Association define Class F Preference Shares. </recitals>
-  <recitals>The Company proposes to issue Class F Preference Shares to each Holder and each Holder has agreed to subscribe for the Class F Preference Shares on the terms and conditions below. </recitals>
-  <recitals>This Agreement records and sets out the terms and conditions upon and subject to which the Company will create and issue the Class F Preference Shares and each Holder will subscribe for the same. </recitals>
-  <para_1>NOW THIS AGREEMENT WITNESSETH as follows:</para_1>
+  <recitals>The Company proposes to issue Class F Preference Shares to the Holder and the Holder has agreed to subscribe for the Class F Preference Shares on the terms and conditions below. </recitals>
+  <recitals>This Agreement records and sets out the terms and conditions upon and subject to which the Company will create and issue the Class F Preference Shares and the Holder will subscribe for the same. </recitals>
+  <para_1><span_smallcaps>Now this agreement witnesseth</span_smallcaps> as follows:</para_1>
   <a_left_sidehead>Definitions</a_left_sidehead>
   <para_1>In the Agreement (including the Recitals and the Schedules), except to the extent that the context otherwise requires, the following terms shall have the meanings set forth below: </para_1>
   <definition>Act	means the Companies Act (Cap. 50) of Singapore and includes any provision thereof as from time to time modified or re-enacted; </definition>
@@ -31,41 +27,41 @@
   <definition>Vested / Unrestricted	in relation to a Share means that the Company has waived its right of redemption in regard to that Share; </definition>
   <definition>Unvested / Restricted	in relation to a Share means that the Company possesses a right of redemption over that Share; </definition>
   <definition>Redemption	in relation to a Share means that the Company purchases, and the Holder sells, that share; </definition>
-  <definition>External Investor	means a debt-, warrant-, option-, or equity-holder other than <? if (data.parties.investor) {?> and <span_ucnum><?!= commaAnd(["the Founders"].concat(data.parties.investor.map(function(p){return p.name}))) ?></span_ucnum><? } else { ?>the Founders<? } ?>; </definition>
-  <definition>External Financing	means a fund-raising event which involves an External Investor, in which the company raises no less than <?= data.qualified_financing_round_size ?>;</definition>
+  <definition>External Financing	means a fund-raising event in which the company raises no less than <?= data.qualified_financing_round_size ?> within one round or series;</definition>
   <para_1>Except where the context otherwise requires, words importing the singular include the plural and vice versa, words importing a gender include every gender and references to persons include bodies corporate or unincorporated, any state or any agency thereof and any other entity. </para_1>
   <para_1>Headings, marginal sidenotes, and graphic art are for ease of reference only and have no legal effect. Reference to Clauses and Sections are, unless otherwise indicated, to Clauses and Sections of this Agreement and references to this Agreement includes any amendments or supplementals thereto. </para_1>
   <para_1>Except where the context otherwise requires, references to any person include its successors and permitted assignees. Clauses which refer to the "Company" shall apply mutatis mutandis to subsidiaries or successors of the Company which may from time to time be established. For purposes of this Agreement, employment with the Company shall include employment with a parent or subsidiary of the Company. </para_1>
   <para_1>References in this Agreement to a time of day are to Singapore time. </para_1>
-  <a_left_sidehead>Purchase of Shares</a_left_sidehead>
+  <a_left_sidehead xname="hazTable">Purchase of Shares</a_left_sidehead>
   <para_1>The Company shall issue and sell to the Holder, and the Holder shall purchase from the Company, subject to the terms and conditions set forth in this Agreement, Class F Preference shares (the "Shares") of the Company, at a purchase price of <?= data.price_per_share ?> per share (the "Issue Price"). The aggregate purchase price for the Shares shall be paid by the Holder in cash or cheque. The number of Shares purchased by each Holder shall be the total of the numbers shown in the Restricted and Unrestricted columns in the table below. Upon receipt of payment by the Company, the Company shall issue to the Holder one or more certificates in the name of the Holder for that number of Shares purchased by the Holder. The Holder agrees that the Shares shall be subject to the purchase options and restrictions on transfer set forth in this Agreement and in the Articles of Association. </para_1>
-  <para_2> For convenience of reference the table below indicates in the column titled Ordinary the number of ordinary shares presently held by each Holder.  </para_2>
+  <para_2>For convenience of reference the table below indicates in the column titled Ordinary the number of ordinary shares presently held by the Holder.  </para_2>
   <para_2> </para_2>
-  <a_left_sidehead xname="redemption">Redemption</a_left_sidehead>
-  <numbered_2_para>Subject to Sections <xref to="cause" />, <xref to="good reason" />, and <xref to="termination" /> below, </numbered_2_para>
-  <numbered_3_para>in the event that the Holder is discharged by the Company from employment or volunteership, with Cause (as defined below) and prior to a Change of Control event, the Company shall have the right and option (the "Redemption Right") to purchase from the Holder, at a price per share equal to the Issue Price (the "Redemption Price"), up to the total number of Shares that have not vested according to the table in Section 2 (the "Restricted Shares"). </numbered_3_para>
-  <numbered_3_para>the number of shares in the Restricted column of the above table shall initially be subject to the Redemption Right. </numbered_3_para>
-  <numbered_3_para>the number of shares in the Unrestricted column of the above table shall not be subject to the Redemption Right; they shall be deemed vested upon issue and are convertible to Ordinary Shares. </numbered_3_para>
-  <numbered_3_para>the number of shares in the Cliff column of the above table shall vest on <?= data.f_cliff_end_date ?>. </numbered_3_para>
-  <numbered_3_para>thereafter, the number of shares in the Monthly column of the above table shall vest on the last business day of each month until such time as all Shares are fully vested. </numbered_3_para>
   <table_enclosing_para>
-	<Table aid:table="table" aid:tcols="6" aid:trows="<?= data.parties.founder.length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+	<Table aid:table="table" aid:tcols="6" aid:trows="2" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
 <Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_fl>Name</cell_fl></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Ordinary</cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Unrestricted</cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Restricted</cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Cliff</cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Monthly</cell></Cell>
-<? for (var i = 0; i<data.parties.founder.length; i++) { with(data.parties) { ?>
-<Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_fl><?= founder[i].name ?></cell_fl></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= founder[i].num_shares ?></cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= founder[i].f_unrestricted ?></cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= founder[i].f_restricted ?></cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= founder[i].f_cliff ?></cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= founder[i].f_monthly ?></cell></Cell>
-<? } } ?>
+
+<Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_fl><?= data.new_investor.name ?></cell_fl></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.num_shares ?></cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_unrestricted ?></cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_restricted ?></cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_cliff ?></cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_monthly ?></cell></Cell>
+
 </Table>
   </table_enclosing_para>
+
+  <a_left_sidehead xname="redemption">Redemption</a_left_sidehead>
+  <numbered_2_para>Subject to Sections <xref to="cause" />, <xref to="good reason" />, and <xref to="termination" /> below, </numbered_2_para>
+  <numbered_3_para>in the event that the Holder is discharged by the Company from employment or volunteership, with Cause (as defined below) and prior to a Change of Control event, the Company shall have the right and option (the "Redemption Right") to purchase from the Holder, at a price per share equal to the Issue Price (the "Redemption Price"), up to the total number of Shares that have not vested according to the table in Section <xref to="hazTable" /> (the "Restricted Shares"). </numbered_3_para>
+  <numbered_3_para>the number of shares in the Restricted column of the above table shall initially be subject to the Redemption Right. </numbered_3_para>
+  <numbered_3_para>the number of shares in the Unrestricted column of the above table shall not be subject to the Redemption Right; they shall be deemed vested upon issue and are convertible to Ordinary Shares. </numbered_3_para>
+  <numbered_3_para>the number of shares in the Cliff column of the above table shall vest on <?= data.f_cliff_end_date ?>. </numbered_3_para>
+  <numbered_3_para>thereafter, the number of shares in the Monthly column of the above table shall vest on the last business day of each month until such time as all Shares are fully vested. </numbered_3_para>
 
   <numbered_2_para xname="cause">For purposes of this Agreement, <b>"Cause"</b> shall mean </numbered_2_para>
   <numbered_3_para>any act or omission which constitutes a material breach by the Holder of the terms of </numbered_3_para>
@@ -78,6 +74,7 @@
   <numbered_3_para>the Holder's willful or continuing failure to perform the Holder's duties reasonably assigned during the course of employment or volunteership. </numbered_3_para>
   <numbered_2_para xname="good reason">For purposes of this Agreement, the term "<b>Good Reason</b>" shall mean termination due to a material breach by the Company of the Holder's Volunteer Agreement or Employment Agreement, as the case may be, which breach remains uncured by the Company, if curable, for a period of thirty (30) days following receipt of a written notice of breach from the Holder, specifying the act or omission upon which the Holder's claim of breach is based. </numbered_2_para>
   <numbered_2_para xname="termination">Termination for Good Reason shall be deemed to be termination by the Company without Cause under this Agreement. </numbered_2_para>
+
   <a_left_sidehead>Exercise of Redemption Right</a_left_sidehead>
   <numbered_2_para>The Company may exercise the Redemption Right with respect to Restricted Shares by delivering or mailing to the Holder (or his estate), within 60 days after the termination of the employment or volunteership of the Holder with the Company, a written notice of exercise of the Redemption Right. Such notice shall specify the number of Shares to be purchased. If and to the extent the Redemption Right is not so exercised by the giving of such a notice within such 60-day period, the Redemption Right shall automatically expire and terminate effective upon the expiration of such 60-day period. </numbered_2_para>
   <numbered_2_para>The Company shall pay to the Holder the aggregate Redemption Price for such repurchased Shares against delivery of the certificate or certificates representing the Shares to be purchased by the Company. The written notice to the Holder shall specify the address at, and the time and date on, which payment of the Redemption Price for such repurchased Shares is to be made (the "Closing"). The date specified shall not be less than ten (10) days nor more than sixty (60) days from the date of the mailing of the notice, and the Holder or his or her successor in interest with respect to the Shares to be so repurchased shall have no further rights as the owner thereof from and after the date specified in the notice. At the Closing, the Redemption Price for such repurchased Shares shall be delivered to the Holder or his or her successor in interest and the Shares being purchased, duly endorsed for transfer, shall, to the extent that they are not then in the possession of the Company, be delivered to the Company by the Holder or his or her successor in interest. </numbered_2_para>
@@ -111,13 +108,13 @@
   <numbered_3_para>a price determined by the Board. </numbered_3_para>
   <numbered_2_para>In the event Class F Shares are issued at a price other than provided above, the pre-emption rights waived by the Founders in the Shareholders' Agreement shall return with full force and Founders shall enjoy their pre-emptive rights with respect to the new issue. </numbered_2_para>
   <a_left_sidehead>Repurchase of Vested Shares</a_left_sidehead>
-  <para_1>In the event of the Holder's termination of employment for Cause, the Company shall have the option, but not the obligation, to repurchase all or any part of the Holder's Vested Shares. In the event the Company does not, upon any such termination of employment of the Holder, exercise its option pursuant to this section, the restrictions set forth in the balance of this Agreement shall not thereby lapse, and the Holder for himself or herself, his or her heirs, legatees, executors, administrators and other successors in interest, agrees that the Shares shall remain subject to such restrictions. The following provisions shall apply to a repurchase under this Section: </para_1>
+  <para_1>In the event of the Holder's termination of employment for Cause, the Company shall have the option, but not the obligation, to repurchase all or any part of the Holder's Vested Shares. In the event the Company does not, upon any such termination of employment of the Holder, exercise its option pursuant to this section, the restrictions set forth in the balance of this Agreement shall not thereby lapse, and the Holder for himself or herself, his or her heirs, legatees, executors, administrators and other successors in interest, agrees that the Shares shall remain subject to such restrictions. The following provisions shall apply to a repurchase under this Section:</para_1>
   <numbered_2_para>The per-share repurchase price of the Vested Shares to be sold to the Company upon exercise of its option under this Section shall be equal to the Redemption Price. </numbered_2_para>
   <numbered_2_para>The Company's option to repurchase the Holder's Shares in the event of termination of employment shall be valid for a period of sixty (60) days commencing with the date of such termination of employment. </numbered_2_para>
   <numbered_2_para>In the event the Company shall be entitled to and shall elect to exercise its option to repurchase the Holder's Vested Shares under this Section, the Company shall notify the Holder, or in case of death, his or her representative, in writing of its intent to repurchase the Vested Shares. Such written notice may be mailed by the Company up to and including the last day of the time period provided for in the clause above. </numbered_2_para>
   <numbered_2_para>The written notice to the Holder shall specify the address at, and the time and date on, which payment of the repurchase price is to be made (the "Closing"). The date specified shall not be less than ten (10) days nor more than sixty (60) days from the date of the mailing of the notice, and the Holder or his or her successor in interest with respect to the Vested Shares shall have no further rights as the owner thereof from and after the date specified in the notice. At the Closing, the repurchase price shall be delivered to the Holder or his or her successor in interest and the Vested Shares being purchased, duly endorsed for transfer, shall, to the extent that they are not then in the possession of the Company, be delivered to the Company by the Holder or his or her successor in interest. </numbered_2_para>
   <a_left_sidehead>Failure to Deliver Shares; Effect of Prohibited Transfer</a_left_sidehead>
-  <para_1>In the event that the Holder or his or her successor in interest fails to deliver the Shares to be repurchased by the Company under this Agreement, the Company may elect: </para_1>
+  <para_1>In the event that the Holder or his or her successor in interest fails to deliver the Shares to be repurchased by the Company under this Agreement, the Company may elect:</para_1>
   <numbered_2_para>to establish a segregated account in the amount of the repurchase price, such account to be turned over to the Holder or his or her successor in interest upon delivery of such Shares, and </numbered_2_para>
   <numbered_2_para>immediately to take such action as is appropriate to transfer record title of such Shares from the Holder to the Company and to treat the Holder and such Shares in all respects as if delivery of such Shares had been made as required by this Agreement. The Holder hereby irrevocably grants the Company a power of attorney which shall be coupled with an interest for the purpose of effectuating the preceding sentence. The Company shall not be required </numbered_2_para>
   <numbered_3_para>to transfer on its books any of the Shares which shall have been sold or transferred in violation of any of the provisions set forth in this Agreement, or </numbered_3_para>
@@ -126,7 +123,7 @@
   <numbered_2_para>Subsequent to an External Financing, the provisions of the Articles of Association and of the Shareholders' Agreement relating to the registration, transfer, transmission, certificates and replacement thereof applicable to ordinary shares shall apply mutatis mutandis to Class F Preference Shares. </numbered_2_para>
   <numbered_2_para>Prior to an External Financing, notwithstanding anything contained in this Articles of Association or the Shareholders' Agreement, Holders of Class F shares shall be allowed to transfer the Class F shares among themselves at mutually agreed valuations. The Company shall, and shall ensure that all Directors and Bondholders in the company shall, not prevent the transfer of Class F Preference Shares among the Holders prior to an External Financing. </numbered_2_para>
   <a_left_sidehead>Restrictive Legends</a_left_sidehead>
-  <para_1>All certificates representing Restricted Shares shall have affixed thereto legend in substantially the following form, in addition to any other legends that may be required by law: </para_1>
+  <para_1>All certificates representing Restricted Shares shall have affixed thereto legend in substantially the following form, in addition to any other legends that may be required by law:</para_1>
   <para_1><i>The shares of stock represented by this certificate are subject to restrictions on transfer and an option to purchase set forth in a certain Class F Agreement between the corporation and the registered owner of these shares (or his predecessor in interest), and such Agreement is available for inspection without charge at the office of the Secretary of the corporation.</i></para_1>
   <a_left_sidehead>Adjustments for Stock Splits, Stock Dividends, etc</a_left_sidehead>
   <numbered_2_para>If from time to time there is any stock split, stock dividend, stock distribution or other reclassification of the Ordinary Shares of the Company, any and all new, substituted or additional securities to which the Holder is entitled by reason of his ownership of the Shares shall be immediately subject to the purchase and repurchase options, the restrictions on transfer and the other provisions of this Agreement in the same manner and to the same extent as the Shares, and the Redemption Price shall be appropriately adjusted. </numbered_2_para>
@@ -153,16 +150,16 @@
   <?!= include("inc_mediation_arbitration", data) ?>
   <chapter_header>Signatures</chapter_header>
   <para_1>In witness whereof we have hereunto set our hand on <?= data.class_f_agreement_date ?></para_1>
-  <para_1><i>For the Founders:</i></para_1>
-<? for (var i = 0; i < data.parties.founder.length; i++) { ?>
-<?!= include("inc_signature", data, data.parties.founder[i]) ?>
-<? } ?>
-  <para_1><i>For and on behalf of the Company:</i></para_1>
+
+  <para_1><i>For the Holder:</i></para_1>
+<?!= include("inc_signature", data, data.new_investor) ?>
+
+<para_1><i>For and on behalf of the Company:</i></para_1>
 <?!= include("inc_signature", data, data.company) ?>
 
   <chapter_header>Sample Redemption Notice </chapter_header>
   <para_1> </para_1>
-  <para_1>Dear Founder, </para_1>
+  <para_1>Dear Class F Holder, </para_1>
   <para_1>We refer to the Class F Agreement signed on <?= data.class_f_agreement_date ?>, in particular, Clauses <xref to="redemption" /> and <xref to="quit" /> therein. </para_1>
   <para_1>All terms defined in the Class F Agreement shall bear the same meaning when used in this letter. </para_1>
   <para_1>We understand that an event entailing redemption of Restricted Shares has occurred. For the purposes of redemption we date that event at T date. </para_1>

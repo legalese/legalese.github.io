@@ -29,7 +29,7 @@
  if (data.parties.director.length == 1) { ?>I am the sole local director of <? }
  else { ?>We are the directors of <? } ?>
 <?!= include("inc_party", data, data.company) ?> (the "Company").
-The Company has not commenced business since the date of incorporation on <?= data.company.incorporation_date || data.company.date_of_incorporation ?>.
+The Company has not commenced business since the date of incorporation on <?= data.company.incorporation_date || data.company.date_of_incorporation || data.incorporation_date || data.date_of_incorporation ?>.
 The bank account of the Company has been closed.
 <? if (data.last_agm_date == undefined || ! data.last_agm_date.length) { ?>The Company has not held an AGM, or the first AGM to be held within 18 months from the date of incorporation is not due.
 <? } ?>

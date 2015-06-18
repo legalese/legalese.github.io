@@ -436,6 +436,94 @@ body {
   background: #fafafa url(../images/body-bg.jpg) 0 0 repeat;
 }
 
+.clearfix:after {
+    display:block;
+    clear:both;
+}
+ 
+/*----- Menu Outline -----*/
+.menu-wrap {
+    width:100%;
+    box-shadow:0px 1px 3px rgba(0,0,0,0.2);
+    background:#0e6fb8;
+}
+ 
+.menu {
+    width:1000px;
+    margin:0px auto;
+}
+ 
+.menu li {
+    margin:0px;
+    list-style:none;
+    font-family:'Architects Daughter';
+}
+ 
+.menu a {
+    transition:all linear 0.15s;
+    color:#fff;
+}
+ 
+.menu li:hover > a, .menu .current-item > a {
+    text-decoration:none;
+    color:#fff;
+}
+ 
+.menu .arrow {
+    font-size:11px;
+    line-height:0%;
+}
+ 
+/*----- Top Level -----*/
+.menu > ul > li {
+    float:left;
+    display:inline-block;
+    position:relative;
+    font-size:19px;
+}
+ 
+.menu > ul > li > a {
+    padding:10px 40px;
+    display:inline-block;
+}
+ 
+.menu > ul > li:hover > a, .menu > ul > .current-item > a {
+    background:#0e6eb8;
+}
+ 
+/*----- Bottom Level -----*/
+.menu li:hover .sub-menu {
+    z-index:1;
+    opacity:1;
+}
+ 
+.sub-menu {
+    width:160%;
+    padding:5px 0px;
+    position:absolute;
+    top:100%;
+    left:0px;
+    z-index:-1;
+    opacity:0;
+    transition:opacity linear 0.15s;
+    box-shadow:0px 2px 3px rgba(0,0,0,0.2);
+    background:#0e6eb8;
+}
+ 
+.sub-menu li {
+    display:block;
+    font-size:16px;
+}
+ 
+.sub-menu li a {
+    padding:10px 30px;
+    display:block;
+}
+ 
+.sub-menu li a:hover, .sub-menu .current-item a {
+    background:#0e76b8;
+}
+
 p {
   margin-top: 0;
 }
@@ -501,9 +589,17 @@ img.rhs {
   border-style: solid;
   border: 1px;
   border-color: blue;
-  padding: 6px;
+  padding: 16px;
   width: 200px;
   float:right;
+}
+
+img.lhs {
+  float:left;
+}
+
+img.whitebg {
+  background-color: white;
 }
 
 .clear { clear: both }
@@ -770,6 +866,8 @@ div.li-inline p     { font-weight: bold; margin-bottom: 0; margin-top: 20px; }
 div.li-inline ul    { list-style-type: disc; margin-top: 0 }
 div.li-inline ul li { display: inline; }
 div.li-inline li:not(:first-child)::before { content: "\00b7 " }
+
+div.li-inline p.nobold { font-weight: normal; padding-left: 20px; }
 
 dl dd {
   font-style: italic;

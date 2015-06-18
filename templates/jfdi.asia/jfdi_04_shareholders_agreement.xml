@@ -1,39 +1,22 @@
 <Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
-<?!= include("inc_cover_standard_parties", data, {cover_title:"Shareholders' Agreement"}) ?>
+<?!= include("inc_cover_standard_parties", data, {cover_title:"Shareholders' Agreement", rcpts_to:rcpts_to}) ?>
 <?!= include("inc_cover_jfdi", data, { in_series:"04" }) ?>
-<Firstpage_Sidebar>
-<sidebar>This document governs the relationship between members of the company.</sidebar>
-</Firstpage_Sidebar>
+<Firstpage_Sidebar><sidebar>This document governs the relationship between members of the company.</sidebar></Firstpage_Sidebar>
 <Story_Main>
   <chapter_header>Shareholders' Agreement</chapter_header>
-  <para_1>This agreement is dated <?= data.shareholders_agreement_date ?></para_1>
-  <para_1>between:</para_1>
-<? for (var i in data.parties.founder) { ?>
-<parties><?!= include("inc_party", data, data.parties.founder[i]) ?><? if (data.parties.founder.length == 1) { ?> (the "Founder")<?}?>;</parties>
-<? } ?>
-<?   if (data.parties.founder.length > 1)           { ?><para_1>(collectively the "Founders" and individually a "Founder");</para_1><?}?>
 
-<? if (data.parties.investor && data.parties.investor.length) { ?>
-  <parties><?!= include("inc_party", data, data.parties.investor[0]) ?> (the "Investor"); and</parties>
-<? } ?>
-<? if (data.parties.existing_investor) { ?>
-<? for (var i in data.parties.existing_investor) { ?>
-<parties><?!= include("inc_party", data, data.parties.existing_investor[i]) ?><? if (data.parties.existing_investor.length == 1) { ?> (the "Existing Investor")<?}?>;</parties>
-<? } ?>
-<?   if (data.parties.existing_investor.length > 1)           { ?><para_1>(collectively the "Existing Investors" and individually an "Existing Investor");</para_1><?}?>
-<? } ?>
+  <para_1><span_smallcaps>This agreement is dated</span_smallcaps> <?= data.shareholders_agreement_date ?> between:</para_1>
+  <?!= include("inc_enumerate_parties", data, rcpts_to) ?>
 
-  <parties><?!= include("inc_party", data, data.company) ?> (the "Company")</parties>
+  <para_1><span_smallcaps>Whereas:</span_smallcaps></para_1>
 
-<para_1>(collectively, the "Parties").</para_1>
-
-  <para_1>Whereas:</para_1>
-
-  <recitals>As at the date of this Agreement, the Company has an issued and paid-up share capital of <?= data.company.commitment ?> divided into <?= digitCommas_(data.company.num_shares, 0) ?> Ordinary Shares. </recitals>
-  <recitals>Pursuant to a Founder Agreement dated <?= data.founder_agreement_date ?>, and in conjunction with </recitals>
-  <para_2>a "Class F Agreement" between the Founders and the Company, by which the Founders subscribe to Class F Preference Shares whose rights of redemption are governed by a vesting schedule described therein; and </para_2>
+  <recitals>As of the date of this Agreement, the Company has an issued and paid-up share capital of <?= data.company.commitment ?> divided into <?= data.company.num_shares ?> Ordinary Shares.</recitals>
+  <recitals><? if(data.founder_agreement_date){?>Pursuant to a Founder Agreement dated <?= data.founder_agreement_date ?>, and in<?}else{?>In<?}?> conjunction with:</recitals>
+  <?if(data.other_agreements){?><para_2_hanging><?=data.other_agreements?></para_2_hanging>
+  <?}?>
+  <para_2_hanging>a "Class F Agreement" between the Founders<?if(data.parties.employee){?>, Employees,<?}?> and the Company, by which the Founders<?if(data.parties.employee){?> and Employees<?}?> subscribe for Class F Preference Shares whose rights of redemption are governed by a vesting schedule described therein; and</para_2_hanging>
 <? if (data.parties.investor) { ?>
-<para_2>a "<?= data.security_type ?> Agreement" dated <?= data.investment_agreement_date ?>, by which the Investor shall become a shareholder upon <?= data.security_type_operation ?>; </para_2>
+<para_2_hanging>a "<?= data.security_type ?> Agreement" dated <?= data.investment_agreement_date ?>, by which the Investor shall become a shareholder upon <?= data.security_type_operation ?>;</para_2_hanging>
 <? }?>
 <? if (data.parties.existing_investor && data.previously_incorporated && data.previous_investors && data.previous_incorporation_locale != "Singapore") { ?>
 <recitals>The <?= plural(data.parties.existing_investor, "Existing Investor") ?> <?= plural_verb(data.parties.existing_investor, "has") ?> invested in a Previous Company <?!= include("inc_party", data, data.parties.previous_company[0]) ?> whose economic interests will henceforth be represented by the Company instead;</recitals>
@@ -41,69 +24,75 @@
 
 <recitals>To regulate the relationship of the Parties inter se being present and prospective members of the Company, and the conduct of the business and affairs of the Company, <? if (data.parties.existing_investor && data.previously_incorporated && data.previous_investors && data.previous_incorporation_locale != "Singapore") { ?>
 and to protect the interests of the <?= plural(data.parties.existing_investor, "Existing Investor") ?> by ensuring fair representation in the Company, <? } ?>
-in the spirit of mutual confidence and co-operation, the Parties have agreed to enter into this Agreement on the terms and conditions hereinafter set out. </recitals>
+in the spirit of mutual confidence and co-operation, the Parties have agreed to enter into this Agreement on the terms and conditions hereinafter set out.</recitals>
   <para_1>Now it is hereby agreed as follows:---</para_1>
+
   <a_left_sidehead>Definitions</a_left_sidehead>
-  <para_1 override="keepWithNext=1">In this Agreement and in the Recitals abovementioned, unless the context otherwise requires:</para_1>
-  <definition>Act	means the Singapore Companies Act (Cap. 50) and includes any provision thereof as from time to time modified or re-enacted; </definition>
-  <definition>Agreement	(also Shareholders' Agreement) means this Agreement and shall include all modifications and supplements thereto from time to time in force; </definition>
-  <definition>Articles	means the Articles of Association of the Company; </definition>
-  <definition>Board	means the board of Directors for the time being of the Company; </definition>
-  <definition>Business	means the business of the Company which is high-tech software product and service development; </definition>
-  <definition>Change of Control	is as defined in the Articles; </definition>
-  <definition>Control	means the possession, direct or indirect, of the power to direct or cause the direction of the management and policies of a corporation, whether through the ownership of voting securities, by contract, or otherwise and derivative terms thereof (including <b>"Controlling"</b>, <b>"Controlled by"</b>; and "under common Control with") shall also bear such meaning as aforesaid. For the purpose of this definition, the holding of an interest (within the meaning of the Act) of more than 50% of the equity share capital of the relevant corporation shall be deemed to be "Control" of this corporation; </definition>
-  <definition>Deed of Ratification	means a deed of ratification and accession whereby the signatory thereof enters into, becomes a party to and undertakes to be legally bound by the terms of this Agreement;  </definition>
-  <definition>Director	means a director of the Company for the time being, including where applicable an alternate director; </definition>
-  <definition>External Investor	means a debt-, warrant-, option-, or equity-holder other than <? if (data.parties.investor) {?> and <span_ucnum><?!= commaAnd(["the Founders"].concat(data.parties.investor.map(function(p){return p.name}))) ?></span_ucnum><? } else { ?>the Founders<? } ?>; </definition>
-  <definition>External Financing	means a fund-raising event which involves an External Investor, in which the company raises no less than <?= data.qualified_financing_round_size?></definition>
+  <para_1>In this Agreement and in the Recitals abovementioned, unless the context otherwise requires:</para_1>
+  <definition>Act	means the Singapore Companies Act (Cap. 50) and includes any provision thereof as from time to time modified or re-enacted;</definition>
+  <definition>Agreement	(also <i>Shareholders' Agreement</i>) means this Agreement and shall include all modifications and supplements thereto from time to time in force;</definition>
+  <definition>Articles	means the Articles of Association of the Company;</definition>
+  <definition>Board	means the board of Directors for the time being of the Company;</definition>
+  <definition>Business	means the business of the Company which is high-tech software product and service development;</definition>
+  <definition>Change of Control	is as defined in the Articles;</definition>
+  <definition>Control	means the possession, direct or indirect, of the power to direct or cause the direction of the management and policies of a corporation, whether through the ownership of voting securities, by contract, or otherwise and derivative terms thereof (including <b>"Controlling"</b>, <b>"Controlled by"</b>; and "under common Control with") shall also bear such meaning as aforesaid. For the purpose of this definition, the holding of an interest (within the meaning of the Act) of more than 50% of the equity share capital of the relevant corporation shall be deemed to be "Control" of this corporation;</definition>
+  <definition>Deed of Ratification	means a deed of ratification and accession whereby the signatory thereof enters into, becomes a party to and undertakes to be legally bound by the terms of this Agreement;</definition>
+  <definition>Director	means a director of the Company for the time being, including where applicable an alternate director;</definition>
+  <definition>External Financing	means a fund-raising event which in which the company raises no less than <?= data.qualified_financing_round_size?></definition>
 <? if (data.parties.investor) { ?>
-  <definition>Investment	means the amount invested in the Company by the Investor in the form of the Convertible Note; </definition>
+  <definition>Investment	means the amount invested in the Company by the Investor in the form of the Convertible Note;</definition>
 <?}?>
-  <definition>Trade Sale	means a sale of 75% or more of the issued Ordinary share capital of the Company to a third party buyer; </definition>
-  <definition>Memorandum	means the Memorandum of Association of the Company; </definition>
-  <definition>Ordinary Shares	means the ordinary shares in the capital of the Company; </definition>
-  <definition>Shareholders	means the Founders named in the Memorandum as well as any Existing Investors named above and shall include any other person who holds Shares in the Company and who has executed a Deed of Ratification and thereby become bound by the terms of this Agreement and "Shareholder" means such one of them as the case may be; </definition>
-  <definition>Shares	means shares in the capital of the Company whether ordinary or preferred; </definition>
-  <definition>S$ or $	means the lawful currency for the time being of the Republic of Singapore; and </definition>
-  <para_1>Except where the context otherwise requires, words importing the singular include the plural and vice versa, words importing a gender include every gender and references to persons include bodies corporate or unincorporated, any state or any agency thereof and any other entity. </para_1>
-  <para_1>Headings, marginal sidenotes, and graphic art are for ease of reference only and have no legal effect. Reference to Clauses are to Clauses of this Agreement and references to this Agreement includes any amendments or supplementals thereto. </para_1>
-  <para_1>Except where the context otherwise requires, references to any person include its successors and permitted assignees. </para_1>
-  <para_1>References in this Agreement to a time of day are to Singapore time. </para_1>
-  <para_1>Any document expressed to be in the "approved form" means a document in the form or substantially in the form approved by (and signed for identification by or on behalf of) the Parties. </para_1>
-  <para_1>Except where the context otherwise requires, Clauses which refer to the "Company" shall apply mutatis mutandis to subsidiaries or successors of the Company which may from time to time be established. </para_1>
-  <para_1>Any reference in this Agreement to a Shareholder procuring and derivative terms thereof (including "shall procure"), shall only oblige the Shareholder to exercise its voting rights in the Company to vote in favour of the Company performing its obligation as required. </para_1>
-  <para_1>This Agreement shall be governed by and interpreted in accordance with the laws of the Republic of Singapore. </para_1>
-  <b_left_sidehead_nonum>Founder Stock Vesting Scheme </b_left_sidehead_nonum>
-  <numbered_1_para>The Company shall issue and the Shareholders may subscribe to Class F Shares as described in the Class F Agreement. These shares provide a mechanism for:</numbered_1_para>
-  <numbered_2_para_indent>recognizing different degrees of commitment and different levels of contribution from each Founder; </numbered_2_para_indent>
-  <numbered_2_para_indent>respecting the need of each Founder to balance compensation between cash and equity; and </numbered_2_para_indent>
-  <numbered_2_para_indent>amicably resolving scenarios in which one or more Founders leave the company. </numbered_2_para_indent>
-  <numbered_1_para>Article <?= data.aa_preemptive_clause_number || "41" ?> of the Articles of Association confers pre-emptive rights on the Shareholders. The Shareholders hereby waive these pre-emptive rights with regard to the issue of new Class F Shares provided that such issue occurs pursuant to a Compensation Adjustment and at the Discretionary Subscription Price as described in the Class F Agreement. </numbered_1_para>
-  <b_left_sidehead_nonum>Share Valuation Policy </b_left_sidehead_nonum>
-  <numbered_1_para>For purposes of calculating the valuation of the company, Class F shares shall contribute to the fully-diluted capitalization value, and shall be valued on an as-if-converted basis. </numbered_1_para>
-  <numbered_1_para>For purposes of transferring shares among the Shareholders, an ordinary share of the company shall be valued </numbered_1_para>
-  <numbered_2_para_indent>if an External Financing occurred less than 1 year ago, at 25% less than the valuation agreed therein; </numbered_2_para_indent>
-  <numbered_2_para_indent>if an External Financing has not occurred, or has occurred more than 1 year prior to the date of the transfer of shares, then as the shareholders agree amongst themselves. </numbered_2_para_indent>
-  <numbered_2_para>Variation from this rule shall require the approval of the Directors. If the Directors do not give their approval to a variant valuation they may refuse to register the transfer. </numbered_2_para>
-  <b_left_sidehead_nonum>Dispute Resolution  </b_left_sidehead_nonum>
-  <numbered_2_para>Founders will attempt to settle disputes amongst themselves. </numbered_2_para>
-  <numbered_2_para>If a dispute, controversy or claim arises out of or relates to this contract, or breach, termination or invalidity thereof, and if such dispute, controversy or claim cannot be settled and resolved through negotiation, the parties agree first to try in good faith to settle such dispute, controversy or claim through mediation. </numbered_2_para>
-  <numbered_2_para>Any issue or claim not resolved by mediation shall be referred to and finally resolved by arbitration in Singapore. </numbered_2_para>
-  <numbered_2_para>The mediator and if necessary, the arbitrator, shall be mutually agreed to by the parties and shall be a professional arbitrator or mediator (as the case may be) of The Arbitration Chambers. Failing such agreement, the mediator or arbitrator shall be appointed by The Arbitration Chambers. </numbered_2_para>
-  <b_left_sidehead_nonum>Drag-Along Rights </b_left_sidehead_nonum>
-  <numbered_1_para>If a Trade Sale is approved by 75% or more of voting shares (subject to any protective provisions that happen to be held by subsequent Preferred Shareholders or creditors) then the minority shareholders shall give their consent to such a sale. </numbered_1_para>
-  <b_left_sidehead_nonum>Tag-Along Rights </b_left_sidehead_nonum>
-  <numbered_1_para>Should one or more Shareholders offer to sell their shares to a third Party or Parties such that the new Parties would hold more than 25% of the voting stock of the company, those Shareholders must offer all other Shareholders an opportunity, calculated pro rata, to sell their shares also. </numbered_1_para>
-  <b_left_sidehead_nonum>New Parties  </b_left_sidehead_nonum>
-  <numbered_2_para>New Shareholders shall be required to execute a Deed of Ratification and be bound by this Agreement. </numbered_2_para>
+  <definition>Trade Sale	means a sale of 75% or more of the issued Ordinary share capital of the Company to a third party buyer;</definition>
+  <definition>Memorandum	means the Memorandum of Association of the Company;</definition>
+  <definition>Ordinary Shares	means the ordinary shares in the capital of the Company;</definition>
+  <definition>Shareholders	means the Parties named above (excepting the Company) and shall include any other person who holds Shares in the Company and who has executed a Deed of Ratification and thereby become bound by the terms of this Agreement and "Shareholder" means such one of them as the case may be;</definition>
+  <definition>Shares	means shares in the capital of the Company whether ordinary or preferred;</definition>
+  <definition>S$ or $	means the lawful currency for the time being of the Republic of Singapore; and</definition>
+  <para_1>Except where the context otherwise requires, words importing the singular include the plural and vice versa, words importing a gender include every gender and references to persons include bodies corporate or unincorporated, any state or any agency thereof and any other entity.</para_1>
+  <para_1>Headings, marginal sidenotes, and graphic art are for ease of reference only and have no legal effect. Reference to Clauses are to Clauses of this Agreement and references to this Agreement includes any amendments or supplementals thereto.</para_1>
+  <para_1>Except where the context otherwise requires, references to any person include its successors and permitted assignees.</para_1>
+  <para_1>References in this Agreement to a time of day are to Singapore time.</para_1>
+  <para_1>Any document expressed to be in the "approved form" means a document in the form or substantially in the form approved by (and signed for identification by or on behalf of) the Parties.</para_1>
+  <para_1>Except where the context otherwise requires, Clauses which refer to the "Company" shall apply mutatis mutandis to subsidiaries or successors of the Company which may from time to time be established.</para_1>
+  <para_1>Any reference in this Agreement to a Shareholder procuring and derivative terms thereof (including "shall procure"), shall only oblige the Shareholder to exercise its voting rights in the Company to vote in favour of the Company performing its obligation as required.</para_1>
+  <para_1>This Agreement shall be governed by and interpreted in accordance with the laws of the Republic of Singapore.</para_1>
+
+  <a_left_sidehead>Founder Stock Vesting Scheme</a_left_sidehead>
+  <numbered_2_para>The Company shall issue and certain Parties may subscribe for up to <?=data.total_f_shares?> Class F Shares as described in the Class F Agreement, a model of which is annexed. These shares provide a mechanism for:</numbered_2_para>
+  <numbered_3_para>recognizing different degrees of commitment and different levels of contribution from each Founder or Employee;</numbered_3_para>
+  <numbered_3_para>respecting the need of each Founder or Employeeto balance compensation between cash and equity; and</numbered_3_para>
+  <numbered_3_para>amicably resolving scenarios in which one or more Founders or Employees leave the company.</numbered_3_para>
+  <numbered_2_para>Article <?= data.aa_preemptive_clause_number || "41" ?> of the Articles of Association confers pre-emptive rights on members of the Company. The Parties hereby waive their pre-emptive rights with regard to the issue of new Class F Shares provided that such issue occurs either as part of a vesting scheme or some other share option plan, share ownership plan, or equity-based remuneration scheme previously approved by the Company, or pursuant to a Compensation Adjustment and at the Discretionary Subscription Price as described in the Class F Agreement.</numbered_2_para>
+
+  <a_left_sidehead>Share Valuation Policy</a_left_sidehead>
+  <numbered_2_para>For purposes of calculating the valuation of the company, Class F shares both issued and reserved shall contribute to the fully-diluted capitalization value, and shall be valued on an as-if-converted basis.</numbered_2_para>
+  <numbered_2_para>For purposes of transferring shares among the Shareholders, an ordinary share of the company shall be valued</numbered_2_para>
+  <numbered_3_para>if an External Financing occurred less than 1 year ago, at 25% less than the valuation agreed therein;</numbered_3_para>
+  <numbered_3_para>if an External Financing has not occurred, or has occurred more than 1 year prior to the date of the transfer of shares, then as the shareholders agree amongst themselves.</numbered_3_para>
+  <numbered_2_para>Variation from this rule shall require the approval of the Directors. If the Directors do not give their approval to a variant valuation they may refuse to register the transfer.</numbered_2_para>
+
+  <a_left_sidehead xname="medarb">Dispute Resolution</a_left_sidehead>
+  <numbered_2_para>Founders and Employees will first attempt to settle disputes amongst themselves. If a dispute, controversy or claim arises out of or relates to this contract, or breach, termination or invalidity thereof, and if such dispute, controversy or claim cannot be settled and resolved through negotiation, the parties agree to proceed as follows:</numbered_2_para>
+  <?!= include("inc_mediation_arbitration", data) ?>
+
+  <a_left_sidehead>Drag-Along Rights</a_left_sidehead>
+  <numbered_2_para>If a Trade Sale is approved by 75% or more of voting shares (subject to any protective provisions that happen to be held by subsequent Preferred Shareholders or creditors) then the minority shareholders shall give their consent to such a sale.</numbered_2_para>
+
+  <a_left_sidehead>Tag-Along Rights</a_left_sidehead>
+  <numbered_2_para>Should one or more Shareholders offer to sell their shares to a third Party or Parties such that the new Parties would hold more than 25% of the voting stock of the company, those Shareholders must offer all other Shareholders an opportunity, calculated pro rata, to sell their shares also.</numbered_2_para>
+
+  <a_left_sidehead>New Parties</a_left_sidehead>
+  <numbered_2_para>New Shareholders shall be required to execute a Deed of Ratification and be bound by this Agreement.</numbered_2_para>
 <? if (data.parties.investor) { ?>
-  <numbered_2_para>While the Investor at the date of the signing of this Agreement is holder of Convertible Debt and not a Shareholder, upon conversion whether in whole or in part, the Investor shall be deemed to have ratified and acceded to this Agreement and agrees to be bound by the terms of this Agreement. </numbered_2_para>
+  <numbered_2_para>While the Investor at the date of the signing of this Agreement is holder of Convertible Debt and not a Shareholder, upon conversion whether in whole or in part, the Investor shall be deemed to have ratified and acceded to this Agreement and agrees to be bound by the terms of this Agreement.</numbered_2_para>
 <? } ?>
-  <b_left_sidehead_nonum>Transferability of Rights </b_left_sidehead_nonum>
-  <numbered_1_para>The Articles of Association give shareholders pre-emptive rights (on the issue of new securities) and rights of first refusal (to purchase existing securities). These rights shall be transferable on a commercial basis, so that if a deal is oversubscribed, each holder of shares or convertible instruments can delegate their position to one or more favourite investors. </numbered_1_para>
+
+<a_left_sidehead>Transferability of Rights</a_left_sidehead>
+  <numbered_2_para>The Articles of Association give shareholders pre-emptive rights (on the issue of new securities) and rights of first refusal (to purchase existing securities). These rights shall be transferable on a commercial basis, so that if a deal is oversubscribed, each holder of shares or convertible instruments can delegate their position to one or more favourite investors.</numbered_2_para>
 <? if (data.previously_incorporated) { ?>
-  <b_left_sidehead_nonum>Related Companies and Existing Proprietary Assets </b_left_sidehead_nonum>
-  <numbered_1_para>Pursuant to the Founder Agreement, should the Founders jointly or severally control an existing business (the "Previous Company") whose proprietary assets will be used in the Company's current business, then those Founders shall, at the election of the Investor but in any event prior to the Next External Financing defined in the <?=data.security_type?> Agreement of <?= data.investment_agreement_date ?>, procure</numbered_1_para>
+
+<a_left_sidehead>Related Companies and Existing Proprietary Assets</a_left_sidehead>
+  <numbered_2_para>Pursuant to the Founder Agreement, should the Founders jointly or severally control an existing business (the "Previous Company") whose proprietary assets will be used in the Company's current business, then those Founders shall, at the election of the Investor but in any event prior to the Next External Financing defined in the <?=data.security_type?> Agreement of <?= data.investment_agreement_date ?>, procure</numbered_2_para>
   <bullets>the transfer of those assets, or
 the transfer of controlling equity in that existing business, or
 a perpetual, irrevocable, royalty-free, exclusive, worldwide license of the Previous Company's assets</bullets>
@@ -111,21 +100,21 @@ a perpetual, irrevocable, royalty-free, exclusive, worldwide license of the Prev
 <? } ?>
 
 <? if (data.previously_incorporated && data.previous_incorporation_locale != "Singapore") { ?>
-<b_left_sidehead_nonum>New Investors' Interests to be Protected</b_left_sidehead_nonum>
-<numbered_1_para xname="protect_new_investors">Given that the capital appreciation of the business shall henceforth inhere in the Company <?= data.company.name ?>, the Parties agree that the Previous Company <?= data.parties.previous_company[0].name ?> shall not seek further investment from external investors, and that any external investment shall be directed toward the Company instead. The Founders<? if (data.previous_investors) { ?> and Existing Investors<?}?> hereby agree that, to the extent that they have any interest in or influence over the actions of the Previous Company, they shall act in accordance with this Clause <xref to="protect_new_investors" />.</numbered_1_para>
+<a_left_sidehead>New Investors' Interests to be Protected</a_left_sidehead>
+<numbered_2_para xname="protect_new_investors">Given that the capital appreciation of the business shall henceforth inhere in the Company <?= data.company.name ?>, the Parties agree that the Previous Company <?= data.parties.previous_company[0].name ?> shall not seek further investment from external investors, and that any external investment shall be directed toward the Company instead. The Founders<? if (data.previous_investors) { ?> and Existing Investors<?}?> hereby agree that, to the extent that they have any interest in or influence over the actions of the Previous Company, they shall act in accordance with this Clause <xref to="protect_new_investors" />.</numbered_2_para>
 <? } ?>
 
 
 <? if (data.previously_incorporated && data.previous_investors && data.previous_incorporation_locale != "Singapore") { ?>
-<b_left_sidehead_nonum>Existing Investors' Interests to be Protected</b_left_sidehead_nonum>
-<numbered_1_para>Prior to the Next External Financing, the Company shall issue and allot shares or other securities so as to represent the interests of the Existing Investors, who hold shares in the Previous Company <?= data.parties.previous_company[0].name ?>, and the Founders shall act accordingly.</numbered_1_para>
+<a_left_sidehead>Existing Investors' Interests to be Protected</a_left_sidehead>
+<numbered_2_para>Prior to the Next External Financing, the Company shall issue and allot shares or other securities so as to represent the interests of the Existing Investors, who hold shares in the Previous Company <?= data.parties.previous_company[0].name ?>, and the Founders shall act accordingly.</numbered_2_para>
 <? } ?>
 
 <? if (data.significant_corporate_matters) { ?>
-<b_left_sidehead_nonum>Significant Corporate Matters</b_left_sidehead_nonum>
+<a_left_sidehead>Significant Corporate Matters</a_left_sidehead>
 
-<numbered_1_para>These matters may not be acted upon by a Director or officer of the Company or by any of the parties without the authority of <?= data.scm_authority ?>:</numbered_1_para>
-<numbered_2_para_indent>the Company ceasing to carry on the Business or a substantial part of the Business, or a decision to wind up or dissolve the Company;
+<numbered_2_para>These matters may not be acted upon by a Director or officer of the Company or by any of the parties without the authority of <?= data.scm_authority ?>:</numbered_2_para>
+<numbered_3_para>the Company ceasing to carry on the Business or a substantial part of the Business, or a decision to wind up or dissolve the Company;
 the merger of all or a significant part of the Business or the Company with any other entity;
 any reorganisation, reclassification, reconstruction, consolidation or subdivision of the share capital of the Company or the creation of different classes of securities in the capital of the Company or the introduction of new share capital into the Company;
 capital expenditure decisions involving amounts in excess of <?= data.scm_max_spend ?>;
@@ -136,43 +125,28 @@ the making of any loan or advance by the Company;
 the appointment of a managing Director or any modification to the terms or conditions of employment of the managing Director;
 entering into or varying contracts with Directors, Shareholders of the Company or any related entity;
 any alteration to the composition of the Board that is not contemplated in this agreement; and
-any distribution of profits of the Company.</numbered_2_para_indent>
+any distribution of profits of the Company.</numbered_3_para>
 <? } ?>
 
 <? if (data.reserved_matters) { ?>
-<b_left_sidehead_nonum>Reserved Matters</b_left_sidehead_nonum>
+<a_left_sidehead>Reserved Matters</a_left_sidehead>
 <?!= data.reserved_matters ?>
 <? } ?>
 
-<b_left_sidehead_nonum>Alterations Due to External Financing </b_left_sidehead_nonum>
-  <numbered_1_para>A prospective investor may seek to alter both this Agreement and the Articles of Association as a condition of External Financing. </numbered_1_para>
-  <b_left_sidehead_nonum>Humility </b_left_sidehead_nonum>
-  <numbered_1_para>The Founders acknowledge that the business may outgrow them, and that their primary commitment is to the success of the business. Should, one day, other leadership and management be better suited, the Founders agree to be reminded of this commitment. </numbered_1_para>
-  <b_left_sidehead_nonum>Regarding Death and Disability </b_left_sidehead_nonum>
-  <numbered_1_para>As soon as practical, after or in preparation for an External Financing, the Company shall purchase what is commonly called "Key Man" insurance, such that in the event of Death or Disability of a Founder, whether that Founder is indeed a Man or a Woman, the Company can afford to </numbered_1_para>
-  <numbered_2_para_indent>continue operations in the absence of that Founder, and </numbered_2_para_indent>
-  <numbered_2_para_indent>offer to that Founder or his Estate a redemption of the Founder&#8217;s securities at fair market value. </numbered_2_para_indent>
-  <para_1>Should the Company not raise External Financing, but recognize total revenue of at least S$250,000, then this provision shall apply with equal force. </para_1>
+<a_left_sidehead>Alterations Due to External Financing</a_left_sidehead>
+  <numbered_2_para>A prospective investor may seek to alter both this Agreement and the Articles of Association as a condition of External Financing.</numbered_2_para>
+  <a_left_sidehead>Humility</a_left_sidehead>
+  <numbered_2_para>The Founders acknowledge that the business may outgrow them, and that their primary commitment is to the success of the business. Should, one day, other leadership and management be better suited, the Founders agree to be reminded of this commitment.</numbered_2_para>
+  <a_left_sidehead>Regarding Death and Disability</a_left_sidehead>
+  <numbered_2_para>As soon as practical, after or in preparation for an External Financing, the Company shall purchase what is commonly called "Key Man" insurance, such that in the event of Death or Disability of a Founder, whether that Founder is indeed a Man or a Woman, the Company can afford to</numbered_2_para>
+  <numbered_3_para>continue operations in the absence of that Founder, and</numbered_3_para>
+  <numbered_3_para>offer to that Founder or his Estate a redemption of the Founder&#8217;s securities at fair market value.</numbered_3_para>
+  <para_1>Should the Company not raise External Financing, but recognize total revenue of at least S$250,000, then this provision shall apply with equal force.</para_1>
 
   <chapter_header>Signatures</chapter_header>
-  <para_1>In witness whereof we have hereunto set our hand on <?= data.shareholders_agreement_date ?></para_1>
-  <para_1><i>The Founders:</i></para_1>
-<? for (var i = 0; i < data.parties.founder.length; i++) { ?>
-<?!= include("inc_signature", data, data.parties.founder[i]) ?>
-<? } ?>
-<? if (data.parties.investor && data.parties.investor.length) { ?>
-  <para_1><i>For and on behalf of the Investor:</i></para_1>
-<?!= include("inc_signature", data, data.parties.investor[0]) ?>
-<?}?>
-<para_1><i>For and on behalf of the Company:</i></para_1>
-<?!= include("inc_signature", data, data.company) ?>
-<? if (data.parties.existing_investor) { ?>
-  <para_1><i>The Existing <?= plural(data.parties.existing_investor, "Investor") ?>:</i></para_1>
-<?   for (var i = 0; i < data.parties.existing_investor.length; i++) { ?>
-<?!=   include("inc_signature", data, data.parties.existing_investor[i]) ?>
-<?   } ?>
-<? } ?>
+  <para_1><span_smallcaps>In witness whereof</span_smallcaps> we have hereunto set our hand on <?= data.shareholders_agreement_date ?></para_1>
 
+  <?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: {} }) ?>
 
 </Story_Main>
 </Root>
