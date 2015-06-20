@@ -76,12 +76,11 @@ The <?= data.security_type_short_plural ?> shall be interest-free.<? } ?></cell_
 <?   } ?>
 <? } ?>
 <?!= cell_l ?>Qualified Financing</cell></Cell>
-<?!= cell_r ?>The issuing of equity securities, or securities convertible to equity, in a transaction or series of related transactions resulting in aggregate gross proceeds to the Company of at least <?= data.qualified_financing_proceeds ?>, excluding conversion of the <?=data.security_type_short_plural?> and any other indebtedness.</cell_fl></Cell>
+<?!= cell_r ?>The issuing of equity securities, or securities convertible to equity<?if(data.qualified_financing_proceeds){?>,in a transaction or series of related transactions resulting in aggregate gross proceeds to the Company of at least <?= data.qualified_financing_proceeds ?>, excluding conversion of the <?=data.security_type_short_plural?> and any other indebtedness<?}?>.</cell_fl></Cell>
 <?!= cell_l ?>Conversion Price</cell></Cell>
-<?!= cell_r_addnewline ?>The "Conversion Price" is the lesser of</cell_fl>
-<cell_numbered_1><? if (data.discount != "formula") {?><?= 100 - Number(data.discount) ?>% of the <?}else{?>The <?}?>per share price paid by the purchasers of securities in the Qualified Financing (the "Discounted Conversion Price")<? if (data.discount=="formula") {?> less a discount ranging between <?=data.discount_formula_start?>% and <?=data.discount_formula_cap?>%<?}?>, or
-the price per share equal to <?= data.pre_money_valuation ?> divided by the aggregate number of outstanding shares of the Company's Common Stock as of immediately before the initial closing of the Qualified Financing (assuming full conversion or exercise of all convertible and exercisable securities then outstanding other than the <?=data.security_type_short_plural?>) (the "Valuation Cap").</cell_numbered_1>
-</Cell>
+<?!= cell_r ?>The "Conversion Price" is <?if(data.discount){?>the lesser of</cell_fl>
+<cell_numbered_1><? if (data.discount != "formula") {?><?= 100 - Number(data.discount) ?>% of the <?}else{?>The <?}?>per share price paid by the purchasers of securities in the Qualified Financing (the "Discounted Conversion Price")<? if (data.discount=="formula") {?> less a discount ranging between <?=data.discount_formula_start?>% and <?=data.discount_formula_cap?>%<?}?>, or <?}?>
+the price per share equal to <?= data.pre_money_valuation ?> divided by the aggregate number of outstanding shares of the Company's Common Stock as of immediately before the initial closing of the Qualified Financing (assuming full conversion or exercise of all convertible and exercisable securities then outstanding other than the <?=data.security_type_short_plural?>) (the "Valuation Cap").<?if(data.discount){?></cell_numbered_1><?}else{?></cell_fl><?}?></Cell>
 <?!= cell_l ?>Automatic Conversion</cell></Cell>
 <?!= cell_r ?><b>&#8230; in a Qualified Financing.</b> If the Company issues Equity Securities in a Qualified Financing, then the <?=data.security_type_short_plural?><?= data.interest > 0 ? ", and any accrued but unpaid interest thereon," :""?> will automatically convert into <?
 if (data.converts_to.match(/Ordinary Shares|Common Stock/i)) { ?>ordinary voting shares<? } else {
