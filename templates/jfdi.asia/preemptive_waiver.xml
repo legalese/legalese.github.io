@@ -19,12 +19,12 @@
 
 </basic_para>
 <para_1><b>Issuance of New Shares in <?= data.company.name ?> (the "Company")</b></para_1>
-<para_1>Notice is hereby given to all members of the Company that the Directors intend to issue <?= data.total_new_securities_on_offer ?> <?= data.security_type_plural ?> ("<?= data.security_type_short_plural ?>")<? if(data.price_per_share){?>, at a price of <?= data.price_per_share ?> per share<?}?>.</para_1>
+<para_1>Notice is hereby given to all members of the Company that the Directors intend to issue <?= data.total_new_securities_on_offer ?><?if(data.total_new_securities_on_offer.match(/\$/)){ ?> of<?}?> <?= data.security_type_plural ?> ("<?= data.security_type_short_plural ?>")<? if(data.price_per_share){?>, at a price of <?= data.price_per_share ?> per share<?}?>.</para_1>
 <? if (data.explanation) { ?><para_2><?= data.explanation ?></para_2><? } ?>
 <para_2>As a member of the Company, you possess the right under the Company's Articles of Association to participate in this issue.
 <?if(data.preemptive_formality){?>We request that you waive this right, as your waiver is a necessary formality required for the Company to issue these shares to <?=commaAnd(data.parties.new_investor,"name")?>.
 <?}else{?>
-Given that the Company is issuing <?= data.total_new_securities_on_offer ?> new <?= data.security_type_short_plural ?>, and you presently hold <?= data.shareholder.num_shares ?> out of <?= data.company.num_shares ?> existing shares, you have the right to subscribe for up to <?= data.shareholder.pro_rata ?>% of this new issue: <?= digitCommas_(data.shareholder.pro_rata / 100 * asNum_(data.total_new_securities_on_offer), 0) ?>
+Given that the Company is issuing <?= data.total_new_securities_on_offer ?><?if(data.total_new_securities_on_offer.match(/\$/)){ ?> of<?}?> new <?= data.security_type_short_plural ?>, and you presently hold <?= data.shareholder.num_shares ?> out of <?= data.company.num_shares ?> existing shares, you have the right to subscribe for up to <?= data.shareholder.pro_rata ?>% of this new issue: <?= digitCommas_(data.shareholder.pro_rata / 100 * asNum_(data.total_new_securities_on_offer), 0) ?>
  <?= data.security_type_short_plural ?><? if (data.price_per_share) { ?> for <?= asCurrency_(currencyFor_(data.price_per_share), (data.shareholder.pro_rata / 100 * asNum_(data.amount_raising)).toFixed(2)) ?><?}?>.
 <? if (data.amount_raising) { ?>You may also have excess rights to subscribe beyond that amount -- if other shareholders do not take up their pro rata allotments, you may participate beyond yours, up to the total amount of <?= data.amount_raising ?>.
  <? } ?>
