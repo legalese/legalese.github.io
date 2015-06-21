@@ -31,8 +31,7 @@
  (the "Purchase Amount") on or about <?= data.agreement_date ?>
 , <?= data.company.name ?>, a <?= data.company.state ?>
 corporation (the "Company"), hereby issues to the Investor the right to certain shares of the Company's capital stock, subject to the terms set forth below.
-<? if (data.pre_money_valuation && data.conversion_respects_cap != false) { ?>
-The "Valuation Cap" is <?= data.pre_money_valuation?>.
+<? if (iHaveCap) { ?>The "Valuation Cap" is <?= data.pre_money_valuation?>.
 <? }
   Logger.log("data.discount=%s",data.discount);
   Logger.log("data._orig_discount=%s",data._orig_discount);
@@ -81,13 +80,13 @@ or (2) a number of shares of Safe Preferred Stock equal to the Purchase Amount d
 -->
 <numbered_2_para>"Conversion Price" means<?
 var prices = ["the price per share of the Standard Preferred Stock"];
-if (data.conversion_respects_cap != false) { prices.push("the Safe Price") }
+if (iHaveCap) { prices.push("the Safe Price") }
 if (data._orig_discount) { prices.push("the Discount Price") }
 ?> <? if (prices.length == 2) { ?>the lower of: <?
 } else if (prices.length > 2) { ?>the lowest of: <?
 } ?><?= commaAnd(prices) ?>.</numbered_2_para>
 <numbered_2_para>"Conversion Shares" shall mean<?
-if (data.conversion_respects_cap != false || data._orig_discount) {?>:</numbered_2_para>
+if (iHaveCap) {?>:</numbered_2_para>
 <numbered_3_para>If the Conversion Price is the price per share of the Standard Preferred Stock, then Standard Preferred Stock;
 otherwise, Safe Preferred Stock.</numbered_3_para>
 <? } else { ?> Standard Preferred Stock.</numbered_2_para>
