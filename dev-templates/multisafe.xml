@@ -2,10 +2,10 @@
 <Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
 <CoverTop><cover_title>Simple Agreement for Future Equity
 <? var iHaveCap = (data.pre_money_valuation && data.conversion_respects_cap != false); ?>
-<?      if (  iHaveCap &&   data._orig_discount) { ?>Cap and Discount<?}?>
-<? else if (! iHaveCap &&   data._orig_discount) { ?>Discount, no Cap<?}?>
-<? else if (! iHaveCap && ! data._orig_discount) { ?>No Cap, No Discount<?}?>
-<? else if (  iHaveCap && ! data._orig_discount) { ?>Cap Only, No Discount<?}?>
+<?    if (  iHaveCap &&   data._orig_discount) { ?>Cap and Discount<?}
+ else if (! iHaveCap &&   data._orig_discount) { ?>Discount, no Cap<?}
+ else if (! iHaveCap && ! data._orig_discount) { ?>No Cap, No Discount<?}
+ else if (  iHaveCap && ! data._orig_discount) { ?>Cap Only, No Discount<?}?></cover_title>
 <cover_company_name><?= data.company.name ?></cover_company_name>
 
 </CoverTop>
@@ -102,6 +102,16 @@ otherwise, Safe Preferred Stock.</numbered_3_para>
 <numbered_2_para>"Safe Preferred Stock" means the shares of a series of Preferred Stock issued to the Investor in an Equity Financing, having the identical rights, privileges, preferences and restrictions as the shares of Standard Preferred Stock, other than with respect to: the per share liquidation preference and the conversion price for purposes of price-based anti-dilution protection, which will equal the Safe Price; and the basis for any dividend rights, which will be based on the Safe Price.   </numbered_2_para>
 <numbered_2_para>"Safe Price" means the price per share equal to the Valuation Cap divided by the Company Capitalization. </numbered_2_para>
 <numbered_2_para>"Standard Preferred Stock" means the shares of a series of Preferred Stock issued to the investors investing new money in the Company in connection with the initial closing of the Equity Financing. </numbered_2_para>
+
+<? if(data.mfn == true) { ?>
+<numbered_2_para>"Subsequent Convertible Securities" means convertible securities that the Company may issue after the issuance of this instrument with the principal purpose of raising capital, including but not limited to, other Safes, convertible debt instruments and other convertible securities, but excluding:</numbered_2_para>
+<numbered_3_para>options issued pursuant to any equity incentive or similar plan of the Company;
+convertible securities issued or issuable to (A) banks, equipment lessors, financial institutions or other persons engaged in the business of making loans pursuant to a debt financing or commercial leasing or (B) suppliers or third party service providers in connection with the provision of goods or services pursuant to transactions; and
+convertible securities issued or issuable in connection with sponsored research, collaboration, technology license, development, OEM, marketing or other similar agreements or strategic partnerships.</numbered_3_para>
+
+<numbered_2_firstbold>"MFN" Amendment Provision. If the Company issues any Subsequent Convertible Securities prior to termination of this instrument, the Company will promptly provide the Investor with written notice thereof, together with a copy of all documentation relating to such Subsequent Convertible Securities and, upon written request of the Investor, any additional information related to such Subsequent Convertible Securities as may be reasonably requested by the Investor.  In the event the Investor determines that the terms of the Subsequent Convertible Securities are preferable to the terms of this instrument, the Investor will notify the Company in writing. Promptly after receipt of such written notice from the Investor, the Company agrees to amend and restate this instrument to be identical to the instrument(s) evidencing the Subsequent Convertible Securities.</numbered_2_firstbold>
+<?}?>
+
 <a_left_sidehead>Company Representations </a_left_sidehead>
 <numbered_2_para>The Company is a corporation duly organized, validly existing and in good standing under the laws of the state of its incorporation, and has the power and authority to own, lease and operate its properties and carry on its business as now conducted. </numbered_2_para>
 <numbered_2_para>The execution, delivery and performance by the Company of this instrument is within the power of the Company and, other than with respect to the actions to be taken when equity is to be issued to the Investor, has been duly authorized by all necessary actions on the part of the Company. This instrument constitutes a legal, valid and binding obligation of the Company, enforceable against the Company in accordance with its terms, except as limited by bankruptcy, insolvency or other laws of general application relating to or affecting the enforcement of creditors' rights generally and general principles of equity.  To the knowledge of the Company, it is not in violation of its current certificate of incorporation or bylaws, any material statute, rule or regulation applicable to the Company or any material indenture or contract to which the Company is a party or by which it is bound, where, in each case, such violation or default, individually, or together with all such violations or defaults, could reasonably be expected to have a material adverse effect on the Company. </numbered_2_para>
