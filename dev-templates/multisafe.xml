@@ -1,9 +1,11 @@
 <?!= data.xml_declaration ?>
 <Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
 <CoverTop><cover_title>Simple Agreement for Future Equity
-Cap Only, No Discount</cover_title>
-
-
+<? var iHaveCap = (data.pre_money_valuation && data.conversion_respects_cap != false); ?>
+<?      if (  iHaveCap &&   data._orig_discount) { ?>Cap and Discount<?}?>
+<? else if (! iHaveCap &&   data._orig_discount) { ?>Discount, no Cap<?}?>
+<? else if (! iHaveCap && ! data._orig_discount) { ?>No Cap, No Discount<?}?>
+<? else if (  iHaveCap && ! data._orig_discount) { ?>Cap Only, No Discount<?}?>
 <cover_company_name><?= data.company.name ?></cover_company_name>
 
 </CoverTop>
@@ -24,18 +26,19 @@ Cap Only, No Discount</cover_title>
  (the "Purchase Amount") on or about <?= data.agreement_date ?>
 , <?= data.company.name ?>, a <?= data.company.state ?>
 corporation (the "Company"), hereby issues to the Investor the right to certain shares of the Company's capital stock, subject to the terms set forth below.
-<? if (data.pre_money_valuation) { ?>
+<? if (data.pre_money_valuation && data.conversion_respects_cap != false) { ?>
 The "Valuation Cap" is <?= data.pre_money_valuation?>.
-<? } if (data.discount_rate) { ?>
-The "Discount Rate" is <?= 100 - data.discount_rate?>.
+<? }
+  Logger.log("data.discount=%s",data.discount);
+  Logger.log("data._orig_discount=%s",data._orig_discount);
+  if (data._orig_discount) { ?>
+The "Discount Rate" is <?= data.hundred_minus_discount ?>%.
 <? } ?>
 See Section <xref to="definitions" /> for certain additional defined terms.</para_1>
 <a_left_sidehead xname="events">Events </a_left_sidehead>
 <? if (data.pre_money_valuation) { ?>
-<numbered_2_firstbold xname="equity_financing">Equity Financing. If there is an Equity Financing before the expiration or termination of this instrument, the Company will automatically issue to the Investor either:</numbered_2_firstbold>
-<numbered_3_para>a number of shares of Standard Preferred Stock equal to the Purchase Amount divided by the price per share of the Standard Preferred Stock, if the pre-money valuation is less than or equal to the Valuation Cap; or</numbered_3_para>
-<numbered_3_para>a number of shares of Safe Preferred Stock equal to the Purchase Amount divided by the Safe Price, if the pre-money valuation is greater than the Valuation Cap.</numbered_3_para>
-<para_1>In connection with the issuance of Standard Preferred Stock or Safe Preferred Stock, as applicable, by the Company to the Investor pursuant to this Section <xref to="equity_financing" />:</para_1>
+<numbered_2_firstbold xname="equity_financing">Equity Financing. If there is an Equity Financing before the expiration or termination of this instrument, the Company will automatically issue to the Investor a number of Conversion Shares equal to the Purchase Amount divided by the Conversion Price.</numbered_2_firstbold>
+<para_1>In connection with the issuance of Conversion Shares, as applicable, by the Company to the Investor pursuant to this Section <xref to="equity_financing" />:</para_1>
 <numbered_3_para>The Investor will execute and deliver to the Company all transaction documents related to the Equity Financing; provided, that such documents are the same documents to be entered into with the purchasers of Standard Preferred Stock, with appropriate variations for the Safe Preferred Stock if applicable, and provided further, that such documents have customary exceptions to any drag-along applicable to the Investor, including, without limitation, limited representations and warranties and limited liability and indemnification obligations on the part of the Investor; and</numbered_3_para>
 <? } else if (data.cap_discount) { ?>
 <numbered_2_firstbold xname="equity_financing">Equity Financing. If there is an Equity Financing before the expiration or termination of this instrument, the Company will automatically issue to the Investor a number of shares of Safe Preferred Stock equal to the Purchase Amount divided by the Conversion Price.</numbered_2_firstbold>
@@ -63,6 +66,30 @@ See Section <xref to="definitions" /> for certain additional defined terms.</par
 <numbered_2_para_noupspace>"Capital Stock" means the capital stock of the Company, including, without limitation, the "Common Stock" and the "Preferred Stock."</numbered_2_para_noupspace>
 <numbered_2_para>"Change of Control" means a transaction or series of related transactions in which any "person" or "group" (within the meaning of Section 13(d) and 14(d) of the Securities Exchange Act of 1934, as amended), becomes the "beneficial owner" (as defined in Rule 13d-3 under the Securities Exchange Act of 1934, as amended), directly or indirectly, of more than 50% of the outstanding voting securities of the Company having the right to vote for the election of members of the Company's board of directors, any reorganization, merger or consolidation of the Company, other than a transaction or series of related transactions in which the holders of the voting securities of the Company outstanding immediately prior to such transaction or series of related transactions retain, immediately after such transaction or series of related transactions, at least a majority of the total voting power represented by the outstanding voting securities of the Company or such other surviving or resulting entity or a sale, lease or other disposition of all or substantially all of the assets of the Company. </numbered_2_para>
 <numbered_2_para>"Company Capitalization" means the sum, as of immediately prior to the Equity Financing, of: all shares of Capital Stock (on an as-converted basis) issued and outstanding, assuming exercise or conversion of all outstanding vested and unvested options, warrants and other convertible securities, but excluding (A) this instrument, (B) all other Safes, and (C) convertible promissory notes; and all shares of Common Stock reserved and available for future grant under any equity incentive or similar plan of the Company, and/or any equity incentive or similar plan to be created or increased in connection with the Equity Financing. </numbered_2_para>
+
+
+<!-- original text from the SAFE CAP
+
+either:
+(1) a number of shares of Standard Preferred Stock equal to the Purchase Amount divided by the price per share of the Standard Preferred Stock, if the pre-money valuation is less than or equal to the Valuation Cap;
+or (2) a number of shares of Safe Preferred Stock equal to the Purchase Amount divided by the Safe Price, if the pre-money valuation is greater than the Valuation Cap.
+-->
+<numbered_2_para>"Conversion Price" means<?
+var prices = ["the price per share of the Standard Preferred Stock"];
+if (data.conversion_respects_cap != false) { prices.push("the Safe Price") }
+if (data._orig_discount) { prices.push("the Discount Price") }
+?> <? if (prices.length == 2) { ?>the lower of: <?
+} else if (prices.length > 2) { ?>the lowest of: <?
+} ?><?= commaAnd(prices) ?>.</numbered_2_para>
+<numbered_2_para>"Conversion Shares" shall mean<?
+if (data.conversion_respects_cap != false || data._orig_discount) {?>:</numbered_2_para>
+<numbered_3_para>If the Conversion Price is the price per share of the Standard Preferred Stock, then Standard Preferred Stock;
+otherwise, Safe Preferred Stock.</numbered_3_para>
+<? } else { ?> Standard Preferred Stock.</numbered_2_para>
+<?}?>
+<? if (data._orig_discount) { ?>
+<numbered_2_para>"Discount Price" means the price per share of the Standard Preferred Stock sold in the Equity Financing multiplied by the Discount Rate (<?= data.hundred_minus_discount ?>%).</numbered_2_para>
+<? } ?>
 <numbered_2_para>"Distribution" means the transfer to holders of Capital Stock by reason of their ownership thereof of cash or other property without consideration whether by way of dividend or otherwise, other than dividends on Common Stock payable in Common Stock, or the purchase or redemption of Capital Stock by the Company or its subsidiaries for cash or property other than: repurchases of Common Stock held by employees, officers, directors or consultants of the Company or its subsidiaries pursuant to an agreement providing, as applicable, a right of first refusal or a right to repurchase shares upon termination of such service provider's employment or services; or repurchases of Capital Stock in connection with the settlement of disputes with any stockholder. </numbered_2_para>
 <numbered_2_para>"Dissolution Event" means a voluntary termination of operations, a general assignment for the benefit of the Company's creditors or any other liquidation, dissolution or winding up of the Company (excluding a Liquidity Event), whether voluntary or involuntary. </numbered_2_para>
 <numbered_2_para>"Equity Financing" means a bona fide transaction or series of transactions with the principal purpose of raising capital, pursuant to which the Company issues and sells Preferred Stock at a fixed pre-money valuation. </numbered_2_para>
