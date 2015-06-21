@@ -26,10 +26,7 @@ Cap Only, No Discount</cover_title>
 corporation (the "Company"), hereby issues to the Investor the right to certain shares of the Company's capital stock, subject to the terms set forth below.
 <? if (data.pre_money_valuation) { ?>
 The "Valuation Cap" is <?= data.pre_money_valuation?>.
-<? } else if (data.cap_discount) { ?>
-The "Valuation Cap" is <?= data.pre_money_valuation?>.
-The "Discount Rate" is <?= 100 - data.discount_rate?>.
-<? } else if (data.discount) { ?>
+<? } if (data.discount_rate) { ?>
 The "Discount Rate" is <?= 100 - data.discount_rate?>.
 <? } ?>
 See Section <xref to="definitions" /> for certain additional defined terms.</para_1>
