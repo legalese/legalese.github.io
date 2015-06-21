@@ -6,7 +6,12 @@
  else if (! iHaveCap &&   data._orig_discount) { ?>Discount, no Cap<?}
  else if (! iHaveCap && ! data._orig_discount) { ?>No Cap, No Discount<?}
  else if (  iHaveCap && ! data._orig_discount) { ?>Cap Only, No Discount<?}?></cover_title>
-<cover_company_name><?= data.company.name ?></cover_company_name>
+<cover_company_name>
+
+
+
+
+<?= data.company.name ?></cover_company_name>
 
 </CoverTop>
 <CoverMid>
