@@ -1,6 +1,12 @@
 <?!= data.xml_declaration ?>
 <? data.has_major_investor_rights = (data._orig_major_investor_minimum !== ""); ?>
 <?!= data.xmlRoot() ?>
+<? /* TODO
+* refactor this away from nominalism, toward essentialism.
+* security_essential should not be explicit in the TERMS spreadsheet.
+* it should be a computed property interpreted from the facts at hand.
+* an Investment Terms spreadsheet should have one column for KISS, not two for debt/equity.
+*/ ?>
 <CoverTop>
 <cover_title>KISS(Sing) Agreement (<?= data.security_essential.match(/warrant|equity/,"i") ? "Equity" : "Debt" ?>)
 </cover_title>
