@@ -15,6 +15,8 @@
 
 </CoverTop>
 <CoverMid>
+<?!= include("inc_disclaimer", data, { parastyle:"noindent_justified",
+  flavor: data.company.state })?>
 </CoverMid>
 <CoverBottom_Logotype>
 </CoverBottom_Logotype>
@@ -25,18 +27,16 @@
 <Firstpage_Sidebar delete_if_empty="true">
 </Firstpage_Sidebar>
 <Story_Main>
-<?!= include("inc_disclaimer", data, { flavor: data.company.state } ) ?>
 <para_1><span_smallcaps>This certifies that</span_smallcaps> in exchange for the payment by <?= data.new_investor.name ?>
- (the "Investor") of <?= data.new_investor.commitment ?>
+ (the "Investor") of <?= data.new_investor.new_commitment ?>
  (the "Purchase Amount") on or about <?= data.agreement_date ?>
-, <?= data.company.name ?>, a <?= data.company.state ?>
-corporation (the "Company"), hereby issues to the Investor the right to certain shares of the Company's capital stock, subject to the terms set forth below.
-<? if (iHaveCap) { ?>The "Valuation Cap" is <?= data.pre_money_valuation?>.
+, <?= data.company.name ?>, a <?= data.company.state ?> corporation (the "Company"), hereby issues to the Investor the right to certain shares of the Company's capital stock, subject to the terms set forth below.
+<? if (iHaveCap) { ?>The <b>"Valuation Cap"</b> is <?= data.pre_money_valuation?>.
 <? }
   Logger.log("data.discount=%s",data.discount);
   Logger.log("data._orig_discount=%s",data._orig_discount);
   if (data._orig_discount) { ?>
-The "Discount Rate" is <?= data.hundred_minus_discount ?>%.
+The <b>"Discount Rate"</b> is <?= data.hundred_minus_discount ?>%.
 <? } ?>
 See Section <xref to="definitions" /> for certain additional defined terms.</para_1>
 <a_left_sidehead xname="events">Events </a_left_sidehead>
