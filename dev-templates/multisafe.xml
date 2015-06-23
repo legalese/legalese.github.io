@@ -43,12 +43,12 @@ See Section <xref to="definitions" /> for certain additional defined terms.</par
 <a_left_sidehead xname="events">Events </a_left_sidehead>
 <numbered_2_firstbold xname="equity_financing">Equity Financing. If there is an Equity Financing before the expiration or termination of this instrument, the Company will automatically issue to the Investor a number of Conversion Shares equal to the Purchase Amount divided by the Conversion Price.</numbered_2_firstbold>
 <para_1>In connection with the issuance of Conversion Shares, as applicable, by the Company to the Investor pursuant to this Section <xref to="equity_financing" />:</para_1>
-<? } if ((iHaveCap && data._orig_discount) || data._orig_discount) { ?>
+<? } else if ((iHaveCap && data._orig_discount || data._orig_discount) { ?>
 <numbered_2_firstbold xname="equity_financing">Equity Financing. If there is an Equity Financing before the expiration or termination of this instrument, the Company will automatically issue to the Investor a number of shares of Safe Preferred Stock equal to the Purchase Amount divided by the Conversion Price.</numbered_2_firstbold>
 <para_1>In connection with the issuance of Safe Preferred Stock, by the Company to the Investor pursuant to this Section <xref to="equity_financing" />:</para_1>
 <? } ?>
 <numbered_3_para>The Investor will execute and deliver to the Company all transaction documents related to the Equity Financing; provided, that such documents are the same documents to be entered into with the purchasers of Standard Preferred Stock, with appropriate variations for the Safe Preferred Stock if applicable, and provided further, that such documents have customary exceptions to any drag-along applicable to the Investor, including, without limitation, limited representations and warranties and limited liability and indemnification obligations on the part of the Investor; and</numbered_3_para>
-<? if (data.mfn) { ?>
+<? else if (!iHaveCap && !data._orig_discount) { ?>
 <numbered_2_firstbold xname="equity_financing">Equity Financing. If there is an Equity Financing before the expiration or termination of this instrument, the Company will automatically issue to the Investor a number of shares of Preferred Stock sold in the Equity Financing equal to the Purchase Amount divided by the price per share of the Preferred Stock.</numbered_2_firstbold>
 <para_1>In connection with the issuance of such shares of Preferred Stock to the Investor pursuant to this Section 1(a) <xref to="equity_financing" />:</para_1>
 <numbered_3_para>The Investor will execute and deliver to the Company all transaction documents related to the Equity Financing; provided, that such documents are the same documents to be entered into with the purchasers of Preferred Stock, and provided further, that such documents have customary exceptions to any drag-along applicable to the Investor, including, without limitation, limited representations and warranties and limited liability and indemnification obligations on the part of the Investor; and</numbered_3_para>
@@ -57,7 +57,7 @@ See Section <xref to="definitions" /> for certain additional defined terms.</par
 <numbered_2_firstbold>Liquidity Event.  If there is a Liquidity Event before the expiration or termination of this instrument, the Investor will, at its option, either</numbered_2_firstbold>
 <numbered_3_para xname="cash_payment">receive a cash payment equal to the Purchase Amount (subject to the following paragraph) or</numbered_3_para>
 <numbered_3_para xname="specie_payment">automatically receive from the Company a number of shares of Common Stock equal to the Purchase Amount divided by the </numbered_3_para>
-<? if (data.mfn) { ?>
+<? if ((!iHaveCap && !data._orig_discount) { ?>
 <numbered_3_para>fair market value of the Common Stock at the time of the Liquidity Event (determined by reference to the purchase price payable in connection with such Liquidity Event) (the “Liquidity Price”), </numbered_3_para>
 <? } else { ?>
 <numbered_3_para>Liquidity Price, </numbered_3_para>
@@ -106,7 +106,7 @@ otherwise, Safe Preferred Stock.</numbered_3_para>
 <numbered_2_para>"Safe Preferred Stock" means the shares of a series of Preferred Stock issued to the Investor in an Equity Financing, having the identical rights, privileges, preferences and restrictions as the shares of Standard Preferred Stock, other than with respect to: the per share liquidation preference and the conversion price for purposes of price-based anti-dilution protection, which will equal the Safe Price; and the basis for any dividend rights, which will be based on the Safe Price.   </numbered_2_para>
 <numbered_2_para>"Safe Price" means the price per share equal to the Valuation Cap divided by the Company Capitalization. </numbered_2_para>
 <numbered_2_para>"Standard Preferred Stock" means the shares of a series of Preferred Stock issued to the investors investing new money in the Company in connection with the initial closing of the Equity Financing. </numbered_2_para>
-<? if(data.mfn == true) { ?>
+<? if(!iHaveCap && !data._orig_discount) { ?>
 <numbered_2_para>"Subsequent Convertible Securities" means convertible securities that the Company may issue after the issuance of this instrument with the principal purpose of raising capital, including but not limited to, other Safes, convertible debt instruments and other convertible securities, but excluding:</numbered_2_para>
 <numbered_3_para>options issued pursuant to any equity incentive or similar plan of the Company;
 convertible securities issued or issuable to (A) banks, equipment lessors, financial institutions or other persons engaged in the business of making loans pursuant to a debt financing or commercial leasing or (B) suppliers or third party service providers in connection with the provision of goods or services pursuant to transactions; and
