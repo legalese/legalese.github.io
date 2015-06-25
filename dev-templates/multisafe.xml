@@ -43,7 +43,7 @@ See Section <xref to="definitions" /> for certain additional defined terms.</par
 <a_left_sidehead xname="events">Events </a_left_sidehead>
 <numbered_2_firstbold xname="equity_financing">Equity Financing. If there is an Equity Financing before the expiration or termination of this instrument, the Company will automatically issue to the Investor a number of Conversion Shares equal to the Purchase Amount divided by the Conversion Price.</numbered_2_firstbold>
 <para_1>In connection with the issuance of Conversion Shares, as applicable, by the Company to the Investor pursuant to this Section <xref to="equity_financing" />:</para_1>
-<? } if ((iHaveCap && data._orig_discount || data._orig_discount) { ?>
+<? } if ((iHaveCap && data._orig_discount) || data._orig_discount) { ?>
 <numbered_2_firstbold xname="equity_financing">Equity Financing. If there is an Equity Financing before the expiration or termination of this instrument, the Company will automatically issue to the Investor a number of shares of Safe Preferred Stock equal to the Purchase Amount divided by the Conversion Price.</numbered_2_firstbold>
 <para_1>In connection with the issuance of Safe Preferred Stock, by the Company to the Investor pursuant to this Section <xref to="equity_financing" />:</para_1>
 <? } else { ?>
@@ -94,7 +94,7 @@ if (iHaveCap) {?>:</numbered_2_para>
 <numbered_3_para>If the Conversion Price is the price per share of the Standard Preferred Stock, then Standard Preferred Stock;
 otherwise, Safe Preferred Stock.</numbered_3_para>
 <? } else { ?> <numbered_3_para>Standard Preferred Stock.</numbered_3_para>
-<?}?>
+<? } ?>
 <? if (data._orig_discount) { ?>
 <numbered_2_para>"Discount Price" means the price per share of the Standard Preferred Stock sold in the Equity Financing multiplied by the Discount Rate (<?= data.hundred_minus_discount ?>%).</numbered_2_para>
 <? } ?>
