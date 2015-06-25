@@ -78,9 +78,10 @@ if (data._orig_discount) { prices.push("the Discount Price") }
 ?> <? if (prices.length == 2) { ?>the lower of: <?
 } else if (prices.length > 2) { ?>the lowest of: <?
 } ?><?= commaAnd(prices) ?>.</numbered_2_para>
-<numbered_2_para>"Conversion Shares" shall mean:</numbered_2_para>
+<numbered_2_para>"Conversion Shares" means</numbered_2_para>
 <? if (iHaveCap) {?>
-<numbered_3_para>If the Conversion Price is the price per share of the Standard Preferred Stock, then Standard Preferred Stock; otherwise, Safe Preferred Stock.</numbered_3_para>
+<numbered_3_para>If the Conversion Price is the price per share of the Standard Preferred Stock, then Standard Preferred Stock;</numbered_3_para>
+<numbered_3_para>otherwise, Safe Preferred Stock.</numbered_3_para>
 <? } else { ?>
 <numbered_3_para>Standard Preferred Stock.</numbered_3_para>
 <? } if (data._orig_discount) { ?>
