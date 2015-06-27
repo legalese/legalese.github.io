@@ -1,3 +1,12 @@
+<?!= data.xml_declaration ?>
+<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
+
+  <Firstpage_Sidebar>
+<sidebar>This document records the legal rights and liabilities attaching to Series YC-AA Convertible Preference Shares. This agreement is modeled on on the Series AA model documents published by Y Combinator.</sidebar>
+  </Firstpage_Sidebar>
+
+<Story_Main>
+
 <b_left_sidehead_nonum>Series YC-AA Convertible Preference Shares </b_left_sidehead_nonum>
 <numbered_1_para xname="ycaa">The Company may issue <b>Series YC-AA Shares</b> in the capital of the Company, at an issue price of S$0.00001 each or such other amount as the Directors may determine, which shall carry the following rights, benefits and privileges and be subject to the following restrictions: </numbered_1_para>
 <numbered_2_firstbold>As regards issue. YC-AA Shares may be issued with the sanction of an ordinary resolution pursuant to agreements between the Company and individual holders (within this Article <xref to="ycaa" />, the "Subscription Agreements"), the terms of which the Directors may determine. </numbered_2_firstbold>
@@ -58,3 +67,6 @@
 <numbered_2_firstbold>As regards substitution securities. In the event of a Change of Control, winding-up, or dissolution of the Company pursuant to reconstruction, amalgamation, merger or consolidation, the resultant corporate entity responsible for the liabilities of the Company with respect to YC-AA Shares shall issue such securities in substitution and replacement of YC-AA Shares and on such terms as shall be approved by at least 51% of all then existing Holders of YC-AA Shares unless the terms of such securities in substitution are no less favourable than the terms of YC-AA Shares in which case the approval by Holders of YC-AA Shares shall not be required. </numbered_2_firstbold>
 <numbered_2_firstbold>As regards pro-rata rights. Holders of YC-AA Shares shall enjoy the rights described in Articles <xref to="rofr" /> and <xref to="preemptive" /> in proportion to the number of ordinary shares they would hold if converted. The ordinary shares issued upon conversion from YC-AA Shares, being spoken for, shall not be considered "new" for the purposes of Article <xref to="preemptive" /> and shall not be offered to other Members.</numbered_2_firstbold>
 <numbered_2_para>Save as provided above, there are no other anti-dilution or protective provisions in respect of the YC-AA Shares.</numbered_2_para>
+
+</Story_Main>
+</Root>
