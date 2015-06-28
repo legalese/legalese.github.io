@@ -21,34 +21,7 @@ http://e27.co/one-singapores-top-corporate-tech-lawyers-helping-little-guys-2015
 
 - help to filter the range based on which are acceptable to investors.
 
-* DONE make Legalese a library
-that people can just import, similar to the OAuth library.
 
-* TODO [#A] make Legalese an add-on
-that doesn't import a library.
-
-* TODO [#A] obtain a CUSTOMER api key for integration against echosign; get blessing.
-* for jfdi.2014
-** DONE add to explanatory statement
-*** this is a formality and we do not expect anyone to object
-*** what happens if you don't sign the agreement
-*** what if you want to put more money in
-
-* TODO [#C] figure out how to do PDF form elements so that EchoSigners can check various boxes and enter text amounts.
-* TODO refactor the signature page and cover page so that all parties are automatically represented by default.
-* DONE support cross references
-* TODO support table of contents and TOC bookmarks
-* TODO preemptive rights response form inspired by the example set by crayondata. need to do form response logic.
-* TODO V39A
-* DONE concatenate PDFs doesn't quite do the right thing -- ensure individual docs don't each get the full set of recipients
-* TODO improve schema management -- we should be able to create a new startup, a new agreement, etc faster, with correctly populated templates.
-because we are aware of the schema we should autopopulate the sheet with those variables, and only those variables, that are expected in the xml.
-we have previously done a little work in this direction, titled something like introspector.
-** TODO this linter should verify, just before a run, that all the variables that an XML expects are available from the spreadsheet
-* DONE clean up the overlap between the new share class creation variables and the new share issue variables. 
-* TODO figure out a better way to track the agreement dates (TODAY vs the actual signed date in the spreadsheet.)
-* TODO collapse multiple hats to a single signer -- if the same email address is signing in multiple roles, give them the same esnum
-right now we send two emails and they are confusing.
 * for Kark
 ** DONE sent out the issue & allotment workflow
 * [2015-03-22 Sun 14:53] for tradegecko
@@ -84,11 +57,8 @@ this is basically done -- we have this docset ready.
 *** to issue new shares to everybody who has subscribed
 *** if the members give approval, to give corporate secretary authority to bizfile
 ** TODO fix up 3A using the same ab styling and get it submitted as a change
-* bugfixes
-** TODO [#A] if the controller defines a form here and a form there do those forms' onsubmits find the right sheet to update?
 * for 2015a
 ** DONE [#A] reformat all of Table A into the articles of association so we have something that's submissible to banks and so on
-** TODO [#A] review articles of association from 2013B and see if there are significant omissions in our 2015a version.
 ** CANCELLED the issue of F shares also needs a preemptive waiver workflow for any shareholders who are not founders.
 no they don't -- 115.9 covers this.
 ** DONE [#A] previously incorporated companies to adopt new articles.
@@ -112,30 +82,6 @@ see JFDI.BOOTCAMP.pdf from JFDI.2012 -- this text should go inside the Memo
 ** DONE import shareholder agreement
 ** DONE import class f agreement
 ** DONE import volunteer agreement
-** TODO [#C] merge employment agreement and internship agreement into volunteer agreement
-** TODO [#C] create directors and members resolution docset to waive AGM for first two years until such time as the company ceases to be an exempt private limited.
-* TODO for launch of legalese
-** go register a legalese project identity on github
-** restructure code.gs so that people can use it without having to actually have access to my echosign oauth credentials 
-** restructure code.gs so it's easier for people to use as an add-on without having to have (staling) source in each spreadsheet
-** republish all the currently private content under cofounders to legalese, with the echosign oauth creds scrubbed
-** confirm that https://some-legalese-thing.github.io works so we close at least one MITM attack vector for code insertion in the xml templates
-** TODO chuck kiss and safe into it
-* TODO add gender pronoun for parties
-* DONE for xml2pdf-lib.jsx, any paragraph that ends in ":" or ":--+" should have a "keep with next" turned on.
-* TODO if the template points to a google drive url then it's a private template and we need to retrieve it specially.
-* for [2015-03-26 Thu] at thehub
-** TODO import KISSsing
-** TODO import SAFE US
-** TODO import SAFE Singapore
-** TODO import Darius's Note
-** TODO import TechStars model docs
-** TODO import Series Seed
-*** IN
-*** EU -- FI
-*** US
-** TODO import YC Series AA
-** TODO import
 * potential brands
 ** http://en.wikipedia.org/wiki/Asperges
 ** Notwithstanding
