@@ -1,5 +1,69 @@
 #+TITLE: Legalese User Experience
 
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://dl.dropboxusercontent.com/u/9544489/org-style-img100.css" />
+#+OPTIONS: num:3 H:7 toc:1
+
+
+* Random Ideas
+
+To take away the fear of TLDR maybe we can like Medium say "this workflow will take 3 minutes of understanding and 2 minutes of execution".
+
+Like how recipes do it -- 20 minutes prep, 10 minutes cook.
+
+* Why is it hard to domesticate a customer?
+
+we need them to know, use, trust, and pay us.
+
+** Don't know
+
+didn't know the tool exists. didn't search for it. need viral / WOM? need common "first-tier tech support" people to know about us and refer to us? online, quora will be a source of referrals; we can also do inbound content marketing. and we can get our friends at ACE and BANSEA and TIE and the angel community to know about us. Media coverage will be a useful part of this.
+
+*** Channels
+
+for singapore:
+https://www.enterpriseone.gov.sg/en/Business%20Stages/Grow/Getting%20More%20Investors%20Or%20Funding.aspx
+
+elsewhere:
+http://www.quora.com/What-are-the-key-differences-between-the-TechStars-and-Y-Combinator-Series-AA-documents
+
+** Don't use / don't like
+
+UI / UX challenge -- the interface is intimidating. Maybe we should A/B/C test the following:
+
+*** the spreadsheet interface
+
+*** the wizard interface (like clerky)
+
+*** the fill-in-the-doc WYSIWYG interface (like docracy and lawcanvas and legal.cf.sg)
+
+** Don't trust
+
+at the end of the day, need a human to reassure.
+
+need some kind of authority to give a stamp of approval.
+
+like, sick? go to doctor. even if it's a cold and there's nothing modern medicine can do for you. still need the MC.
+
+some kind of persuasion:
+
+*** social proof
+
+but the risk here is the feeling that "oh, but every case is different, even if it worked for this other company, i am not 100% the same as that company."
+
+in medicine, it's the idea that 98% of the time, it's a cold. 2% of the time, it's MERS.
+
+so, we conclude from here that most people don't want to pay a lawyer $2000 to draft something from scratch.
+
+*** authority
+
+so you need a doctor to review it and bless it. and they might be able to do that for $500.
+
+** Don't pay
+
+we shall deal with this [[file:revenue.org][later]].
+
+
+
 * Acquisition: Interested User Encounters Legalese
 
 User might remember Legalese from seeing it at the bottom of some other legal agreement they signed in the last couple of years.

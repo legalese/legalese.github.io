@@ -1,0 +1,38 @@
+<?!= data.xml_declaration ?>
+<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
+  <CoverTop><cover_title>Terms for Private Placement of Series Seed Preferred Stock of <? =data.company.name ?></cover_title>
+  <cover_title><? =data.agreement.date ?></cover_title></CoverTop>
+
+  <CoverMid>The following is a summary of the principal terms with respect to the proposed Series Seed Preferred Stock financing of <? =data.company.name ?>, a company incorporated under Division III, Companies Act (Cap 50, 2006 Rev. Ed.) (the “Company”).  Except for the section entitled “Binding Terms,” this summary of terms does not constitute a legally binding obligation.  The parties intend to enter into a legally binding obligation only pursuant to definitive agreements to be negotiated and executed by the parties.</CoverMid>
+
+  <Story_Main>
+    <para_1_firstbold>Offering Terms.</para_1_firstbold>
+    <para_2_firstbold>Securities to Issue. Shares of Series Seed Preferred Stock of the Company (the <b><i>“Series Seed”</i></b>).</para_2_firstbold>
+    <para_2_firstbold>Aggregate Proceeds. <? =data.proceeds ?> in aggregate.</para_2_firstbold>
+    <para_2_firstbold><? if data.accredited_investor.length == 1 {?>Purchaser. <?} if data.accredited_investor.length > 1 {?>Purchasers. <?}?><? =commaAnd(data.accredited_investor) ?> (the <b><i>"Purchasers"</i></b>).</para_2_firstbold>
+    <para_2_firstbold>Price per Share. Price per share (the <b><i>“Original Issue Price”</i></b>), based on a pre-money valuation of <? =data.pre_money_valuation ?>, including an available option pool of <? =data.option_pool ?>%.</para_2_firstbold>
+    <para_2_firstbold>Liquidation Preference. One times the Original Issue Price plus declared but unpaid dividends on each share of Series Seed, balance of proceeds paid to Common.  A merger, reorganization or similar transaction will be treated as a liquidation.</para_2_firstbold>
+    <para_2_firstbold>Conversion. Convertible into one share of Common (subject to proportional adjustments for stock splits, stock dividends and the like) at any time at the option of the holder.</para_2_firstbold>
+    <para_2_firstbold>Voting Rights. Votes together with the Common Stock on all matters on an as converted basis.  Approval of a majority of the Preferred Stock required to:</para_2_firstbold>
+    <para_3>adversely change rights of the Preferred Stock;</para_3>
+    <para_3>change the authorized number of shares;</para_3>
+    <para_3>authorize a new series of Preferred Stock having rights senior to or on parity with the Preferred Stock;</para_3>
+    <para_3>redeem or repurchase any shares (other than pursuant to employee or consultant agreements);</para_3>
+    <para_3>declare or pay any dividend;</para_3>
+    <para_3>change the number of directors; or</para_3>
+    <para_3>iquidate or dissolve, including any change of control.</para_3>
+    <para_2_firstbold>Financial Information. Purchasers who have invested at least <? =data.minimum.purchase ?> (<b><i>“Major Purchasers”</i></b>,) will receive standard information and inspection rights and management rights letter.</para_2_firstbold>
+    <para_2_firstbold>Participation Rights. Major Purchasers will have the right to participate on a pro rata basis in subsequent issuances of equity securities.</para_2_firstbold>
+    <para_2_firstbold>Board Directors. <? =data.directors.length ?> Directors.</para_2_firstbold>
+    <para_2_firstbold>Expenses. Company to reimburse counsel to Purchasers for a flat fee of <? =data.counsel.fee ?></para_2_firstbold>
+    <para_2_firstbold>Future Rights. The Series Seed will be given the same rights as the next series of Preferred Stock (with appropriate adjustments for economic terms).</para_2_firstbold>
+    <para_2_firstbold>Key Holder Matters. Each Key Holder shall have four years vesting beginning <? =data.agreement.date ?>. Full acceleration upon “Double Trigger.” Each Key Holder shall have assigned all relevant IP to the Company before closing.</para_2_firstbold>
+    <para_2_firstbold>Binding Terms. For a period of thirty days, the Company shall not solicit offers from other parties for any financing.  Without the consent of Purchasers, the Company shall not disclose these terms to anyone other than officers, directors, key service providers, and other potential Purchasers in this financing.</para_2_firstbold>
+
+
+
+    <?!= include("inc_signature", data, data.new_investor) ?>
+<?!= include("inc_signature", data, data.company) ?>
+
+</Story_Main>
+</Root>
