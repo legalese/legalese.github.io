@@ -19,6 +19,8 @@
 <?   } ?>
 <? } ?>
 <? if (data._include.disclaimer) { ?>
+</CoverMid>
+<CoverMid>
 <?!= include("inc_disclaimer", data, { parastyle:"noindent_justified" })?>
 <? } ?>
 </CoverMid>
