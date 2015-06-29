@@ -57,7 +57,10 @@
 <Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= name ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="64" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= idtype ?> <span_ucnum_nobreak><?= id ?></span_ucnum_nobreak></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="190" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= address ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="64" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= num_shares ?>&#8232;<?= data.parties.shareholder[i].share_type || "Ordinary Shares" ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="64" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><? if(data.parties.shareholder[i].dora_shares_override){?>
+<?!=dora_shares_override?>
+<?}else{?>
+<?= num_shares ?>&#8232;<?= data.parties.shareholder[i].share_type || "Ordinary Shares" ?><?}?></cell_c></Cell>
 <? } } ?>
 </Table>
 </p>
