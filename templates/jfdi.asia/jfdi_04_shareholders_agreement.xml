@@ -60,7 +60,7 @@ in the spirit of mutual confidence and co-operation, the Parties have agreed to 
   <a_left_sidehead>Founder Stock Vesting Scheme</a_left_sidehead>
   <numbered_2_para>The Company shall issue and certain Parties may subscribe for up to <?=data.total_f_shares?> Class F Shares as described in the Class F Agreement, a model of which is annexed. These shares provide a mechanism for:</numbered_2_para>
   <numbered_3_para>recognizing different degrees of commitment and different levels of contribution from each Founder or Employee;</numbered_3_para>
-  <numbered_3_para>respecting the need of each Founder or Employeeto balance compensation between cash and equity; and</numbered_3_para>
+  <numbered_3_para>respecting the need of each Founder or Employee to balance compensation between cash and equity; and</numbered_3_para>
   <numbered_3_para>amicably resolving scenarios in which one or more Founders or Employees leave the company.</numbered_3_para>
   <numbered_2_para>Article <?= data.aa_preemptive_clause_number || "41" ?> of the Articles of Association confers pre-emptive rights on members of the Company. The Parties hereby waive their pre-emptive rights with regard to the issue of new Class F Shares provided that such issue occurs either as part of a vesting scheme or some other share option plan, share ownership plan, or equity-based remuneration scheme previously approved by the Company, or pursuant to a Compensation Adjustment and at the Discretionary Subscription Price as described in the Class F Agreement.</numbered_2_para>
 
