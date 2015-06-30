@@ -43,14 +43,14 @@
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Unrestricted</cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Restricted</cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Cliff</cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Monthly</cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell><?=data.new_investor.f_period || "Monthly"?></cell></Cell>
 
 <Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_fl><?= data.new_investor.name ?></cell_fl></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.num_new_shares ?></cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_unrestricted ?></cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_restricted ?></cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_cliff ?></cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_monthly ?></cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_periodic || data.new_investor.f_monthly ?></cell></Cell>
 
 </Table>
   </table_enclosing_para>
@@ -61,7 +61,7 @@
   <numbered_3_para>the number of shares in the Restricted column of the above table shall initially be subject to the Redemption Right. </numbered_3_para>
   <numbered_3_para>the number of shares in the Unrestricted column of the above table shall not be subject to the Redemption Right; they shall be deemed vested upon issue and are convertible to Ordinary Shares. </numbered_3_para>
   <numbered_3_para>the number of shares in the Cliff column of the above table shall vest on <?= data.f_cliff_end_date ?>. </numbered_3_para>
-  <numbered_3_para>thereafter, the number of shares in the Monthly column of the above table shall vest on the last business day of each month until such time as all Shares are fully vested. </numbered_3_para>
+  <numbered_3_para>thereafter, the number of shares in the <?=data.new_investor.f_period || "Monthly"?> column of the above table shall vest on the last business day of each <?=(data.new_investor.f_period || "Monthly").toLowerCase().replace(/ly$/,"")?> until such time as all Shares are fully vested. </numbered_3_para>
 
   <numbered_2_para xname="cause">For purposes of this Agreement, <b>"Cause"</b> shall mean </numbered_2_para>
   <numbered_3_para>any act or omission which constitutes a material breach by the Holder of the terms of </numbered_3_para>
@@ -167,7 +167,7 @@
   <para_2>N	Ordinary Shares existed at time of the agreement; </para_2>
   <para_2>M	Unrestricted Shares were granted upon initial signing of agreement; </para_2>
   <para_2>O	"Cliff" Unrestricted Shares vested on <?= data.f_cliff_end_date ?>; </para_2>
-  <para_2>P	"Monthly" Unrestricted Shares subsequently vested up to X date; </para_2>
+  <para_2>P	"<?=data.new_investor.f_period || "Monthly"?>" Unrestricted Shares subsequently vested up to X date; </para_2>
   <para_2>Q	Restricted Shares remain. </para_2>
   <para_1>Pursuant to the Class F Agreement we hereby give notice that we intend to redeem the Q remaining Restricted Shares. </para_1>
   <para_1>The completion shall be fourteen days from the date hereof (unless otherwise agreed in writing between ourselves.) </para_1>
