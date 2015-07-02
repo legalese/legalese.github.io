@@ -49,7 +49,7 @@ If we do not hear from you within <?= data.preemptive_rights_notice_period || 7 
 <Bottom_Box delete_if_empty="true">
 <? // TODO: add form fields https://www.echosign.adobe.com/content/dam/echosign/docs/pdfs/Forms%20-%20Text%20Tags%20Acrobat%20Form%20Fields%20Companion.pdf ?>
 <para_1>I, <?= newlinesToCommas(data.shareholder.name) ?> (<?= data.shareholder.idtype ?> <span_ucnum><?= data.shareholder.id ?></span_ucnum>), being a shareholder of <?= data.company.name ?> hereby decline to subscribe for issue.</para_1>
-<? if(data.waiver_additional_text){?><?= data.waiver_additional_text ?><?}?>
+<? if(data.waiver_additional_text){?><para_2><?= data.waiver_additional_text ?></para_2><?}?>
 <? data.signature_comment = "Shareholder" ?>
 <?!= include("inc_signature", data, data.shareholder) ?>
 </Bottom_Box>
