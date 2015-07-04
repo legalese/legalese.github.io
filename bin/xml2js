@@ -1,0 +1,32 @@
+#!/usr/bin/perl
+
+# get javascript sections out of xml templates
+# mengwong@legalese.io 20150704
+
+use strict;
+use Getopt::Long;
+my %o;
+GetOptions(\%o,
+		   "equals",
+		   "question",
+		   "ignorexmldeclarations",
+	);
+
+my $input = join("",<>);
+warn "input has ", length($input), " chars\n";
+while (length $input) {
+  if ($input =~ s/^\n+//g) { }
+  elsif ($input =~ s/^<\?!=(.+?)\?>//s) {
+	warn "*** discarding xml declaration $1\n"; }
+  elsif ($input !~ /^<\?/ && $input =~ s/^(.+?)(?=<\?)//s) {
+	warn "*** discarding text $1\n"; }
+  elsif ($input =~ s/^<\?(.*?)\?>//s) {
+	my $js = $1;
+	if    ($js =~ s/^=//) { if ($o{equals}) { print "output(",$js,");\n" } }
+	elsif ($o{question}               ) { print $js,"\n" }
+  }
+  else {
+	warn "*** discarding final $input\n";
+	last;
+  }
+}
