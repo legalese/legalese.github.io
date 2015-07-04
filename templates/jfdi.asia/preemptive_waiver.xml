@@ -24,16 +24,27 @@
 <para_2>As a member of the Company, you possess the right under the Company's Articles of Association to participate in this issue.
 <?if(data.preemptive_formality){?>We request that you waive this right, as your waiver is a necessary formality required for the Company to issue these shares to <?=commaAnd(data.parties.new_investor,"name")?>.
 <?}else{?>
-Given that the Company is issuing <?= data.amount_raising ?> of new <?= data.security_type_short_plural ?>, and you presently hold <?= data.shareholder.num_shares ?> out of <?= data.company.num_shares ?> existing shares, you have the right to subscribe for up to <?= data.shareholder.pro_rata ?>% of this new issue: <?
-if (data.security_essential == "equity") { ?>
-<?= digitCommas_(data.shareholder.pro_rata / 100 * data._orig_amount_raising, 0) ?> <?= data.security_type_short_plural ?><?
-  if (data.price_per_share) { ?> for <?= asCurrency_(currencyFor_(data.price_per_share), (data.shareholder.pro_rata / 100 * data._orig_amount_raising).toFixed(2)) ?><?}?>.
+<? Logger.log("preemptive_waiver: %s.old_investors = %s", "Angel Round", data.capTable.getRound("Angel Round").old_investors); ?>
+<? Logger.log("preemptive_waiver: old_investors[%s] = %s", data.shareholder.name, data.capTable.getRound("Angel Round").old_investors[data.shareholder.name]); ?>
+<? Logger.log("preemptive_waiver: pre_money = %s", data.capTable.getRound("Angel Round").pre_money); ?>
+<? var percentage = data.capTable.getRound("Angel Round").old_investors[data.shareholder.name].shares / data.capTable.getRound("Angel Round").pre_money.shares; ?>
+<? var pr_tf = 2;
+  var pro_rata = (100*percentage).toFixed(pr_tf);
+  while (pro_rata == 0) { pr_tf++; pro_rata = (100*percentage).toFixed(pr_tf); }
+?>
+<? Logger.log("preemptive_waiver: percentage=%s; pro_rata=%s",percentage, pro_rata); ?>
+Given that the Company is issuing <?= data.amount_raising ?> of new <?= data.security_type_short_plural ?>, and you presently hold <?= digitCommas_(data.capTable.getRound("Angel Round").old_investors[data.shareholder.name].shares.toFixed(0)) ?> out of <?= digitCommas_(data.capTable.getRound("Angel Round").pre_money.shares.toFixed(0)) ?> existing shares, you have the right to subscribe for up to <?= pro_rata ?>% of this new issue: <?
+if (data.security_essential == "equity") {
+  var num_securities = percentage * data._orig_total_new_securities_on_offer;
+?>
+<?= digitCommas_(num_securities) ?> <?= plural(num_securities.toFixed(0), data.security_type_short_singular, data.security_type_short_plural) ?><?
+  if (data.price_per_share) { ?> for <?= asCurrency_(currencyFor_(data.price_per_share), (percentage * data._orig_amount_raising).toFixed(2)) ?><?}?>.
 <? } else { ?>
-<?= asCurrency_(currencyFor_(data.amount_raising), (data.shareholder.pro_rata / 100 * data._orig_amount_raising).toFixed(2)) ?> worth of <?= data.security_type_short_plural ?>.
+<?= asCurrency_(currencyFor_(data.amount_raising), (percentage * data._orig_amount_raising).toFixed(2)) ?> worth of <?= data.security_type_short_plural ?>.
 <? } ?>
 <? if (data.amount_raising) { ?>You may also have excess rights to subscribe beyond that amount -- if other shareholders do not take up their pro rata allotments, you may participate beyond yours, up to the total amount of <?= data.amount_raising ?>.
 <? } ?>
-If you wish to participate in this issue, please indicate, by email to the Directors, the level of your interest.
+If you wish to participate in this issue, please indicate, by email to the <?= plural(data.parties.director, "Director") ?>, the level of your interest.
 There is no obligation to participate. If you do not, <?= commaAnd(data.parties.new_investor, "name") ?>
  <?= plural_verb(data.parties.new_investor, "has") ?>
 <?if (data.share_grant){ ?> will be granted the new <?= data.security_type_short_plural ?>.
@@ -43,14 +54,15 @@ There is no obligation to participate. If you do not, <?= commaAnd(data.parties.
 <?}?>
 If we do not hear from you within <?= data.preemptive_rights_notice_period || 7 ?> days from the date of this letter, we will understand that you waive your rights in relation to this issue.
 </para_2>
-<? data.signature_comment = "Director" ?>
+<? data.signature_comment = "Director"; ?>
 <?!= include("inc_signature", data, data.company) ?>
 </Story_Main>
 <Bottom_Box delete_if_empty="true">
 <? // TODO: add form fields https://www.echosign.adobe.com/content/dam/echosign/docs/pdfs/Forms%20-%20Text%20Tags%20Acrobat%20Form%20Fields%20Companion.pdf ?>
 <para_1>I, <?= newlinesToCommas(data.shareholder.name) ?> (<?= data.shareholder.idtype ?> <span_ucnum><?= data.shareholder.id ?></span_ucnum>), being a shareholder of <?= data.company.name ?> hereby decline to subscribe for issue.</para_1>
-<? if(data.waiver_additional_text){?><para_2><?= data.waiver_additional_text ?></para_2><?}?>
-<? data.signature_comment = "Shareholder" ?>
+<? if(data.waiver_additional_text){?><para_2><?= data.waiver_additional_text ?>
+</para_2><?}?>
+<? data.signature_comment = "Shareholder"; ?>
 <?!= include("inc_signature", data, data.shareholder) ?>
 </Bottom_Box>
 </Root>
