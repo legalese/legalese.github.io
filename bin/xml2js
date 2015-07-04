@@ -3,6 +3,12 @@
 # get javascript sections out of xml templates
 # mengwong@legalese.io 20150704
 
+# then copy and paste the output into http://jsbeautifier.org/
+# to see where the unmatched parens are
+
+# and the output of that into http://www.jslint.com/
+# to see any other errors.
+
 use strict;
 use Getopt::Long;
 my %o;
