@@ -38,13 +38,22 @@
   
   <a_left_sidehead xname="closing_delivery">Closing Dates and Delivery</a_left_sidehead>
 
-  <numbered_2_firstbold xname="closing">Closing</numbered_2_firstbold>
+  <numbered_2_firstbold xname="closing">Closing.</numbered_2_firstbold>
   <numbered_3_para>The purchase, sale and issuance of the Shares shall take place at one or more closings (each of which is referred to in this Agreement as a "Closing"). The initial Closing (the "Initial Closing") shall take place at the Company’s offices at <?=newlinesToCommas(data.company.closing_address||data.company.address)?>, at <?=data.initial_closing_time?> local time on <?=data.initial_closing_date?>, or such other date as the Company determines in its sole discretion.</numbered_3_para>
   <numbered_3_para>If less than all of the Shares are sold and issued at the Initial Closing, then, subject to the terms and conditions of this Agreement, the Company may sell and issue at one or more subsequent closings (each, a "Subsequent Closing"), within 120 days after the Initial Closing, up to the balance of the unissued Shares to such persons or entities as may be approved by the Company in its sole discretion. Any such sale and issuance in a Subsequent Closing shall be on the same terms and conditions as those contained herein, and such persons or entities shall, upon execution and delivery of the relevant signature pages, become parties to, and be bound by, this Agreement and the Shareholders' Agreement dated <?=data.shareholders_agreement_date?> in substantially the form attached hereto as <xref to="shareholders_agreement" /> (the "Shareholders' Agreement," and together with this Agreement, the "Agreements"), without the need for an amendment to any of the Agreements except to add such person’s or entity’s name to the appropriate exhibit to such Agreements, and shall have the rights and obligations hereunder and thereunder, in each case as of the date of the applicable Subsequent Closing. Each Subsequent Closing shall take place at such date, time and place as shall be approved by the Company in its sole discretion.</numbered_3_para>
   <numbered_3_para>Immediately after each Closing, the Schedule of Investors and Capitalization Table will be amended to list the investors purchasing Shares hereunder and the number of Shares issued to each Investor hereunder at each such Closing. The Company will furnish to each Investor copies of the amendments to the Schedule of Investors and Capitalization Table referred to in the preceding sentence.</numbered_3_para>
 
   <numbered_2_firstbold>Delivery. At each Closing, the Company will issue the Shares to the Investor by entering such Shares in the Investor’s name as of such date in the books and records of the Company, against payment of the purchase price therefor as set forth in the column designated "Purchase Price" opposite such Investor’s name on the Schedule of Investors, by (a) check payable to the Company, (b) wire transfer in accordance with the Company’s instructions, (c) cancellation of indebtedness or (d) any combination of the foregoing.  As promptly thereafter as practicable, the Company will deliver to the each Investor a notice of issuance reflecting the uncertificated Shares, or a share certificate registered in the name of each such Investor reflecting the Shares. In the event that payment by an Investor is made, in whole or in part, by cancellation of indebtedness, then such Investor shall surrender to the Company for cancellation at the Closing any evidence of indebtedness or shall execute an instrument of cancellation in form and substance acceptable to the Company.</numbered_2_firstbold>
-  
+
+<?if(data.authorization_for_transfer){ // if you have an authorization_for_transfer then you should set skip_investment_intent=true ?>
+<a_left_sidehead xname="auth_for_transfer">Authorization for Transfer</a_left_sidehead>
+<?if(data.authorization_for_transfer===true){?>
+<numbered_2_firstbold>Transfer to Affiliates. The Investor may sell or transfer their Shares (and any resulting Conversion Shares) to affiliated corporations or partnerships of which the Investor was a member at the time this Agreement was executed ("Affiliates"), provided that such transfer occurs within 12 months of the date of subscription.</numbered_2_firstbold>
+<numbered_2_firstbold>Consent to Transfers. The Investor grants consent pursuant to Article <xref to="approved_transfer" /> for other investors, present and future, to sell or transfer their shares to their Affiliates, within a 12 month window starting on their date of subscription.</numbered_2_firstbold>
+<?}else{?>
+<numbered_2_firstbold><?=data.authorization_for_transfer?></numbered_2_firstbold>
+<?}?>
+
 <a_left_sidehead xname="reps_of_company">Representations and Warranties of the Company</a_left_sidehead>
 
 <para_1>A Schedule of Exceptions, if necessary, shall be delivered to the Investor in connection with each Closing. Except as set forth on the Schedule of Exceptions delivered to the Investor at the applicable Closing, the Company hereby represents and warrants to the Investor as follows:</para_1>
@@ -78,7 +87,9 @@ The most recent financial statements of the Company are annexed.<?}?></numbered_
 
 <para_1>The Investor hereby represents and warrants to the Company as follows:</para_1>
 
+<?if (! data.skip_investment_intent){ // if you have an authorization_for_transfer then you should set skip_investment_intent=true ?>
 <numbered_2_firstbold>Investment Intent. The Investor is acquiring the Shares and the Conversion Shares, for investment for its own account, not as a nominee or agent, and not with the view to, or for resale in connection with, any distribution thereof, and that such Investor has no present intention of selling, granting any participation in, or otherwise distributing the same. Such Investor further represents that it does not have any contract, undertaking, agreement or arrangement with any person or entity to sell, transfer or grant participation to such person or entity or to any third person or entity with respect to any of the Shares or the Conversion Shares.</numbered_2_firstbold>
+<?}?>
 
 <numbered_2_firstbold>Investment Experience. The Investor has substantial experience in evaluating and investing in private placement transactions of securities in companies similar to the Company and acknowledges that such Investor can protect its own interests. The Investor has such knowledge and experience in financial and business matters so that such Investor is capable of evaluating the merits and risks of its investment in the Company.</numbered_2_firstbold>
 
