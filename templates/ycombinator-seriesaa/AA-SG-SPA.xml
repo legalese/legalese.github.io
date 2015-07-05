@@ -53,6 +53,7 @@
 <?}else{?>
 <numbered_2_firstbold><?=data.authorization_for_transfer?></numbered_2_firstbold>
 <?}?>
+<?}?>
 
 <a_left_sidehead xname="reps_of_company">Representations and Warranties of the Company</a_left_sidehead>
 
