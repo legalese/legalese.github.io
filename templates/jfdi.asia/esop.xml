@@ -24,7 +24,7 @@
 
 <numbered_2_para>The Company shall establish in its capitalization table a pool of shares reserved for allotment according to the terms of this ESOP. Shares in this pool shall count toward the Company's fully-diluted capitalization, even if they are notional and have not been issued or allotted to specific holders.</numbered_2_para>
 
-<numbered_2_para>At the time of establishment of the ESOP pool, the ESOP shall constitute <?=data.parties.esop[0].num_shares?> shares, <? if (data.capTable.getRound("Creation of Class F").by_security_type["Class F Shares"].ESOP == data.parties.esop[0]._orig_num_shares) { ?>all of which shall be reserved for subsequent allocation.<?}else{?>of which <?=digitCommas_(data.capTable.getRound("Creation of Class F").ESOP.issued())?> shall be issued and <?=digitCommas_(data.capTable.getRound("Creation of Class F").ESOP.reserved())?> shall remain reserved.<?}?></numbered_2_para>
+<numbered_2_para>At the time of establishment of the ESOP pool, the ESOP shall constitute <?=data.parties.esop[0].num_shares?> shares, <? if (data.capTable.getActiveRound().by_security_type["Class F Shares"].ESOP == data.parties.esop[0]._orig_num_shares) { ?>all of which shall be reserved for subsequent allocation.<?}else{?>of which <?=digitCommas_(data.capTable.getActiveRound().ESOP.issued())?> shall be issued and <?=digitCommas_(data.capTable.getActiveRound().ESOP.reserved())?> shall remain reserved.<?}?></numbered_2_para>
 
 <a_left_sidehead xname="issue">Issue of ESOP Shares</a_left_sidehead>
 

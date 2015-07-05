@@ -46,7 +46,7 @@
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell><?=data.new_investor.f_period || "Monthly"?></cell></Cell>
 
 <Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_fl><?= data.new_investor.name ?></cell_fl></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= digitCommas_(data.capTable.getRound("Creation of Class F").by_security_type["Ordinary Shares"][data.new_investor.name]||"0") ?></cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= digitCommas_(data.capTable.getActiveRound().by_security_type["Ordinary Shares"][data.new_investor.name]||"0") ?></cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_unrestricted ?></cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_restricted ?></cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_cliff ?></cell></Cell>

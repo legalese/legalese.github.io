@@ -24,16 +24,16 @@
 <para_2>As a member of the Company, you possess the right under the Company's Articles of Association to participate in this issue.
 <?if(data.preemptive_formality){?>We request that you waive this right, as your waiver is a necessary formality required for the Company to issue these shares to <?=commaAnd(data.parties.new_investor,"name")?>.
 <?}else{?>
-<? Logger.log("preemptive_waiver: %s.old_investors = %s", "Angel Round", data.capTable.getRound("Angel Round").old_investors); ?>
-<? Logger.log("preemptive_waiver: old_investors[%s] = %s", data.shareholder.name, data.capTable.getRound("Angel Round").old_investors[data.shareholder.name]); ?>
-<? Logger.log("preemptive_waiver: pre_money = %s", data.capTable.getRound("Angel Round").pre_money); ?>
-<? var percentage = data.capTable.getRound("Angel Round").old_investors[data.shareholder.name].shares / data.capTable.getRound("Angel Round").pre_money.shares; ?>
+<? Logger.log("preemptive_waiver: %s.old_investors = %s", "Angel Round", data.capTable.getActiveRound().old_investors); ?>
+<? Logger.log("preemptive_waiver: old_investors[%s] = %s", data.shareholder.name, data.capTable.getActiveRound().old_investors[data.shareholder.name]); ?>
+<? Logger.log("preemptive_waiver: pre_money = %s", data.capTable.getActiveRound().pre_money); ?>
+<? var percentage = data.capTable.getActiveRound().old_investors[data.shareholder.name].shares / data.capTable.getActiveRound().pre_money.shares; ?>
 <? var pr_tf = 2;
   var pro_rata = (100*percentage).toFixed(pr_tf);
   while (pro_rata == 0) { pr_tf++; pro_rata = (100*percentage).toFixed(pr_tf); }
 ?>
 <? Logger.log("preemptive_waiver: percentage=%s; pro_rata=%s",percentage, pro_rata); ?>
-Given that the Company is issuing <?= data.amount_raising ?> of new <?= data.security_type_short_plural ?>, and you presently hold <?= digitCommas_(data.capTable.getRound("Angel Round").old_investors[data.shareholder.name].shares.toFixed(0)) ?> out of <?= digitCommas_(data.capTable.getRound("Angel Round").pre_money.shares.toFixed(0)) ?> existing shares, you have the right to subscribe for up to <?= pro_rata ?>% of this new issue: <?
+Given that the Company is issuing <?= data.amount_raising ?> of new <?= data.security_type_short_plural ?>, and you presently hold <?= digitCommas_(data.capTable.getActiveRound().old_investors[data.shareholder.name].shares.toFixed(0)) ?> out of <?= digitCommas_(data.capTable.getActiveRound().pre_money.shares.toFixed(0)) ?> existing shares, you have the right to subscribe for up to <?= pro_rata ?>% of this new issue: <?
 if (data.security_essential == "equity") {
   var num_securities = percentage * data._orig_total_new_securities_on_offer;
 ?>
