@@ -28,7 +28,7 @@ while (length $input) {
 	warn "*** discarding text $1\n"; }
   elsif ($input =~ s/^<\?(.*?)\s*\?>//s) {
 	my $js = $1;
-	if    ($js =~ s/^(!?)=\s*//) { if ($o{equals}) { my $func = $1 ? "unescape" : "  escape"; print "$func( ",$js," );\n" } }
+	if    ($js =~ s/^(!?)=\s*//) { if ($o{equals}) { my $func = $1 ? "noescape" : "  escape"; print "$func( ",$js," );\n" } }
 	elsif ($o{question} )   {                   print $js,"\n" }
 	if ($js=~tr/(/(/ != $js=~tr/)/)/) { print "// WARNING: the above line may have unbalanced parentheses.\n"; }
   }
