@@ -22,14 +22,14 @@ my $input = join("",<>);
 warn "input has ", length($input), " chars\n";
 while (length $input) {
   if ($input =~ s/^\n+//g) { }
-  elsif ($input =~ s/^<\?!=(.+?)\?>//s) {
+  elsif ($input =~ s/^<\?!=\s*(data.whitespace_handling|data.xml_declaration).*?\?>//s) {
 	warn "*** discarding xml declaration $1\n"; }
   elsif ($input !~ /^<\?/ && $input =~ s/^(.+?)(?=<\?)//s) {
 	warn "*** discarding text $1\n"; }
-  elsif ($input =~ s/^<\?(.*?)\?>//s) {
+  elsif ($input =~ s/^<\?(.*?)\s*\?>//s) {
 	my $js = $1;
-	if    ($js =~ s/^=//) { if ($o{equals}) { print "output(",$js,");\n" } }
-	elsif ($o{question}               ) { print $js,"\n" }
+	if    ($js =~ s/^(!?)=\s*//) { if ($o{equals}) { my $func = $1 ? "unescaped" : "  escaped"; print "$func(",$js,");\n" } }
+	elsif ($o{question} )   {                   print $js,"\n" }
   }
   else {
 	warn "*** discarding final $input\n";
