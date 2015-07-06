@@ -25,9 +25,9 @@
    data._subscription_agreement_dates = commaAnd(data._subscription_agreement_dates);
  ?>
 <? if (! data.share_grant) { ?>
-<para_2>and pursuant to the <?= data.security_type + (data.security_type.match(/Class F/, "i") ? "" : " Subscription") ?> <?= plural(data._subscription_agreement_dates_array, "Agreement") ?> dated <?= data._subscription_agreement_dates ?> signed among the Company, <?=
-commaAnd((data.parties.promoter ? [data.parties.promoter[0].name] : []).concat(
-data.parties.new_investor.map(function(p){return p.name}))) ?>,</para_2>
+<para_2>and pursuant to the <?= data.security_type + (data.security_type.match(/Class F/, "i") ? "" : " Subscription") ?> <?= plural(data._subscription_agreement_dates_array, "Agreement") ?> dated <?= data._subscription_agreement_dates ?> signed among <?=
+commaAnd(["the Company"].concat((data.parties.promoter ? [data.parties.promoter[0].name] : []).concat(
+data.parties.new_investor.map(function(p){return p.name})))) ?>,</para_2>
 <? } ?>
 <? } ?>
 <para_2>the Company do hereby approve the allotment of <?= data._total_new_shares ?> <?= data.security_type_plural ?> ("<?= data.security_type_short_plural ?>") in the share capital of the Company <? if (data.sgd_price_per_share || data.price_per_share) { ?>at <?= (data.sgd_price_per_share || data.price_per_share) ?> each for cash consideration <?}?>as follows:</para_2>
