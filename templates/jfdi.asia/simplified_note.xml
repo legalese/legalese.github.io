@@ -18,7 +18,7 @@
 
   <a_left_sidehead>Definitions</a_left_sidehead>
   <numbered_2_para>In this Agreement, except to the extent that the context otherwise requires, the following terms shall have the meanings set forth below:</numbered_2_para>
-  <definition>Qualified Financing	The issuing of equity securities (&#8220;Equity Securities&#8221;) in a transaction or series of related transactions resulting in aggregate gross proceeds to the Company of at least <?= data.qualified_financing ?> excluding conversion of the Notes and any other indebtedness.</definition>
+  <definition>Qualified Financing	The issuing of equity securities (&#8220;Equity Securities&#8221;) in a transaction or series of related transactions resulting in aggregate gross proceeds to the Company of at least <?= data.qualified_financing_proceeds ?> excluding conversion of the Notes and any other indebtedness.</definition>
   <a_left_sidehead>Subscription</a_left_sidehead>
   <numbered_2_para>The Investor agrees to invest a total consideration worth <?= data.new_investor.new_commitment ?> (the &#8220;Investment Amount&#8221;) in the Company by way of convertible promissory notes (the &#8220;Notes&#8221;) issued by the Company to the Investor.</numbered_2_para>
 
