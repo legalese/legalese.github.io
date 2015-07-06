@@ -1,11 +1,5 @@
 <CoverTop>
-<cover_title><?= data._include.cover_title ?></cover_title>
-<cover_company_name>
-
-
-
-
-
+<?!= include("inc_covertitle", data, data._include, data._include2) ?>
 <?= data._include.party1.name ?>
 
 </cover_company_name>

@@ -1,12 +1,6 @@
 <? var rcpts_to = data._include.rcpts_to; ?>
 <CoverTop>
-<cover_title><?!= data._include.cover_title ?></cover_title>
-<cover_company_name>
-
-
-
-
-
+<?!= include("inc_covertitle", data, data._include, data._include2) ?>
 <?= data.company.name ?>
 
 </cover_company_name>
