@@ -18,7 +18,7 @@
 <parties>the persons whose names are set out in Schedule 1 of this Deed (collectively the <b>"Current Shareholders"</b> and individually a "Current Shareholder").</parties>
 
 <para_1><span_smallcaps>Whereas:</span_smallcaps></para_1>
-<? data._new_security_issues = data.parties.new_investor.map(function(p){return p.num_new_shares}); ?>
+<? data._new_security_issues = data.parties.new_investor.map(function(p){return p.new_commitment}); ?>
 <? data._subscription_agreement_dates = data.parties.new_investor.map(function(p){Logger.log("trying to convert date of subscription agreement " + p.date_of_subscription_agreement);
   return Utilities.formatDate(new Date(p.date_of_subscription_agreement),
                               data._timezone,
@@ -30,8 +30,8 @@
    data._subscription_agreement_dates = commaAnd(data._subscription_agreement_dates);
  ?>
 <recitals>A shareholders' agreement was entered into on <?= data.previous_shareholder_agreement_date || data.shareholders_agreement_date ?> by and among the Current <?= plural(data.parties.shareholder, "Shareholder") ?> and the Company (as may have been modified, amended or supplemented from time to time) (the "Shareholders' Agreement"), a copy of which the New <?= plural(data.parties.new_investor, "Shareholder") ?> hereby <?= plural_verb(data.parties.new_investor, "confirms") ?> that <?= plural(data.parties.new_investor, "it has been", "they have been") ?> supplied with and <?= plural_verb(data.parties.new_investor, "acknowledges") ?> the terms therein.</recitals>
-<recitals>The New <?= plural(data.parties.new_investor, "Shareholder") ?> <?= plural_verb(data.parties.new_investor, "is") ?> or will be issued <?= commaAnd(data._new_security_issues) ?> <?= data.security_type ?><?= data.parties.new_investor.length==1 ? " " : " respectively " ?>("New Shares") in the capital of the Company by virtue of <?= plural(data.parties.new_investor, "a subscription agreement", "subscription agreements") ?> dated <?= data._subscription_agreement_dates ?>.</recitals>
-<recitals>In accordance with the provisions of the Shareholders' Agreement, it is a condition precedent to the registration by the Company of the issuance and allotment to the New <?= plural(data.parties.new_investor, "Shareholder") ?> of the New Shares that the New <?= plural(data.parties.new_investor, "Shareholder") ?> execute this Deed.</recitals>
+<recitals>The New <?= plural(data.parties.new_investor, "Shareholder") ?> <?= plural_verb(data.parties.new_investor, "is") ?> or will be issued <?= commaAnd(data._new_security_issues) ?> of <?= data.security_type_plural ?><?= data.parties.new_investor.length==1 ? " " : " respectively " ?>("New Securities") in the Company by virtue of <?= plural(data.parties.new_investor, "a subscription agreement", "subscription agreements") ?> dated <?= data._subscription_agreement_dates ?>.</recitals>
+<recitals>In accordance with the provisions of the Shareholders' Agreement, it is a condition precedent to the registration by the Company of the issuance and allotment to the New <?= plural(data.parties.new_investor, "Shareholder") ?> of the New Securities that the New <?= plural(data.parties.new_investor, "Shareholder") ?> execute this Deed.</recitals>
 <para_1><span_smallcaps>Now this deed witnesseth</span_smallcaps> as follows:</para_1>
 <a_left_sidehead>Terms Defined or Construed in the Shareholders' Agreement</a_left_sidehead>
 <para_1>In this Deed, unless the context otherwise requires, words and expressions respectively defined or construed in the Shareholders' Agreement shall have the same meanings when used or referred to herein.</para_1>
