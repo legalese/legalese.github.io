@@ -23,7 +23,7 @@
   <numbered_2_para>The Investor agrees to invest a total consideration worth <?= data.new_investor.new_commitment ?> (the &#8220;Investment Amount&#8221;) in the Company by way of convertible promissory notes (the &#8220;Notes&#8221;) issued by the Company to the Investor.</numbered_2_para>
 
   <a_left_sidehead>Total Round Size</a_left_sidehead>
-  <numbered_2_para>The Notes issued to the Investor may form part of a series of such Notes issued on essentially identical terms except that the Investor, Investment Amount<?= data.variable_terms ?data.variable_terms:""?> and Closing Date may change from Note to Note. The total amount of the Series shall not exceed <?= data.amount_raising ?> without the written agreement of all the holders of the Notes in the Series currently outstanding.</numbered_2_para>
+  <numbered_2_para>The Notes issued to the Investor may form part of a series of such Notes issued on essentially identical terms except that the Investor, Investment Amount<?= data.variable_terms ?data.variable_terms:","?> and Closing Date may change from Note to Note. The total amount of the Series shall not exceed <?= data.amount_raising ?> without the written agreement of all the holders of the Notes in the Series currently outstanding.</numbered_2_para>
 
   <a_left_sidehead>Maturity Date</a_left_sidehead>
   <numbered_2_para>The Principal <? if (data.interest != 0) { ?>and unpaid accrued interest on<? } else { ?>of<? } ?> the Notes will be due and payable <?= data.term ?> from the date of the signing of this Agreement (the &#8220;<b>Maturity Date</b>&#8221;).</numbered_2_para>
