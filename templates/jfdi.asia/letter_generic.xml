@@ -1,0 +1,18 @@
+<?!= include("inc_plain_letterhead", data) ?>
+<? if(data.letter_surtitle) { ?><resolution_title><?= data.letter_surtitle ?></resolution_title><? } ?>
+<basic_para addnewline="true"><?= data.recipient.name ?></basic_para>
+<basic_para><?= data.recipient.address ?></basic_para>
+<basic_para addnewline="true" />
+<basic_para addnewline="true" />
+<? if(data.letter_title) { ?><chapter_header override="startParagraph=StartParagraph.ANYWHERE"><?= data.letter_title?></chapter_header><? } ?>
+<?!= include("inc_additional_resolutions", data, {
+  prefix:"letter_para", bodystyle:"para_1" } ) ?>
+<?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: {} }) ?>
+</Story_Main>
+<? if (data.letter_bottom_box) { ?>
+<Bottom_Box delete_if_empty="true">
+<para_1><?= data.letter_bottom_box ?></para_1>
+<?    if (data.letter_bottom_box_signature) { ?><?!= include("inc_signature", data, data.recipient) ?><?}?>
+</Bottom_Box>
+<?}?>
+</Root>
