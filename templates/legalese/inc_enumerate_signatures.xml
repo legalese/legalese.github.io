@@ -5,6 +5,7 @@
 <b_left_sidehead_nonum><?if (rcpts_to[pp].length == 1) { ?>The <?=lingua({locale:"en", term:pp, context:"party type", form:"singular", xform:"titleCase"})?><?}?>
 <?                       if (rcpts_to[pp].length >  1) { ?>The <?=lingua({locale:"en", term:pp, context:"party type", form:"plural",   xform:"titleCase"})?><?}?>
 </b_left_sidehead_nonum>
+<?   if (data["signature_lead_" + pp]) { ?><para_1><?= data["signature_lead_" + pp] ?></para_1><? } ?>
 <?   for (var pi in rcpts_to[pp]) { ?>
 <?!= include("inc_signature", data, rcpts_to[pp][pi], _include2) ?>
 <?   } ?>
