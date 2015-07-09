@@ -18,12 +18,12 @@
 
   <a_left_sidehead>Definitions</a_left_sidehead>
   <numbered_2_para>In this Agreement, except to the extent that the context otherwise requires, the following terms shall have the meanings set forth below:</numbered_2_para>
-  <definition>Qualified Financing	The issuing of equity securities (&#8220;Equity Securities&#8221;) in a transaction or series of related transactions resulting in aggregate gross proceeds to the Company of at least <?= data.qualified_financing ?> excluding conversion of the Notes and any other indebtedness.</definition>
+  <definition>Qualified Financing	The issuing of equity securities (&#8220;Equity Securities&#8221;) in a transaction or series of related transactions resulting in aggregate gross proceeds to the Company of at least <?= data.qualified_financing_proceeds ?> excluding conversion of the Notes and any other indebtedness.</definition>
   <a_left_sidehead>Subscription</a_left_sidehead>
   <numbered_2_para>The Investor agrees to invest a total consideration worth <?= data.new_investor.new_commitment ?> (the &#8220;Investment Amount&#8221;) in the Company by way of convertible promissory notes (the &#8220;Notes&#8221;) issued by the Company to the Investor.</numbered_2_para>
 
   <a_left_sidehead>Total Round Size</a_left_sidehead>
-  <numbered_2_para>The Notes issued to the Investor may form part of a series of such Notes issued on essentially identical terms except that the Investor, Investment Amount<?= data.variable_terms ?> and Closing Date may change from Note to Note. The total amount of the Series shall not exceed <?= data.amount_raising ?> without the written agreement of all the holders of the Notes in the Series currently outstanding.</numbered_2_para>
+  <numbered_2_para>The Notes issued to the Investor may form part of a series of such Notes issued on essentially identical terms except that the Investor, Investment Amount<?= data.variable_terms ?data.variable_terms:","?> and Closing Date may change from Note to Note. The total amount of the Series shall not exceed <?= data.amount_raising ?> without the written agreement of all the holders of the Notes in the Series currently outstanding.</numbered_2_para>
 
   <a_left_sidehead>Maturity Date</a_left_sidehead>
   <numbered_2_para>The Principal <? if (data.interest != 0) { ?>and unpaid accrued interest on<? } else { ?>of<? } ?> the Notes will be due and payable <?= data.term ?> from the date of the signing of this Agreement (the &#8220;<b>Maturity Date</b>&#8221;).</numbered_2_para>
@@ -85,6 +85,11 @@ Should the Company issue equity securities or securities convertible to equity, 
 The Investor shall have no information rights over the financials of the company beyond those required by law.<? } ?>
 </numbered_2_para>
 
+<?if(data.authorization_for_transfer===true){?>
+<a_left_sidehead>Authorization for Transfer</a_left_sidehead>
+<numbered_2_firstbold>Transfer to Affiliates. The Investor may sell or transfer this Note (and any resulting Conversion Shares) to affiliated corporations or partnerships of which the Investor was a member at the time this Agreement was executed ("Affiliates"), provided that such transfer occurs within 12 months of the date of subscription and in whole, not in part.</numbered_2_firstbold>
+<numbered_2_firstbold>Consent to Transfers. The Investor grants consent pursuant to Article 20.3.4 for other investors, present and future, to sell or transfer their notes and shares to their Affiliates, within a 12 month window starting on their date of subscription.</numbered_2_firstbold>
+<? } ?>
 
   <a_left_sidehead>Fees And Expenses</a_left_sidehead>
   <numbered_2_para>The Parties will bear their own fees and expenses incurred in the transaction.</numbered_2_para>
