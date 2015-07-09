@@ -61,10 +61,10 @@
 
 <a_left_sidehead>Subscription of Shares</a_left_sidehead>
 <b_left_sidehead>Subscription of Subscription Shares</b_left_sidehead>
-<para_1>Subject to the terms and conditions of this Agreement, the Investor shall, on Completion, subscribe for the Subscription Shares, and the Company shall effect the allotment and issue of the Subscription Shares in accordance with Clause <xref to="completion" format="Paragraph Number (text")/>.</para_1>
+<para_1>Subject to the terms and conditions of this Agreement, the Investor shall, on Completion, subscribe for the Subscription Shares, and the Company shall effect the allotment and issue of the Subscription Shares in accordance with Clause <xref to="completion" format="Paragraph Number (text)" />.</para_1>
 
 <b_left_sidehead xname="subscription_price">Subscription Price</b_left_sidehead>
-<para_1>The New Investor shall pay a total of <?= data.new_commitment ?> (the "Subscription Price") for the Subscription Shares.</para_1>
+<para_1>The New Investor <? if (data.previously_paid) {?>has previously paid in full<?}else{?>shall pay<?}?> a total of <?= data.new_investor.new_commitment ?> (the "Subscription Price") for the Subscription Shares.</para_1>
 
 <b_left_sidehead xname="terms_of_issue">Terms of Issue</b_left_sidehead>
 <numbered_3_para_fl>The Subscription Shares shall be issued to the Investor free from all claims, charges, liens and other encumbrances.</numbered_3_para_fl>
