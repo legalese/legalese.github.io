@@ -4,28 +4,17 @@
   chapter_header:"Allotment of " + data.security_type_plural,
   r_num: 3 }) ?>
 <a_left_sidehead>Shares to be Issued</a_left_sidehead>
-<? data._total_new_shares = include("mod_party_sum", data, { partynames: "new_investor", attrs:"num_new_shares" }); ?>
+<? data._total_new_shares = data.capTable.getActiveRound().amount_raised.shares; ?>
 <? Logger.log("dr-allotment INFO: data._total_new_shares = %s",data._total_new_shares); ?>
-<? data._total_commitments = include("mod_party_sum", data, { partynames: "new_investor", attrs: "new_commitment" }); ?>
+<? data._total_commitments = data.capTable.getActiveRound().amount_raised.money; ?>
 <? Logger.log("dr-allotment INFO: data._total_commitments = %s",data._total_commitments); ?>
 <? if (data.share_issue_specialcase_text) { ?><para_1><?!= data.share_issue_specialcase_text ?></para_1><? } else { ?>
 <para_1>That pursuant to the authority given to the Directors <?
   if (data.egm_or_written_means == "EGM") { ?>at the Extraordinary General Meeting of <?= data.company.name ?> (the "Company") held on <?= data.gm_date ?>
   if (data.egm_or_written_means == "AGM") { ?>at the Annual General Meeting of <?= data.company.name ?> (the "Company") held on <?= data.gm_date ?>
 <? } else { ?>by the <?!= plural(data.parties.shareholder, "Member", "Members") ?> of the Company in a resolution passed by written means<? } ?>, under Section 161 of the Companies Act (Cap. 50)</para_1>
-<? data._subscription_agreement_dates = data.parties.new_investor.map(function(p){Logger.log("trying to convert date of subscription agreement " + p.date_of_subscription_agreement);
-  return Utilities.formatDate(new Date(p.date_of_subscription_agreement),
-                              data._timezone,
-                             "d MMMM YYYY")});
-   if (data._subscription_agreement_dates.filter(function(d){return d===data._subscription_agreement_dates[0]}).length
-                                                                          == data._subscription_agreement_dates.length) { // all the same
-      data._subscription_agreement_dates = data._subscription_agreement_dates.splice(0,1);
-   }
-   data._subscription_agreement_dates_array = data._subscription_agreement_dates;
-   data._subscription_agreement_dates = commaAnd(data._subscription_agreement_dates);
- ?>
 <? if (! data.share_grant) { ?>
-<para_2>and pursuant to the <?= data.security_type + (data.security_type.match(/Class F/, "i") ? "" : " Subscription") ?> <?= plural(data._subscription_agreement_dates_array, "Agreement") ?> dated <?= data._subscription_agreement_dates ?> signed among <?=
+<para_2>and pursuant to the <?= data.security_type + (data.security_type.match(/Class F/, "i") ? "" : " Subscription") ?> <?= plural(data.parties.new_investor, "Agreement") ?> signed among <?=
 commaAnd(["the Company"].concat((data.parties.promoter ? [data.parties.promoter[0].name] : []).concat(
 data.parties.new_investor.map(function(p){return p.name})))) ?>,</para_2>
 <? } ?>
@@ -36,13 +25,10 @@ data.parties.new_investor.map(function(p){return p.name})))) ?>,</para_2>
 <Cell aid:ccols="1" aid:ccolwidth="150" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="56" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Number of <?= data.security_type_short_plural ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="80" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Consideration</cell_c></Cell>
-<? for (var i = 0; i<data.parties.new_investor.length; i++) { with(data.parties.new_investor[i]) {
-  var my_commitment = data.parties.new_investor[i].sgd_commitment ? sgd_commitment :
-  data.parties.new_investor[i].new_commitment ? new_commitment :
-  "none"; ?>
+<? for (var i = 0; i<data.parties.new_investor.length; i++) { with(data.parties.new_investor[i]) { ?>
 <Cell aid:ccols="1" aid:ccolwidth="150" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= name ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="56" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= data.parties.new_investor[i].num_new_shares ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="80" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= my_commitment ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="80" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= data.parties.new_investor[i].new_commitment ?></cell_c></Cell>
 <? } } ?>
 </Table>
 </para_1>

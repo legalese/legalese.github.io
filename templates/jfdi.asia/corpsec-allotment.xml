@@ -6,9 +6,9 @@
 <sidebar><?= data.company.idtype ?> <span_ucnum><?= data.company.id ?></span_ucnum></sidebar>
 <sidebar><?= data.company.address ?></sidebar>
 </Firstpage_Sidebar>
-<? data._total_new_shares = include("mod_party_sum", data, { partynames: "new_investor", attrs:"num_new_shares" }); ?>
+<? data._total_new_shares = data.capTable.getActiveRound().amount_raised.shares; ?>
 <? Logger.log("corpsec-allotment INFO: data._total_new_shares = %s",data._total_new_shares); ?>
-<? data._total_commitments = include("mod_party_sum", data, { partynames: "new_investor", attrs: "new_commitment" }); ?>
+<? data._total_commitments = data.capTable.getActiveRound().amount_raised.money; ?>
 <? Logger.log("corpsec-allotment INFO: data._total_commitments = %s",data._total_commitments); ?>
 <Story_Main>
 <resolution_title>Instruction to Corporate Secretary</resolution_title>
@@ -24,7 +24,7 @@
  of <?= data._total_new_shares ?> <?= data.security_type_short_plural ?> <?= plural_verb(data.parties.new_investor, "is") ?>
 <? if (data.share_grant) { ?> for no consideration;
 <? } else { ?> for cash consideration;
-subscription monies amounting to <?= data._total_commitments ?> have been received by the Company in respect of the allotment of <?= data._total_new_shares ?> <?= data.security_type_short_plural ?> in the capital of the Company;
+subscription monies amounting to <?= data._total_commitments ?> have been received by the Company in respect of the allotment of <?= data._total_new_shares ?> <?= data.security_type_short_plural ?>;
 <? } ?>
 we have established the identity of the new <?= plural(data.parties.new_investor, "investor") ?>, <?= commaAnd(data.parties.new_investor.map(function(p){return p.name})) ?>;
 and we confirm that all is in order. </numbered_2_para>

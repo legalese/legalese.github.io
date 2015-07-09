@@ -296,7 +296,7 @@ shall be fully-paid by the Investor at the time of issue by the Company in accor
 
 <schedule_parts>Existing Shareholders</schedule_parts>
 <? for (var i = 0; i < data.parties.shareholder.length; i++) { var myShareholder = data.parties.shareholder[i]; ?>
-<bullets><?= newlinesToCommas(myShareholder.name) ?> holds <?= digitCommas_(myShareholder.num_shares || 0, 0) ?> ordinary shares and <?= myShareholder.num_f_shares ?> Class F preference shares.</bullets>
+<bullets><?= newlinesToCommas(myShareholder.name) ?> holds <?= data.capTable.investorHoldingsInRound(myShareholder.name) ?>.</bullets>
 <? } ?>
 
 <schedule_parts xname="new_investors">New Investors</schedule_parts>
