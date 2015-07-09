@@ -1,4 +1,4 @@
-<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
+<?!= data.xmlRoot() ?>
 <?!= include("inc_cover_2_parties", data, {cover_title:"Class F Agreement", party1:data.company, party2:data.new_investor}) ?>
 <?!= include("inc_cover_jfdi", data, { in_series:"05" }) ?>
 <Firstpage_Sidebar>

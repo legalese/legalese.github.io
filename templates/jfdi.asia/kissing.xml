@@ -7,43 +7,8 @@
 * it should be a computed property interpreted from the facts at hand.
 * an Investment Terms spreadsheet should have one column for KISS, not two for debt/equity.
 */ ?>
-<CoverTop>
-<cover_title>KISS(Sing) Agreement (<?= data.security_essential.match(/warrant|equity/,"i") ? "Equity" : "Debt" ?>)
-</cover_title>
-<cover_company_name>
-
-
-
-
-<?= data.company.name ?>
-</cover_company_name>
-<cover_company_id><?= data.company.idtype ?> <?= data.company.id ?>
-</cover_company_id>
-<cover_company_name>
-<?= data.new_investor.name ?>
-</cover_company_name>
-<cover_company_id><?= data.new_investor.idtype ?> <?= data.new_investor.id ?>
-</cover_company_id>
-</CoverTop>
-<CoverMid></CoverMid>
-<CoverMid><?!= include("inc_disclaimer", data, { parastyle:"noindent_justified" })?>
-</CoverMid>
-
-<CoverBottom_Logotype>
-<cover_corporate_logotype>Joyful Frog Digital Incubator</cover_corporate_logotype>
-</CoverBottom_Logotype>
-
-<CoverBottom_Address>
-<cover_address_block>Blk 71 Ayer Rajah Crescent
-#05-16   Singapore 139951</cover_address_block>
-</CoverBottom_Address>
-
-<CoverBottom_series>
-<centered><textvar name="Output Date" />&#8195;<span_smallcaps><textvar name="output time" /></span_smallcaps>
-</centered>
-<centered>version 1.0.0</centered>
-</CoverBottom_series>
-
+<?!= include("inc_cover_standard_parties", data, {cover_title:"KISS(Sing) Agreement ("+ (data.security_essential.match(/warrant|equity/,"i") ? "Equity" : "Debt")+")", rcpts_to:rcpts_to}) ?>
+<?!= include("inc_cover_jfdi", data) ?>
 <Firstpage_Sidebar delete_if_empty="true"></Firstpage_Sidebar>
 <Story_Main><chapter_header>KISS(Sing) Agreement</chapter_header>
 <para_1>This KISS (Singapore) agreement (the "Agreement") is made on <?= data.kissing_agreement_date || data.investment_agreement_date || data.agreement_date ?> (the "Date of Issuance") between:</para_1>

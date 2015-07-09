@@ -1,20 +1,7 @@
 <?!= data.xml_declaration ?>
-<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
-<CoverTop><cover_title>Simple Agreement for Future Equity
-Cap Only, No Discount</cover_title>
-
-
-<cover_company_name><?= data.company.name ?></cover_company_name>
-
-</CoverTop>
-<CoverMid>
-</CoverMid>
-<CoverBottom_Logotype>
-</CoverBottom_Logotype>
-<CoverBottom_Address>
-</CoverBottom_Address>
-<CoverBottom_series>
-</CoverBottom_series>
+<?!= data.xmlRoot() ?>
+<?!= include("inc_cover_standard_parties", data, {cover_title:"Simple Agreement for Future Equity", rcpts_to:rcpts_to}) ?>
+<?!= include("inc_cover_jfdi", data) ?>
 <Firstpage_Sidebar delete_if_empty="true">
 </Firstpage_Sidebar>
 <Story_Main>

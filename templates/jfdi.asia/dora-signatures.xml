@@ -1,4 +1,4 @@
-<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
+<?!= data.xmlRoot() ?>
 <?!= include("inc_cover_standard_parties", data, {cover_title:"Deed of &#8232;Ratification and &#8232;Accession", rcpts_to:rcpts_to}) ?>
 <?!= include("inc_cover_jfdi", data) ?>
 <Firstpage_Sidebar><sidebar>Every time a new shareholder joins the company, it is unfortunately necessary for all existing shareholders to sign this deed. If they didn't, then there would be no agreement between the old parties and the new.</sidebar>
