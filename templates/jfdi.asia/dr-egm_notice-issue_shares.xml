@@ -4,7 +4,7 @@
 
 <para_1>That the approval of the <?!= plural(data.parties.shareholder, "Member", "Members") ?> of the Company be sought for passing the following resolution<?= data.members_resolution_2 == undefined ? "" : "s" ?>:</para_1>
 
-<b_left_sidehead>Ordinary Resolution -- Authority to Issue Shares</b_left_sidehead>
+<b_left_sidehead>Ordinary Resolution -- Authority to Issue Securities</b_left_sidehead>
 
 <?!= include("mr_authority_to_issue_shares", data) ?>
 
