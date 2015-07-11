@@ -87,7 +87,7 @@ The Investor shall have no information rights over the financials of the company
 
 <?if(data.authorization_for_transfer===true){?>
 <a_left_sidehead>Authorization for Transfer</a_left_sidehead>
-<numbered_2_firstbold>Transfer to Affiliates. The Investor may sell or transfer this Note (and any resulting Conversion Shares) to affiliated corporations or partnerships of which the Investor was a member at the time this Agreement was executed ("Affiliates"), provided that such transfer occurs within 12 months of the date of subscription and in whole, not in part.</numbered_2_firstbold>
+<numbered_2_firstbold>Transfer to Affiliates. The Investor may sell or transfer this Note (and any resulting Conversion Shares) to affiliated corporations or partnerships of which the Investor was a member at the time this Agreement was executed, or which the Investor became a member of within 12 months of execution, ("Affiliates"), provided that such transfer occurs within 12 months of the date of subscription and occurs in whole, not in part.</numbered_2_firstbold>
 <numbered_2_firstbold>Consent to Transfers. The Investor grants consent pursuant to Article 20.3.4 for other investors, present and future, to sell or transfer their notes and shares to their Affiliates, within a 12 month window starting on their date of subscription.</numbered_2_firstbold>
 <? } ?>
 
