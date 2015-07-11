@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>XML Template Tutorial</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Legalese 2.0</h1>
+        <h2>Software is eating law.</h2>
+        <a href="https://github.com/legalese-io/" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div class="menu-wrap">
+    <nav class="menu">
+        <ul class="clearfix">
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <a target="_blank" href="tutorials.html">Tutorials <span class="arrow">&#9660;</span></a>
+ 
+                <ul class="sub-menu">
+		        <li> <a href="tutorials.html#t1">the EULA</a></li>
+			<li> <a href="tutorials.html#t2">Hello, World!</a></li>
+			<li> <a href="tutorials.html#t3">Send for Signature!</a></li>
+			<li> <a href="tutorials.html#t4">A Real Nondisclosure Agreement</a></li>
+			<li> <a href="tutorials.html#t5">What Docsets Are Available?</a></li>
+		        <li> <a href="tutorials.html#t6">Generating Multiple Documents &ndash; Incorporation</a></li>
+		        <li> <a href="tutorials.html#t7">Developing Your Own Templates</a></li>
+                </ul>
+            </li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="help.html">Help</a></li>
+	    <li><a href="turing.html">Turing-Complete Contracts</a></li>
+        </ul>
+    </nav>
+    </div>
+
+     <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+
+	  <h1>Legalese Templates</h1>
+
+	  <p>Hello, contributor! The Legalese team welcomes you to template creation!</p>
+	  <p>Here's a short tutorial to teach you the basics of how to create your own templates using Legalese's formatting. This will let our little robot back at HQ to read your templates and create pretty contracts in PDF.</p>
+
+	  <h2>How Legalese Works</h2>
+
+	  <p>It's important to understand a little about how Legalese works to appreciate how your templates will turn into PDFs. If you haven't done the <a target="_blank" href="tutorials.html">tutorials</a> yet, Legalese obtains your details from the <a target="_blank" href="https://docs.google.com/spreadsheets/d/1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw/copy?id=1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw&copyCollaborators=false&copyComments=false&title=My%20Legalese%20Tutorial%202&usp=sheets_web">Google Spreadsheet</a>. A Google App written in JavaScript then pulls these details into an XML template like <a target="_blank" href="https://raw.githubusercontent.com/legalese-io/legalese-io.github.io/master/dev-templates/multisafe.xml">this one</a>. It uses formatting from an InDesign master reference to determine how the final document looks like. Finally, it outputs in the form of a PDF. If you've done some of the tutorials, you can see how the XML source for each document looks like in your Google Drive while our robot builds the PDF.</p>
+	  <p>Therefore, the XML templates hosted both on GitHub and elsewhere form the skeleton, so to speak, of all our agreements. Like HTML, XML tells the robot the structure and content of the document, and like CSS, InDesign tells the robot how the document looks like.</p>
+
+	  <h1>How Our XML Works</h1>
+
+	  <p>The first important thing to understand XML for our purposes are <i>tags</i>. These little bits of code tell our robot what formatting to use for text between these tags. For example:</p>
+	  <code>&lt;para_1_firstbold&gt;
+	    <br />&lt;CoverMid&gt;</code>
+	  <p />
+	  <p>are both examples of <i>starter tags</i> that tell the robot that the text behind these tags belong in a certain paragraph with a certain formatting determined by InDesign. To close these tags, just add a <b>/</b> in front of the less than sign. These <i>end tags</i> tell the robot to stop applying the formatting at the point the tags are inserted.</p>
+	  <p>An interesting thing to note is that for the numbered options, e.g. <code>&lt;numbered_1_firstbold&gt;</code>, the InDesign template will automatically number all of these paragraphs. So, no need to worry about numbering your paragraphs: all paragraphs numbered these way will come out right.</p>
+	  <p>The second thing that comes in really useful in contracts is <i>cross-referencing</i>. Since we draft legal documents, many contracts and notes have clauses cross-referencing a previous or later clause. Now, while editing the XMl it is practically imprudent to find out what exact number a earlier paragraph will be assigned. How can we be sure that a paragraph referring to Section 3.1 will appear as such in the final PDF?</p>
+	  <p>Enter cross-references. They look like this:</p>
+	  <code>&lt;para_1 xname="tutorial"&gt;
+	    <br />&lt;xref to="tutorial" /&gt;</code>
+	  <p />
+	  <p>The first instance involves a paragraph tag. If there is a cross-reference to this paragraph, include a short, unique string in the paragraph tag inthe format above for the robot to understand that this paragraph is tagged as such.</p>
+	  <p>The second instance involves the actual cross-reference. Where your source document might read, for example, "Section 3.1", replace the paragraph number with that example expression. In your final PDF, this expression will be replaced by the paragraph number of that particular tag! It will never go wrong or be inaccurate as long as you ensure that the string matches that of the tagged paragraph.</p>
+
+	  <h1>JavaScript in XML</h1>
+	  <p>There are two main uses of JavaScript in our templates. Firstly, we use functions to tell the Google App to include certain pieces of data or clauses based on the specificities of the document - basically, if/else functions. Secondly, we include data pulled from the spreadsheet to make the document accurate - for example, date of agreement and the parties involved.</p>
+	  <p>JS functions in XML are extremely simple. All you need to do is to tell the XML to exclude that portion of text and not read it as a string. For example:</p>
+	  <code>&lt;? if (iHaveCap) { ?&gt;
+	    <br />The Valuation Cap is &lt;?=data.pre_money_valuation?&gt;
+	    <br />&lt; } ?&gt;
+	  </code>
+	  <p />
+	  <p>In the example above, we are trying to tell the robot that if the data in the spreadsheet indicates that the SAFE Document comes with a Capital Valuation, it should include the phrase "The Valuation Cap is (a certain amount)". The &lt;? indicates the start of an excluded expression, and the reverse ?&gt; indicates the end of the excluded expression. Therefore, the robot will be able to read the JavaScript function and input the correct details into the PDF.</p>
+	  <p>Secondly, the XML can enter specific details from the spreadsheet into the PDF. Then there's no need to manually enter the time or names of the company every time in comes up in the document. This is one core part of the Legalese functionality which makes it so powerful.</p>
+	  <p>A small example was already included in the previous paragraph. Mostly, these detail entries look as such:</p>
+	  <code>&lt;?=data.tag.here ?&gt;
+	  </code>
+	  <p />
+	  <p>Like the first function example, it needs to be excluded for the robot to read it as a JavaScript expression. It then pulls the data which has been tagged in the spreadsheet and enters it where the expression is located.</p>
+	  <p>That's really it for how to write a XML template for Legalese. Assuming you have basic knowledge of HTML and JavaScript operators, you'll be making templates in no time. Have fun!</p>
+	  
+	  <h1>Links for a little help</h1>
+	  <p><a target="_blank" href="https://github.com/legalese-io/legalese-io.github.io/tree/master/templates">Templates we already have on GitHub.</a> Look at a few of these to get a sense of how an XML template looks like.</p>
+	  <p><a target="_blank" href="http://www.w3schools.com/js/js_operators.asp">JavaScript operators to get you started.</a></p>
+
+	</section>
+
+	  <aside id="sidebar">
+          <a href="https://docs.google.com/spreadsheets/d/1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw/copy?id=1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw&copyCollaborators=false&copyComments=false&title=My%20Legalese%20Tutorial%202&usp=sheets_web" class="button">
+            <small>Install the</small>
+            Google App
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/legalese">Legalese</a> is a <a href="https://jfdi.asia/">JFDI.Asia</a> spinoff, initially hosted by <a href="https://github.com/cofounders">Cofounders</a> and later moved to its own project.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+     </div>
+
+  </body>
+</html>
+
