@@ -1,30 +1,13 @@
 <?!= data.xml_declaration ?>
 <?!= data.xmlRoot() ?>
-<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
-<CoverTop><cover_title>Simple Agreement for Future Equity
 <? var iHaveCap = (data.pre_money_valuation && data.conversion_respects_cap != false); ?>
-<?    if (  iHaveCap &&   data._orig_discount) { ?>Cap and Discount<?}
- else if (! iHaveCap &&   data._orig_discount) { ?>Discount, no Cap<?}
- else if (! iHaveCap && ! data._orig_discount) { ?>No Cap, No Discount<?}
- else if (  iHaveCap && ! data._orig_discount) { ?>Cap Only, No Discount<?}?></cover_title>
-<cover_company_name>
-
-
-
-
-<?= data.company.name ?></cover_company_name>
-
-</CoverTop>
-<CoverMid>
-<?!= include("inc_disclaimer", data, { parastyle:"noindent_justified",
-  flavor: data.company.state })?>
-</CoverMid>
-<CoverBottom_Logotype>
-</CoverBottom_Logotype>
-<CoverBottom_Address>
-</CoverBottom_Address>
-<CoverBottom_series>
-</CoverBottom_series>
+<? var subTitle; ?>
+<?    if (  iHaveCap &&   data._orig_discount) { subTitle = "Cap and Discount" }
+ else if (! iHaveCap &&   data._orig_discount) { subTitle = "Discount, no Cap" }
+ else if (! iHaveCap && ! data._orig_discount) { subTitle = "No Cap, No Discount" }
+ else if (  iHaveCap && ! data._orig_discount) { subTitle = "Cap Only, No Discount" } ?>
+<?!= include("inc_cover_standard_parties", data, {cover_title:"Simple Agreement for Future Equity&#8232;"+subTitle, rcpts_to:rcpts_to, disclaimer:true}) ?>
+<?!= include("inc_cover_jfdi", data) ?>
 <Firstpage_Sidebar delete_if_empty="true">
 </Firstpage_Sidebar>
 <Story_Main>
