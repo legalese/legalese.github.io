@@ -6,7 +6,7 @@
 </Firstpage_Sidebar>
 <Story_Main>
   <chapter_header>Volunteer Agreement</chapter_header>
-  <para_1>This agreement is dated <?= data.volunteer_agreement_date ?></para_1>
+  <para_1>This agreement is dated <? if (data.volunteer_agreement_date) { ?><?= data.volunteer_agreement_date ?><?} else {?><textvar name="Output Date" /><?}?></para_1>
   <para_1>between:</para_1>
   <parties><?!= include("inc_party", data, data.volunteer) ?> (the "Volunteer");</parties>
   <parties><?!= include("inc_party", data, data.company) ?> (the "Company").</parties>
@@ -93,7 +93,7 @@
   <numbered_2_para>The provisions of this Agreement shall survive the termination of volunteership with the Company and the assignment of this Agreement by the Company to any successor in interest or other assignee. </numbered_2_para>
 
   <chapter_header>Signatures</chapter_header>
-  <para_1>In witness whereof we have hereunto set our hand on <?= data.volunteer_agreement_date ?></para_1>
+  <para_1>In witness whereof we have hereunto set our hand on <? if (data.volunteer_agreement_date) { ?><?= data.volunteer_agreement_date ?><?} else {?><textvar name="Output Date" /><?}?></para_1>
   <para_1><i>Volunteer:</i></para_1>
 <?!= include("inc_signature", data, data.volunteer) ?>
   <para_1><i>On behalf of the Company:</i></para_1>
