@@ -10,15 +10,22 @@
 
 <numbered_1_para>the value of the Company’s assets is not less than the value of its liabilities (including contingent liabilities) and will not, after the proposed reduction of share capital of the Company, become less than the value of its liabilities (including contingent liabilities).</numbered_1_para>
 
+<? if (data.statutory_declaration) { ?>
+
 <para_1>And I make this solemn declaration by virtue of the provisions of the Oaths and Declarations Act (Cap. 211), and subject to the penalties provided by that Act for making of false statements in statutory declarations, conscientiously believing the statements contained in this declaration to be true in every particular.</para_1>
+<? } ?>
 
 <?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: {} }) ?>
+
+<? if (data.statutory_declaration) { ?>
 
 <para_1>Before me,
 
 
 
 Commissioner for Oaths, Singapore</para_1>
+<?}?>
+
 </Story_Main>
 </Root>
 
