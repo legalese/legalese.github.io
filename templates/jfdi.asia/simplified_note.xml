@@ -85,13 +85,7 @@ Should the Company issue equity securities or securities convertible to equity, 
 The Investor shall have no information rights over the financials of the company beyond those required by law.<? } ?>
 </numbered_2_para>
 
-<?if(data.authorization_for_transfer===true || data.assignment===true){?>
-<a_left_sidehead xname="assignment">Assignment</a_left_sidehead>
-<numbered_2_firstbold xname="assignment_to_affiliates">Transfer to Affiliates. The Investor may sell or transfer this Note (and any resulting Conversion Shares) to a corporation, fund, or partnership of which the Investor was a shareholder, director, officer, or partner (a "Member") at the time this Agreement was executed, or of which the Investor became a Member within 12 months of the execution of this Agreement ("Affiliates"), provided that</numbered_2_firstbold>
-<numbered_3_para>such transferee agrees in writing to the terms of this Agreement and related agreements as if it were a purchaser thereunder; and
-such transfer occurs in whole, not in part.</numbered_3_para>
-<numbered_2_firstbold>Consent to Transfers. The Investor grants consent pursuant to Article 20.3.4 for other investors, present and future, to sell or transfer securities to their Affiliates under the same terms as described in the above Clause <xref to="assignment_to_affiliates" />.</numbered_2_firstbold>
-<? } ?>
+<?!= include("inc_assignment", data, { consent_article: "20.3.4" }) ?>
 
   <a_left_sidehead>Fees And Expenses</a_left_sidehead>
   <numbered_2_para>The Parties will bear their own fees and expenses incurred in the transaction.</numbered_2_para>

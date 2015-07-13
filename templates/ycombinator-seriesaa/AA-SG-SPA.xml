@@ -45,15 +45,7 @@
 
   <numbered_2_firstbold>Delivery. At each Closing, the Company will issue the Shares to the Investor by entering such Shares in the Investor’s name as of such date in the books and records of the Company, against payment of the purchase price therefor as set forth in the column designated "Purchase Price" opposite such Investor’s name on the Schedule of Investors, by (a) check payable to the Company, (b) wire transfer in accordance with the Company’s instructions, (c) cancellation of indebtedness or (d) any combination of the foregoing.  As promptly thereafter as practicable, the Company will deliver to the each Investor a notice of issuance reflecting the uncertificated Shares, or a share certificate registered in the name of each such Investor reflecting the Shares. In the event that payment by an Investor is made, in whole or in part, by cancellation of indebtedness, then such Investor shall surrender to the Company for cancellation at the Closing any evidence of indebtedness or shall execute an instrument of cancellation in form and substance acceptable to the Company.</numbered_2_firstbold>
 
-<?if(data.authorization_for_transfer){ // if you have an authorization_for_transfer then you should set skip_investment_intent=true ?>
-<a_left_sidehead xname="auth_for_transfer">Authorization for Transfer</a_left_sidehead>
-<?if(data.authorization_for_transfer===true){?>
-<numbered_2_firstbold>Transfer to Affiliates. The Investor may sell or transfer their Shares (and any resulting Conversion Shares) to affiliated corporations or partnerships of which the Investor was a member at the time this Agreement was executed ("Affiliates"), provided that such transfer occurs within 12 months of the date of subscription.</numbered_2_firstbold>
-<numbered_2_firstbold>Consent to Transfers. The Investor grants consent pursuant to Article <xref to="approved_transfer" /> for other investors, present and future, to sell or transfer their shares to their Affiliates, within a 12 month window starting on their date of subscription.</numbered_2_firstbold>
-<?}else{?>
-<numbered_2_firstbold><?=data.authorization_for_transfer?></numbered_2_firstbold>
-<?}?>
-<?}?>
+<?!= include("inc_assignment", data, { consent_article: "20.3.4" }) ?>
 
 <a_left_sidehead xname="reps_of_company">Representations and Warranties of the Company</a_left_sidehead>
 
