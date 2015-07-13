@@ -1,13 +1,13 @@
 <?!= data.xml_declaration ?>
 <?!= data.xmlRoot() ?>
-<? var iHaveCap = data.pre_money_valuation ? true : false; ?>
+<? var iHaveCap = data._orig_pre_money_valuation ? true : false; Logger.log("multisafe: data.pre_money_valuation = %s (%s)", data.pre_money_valuation, iHaveCap) ?>
 <? var subTitle; ?>
 <?    if (  iHaveCap && ! data._orig_discount) { subTitle = "Cap Only, No Discount" }
  else if (  iHaveCap &&   data._orig_discount) { subTitle = "Cap and Discount" }
  else if (! iHaveCap &&   data._orig_discount) { subTitle = "Discount, no Cap" }
  else if (! iHaveCap && ! data._orig_discount) { subTitle = "No Cap, No Discount" } // MFN
 ?>
-<?!= include("inc_cover_2_parties", data, {cover_title:"Simple Agreement for Future Equity&#8232;"+subTitle, party1:data.company, party2:data.new_investor, disclaimer:true}) ?>
+<?!= include("inc_cover_2_parties", data, {cover_title:"Simple Agreement for Future Equity &#8232;"+subTitle, party1:data.company, party2:data.new_investor, disclaimer:true}) ?>
 <?!= include("inc_cover_jfdi", data) ?>
 <Firstpage_Sidebar delete_if_empty="true">
 </Firstpage_Sidebar>
@@ -29,8 +29,9 @@
 The <b>"Discount Rate"</b> is <?= data.hundred_minus_discount ?>%.
 <? } ?>
 <? if (iHaveCap || data._orig_discount) { ?>
-See Section <xref to="definitions" /> for certain additional defined terms.</para_1>
+See Section <xref to="definitions" /> for certain additional defined terms.
 <? } ?>
+</para_1>
 
 <a_left_sidehead xname="events">Events</a_left_sidehead>
 <? /*
@@ -146,7 +147,9 @@ the Discount Price,</numbered_3_para>
 
 <numbered_2_para>"Standard Preferred Stock" means the shares of a series of Preferred Stock issued to the investors investing new money in the Company in connection with the initial closing of the Equity Financing.</numbered_2_para>
 
-<? } else { ?>
+<? } ?>
+
+<? if (data.mfn) { ?>
 <numbered_2_para>"Subsequent Convertible Securities" means convertible securities that the Company may issue after the issuance of this instrument with the principal purpose of raising capital, including but not limited to, other Safes, convertible debt instruments and other convertible securities, but excluding:</numbered_2_para>
 <numbered_3_para>options issued pursuant to any equity incentive or similar plan of the Company;
 convertible securities issued or issuable to (A) banks, equipment lessors, financial institutions or other persons engaged in the business of making loans pursuant to a debt financing or commercial leasing or (B) suppliers or third party service providers in connection with the provision of goods or services pursuant to transactions; and
