@@ -10,7 +10,7 @@
 
 <?!= include("inc_enumerate_parties", data, rcpts_to) ?>
 
-<para_1><span_smallcaps>Whereas:</span_smallcaps></para_1>
+<para_1><span_smallcaps>Whereas</span_smallcaps>:</para_1>
 <? data._new_security_issues = data.parties.new_investor.map(function(p){return p.new_commitment}); ?>
 <? data._subscription_agreement_dates = data.parties.new_investor.map(function(p){Logger.log("trying to convert date of subscription agreement " + p.date_of_subscription_agreement);
   return Utilities.formatDate(new Date(p.date_of_subscription_agreement),
