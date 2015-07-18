@@ -1,3 +1,6 @@
+<!-- why the linebreaks?
+	 http://www.clipread.com/
+  -->
 <para_2_hanging>That pursuant to Section 161 of the Companies Act (Cap. 50),
 the <?= plural(data.parties.director, "Director") ?> of the Company be and <?= plural_verb(data.parties.director, "is") ?> hereby authorised
 to allot and to issue <?= data.security_type_plural || "" ?>
