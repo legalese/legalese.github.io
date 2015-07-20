@@ -10,6 +10,8 @@
 
   <para_1><span_smallcaps>Whereas:</span_smallcaps></para_1>
 
+  <!-- // TODO: change data.company.commitment to something pulled out of the capTable object. -->
+  <!-- // TODO: change data.company.num_shares to something pulled out of the capTable object. -->
   <recitals>As of the date of this Agreement, the Company has an issued and paid-up share capital of <?= data.company.commitment ?> divided into <?= data.company.num_shares ?> Ordinary Shares.</recitals>
   <recitals><? if(data.founder_agreement_date){?>Pursuant to a Founder Agreement dated <?= data.founder_agreement_date ?>, and in<?}else{?>In<?}?> conjunction with:</recitals>
   <?if(data.other_agreements){?><para_2_hanging><?=data.other_agreements?></para_2_hanging>
@@ -58,6 +60,7 @@ in the spirit of mutual confidence and co-operation, the Parties have agreed to 
   <para_1>This Agreement shall be governed by and interpreted in accordance with the laws of the Republic of Singapore.</para_1>
 
   <a_left_sidehead>Founder Stock Vesting Scheme</a_left_sidehead>
+  <!-- // TODO: change data.total_f_shares to something pulled out of the capTable object. -->
   <numbered_2_para>The Company shall issue and certain Parties may subscribe for up to <?=data.total_f_shares?> Class F Shares as described in the Class F Agreement, a model of which is annexed. These shares provide a mechanism for:</numbered_2_para>
   <numbered_3_para>recognizing different degrees of commitment and different levels of contribution from each Founder or Employee;</numbered_3_para>
   <numbered_3_para>respecting the need of each Founder or Employee to balance compensation between cash and equity; and</numbered_3_para>
