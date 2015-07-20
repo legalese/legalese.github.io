@@ -1,4 +1,7 @@
 <?!= data.xmlRoot() ?>
+<? var jfdi_investor = data.capTable.getRound("JFDI Round").new_investors["JFDI.2014 Pte. Ltd."];
+   jfdi_investor.name = "JFDI.2014 Pte. Ltd.";
+?>
 <?!= include("inc_cover_standard_parties", data, {cover_title:"JFDI Founder Agreement", rcpts_to:rcpts_to}) ?>
 <?!= include("inc_cover_jfdi", data, { in_series:"03" }) ?>
 <Firstpage_Sidebar>
@@ -21,8 +24,8 @@ else { ?><?= data.company.name ?>, a Singapore Private Limited Company <?
   else if ( data.previous_incorporation_locale != "Singapore" ) { ?>with a previous incarnation registered in <?= data.previous_incorporation_locale ?><?
   }
 } ?> (the "Startup")
-<?= data.parties.investor[0].name ?>, an investor into the Startup ("JFDI.2014")
-JFDI.Asia Pte. Ltd, the operator of the Bootcamp ("JFDI.Asia"), party by virtue of its management agreement with JFDI.2014</parties>
+<?= jfdi_investor.name ?>, an investor into the Startup ("JFDI.2014"); and
+JFDI.Asia Pte. Ltd, the operator of the Bootcamp ("JFDI.Asia"), party by virtue of its management agreement with JFDI.2014.</parties>
 <para_1>By this Agreement the Parties express a mutual understanding as follows:</para_1>
 <numbered_1_para>The <span_ucnum><?= data.jfdi_accelerate_batch ?></span_ucnum> Bootcamp shall run in two phases. The "Accelerate" phase begins on <?= data.accelerate_start_date ?>. The Bootcamp ends with Demo Day, on or around <?= data.demo_day_date ?>. The Founders should be prepared to remain in Singapore through <?= data.remainder_date ?> to negotiate funding.
 Upon acceptance of this Agreement, the Founders will be provisionally admitted to the <? if (data.skip_hoops != true) { ?>"Validate" phase of the Bootcamp. During this phase, the Founders are not required to be present in Singapore. The Founders should work on customer development, product development, and early traction through a Minimum Viable Product (concierge or scalable or both.) JFDI will work with the Founders online to prepare them for Accelerate. The Founders should also recruit as needed to ensure that the team contains a complete mix of capabilities: product, customer, and business development.
@@ -32,7 +35,7 @@ Upon demonstrating early traction and a complete team, the Founders will be invi
 proof of revenue: that some percentage of leads or users are willing to pay.</bullets>
 <numbered_1_para> <? }
  else { ?>Bootcamp. <? }
- ?>JFDI.2014 shall, if all goes well, invest a total of <?= data.parties.investor[0].commitment ?> into the Startup;</numbered_1_para>
+ ?>JFDI.2014 shall, if all goes well, invest a total of <?= jfdi_investor.money ?> into the Startup;</numbered_1_para>
 <para_2>and <? if (! data.previously_incorporated) { ?>the Founders shall procure that <? } ?>in consideration of this investment <? if (data.intangibles_clause) { ?>and for other good and valuable consideration described in Clause <xref to="intangibles" />, which the Parties agree to value at <?= (data.intangibles_value || "S$150,000") ?>,
 <? } ?>
 the Startup shall authorise and issue <? if (data.jfdi_standard_valuation != false) { ?>convertible debt, equity, or some other security in the corporation such that, immediately prior to the Next External Financing, JFDI.2014 will own a certain percentage (the "Conversion Percentage") of the total capital in the Startup, on a fully-diluted, as-if-converted basis.<? } else { ?><?= data.nonstandard_valuation_text ?><? } ?></para_2>
@@ -40,7 +43,7 @@ the Startup shall authorise and issue <? if (data.jfdi_standard_valuation != fal
 <? if (data.jfdi_standard_valuation == false ) { ?><? } else { ?>
 The Conversion Percentage shall be<?
 if (data.valuation_basis == "table") { ?>
-<? if (data.jfdi_standard_valuation != false) { ?> calculated on the basis of the <?= data.parties.investor[0].commitment ?> cash investment by JFDI and<? } ?>
+<? if (data.jfdi_standard_valuation != false) { ?> calculated on the basis of the <?= jfdi_investor.money ?> cash investment by JFDI and<? } ?>
  according to the following valuation table, or as agreed between the Startup and JFDI.2014.
 </numbered_1_para>
 <? if (data.nonstandard_valuation_table) { ?><table_enclosing_para><?!= data.nonstandard_valuation_table ?></table_enclosing_para><? } else { ?>
@@ -62,7 +65,7 @@ else { ?>Valuation basis to be measured and fixed at the start of the "Accelerat
 else if (data.valuation_basis == "existing") { ?> determined on the basis of the valuation set in the previous round of financing by professional investors.</numbered_1_para>
 <numbered_2_para_indent>The Startup shall disclose to JFDI the details of the previous round of financing, including the identities of the investors, terms of the investment, and evidence of funds transferred.
 <? if (data.previous_post_money_valuation) { ?>
-As an example, if the previous round of financing established a post-money valuation for the Startup at <?= data.previous_post_money_valuation ?>, then JFDI's total investment of <?= data.parties.investor[0].commitment ?> (cash) plus <?= data.intangibles_value ?> (intangibles) determines the Conversion Percentage at <?= data.agreed_percentage ?>%.
+As an example, if the previous round of financing established a post-money valuation for the Startup at <?= data.previous_post_money_valuation ?>, then JFDI's total investment of <?= jfdi_investor.money ?> (cash) plus <?= data.intangibles_value ?> (intangibles) determines the Conversion Percentage at <?= data.agreed_percentage ?>%.
 <? } ?>
 </numbered_2_para_indent>
 <numbered_1_para><? }
@@ -127,8 +130,8 @@ This offer may be rescinded should the Founders be unable to comply with the req
 <? for (var i = 0; i < data.parties.founder.length; i++) { ?>
 <?!= include("inc_signature", data, data.parties.founder[i]) ?>
 <? } ?>
-<? for (var i = 0; i < data.parties.investor.length; i++) { ?>
-<?!= include("inc_signature", data, data.parties.investor[i], { no_addnewline:i==(data.parties.investor.length-1) } ) ?>
-<? } ?>
+
+<?!= include("inc_signature", data, data._entitiesByName[jfdi_investor.name]) ?>
+
 </Story_Main>
 </Root>
