@@ -1,4 +1,7 @@
 <?!= data.xmlRoot() ?>
+<? var jfdi_investor = data.capTable.getRound("JFDI Round").new_investors["JFDI.2014 Pte. Ltd."];
+   jfdi_investor.name = "JFDI.2014 Pte. Ltd.";
+?>
 <?!= include("inc_cover_standard_parties", data, {cover_title:"JFDI "+data.security_type+" Agreement", rcpts_to:rcpts_to}) ?>
 <?!= include("inc_cover_jfdi", data, { in_series:"03" }) ?>
 <Firstpage_Sidebar>
@@ -11,7 +14,7 @@
   ?>convertible debt, equity, or other such security in the corporation such that, immediately prior to the Next External Financing, <?=data.parties.investor[0].short_name || data.parties.investor[0].name ?> will own a certain percentage (the "Conversion Percentage") of the total capital in the Startup, on a fully-diluted, as-if-converted basis<? }
   else { ?><?= data.nonstandard_valuation_text ?><? } ?>"</i>;
 And concurrently with the issue of Class F Shares to the founders and shareholders of the Company ("the Founders") and of other securities to other parties with rights and interests in the Company at the time of execution of this Agreement (together, "Existing Holders"), </numbered_2_para>
-<numbered_2_para>The Company will issue, and JFDI will take up, a <?= data.security_type ?> in the total amount of <?= data.parties.investor[0].commitment?> (the "<?=data.security_type_short_singular?>"), with the expectation that the <?=data.security_type_short_singular?> will, upon <?= data.security_type_operation ?> at the next round of financing, make <?= data.parties.investor[0].short_name ?> a holder of <? if (data.agreed_percentage_minimum) { ?><?=data.agreed_percentage_minimum?>--<?}?>
+<numbered_2_para>The Company will issue, and JFDI will take up, a <?= data.security_type ?> in the total amount of <?= jfdi_investor.money ?> (the "<?=data.security_type_short_singular?>"), with the expectation that the <?=data.security_type_short_singular?> will, upon <?= data.security_type_operation ?> at the next round of financing, make <?= data.parties.investor[0].short_name ?> a holder of <? if (data.agreed_percentage_minimum) { ?><?=data.agreed_percentage_minimum?>--<?}?>
 <?=data.agreed_percentage?>% of the fully-diluted capital of the Company.</numbered_2_para>
   <a_left_sidehead>Definitions </a_left_sidehead>
   <para_1>In this agreement, unless the context otherwise requires:- </para_1>
@@ -82,7 +85,7 @@ taking all possible conversions, exercises of securities, and dilutions into acc
   <numbered_2_para>Subject to a repayment notice being delivered to the Company on or after the occurrence of an Event of Default, the amount to be repaid by the Company to JFDI under this <?=data.security_type_short_singular?> (the "Repayment Amount") shall be the amount equal to the principal amount and unpaid interest (if any) accruing from the closing date until the date of the Automatic Conversion, Maturity Date, or Default date. </numbered_2_para>
   <numbered_2_para>Upon receipt of the Repayment Amount subsequent to an Event of Default, this Loan shall terminate and there will be no further liability owing or owed by the Company to JFDI. </numbered_2_para>
 <a_left_sidehead>Redemption at the option of the Company</a_left_sidehead>
-  <numbered_2_para>The Company shall have the option to redeem the <?=data.security_type_short_singular?> in the event of Default by JFDI. The repayment amount shall be <?= data.parties.investor[0].commitment ?>. Redemption must be in whole, not in part. </numbered_2_para>
+  <numbered_2_para>The Company shall have the option to redeem the <?=data.security_type_short_singular?> in the event of Default by JFDI. The repayment amount shall be <?= jfdi_investor.money ?>. Redemption must be in whole, not in part. </numbered_2_para>
   <numbered_2_para>Any of the following events occurring prior to the Maturity Date constitutes Default by JFDI: </numbered_2_para>
   <numbered_3_para>A material breach by JFDI of any of the warranties, undertakings and conditions contained herein or in any document in connection therewith; including the Founder Agreement signed as a condition of acceptance into the JFDI bootcamp; such breach being capable of remedy, but not so remedied within 30 days after notice of such breach having been given in writing by the Company and/or the Founders to JFDI; </numbered_3_para>
   <numbered_3_para>JFDI ceases or threatens to cease to carry on its business; </numbered_3_para>
