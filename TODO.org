@@ -1,5 +1,7 @@
 #+TITLE: things todo
 
+* TODO in each Generate PDFs run, grep for undefined and $NaN in the output of a fillTemplate operation 
+* TODO accumulate errors and report them via Ui.alert at the end of a run
 * TODO explain the ad agency model
 
 http://e27.co/one-singapores-top-corporate-tech-lawyers-helping-little-guys-20150413/
