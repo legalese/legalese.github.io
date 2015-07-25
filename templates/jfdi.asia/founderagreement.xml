@@ -117,7 +117,9 @@ information rights regarding traction and financial metrics.
 </numbered_2_para_indent_noupspace>
 <numbered_1_para>Subsequent to the Bootcamp, JFDI.2014 shall cooperate with future financings and other corporate activities by responding to paperwork requests in a timely fashion.
 The Founders shall have the responsibility to maintain the Startup as a legal entity in good standing with the Singapore authorities. A Singapore company is required to have a local director ordinarily resident in Singapore. If the Founders are not ordinarily resident in Singapore they must either find someone who is, or be prepared to retain a third-party nominee director on standard commercial terms.
+<? if (data.local_director) { ?>
 Unless otherwise agreed in writing, if none of the Founders are Singapore citizens or permanent residents, and therefore require JFDI staff to act as a local director, then the Founders and the Startup shall execute a limited power of attorney and/or a proxy to empower JFDI.2014 and its representatives, in the event the Startup fails, to wind up or strike off the company in the absence of the Founders.
+<? } ?>
 The Founders shall cause the Startup to ratify this agreement by corporate resolution, and otherwise agree to promptly undertake such actions as JFDI.Asia may request from time to time in writing to give effect to this agreement, including but not limited to a novation of this agreement, if requested.
 The division of equity in the Startup amongst the Founders and/or other employees, advisors and consultants is a matter for the Founders to agree on, so long as JFDI.2014's interests are not diluted prior to the Next External Financing.
 This offer may be rescinded should the Founders be unable to comply with the requirements herein, or fail to deliver other supporting documents requested by JFDI.Asia.
