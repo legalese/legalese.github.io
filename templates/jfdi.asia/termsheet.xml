@@ -65,7 +65,7 @@ if (data.converts_to.match(/Ordinary Shares|Common Stock/i)) { ?>ordinary voting
 <?!= cell_r_addnewline ?>If a Qualified Financing has not occurred and the Company elects to consummate a sale of the Company prior to the Maturity Date, then at the election of the Investor, either</cell_fl>
 <cell_numbered_1 restart="true">the Investor shall receive a payment equal to <?= data.acquisition_preference ?> times the <?=data.security_type_short_plural?>, or
 the entire Investment Amount shall convert into Equity Securities at the Valuation Cap.</cell_numbered_1></Cell>
-<?!= cell_l ?>Participation Right</cell></Cell>
+<?!= cell_l ?>Pro-Rata Right</cell></Cell>
 <?!= cell_r ?>Investor shall hold pre-emptive rights to participate in any future issue of equity securities (or securities convertible to equity), including the Qualified Financing.</cell_fl></Cell>
 <?!= cell_l ?>Amendment and Waiver</cell></Cell>
 <?!= cell_r ?>The <?= data.security_type_short_singular ?> Agreement may be amended, or any term thereof waived, upon the written consent of the Company and the Requisite Holders.</cell_fl></Cell>
