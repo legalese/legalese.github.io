@@ -18,9 +18,13 @@
   <recitals>Pursuant to the Founder Agreement executed on <?= data.founder_agreement_date ?> between the promoters of <?= data.company.name ?> (the "Company") and <?!= include("inc_party", data, data.parties.jfdi_investor[0]) ?> ("JFDI"), which requires the Company to <i>"authorise and issue <? if (data.jfdi_standard_valuation != false) {
   ?>convertible debt, equity, or other such security in the corporation such that, immediately prior to the Next External Financing, <?=data.parties.jfdi_investor[0].short_name || data.parties.jfdi_investor[0].name ?> will own a certain percentage (the "Conversion Percentage") of the total capital in the Startup, on a fully-diluted, as-if-converted basis<? }
   else { ?><?= data.nonstandard_valuation_text ?><? } ?>"</i>;
-And concurrently with the issue of Class F Shares to the founders and shareholders of the Company ("the Founders") and of other securities to other parties with rights and interests in the Company at the time of execution of this Agreement (together, "Existing Holders"), </numbered_2_para>
-<numbered_2_para>The Company will issue, and JFDI will take up, a <?= data.security_type ?> in the total amount of <?= jfdi_investor.money ?> (the "<?=data.security_type_short_singular?>"), with the expectation that the <?=data.security_type_short_singular?> will, upon <?= data.security_type_operation ?> at the next round of financing, make <?= data.parties.investor[0].short_name ?> a holder of <? if (data.agreed_percentage_minimum) { ?><?=data.agreed_percentage_minimum?>--<?}?>
-<?=data.agreed_percentage?>% of the fully-diluted capital of the Company.</numbered_2_para>
+<? if (! data.no_class_f) { ?>
+  And concurrently with the issue of Class F Shares to the founders and shareholders of the Company ("the Founders") and of other securities to other parties with rights and interests in the Company at the time of execution of this Agreement (together, "Existing Holders"), <? } ?></recitals>
+<recitals>The Company will issue, and JFDI will take up, a <?= data.security_type ?> in the total amount of <?= jfdi_investor.money ?> (the "<?=data.security_type_short_singular?>"), with the expectation that the <?=data.security_type_short_singular?> will, upon <?= data.security_type_operation ?> at the next round of financing, make <?= data.parties.jfdi_investor[0].short_name ?> a holder of <? if (data.agreed_percentage_minimum) { ?><?=data.agreed_percentage_minimum?>--<?}?>
+<?=data.agreed_percentage?>% of the fully-diluted capital of the Company.</recitals>
+
+  <para_1>Now it is hereby agreed as follows:---</para_1>
+
   <a_left_sidehead>Definitions </a_left_sidehead>
   <para_1>In this agreement, unless the context otherwise requires:- </para_1>
   <definition>Act	means the Singapore Companies Act (Cap. 50) and includes any provision thereof as from time to time modified or re-enacted; </definition>
@@ -64,7 +68,8 @@ full and accurate disclosure by the Company of information used to calculate the
 <?= data.parties.jfdi_investor[0].name ?> shall own <?=data.agreed_percentage?>% ("Conversion Percentage") of the total share capital in the Company, such total being calculated </numbered_2_para>
 <numbered_3_para>immediately prior to the issues due to the Next Financing Round; and
 taking all possible conversions, exercises of securities, and dilutions into account, including </numbered_3_para>
-<numbered_3_para>conversion of all Class F shares to ordinary shares.</numbered_3_para>
+<numbered_3_para>all shares of phantom stock, and</numbered_3_para>
+<numbered_3_para>conversion of all preference shares to ordinary shares.</numbered_3_para>
 <numbered_2_para>Should multiple forms of securities be issued in the Next Financing Round, then JFDI shall have the option to choose its class of Conversion Shares from amongst all those forms.</numbered_2_para>
 <? if(data.agreed_percentage_adjustable && data.agreed_percentage_minimum){ ?><numbered_2_para>The Conversion Percentage may be adjusted by mutual agreement of the Company and the Investor to no lower than <?= data.agreed_percentage_minimum ?>% according to the terms of the Founder Agreement, but shall in any event be fixed by <?= data.agreed_percentage_adjustment_date ?>.</numbered_2_para>
 <?}?>
