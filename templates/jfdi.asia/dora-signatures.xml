@@ -8,7 +8,7 @@
 <chapter_header>Deed of Ratification and Accession</chapter_header>
 <para_1><span_smallcaps>This deed</span_smallcaps> is made on <?!= data.agreement_date || '<textvar name="Output Date" />' ?> between</para_1>
 
-<?!= include("inc_enumerate_parties", data, rcpts_to) ?>
+<?!= include("inc_enumerate_parties", data, rcpts_to, { term:{brand_new_investor: "new investor", shareholder:"current investor"} }) ?>
 
 <para_1><span_smallcaps>Whereas</span_smallcaps>:</para_1>
 <? data._new_security_issues = data.parties.new_investor.map(function(p){return p.new_commitment}); ?>
@@ -64,7 +64,7 @@
 
 </para_1>
 
-  <?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: {} }) ?>
+  <?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: { term:{brand_new_investor: "new investor", shareholder:"current investor"} } }) ?>
 
 </Story_Main>
 </Root>
