@@ -1,21 +1,31 @@
 <?!= data.xmlRoot() ?>
-<?!= include("inc_cover_2_parties", data, {cover_title:"Class F Agreement", party1:data.company, party2:data.new_investor}) ?>
+<? var documentTitle = (data.previous_f_agreement_date ? "Amended and Restated " : "") + "Class F Agreement"; ?>
+<?!= include("inc_cover_2_parties", data, {cover_title:documentTitle, party1:data.company, party2:data.new_investor}) ?>
 <?!= include("inc_cover_jfdi", data, { in_series:"05" }) ?>
 <Firstpage_Sidebar>
 <sidebar>This document prescribes a vesting schedule for founders and early employees. If you're new to vesting, you should read http://pando.com/2012/04/26/founders-should-give-their-stock-back-why-vesting-is-in-your-startups-best-interest/</sidebar>
 </Firstpage_Sidebar>
 <Story_Main>
-  <chapter_header>Class F Agreement</chapter_header>
+  <chapter_header><?= documentTitle ?></chapter_header>
   <para_1><span_smallcaps>This agreement is dated</span_smallcaps> <?= data.class_f_agreement_date ?></para_1>
   <para_1>between:</para_1>
   <parties><?!= include("inc_party", data, data.new_investor) ?> (the "Holder"); and</parties>
   <parties><?!= include("inc_party", data, data.company) ?> (the "Company").</parties>
 
   <para_1><span_smallcaps>Whereas:</span_smallcaps></para_1>
+<? if (data.previous_f_agreement_date) { ?>
+  <recitals>This agreement amends and restates a previous agreement dated <?= data.previous_f_agreement_date ?> with new numbers for restricted, unrestricted, cliff, and monthly vesting shares<? if (data.new_investor.recitals_text) { ?>, to <?= data.new_investor.recitals_text ?><?}?>.</recitals>
+<? } ?>
   <recitals>The Company's Articles of Association define Class F Preference Shares. </recitals>
-  <recitals>The Company proposes to issue Class F Preference Shares to the Holder and the Holder has agreed to subscribe for the Class F Preference Shares on the terms and conditions below. </recitals>
-  <recitals>This Agreement records and sets out the terms and conditions upon and subject to which the Company will create and issue the Class F Preference Shares and the Holder will subscribe for the same. </recitals>
-  <para_1><span_smallcaps>Now this agreement witnesseth</span_smallcaps> as follows:</para_1>
+<? if (data.capTable.getActiveRound().by_security_type["Class F Shares"][data.new_investor.name] > 0) { ?>
+<recitals>The Company proposes to issue <?= digitCommas_(data.capTable.getActiveRound().by_security_type["Class F Shares"][data.new_investor.name]) ?> Class F Preference Shares to the Holder and the Holder has agreed to subscribe for the Class F Preference Shares on the terms and conditions below. </recitals>
+<? } ?>
+  <recitals>This Agreement describes the properties of the Holder's Class F Preference Shares.</recitals>
+<? if (data.previous_f_agreement_date) {?>
+<para_1><span_smallcaps>The parties therefore</span_smallcaps> amend and restate the Class F Agreement to read in its entirety as follows:</para_1>
+<? } else { ?>
+<para_1><span_smallcaps>Now this agreement witnesseth</span_smallcaps> as follows:</para_1>
+<? } ?>
   <a_left_sidehead>Definitions</a_left_sidehead>
   <para_1>In the Agreement (including the Recitals and the Schedules), except to the extent that the context otherwise requires, the following terms shall have the meanings set forth below: </para_1>
   <definition>Act	means the Companies Act (Cap. 50) of Singapore and includes any provision thereof as from time to time modified or re-enacted; </definition>
