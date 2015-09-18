@@ -1,6 +1,17 @@
 <?!= data.xmlRoot() ?>
 <?!= include("inc_cover_2_parties", data, {cover_title:"Simplified Convertible Loan Agreement", party1:data.company, party2:data.new_investor}) ?>
 <?!= include("inc_cover_jfdi", data) ?>
+<? var iHaveCap = data._orig_pre_money_valuation ? true : false; Logger.log("simplified_note: data.pre_money_valuation = %s (%s)", data.pre_money_valuation, iHaveCap); ?>
+<? var subTitle; ?>
+<?    if (  iHaveCap && ! data._orig_discount) { subTitle = "Cap Only, No Discount" }
+ else if (  iHaveCap &&   data._orig_discount) { subTitle = "Cap and Discount" }
+ else if (! iHaveCap &&   data._orig_discount) { subTitle = "Discount, no Cap" }
+ else if (! iHaveCap && ! data._orig_discount) { subTitle = "No Cap, No Discount" }
+
+ if (data._orig_discount && data.hundred_minus_discount == undefined) {
+ data.hundred_minus_discount = (100-100*data._orig_discount).toFixed(2);
+ }
+?>
 <Firstpage_Sidebar></Firstpage_Sidebar>
 <Story_Main>
   <chapter_header>Convertible Loan Agreement</chapter_header>
@@ -36,30 +47,48 @@ The Notes shall bear no interest. <? } ?>
 </numbered_2_para>
 
 
-  <a_left_sidehead>Conversion Price</a_left_sidehead>
-<? if (data.fixed_conversion) { // special case priced round -- we use the valuation cap as the valuation itself ?>
-<numbered_2_para>The "Conversion Price" shall be fixed at <? } else { ?>  
+<a_left_sidehead>Conversion Price</a_left_sidehead>
+
+<? if (iHaveCap && ! data._orig_discount) { ?>
+<numbered_2_para>The "Conversion Price" shall be fixed at the price per share equal to <?= data.pre_money_valuation ?> divided by the aggregate number of outstanding shares of the Company&#8217;s common stock as of immediately after the initial closing of the Qualified Financing (assuming full conversion or exercise of all convertible and exercisable securities then outstanding other than the Notes) (the &#8220;<b>Valuation Cap</b>&#8221;).</numbered_2_para>
+
+
+<? } else if (iHaveCap && data._orig_discount) { ?>
+
   <numbered_2_para>The &#8220;Conversion Price&#8221; is the lesser of</numbered_2_para>
-  <numbered_3_para><?= 100-data._orig_discount ?>% of the per share price paid by the purchasers of such Equity Securities in the Qualified Financing (the &#8220;<b>Discounted Conversion Price</b>&#8221;), or</numbered_3_para>
-  <numbered_3_para><? } ?>the price per share equal to <?= data.pre_money_valuation ?> divided by the aggregate number of outstanding shares of the Company&#8217;s common stock as of immediately after the initial closing of the Qualified Financing (assuming full conversion or exercise of all convertible and exercisable securities then outstanding other than the Notes) (the &#8220;<b>Valuation Cap</b>&#8221;).<? if (data.fixed_conversion) { ?></numbered_2_para><?}else{?></numbered_3_para><?}?>
+  <numbered_3_para><?= data.hundred_minus_discount ?>% of the per share price paid by the purchasers of such Equity Securities in the Qualified Financing (the &#8220;<b>Discounted Conversion Price</b>&#8221;), or</numbered_3_para>
+  <numbered_3_para>the price per share equal to <?= data.pre_money_valuation ?> divided by the aggregate number of outstanding shares of the Company&#8217;s common stock as of immediately after the initial closing of the Qualified Financing (assuming full conversion or exercise of all convertible and exercisable securities then outstanding other than the Notes) (the &#8220;<b>Valuation Cap</b>&#8221;).</numbered_3_para>
+
+
+<? } else if (data._orig_discount) { ?>
+
+<numbered_2_para>The "Conversion Price" shall be fixed at <?= data.hundred_minus_discount ?>% of the per share price paid by the purchasers of such Equity Securities in the Qualified Financing (the &#8220;<b>Discounted Conversion Price</b>&#8221;).</numbered_2_para>
+
+
+<? } else { ?>
+
+<numbered_2_para>The "Conversion Price" shall be fixed at the per share price paid by the purchasers of such Equity Securities in the Qualified Financing (the &#8220;<b>Conversion Price</b>&#8221;).</numbered_2_para>
+
+<? } ?>
 
 
 
   <a_left_sidehead>Automatic Conversion</a_left_sidehead>
   <numbered_2_para><b>Automatic Conversion in a Qualified Financing.</b> If the Company issues Equity Securities in a Qualified Financing, then the Notes<? if (data.interest != 0) { ?>, and any accrued but unpaid interest thereon,<? } ?> will automatically convert into the equity securities issued pursuant to the Qualified Financing at the Conversion Price.</numbered_2_para>
-  <numbered_2_para><b>Automatic Conversion at the Maturity Date.</b> If the Notes have not been previously converted pursuant to a Qualified Financing, then, effective upon the Maturity Date, the Notes, and any accrued but unpaid interest thereon, will automatically convert into Equity Securities at <?= 100 - data.maturity_conversion_discount ?>% of the Valuation Cap.</numbered_2_para>
+  <? if (iHaveCap) { ?>
+  <numbered_2_para><b>Automatic Conversion at the Maturity Date.</b> If the Notes have not been previously converted pursuant to a Qualified Financing, then, effective upon the Maturity Date, the Notes, and any accrued but unpaid interest thereon, will automatically convert into Equity Securities at <?= (100 - data.maturity_conversion_discount).toFixed(2) ?>% of the Valuation Cap.</numbered_2_para>
+<?}?>
 
-
+  <? if (iHaveCap) { ?>
   <a_left_sidehead>Optional Conversion</a_left_sidehead>
   <numbered_2_para>If the Maturity Date or a Qualified Financing has not occurred, the Investor may elect to convert the entire Investment Amount into Equity Securities at the Valuation Cap.</numbered_2_para>
-
+<?}?>
 
 
   <a_left_sidehead>Sale of the Company</a_left_sidehead>
-  <numbered_2_para>If a Qualified Financing has not occurred and the Company elects to consummate a sale of the Company prior to the Maturity Date, then at the election of the Investor, either</numbered_2_para>
-  <numbered_3_para>the Investor shall receive a payment equal to <?= data.acquisition_preference ?> times the Notes, or</numbered_3_para>
-  <numbered_3_para>the entire Investment Amount shall convert into Equity Securities at the Valuation Cap.</numbered_3_para>
-
+  <numbered_2_para>If a Qualified Financing has not occurred and the Company elects to consummate a sale of the Company prior to the Maturity Date, then at the election of the Investor, <? if (iHaveCap) { ?>either</numbered_2_para>
+  <numbered_3_para><?}?>the Investor shall receive a payment equal to <?= data.acquisition_preference ?> times the Notes<? if (iHaveCap) { ?>, or</numbered_3_para>
+  <numbered_3_para>the entire Investment Amount shall convert into Equity Securities at the Valuation Cap.</numbered_3_para><? } else { ?>.</numbered_2_para><?}?>
 
 
   <a_left_sidehead>Pre-Payment</a_left_sidehead>
@@ -96,7 +125,7 @@ The Investor shall have no information rights over the financials of the company
 <chapter_header>Signatures</chapter_header>
     <para_1><span_smallcaps>In witness whereof</span_smallcaps> we have hereunto set our hands.</para_1>
 
-	<?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: {} }) ?>
+	<?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: { term: { new_investor: "investor" } } }) ?>
 	
 </Story_Main>
 </Root>
