@@ -20,39 +20,93 @@
 <? } ?>
 <basic_para addnewline="true" />
 <basic_para addnewline="true" />
+
+<? var activeRound = data.capTable.getActiveRound(); ?>
+<? var newIssues = data.capTable.getActiveRound().getNewIssues(); ?>
+<? if (newIssues && newIssues.TOTAL._orig_shares != 0) { ?>
+
 <chapter_header override="startParagraph=StartParagraph.ANYWHERE">Allotment of <?= data.security_type_plural ?></chapter_header>
-<para_1>Regarding the allotment of <?= data.security_type_plural ?> to the <?= plural(data.parties.new_investor, "new investor") ?> <?= commaAnd(data.parties.new_investor.map(function(p){return p.name})) ?>,</para_1>
+<para_1>Regarding the allotment of <?= data.security_type_plural ?> to the <?= plural(Object.keys(newIssues.holders), "new investor") ?> <?= commaAnd(Object.keys(newIssues.holders)) ?>,</para_1>
 <numbered_1_para>We hereby confirm that:</numbered_1_para>
 
-<numbered_2_para>the Company's <?= plural(data.parties.new_investor, "allotment") ?>
- of <?= data._total_new_shares ?> <?= data.security_type_short_plural ?> <?= plural_verb(data.parties.new_investor, "is") ?>
+<numbered_2_para>the Company's <?= plural(Object.keys(newIssues.holders), "allotment") ?>
+ of <?= newIssues.TOTAL.shares ?> <?= data.security_type_short_plural ?> <?= plural_verb(Object.keys(newIssues.holders), "is") ?>
 <? if (data.share_grant) { ?> for no consideration;
 <? } else { ?> for cash consideration;
-subscription monies amounting to <?= data._total_commitments ?> have been received by the Company in respect of the allotment of <?= data._total_new_shares ?> <?= data.security_type_short_plural ?>;
+subscription monies amounting to <?= newIssues.TOTAL.money ?> have been received by the Company in respect of the allotment of <?= newIssues.TOTAL.shares ?> <?= data.security_type_short_plural ?>;
 <? } ?>
-we have established the identity of the new <?= plural(data.parties.new_investor, "investor") ?>, <?= commaAnd(data.parties.new_investor.map(function(p){return p.name})) ?>;
+we have established the identity of the new <?= plural(Object.keys(newIssues.holders), "investor") ?>, <?= commaAnd(Object.keys(newIssues.holders)) ?>;
 and we confirm that all is in order. </numbered_2_para>
 
 <numbered_1_para>The details are as follows:</numbered_1_para>
 
 <para_1>
-<Table aid:table="table" aid:tcols="4" aid:trows="<?= data.parties.new_investor.length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+<Table aid:table="table" aid:tcols="4" aid:trows="<?= Object.keys(newIssues.holders).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
 <Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="76" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>ID</cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Address</cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="90" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Number of Shares Held</cell_c></Cell>
-<? for (var i = 0; i<data.parties.new_investor.length; i++) { with(data.parties) { ?>
-<Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= new_investor[i].name ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="76" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= new_investor[i].idtype ?> <span_ucnum><?= new_investor[i].id ?></span_ucnum></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= new_investor[i].address ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="90" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= new_investor[i].num_new_shares ?> <?= new_investor[i].share_type ||data.security_type_short_plural ?> for <?= new_investor[i].new_commitment || "no consideration" ?><?= new_investor[i].commitment_comment ? new_investor[i].commitment_comment : "" ?></cell_c></Cell>
+<? Logger.log("corpsec-allotment: newIssues.holders = %s", newIssues.holders); ?>
+<? for (var hh in newIssues.holders) { with(newIssues.holders[hh]) { ?>
+<? var new_investors = data.parties.new_investor.filter(function(ni){return (ni.name == hh)});
+  var new_investor;
+  if (new_investors.length) {
+    new_investor = new_investors[0];
+    Logger.log("corpsec-allotment: newIssues.holders :: new_investor = %s (%s %s)", new_investor.name, new_investor.idtype, new_investor.id);
+  } else {
+	Logger.log("corpsec-allotment: unable to find party new_investor named %s", hh);
+	continue;
+  }
+?>
+<Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= hh ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="76" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= new_investor.idtype ?> <span_ucnum><?= new_investor.id ?></span_ucnum></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= new_investor.address ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="90" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= shares ?> <?= new_investor.share_type ||data.security_type_short_plural ?> for <?= newIssues.holders[hh]._orig_money ? money : "no consideration" ?><?= new_investor.commitment_comment ? new_investor.commitment_comment : "" ?></cell_c></Cell>
 <? } } ?>
 </Table>
 </para_1>
-
 <numbered_1_para>Kindly proceed with the lodgment of the Return of Allotment of Shares with the <?= data.parties.state_regulator[0].name ?>.</numbered_1_para>
 
-<numbered_1_para>Kindly also issue the share certificates to the <?= plural(data.parties.new_investor, "investor") ?>.</numbered_1_para>
+<numbered_1_para>Kindly also issue the share certificates to the <?= plural(Object.keys(newIssues.holders), "investor") ?>.</numbered_1_para>
+
+<? } ?>
+
+<? var redemptions = data.capTable.getActiveRound().getRedemptions(); ?>
+<? if (redemptions && redemptions.TOTAL._orig_money != 0) { ?>
+
+<chapter_header<? if (! (newIssues && newIssues.TOTAL._orig_money != 0)) { ?> override="startParagraph=StartParagraph.ANYWHERE"<?}?>>Redemption of <?= data.security_type_plural ?></chapter_header>
+<para_1>Regarding the redemption of <?= data.security_type_plural ?> from <?= plural(Object.keys(redemptions.holders), "holder") ?> <?= commaAnd(Object.keys(redemptions.holders)) ?>,</para_1>
+<numbered_1_para>We hereby confirm that:</numbered_1_para>
+
+<numbered_2_para>The Company has redeemed <?= redemptions.TOTAL.shares ?> <?= data.security_type_short_plural ?> for cash consideration;
+monies amounting to <?= redemptions.TOTAL.money ?> have been sent by the Company in respect of the redemption of <?= redemptions.TOTAL.shares ?> <?= data.security_type_short_plural ?>;
+we have notified the <?= plural(Object.keys(redemptions.holders), "holder") ?> <?= commaAnd(Object.keys(redemptions.holders)) ?> of the redemption;
+the redemption is being made <? if (data.redemption_out_of == "profits") { ?>out of profits;<?}else{?>out of capital, and accordingly a solvency statement has been executed by the directors;<?}?>
+and we confirm that the redeemed shares are to be cancelled. </numbered_2_para>
+
+<numbered_1_para>The details are as follows:</numbered_1_para>
+
+<para_1>
+<Table aid:table="table" aid:tcols="4" aid:trows="<?= Object.keys(redemptions.holders).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+<Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="76" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>ID</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Address</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="90" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Number of Shares Redeemed</cell_c></Cell>
+<? for (var hh in redemptions.holders) { with(redemptions.holders[hh]) { ?>
+<? var new_investors = data.parties.new_investor.filter(function(ni){return (ni.name == hh)});
+  var new_investor;
+  if (new_investors.length) { new_investor = new_investors[0]; }
+  ?>
+<Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= hh ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="76" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= new_investor.idtype ?> <span_ucnum><?= new_investor.id ?></span_ucnum></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= new_investor.address ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="90" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= shares.replace(/^-/,"") ?> <?= new_investor.share_type ||data.security_type_short_plural ?> for <?= _orig_money ? money.replace(/-/,"") : "no consideration" ?><?= new_investor.commitment_comment ? new_investor.commitment_comment : "" ?></cell_c></Cell>
+<? } } ?>
+</Table>
+</para_1>
+<numbered_1_para>Kindly proceed with the necessary lodgments with the <?= data.parties.state_regulator[0].name ?> and follow up with the <?= plural(Object.keys(redemptions.holders), "holder") ?> regarding the recall, cancellation, and/or reissue of share certificates as required.</numbered_1_para>
+
+<? } ?>
 
 <para_1>Yours faithfully,</para_1>
 <? data.signature_comment = "Director" ?>
