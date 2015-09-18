@@ -1,11 +1,15 @@
 <?!= include("inc_dr_start", data, { director_or_member:"Director", article_pursuant:data.article_for_directors_resolution_in_writing, r_num: 3 }) ?>
 
+<?!= include("inc_additional_resolutions", data, {
+  header:data.directors_resolution_headerstyle || "a_left_sidehead",
+  prefix:"directors_resolution",
+  bodystyle:data.members_resolution_bodystyle } ) ?>
+
 <a_left_sidehead>Authority of <?!= plural(data.parties.shareholder, "Member", "Members") ?> Sought</a_left_sidehead>
 
 <para_1>That the approval of the <?!= plural(data.parties.shareholder, "Member", "Members") ?> of the Company be sought for passing the following resolution<?= data.members_resolution_2 == undefined ? "" : "s" ?>:</para_1>
 
 <b_left_sidehead>Ordinary Resolution -- Authority to Issue Securities</b_left_sidehead>
-
 <?!= include("mr_authority_to_issue_shares", data) ?>
 
 <?!= include("inc_additional_resolutions", data, {
