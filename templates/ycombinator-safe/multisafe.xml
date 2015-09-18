@@ -1,6 +1,6 @@
 <?!= data.xml_declaration ?>
 <?!= data.xmlRoot() ?>
-<? var iHaveCap = data._orig_pre_money_valuation ? true : false; Logger.log("multisafe: data.pre_money_valuation = %s (%s)", data.pre_money_valuation, iHaveCap) ?>
+<? var iHaveCap = data._orig_pre_money_valuation ? true : false; Logger.log("multisafe: data.pre_money_valuation = %s (%s)", data.pre_money_valuation, iHaveCap); ?>
 <? var subTitle; ?>
 <?    if (  iHaveCap && ! data._orig_discount) { subTitle = "Cap Only, No Discount" }
  else if (  iHaveCap &&   data._orig_discount) { subTitle = "Cap and Discount" }
