@@ -40,8 +40,8 @@ in the spirit of mutual confidence and co-operation, the Parties have agreed to 
   <definition>Control	means the possession, direct or indirect, of the power to direct or cause the direction of the management and policies of a corporation, whether through the ownership of voting securities, by contract, or otherwise and derivative terms thereof (including <b>"Controlling"</b>, <b>"Controlled by"</b>; and "under common Control with") shall also bear such meaning as aforesaid. For the purpose of this definition, the holding of an interest (within the meaning of the Act) of more than 50% of the equity share capital of the relevant corporation shall be deemed to be "Control" of this corporation;</definition>
   <definition>Deed of Ratification	means a deed of ratification and accession whereby the signatory thereof enters into, becomes a party to and undertakes to be legally bound by the terms of this Agreement;</definition>
   <definition>Director	means a director of the Company for the time being, including where applicable an alternate director;</definition>
-  <definition>External Financing	means a fund-raising event which in which the company raises no less than <?= data.qualified_financing_round_size?></definition>
-<? if (data.parties.investor) { ?>
+  <definition>External Financing	means a fund-raising event which in which the company raises no less than <?= data.qualified_financing_proceeds?></definition>
+<? if (data.parties.jfdi_investor) { ?>
   <definition>Investment	means the amount invested in the Company by the Investor in the form of the Convertible Note;</definition>
 <?}?>
   <definition>Trade Sale	means a sale of 75% or more of the issued Ordinary share capital of the Company to a third party buyer;</definition>

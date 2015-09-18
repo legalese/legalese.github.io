@@ -39,7 +39,7 @@ proof of revenue: that some percentage of leads or users are willing to pay.</bu
 <para_2>and <? if (! data.previously_incorporated) { ?>the Founders shall procure that <? } ?>in consideration of this investment <? if (data.intangibles_clause) { ?>and for other good and valuable consideration described in Clause <xref to="intangibles" />, which the Parties agree to value at <?= (data.intangibles_value || "S$150,000") ?>,
 <? } ?>
 the Startup shall authorise and issue <? if (data.jfdi_standard_valuation != false) { ?>convertible debt, equity, or some other security in the corporation such that, immediately prior to the Next External Financing, JFDI.2014 will own a certain percentage (the "Conversion Percentage") of the total capital in the Startup, on a fully-diluted, as-if-converted basis.<? } else { ?><?= data.nonstandard_valuation_text ?><? } ?></para_2>
-<numbered_1_para>The Next External Financing refers to the first financing event subsequent to JFDI.2014's investment in which the Startup raises more than <?= data.qualified_financing_round_size ?> within one round or series<? if (data.qualified_round_type != undefined) { ?> of <?= data.qualified_round_type ?> securities<? } ?>.
+<numbered_1_para>The Next External Financing refers to the first financing event subsequent to JFDI.2014's investment in which the Startup raises more than <?= data.qualified_financing_proceeds ?> within one round or series<? if (data.qualified_round_type != undefined) { ?> of <?= data.qualified_round_type ?> securities<? } ?>.
 <? if (data.jfdi_standard_valuation == false ) { ?><? } else { ?>
 The Conversion Percentage shall be<?
 if (data.valuation_basis == "table") { ?>
