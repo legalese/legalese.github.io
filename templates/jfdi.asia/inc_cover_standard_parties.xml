@@ -7,8 +7,9 @@
 <cover_company_id><?= data.company.idtype ?> <?= data.company.id ?></cover_company_id>
 </CoverTop>
 <CoverMid>
+<? var done_cover_rcpts = {}; ?>
 <? for (var pp in rcpts_to) { if(pp=="company") continue; ?>
-<?   for (var pi in rcpts_to[pp]) { ?>
+<?   for (var pi in rcpts_to[pp]) { if (done_cover_rcpts[rcpts_to[pp][pi].name]) { continue } else { done_cover_rcpts[rcpts_to[pp][pi].name] = true } ?>
 <cover_parties_centered><?= newlinesToCommas(rcpts_to[pp][pi].name) ?></cover_parties_centered>
 <?   } ?>
 <? } ?>
