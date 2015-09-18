@@ -5,7 +5,7 @@
 the <?= plural(data.parties.director, "Director") ?> of the Company be and <?= plural_verb(data.parties.director, "is") ?> hereby authorised
 to allot and to issue <?= data.security_type_plural || "" ?>
 <?= data.security_type_plural ? " " : "shares " ?>
-<? if (data.security_essential.match(/equity/)) { ?>in the capital of the Company
+<? if (data.security_essential && data.security_essential.match(/equity/)) { ?>in the capital of the Company
 <? } ?>
 <?= data.share_issuance_to_persons || "to such persons" ?>
 
