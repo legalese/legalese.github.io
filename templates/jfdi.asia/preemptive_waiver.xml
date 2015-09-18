@@ -15,34 +15,37 @@
 
 </basic_para>
 <para_1><?= data.shareholder.name ?></para_1>
-<?!= data.whitespace_handling_use_characters ?><basic_para><?= data.shareholder.address ?>
+<basic_para><?= data.shareholder.address ?>
 
 </basic_para>
+<? var activeRound = data.capTable.getActiveRound(); ?>
+<? var newIssues = data.capTable.getActiveRound().getNewIssues(); ?>
 <para_1><b>Issuance of New Shares in <?= data.company.name ?> (the "Company")</b></para_1>
-<para_1>Notice is hereby given to all members of the Company that the Directors intend to issue <?= data.amount_raising ?> of <?= data.security_type_plural ?> ("<?= data.security_type_short_plural ?>")<? if(data.price_per_share){?>, at a price of <?= data.price_per_share ?> per share<?}?>.</para_1>
+<? var totalCommitments = data.amount_raising || newIssues.TOTAL.money; ?>
+<? var totalShares = newIssues.TOTAL._orig_shares ? newIssues.TOTAL.shares : null; ?>
+<? // if we are issuing an equity instrument then we can count the number of shares. debt instrument get denominated in dollar amounts. ?>
+<para_1>Notice is hereby given to all members of the Company that the Directors intend to issue up to <?= totalShares ? totalShares : totalCommitments+" of" ?> <?= data.security_type_plural ?> ("<?= data.security_type_short_plural ?>")<? if(data.price_per_share){?>, at a price of <?= data.price_per_share ?> per share<?}?><? if (totalShares) { ?>, for a total of <?= totalCommitments ?><? } ?>.</para_1>
 <? if (data.explanation) { ?><para_2><?= data.explanation ?></para_2><? } ?>
 <para_2>As a member of the Company, you possess the right under the Company's Articles of Association to participate in this issue.
-<?if(data.preemptive_formality){?>We request that you waive this right, as your waiver is a necessary formality required for the Company to issue these shares to <?=commaAnd(data.parties.new_investor,"name")?>.
+<?if(data.preemptive_formality){?>We request that you waive this right, as your waiver is a necessary formality required for the Company to issue securities to <?=commaAnd(data.parties.new_investor,"name")?>.
 <?}else{?>
-<? Logger.log("preemptive_waiver: %s.old_investors = %s", "Angel Round", data.capTable.getActiveRound().old_investors); ?>
-<? Logger.log("preemptive_waiver: old_investors[%s] = %s", data.shareholder.name, data.capTable.getActiveRound().old_investors[data.shareholder.name]); ?>
-<? Logger.log("preemptive_waiver: pre_money = %s", data.capTable.getActiveRound().pre_money); ?>
+<? Logger.log("attempting to calculate percentage for old_investor %s", data.shareholder.name); ?>
 <? var percentage = data.capTable.getActiveRound().old_investors[data.shareholder.name]._orig_shares / data.capTable.getActiveRound().pre_money._orig_shares; ?>
 <? var pr_tf = 2;
   var pro_rata = (100*percentage).toFixed(pr_tf);
   while (pro_rata == 0) { pr_tf++; pro_rata = (100*percentage).toFixed(pr_tf); }
 ?>
 <? Logger.log("preemptive_waiver: percentage=%s; pro_rata=%s",percentage, pro_rata); ?>
-Given that the Company is issuing <?= data.amount_raising ?> of new <?= data.security_type_short_plural ?>, and you presently hold <?= data.capTable.getActiveRound().old_investors[data.shareholder.name].shares ?> out of <?= data.capTable.getActiveRound().pre_money.shares ?> existing shares, you have the right to subscribe for up to <?= pro_rata ?>% of this new issue: <?
+Given that you presently hold <?= data.capTable.getActiveRound().old_investors[data.shareholder.name].shares ?> out of <?= data.capTable.getActiveRound().pre_money.shares ?> existing shares, you have the right to subscribe for up to <?= pro_rata ?>% of this new issue: <?
 if (data.security_essential == "equity") {
-  var num_securities = percentage * data._orig_total_new_securities_on_offer;
+  var num_securities = percentage * newIssues.TOTAL._orig_shares;
 ?>
-<?= digitCommas_(num_securities) ?> <?= plural(num_securities.toFixed(0), data.security_type_short_singular, data.security_type_short_plural) ?><?
-  if (data.price_per_share) { ?> for <?= asCurrency_(currencyFor_(data.price_per_share), (percentage * data._orig_amount_raising).toFixed(2)) ?><?}?>.
+<?= digitCommas_(num_securities, 0) ?> <?= plural(num_securities.toFixed(0), data.security_type_short_singular, data.security_type_short_plural) ?><?
+  if (data.price_per_share) { ?> for <?= asCurrency_(currencyFor_(data.price_per_share), (percentage * newIssues.TOTAL._orig_money).toFixed(2)) ?><?}?>.
 <? } else { ?>
-<?= asCurrency_(currencyFor_(data.amount_raising), (percentage * data._orig_amount_raising).toFixed(2)) ?> worth of <?= data.security_type_short_plural ?>.
+<?= asCurrency_(currencyFor_(data.capTable.getActiveRound().amount_raised.money), (percentage * (data._orig_amount_raising || newIssues.TOTAL._orig_money)).toFixed(2)) ?> worth of <?= data.security_type_short_plural ?>.
 <? } ?>
-<? if (data.amount_raising) { ?>You may also have excess rights to subscribe beyond that amount -- if other shareholders do not take up their pro rata allotments, you may participate beyond yours, up to the total amount of <?= data.amount_raising ?>.
+<? if (data._orig_amount_raising || newIssues.TOTAL._orig_money) { ?>You may also have excess rights to subscribe beyond that amount -- if other shareholders do not take up their pro rata allotments, you may participate beyond yours, up to the total amount of <?= totalCommitments ?>.
 <? } ?>
 If you wish to participate in this issue, please indicate, by email to the <?= plural(data.parties.director, "Director") ?>, the level of your interest.
 There is no obligation to participate. If you do not, <?= commaAnd(data.parties.new_investor, "name") ?>
@@ -59,7 +62,8 @@ If we do not hear from you within <?= data.preemptive_rights_notice_period || 7 
 </Story_Main>
 <Bottom_Box delete_if_empty="true">
 <? // TODO: add form fields https://www.echosign.adobe.com/content/dam/echosign/docs/pdfs/Forms%20-%20Text%20Tags%20Acrobat%20Form%20Fields%20Companion.pdf ?>
-<para_1>I, <?= newlinesToCommas(data.shareholder.name) ?> (<?= data.shareholder.idtype ?> <span_ucnum><?= data.shareholder.id ?></span_ucnum>), being a shareholder of <?= data.company.name ?> hereby decline to subscribe for issue.</para_1>
+<para_1>I, <?= newlinesToCommas(data.shareholder.name) ?> (<?= data.shareholder.idtype ?> <span_ucnum><?= data.shareholder.id ?></span_ucnum>), being a shareholder of <?= data.company.name ?> hereby decline to subscribe for the <?= data.security_type_short_plural ?> in this issue<? if (data.security_type != "Ordinary Shares") { ?> and give my approval for any subsequent <?= data.security_type_operation ?> as well<? } ?>
+.</para_1>
 <? if(data.waiver_additional_text){?><para_2><?= data.waiver_additional_text ?>
 </para_2><?}?>
 <? data.signature_comment = "Shareholder"; ?>
