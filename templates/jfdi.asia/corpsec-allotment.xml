@@ -12,8 +12,12 @@
 <? Logger.log("corpsec-allotment INFO: data._total_commitments = %s",data._total_commitments); ?>
 <Story_Main>
 <resolution_title>Instruction to Corporate Secretary</resolution_title>
+<? if (data.parties.corporate_secretary && data.parties.corporate_secretary.length) { ?>
 <basic_para addnewline="true"><?= data.parties.corporate_secretary[0].name ?></basic_para>
 <basic_para><?= data.parties.corporate_secretary[0].address ?></basic_para>
+<? } else { ?>
+<basic_para addnewline="true"><i>No corporate secretary is defined!</i></basic_para>
+<? } ?>
 <basic_para addnewline="true" />
 <basic_para addnewline="true" />
 <chapter_header override="startParagraph=StartParagraph.ANYWHERE">Allotment of <?= data.security_type_plural ?></chapter_header>
