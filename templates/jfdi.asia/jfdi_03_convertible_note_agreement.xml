@@ -9,9 +9,14 @@
 </Firstpage_Sidebar>
 <Story_Main>
   <chapter_header><?=data.security_type?> Agreement</chapter_header>
-  <a_left_sidehead>Essentials </a_left_sidehead>
-  <numbered_2_para>Pursuant to the Founder Agreement executed on <?= data.founder_agreement_date ?> between the promoters of <?= data.company.name ?> (the "Company") and <?!= include("inc_party", data, data.parties.investor[0]) ?> ("JFDI"), which requires the Company to <i>"authorise and issue <? if (data.jfdi_standard_valuation != false) {
-  ?>convertible debt, equity, or other such security in the corporation such that, immediately prior to the Next External Financing, <?=data.parties.investor[0].short_name || data.parties.investor[0].name ?> will own a certain percentage (the "Conversion Percentage") of the total capital in the Startup, on a fully-diluted, as-if-converted basis<? }
+
+  <para_1><span_smallcaps>This agreement</span_smallcaps> is made on <?!= data.investment_agreement_date || '<textvar name="Output Date" />' ?> between</para_1>
+  <?!= include("inc_enumerate_parties", data, rcpts_to) ?>
+
+<para_1><span_smallcaps>Whereas</span_smallcaps>:</para_1>
+
+  <recitals>Pursuant to the Founder Agreement executed on <?= data.founder_agreement_date ?> between the promoters of <?= data.company.name ?> (the "Company") and <?!= include("inc_party", data, data.parties.jfdi_investor[0]) ?> ("JFDI"), which requires the Company to <i>"authorise and issue <? if (data.jfdi_standard_valuation != false) {
+  ?>convertible debt, equity, or other such security in the corporation such that, immediately prior to the Next External Financing, <?=data.parties.jfdi_investor[0].short_name || data.parties.jfdi_investor[0].name ?> will own a certain percentage (the "Conversion Percentage") of the total capital in the Startup, on a fully-diluted, as-if-converted basis<? }
   else { ?><?= data.nonstandard_valuation_text ?><? } ?>"</i>;
 And concurrently with the issue of Class F Shares to the founders and shareholders of the Company ("the Founders") and of other securities to other parties with rights and interests in the Company at the time of execution of this Agreement (together, "Existing Holders"), </numbered_2_para>
 <numbered_2_para>The Company will issue, and JFDI will take up, a <?= data.security_type ?> in the total amount of <?= jfdi_investor.money ?> (the "<?=data.security_type_short_singular?>"), with the expectation that the <?=data.security_type_short_singular?> will, upon <?= data.security_type_operation ?> at the next round of financing, make <?= data.parties.investor[0].short_name ?> a holder of <? if (data.agreed_percentage_minimum) { ?><?=data.agreed_percentage_minimum?>--<?}?>
