@@ -34,7 +34,7 @@
   <definition>Director	means a director of the Company for the time being, including where applicable an alternate director; </definition>
   <definition>Investor	means <span_ucnum>JFDI.2014</span_ucnum> Pte. Ltd.; </definition>
   <definition>JFDI	also means <span_ucnum>JFDI.2014</span_ucnum> Pte. Ltd.; </definition>
-<?if(data.term){?>  <definition>Maturity Date	<?=data.term?> from date of issue of the <?=data.security_type_short_singular?>, or such other date as may be mutually agreed between the Parties; </definition>
+<?if(data.term){?>  <definition>Maturity Date	means <?= data.jfdi_maturity_date ?>, being <?=data.term.match(/months/) ? data.term : data.term+" months" ?> from date of issue of the <?=data.security_type_short_singular?>; or such other date as may be mutually agreed between the Parties; </definition>
 <?}?>
 <?if(data.interest != undefined){?>
 <definition>Interest Rate	The <?=data.security_type_short_singular?> <? if (data.interest > 0) { ?>accrues <?= data.interest ?>% simple interest, to be payable in full on the earlier of the Maturity Date or the date on which the <?=data.security_type_short_singular?> is converted or redeemed in full,<?}else{?>carries no interest.<?}?></definition>
@@ -77,10 +77,10 @@ taking all possible conversions, exercises of securities, and dilutions into acc
 <? if (data.security_type_operation == "exercise") {?><numbered_2_para>JFDI shall pay the Company the exercise price of the Warrant.</numbered_2_para><?}?>
   <numbered_2_para>Automatic <?=data.security_type_operation?> shall be deemed to have occurred immediately prior to the closing of the Next Financing Round. For the avoidance of doubt: JFDI shall enjoy pre-emptive rights (as described in Article <?= data.aa_preemptive_clause_number || "41" ?>), and related rights accorded to Members of the Company with respect to the Next Financing Round and to subsequent rounds. </numbered_2_para>
   <numbered_2_para>The pre-emptive rights accruing to JFDI shall be transferable at JFDI's sole discretion to non-members notwithstanding Article <?= data.aa_preemptive_clause_number || "41" ?> of the Articles of Association; and the Founders shall procure such authorisation from the Members. </numbered_2_para>
-<?if(data.security_type=="Convertible Note"){?>  <numbered_2_para>Should the <?=data.security_type_short_singular?> fail to <?=data.security_type_operation=="conversion"?"convert":"exercise"?> by the maturity date (the "Maturity Date"), JFDI may at any time thereafter redeem in full the outstanding principal <?if(data.interest){?>and accrued interest <?}?>of the <?=data.security_type_short_singular?>. </numbered_2_para>
+<?if(data.security_type=="Convertible Note"){?>  <numbered_2_para>Should the <?=data.security_type_short_singular?> fail to <?=data.security_type_operation=="conversion"?"convert":"exercise"?> by the Maturity Date, JFDI may at any time thereafter redeem in full the outstanding principal <?if(data.interest){?>and accrued interest <?}?>of the <?=data.security_type_short_singular?>. </numbered_2_para>
 <?}?>
   <numbered_2_para>The Company shall procure that the Existing Shareholders shall waive any and all rights of pre-emption which they have (or may have) with respect to the allotment and issue of the Conversion Shares to JFDI, whether pursuant to the Memorandum or Articles of Association of the Company, by contract or otherwise.</numbered_2_para>
-<?if(data.security_type=="Convertible Note"){?>  <a_left_sidehead>Repayment </a_left_sidehead>
+<?if(data.security_type=="Convertible Note"){?><a_left_sidehead>Repayment </a_left_sidehead>
   <numbered_2_para>So long as the <?=data.security_type_short_singular?> has not been <?=data.security_type_operation=="conversion"?"converted":"exercised"?> pursuant to the terms set out in this <?=data.security_type_short_singular?>, if at any time and for any reason (and whether within or beyond the control of any party to this Agreement) any Event of Default has occurred, then at any time thereafter JFDI may by serving a Repayment Notice on the Company to declare the <?=data.security_type_short_singular?> to be immediately due and payable at the Repayment Amount. </numbered_2_para>
   <numbered_2_para>For the purposes of this <?=data.security_type_short_singular?>, the following events are Events of Default:--</numbered_2_para>
   <numbered_3_para>a material breach of any of the warranties, undertakings and conditions contained herein or in any document in connection therewith; including the Founder Agreement signed as a condition of acceptance into the JFDI bootcamp; such breach being capable of remedy, but not so remedied within 30 days after notice of such breach having been given by JFDI to the Company or the Founders; </numbered_3_para>
@@ -123,7 +123,7 @@ taking all possible conversions, exercises of securities, and dilutions into acc
   <para_1>Nothing in this <?=data.security_type_short_singular?> is intended to grant to any third party any right to enforce any term of this <?=data.security_type_short_singular?> or to confer on any third party any benefits under this <?=data.security_type_short_singular?> for the purposes of the Contract (Rights of Third Parties) Chapter 53b and any re-enactment thereof, the application of which legislation is hereby expressly excluded. </para_1>
   <a_left_sidehead>Discharge of Obligations </a_left_sidehead>
   <para_1>This <?=data.security_type_short_singular?> is issued pursuant to the Company's obligations under the Founder Agreement executed on <?=data.founder_agreement_date?>, which requires the Company to <i>"authorise and issue <? if (data.jfdi_standard_valuation != false) {
-  ?>convertible debt, equity, or other such security in the corporation such that, immediately prior to the Next External Financing, <?=data.parties.investor[0].short_name || data.parties.investor[0].name ?> will own a certain percentage (the "Conversion Percentage") of the total capital in the Startup, on a fully-diluted, as-if-converted basis.<? }
+  ?>convertible debt, equity, or other such security in the corporation such that, immediately prior to the Next External Financing, <?=data.parties.jfdi_investor[0].short_name || data.parties.jfdi_investor[0].name ?> will own a certain percentage (the "Conversion Percentage") of the total capital in the Startup, on a fully-diluted, as-if-converted basis.<? }
   else { ?><?= data.nonstandard_valuation_text ?><? } ?>"</i> That obligation shall be considered discharged upon the conversion of this <?=data.security_type_short_singular?>. </para_1>
   <a_left_sidehead xname="medarb">Law and Jurisdiction </a_left_sidehead>
   <?!= include("inc_mediation_arbitration", data) ?>
@@ -133,15 +133,15 @@ taking all possible conversions, exercises of securities, and dilutions into acc
 
 <b_left_sidehead>Grant of Limited Power of Attorney</b_left_sidehead>
 
-<numbered_3_para_fl>Each Founder (in this context the "Donor") hereby irrevocably designates and appoints the Investor and its duly authorized officers and agents as his agent and attorney in fact (in this context the "Donee"), to act for and on his behalf and stead,</numbered_3_para_fl>
-<para_2>if and only if the Donee is unable because of the Donor's Unresponsiveness to secure the Donor's signature or other authorisation to effect any compliance paperwork or other filings necessary to maintain the Company's good standing status with government authorities, </para_2>
+<para_1>Each Founder (in this context the "Donor") hereby irrevocably designates and appoints the Investor and its duly authorized officers and agents as his agent and attorney in fact (in this context the "Donee"), to act for and on his behalf and stead,</para_1>
+<para_2>if and only if the Donee is unable because of the Donor's Unresponsiveness to secure the Donor's signature or other authorisation to effect any compliance paperwork or other filings necessary to maintain the Company's good standing status with government authorities,</para_2>
 <para_2>to execute and file any such applications or documents and to do all other lawfully permitted acts to further the application for, prosecution and issuance including striking off or winding down of the Company, thereon with the same legal force and effect as if originally executed by the Donor.</para_2>
 
-<numbered_3_para_fl>The Donor hereby waives and irrevocably quits claim to the Investor any and all claims, of any nature whatsoever, which the Donor now or hereafter has for infringement of any and all rights assigned to the Donee.</numbered_3_para_fl>
+<numbered_2_para>The Donor hereby waives and irrevocably quits claim to the Investor any and all claims, of any nature whatsoever, which the Donor now or hereafter has for infringement of any and all rights assigned to the Donee.</numbered_2_para>
 
 <b_left_sidehead>Exercise of Limited Power of Attorney</b_left_sidehead>
 
-<numbered_3_para_fl>If, one month prior to the latest date the Company may legally convene an AGM, the Company has not issued notice of an AGM (unless the Members have dispensed with AGMs under Section 175A),</numbered_3_para_fl>
+<para_1>If, one month prior to the latest date the Company may legally convene an AGM, the Company has not issued notice of an AGM (unless the Members have dispensed with AGMs under Section 175A),</para_1>
 <para_2>or if, two months prior to the annual return filing deadline prescribed by law, the Company's Directors have not signed the Directors' Report and Statement by Directors in respect of the financial statements,
 then the Company shall be deemed to be in danger of failing to maintain its good standing,
 and the Investor shall have the right to exercise its power of attorney to commence winding-up, dissolution, or striking-off proceedings.
@@ -158,7 +158,7 @@ and the Investor shall have the right to exercise its power of attorney to comme
   <para_1><i>For and on behalf of the Company:</i></para_1>
 <?!= include("inc_signature", data, data.company) ?>
   <para_1><i>For and on behalf of the Investor:</i></para_1>
-<?!= include("inc_signature", data, data.parties.investor[0]) ?>
+<?!= include("inc_signature", data, data.parties.jfdi_investor[0]) ?>
 
 <?if(data.security_type=="Convertible Note"){?>
   <chapter_header>Exhibit A </chapter_header>
