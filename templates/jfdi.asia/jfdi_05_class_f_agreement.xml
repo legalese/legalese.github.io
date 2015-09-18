@@ -32,7 +32,6 @@
   <definition>Articles	means the Articles of Association of the Company; </definition>
   <definition>Board	means the board of Directors for the time being of the Company; </definition>
   <definition>Change of Control	is as defined in the Articles; </definition>
-  <definition>Company Secretary	is at the date of this Agreement an appointment held by <?= data.parties.corporate_secretary[0].name ?>; </definition>
   <definition>Vest / Vesting	in relation to a Share means the waiver of the Company's Redemption Right over that Share; </definition>
   <definition>Vested / Unrestricted	in relation to a Share means that the Company has waived its right of redemption in regard to that Share; </definition>
   <definition>Unvested / Restricted	in relation to a Share means that the Company possesses a right of redemption over that Share; </definition>
@@ -43,24 +42,24 @@
   <para_1>Except where the context otherwise requires, references to any person include its successors and permitted assignees. Clauses which refer to the "Company" shall apply mutatis mutandis to subsidiaries or successors of the Company which may from time to time be established. For purposes of this Agreement, employment with the Company shall include employment with a parent or subsidiary of the Company. </para_1>
   <para_1>References in this Agreement to a time of day are to Singapore time. </para_1>
   <a_left_sidehead xname="hazTable">Purchase of Shares</a_left_sidehead>
-  <para_1>The Company shall issue and sell to the Holder, and the Holder shall purchase from the Company, subject to the terms and conditions set forth in this Agreement, Class F Preference shares (the "Shares") of the Company, at a purchase price of <?= data.price_per_share ?> per share (the "Issue Price"). The aggregate purchase price for the Shares shall be paid by the Holder in cash or cheque. The number of Shares purchased by each Holder shall be the total of the numbers shown in the Restricted and Unrestricted columns in the table below. Upon receipt of payment by the Company, the Company shall issue to the Holder one or more certificates in the name of the Holder for that number of Shares purchased by the Holder. The Holder agrees that the Shares shall be subject to the purchase options and restrictions on transfer set forth in this Agreement and in the Articles of Association. </para_1>
+  <para_1>The Company shall issue and sell to the Holder, and the Holder shall purchase from the Company, subject to the terms and conditions set forth in this Agreement, Class F Preference shares (the "Shares") of the Company, at a purchase price of <?= data.price_per_share ?> per share (the "Issue Price"). The aggregate purchase price for the Shares shall be paid by the Holder in cash or cheque. The number of Shares purchased by each Holder shall be the sum of the numbers shown in the <i>Unrestricted</i> and <i>Restricted</i> columns in the table below. Upon receipt of payment by the Company, the Company shall issue to the Holder one or more certificates in the name of the Holder for that number of Shares purchased by the Holder. The Holder agrees that their Shares shall be subject to the purchase options and restrictions on transfer set forth in this Agreement and in the Articles of Association. </para_1>
   <para_2>For convenience of reference the table below indicates in the column titled Ordinary the number of ordinary shares presently held by the Holder.  </para_2>
   <para_2> </para_2>
   <table_enclosing_para>
 	<Table aid:table="table" aid:tcols="6" aid:trows="2" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
 <Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_fl>Name</cell_fl></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Ordinary</cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="50" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Ordinary</cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Unrestricted</cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Restricted</cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Cliff</cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell><?=data.new_investor.f_period || "Monthly"?></cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="40" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Cliff</cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="40" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell><?=data.new_investor.f_period || "Monthly"?></cell></Cell>
 
 <Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_fl><?= data.new_investor.name ?></cell_fl></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= digitCommas_(data.capTable.getActiveRound().by_security_type["Ordinary Shares"][data.new_investor.name]||"0") ?></cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="50" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= digitCommas_(data.capTable.getActiveRound().by_security_type["Ordinary Shares"][data.new_investor.name]||"0") ?></cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_unrestricted ?></cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_restricted ?></cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_cliff ?></cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_periodic || data.new_investor.f_monthly ?></cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="40" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_cliff ?></cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="40" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_periodic || data.new_investor.f_monthly ?></cell></Cell>
 
 </Table>
   </table_enclosing_para>
@@ -111,7 +110,7 @@
   <a_left_sidehead xname="comp_adj">Compensation Adjustment</a_left_sidehead>
   <para_1>The Directors intend to permit a Holder who is also an employee or consultant to balance his compensation from time to time in favour of cash or equity according to preference and circumstance. Accordingly, the Holder may in any given month, with the approval of the Directors, elect to subscribe for additional Unrestricted F Shares at the Discretionary Subscription Price (defined below) up to the maximum amount of his monthly pay. </para_1>
   <a_left_sidehead>Discretionary Subscription Price</a_left_sidehead>
-  <numbered_2_para>Subsequent to the initial issue of <?= data.class_f_agreement_date ?>, Class F Shares may be issued pursant to Clause <xref to="comp_adj" /> at a "<b>Discretionary Subscription Price</b>", which shall be the greater of </numbered_2_para>
+  <numbered_2_para>Subsequent to the initial issue of <?= data.class_f_agreement_date ?>, Class F Shares may be issued pursuant to Clause <xref to="comp_adj" /> at a "<b>Discretionary Subscription Price</b>", which shall be the greater of </numbered_2_para>
   <numbered_3_para>the price of any previous issue of Class F Shares, </numbered_3_para>
   <numbered_3_para>in the event that a valuation was placed on the Company in the course of an External Financing event, a price consistent with that set for transfers among founders as described under Share Valuation Policy in the Shareholders' Agreement, or </numbered_3_para>
   <numbered_3_para>a price determined by the Board. </numbered_3_para>
@@ -139,7 +138,7 @@
   <numbered_2_para>If the Shares are converted into or exchanged for, or stockholders of the Company receive by reason of any distribution in total or partial liquidation, securities of another corporation, or other property (including cash), pursuant to any merger of the Company or acquisition of its assets (including as a consequence of a Change of Control), then the rights of the Company under this Agreement shall inure to the benefit of the Company's successor and this Agreement shall apply to the securities or other property received upon such conversion, exchange or distribution in the same manner and to the same extent as to the Shares. </numbered_2_para>
   <a_left_sidehead>Conversion</a_left_sidehead>
   <para_1>Pursuant to Article <?= data.aa_f_clause_number ?>.3 of the Articles of Association, Unrestricted Shares may be converted at any time to Ordinary Shares at the option of the Holder. </para_1>
-  <numbered_2_para>To effect conversion, a Holder shall simply give written notice to the Board of Directors and the Company Secretary indicating the number of shares to be converted and the effective date of conversion. If the Holder desires updated share certificates he should enclose his existing certificate or certificates with that notice. </numbered_2_para>
+  <numbered_2_para>To effect conversion, a Holder shall simply give written notice to the Board of Directors and the company secretary indicating the number of shares to be converted and the effective date of conversion. If the Holder desires updated share certificates he should enclose his existing certificate or certificates with that notice. </numbered_2_para>
   <numbered_2_para>In the event of a Change of Control or a winding-up of the Company, all Unrestricted Shares shall be deemed to have been converted to Ordinary Shares on the business day prior to the event and the Holder shall be entitled to all the rights of an ordinary shareholder during the course of, and subsequent to, that event. </numbered_2_para>
   <a_left_sidehead>No Rights To Employment</a_left_sidehead>
   <para_1>Nothing contained in this Agreement shall be construed as giving the Holder any right to be retained, in any position, as an employee of or volunteer with the Company. </para_1>
