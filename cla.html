@@ -59,3 +59,93 @@
 <p>We reserve the right, at any time and from time to time, to update, revise, supplement, and/or otherwise modify this Agreement and to impose new or additional rules, policies, terms, or conditions on Your Contributions to Legalese. Such updates, revisions, supplements, modifications, and additional rules, policies, terms, and conditions (hereinafter collectively referred to as "Additional Terms") will be effective immediately and incorporated into this Agreement. Your continued use of Legalese following shall be deemed to constitute Your acceptance of any and all such Additional Terms. All Additional Terms are hereby incorporated into this Agreement by reference.</p>
 <p>The failure of either party to require performance by the other party of any provision of this Agreement in one situation shall not affect the right of a party to require such performance at any time in the future. A waiver of performance under a provision in one situation shall not be considered a waiver of the performance of the provision in the future or a waiver of the provision in its entirety.</p>
 <p>If any provision of this Agreement is found void and unenforceable, such provision will be replaced to the extent possible with a provision that comes closest to the meaning of the original provision and that is enforceable. The terms and conditions set forth in this Agreement shall apply notwithstanding any failure of essential purpose of this Agreement or any limited remedy to the maximum extent possible under law.</p>
+
+
+<h1>HOW CLAHUB WORKS IN OUR HEROKU DEPLOYMENT</h1>
+
+<p><a href="www.clahub.com">CLAHub</a> is a tool for easy integration of CLAs into opensource projects on Github. Whenever a contributor submits a pull request for our project, CLAHub performs a check on the user's signatory status. If the user has not signed our CLA, it inserts an alert at the confirmation page of the pull request to remind the user to sign the CLA at the link provided, or else the pull request will not be submitted.</p>
+<p>It has recently ran into a bit of trouble as the owner of the project has gotten bored of it. Fortunately for us, he has included very helpful instructions to deploy our own copy of CLAHub independent of his version hosted at the above URL.</p>
+<p>The vast majority of CLAHub is written in Ruby and is hosted on Heroku. This is how I created our own copy:</p>
+
+<p>Clone the CLAHub repository <a href="https://github.com/clahub/clahub">here</a>.</p>
+
+<p>Install <a href="https://toolbelt.heroku.com/">Heroku Toolbelt</a> and follow their "Getting started" instructions. Also, note that Ruby projects hosted on Heroku have <a href="https://devcenter.heroku.com/articles/getting-started-with-ruby#introduction">certain requirements</a>.</p>
+
+<p>Now cd to your local clone's directory in Terminal and then choose a name for your copy: it could be my-clahub, for example. If you leave it blank, Heroku will choose a random name for you. In that case, the command would be <code>heroku create</code>.</p>
+
+<pre><code>heroku create my-clahub
+heroku config:add SECRET_TOKEN=some-random-key-with-plenty-of-entropy-here
+heroku addons:add heroku-postgresql
+</code></pre>
+
+<p>Note that the <code>SECRET_TOKEN</code> MUST be at least 30 characters. One way to generate it:</p>
+
+<pre><code>heroku config:add SECRET_TOKEN=$( head /dev/random | base64 | head -n 1 )
+</code></pre>
+
+<p>Push the code up:</p>
+
+<pre><code>git push heroku master
+</code></pre>
+
+<p>Migrate the database:</p>
+
+<pre><code>heroku run rake db:migrate
+heroku run rake db:seed
+</code></pre>
+
+<p>Register for two new <a href="https://github.com/settings/applications/new">GitHub applications</a>. One will be used for project owner signups and one for contributors signups.</p>
+
+<p>You will need to configure the authorization callback URL for each:</p>
+
+<p>Note: the "limited" application will be used for the contributor signups. It will only be used for authorization and hence won't require any permissions to the contributor's account.</p>
+
+<pre><code>* Full access: https://my-clahub.herokuapp.com/auth/github/callback
+* Limited-access signature-only callback: https://my-clahub.herokuapp.com/auth/github_limited/callback
+</code></pre>
+
+<p>From the applications' page, copy the client keys and secrets, and add it to the Heroku environment:</p>
+
+<pre><code>heroku config:add GITHUB_KEY=aaa111bbb GITHUB_SECRET=ccc222ddd
+heroku config:add GITHUB_LIMITED_KEY=aaa111bbb GITHUB_LIMITED_SECRET=ccc222ddd
+</code></pre>
+
+<p>If you have problems, try running <code>heroku logs</code>.</p>
+
+<h2>Domain name</h2>
+
+<p>If you want to enforce a canonical hostname (e.g. host at <a href="http://www.my-clahub.com">www.my-clahub.com</a> and
+redirect my-clahub.herokuapp.com to <a href="http://www.my-clahub.com">www.my-clahub.com</a>):</p>
+
+<pre><code>heroku domains:add www.my-clahub.com
+heroku config:add CANONICAL_URL=www.my-clahub.com
+</code></pre>
+
+<p>At your DNS provider, add a CNAME from <a href="http://www.my-clahub.com">www.my-clahub.com</a> to my-clahub.herokuapp.com</p>
+
+<h2><a id="user-content-host-name" class="anchor" href="#host-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Host name</h2>
+
+<p>You also need to set your hostname as a <code>HOST</code> environment variable:</p>
+
+<pre><code>heroku config:set HOST=https://my-cla.herokuapp.com
+</code></pre>
+
+<p>or edit <code>config/initializers/host.rb</code> and add your host name (either the domain name supplied by Heroku or your custom domain) to the <code>production</code> key. For example:</p>
+
+<pre><code>'production'  =&gt; 'http://my-clahub.herokuapp.com'
+</code></pre>
+
+<h2>HTTPS</h2>
+
+<p>In the production environment, SSL is enforced.  If you really do not want SSL:</p>
+
+<pre><code>heroku config:add DISABLE_SSL_ENFORCEMENT=true
+</code></pre>
+
+<h2>Analytics</h2>
+
+<p>Google Universal Analytics is enabled if you set environment variables <code>UA_KEY</code>
+and <code>UA_DOMAIN</code>.  The JavaScript is added from
+<code>app/views/layouts/application.html.erb</code>.</p>
+
+<p><a href="https://developer.github.com/v3/oauth/">GitHub has an OAuth function</a>. This allows external apps to request authorisation to private details in a user account without requesting its password. CLAHub requests authorisation via OAuth to determine whether a certain user has signed a certain CLA associated with the project he is contributing to.</p>
