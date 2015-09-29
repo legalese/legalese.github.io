@@ -24,7 +24,164 @@
 
 <body>
 
-<p id="body"></p>
+  <p id="body"></p>
+
+<!-- how this works
+
+TODO: put this somewhere people will actually read it.
+
+@alexis wanted a good way to store all our shared knowledge on Slack. Since that is our main platform for communication, a lot of readings, files and links are shared there. People who are out of the loop will miss a lot of this communal knowledge. So we had to figure out a good way to store and organise all this great information shared on a daily basis.
+
+Firstly, Slack has a pretty nifty archival function: my.slack.com/services/export.
+
+This service exports the history of our Slack chat as .json files. One for each day in each channel. The dates are presumably PDT - definitely not based on user timezone.
+
+It zips them and lets you download it.
+
+It stores all messages in this format: https://api.slack.com/events/message
+
+So, things like who sent it, whether a file was attached, whether a link was shared, and so on.
+
+This makes it easy (or so I hoped) for us to extract the links to all our readings and files and store it somewhere. I'm still figuring it out.
+
+The first problem is that there are hundreds of .jsons, one for each day for each channel. So we have to concatenate for easier indexing: after a long search I still have not found a working solution to parse a directory of .jsons directly. And if we do not concatenate, we have to include every single .json in our script.js, which is horrible.
+
+Concatenate is a little easier, if still inelegant. We are basically telling the computer to copy and paste every single .json into one .json. Enter grunt: http://gruntjs.com/.
+
+This is an automation tool, immensely useful to us in this situation.
+
+Note: install node.js first. https://nodejs.org/en/
+
+Install it. Open Terminal/Command prompt:
+
+npm install -g grunt-cli
+
+Create a package.json file and gruntfile.js file in your text editor of choice in the root directory of the unzipped archive. Hence, if your unzipped folder is in ~/Downloads, put these two files in ~/Downloads/your-folder-here.
+
+What goes inside package.json:
+
+{
+  "name": "my-project-name",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+  }
+}
+
+This is a list of dependencies your grunt has.
+
+What goes inside gruntfile.js:
+
+module.exports = function(grunt) {
+
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    concat: {
+      options: {
+        separator: ';'
+      },
+      dist: {
+          src: ['**/*.json'],
+        dest: 'concatenated.json'
+      }
+	    
+    },
+      
+  });
+
+		   grunt.loadNpmTasks('grunt-contrib-concat');
+		   
+
+    grunt.registerTask('default', ['concat',]);
+
+};
+
+This is the instruction manual for grunt when it runs.
+
+Install contrib-concat:
+
+npm install grunt-contrib-concat --save-dev
+
+This installs the concatenation functionality with grunt. The concat: { you saw above in your gruntfile will be using it.
+
+
+How to concatenate multiple jsons:
+
+Go back to your gruntfile. See the src section? Insert all the folders in your downloaded archive which you want to concatenate in this form: 
+
+src: ['your-folder-here/*.json', 'your-folder-2/*.json']
+
+etc. So one might be techdev/*.json. The expression /*.json means to take all files from that folder which end in .json. Make sure all these expressions are surrounded by inverted commas and have a comma after every expression.
+
+After that:
+
+grunt concat
+
+And you're done! concatenated.json will be in the root folder of your archive. Of course, you can change the name to whatever you want in your gruntfile.
+
+Now how do we get the data we want from this file?
+
+JQuery helps a lot with .json: http://api.jquery.com/jQuery.getJSON/
+
+Basically, $.getJSON() enables us to get a .json file (duh) from somewhere and work with it in HTML and JS to make it reader-friendly.
+
+$.getJSON( "ajax/test.json", function( data ) {
+  var items = [];
+  $.each( data, function( key, val ) {
+    items.push( "<li id='" + key + "'>" + val + "</li>" );
+  });
+ 
+  $( "<ul/>", {
+    "class": "my-new-list",
+    html: items.join( "" )
+  }).appendTo( "body" );
+});
+
+In the above example:
+
+ajax/test.json is the .json file we want to parse into a HTML list. This can be a url somewhere else or a .json in our website's directory. I don't even know if multiple .json files can be mentioned at once. I doubt it. Hence the importance of concatenation.
+
+$.each bears a passing resemblance to a JS for loop, searching the first parameter (array or object) and executing the second parameter (function) on every object.
+
+So in this example, we are searching the object DATA.
+
+For every key and value we find we push both in a text string formatted with the HTML link tag <li> into ITEMS, another array.
+
+All .jsons have keys and values:
+
+[
+   {
+      "key": "value"
+   }
+]
+
+Then we have the function to stick the contents of ITEM into a tidy HTML list.
+
+
+We want the properties attachments.title_url (urls for links shared and unfurled on Slack) and files.url_download(urls for files uploaded onto Slack).
+
+TODO: Figure out a good way to extract only these two values. Also, find out why getJSON still isn't working with the general instruction to extract all keys and values. Are the subkeys the issue, no clue at all
+
+The flaw with this system is that the archive is static. Every week or so it needs to be exported, concatenated and pushed onto git. Park the idea of having a live system.
+
+This has been attempted: http://legalese-slack-rss.herokuapp.com/
+
+Note: repo is still local to @jobchong, not on git yet.
+
+Built off: https://github.com/gozman/slack-rss
+
+Slack API token: https://api.slack.com/web
+
+The problem with this app is that it only displays unfurled links, i.e. the ones with pretty previews in Slack. This is because feed.js takes the convenient way of only recognising messages.attachments.title, which is only generated by Slack if the page can be previewed. So no files, no unpreviewed links.
+
+Regexp match has been tried for http, no dice. Even though .json values are strings. Edit: oops, regexp doesn't work in a .json.
+
+For some strange reason else if does not work either, although that is probably me not being able to program.
+
+Either way, not time-critical, so solve this later.
+
+
+-->
 
 </body>
 </html>
