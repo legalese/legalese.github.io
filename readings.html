@@ -1,0 +1,29 @@
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+
+<script>
+
+    $(function() {
+
+
+   var concatenated = [];
+
+   $.getJSON('concatenated.json', function(data) {
+       $.each(data.file.url_download, function(f) {
+          var link = JSON.parse(f.file.url_download);
+           $(link).appendTo("#readings");
+     });
+
+   });
+
+});
+</script>
+</head>
+
+<body>
+
+<p id="readings"></p>
+
+</body>
+</html>
