@@ -1,29 +1,30 @@
 <html>
 <head>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+<script type="text/javascript" src="jquery-2.1.4.min.js"> </script>
 
 <script>
 
     $(function() {
 
+    $.getJSON( "concatenated.json", function( data ) {
+  var items = [];
+  $.each( data, function(key, val) {
+    items.push( "<li id='" + key + "'>" + val + "</li>" );
+    });
+ 
+  $( "<ul/>", {
+    "class": "my-new-list",
+    html: items.join( "" )
+  }).appendTo( "#body" );
 
-   var concatenated = [];
-
-   $.getJSON('concatenated.json', function(data) {
-       $.each(data.file.url_download, function(f) {
-          var link = JSON.parse(f.file.url_download);
-           $(link).appendTo("#readings");
-     });
-
-   });
-
-});
+    });
+    });
 </script>
 </head>
 
 <body>
 
-<p id="readings"></p>
+<p id="body"></p>
 
 </body>
 </html>
