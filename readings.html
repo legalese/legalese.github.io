@@ -4,27 +4,25 @@
 
 <script>
 
-    $(function() {
+  (function () {
+  $.getJSON ("concatenated.json", function (){
+  var links = [];
+     $.each (i, function (key, val) {
+         links.push ("<li id='" + key + "'>" + val + "</li>" );
+  });
 
-    $.getJSON( "concatenated.json", function( data ) {
-  var items = [];
-  $.each( data, function(key, val) {
-    items.push( "<li id='" + key + "'>" + val + "</li>" );
-    });
- 
-  $( "<ul/>", {
+   $( "<ul/>", {
     "class": "my-new-list",
     html: items.join( "" )
-  }).appendTo( "#body" );
+  }).appendTo( "body" );
+});
 
-    });
-    });
+  
 </script>
 </head>
 
 <body>
 
-  <p id="body"></p>
 
 <!-- how this works
 
