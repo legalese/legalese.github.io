@@ -8,7 +8,9 @@
 </CoverBottom_Address>
 <CoverBottom_series>
 <? if (data._include.in_series) { ?><centered>document <?= data._include.in_series ?> in a series</centered><? } ?>
+<? if (! (data._config.omit_date && data._config.omit_date.value)) { ?>
 <centered><textvar name="Output Date" />&#8195;<span_smallcaps><textvar name="output time" /></span_smallcaps></centered>
+<? } ?>
 <centered>version <?= data.document_version || "1.2.2" ?></centered>
 </CoverBottom_series>
 <?}else{?><?!= include("inc_cover_legalese", data) ?><?}?>

@@ -5,6 +5,8 @@
 <cover_address_block>Legalese.io's smart opensource templates save startups thousands in legal fees.</cover_address_block>
 </CoverBottom_Address>
 <CoverBottom_series>
+<? if (! (data._config.omit_date && data._config.omit_date.value)) { ?>
 <centered><textvar name="Output Date" />&#8195;<span_smallcaps><textvar name="output time" /></span_smallcaps></centered>
+<? } ?>
 <centered>version <?= data.document_version || "1.0.0" ?></centered>
 </CoverBottom_series>
