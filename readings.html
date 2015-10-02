@@ -1,27 +1,49 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<script type="text/javascript" src="jquery-2.1.4.min.js"> </script>
+  <meta charset="utf-8">
+  <title>Readings</title>
+  <style>
+  div {
+    color: blue;
+  }
+  p {
+    color: green;
+    margin: 0;
+  }
+  span {
+    color: red;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
 
-<script>
+  <p></p>
+  <div></div>
+  <span></span>
+  <script>
 
-  (function () {
-  $.getJSON ("concatenated.json", function (){
-  var links = [];
-     $.each (i, function (key, val) {
-         links.push ("<li id='" + key + "'>" + val + "</li>" );
-  });
 
-   $( "<ul/>", {
+    $.getJSON("concatenated.json", function getText (oValue, sKey) {
+             links = [];
+             if (typeof oValue == "object" || typeof oValue == "array") {
+                for (i in oValue) {
+                    getText (oValue [i], i);
+                    }
+    } else {
+    links.push ( "<li id='" + oValue + "'>" + sKey + "</li>" );
+  };
+ 
+  $( "<ul/>", {
     "class": "my-new-list",
-    html: links.join( "" )
+    html: items.join( "" )
   }).appendTo( "body" );
 });
 
+    
   
 </script>
-</head>
-
-<body>
 
 
 <!-- how this works
