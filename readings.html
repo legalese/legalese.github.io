@@ -15,32 +15,39 @@
     color: red;
   }
   </style>
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="jquery-2.1.4.min.js"></script>
 </head>
 <body>
 
-  <p></p>
+  <p id="body"></p>
   <div></div>
   <span></span>
   <script>
 
+function getText (links, oValue, sKey) {
 
-    $.getJSON("concatenated.json", function getText (oValue, sKey) {
-             links = [];
-             if (typeof oValue == "object" || typeof oValue == "array") {
-                for (i in oValue) {
-                    getText (oValue [i], i);
-                    }
-    } else {
-    links.push ( "<li id='" + oValue + "'>" + sKey + "</li>" );
-  };
- 
-  $( "<ul/>", {
-    "class": "my-new-list",
-    html: links.join( "" )
-  }).appendTo( "body" );
+
+         if (typeof oValue == "object" || typeof oValue == "array") {
+for (i in oValue) {
+console.log ("The type of oValue is" + i);
+                getText (links, oValue [i], i);
+                }
+         } else {
+             if(oValue && sKey)
+                links.push ( "<li id='" + oValue + "'>" + sKey + "</li>" );
+         }
+
+           $( "<ul/>", {
+                       "class": "my-new-list",
+                       html: links.join( "" )
+           }).appendTo( "body" );
+};
+
+$.getJSON("http://www.legalese.io/concatenated.json", function(data, success){
+  var links = [];  
+
+  getText (links, data, 0);
 });
-
     
   
 </script>
