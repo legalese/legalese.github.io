@@ -1,16 +1,20 @@
 # Traditional Document Assembler
 
-Given a template, fill the template with variables.
+Given a template, fill the template with variables, and convert it to one or more output formats.
 
-We use XML as the underlying format for templates. There is no external DTD. We made up the XML schema mostly according to InDesign's import requirements.
+Templates may start life in a variety of input formats.
 
-First, the XML template gets evaluated within Google Apps. We repurposed [Google Apps Script's native HTML templating engine](https://developers.google.com/apps-script/guides/html/templates) for use with XML. This fills the variables. (Seems legit!)
+As of Oct 2015, templates start life as Google Apps Script XML documents. There is no external DTD. We made up the XML schema mostly according to InDesign's import requirements.
 
-Once the template has been filled, it's ready for import into InDesign. Most of the tags in the XML correspond to InDesign paragraph and character styles. That allows us to generate PDFs that look really good.
+Actually, the source templates are one step before XML. They contain markup that looks like `<?!= data.xmlRoot() ?>`. Those strings are evaluated by Google Apps's [native HTML templating engine](https://developers.google.com/apps-script/guides/html/templates) which we repurposed for use with XML. That's how variables and text fragments are expanded.
 
-# Future Output Formats
+Once the template has been filled, it's ready for import into InDesign. Most of the tags in the XML correspond to InDesign paragraph and character styles. InDesign allowss us to generate PDFs that look really good.
 
-In the future it would be nice to offer more template formats than just XML, and more output formats than just INDD and PDF.
+# Future Formats
+
+In the future it would be nice to offer more template formats than just XML. Because lawdevs may prefer a WYSIWYG editor to build templates -- raw XML may be too much to ask.
+
+In the future it would be nice to offer more output formats than just INDD and PDF. Because InDesign's PDFs look really good, but aren't editable.
 
 For additional output formats, the obvious candidates are [Word](https://github.com/legalese-io/legalese-io.github.io/issues/28) and [Google Docs](https://github.com/legalese-io/legalese-io.github.io/issues/29).
 
