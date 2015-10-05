@@ -1,100 +1,3878 @@
 [
-    {
-        "user": "U04SE0A8V",
-        "type": "message",
-        "subtype": "channel_join",
-        "text": "<@U04SE0A8V|chiahli> has joined the channel",
-        "ts": "1432275956.000002"
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "reporting from IRIS2015, i have added <https://www.smartlaw.de/das-steckt-dahinter> to the competitor list at <https://docs.google.com/a/jfdi.asia/spreadsheets/d/1UJzUk_ejxUioU276Da8dSebEF7vJFAi1_Yw1_vxSRGE/edit#gid=0>",
+    "ts": "1424947297.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Greetings",
+    "ts": "1430813873.000002"
+  },
+  {
+    "user": "U04NDAXU9",
+    "type": "message",
+    "subtype": "channel_join",
+    "text": "<@U04NDAXU9|virgil> has joined the channel",
+    "ts": "1430844798.000000"
+  },
+  {
+    "type": "message",
+    "user": "U04NDAXU9",
+    "text": "oh hai I exist.",
+    "ts": "1430844820.000002"
+  },
+  {
+    "user": "U04NDJPD7",
+    "type": "message",
+    "subtype": "channel_join",
+    "text": "<@U04NDJPD7|nikmash> has joined the channel",
+    "ts": "1430845734.000000"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Ohai",
+    "ts": "1430848343.000002"
+  },
+  {
+    "type": "message",
+    "user": "U04NDJPD7",
+    "text": "hey",
+    "ts": "1430848559.000003"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "I might put in a bit of refactoring to make it easier to cycle the esigning backend.",
+    "ts": "1430849536.000004"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Right now it's all EchoSign but I'll swap that for a generic wrapper function that encapsulates the actual service",
+    "ts": "1430849620.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Thanks for the advice about setting up my DocuSign connection. I'll try it with my regular gmail address first.",
+    "ts": "1430849705.000006"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "The error message could use a bit more detail, in future.",
+    "ts": "1430849741.000007"
+  },
+  {
+    "type": "message",
+    "user": "U04NDJPD7",
+    "text": "Yeah we are working on it. Lots of moving parts here unfortunately that we aren't in control of.",
+    "ts": "1430849951.000008"
+  },
+  {
+    "type": "message",
+    "user": "U04NDJPD7",
+    "text": "Our calls hit endpoints on 4-5 different teams internally",
+    "ts": "1430850019.000009"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Ok. Bedtime for me, ttyl. Let me know if you have any trouble cloning the repos.",
+    "ts": "1430851277.000010"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "I made you a team member so no need to fork.",
+    "ts": "1430851292.000011"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i have updated the main README at <https://github.com/legalese-io/legalese-io.github.io>",
+    "attachments": [
+      {
+        "service_name": "GitHub",
+        "title": "legalese-io/legalese-io.github.io",
+        "title_link": "https://github.com/legalese-io/legalese-io.github.io",
+        "text": "<http://legalese-io.github.io|legalese-io.github.io> - User-facing website, also the public XML templates. Most of the project documentation lives in here.",
+        "fallback": "GitHub: legalese-io/legalese-io.github.io",
+        "thumb_url": "https://avatars2.githubusercontent.com/u/10667938?v=3&s=400",
+        "from_url": "https://github.com/legalese-io/legalese-io.github.io",
+        "thumb_width": 420,
+        "thumb_height": 420,
+        "id": 1
+      }
+    ],
+    "ts": "1430886524.000002"
+  },
+  {
+    "user": "U04N1721A",
+    "type": "message",
+    "subtype": "channel_join",
+    "text": "<@U04N1721A|sidhidhir> has joined the channel",
+    "ts": "1430891395.000004"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "hurrose",
+    "ts": "1430893739.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "nikmash: i've created a branch <https://github.com/legalese-io/legalese-google-app/tree/multiSignService> for supporting arbitrary signature backends.",
+    "attachments": [
+      {
+        "service_name": "GitHub",
+        "title": "legalese-io/legalese-google-app",
+        "title_link": "https://github.com/legalese-io/legalese-google-app/tree/multiSignService",
+        "text": "legalese-google-app - Spreadsheet interface and template filling is done in Google Apps.",
+        "fallback": "GitHub: legalese-io/legalese-google-app",
+        "thumb_url": "https://avatars2.githubusercontent.com/u/10667938?v=3&s=400",
+        "from_url": "https://github.com/legalese-io/legalese-google-app/tree/multiSignService",
+        "thumb_width": 420,
+        "thumb_height": 420,
+        "id": 1
+      }
+    ],
+    "ts": "1430894342.000006"
+  },
+  {
+    "type": "message",
+    "user": "U04NDJPD7",
+    "text": "<@U036JHW9Z>: i'll take a look as soon as I get a chance been a long day bedtime for me",
+    "ts": "1430894459.000008"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "no worries … i still need to add a proper abstraction layer so it's not quite ready for you yet",
+    "ts": "1430894527.000009"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "just to let you know that branch is where i'll be working on adding docusign support.",
+    "ts": "1430894545.000010"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "am feeling generally very positive about the way this is all shaping up.",
+    "ts": "1430894557.000011"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "<@U04N1721A>: are you sidhi1 on github?",
+    "ts": "1430894622.000012"
+  },
+  {
+    "type": "message",
+    "user": "U04NDJPD7",
+    "text": "Sounds good I'll be ready to help once you have the abstraction layer ready",
+    "ts": "1430894679.000013"
+  },
+  {
+    "user": "U04N6235W",
+    "type": "message",
+    "subtype": "channel_join",
+    "text": "<@U04N6235W|alexis> has joined the channel",
+    "ts": "1430917553.000000"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "greetings",
+    "ts": "1430928079.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Frogress. Just added an NDA to the system.",
+    "ts": "1430935649.000003"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "lol",
+    "ts": "1431324800.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "TIL: sprinkling with holy water is called Asperges, which is an appropriate name for when technology eats law",
+    "ts": "1431324826.000003"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i have gone and registered <http://lexpop.co|lexpop.co>, <http://lexpopu.li|lexpopu.li>, etc.",
+    "ts": "1431328940.000004"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "so … <@U04N6235W> … i understand that in singapore, legal services have to be provided by those who hold a legal license. either an individual lawyer can be a vendor, or a law firm.\n\nin the UK, since 2007, Alternative Business Structures have allowed law firms to be started and owned by commoners. <http://www.abajournal.com/magazine/article/does_the_uk_know_something_we_dont_about_alternative_business_structures>\n\nin Singapore, what organizational arrangements are possible for a hypothetical startup that wants to be able to say \"yes\" when somebody asks \"hey, can you send me an NDA?\"",
+    "attachments": [
+      {
+        "service_name": "ABA Journal",
+        "title": "Does the UK know something we don't about alternative business structures?",
+        "title_link": "http://www.abajournal.com/magazine/article/does_the_uk_know_something_we_dont_about_alternative_business_structures",
+        "text": "The debates in the U.S. go on: Should ethics rules blocking nonlawyer ownership of law firms be lifted? Is the current definition of unlicensed law practice harming rather than protecting",
+        "fallback": "ABA Journal: Does the UK know something we don't about alternative business structures?",
+        "image_url": "http://www.abajournal.com/images/mag_images/0115FABS_Neon_275px.jpg",
+        "from_url": "http://www.abajournal.com/magazine/article/does_the_uk_know_something_we_dont_about_alternative_business_structures",
+        "image_width": 190,
+        "image_height": 250,
+        "image_bytes": 12455,
+        "id": 1
+      }
+    ],
+    "ts": "1431329352.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "<http://www.economist.com/news/business/21650142-striking-number-innovative-companies-have-business-models-flout-law-shredding?fsrc=scn/tw_ec/shredding_the_rules>",
+    "attachments": [
+      {
+        "service_name": "The Economist",
+        "title": "Shredding the rules",
+        "title_link": "http://www.economist.com/news/business/21650142-striking-number-innovative-companies-have-business-models-flout-law-shredding?fsrc=scn/tw_ec/shredding_the_rules",
+        "text": "PIONEERING entrepreneurs have often had an uneasy relationship with the law. America’s ruthless 19th-century “robber barons” believed it was easier to go ahead...",
+        "fallback": "The Economist: Shredding the rules",
+        "thumb_url": "http://cdn.static-economist.com/sites/default/files/images/print-edition/20150502_WBD000_0.jpg",
+        "from_url": "http://www.economist.com/news/business/21650142-striking-number-innovative-companies-have-business-models-flout-law-shredding?fsrc=scn/tw_ec/shredding_the_rules",
+        "thumb_width": 595,
+        "thumb_height": 335,
+        "id": 1
+      }
+    ],
+    "ts": "1431358829.000002"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Hey, I don't have any new ideas other than those discussed at dinner. Still thinking about ways to circumvent this without doing the heavy duty disclaimers bit. Let me think about this.",
+    "ts": "1431396413.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "ok, thnx",
+    "ts": "1431403591.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "people keep coming to me asking for paperwork they can execute.",
+    "ts": "1431403601.000003"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i think the correct, 100% approved response is that i can't prepare any contracts, and they should go retain a law firm licensed to practise here.",
+    "ts": "1431403635.000004"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "but, i notice that <http://lawcanvas.com|lawcanvas.com> has NDAs and lots of other paper in stock",
+    "ts": "1431433506.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "anyway, in the next week or so i want to set up a financial plan for the company, estimating the potential market size of each line of business.",
+    "ts": "1431433531.000003"
+  },
+  {
+    "user": "U04SE0A8V",
+    "type": "message",
+    "subtype": "channel_join",
+    "text": "<@U04SE0A8V|chiahli> has joined the channel",
+    "ts": "1431585522.000000"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "alexis: <http://well.blogs.nytimes.com/2015/05/12/lawyers-with-lowest-pay-report-more-happiness/?src=me&amp;_r=0>",
+    "ts": "1431598360.000002"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Cheers! This is going into my so-you-want-to-do-law bundle of cautionary tales. ",
+    "ts": "1431598533.000003"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i suspect a big part of the problem is that lawyers are forcing themselves to do things that computers would do better.",
+    "ts": "1431600730.000004"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "attention to detail, analysis of large bodies of information, producing a set of documents that are internally consistent … all this should be automated.",
+    "ts": "1431600751.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "there's a lot of legal work that's project management, too …",
+    "ts": "1431600773.000006"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "anyway, i think there's a huge opportunity to create an alternative law firm where most of the work is done by either computers or paralegals, and you just sit on top reviewing things and onboarding new clients.",
+    "ts": "1431600828.000007"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i just generated 8 documents using legalese, configured to reflect the details of the deal … it took me 5 hours, but after the first 5 hours, actually generating the documents took me 5 minutes.",
+    "ts": "1431600899.000008"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "ooh, mad max came out already?",
+    "ts": "1431601174.000009"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Oh certainly. But I think it's also because no one's wanted to or been able to go big enough to consolidate the collective intelligence (lawyers protect their precedents with rabid ferocity). I'm still thinking about the risk allocation issue we spoke about. ",
+    "ts": "1431601310.000010"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Anyway, leave for next week's been approved. Let me know when you want me to swing by! ",
+    "ts": "1431601366.000011"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "great …",
+    "ts": "1431606966.000012"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i want to meet with norvin and with bernard all together … you're off from 18 to 22, is that right?",
+    "ts": "1431607016.000013"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "gosh, that's the whole week off. nice.",
+    "ts": "1431607028.000014"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "why don't we meet maybe wednesday or thursday afternoon / evening. which would be easier for you?",
+    "ts": "1431607084.000015"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Wednesday works best, but let me work around your schedules. I'm completely flexible next week. ",
+    "ts": "1431607215.000016"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "ok, let's do wednesday afternoonish … i'll see if Norvin and his bunch can make it then.",
+    "ts": "1431674236.000002"
+  },
+  {
+    "type": "message",
+    "user": "U04NDJPD7",
+    "text": "<@U036JHW9Z>: let me know when I should be taking a look at the code and starting the migration to DocuSign",
+    "ts": "1431716201.000002"
+  },
+  {
+    "type": "message",
+    "user": "U04NDJPD7",
+    "text": "You will need to create an integrator key for the project itself which you can get from <http://demo.docusign.net|demo.docusign.net>",
+    "ts": "1431716268.000003"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "thanks, will work on that at next available opportunity",
+    "ts": "1431756193.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i have been busy satisfying inbound user requests on the content side … the codebase is due a couple of refactorings soon",
+    "ts": "1431756239.000003"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "Greetings! I'm back from travelling and now getting back to work on this!",
+    "ts": "1431763089.000004"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "I just finished reading tomorrow's lawyers - very inspiring.",
+    "ts": "1431763123.000005"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "I'm going to take a quick stab at the financial plan",
+    "ts": "1431763206.000006"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "refactorings in progress … feeling good about the codebase",
+    "ts": "1431889964.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "zzz",
+    "ts": "1431889970.000003"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "for our financial model: <https://mattermark.com/exploring-the-connection-between-startup-funding-activity-and-u-s-interest-rates/>",
+    "attachments": [
+      {
+        "title": "Why Is the Number of Seed Rounds Raised in 2014 Down 30%? Exploring the Connection Between Startup Funding Activity and U.S. Interest Rates | Mattermark",
+        "title_link": "https://mattermark.com/exploring-the-connection-between-startup-funding-activity-and-u-s-interest-rates/",
+        "text": "Read on the Mattermark Blog!&gt;",
+        "fallback": "Why Is the Number of Seed Rounds Raised in 2014 Down 30%? Exploring the Connection Between Startup Funding Activity and U.S. Interest Rates | Mattermark",
+        "thumb_url": "http://mattermark.com/app/assets/img/new/Brandmark_whitebg.png",
+        "from_url": "https://mattermark.com/exploring-the-connection-between-startup-funding-activity-and-u-s-interest-rates/",
+        "thumb_width": 350,
+        "thumb_height": 300,
+        "id": 1
+      }
+    ],
+    "ts": "1431924341.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "another big driver of early stage deals will the growth of crowdfunding platforms",
+    "ts": "1431928059.000004"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i wonder if any of these crowdfunding platforms offer a deal completion platform in-house, or if they just refer that out",
+    "edited": {
+      "user": "U036JHW9Z",
+      "ts": "1431928092.000000"
     },
-    {
-        "user": "U04SE0A8V",
-        "purpose": "to test our hypothesis and to learn as much as possible about our potential customers' needs and pain points.",
-        "type": "message",
-        "subtype": "channel_purpose",
-        "text": "<@U04SE0A8V|chiahli> set the channel purpose: to test our hypothesis and to learn as much as possible about our potential customers' needs and pain points.",
-        "ts": "1432275956.000003"
+    "ts": "1431928089.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "<http://nomorestartupmyths.com/startups-beware-of-the-spreadsheet-paradox-whats-paul-graham-single-survival-rule-for-first-year-startups/>",
+    "attachments": [
+      {
+        "service_name": "No More Startup Myths",
+        "title": "Startups beware of the spreadsheet paradox (& what’s Paul Graham single survival rule for “first-year startups”)",
+        "title_link": "http://nomorestartupmyths.com/startups-beware-of-the-spreadsheet-paradox-whats-paul-graham-single-survival-rule-for-first-year-startups/",
+        "text": "“The older I get, the less I listen to what people say and the more I look at what they do” - Andrew Carnegie Think for a moment….. Have you ever wondered",
+        "fallback": "No More Startup Myths: Startups beware of the spreadsheet paradox (&amp; what’s Paul Graham single survival rule for “first-year startups”)",
+        "from_url": "http://nomorestartupmyths.com/startups-beware-of-the-spreadsheet-paradox-whats-paul-graham-single-survival-rule-for-first-year-startups/",
+        "id": 1
+      }
+    ],
+    "ts": "1431928253.000007"
+  },
+  {
+    "user": "U04V87VPT",
+    "type": "message",
+    "subtype": "channel_join",
+    "text": "<@U04V87VPT|jien> has joined the channel",
+    "ts": "1432134578.000002"
+  },
+  {
+    "user": "U04UM5LG8",
+    "type": "message",
+    "subtype": "channel_join",
+    "text": "<@U04UM5LG8|bernsc> has joined the channel",
+    "ts": "1432137244.000003"
+  },
+  {
+    "user": "U04VD7RGD",
+    "type": "message",
+    "subtype": "channel_join",
+    "text": "<@U04VD7RGD|jobchong> has joined the channel",
+    "ts": "1432152037.000000"
+  },
+  {
+    "user": "U05043Y95",
+    "type": "message",
+    "subtype": "channel_join",
+    "text": "<@U05043Y95|swathibhat> has joined the channel",
+    "ts": "1432174095.000002"
+  },
+  {
+    "user": "U0504MVT5",
+    "type": "message",
+    "subtype": "channel_join",
+    "text": "<@U0504MVT5|norvin> has joined the channel",
+    "ts": "1432177476.000003"
+  },
+  {
+    "type": "message",
+    "user": "U0504MVT5",
+    "text": "A summary of allocation of legal research tasks:\n\n1) Job: What modifications need to be made to the contracts such that it complies with the Singapore Securities and Futures Act? There is an \"offer of securities\" that needs to be clear of the requirements\n\n2) Swathi: What can Legalese do to prevent itself from being sued by the end user/ minimise legal liability? Is Law Canvas' protection enough? What can be added? How much do insurance companies charge law firms for professional insurance?\n\n3) Norvin: How can Legalese structure itself or its operations, to avoid S33 of the Legal Profession Act?",
+    "ts": "1432177816.000004"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Thanks for being organized Norvin. I will set up an Asana thingy soon and park all my tasks there so we can avoid duplicating work. Stay tuned…",
+    "ts": "1432183234.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "In the meantime, <https://m.youtube.com/watch?v=Vttuonfu2BM>",
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "http://www.youtube.com/",
+        "title": "The Internetest safety video on the Internet",
+        "title_link": "https://m.youtube.com/watch?v=Vttuonfu2BM",
+        "author_name": "Delta",
+        "author_link": "http://www.youtube.com/user/DeltaAirLines",
+        "thumb_url": "https://i.ytimg.com/vi/Vttuonfu2BM/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: The Internetest safety video on the Internet",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/Vttuonfu2BM?feature=oembed\" frameborder=\"0\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://m.youtube.com/watch?v=Vttuonfu2BM",
+        "id": 1
+      }
+    ],
+    "ts": "1432183243.000006"
+  },
+  {
+    "type": "message",
+    "user": "U0504MVT5",
+    "text": "Hey Meng, Jerrold says that he can read javascript, and can write if he googles enough. \n\nCould you add him to this conversation? <mailto:jerroldsoh@gmail.com|jerroldsoh@gmail.com>",
+    "ts": "1432186670.000008"
+  },
+  {
+    "type": "message",
+    "user": "U0504MVT5",
+    "text": "Jerrold is the law student who couldnt make it yesterday",
+    "ts": "1432186718.000009"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "sure, thanks",
+    "ts": "1432202014.000010"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "found something interesting today! a startup that is creating a \"court\":\n<http://oresundstartups.com/swiftcourt-receives-e-500-000-investment-from-seed-capital/>",
+    "attachments": [
+      {
+        "service_name": "Øresund Startups",
+        "title": "Swiftcourt receives € 500 000 investment from SEED Capital - Øresund Startups",
+        "title_link": "http://oresundstartups.com/swiftcourt-receives-e-500-000-investment-from-seed-capital/",
+        "text": "Swiftcourt, the startup that wants to make it easier to settle smaller disputes, last week announced an investment by SEED Capital. Swiftcourt is an online platform that offers quick conflict resolution in disputes often under € 1000 to companies and individuals. By focusing on a certain type of lawsuits they can offer to settle them […]",
+        "fallback": "Øresund Startups: Swiftcourt receives € 500 000 investment from SEED Capital - Øresund Startups",
+        "thumb_url": "http://oresundstartups.com/wp-content/uploads/2012/09/oresund-startups-loggo2.png",
+        "ts": 1431927388,
+        "from_url": "http://oresundstartups.com/swiftcourt-receives-e-500-000-investment-from-seed-capital/",
+        "thumb_width": 476,
+        "thumb_height": 115,
+        "id": 1
+      }
+    ],
+    "ts": "1432222449.000002"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "the website itself - they are effectively an arbitration centre, with a unique twist: <http://www.swiftcourt.se/>",
+    "ts": "1432222498.000004"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "mmm",
+    "ts": "1432222533.000005"
+  },
+  {
+    "user": "U05186K2B",
+    "type": "message",
+    "subtype": "channel_join",
+    "text": "<@U05186K2B|hhaapio> has joined the channel",
+    "ts": "1432360053.000000"
+  },
+  {
+    "user": "U05218YEJ",
+    "type": "message",
+    "subtype": "channel_join",
+    "text": "<@U05218YEJ|jerrold> has joined the channel",
+    "ts": "1432710064.000002"
+  },
+  {
+    "type": "message",
+    "user": "U05218YEJ",
+    "text": "Hi everyone and great to meet you all! Sorry I'm a little late to Slack. Just spent an hour or so checking out what's happened so far, reading the articles posted and snooping out the github. Wish I had been there for the dinner cos its really interesting.",
+    "ts": "1432716583.000003"
+  },
+  {
+    "type": "message",
+    "user": "U05218YEJ",
+    "text": "If I could add a little something, and you guys might already have seen this, these Parliamentary speeches shed some light on the gov's present (and future) approach to ABSes (ctrl-f ABS because not everything is relevant): \n<http://sprs.parl.gov.sg/search/topic.jsp?currentTopicID=00006971-WA&amp;currentPubID=00006949-WA&amp;topicKey=00006949-WA.00006971-WA_3%2Bid-8a6b1325-84a6-4f36-a781-1a7ee94b4af9%2B>",
+    "ts": "1432716685.000004"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "Ohai :simple_smile: Welcome!",
+    "ts": "1432716844.000005"
+  },
+  {
+    "type": "message",
+    "user": "U05218YEJ",
+    "text": "hi :simple_smile:",
+    "ts": "1432717102.000006"
+  },
+  {
+    "type": "message",
+    "user": "U05218YEJ",
+    "text": "havent got a chance to meet you all, but my internship ends this week, so hopefully I'll be there at the next opportunity.",
+    "ts": "1432717149.000007"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "yasy!",
+    "ts": "1432717273.000008"
+  },
+  {
+    "user": "U05357ALA",
+    "type": "message",
+    "subtype": "channel_join",
+    "text": "<@U05357ALA|daniela> has joined the channel",
+    "ts": "1432874053.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "hey, is there a list of conferences around future / law / tech ? i am going to be in the US at the end of July and if there are any convenient conferences I wouldn't mind extending my trip a bit",
+    "ts": "1433060668.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "something along the lines of <https://bol.bna.com/in-cambridge-lawyers-debate-future-of-their-profession/>",
+    "attachments": [
+      {
+        "title": "In Cambridge, Lawyers Debate Future of Their Profession",
+        "title_link": "https://bol.bna.com/in-cambridge-lawyers-debate-future-of-their-profession/",
+        "text": "“There is widespread agreement that the legal profession is in a period of stress and transition; its economic models are under duress; the concepts of its professional uniqueness are narrow and outdated; and, as a result, its ethical imperatives are weakened and their sources ill-defined.” That’s the premise put forth in a paper that was presented at...",
+        "fallback": "In Cambridge, Lawyers Debate Future of Their Profession",
+        "image_url": "https://bol.bna.com/wp-content/uploads/2015/04/IMG_1080.jpg",
+        "from_url": "https://bol.bna.com/in-cambridge-lawyers-debate-future-of-their-profession/",
+        "image_width": 333,
+        "image_height": 250,
+        "image_bytes": 481805,
+        "id": 1
+      }
+    ],
+    "ts": "1433060735.000003"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "<https://www.law.stanford.edu/event/2015/04/30/codex-futurelaw-conference-2015>",
+    "ts": "1433060742.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "I have signed up for Singapore's <http://www.sal.org.sg/Lists/SAL%20Happenings/DispForm.aspx?ID=142>",
+    "ts": "1433060822.000006"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "and i believe some of the lawyers are going to <http://www.sal.org.sg/conference/techlaw2015/default.htm>",
+    "attachments": [
+      {
+        "title": "Technology Law Conference 2015 | Singapore Academy of Law",
+        "title_link": "http://www.sal.org.sg/conference/techlaw2015/default.htm",
+        "text": "Singapore Academy of Law proudly presents the Technology Law Conference 2015, a two-day long seminar focused on the impact of technology on funds and data on the law.",
+        "fallback": "Technology Law Conference 2015 | Singapore Academy of Law",
+        "image_url": "http://thebureau.com.sg/s/sal/tech-law-2015/img/fb-image.png",
+        "from_url": "http://www.sal.org.sg/conference/techlaw2015/default.htm",
+        "image_width": 250,
+        "image_height": 250,
+        "image_bytes": 25156,
+        "id": 1
+      }
+    ],
+    "ts": "1433060876.000007"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "looks like all the legal tech conferences are in april.",
+    "ts": "1433063332.000009"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "<http://britishlegalitforum.com/>",
+    "attachments": [
+      {
+        "service_name": "British Legal Technology Forum 2016",
+        "title": "British Legal Technology Forum 2016 - British Legal Technology Forum 2016",
+        "title_link": "http://britishlegalitforum.com/",
+        "text": "British Legal Technology Forum 2016",
+        "fallback": "British Legal Technology Forum 2016: British Legal Technology Forum 2016 - British Legal Technology Forum 2016",
+        "from_url": "http://britishlegalitforum.com/",
+        "id": 1
+      }
+    ],
+    "ts": "1433063933.000010"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "bummer. i was hoping to find something in Portland for August. There is a young lady I would quite like to visit in August.",
+    "ts": "1433064199.000012"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "Have you heard of Margaret Hagan? She's teaching legal design at Stanford - a new program which the d.school and law school are collaborating on. ",
+    "ts": "1433064435.000013"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "Also, there is a mailing list/group of people who are into legal tech and legal design around the Bay Area. You can reach out to the people there and you might get some good response. I'll find it for you when I get home. ",
+    "ts": "1433064851.000014"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "Check out <http://openlawlab.com|openlawlab.com> too! It shows some of the interesting stuff that Margaret Hagan is trying to do. ",
+    "ts": "1433064887.000015"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "thanks, i would love to check this stuff out while i'm there. keep 'em coming!",
+    "ts": "1433064964.000016"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "hm, i like how this is totally user-centric. <https://pbs.twimg.com/media/CF8igoyXIAInLzt.png>",
+    "attachments": [
+      {
+        "from_url": "https://pbs.twimg.com/media/CF8igoyXIAInLzt.png",
+        "fallback": "599x776px image",
+        "image_url": "https://pbs.twimg.com/media/CF8igoyXIAInLzt.png",
+        "image_width": 599,
+        "image_height": 776,
+        "image_bytes": 192003,
+        "id": 1
+      }
+    ],
+    "ts": "1433065228.000017"
+  },
+  {
+    "text": "reads <http://sprs.parl.gov.sg/search/topic.jsp?currentTopicID=00006971-WA&amp;currentPubID=00006949-WA&amp;topicKey=00006949-WA.00006971-WA_3%2Bid-8a6b1325-84a6-4f36-a781-1a7ee94b4af9%2B>",
+    "type": "message",
+    "subtype": "me_message",
+    "user": "U036JHW9Z",
+    "ts": "1433065756.000019"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "lol",
+    "ts": "1433066670.000020"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "&gt;Fundamentally, what is our intention? It is to create the circumstances which will make sure that there is a lot of work for the legal profession. It may not be created out of our own economy, in which case we create a new sector. That is what we did with arbitration and that is what we are hoping to do with the SICC.",
+    "ts": "1433066671.000021"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "why do opposition members vote \"No\" on routine matters and uncontroversial bills?",
+    "ts": "1433069358.000022"
+  },
+  {
+    "user": "U055ZCWUB",
+    "type": "message",
+    "subtype": "channel_join",
+    "text": "<@U055ZCWUB|arjun> has joined the channel",
+    "ts": "1433318599.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "welcome arjun to the Legalese project … Arjun is interning with JFDI and has promised to learn Javascript",
+    "ts": "1433325367.000003"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "Hello arjun! We meet again :)",
+    "ts": "1433325462.000004"
+  },
+  {
+    "type": "message",
+    "user": "U055ZCWUB",
+    "text": "Indeed, good to be here!",
+    "ts": "1433326183.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "very good",
+    "ts": "1433326193.000006"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "folks, i'm creating a couple of more google groups: <mailto:whole-team@legalese.io|whole-team@legalese.io>, and <mailto:active-team@legalese.io|active-team@legalese.io>",
+    "ts": "1433486577.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "one is for announcements and the other is more for discussions. active-team will complement the slack chats.",
+    "ts": "1433486603.000003"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "sometimes it's easier to email CC the active-team",
+    "ts": "1433486630.000004"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "if you accept my invite to whole-team i will send you another invite to active-team",
+    "ts": "1433486654.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "and now, it is time to go set up some infrastructure for the company",
+    "ts": "1433570204.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i have invited everyone to whole-team",
+    "ts": "1433578048.000003"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "please join if you want",
+    "ts": "1433578052.000004"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "after reading <http://www.reinventingorganizations.com/> i have written <https://github.com/legalese-io/legalese-io.github.io/blob/master/doc/company.org>",
+    "attachments": [
+      {
+        "title": "Reinventing Organizations",
+        "title_link": "http://www.reinventingorganizations.com/",
+        "text": "Based on three years of research, the book Reinventing Organizations describes the emergence of a new management paradigm, a radically more soulful, purposeful and powerful ways to structure and run businesses and non-profits, schools and hospitals.",
+        "fallback": "Reinventing Organizations",
+        "image_url": "http://www.reinventingorganizations.com/uploads/2/1/9/8/21988088/9251422.jpg",
+        "from_url": "http://www.reinventingorganizations.com/",
+        "image_width": 250,
+        "image_height": 183,
+        "image_bytes": 8589,
+        "id": 1
+      },
+      {
+        "service_name": "GitHub",
+        "title": "legalese-io/legalese-io.github.io",
+        "title_link": "https://github.com/legalese-io/legalese-io.github.io/blob/master/doc/company.org",
+        "text": "<http://legalese-io.github.io|legalese-io.github.io> - User-facing website, also the public XML templates. Most of the project documentation lives in here.",
+        "fallback": "GitHub: legalese-io/legalese-io.github.io",
+        "thumb_url": "https://avatars2.githubusercontent.com/u/10667938?v=3&s=400",
+        "from_url": "https://github.com/legalese-io/legalese-io.github.io/blob/master/doc/company.org",
+        "thumb_width": 275,
+        "thumb_height": 275,
+        "id": 2
+      }
+    ],
+    "ts": "1433578077.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "<https://twitter.com/fmbutt/status/607716210612969472>",
+    "attachments": [
+      {
+        "fallback": "<https://twitter.com/fmbutt|@fmbutt>: AI as human augmentation vs human replacement is not a new concept.  JCR Licklider in 1960: \n\n<http://worrydream.com/refs/Licklider%20-%20Man-Computer%20Symbiosis.pdf> <https://pbs.twimg.com/media/CG8KrFBUgAAD9ci.jpg>",
+        "ts": 1433725810,
+        "author_name": "Farooq Butt",
+        "author_link": "https://twitter.com/fmbutt/status/607716210612969472",
+        "author_icon": "https://pbs.twimg.com/profile_images/1383397055/farooq_cartoon_face-1_normal.jpg",
+        "author_subname": "@fmbutt",
+        "text": "AI as human augmentation vs human replacement is not a new concept.  JCR Licklider in 1960: \n\n<http://worrydream.com/refs/Licklider%20-%20Man-Computer%20Symbiosis.pdf> <https://pbs.twimg.com/media/CG8KrFBUgAAD9ci.jpg>",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "image_url": "https://pbs.twimg.com/media/CG8KrFBUgAAD9ci.jpg",
+        "image_width": 599,
+        "image_height": 491,
+        "image_bytes": 91359,
+        "from_url": "https://twitter.com/fmbutt/status/607716210612969472",
+        "id": 1
+      }
+    ],
+    "ts": "1433739620.000002"
+  },
+  {
+    "type": "message",
+    "user": "U04N1721A",
+    "text": "yes mengwong its sidhi1 on github",
+    "ts": "1433831702.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "thanks, i've added you to the website team on github",
+    "ts": "1433832117.000003"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "A little about open vs free: <http://www.gnu.org/philosophy/open-source-misses-the-point.html>",
+    "ts": "1434243574.000002"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "<@U04SE0A8V>:  I've updated the competitors  comparison sheet with the firms I know of, and also those mentioned in tomorrow's lawyers.",
+    "edited": {
+      "user": "U04N6235W",
+      "ts": "1434378396.000000"
     },
-    {
-        "user": "U04V87VPT",
-        "inviter": "U04SE0A8V",
-        "type": "message",
-        "subtype": "channel_join",
-        "text": "<@U04V87VPT|jien> has joined the channel",
-        "ts": "1432275974.000004"
+    "ts": "1434378374.000002"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "Awesome! Thank you!",
+    "ts": "1434379436.000004"
+  },
+  {
+    "user": "U06CVL8UT",
+    "type": "message",
+    "subtype": "channel_join",
+    "text": "<@U06CVL8UT|laurenluo> has joined the channel",
+    "ts": "1434434502.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Hey, I have a research question which I hope maybe some of the law students could help with. If you look at the intake of law schools in the US, what distribution of undergrad majors are represented at the top law schools?",
+    "edited": {
+      "user": "U036JHW9Z",
+      "ts": "1435254168.000000"
     },
-    {
-        "user": "U04UM5LG8",
-        "inviter": "U04SE0A8V",
-        "type": "message",
-        "subtype": "channel_join",
-        "text": "<@U04UM5LG8|bernsc> has joined the channel",
-        "ts": "1432275974.000005"
+    "ts": "1435208462.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "I bring this up because it could be part of my pitch that CS majors overwhelmingly do not go to law school",
+    "ts": "1435254197.000004"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "<@U036JHW9Z>: ok. will look into this and get back to you over the weekend :simple_smile:",
+    "ts": "1435254350.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Thanks, appreciate it!",
+    "ts": "1435254396.000006"
+  },
+  {
+    "type": "message",
+    "user": "U05218YEJ",
+    "text": "Hi Meng, great to meet you just now. Slack doesn't allow me to invite people here - could someone send the invite Shen Yang at <mailto:sylee89@gmail.com|sylee89@gmail.com>? Much appreciated.",
+    "ts": "1435296840.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "hey, i've reconfigured you and everybody else to be an Admin, so you can go ahead and send him an invite now if convenient.",
+    "ts": "1435313350.000003"
+  },
+  {
+    "user": "U06SFAUHX",
+    "type": "message",
+    "subtype": "channel_join",
+    "text": "<@U06SFAUHX|shenyang> has joined the channel",
+    "ts": "1435319546.000004"
+  },
+  {
+    "type": "message",
+    "user": "U06SFAUHX",
+    "text": "Hi Meng thanks for the invite!",
+    "ts": "1435319763.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Hey, welcome. Now that we have a couple new people on the team it might be a good idea to get together again for another intro session with tutorial-based onboarding. I plan to work on outreach this weekend to the people who registered on the mailing list. I will CC active-team.",
+    "ts": "1435377505.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Shenyang, we have a 4-part onboarding procedure which Alexis drafted. I will run that today.",
+    "ts": "1435377539.000003"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "I will probably sit at some café somewhere to do this work, either this afternoon/evening or tomorrow afternoon/evening. If anyone wants to join me, do pipe up and I will try to think of a convenient location. Any preferences – Tyrwhitt Road, Holland Village, or Tiong Bahru?",
+    "ts": "1435377711.000004"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Another good time for a get-together would be Tuesday evening. After the media interview.",
+    "ts": "1435377754.000005"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "I can do today after 6. Let me know where! ",
+    "ts": "1435382638.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "cool, let's aim for after 6pm somewhere nice",
+    "ts": "1435388485.000003"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "where will you be coming from?",
+    "ts": "1435388489.000004"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "<@U06SFAUHX>, <@U05218YEJ>, would you like to join us to catch up on the Tutorials?",
+    "ts": "1435388499.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "if so, bring your laptop!",
+    "ts": "1435388503.000006"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "I'd be coming from orchard. ",
+    "ts": "1435388572.000007"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "Hello would like to join you guys ",
+    "ts": "1435388721.000008"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "Sama here. Coming from Sin Ming area. ",
+    "ts": "1435388905.000009"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i think the next thing i want to do is set up a task/ticket tracking system and move all of my todos onto it. then i will mail out to all of the people who signed up on the mailing list.",
+    "ts": "1435389882.000002"
+  },
+  {
+    "type": "message",
+    "user": "U05218YEJ",
+    "text": "<@U036JHW9Z>:  Oh gosh I already have something on later! I'll find time to catch up on the tutorials myself - specifically, what should I look at?",
+    "ts": "1435391192.000003"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "2 through 7",
+    "ts": "1435391203.000004"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "we will have doc-&gt;xml and us-&gt;sg translation projects up and running soon",
+    "ts": "1435391222.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "so you need familiarity with tutorials 2 through 7.",
+    "ts": "1435391254.000006"
+  },
+  {
+    "type": "message",
+    "user": "U05218YEJ",
+    "text": "alright. where can I find the tutorials btw - im not sure which folder on github they're stored in",
+    "ts": "1435391320.000007"
+  },
+  {
+    "type": "message",
+    "user": "U05218YEJ",
+    "text": "or do u mean the tutorials.html?",
+    "ts": "1435391379.000008"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "yeah, the web page is the right place to start.",
+    "ts": "1435391418.000009"
+  },
+  {
+    "type": "message",
+    "user": "U05218YEJ",
+    "text": "okay! will update when im done",
+    "ts": "1435391590.000010"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Ok. Let's meet in some quiet café somewhere central on a Saturday night, haha. I think we should go over customer development, onboarding for new users, and support expectations. We also can sketch out the critical path for product development. We are blocked on a PARTNER API with EchoSign and charging money.",
+    "ts": "1435394018.000011"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "<@U036JHW9Z> so are we meeting tonight as well? ",
+    "ts": "1435394340.000012"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Yeah, Alexis says she can meet tonight so I'm happy to take advantage of that.",
+    "ts": "1435395367.000013"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "When would you be free to meet?",
+    "ts": "1435395374.000014"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i'm kind of in the mood for bacon. how would you feel about Artichoke, on Middle Road?",
+    "ts": "1435395724.000015"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Oh yum. I hope they have all day breakfasts. ",
+    "ts": "1435395817.000016"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i just called. they suggested walking in at 8pm because they have no cancellations tonight.",
+    "ts": "1435395855.000017"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "Sounds good. I can reach there around 730pm. ",
+    "ts": "1435395905.000018"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "Or anytime later haha just let me know ",
+    "ts": "1435395924.000019"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i think if i turn up Bjorn will just find a way to make room lah",
+    "ts": "1435395949.000020"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "why don't we meet at Artichoke at 8pm.",
+    "ts": "1435395954.000021"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Aiseh. Flans in high places. ",
+    "ts": "1435395993.000022"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Okay I can do that. ",
+    "ts": "1435395998.000023"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "it looks like i will be done from 7pm onwards so i will probably go sit at Dome or the Trattoria Lafiandra.",
+    "ts": "1435396111.000024"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "then i will wander over to Artichoke at 8pm.",
+    "ts": "1435396119.000025"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "Ok cool! ",
+    "ts": "1435396169.000026"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "Anyone here yet? ",
+    "ts": "1435406050.000027"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "no",
+    "ts": "1435406282.000028"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i was told to reappear at 8:30",
+    "ts": "1435406293.000029"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i have gone across the street to the stuttgart blackforest cafe to eat some pig while waiting.",
+    "ts": "1435406307.000030"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "you are welcome to join me and have one piece of siew yoke.",
+    "ts": "1435406318.000031"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "but, if you have the good luck to get a table for 4, then i will come back and join you.",
+    "ts": "1435406342.000032"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "Haha yeah I told them about getting a table for 4. Need to wait. ",
+    "ts": "1435406475.000033"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "okay, we come back at 8:30 lor.",
+    "ts": "1435406488.000034"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "if you cross Waterloo St you will find me inside a weird german looking cafe.",
+    "ts": "1435406503.000035"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "Ok! ",
+    "ts": "1435406571.000036"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "some articles on CS undergrad going on to law school:\n<http://www.usnews.com/education/blogs/law-admissions-lowdown/2012/05/30/in-law-school-admissions-stem-sells>\n<http://forums.penny-arcade.com/discussion/comment/1791722/#Comment_1791722>\n<http://talk.collegeconfidential.com/law-school/861748-is-computer-science-a-good-major-for-law-school.html>\n\nbut no stats yet",
+    "attachments": [
+      {
+        "service_name": "US News &amp; World Report",
+        "title": "In Law School Admissions, STEM Sells - US News",
+        "title_link": "http://www.usnews.com/education/blogs/law-admissions-lowdown/2012/05/30/in-law-school-admissions-stem-sells",
+        "text": "Learn how to leverage your science, technology, engineering, or math background to set yourself apart.",
+        "fallback": "US News &amp; World Report: In Law School Admissions, STEM Sells - US News",
+        "ts": 1338361200,
+        "from_url": "http://www.usnews.com/education/blogs/law-admissions-lowdown/2012/05/30/in-law-school-admissions-stem-sells",
+        "id": 1
+      },
+      {
+        "service_name": "Penny Arcade",
+        "title": "Law School for a Comp Sci major",
+        "title_link": "http://forums.penny-arcade.com/discussion/comment/1791722/#Comment_1791722",
+        "text": "Hi guys, I'm currently \"in-between education\", as I graduated with my Computer Science Masters last year, and I have since realised that I really really do enjoy research and learning, so I will be applying to head back to uni for a PhD in Computer Science for 2008, hopefully to study video game AI.",
+        "fallback": "Penny Arcade: Law School for a Comp Sci major",
+        "image_url": "http://cd8ba0b44a15c10065fd-24461f391e20b7336331d5789078af53.r23.cf1.rackcdn.com/pennyarcade.vanillaforums.com/8DDBNVR065TV.jpg",
+        "from_url": "http://forums.penny-arcade.com/discussion/comment/1791722/#Comment_1791722",
+        "image_width": 234,
+        "image_height": 69,
+        "image_bytes": 11760,
+        "id": 2
+      },
+      {
+        "service_name": "College Confidential",
+        "title": "Is computer science a good major for law school",
+        "title_link": "http://talk.collegeconfidential.com/law-school/861748-is-computer-science-a-good-major-for-law-school.html",
+        "text": "I am starting school this semester and working on some of my general requirements. I am a little stuck on a good major for law school.",
+        "fallback": "College Confidential: Is computer science a good major for law school",
+        "from_url": "http://talk.collegeconfidential.com/law-school/861748-is-computer-science-a-good-major-for-law-school.html",
+        "thumb_url": "http://cd8ba0b44a15c10065fd-24461f391e20b7336331d5789078af53.r23.cf1.rackcdn.com/collegeconfidential.vanillaforums.com/SYYFC1OA0AMY.jpg",
+        "thumb_width": 101,
+        "thumb_height": 50,
+        "id": 3
+      }
+    ],
+    "ts": "1435408231.000037"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "a nice background piece about Lex Machina: <http://spectrum.ieee.org/geek-life/profiles/supercharging-patent-lawyers-with-ai>",
+    "attachments": [
+      {
+        "title": "Supercharging Patent Lawyers With AI",
+        "title_link": "http://spectrum.ieee.org/geek-life/profiles/supercharging-patent-lawyers-with-ai",
+        "text": "How Silicon Valley's Lex Machina is blending AI and data analytics to radically alter patent litigation",
+        "fallback": "Supercharging Patent Lawyers With AI",
+        "image_url": "http://spectrum.ieee.org/img/9_R_Ox2MNluR_RckqVOFWwA-1382366294935.jpg",
+        "ts": 1383141600,
+        "from_url": "http://spectrum.ieee.org/geek-life/profiles/supercharging-patent-lawyers-with-ai",
+        "image_width": 300,
+        "image_height": 225,
+        "image_bytes": 12811,
+        "id": 1
+      }
+    ],
+    "ts": "1435408398.000039"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "We have a table in the rear. We look forward to seeing <@U04N6235W> soon.",
+    "ts": "1435408969.000041"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Yes! Eta 10 mins. Sorry I didn't realise how late it was! ",
+    "ts": "1435409019.000042"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Is ok, we just arrived lol",
+    "ts": "1435409062.000043"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Flying down. ",
+    "ts": "1435409508.000044"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Hahahahaha the cab is playing a Chinese song called \"ROD Loh\"",
+    "ts": "1435409608.000045"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "sorry about the Asana noise, everyone – I created a new Team called Legalese under JFDI, and then I deleted it, and then I created a new Workspace called Legalese, and that's the one that you should accept the invite to.",
+    "ts": "1435420314.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "frogress.",
+    "ts": "1435424197.000003"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Thanks everyone for staying up so late to get things organized tonight… am very pleased we have Asana up and running.",
+    "ts": "1435436844.000004"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "And I like the HR DB that Alexis put together.",
+    "ts": "1435436868.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "I have the highest opinion of all of your abilities. Now it is for me and the intern tech team to crunch toward the July 9 demo+launch deadline…",
+    "ts": "1435436927.000006"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Aw. Thanks for your patience and mentorship. Orcan I just say I always have a whale of a time (I know orcas are dolphins), and thank you for that! ",
+    "ts": "1435464476.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Recent participants like <@U06SFAUHX> are probably wondering how they can contribute during the next few weeks of summer holiday. I think a realistic goal would be to have all the frequently requested templates put into the system for Singapore. See the recent email from Phalgun for an example. We will collect more requests over the next couple weeks. What do y'all think?",
+    "ts": "1435467316.000003"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "If we can do SG we can next do US and UK and other regionals in ASEAN.",
+    "ts": "1435467365.000004"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Agreed. I think that's the easiest to start with. Corp sec docs included? ",
+    "ts": "1435467488.000005"
+  },
+  {
+    "type": "message",
+    "user": "U06SFAUHX",
+    "text": "Noted <@U036JHW9Z>. Sorry, I only just saw these (not too good w using Slack, I'm new to this) Like Jerrold, I'll start with the tutorials on my own. Will be overseas until 7 July though. Thanks for having me onboard.",
+    "ts": "1435469063.000006"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Sure thing, I'm grateful for any time anyone wants to spend on this little hobby project!",
+    "ts": "1435471771.000007"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Last night <@U04V87VPT> recommended \"Tomorrow's Lawyers\" by Susskind. I have read it. The first few chapters describe our work with uncanny accuracy.",
+    "ts": "1435471925.000008"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Thanks for the rec!",
+    "ts": "1435471931.000009"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "I have added a few more books to the Legalese Shared folder – and to the list of sub tasks under Asana \"Invite them to read some books.\"",
+    "ts": "1435471976.000010"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "If anybody here has read any of these books I would be keen to learn your opinion: should it stay on the list? How should we prioritize the reading? Which are more important than others?",
+    "ts": "1435472040.000011"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Also, we need a movie night for you youngsters to catch up on Star Wars.",
+    "ts": "1435472084.000012"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "The story of the Despecialized Editions is a good lesson for us – editing, \"value adding\", the power of the crowd.",
+    "ts": "1435472155.000013"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "As you know, George Lucas is among that very rare subset of filmmakers who basically has unlimited ability to keep tweaking his past movies – whenever his FX studio has any downtime he puts them to work improving his past work.",
+    "ts": "1435472666.000014"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "This turned out to be a bad idea. Adding more animals to the background makes a desert planet less, not more, like a desert.",
+    "ts": "1435472704.000015"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "So: <http://www.denofgeek.com/movies/star-wars/35466/star-wars-fan-creates-despecialized-original-trilogy>",
+    "attachments": [
+      {
+        "service_name": "Den of Geek",
+        "title": "Star Wars: fan creates 'despecialized' original trilogy",
+        "title_link": "http://www.denofgeek.com/movies/star-wars/35466/star-wars-fan-creates-despecialized-original-trilogy",
+        "text": "You don't need us to tell you that George Lucas' continued tinkering with his Star Wars films hasn't won him too many added friends amongst fans of the series. It's now impossible to buy discs of the original Star Wars trilogy in their original forms (outside of the likes of eBay), following a cheap (in quality sense) DVD release in 2008.",
+        "fallback": "Den of Geek: Star Wars: fan creates 'despecialized' original trilogy",
+        "thumb_url": "http://cdn-static.denofgeek.com/sites/denofgeek/files/images/13640.jpg",
+        "from_url": "http://www.denofgeek.com/movies/star-wars/35466/star-wars-fan-creates-despecialized-original-trilogy",
+        "thumb_width": 694,
+        "thumb_height": 419,
+        "id": 1
+      }
+    ],
+    "ts": "1435472709.000016"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "it might be entertaining for one or more of the law students to go stalk some of the attendees at Foo Camp, to see who's interested in legal tech. I have uploaded the guest list to <https://docs.google.com/document/d/1ddBu4HtXAVkWa_U35qGdCJCad1sP30Jx0MH3qGhDTns/edit#>",
+    "ts": "1435571391.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "so, this evening, there is an interview scheduled with digitalnewsasia",
+    "ts": "1435634317.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "and i believe <@U04SE0A8V> and <@U05357ALA> would like to continue our discussion of data visualization",
+    "ts": "1435634341.000003"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "and i believe <@U04N6235W> would like to share her learnings from Running Lean",
+    "ts": "1435634361.000004"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "and i believe food has been suggested as a possible nexus for collaboration.",
+    "ts": "1435634376.000005"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "i'll probably be there around 7pm. <http://sg.asia-city.com/restaurants/singapore-restaurant-reviews/nassim-hill>",
+    "attachments": [
+      {
+        "service_name": "SG Magazine Online",
+        "title": "Nassim Hill",
+        "title_link": "http://sg.asia-city.com/restaurants/singapore-restaurant-reviews/nassim-hill",
+        "text": "The buzz: A hip bakery, bistro and bar housed in the Tanglin Post Office. The vibe: It’s an airy, casual space that channels industrial minimalist with pale gray concrete flooring, wooden furniture and a counter displaying baked goods like breads and cakes all made in-house.",
+        "fallback": "SG Magazine Online: Nassim Hill",
+        "thumb_url": "http://sg.asia-city.com/sites/default/files/_4nd3231.jpg",
+        "from_url": "http://sg.asia-city.com/restaurants/singapore-restaurant-reviews/nassim-hill",
+        "thumb_width": 500,
+        "thumb_height": 333,
+        "id": 1
+      }
+    ],
+    "ts": "1435634941.000006"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "first KPO, now TPO, eh.",
+    "ts": "1435635280.000008"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "heh yeah",
+    "edited": {
+      "user": "U04SE0A8V",
+      "ts": "1435635320.000000"
     },
-    {
-        "user": "U036JHW9Z",
-        "inviter": "U04SE0A8V",
-        "type": "message",
-        "subtype": "channel_join",
-        "text": "<@U036JHW9Z|mengwong> has joined the channel",
-        "ts": "1432275974.000006"
+    "ts": "1435635308.000009"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "isn't this the place where we went for that uncomfortably crowded corporate launch with all the PR people standing around in painful heels?",
+    "ts": "1435635333.000011"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "i don't think they have char kway teow though",
+    "ts": "1435635335.000012"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "wine company on evans road has char kway teow.",
+    "ts": "1435635355.000013"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "oh really!",
+    "ts": "1435635363.000014"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "i don't remember",
+    "ts": "1435635369.000015"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "wine company also ok.",
+    "ts": "1435635390.000016"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "nassim is open till 11:30pm i think",
+    "edited": {
+      "user": "U04SE0A8V",
+      "ts": "1435635420.000000"
     },
-    {
-        "type": "message",
-        "user": "U04SE0A8V",
-        "text": "Hey <@U04V87VPT>, you should be able to access the customer discovery spreadsheet now.",
-        "ts": "1432276206.000007"
+    "ts": "1435635411.000017"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "well, i am happy to go anywhere. even tarpow could be OK. it is all the same to me. i shall not eat. :no_mouth:",
+    "ts": "1435635424.000019"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "i was thinking more on the opening hours.",
+    "ts": "1435635447.000020"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "would you prefer to meet at jfdi instead?",
+    "ts": "1435635455.000021"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "well, there will be an interview going on, and everyone is welcome to join in to see how one works with media.",
+    "ts": "1435635489.000022"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "eh how come is not gabey?",
+    "ts": "1435635583.000023"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "sounds like fun! I'll change my plans and head to jfdi instead.",
+    "ts": "1435635944.000024"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "gabey is learning to delegate.",
+    "ts": "1435636230.000025"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "she now has a minion.",
+    "ts": "1435636236.000026"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "don't feel obliged to come to JFDI … we can come out to Nassim Hill and meet you … that's totally OK too",
+    "ts": "1435636253.000027"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "could be good to meet this benjamin person too",
+    "ts": "1435636303.000028"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "i'll be at jfdi",
+    "ts": "1435636313.000029"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "at some point later, i would like to discuss if and where the barchart svg could fit in to the parseCaptable..",
+    "ts": "1435636428.000030"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Hi, so we're meeting at JFDI? ",
+    "ts": "1435643858.000031"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i told the minion to meet us at JFDI. we will do the interview there. we can go out for food after that. if you don't want to come for the interview we can meet you for food.",
+    "ts": "1435650631.000032"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Oh it's cool. I'm not eating anyway, remembers haha ",
+    "ts": "1435650723.000033"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Remember? *",
+    "ts": "1435650729.000034"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "sure or not!",
+    "ts": "1435650732.000035"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Clearly affecting me already. ",
+    "ts": "1435650734.000036"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Hahahahaha it's a challenge. I like challenges. ",
+    "ts": "1435650742.000037"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "so competitive lol",
+    "ts": "1435650748.000038"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "cool, i would be glad to have a diet buddy",
+    "ts": "1435650766.000039"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "we can go for non-food together, lol",
+    "ts": "1435650773.000040"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Hahahaha I just went to buy myself a 1.5l of ice cold water from 7-11. I'm trying to Stockholm syndrome myself into loving it. ",
+    "ts": "1435650838.000041"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "oh dear … this will be a serious willpower test",
+    "ts": "1435650905.000042"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "I know! How exciting. ",
+    "ts": "1435650916.000043"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Willpower is finite. But also very trainable. ",
+    "ts": "1435650922.000044"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Acherli. Can drink diet coke not. Zero caloric intake still. ",
+    "ts": "1435651094.000045"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Or is it strictly water only? ",
+    "ts": "1435651111.000046"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "most people allow themselves tea and coffee, so diet coke would probably fall into that category.",
+    "ts": "1435651184.000047"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Shiok. I can totally do this then. ",
+    "ts": "1435651246.000048"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Okay omw to JFDI now. I turned down CAKES! Bonus points. ",
+    "ts": "1435656543.000049"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": ":)",
+    "ts": "1435682716.000050"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Relevant to my rage against the fax machine (hai fai!) yesterday:  \n\n<http://gizmodo.com/heres-hillary-clinton-working-out-how-a-fax-machine-wor-1715075751>",
+    "attachments": [
+      {
+        "service_name": "Gizmodo",
+        "title": "Here's Hillary Clinton Working Out How to Use a Fax Machine",
+        "title_link": "http://gizmodo.com/heres-hillary-clinton-working-out-how-a-fax-machine-wor-1715075751",
+        "text": "This evening, the State Department released another trove of Hillary Clinton’s emails from her time as secretary of state. Among the gems being uncovered is this terse exchange, a wonderful insight into trying to use a fax machine in 2015. Anyone who’s tech-supported their parents over email can definitely relate.",
+        "fallback": "Gizmodo: Here's Hillary Clinton Working Out How to Use a Fax Machine",
+        "image_url": "https://i.kinja-img.com/gawker-media/image/upload/s--tQJ07HGe--/c_fill,fl_progressive,g_north,h_358,q_80,w_636/1320780477306462822.jpg",
+        "from_url": "http://gizmodo.com/heres-hillary-clinton-working-out-how-a-fax-machine-wor-1715075751",
+        "image_width": 444,
+        "image_height": 250,
+        "image_bytes": 26068,
+        "id": 1
+      }
+    ],
+    "ts": "1435721619.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "fyi, i just finished the Holacracy book today … i really enjoyed it and am now keen to research which startups have successfully put Holacracy into practice.",
+    "ts": "1436106642.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Is Holacracy as suitable for startups as for mature companies?",
+    "ts": "1436106661.000003"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "Teal organisations seem similar to the application of holacracy..",
+    "ts": "1436165681.000004"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "there are case studies of organisations of up to 40,000 employees using the teal model.",
+    "ts": "1436165733.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i wonder if it'll work for a group of 4 people instead of 40,000.",
+    "ts": "1436193272.000006"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "Oops",
+    "ts": "1436195053.000007"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "I dunno.",
+    "ts": "1436195067.000008"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "I would have assumed that management overhead appears when there are more than 10 people, hence need an operating system for the company to work.",
+    "ts": "1436195264.000009"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "If there are just 4 people.. what can't slack do that holacracy can..",
+    "ts": "1436195653.000010"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "mmm. in the past, i've run into role conflicts even in startups as small as 6 people, so maybe it's worth building in the systems and habits from the ground up.",
+    "ts": "1436195712.000011"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "anyway, do look at the Holacracy book when you're done with the Laloux book.",
+    "ts": "1436195730.000012"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "there are a couple of original practices in there, which I would like to adopt.",
+    "ts": "1436195744.000013"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "I'm done with laloux already",
+    "ts": "1436195773.000014"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "What kind of role conflicts have you experienced?",
+    "ts": "1436195808.000015"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "junior staff highly committed to their vision of how things should be done, get upset when they don't have authority over that particular decision",
+    "ts": "1436196199.000016"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "other team members feeling the need to obtain consensus on every decision",
+    "ts": "1436196234.000017"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "some team members refusing to make a decision on their own, but referring every decision up to the founders",
+    "ts": "1436196247.000018"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "so, i think the concrete governance structures proposed by holacracy would be a net benefit even for a small team",
+    "ts": "1436196270.000019"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "also, i can see building a compensation app on top of the OS which would very nicely competent their Badge-Based Compensation app",
+    "ts": "1436196300.000020"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "it would be interesting to build a compensation model on top of the OS so that task allocation can be subject to market forces, whether for cash or tokens.",
+    "ts": "1436196337.000021"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "that would create a more permeable boundary between employees and upworkers",
+    "ts": "1436196364.000022"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "… and the notion of a traditional opensource volunteer.",
+    "ts": "1436196374.000023"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "so, just something to think about.",
+    "ts": "1436196394.000024"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "Percentages of revenue from a certain contract based on contribution?",
+    "ts": "1436196396.000025"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "Need something more concrete than counting lines I think",
+    "ts": "1436196414.000026"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "Groovy. I'll start reading the book.",
+    "ts": "1436196416.000027"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "could be something like that … basically, if some third party volunteer wants to dip in and do a major task, maybe they could … and they could get compensated for it … in cash, equity, or tokens that are convertible to either.",
+    "ts": "1436196427.000028"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "that way, the task list itself would have prices posted against each task, and anyone with a badge could go after any task available.",
+    "ts": "1436196451.000029"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "gamify all the way!",
+    "ts": "1436196462.000030"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "<http://www.legal500.com/assets/pages/gc/summer-2015/business-thinking-github.html>",
+    "attachments": [
+      {
+        "text": "Julio Avalos, GC at open source software platform and hosting service GitHub, is a lawyer who has truly embraced the culture of his company. Now he is using this knowledge to question the way legal functions, with interesting results for his relationship with the business.",
+        "fallback": "Julio Avalos, GC at open source software platform and hosting service GitHub, is a lawyer who has truly embraced the culture of his company. Now he is using this knowledge to question the way legal functions, with interesting results for his relationship with the business.",
+        "from_url": "http://www.legal500.com/assets/pages/gc/summer-2015/business-thinking-github.html",
+        "id": 1
+      }
+    ],
+    "ts": "1436292163.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Really good piece about the aesthetics and cultural workflows of computational thinking applied to law.",
+    "ts": "1436295907.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "How many angel deals per year? <http://www.nytimes.com/2015/07/07/technology/for-start-ups-how-many-angels-is-too-many.html?smid=nytcore-iphone-share&amp;smprod=nytcore-iphone>",
+    "ts": "1436298781.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "<https://twitter.com/nickszabo4/status/618586800144056320>",
+    "attachments": [
+      {
+        "fallback": "<https://twitter.com/NickSzabo4|@NickSzabo4>: How legal code compares to software: <http://unenumerated.blogspot.com/2006/11/wet-code-and-dry.html>\nHow they interact: <http://unenumerated.blogspot.com/2006/05/security-and-burden-of-lawsuit.html> <https://pbs.twimg.com/media/CJWpaqPWUAAASai.jpg>",
+        "ts": 1436317560,
+        "author_name": "Nick Szabo",
+        "author_link": "https://twitter.com/NickSzabo4/status/618586800144056320",
+        "author_icon": "https://pbs.twimg.com/profile_images/529060806906757121/aNY8vt_h_normal.jpeg",
+        "author_subname": "@NickSzabo4",
+        "text": "How legal code compares to software: <http://unenumerated.blogspot.com/2006/11/wet-code-and-dry.html>\nHow they interact: <http://unenumerated.blogspot.com/2006/05/security-and-burden-of-lawsuit.html> <https://pbs.twimg.com/media/CJWpaqPWUAAASai.jpg>",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "image_url": "https://pbs.twimg.com/media/CJWpaqPWUAAASai.jpg",
+        "image_width": 599,
+        "image_height": 407,
+        "image_bytes": 66976,
+        "from_url": "https://twitter.com/nickszabo4/status/618586800144056320",
+        "id": 1
+      }
+    ],
+    "ts": "1436321224.000002"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "post reading holacracy: i like the distributed authority. i like they have an 'app store'. That's where the compensation app comes in.",
+    "ts": "1436329256.000002"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "agree that it's a benefit to have the system in from the beginning. There won't be legacy issues, historical baggages to deal with.",
+    "ts": "1436329327.000003"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "It feels very rule based though. Certain parts of it reminds me of the mccarthy's protocol.",
+    "ts": "1436329708.000004"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "but i guess: \"Seek freedom and become captive of your desires. Seek discipline and find your liberty.\" - chapter 6, holacracy",
+    "edited": {
+      "user": "U04SE0A8V",
+      "ts": "1436329834.000000"
     },
-    {
-        "type": "message",
-        "user": "U04SE0A8V",
-        "text": "i find the book 'running lean' very helpful when conducting customer interviews.  I am sharing the pdf book here. My suggestion is to read pages 71-94 to get familiar with the process.",
-        "ts": "1432276526.000008"
+    "ts": "1436329824.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "attending the Singapore Legal Futures Conference – what questions should we ask?\n\ni propose to ask about regulatory barriers to innovation:\n\n*first,* regarding LPA. _Uber and AirBnb have recently gotten in trouble for operating in a regulated industry without a license. Some startups are starting to offer legal documents and legal advice on a commercial basis. Are they breaking the law?_\n\n*second,* regarding LDP &amp; LSRA. _Alternative Business Structures have been around for a couple years in the UK, and Singapore is thinking about setting up Legal Disciplinary Practices under the Legal Services Regulatory Authority. How much of a sure thing is this? When is this going to happen?_",
+    "edited": {
+      "user": "U036JHW9Z",
+      "ts": "1436336581.000000"
     },
-    {
-        "type": "message",
-        "subtype": "file_share",
-        "text": "<@U04SE0A8V|chiahli> uploaded a file: <https:\/\/legalese.slack.com\/files\/chiahli\/F05043XJC\/running_lean_second_edition.pdf|Running_Lean_Second_Edition.pdf>",
-        "file": {
-            "id": "F05043XJC",
-            "created": 1432276557,
-            "timestamp": 1432276557,
-            "name": "Running_Lean_Second_Edition.pdf",
-            "title": "Running_Lean_Second_Edition.pdf",
-            "mimetype": "application\/pdf",
-            "filetype": "pdf",
-            "pretty_type": "PDF",
-            "user": "U04SE0A8V",
-            "editable": false,
-            "size": 5801758,
-            "mode": "hosted",
-            "is_external": false,
-            "external_type": "",
-            "is_public": true,
-            "public_url_shared": false,
-            "display_as_bot": false,
-            "username": "",
-            "url": "https:\/\/slack-files.com\/files-pub\/T036JHW9T-F05043XJC-da878c7363\/running_lean_second_edition.pdf",
-            "url_download": "https:\/\/slack-files.com\/files-pub\/T036JHW9T-F05043XJC-da878c7363\/download\/running_lean_second_edition.pdf",
-            "url_private": "https:\/\/files.slack.com\/files-pri\/T036JHW9T-F05043XJC\/running_lean_second_edition.pdf",
-            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T036JHW9T-F05043XJC\/download\/running_lean_second_edition.pdf",
-            "permalink": "https:\/\/legalese.slack.com\/files\/chiahli\/F05043XJC\/running_lean_second_edition.pdf",
-            "permalink_public": "https:\/\/slack-files.com\/T036JHW9T-F05043XJC-da878c7363",
-            "channels": [
-                "C050RPHEX"
-            ],
-            "groups": [
-
-            ],
-            "ims": [
-
-            ],
-            "comments_count": 0
-        },
-        "user": "U04SE0A8V",
-        "upload": true,
-        "display_as_bot": false,
-        "username": "<@U04SE0A8V|chiahli>",
-        "bot_id": null,
-        "ts": "1432276560.000009"
-    }
+    "ts": "1436335220.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i am taking notes in <https://docs.google.com/document/d/1aLTAHvMlQdEmBdP4VIhcdhd1wB87GTnl1zfV6MaFTqY/edit#>",
+    "ts": "1436335829.000003"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "_potential to fuse with the first question_ \nthe Minister of Law mentioned that many Singaporean law firms are already using overseas firms for \"support work\". what does \"support work\" entail? *what are the legal-related work than non-lawyers can do?*",
+    "ts": "1436337043.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i suspect that as long as the work product is reviewed and blessed by an SG lawyer, anything goes.",
+    "ts": "1436337112.000006"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "I am not terribly impressed by this Sam Muller guy from HiiL. Our tax dollars paid how much for this consultant to tell us nothing new?",
+    "ts": "1436337140.000007"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "\"More and more devices are coming on the Internet. Societies are being revolutionized by Technology. Law will also be affected by change.\"",
+    "ts": "1436337181.000008"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "like, orly, wow",
+    "ts": "1436337189.000009"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "hahaha yes, but then again, perhaps he's just giving a legal tech 101 to those who have no clue at all",
+    "ts": "1436337229.000010"
+  },
+  {
+    "type": "message",
+    "user": "U0504MVT5",
+    "text": "As a soothsayer, he is doing a good job. He can never be proven wrong",
+    "ts": "1436337297.000011"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "i would like to read the report though - we should ask for it: transparency heh",
+    "ts": "1436337300.000012"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "for those who are wondering about Lex Machina: <https://lexmachina.com/what-we-do/legal-analytics/>",
+    "attachments": [
+      {
+        "service_name": "Lex Machina",
+        "title": "Legal Analytics - Quickly Uncover Strategic Information",
+        "title_link": "https://lexmachina.com/what-we-do/legal-analytics/",
+        "text": "Lex Machina provides software and data that helps you craft successful IP strategy, win cases, and close business",
+        "fallback": "Lex Machina: Legal Analytics - Quickly Uncover Strategic Information",
+        "thumb_url": "https://lexmachina.com/wp-content/uploads/2015/01/la-motion.png",
+        "from_url": "https://lexmachina.com/what-we-do/legal-analytics/",
+        "thumb_width": 470,
+        "thumb_height": 289,
+        "id": 1
+      }
+    ],
+    "ts": "1436337705.000013"
+  },
+  {
+    "type": "message",
+    "user": "U0504MVT5",
+    "text": "Meng still charging your laptop? I am excited about introducing you to my maverick prof ",
+    "ts": "1436341520.000015"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "cool … i look forward to chatting with him after",
+    "ts": "1436342616.000016"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "quick profile of dragonlaw: <http://www.forbes.com/sites/joshsteimle/2015/06/15/dragon-law-makes-creating-legal-documents-in-hong-kong-affordable-and-easy/>",
+    "attachments": [
+      {
+        "service_name": "Forbes",
+        "title": "Dragon Law Makes Creating Legal Documents In Hong Kong Affordable And Easy",
+        "title_link": "http://www.forbes.com/sites/joshsteimle/2015/06/15/dragon-law-makes-creating-legal-documents-in-hong-kong-affordable-and-easy/",
+        "text": "Much like LegalZoom in the US, startup offers a cheaper and quicker alternative to hiring a traditional law firm by selling subscriptions to templates for routine contracts, empowering companies to do much of their legal administration themselves.",
+        "fallback": "Forbes: Dragon Law Makes Creating Legal Documents In Hong Kong Affordable And Easy",
+        "thumb_url": "http://blogs-images.forbes.com/joshsteimle/files/2015/06/iStock_000010245655XXXLarge-hongkong-4000-1940x767.jpg",
+        "from_url": "http://www.forbes.com/sites/joshsteimle/2015/06/15/dragon-law-makes-creating-legal-documents-in-hong-kong-affordable-and-easy/",
+        "thumb_width": 1940,
+        "thumb_height": 767,
+        "id": 1
+      }
+    ],
+    "ts": "1436345876.000017"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "cool. Looks like some kind of lawyering blessings are always needed. \n“We are already working closely with eight leading local and international law firms in Hong Kong who can support our clients either for legal opinions on a document they created with our system or for high value added legal advice when the needs arise.”",
+    "ts": "1436346180.000019"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "the susskind talk has been uploaded at <https://drive.google.com/open?id=0B-lTLNYJdzgKWEZCOWpnVlk1eTg>",
+    "ts": "1436346209.000020"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "is good talk.",
+    "ts": "1436347122.000021"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "<http://lalegalethics.org/web-based-legal-service-providers-engaged-unauthorized-practice-law/>",
+    "attachments": [
+      {
+        "service_name": "Louisiana Legal Ethics",
+        "title": "Is LegalZoom Engaged in the Unauthorized Practice of Law in Louisiana?",
+        "title_link": "http://lalegalethics.org/web-based-legal-service-providers-engaged-unauthorized-practice-law/",
+        "text": "<http://LegalZoom.com|LegalZoom.com> promises legal documents \"tailored to your situation.\" Is it engaged in the unauthorized practice of law?",
+        "fallback": "Louisiana Legal Ethics: Is LegalZoom Engaged in the Unauthorized Practice of Law in Louisiana?",
+        "thumb_url": "http://lalegalethics.org/wp-content/uploads/LegalZoom.com_1.jpg",
+        "ts": 1383932309,
+        "from_url": "http://lalegalethics.org/web-based-legal-service-providers-engaged-unauthorized-practice-law/",
+        "thumb_width": 1541,
+        "thumb_height": 1022,
+        "id": 1
+      }
+    ],
+    "ts": "1436348946.000022"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "we should gather the law students who are interested in legal innovation - create a slack group or something",
+    "ts": "1436349910.000024"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "it would be useful for customer discovery and generating new ideas",
+    "ts": "1436349927.000025"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "(ref. students who are asking questions at this conference)",
+    "ts": "1436349949.000026"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "they would be welcome to come sit on this slack group …",
+    "ts": "1436363041.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "hm, good article. <http://www.robotandhwang.com/wp-content/uploads/2013/06/The-Laws-of-Legal-Robotics.pdf>",
+    "ts": "1436363755.000003"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "resolution from chat with Indranee: let's write a paper on how the appearance of things like docstoc are leading to harm and how our approach, as an industry (dragonlaw, lawcanvas, legalese, etc) represent a step forward rather than backward",
+    "ts": "1436364314.000004"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "if we need to get LPA changed, we can; it is possible that LSRA may grant us dispensation under existing law to permit operation",
+    "ts": "1436364356.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "if MAS is doing regulatory innovation to permit crowdfunding, while having regard to the protection of the retail investor,",
+    "ts": "1436364383.000006"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "then MinLaw should see their crowdfunding and permit openlaw, while having regard to the protection of the legal consumer.",
+    "ts": "1436364415.000007"
+  },
+  {
+    "type": "message",
+    "user": "U0504MVT5",
+    "text": "Correction: LSRA does not exist yet: it only exists as a proposal",
+    "ts": "1436404523.000002"
+  },
+  {
+    "type": "message",
+    "user": "U0504MVT5",
+    "text": "the most concrete action item to ask for is for the Law Minister to grant an exemption with his power under s34(2)",
+    "ts": "1436404569.000003"
+  },
+  {
+    "type": "message",
+    "user": "U0504MVT5",
+    "text": "Wrote a brief note on this: <https://docs.google.com/document/d/1u1peyKsBNF-lxRG8KY-FGrKFGfCSpqLehiLFJax86SU/edit?usp=sharing>",
+    "ts": "1436405821.000004"
+  },
+  {
+    "type": "message",
+    "subtype": "file_share",
+    "text": "<@U0504MVT5|norvin> shared a file: <https://legalese.slack.com/files/norvin/F07C8BBA6/proposaltotheministry|Proposal to the Ministry>",
+    "file": {
+      "id": "F07C8BBA6",
+      "created": 1436405823,
+      "timestamp": 1436405823,
+      "name": "ProposaltotheMinistry",
+      "title": "Proposal to the Ministry",
+      "mimetype": "application/vnd.google-apps.document",
+      "filetype": "gdoc",
+      "pretty_type": "GDocs Document",
+      "user": "U0504MVT5",
+      "editable": false,
+      "size": 2394,
+      "mode": "external",
+      "is_external": true,
+      "external_type": "gdrive",
+      "is_public": true,
+      "public_url_shared": false,
+      "display_as_bot": false,
+      "username": "",
+      "url": "https://docs.google.com/document/d/1u1peyKsBNF-lxRG8KY-FGrKFGfCSpqLehiLFJax86SU/edit?usp=drivesdk",
+      "url_private": "https://docs.google.com/document/d/1u1peyKsBNF-lxRG8KY-FGrKFGfCSpqLehiLFJax86SU/edit?usp=drivesdk",
+      "thumb_64": "https://slack.global.ssl.fastly.net/66f9/img/files/gdraw_64.png",
+      "thumb_360": "https://slack.global.ssl.fastly.net/272a/img/files/gdoc_360.png",
+      "thumb_360_w": 360,
+      "thumb_360_h": 167,
+      "permalink": "https://legalese.slack.com/files/norvin/F07C8BBA6/proposaltotheministry",
+      "channels": [
+        "C04TFNDGS",
+        "C036JHWAF"
+      ],
+      "groups": [],
+      "ims": [],
+      "comments_count": 0
+    },
+    "user": "U0504MVT5",
+    "upload": false,
+    "display_as_bot": false,
+    "username": "<@U0504MVT5|norvin>",
+    "bot_id": null,
+    "ts": "1436405823.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Cool, thanks",
+    "ts": "1436414818.000006"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Re Holacracy: <http://techcrunch.com/2015/07/08/even-the-org-chart-is-now-made-of-software/>",
+    "attachments": [
+      {
+        "service_name": "TechCrunch",
+        "service_url": "http://techcrunch.com",
+        "title": "Even The Org Chart Is Now Made Of Software",
+        "title_link": "http://techcrunch.com/2015/07/08/even-the-org-chart-is-now-made-of-software/",
+        "author_name": "Roy Bahat",
+        "thumb_url": "https://i1.wp.com/tctechcrunch2011.files.wordpress.com/2015/07/orgchart.jpg?fit=200%2C150",
+        "thumb_width": 200,
+        "thumb_height": 143,
+        "text": "Once upon a time, if someone asked how your company was organized, you’d give them an “org chart”  --  a page with lots of boxes on it. One box for the CEO, some lines to all the CEOs' direct reports, more from each person to her direct reports, and so on, until every person was duly… boxed. The problem is, reality makes a mess of that.",
+        "fallback": "TechCrunch Link: Even The Org Chart Is Now Made Of&nbsp;Software",
+        "from_url": "http://techcrunch.com/2015/07/08/even-the-org-chart-is-now-made-of-software/",
+        "id": 1
+      }
+    ],
+    "ts": "1436414831.000007"
+  },
+  {
+    "user": "U07CNK9K7",
+    "type": "message",
+    "subtype": "channel_join",
+    "text": "<@U07CNK9K7|jrj310> has joined the channel",
+    "ts": "1436435455.000009"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "thank you all for the customer discovery tonight. Debriefing minutes have been posted at <https://docs.google.com/document/d/1nAo7B1HMgDUv_Fa3AKk1jGOKpl_RZch0B8sEODf_usU/edit#>",
+    "ts": "1436461987.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Coverage: <https://www.digitalnewsasia.com/startups/fledgling-legal-startups-take-flight-in-singapore>",
+    "attachments": [
+      {
+        "service_name": "Digital News Asia",
+        "title": "Fledgling legal startups take flight in Singapore",
+        "title_link": "https://www.digitalnewsasia.com/startups/fledgling-legal-startups-take-flight-in-singapore",
+        "text": "Legal services still remain relatively untouched by the startup boom in Asia. Obfuscated terms and legal jargon provide high barriers of entry, giving lawyers a monopoly. But that might change with a couple of new startups making their debut, writes Benjamin Cher.",
+        "fallback": "Digital News Asia: Fledgling legal startups take flight in Singapore",
+        "ts": 1436473253,
+        "from_url": "https://www.digitalnewsasia.com/startups/fledgling-legal-startups-take-flight-in-singapore",
+        "id": 1
+      }
+    ],
+    "ts": "1436499238.000002"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "Nice! A good lead up to the next article on legalese.",
+    "ts": "1436508303.000004"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": ":+1: cool! It's getting some attention already. a fellow law student sent me this article before you posted it here lol",
+    "ts": "1436508644.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i have gone and registered @legaleseio on twitter. unfortunately @legalese is squatted.",
+    "ts": "1436527321.000006"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "<@U036JHW9Z>: do you want to try to get @legalese? twitter has a policy to review requests for a username of an account that is inactive for more than 6 months, and which you claim that as \"impersonating\" you/ your company: <http://guides.co/blog/how-to-claim-an-inactive-twitter-username/>",
+    "ts": "1436634804.000002"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "we might not get it, but it might be worth trying...",
+    "ts": "1436634868.000003"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "mmm, i don't mind trying to get it",
+    "ts": "1436635644.000004"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "we can show acra bizfile, i guess",
+    "ts": "1436635654.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "<http://www.digitalnewsasia.com/startups/legal-eagles-the-computer-science-law-mashup-legaleseio>",
+    "attachments": [
+      {
+        "service_name": "Digital News Asia",
+        "title": "Legal eagles: The computer science-law mashup Legalese.io",
+        "title_link": "http://www.digitalnewsasia.com/startups/legal-eagles-the-computer-science-law-mashup-legaleseio",
+        "text": "Singapore startup <http://Legalese.io|Legalese.io> has just launched, hoping that ‘software will eat the law’ when it comes to drafting legal documents for startups and VCs to use. Benjamin Cher reports.",
+        "fallback": "Digital News Asia: Legal eagles: The computer science-law mashup Legalese.io",
+        "ts": 1436727983,
+        "from_url": "http://www.digitalnewsasia.com/startups/legal-eagles-the-computer-science-law-mashup-legaleseio",
+        "id": 1
+      }
+    ],
+    "ts": "1436757554.000002"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "cool! i've just set up a media folder in legalese shared containing links to the coverage.",
+    "ts": "1436770110.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "groovy, thanks",
+    "ts": "1436773518.000003"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "so, it looks like i will be in portland, OR on August 3, 4, and 5.\n\nand i will be in the SFBA on Aug 6 and 7, also possibly Aug 10 and 11.\n\nIf there are any legal hacker events going on there then, i would like to attend.\n\ni say this because <@U04V87VPT> and <@U04SE0A8V> seem to be supernaturally talented at serendipitous research.",
+    "ts": "1437209174.000002"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "I like how you replaced \"random\" with \"serendipitous\" ",
+    "ts": "1437209308.000003"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "Will look around and let you know :) ",
+    "ts": "1437209318.000004"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "thanks :simple_smile:",
+    "ts": "1437209504.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "if you find a law-hacking community or meetup anywhere between san francisco and san jose, including palo alto and mountain view, which haven't got plans to meet but haven't already met in the last few months, another option would be to just suggest scheduling a get-together where i could present legalese to the community.",
+    "ts": "1437209591.000006"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "lol",
+    "ts": "1437238123.000007"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "well, i do kind of have a list..",
+    "ts": "1437238145.000008"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "i'll probably just ping them to see who bites <https://docs.google.com/document/d/1U2qed36NZdBOnATnc6fYAyUE5irzm7agEOTvaUwgCT4/edit>",
+    "ts": "1437238185.000009"
+  },
+  {
+    "type": "message",
+    "user": "U0504MVT5",
+    "text": "Today we had a very fruitful discussion with Gloria and her colleague Ellis.\n\nWhat we need to do next is highlighted in yellow:\n\n<https://docs.google.com/document/d/1u1peyKsBNF-lxRG8KY-FGrKFGfCSpqLehiLFJax86SU/edit>",
+    "ts": "1437543199.000002"
+  },
+  {
+    "type": "message",
+    "subtype": "file_share",
+    "text": "<@U0504MVT5|norvin> shared a file: <https://legalese.slack.com/files/norvin/F07C8BBA6/proposaltotheministry|Proposal to the Ministry>",
+    "file": {
+      "id": "F07C8BBA6",
+      "created": 1436405823,
+      "timestamp": 1436405823,
+      "name": "ProposaltotheMinistry",
+      "title": "Proposal to the Ministry",
+      "mimetype": "application/vnd.google-apps.document",
+      "filetype": "gdoc",
+      "pretty_type": "GDocs Document",
+      "user": "U0504MVT5",
+      "editable": false,
+      "size": 2394,
+      "mode": "external",
+      "is_external": true,
+      "external_type": "gdrive",
+      "is_public": true,
+      "public_url_shared": false,
+      "display_as_bot": false,
+      "username": "",
+      "url": "https://docs.google.com/document/d/1u1peyKsBNF-lxRG8KY-FGrKFGfCSpqLehiLFJax86SU/edit?usp=drivesdk",
+      "url_private": "https://docs.google.com/document/d/1u1peyKsBNF-lxRG8KY-FGrKFGfCSpqLehiLFJax86SU/edit?usp=drivesdk",
+      "thumb_64": "https://slack.global.ssl.fastly.net/66f9/img/files/gdraw_64.png",
+      "thumb_360": "https://slack.global.ssl.fastly.net/272a/img/files/gdoc_360.png",
+      "thumb_360_w": 360,
+      "thumb_360_h": 167,
+      "permalink": "https://legalese.slack.com/files/norvin/F07C8BBA6/proposaltotheministry",
+      "channels": [
+        "C04TFNDGS",
+        "C036JHWAF"
+      ],
+      "groups": [],
+      "ims": [],
+      "comments_count": 0
+    },
+    "user": "U0504MVT5",
+    "upload": false,
+    "display_as_bot": false,
+    "username": "<@U0504MVT5|norvin>",
+    "bot_id": null,
+    "ts": "1437543199.000003"
+  },
+  {
+    "type": "message",
+    "user": "U0504MVT5",
+    "text": "From Gloria's positive attitude, I think it is a real possibility that we can get approval from Minlaw",
+    "ts": "1437543238.000004"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "Sticking points on ownership and advice are still there",
+    "ts": "1437545637.000005"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "But encouraging that she's open to possibilities ",
+    "ts": "1437545656.000006"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "What do you mean by approval? ",
+    "ts": "1437545672.000007"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "A ministry exemption or legislation? ",
+    "ts": "1437545695.000008"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "Which one is more likely and desirable? ",
+    "ts": "1437545704.000009"
+  },
+  {
+    "type": "message",
+    "user": "U0504MVT5",
+    "text": "That is a good question Job.\n\nThe official method of approval is subsidiary legislation by the Law Minister under s34(2) LPA\n\nThe unofficial method of approval is minlaw's tacit approval, which i think is what Axiomlaw has. The unknown determinant of risk to this approach, is how much soft power the Legal Industry Department has over AGC's Prosecution department",
+    "ts": "1437546746.000010"
+  },
+  {
+    "type": "message",
+    "user": "U0504MVT5",
+    "text": "Official method is definitely desirable. Unofficial method is probably more likely (simpler)\n\nWe should ask for the official method to see Gloria's reaction. If somehow the Law Minister is not willing to give the approval officially that Minlaw will give tacitly, we can deduce more information",
+    "ts": "1437547147.000011"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Awesome",
+    "ts": "1437647345.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Nice :)",
+    "ts": "1437647350.000003"
+  },
+  {
+    "user": "U09FCEDU5",
+    "type": "message",
+    "subtype": "channel_join",
+    "text": "<@U09FCEDU5|advancingdragon> has joined the channel",
+    "ts": "1440268970.000002"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "<@U09FCEDU5>: Hi Long! I've added you to the team on GitHub. Feel free to jump onboard any of the ongoing conversations, or start one of your own!\n\nMeanwhile, could you also do me a huge favour and give us a short self introduction so we can all get to know you better? (this would also help me feel in the skillset admin sheet we have) :smile:",
+    "ts": "1441639340.000002"
+  },
+  {
+    "type": "message",
+    "user": "U04SE0A8V",
+    "text": "Hey Long! Welcome to the team!",
+    "ts": "1441694931.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "hello everyone! i'm back. this was my week: <http://www.usatoday.com/story/life/2015/09/06/susan-sarandon-burning-man-timothy-leary-ashes-lsd/71801664/>",
+    "attachments": [
+      {
+        "service_name": "USA TODAY",
+        "title": "Susan Sarandon carried LSD guru Timothy Leary's ashes in a Burning Man ceremony",
+        "title_link": "http://www.usatoday.com/story/life/2015/09/06/susan-sarandon-burning-man-timothy-leary-ashes-lsd/71801664/",
+        "text": "Timothy Leary, the late father of LSD, was memorialized at Burning Man after a fantastic procession and burning of his ashes this week in the Black Rock Desert.",
+        "fallback": "USA TODAY: Susan Sarandon carried LSD guru Timothy Leary's ashes in a Burning Man ceremony",
+        "image_url": "http://www.gannett-cdn.com/-mm-/6756355612554c59448803e5cf45215f157ff373/c=0-63-680-447&r=x453&c=800x450/local/-/media/2015/09/06/USATODAY/USATODAY/635771782253253631-635771463663886395-Leary-2.jpg",
+        "image_width": 444,
+        "image_height": 250,
+        "from_url": "http://www.usatoday.com/story/life/2015/09/06/susan-sarandon-burning-man-timothy-leary-ashes-lsd/71801664/",
+        "image_bytes": 42169,
+        "id": 1
+      }
+    ],
+    "ts": "1441750437.000002"
+  },
+  {
+    "type": "message",
+    "user": "U04NDAXU9",
+    "text": "oh hai I exist.",
+    "ts": "1441970169.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "ohai!",
+    "ts": "1442034583.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "wassssup!",
+    "ts": "1442034597.000003"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "<http://opinionator.blogs.nytimes.com/2012/09/08/work-good-or-bad/>",
+    "ts": "1442426305.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "<http://www.zpub.com/notes/idle.html>",
+    "ts": "1442426310.000003"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "<http://www.nytimes.com/2015/09/17/technology/udacity-says-it-can-teach-tech-skills-to-millions.html?&amp;moduleDetail=section-news-0&amp;action=click&amp;contentCollection=Business%20Day&amp;region=Footer&amp;module=MoreInSection&amp;version=WhatsNext&amp;contentID=WhatsNext&amp;pgtype=article>",
+    "ts": "1442427918.000004"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "<https://itunes.apple.com/us/podcast/tedtalks-hd/id281315460?mt=2&amp;i=352565451>",
+    "attachments": [
+      {
+        "service_name": "iTunes",
+        "title": "TEDTalks (hd) by TEDTalks on iTunes",
+        "title_link": "https://itunes.apple.com/us/podcast/tedtalks-hd/id281315460?mt=2&i=352565451",
+        "text": "Download past episodes or subscribe to future episodes of TEDTalks (hd) by TEDTalks for free.",
+        "fallback": "iTunes: TEDTalks (hd) by TEDTalks on iTunes",
+        "image_url": "http://is4.mzstatic.com/image/thumb/Music/v4/0f/ee/5c/0fee5c08-d358-76ad-a1c3-01f1fbf3e2b7/source/1200x1200sr.jpg",
+        "image_width": 250,
+        "image_height": 250,
+        "from_url": "https://itunes.apple.com/us/podcast/tedtalks-hd/id281315460?mt=2&i=352565451",
+        "image_bytes": 227254,
+        "id": 1
+      }
+    ],
+    "ts": "1443108369.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": " <http://wadhwa.com/2011/05/08/integrating-ethics-into-the-core-of-your-startups-why-and-how/>",
+    "attachments": [
+      {
+        "title": "Integrating Ethics Into The Core Of Your Startups: Why And How",
+        "title_link": "http://wadhwa.com/2011/05/08/integrating-ethics-into-the-core-of-your-startups-why-and-how/",
+        "text": "When I came to the U.S. in 1980, I was young and naïve. I used to think that corruption and ethical lapses were just a third-world ill. Eventually, I became a tech CEO and learned the harsh realities...",
+        "fallback": "Integrating Ethics Into The Core Of Your Startups: Why And How",
+        "from_url": "http://wadhwa.com/2011/05/08/integrating-ethics-into-the-core-of-your-startups-why-and-how/",
+        "thumb_url": "http://wadhwa.com/wp-content/uploads/2011/05/ethics-150x150.jpg",
+        "thumb_width": 150,
+        "thumb_height": 150,
+        "id": 1
+      }
+    ],
+    "ts": "1443109248.000004"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "<https://www.lullabot.com/articles/communication-for-distributed-teams>",
+    "attachments": [
+      {
+        "service_name": "Lullabot - Strategy, Design, Development",
+        "title": "Communication for Distributed Teams",
+        "title_link": "https://www.lullabot.com/articles/communication-for-distributed-teams",
+        "text": "The Secrets to Staying Together, Apart",
+        "fallback": "Lullabot - Strategy, Design, Development: Communication for Distributed Teams",
+        "ts": 1409158800,
+        "from_url": "https://www.lullabot.com/articles/communication-for-distributed-teams",
+        "id": 1
+      }
+    ],
+    "ts": "1443111893.000006"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Eh, tomorrow is <http://geekcamp.sg|geekcamp.sg>",
+    "ts": "1443201090.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "<@U04VD7RGD>: are you free? You should go",
+    "ts": "1443201108.000003"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "Yes I shall try to get in",
+    "ts": "1443204106.000004"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "It's at full capacity ",
+    "ts": "1443204119.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Compatibility between natural and formal languages: <http://www.thestrangeloop.com/2015/the-programming-language-called-classical-chinese.html>",
+    "ts": "1443276753.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Did you go, jobchong? A 3rd generation Lee was there",
+    "ts": "1443276788.000003"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "Yes I did!",
+    "ts": "1443276799.000004"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "The similarity is striking.",
+    "ts": "1443276813.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "You mean between LKY and Hongyi?",
+    "ts": "1443276836.000006"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "He presented on <http://data.gov.sg|data.gov.sg> and how the backend works.",
+    "ts": "1443276837.000007"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "His father, more like.",
+    "ts": "1443276846.000008"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "Cool",
+    "ts": "1443276869.000009"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "The difficulty gathering discrete data from Office documents.",
+    "ts": "1443276902.000010"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "I am glad to live in a country where the geeks are in charge.",
+    "ts": "1443276925.000011"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "Everyone was impressed with the sudoku solver",
+    "ts": "1443276953.000012"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": " <https://twitter.com/mengwong/status/647904618165342210>",
+    "attachments": [
+      {
+        "fallback": "<https://twitter.com/mengwong|@mengwong>: Principles of change management for Big Ideas changing the world: a handbook for open innovators to lead communities <https://twitter.com/rjs/status/647863030773084160>",
+        "ts": 1443307473,
+        "author_name": "Meng Weng Wong",
+        "author_link": "https://twitter.com/mengwong/status/647904618165342210",
+        "author_icon": "https://pbs.twimg.com/profile_images/19769392/img0038-square_normal.jpg",
+        "author_subname": "@mengwong",
+        "text": "Principles of change management for Big Ideas changing the world: a handbook for open innovators to lead communities <https://twitter.com/rjs/status/647863030773084160>",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "from_url": "https://twitter.com/mengwong/status/647904618165342210",
+        "id": 1
+      }
+    ],
+    "ts": "1443309385.000002"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "Hello everyone",
+    "ts": "1443331948.000002"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "greetings",
+    "ts": "1443331958.000003"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "I have completed the work for my current internship, and I am ready to start working with Legalese",
+    "edited": {
+      "user": "U09FCEDU5",
+      "ts": "1443332121.000000"
+    },
+    "ts": "1443331963.000004"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "cool",
+    "ts": "1443331979.000005"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i wonder how to proceed",
+    "ts": "1443332054.000006"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i could imagine posting a series of Grand Challenges as a framework for research.",
+    "ts": "1443332077.000007"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "so anyway, to introduce myself, I'm an undergraduate in Computer Science at UCLA, and I have been interning at Viewpoints Research Institute under Alan Kay for the last two years",
+    "ts": "1443332180.000009"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "<http://vpri.org/>",
+    "ts": "1443332184.000010"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "I have one year left at UCLA",
+    "ts": "1443332237.000011"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "here are some examples of what I have been working on:",
+    "ts": "1443332269.000012"
+  },
+  {
+    "type": "message",
+    "subtype": "file_share",
+    "text": "<@U09FCEDU5|advancingdragon> uploaded a file: <https://legalese.slack.com/files/advancingdragon/F0BCJL7SA/cuneiform.pdf|Cuneiform Tablets of 2015.pdf> and commented: Example of Long Nguyen's work",
+    "file": {
+      "id": "F0BCJL7SA",
+      "created": 1443332315,
+      "timestamp": 1443332315,
+      "name": "cuneiform.pdf",
+      "title": "Cuneiform Tablets of 2015.pdf",
+      "mimetype": "application/pdf",
+      "filetype": "pdf",
+      "pretty_type": "PDF",
+      "user": "U09FCEDU5",
+      "editable": false,
+      "size": 311023,
+      "mode": "hosted",
+      "is_external": false,
+      "external_type": "",
+      "is_public": true,
+      "public_url_shared": false,
+      "display_as_bot": false,
+      "username": "",
+      "url": "https://slack-files.com/files-pub/T036JHW9T-F0BCJL7SA-ba9eb0a107/cuneiform.pdf",
+      "url_download": "https://slack-files.com/files-pub/T036JHW9T-F0BCJL7SA-ba9eb0a107/download/cuneiform.pdf",
+      "url_private": "https://files.slack.com/files-pri/T036JHW9T-F0BCJL7SA/cuneiform.pdf",
+      "url_private_download": "https://files.slack.com/files-pri/T036JHW9T-F0BCJL7SA/download/cuneiform.pdf",
+      "permalink": "https://legalese.slack.com/files/advancingdragon/F0BCJL7SA/cuneiform.pdf",
+      "permalink_public": "https://slack-files.com/T036JHW9T-F0BCJL7SA-ba9eb0a107",
+      "channels": [
+        "C036JHWAF"
+      ],
+      "groups": [],
+      "ims": [],
+      "comments_count": 1,
+      "initial_comment": {
+        "id": "Fc0BCK3WRM",
+        "created": 1443332315,
+        "timestamp": 1443332315,
+        "user": "U09FCEDU5",
+        "comment": "Example of Long Nguyen's work"
+      }
+    },
+    "user": "U09FCEDU5",
+    "upload": true,
+    "display_as_bot": false,
+    "username": "<@U09FCEDU5|advancingdragon>",
+    "bot_id": null,
+    "ts": "1443332316.000013"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "nice … more!",
+    "ts": "1443332358.000014"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i would love to find ways to match you with activity areas in Legalese",
+    "ts": "1443332672.000015"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "also this: <http://nguyen.bz/essay.html>",
+    "attachments": [
+      {
+        "text": "The Nile Computational Model",
+        "fallback": "The Nile Computational Model",
+        "from_url": "http://nguyen.bz/essay.html",
+        "id": 1
+      }
+    ],
+    "ts": "1443332681.000016"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "there are a whole bunch of things that could be done by someone with your skills.",
+    "ts": "1443332692.000018"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "although this is an early draft, and the version of the language described in that paper isn't finished yet",
+    "ts": "1443332710.000019"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "but I've been working on the Nile stream processing language for about over a year now with a grad student at VPRI",
+    "ts": "1443332733.000020"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "mmm, nice",
+    "ts": "1443332789.000021"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "yesterday someone sent me a link to <http://www.thestrangeloop.com/2015/the-programming-language-called-classical-chinese.html>",
+    "ts": "1443332840.000022"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "by the way, wo3 yao4 xue2 zhong1 wen2",
+    "ts": "1443332905.000023"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "really much",
+    "ts": "1443332907.000024"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "heh",
+    "ts": "1443332912.000025"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "I took lessons many years ago but forgot much of it",
+    "ts": "1443332918.000026"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "mmm. well,  i would like us to be able to take a similar perspective on generating the text of legal agreements.",
+    "ts": "1443332925.000027"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "given the 6 lines of formal code, how could we computationally produce the 6 paragraphs of natural language?",
+    "ts": "1443332965.000028"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "in <http://www.legalese.io/turing.html>",
+    "ts": "1443332970.000029"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "I have been reading about the history of the Russian language, and also reading a Russian grammar from 1755",
+    "ts": "1443333012.000030"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "which in many ways is the opposite of Chinese: heavily inflectional, free word order",
+    "ts": "1443333032.000031"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i should give everybody an update on my time at Stanford last week … the folks at <http://codex.stanford.edu|codex.stanford.edu> are working on several projects. one of them uses a declarative programming approach to define legal constraints, and then computes the space of possible agreements as a constraint satisfaction problem.",
+    "ts": "1443333133.000032"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "I like this paper: <http://www.diku.dk/~simonsen/papers/c2.pdf>",
+    "ts": "1443333164.000033"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "that paper looks really good!",
+    "ts": "1443333206.000034"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "which was inspired by this paper, which is specifically for the domain of financial options: <http://research.microsoft.com/en-us/um/people/simonpj/Papers/financial-contracts/contracts-icfp.pdf>",
+    "ts": "1443333229.000035"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "somewhere between the two above paper is this paper: <http://www.diku.dk/~paba/pubs/files/bahr15icfp-paper.pdf>",
+    "ts": "1443333298.000036"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "which is still for financial contracts, but for many parties (useful, as they say, for portfolios, for example)",
+    "ts": "1443333314.000037"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "for financial contracts, the big application seems to be a formalized way to price them",
+    "ts": "1443333342.000038"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "anyway, back to commercial contracts in general - there seem to be many approaches",
+    "ts": "1443333380.000039"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "mmhm",
+    "ts": "1443333465.000040"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "there's this paper: <http://www.diku.dk/hjemmesider/ansatte/hvitved/publications/hvitved10flacosb.pdf>",
+    "ts": "1443333468.000041"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "which gives us an overview",
+    "ts": "1443333487.000042"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "one of the active areas for me is computing the dependency graph of contracts and the corporate resolutions required to authorize them.",
+    "ts": "1443333498.000043"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "I see.",
+    "ts": "1443333512.000044"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "so you guys aren't doing anything fancy, like deontic logic?",
+    "ts": "1443333536.000045"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "nope, not at this time, but maybe in the future",
+    "ts": "1443333606.000046"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "by the way, there is some work done in Russian that is relevant to our work",
+    "ts": "1443333668.000047"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "mmm",
+    "ts": "1443333676.000048"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "I found a PhD thesis called \"The Development of Declarative Methods of Knowledge Representation for Modelling and Studying of Normative Texts\"",
+    "ts": "1443333707.000049"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "(in Russian)",
+    "ts": "1443333715.000050"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "anyway, as you can tell, I have been doing my homework this past month",
+    "edited": {
+      "user": "U09FCEDU5",
+      "ts": "1443333753.000000"
+    },
+    "ts": "1443333741.000051"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "yeah, you've found some good pieces!",
+    "ts": "1443333755.000053"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i'll save them into the home page for <http://legalese.io|legalese.io>",
+    "ts": "1443333769.000054"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "have you looked into Ethereum lately?",
+    "ts": "1443333859.000055"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "jien recently posted <http://prismlegal.com/contracts-as-code-qa-with-ethereum-on-the-future-of-contracting/>",
+    "attachments": [
+      {
+        "service_name": "Prism Legal",
+        "title": "Contracts as Code: Q&amp;A with Ethereum on the Future of Contracting - Prism Legal",
+        "title_link": "http://prismlegal.com/contracts-as-code-qa-with-ethereum-on-the-future-of-contracting/",
+        "text": "Contracts as Code: Q&amp;A with Ethereum on the Future of Contracting. Explanation by Dr. Aeron Buchanan of how Ethereum works. Lawyer opportunity or threat?",
+        "fallback": "Prism Legal: Contracts as Code: Q&amp;A with Ethereum on the Future of Contracting - Prism Legal",
+        "image_url": "http://prismlegal.com/wp-content/uploads/2015/09/Screen-Shot-2015-09-20-at-4.44.23-PM-119x300.png",
+        "ts": 1442766440,
+        "from_url": "http://prismlegal.com/contracts-as-code-qa-with-ethereum-on-the-future-of-contracting/",
+        "image_width": 99,
+        "image_height": 250,
+        "image_bytes": 50533,
+        "id": 1
+      }
+    ],
+    "ts": "1443333867.000056"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "hm, no",
+    "ts": "1443334094.000058"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "I'll take a look at it",
+    "ts": "1443334099.000059"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "but I'm curious how is the Classical Chinese (which is interesting in its own merit) relevant",
+    "edited": {
+      "user": "U09FCEDU5",
+      "ts": "1443334132.000000"
+    },
+    "ts": "1443334115.000060"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "well, if David Branner can model chinese using a CFG and a type system, then that builds a bridge between formal and natural language.",
+    "ts": "1443334178.000062"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "if he can define the grammar, we should be able to compile formal expressions into well-formed chinese.",
+    "ts": "1443334205.000063"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "you know if Branner's talk will be published online?",
+    "ts": "1443334242.000064"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "that helps us to meet one of Legalese's goals: to express a formal contract in more than one natural language, where the outputs are provably identical.",
+    "ts": "1443334246.000065"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "<https://brannerchinese.com/publications/index.html>",
+    "attachments": [
+      {
+        "text": "Home page of David Prager Branner",
+        "fallback": "Home page of David Prager Branner",
+        "from_url": "https://brannerchinese.com/publications/index.html",
+        "id": 1
+      }
+    ],
+    "ts": "1443334284.000066"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "looks like DIKU has been doing some interesting work in this area - this short paper on formal languages of contracts is interesting too <http://www.diku.dk/hjemmesider/ansatte/hvitved/publications/hvitved10flacosb.pdf>",
+    "ts": "1443334314.000068"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "I just posted that",
+    "ts": "1443334389.000069"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "can anyone explain to me why academic papers don't include the date they were written?",
+    "ts": "1443334446.000070"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i know the publishing journal gives the official date of publication",
+    "ts": "1443334463.000071"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "but when a PDF is on a website it's super annoying to not know when it was written.",
+    "ts": "1443334477.000072"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "I think it has to do with the fact that publishers have somewhat restrictive copyright rules, and want you to post only the \"pre-print\" version on your website",
+    "ts": "1443334568.000073"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "often that version does not have the official footer with the date and everything",
+    "ts": "1443334598.000074"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "oh right <@U09FCEDU5>  haha missed it while reading all the articles that you just shared :sweat_smile:\nwelcome aboard!",
+    "ts": "1443334631.000075"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "it's just that, when i start reading <http://www.diku.dk/hjemmesider/ansatte/hvitved/publications/hvitved10flacosb.pdf>, i run into a problem at the word \"current\" because it's undefined.",
+    "ts": "1443334635.000076"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "and then it's a real effort for me to continue reading, lol",
+    "ts": "1443334646.000077"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "<@U036JHW9Z>: i think it was published in 2010: bottom left corner of first page - FLACOS 2010",
+    "ts": "1443334692.000078"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "ok, that's better than nothing. thanks.",
+    "ts": "1443334707.000079"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i wonder if things have changed in 2015",
+    "ts": "1443334814.000080"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "this is a prelim version of what happened at FLACOS 2010 - it was a workshop on formal languages and analysis of contract-oriented software:  <https://investigacion.uclm.es/documentos/fi_1289327707-FLACOS%2010%20-%20Visual%20Specification%20of%20Formal%20e-Contracts.pdf>",
+    "ts": "1443334876.000081"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i gotta go soon but for now, advancingdragon, i would ask you to consider the question: how do we establish an \"R12\" isomorphism, and a formal-&gt;natural language generator, capable of expressing the example shown in <http://legalese.io/turing.html>",
+    "ts": "1443334909.000082"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "R12?",
+    "ts": "1443334929.000083"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "&gt;The isomorphism principle (R12) was originally introduced in the context of legal text formalization [2], and the principle refers to the idea of a formal encoding that is in a one-to-one correspondence with the informal paper contract; one paragraph in the paper contract corresponds to a separate “component” in the formalization, and any dependencies between paragraphs in the paper contract are also present between the corresponding components in the formalization. The reason why the isomorphism principle is desirable is immediate: (local) changes in the paper contract correspond to (local) changes in the formalized contract (and vice versa), and a formal encoding which is reminiscent of the paper contract, should be easier for domain experts (i.e., lawyers) to maintain.",
+    "edited": {
+      "user": "U036JHW9Z",
+      "ts": "1443335007.000000"
+    },
+    "ts": "1443334949.000084"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "from <http://www.diku.dk/hjemmesider/ansatte/hvitved/publications/hvitved10flacosb.pdf>",
+    "ts": "1443334975.000087"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "I see",
+    "ts": "1443335038.000090"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "well, I shall think about it",
+    "ts": "1443335044.000091"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "anyway, it's been good talking to everyone, I need to go",
+    "ts": "1443338199.000092"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "word.",
+    "ts": "1443353157.000093"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "<https://hbr.org/2015/09/a-first-time-managers-guide-to-leading-virtual-teams>",
+    "attachments": [
+      {
+        "service_name": "Harvard Business Review",
+        "title": "A First-Time Manager’s Guide to Leading Virtual Teams",
+        "title_link": "https://hbr.org/2015/09/a-first-time-managers-guide-to-leading-virtual-teams",
+        "text": "Understand how distance affects team dynamics.",
+        "fallback": "Harvard Business Review: A First-Time Manager’s Guide to Leading Virtual Teams",
+        "image_url": "https://hbr.org/resources/images/article_assets/2015/09/SEPT15_25_119055723-383x215.jpg",
+        "ts": 1443196822,
+        "from_url": "https://hbr.org/2015/09/a-first-time-managers-guide-to-leading-virtual-teams",
+        "image_width": 383,
+        "image_height": 215,
+        "image_bytes": 31579,
+        "id": 1
+      }
+    ],
+    "ts": "1443353673.000094"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "FLACOS looks super important. but did they die after 2012?",
+    "ts": "1443354062.000096"
+  },
+  {
+    "text": "finishes reading A Survey of Formal Languages for Contracts",
+    "type": "message",
+    "subtype": "me_message",
+    "user": "U036JHW9Z",
+    "ts": "1443357690.000097"
+  },
+  {
+    "text": "finishes Growing a Language",
+    "type": "message",
+    "subtype": "me_message",
+    "user": "U036JHW9Z",
+    "ts": "1443357703.000098"
+  },
+  {
+    "type": "message",
+    "user": "U04N6235W",
+    "text": "Does anyone know of a way we can automatically create a list of the links and files we share on slack? \n\nI know Zapier allows the creation of folders and docs in Google drive for every starred message. Wondering if there are better alternatives to keep track of the files/ link shared so as to track information sharing (for current and future members) and to minimise duplication of effort / content. \n\nIdea is that this automatically consolidated list can then be organised manually later (or automatically if possible!) so we can point to it and say here's our master list of collective information, this is what we have read/shared on languages, competitors etc? \n\n",
+    "ts": "1443363052.000099"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "Editorial: message triggers for zapier can be based on a text string.",
+    "ts": "1443365297.000002"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "So I shall create a simple filter including all common file extensions as well as `http`.",
+    "ts": "1443365324.000003"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "Every message including a string matching these strings will be copied to a .txt file and posted to the appropriate folder.",
+    "ts": "1443365361.000004"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "Zapier does not support in-doc writing of such messages, so our reference will be a folder of .txts, not a single document.",
+    "ts": "1443365396.000005"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "Also, I am running into a problem where Zapier does not recognise shared folders.",
+    "ts": "1443365438.000006"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "I am guessing this is a permission problem.",
+    "ts": "1443365447.000007"
+  },
+  {
+    "type": "message",
+    "user": "U04V87VPT",
+    "text": "<@U04N6235W> <@U04VD7RGD> have you tried this? <https://www.producthunt.com/tech/slack-to-feedly-flipboard-rss>",
+    "attachments": [
+      {
+        "service_name": "Product Hunt",
+        "title": "Slack to Feedly / Flipboard / RSS: Create an RSS feed from links in your Slack channels | Product Hunt",
+        "title_link": "https://www.producthunt.com/tech/slack-to-feedly-flipboard-rss",
+        "text": "Fantastic! As much as I adore Slack, it isn't the best interface for storing the articles and posts that its format invites users to share. Thrilled to be ab...",
+        "fallback": "Product Hunt: Slack to Feedly / Flipboard / RSS: Create an RSS feed from links in your Slack channels | Product Hunt",
+        "image_url": "https://files.producthunt.com/fd598d39-db7f-4583-96d3-db20a5702a24?x=312&y=180",
+        "from_url": "https://www.producthunt.com/tech/slack-to-feedly-flipboard-rss",
+        "image_width": 312,
+        "image_height": 180,
+        "image_bytes": 38255,
+        "id": 1
+      }
+    ],
+    "ts": "1443365716.000008"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "Also, no support for metadata.",
+    "ts": "1443365894.000010"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "That is great for links, but not for attachments.",
+    "ts": "1443366232.000011"
+  },
+  {
+    "type": "message",
+    "user": "U04VD7RGD",
+    "text": "If I can look at it and figure out how to make it extract the archive URL for our attachments then it will serve our purposes.",
+    "ts": "1443366269.000012"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "hey",
+    "ts": "1443393619.000002"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "the classical chinese video is up",
+    "ts": "1443393623.000003"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "<https://www.youtube.com/watch?v=vBhg2p8aAQ0&amp;index=42&amp;list=PLcGKfGEEONaCIl5eU53uPBnRJ9rbIH32R>",
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "\"The Programming Language Called Classical Chinese\" by David Branner",
+        "title_link": "https://www.youtube.com/watch?v=vBhg2p8aAQ0&amp;index=42&amp;list=PLcGKfGEEONaCIl5eU53uPBnRJ9rbIH32R",
+        "author_name": "Strange Loop",
+        "author_link": "https://www.youtube.com/channel/UC_QIfHvN9auy2CoOdSfMWDw",
+        "thumb_url": "https://i.ytimg.com/vi/vBhg2p8aAQ0/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: \"The Programming Language Called Classical Chinese\" by David Branner",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/videoseries?list=PLcGKfGEEONaCIl5eU53uPBnRJ9rbIH32R\" frameborder=\"0\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://www.youtube.com/watch?v=vBhg2p8aAQ0&amp;index=42&amp;list=PLcGKfGEEONaCIl5eU53uPBnRJ9rbIH32R",
+        "id": 1
+      }
+    ],
+    "ts": "1443393625.000004"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "nice find. i am enjoying this talk.",
+    "ts": "1443419321.000006"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "I wish I never quit Chinese lessons :disappointed:",
+    "ts": "1443419358.000007"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "such a cool language",
+    "ts": "1443419367.000008"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "yeah … also very poorly taught, where i grew up",
+    "ts": "1443419378.000009"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "Singapore?",
+    "ts": "1443419418.000010"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "yeah",
+    "ts": "1443419440.000011"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "my giving it up does lead to a certain amount of 心酸 when watching a white guy speak it better than i do :simple_smile:",
+    "ts": "1443419448.000012"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "<http://img003.21cnimg.com/photos/album/20140529/m600/7046E465656C4C85C25FF671C9A381C5.jpg>",
+    "attachments": [
+      {
+        "fallback": "600x470px image",
+        "image_url": "http://img003.21cnimg.com/photos/album/20140529/m600/7046E465656C4C85C25FF671C9A381C5.jpg",
+        "image_width": 600,
+        "image_height": 470,
+        "image_bytes": 13456,
+        "from_url": "http://img003.21cnimg.com/photos/album/20140529/m600/7046E465656C4C85C25FF671C9A381C5.jpg",
+        "id": 1
+      }
+    ],
+    "ts": "1443419487.000013"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "as part of the Legalese project, we should put together a collection of resources that introduce the principles of computer science to refugees from law",
+    "ts": "1443419516.000015"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "i think this talk really helps bridge one tradition to another",
+    "ts": "1443419534.000016"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "calling computer science \"computer science\" is like calling architecture \"blueprint science\"",
+    "ts": "1443419554.000017"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "what we actually deal with is the stuff of thought.",
+    "ts": "1443419564.000018"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "Alan Kay thinks it's the science of processes",
+    "ts": "1443419603.000019"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "how to formalize processes of \"things happening\"",
+    "ts": "1443419612.000020"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "and thing about them",
+    "ts": "1443419615.000021"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "sure, algorithms.",
+    "ts": "1443419627.000022"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "if we can introspect and explicate, we can move thinking into machines. that was always the thesis of artificial intelligence. and today we do it one program at a time.",
+    "ts": "1443419660.000023"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "one could argue that computer science is the ultimate humanity. why? consider: humans may not be the only animal to use language; humans may not be the only animal to use tools; but humans are the only animal to use language as a tool.",
+    "ts": "1443419703.000024"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "we do that in computer science, we do that in poetry, and we do that in law.",
+    "ts": "1443419789.000025"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "so, to be a programmer is one of the peaks of what it means to be a human being.",
+    "ts": "1443420040.000026"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "that is rather conceited",
+    "ts": "1443420099.000027"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "you got it",
+    "ts": "1443420134.000028"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "the thought keeps me warm on my lonely friday nights",
+    "ts": "1443420157.000029"
+  },
+  {
+    "type": "message",
+    "user": "U09FCEDU5",
+    "text": "so annoying acquiring literature",
+    "ts": "1443424499.000030"
+  },
+  {
+    "type": "message",
+    "user": "U036JHW9Z",
+    "text": "<https://slack.zendesk.com/hc/en-us/articles/201658943-Exporting-your-team-s-Slack-history>",
+    "attachments": [
+      {
+        "service_name": "Slack Help Center",
+        "title": "Exporting your team's Slack history",
+        "title_link": "https://slack.zendesk.com/hc/en-us/articles/201658943-Exporting-your-team-s-Slack-history",
+        "text": "Team Owners and Admins can access data exports from the Export Data page at <http://my.slack.com/services/export|my.slack.com/services/export>. Downloading an export When you request an export, Slack will generate a .zip file contain...",
+        "fallback": "Slack Help Center: Exporting your team's Slack history",
+        "image_url": "http://p6.zdassets.com/hc/settings_assets/138842/200037786/gkaXuf42TX4H1EV4Bx0Z0g-slack_help_logo.png",
+        "from_url": "https://slack.zendesk.com/hc/en-us/articles/201658943-Exporting-your-team-s-Slack-history",
+        "image_width": 370,
+        "image_height": 60,
+        "image_bytes": 11251,
+        "id": 1
+      }
+    ],
+    "ts": "1443424771.000031"
+  }
 ]
