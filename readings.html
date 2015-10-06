@@ -24,32 +24,56 @@
   <span></span>
   <script>
 
-function getText (links, oValue, sKey) {
+console.log("OHAI I AM RUNNING LOL");
+ 
+function regexpConditionFactory(regex) {
+    return function(value) { return regex.test(value); };
+}
 
+function searchObjectForKey(obj, key, condition, result) {
+    if ($.isPlainObject(obj)) {
+        if (obj.hasOwnProperty(key)) {
+            if (!condition || ($.isFunction(condition) && condition(obj[key])))
+                result.push(obj[key]);
+        }
+    }
 
-         if (typeof oValue == "object" || typeof oValue == "array") {
-for (i in oValue) {
-console.log ("The type of oValue is" + i);
-                getText (links, oValue [i], i);
-                }
-         } else {
-             if(oValue && sKey)
-                links.push ( "<li id='" + oValue + "'>" + sKey + "</li>" );
-         }
+    if ($.isPlainObject(obj) || $.isArray(obj)) {
+        for (var k in obj) {
+            if (obj.hasOwnProperty(k))
+                searchObjectForKey(obj[k], key, condition, result);
+        }
+    }
+}
 
-           $( "<ul/>", {
-                       "class": "my-new-list",
-                       html: links.join( "" )
-           }).appendTo( "body" );
-};
+try {
 
-$.getJSON("http://www.legalese.io/concatenated.json", function(data, success){
-  var links = [];  
+    console.log("calling $.getJSON");
 
-  getText (links, data, 0);
-});
+    $.getJSON('http://www.legalese.io/concatenated.json',
+	      function(data) {
+		  var res = [];
+		  
+		  console.log("inside getJSON");
+		  searchObjectForKey(data, 'text', regexpConditionFactory (/http:?\/\//),  res);
+		  console.log("res has " + res.length + " elements");
+		  
+		  $('<ul/>', {
+		      'class': 'my-new-list',
+		      'html': res.map(function(value) {
+			  var url = value.match(/<(.*?)>/)[1];
+			  console.log("matched " + value + " into " + url);
+			  return '<li><a href="' + url + '">' + url + '</a></li>'; }).join('')
+		  }).appendTo('body');
+	      });
     
-  
+} catch (e) {
+    console.log("buay sai. " + e);
+}
+
+
+console.log("terminating");
+
 </script>
 
 
