@@ -15,6 +15,9 @@
 
 <para_1><span_smallcaps>Whereas</span_smallcaps>:</para_1>
 
+<? if (data.previous_jfdi_investment_agreement_date) { ?>
+  <recitals>This agreement amends and restates a previous agreement dated <?= data.previous_jfdi_investment_agreement_date ?>.</recitals>
+<? } ?>
   <recitals>Pursuant to the Founder Agreement executed on <?= data.founder_agreement_date ?> between the promoters of <?= data.company.name ?> (the "Company") and <?!= include("inc_party", data, data.parties.jfdi_investor[0]) ?> ("<?= data.parties.jfdi_investor[0].short_name ?>"), which requires the Company to <i>"authorise and issue <? if (data.jfdi_standard_valuation != false) {
   ?>convertible debt, equity, or other such security in the corporation such that, immediately prior to the Next External Financing, <?=data.parties.jfdi_investor[0].short_name || data.parties.jfdi_investor[0].name ?> will own a certain percentage (the "Conversion Percentage") of the total capital in the Startup, on a fully-diluted, as-if-converted basis<? }
   else { ?><?= data.nonstandard_valuation_text ?><? } ?>"</i>;
