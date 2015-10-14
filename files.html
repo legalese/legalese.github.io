@@ -1,0 +1,48 @@
+<html>
+  <head>
+  <script src="jquery-2.1.4.min.js"></script>
+    </head>
+  <body>
+
+    <p id="body"></p>
+    <script>
+
+function searchObjectForKey(obj, key, result) {
+    if ($.isPlainObject(obj)) {
+        if (obj.hasOwnProperty(key)) {
+           
+                result.push(obj[key]);
+        }
+    }
+
+    if ($.isPlainObject(obj) || $.isArray(obj)) {
+        for (var k in obj) {
+            if (obj.hasOwnProperty(k))
+                searchObjectForKey(obj[k], key, result);
+        }
+    }
+}
+
+
+      console.log("getting JSON");
+
+    $.getJSON('http://www.legalese.io/files.json',
+	      function(data) {
+		 
+		  var res = [];
+		  console.log("inside getJSON");
+		  searchObjectForKey(data, "url_download", res);
+		  console.log("res has " + res.length + " elements");
+		  
+		  $('<ul/>', {
+		      'class': 'my-new-list',
+                      'html': res.map(function(value) {
+
+                      	  return '<li><a href="' + value + '">' + value + '</a></li>'; }).join('')
+		  }).appendTo('body');
+	      });
+     
+
+  </script>
+  </body>
+  </html>

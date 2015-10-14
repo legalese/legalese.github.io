@@ -2,6 +2,8 @@
 
 What organizational structure, governance model, and communication processes does Legalese use?
 
+This is discussed on the #meta chat.
+
 * Inspirations
 
 ** Opensource Projects

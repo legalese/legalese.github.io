@@ -15,34 +15,66 @@
     color: red;
   }
   </style>
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="jquery-2.1.4.min.js"></script>
 </head>
 <body>
 
-  <p></p>
+  <p id="body"></p>
   <div></div>
   <span></span>
   <script>
 
-
-    $.getJSON("concatenated.json", function getText (oValue, sKey) {
-             links = [];
-             if (typeof oValue == "object" || typeof oValue == "array") {
-                for (i in oValue) {
-                    getText (oValue [i], i);
-                    }
-    } else {
-    links.push ( "<li id='" + oValue + "'>" + sKey + "</li>" );
-  };
+console.log("OHAI I AM RUNNING LOL");
  
-  $( "<ul/>", {
-    "class": "my-new-list",
-    html: links.join( "" )
-  }).appendTo( "body" );
-});
+function regexpConditionFactory(regex) {
+    return function(value) { return regex.test(value); };
+}
 
+function searchObjectForKey(obj, key, condition, result) {
+    if ($.isPlainObject(obj)) {
+        if (obj.hasOwnProperty(key)) {
+            if (!condition || ($.isFunction(condition) && condition(obj[key])))
+                result.push(obj[key]);
+        }
+    }
+
+    if ($.isPlainObject(obj) || $.isArray(obj)) {
+        for (var k in obj) {
+            if (obj.hasOwnProperty(k))
+                searchObjectForKey(obj[k], key, condition, result);
+        }
+    }
+}
+
+try {
+
+    console.log("calling $.getJSON");
+
+    $.getJSON('http://www.legalese.io/concatenated.json',
+	      function(data) {
+		  var res = [];
+		  
+                  console.log("inside getJSON");
+                  searchObjectForKey(data, 'text', regexpConditionFactory (/\/\//),  res);
+                  console.log("res has " + res.length + " elements");
+		  
+		  $('<ul/>', {
+		      'class': 'my-new-list',
+		      'html': res.map(function(value) {
+                      var url = value.match(/<(?!@)(.*?)>/)[1];
+                      var itt = url.replace("|", "/");
+			  console.log("matched " + value + " into " + url);
+			  return '<li><a href="' + itt + '">' + itt + '</a></li>'; }).join('')
+		  }).appendTo('body');
+	      });
     
-  
+} catch (e) {
+    console.log("buay sai. " + e);
+}
+
+
+console.log("terminating");
+
 </script>
 
 

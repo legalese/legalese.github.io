@@ -35,7 +35,7 @@ Sometimes the business users are the signers -- on one side of the transaction.
 
 The business users are responsible for reminding the signers to sign.
 
-** Drafters
+** Drafters -- a.k.a. Lawdevs
 
 Contract drafters modify existing agreements and create new ones.
 

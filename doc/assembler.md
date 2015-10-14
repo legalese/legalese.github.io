@@ -10,7 +10,7 @@ Actually, the source templates are one step before XML. They contain markup that
 
 Once the template has been filled, it's ready for import into InDesign. Most of the tags in the XML correspond to InDesign paragraph and character styles. InDesign allowss us to generate PDFs that look really good.
 
-# Future Formats
+## Future Formats
 
 In the future it would be nice to offer more template formats than just XML. Because lawdevs may prefer a WYSIWYG editor to build templates -- raw XML may be too much to ask.
 
@@ -18,11 +18,11 @@ In the future it would be nice to offer more output formats than just INDD and P
 
 For additional output formats, the obvious candidates are [Word](https://github.com/legalese-io/legalese-io.github.io/issues/28) and [Google Docs](https://github.com/legalese-io/legalese-io.github.io/issues/29).
 
-# Future Input Formats
+## Future Input Formats
 
 Can we use Word and Google Docs as input formats as well? Or do we want to construct our own editing UI for lawdevs to edit templates? What do existing document automation web interfaces look like?
 
-## Work On Output Formats
+### Work On Output Formats
 
 It might be possible to build XSLT transformations that convert the InDesign-friendly template into other output formats. In early 2015 Meng wrote some code to mark-down the XML template into HTML for parallel filling.
 
