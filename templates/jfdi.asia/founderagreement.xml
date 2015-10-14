@@ -71,7 +71,7 @@ As an example, if the previous round of financing established a post-money valua
 <numbered_1_para><? }
        else if (data.valuation_basis == "discussion") { ?> determined as agreed by the Parties.
 <?   } else if (data.valuation_basis == "fixed") { ?> <?= data.agreed_percentage ?>%<?
-if(data.tranche_1_percentage){?> in two tranches: the first being <?=data.tranche_1_amount?> for <?=data.tranche_1_percentage?>%, and the second being <?=data.tranche_1_amount?> for <?=data.tranche_2_percentage?>%<?}?>.
+if(data.tranche_1_percentage){?> in two tranches: the first being <?=data.tranche_1_amount?> for <?=data.tranche_1_percentage?>%, and the second being <?=data.tranche_2_amount?> for <?=data.tranche_2_percentage?>%<?}?>.
 <?   } ?>
 <? } ?>
 The Founders shall travel to and from Singapore at their own expense. JFDI.Asia and JFDI.2014 shall not be obligated to reimburse any expenses incurred, or transfer any funds to the Founders or to their Startup, prior to formal acceptance to the Accelerate phase.
