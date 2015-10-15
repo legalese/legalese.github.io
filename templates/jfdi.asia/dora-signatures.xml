@@ -29,26 +29,38 @@
 <a_left_sidehead xname="medarb">Governing Law and Jurisdiction</a_left_sidehead>
   <?!= include("inc_mediation_arbitration", data, { para_style: "para_1", agreement_or_deed: "Deed" }) ?>
 
-<schedule_header>Current Investors</schedule_header>
-<p>
-<Table aid:table="table" aid:tcols="4" aid:trows="<?= data.parties.shareholder.length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
-<Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="64" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>ID</cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="190" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Address</cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="64" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Number of Shares Held</cell_c></Cell>
-<? for (var i = 0; i<data.parties.shareholder.length; i++) { with(data.parties.shareholder[i]) { ?>
-<Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= name ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="64" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= idtype ?> <span_ucnum_nobreak><?= id ?></span_ucnum_nobreak></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="190" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= address ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="64" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?
-     if(data.parties.shareholder[i].dora_shares_override){?>
-<?!=   dora_shares_override?>
-<?}  else {?>
-<?!=   data.capTable.investorHoldingsInRound(data.parties.shareholder[i].name) ?><?
-     } ?></cell_c></Cell>
+  <schedule_header>Table of Investors</schedule_header>
+
+  <a_left_sidehead>Existing Investors</a_left_sidehead>
+  <? Logger.log("dora-signatures/existing_investors: calling data.capTable.getActiveRound()"); ?>
+  <? var oldInvestors  = data.capTable.getActiveRound().getOldInvestors(); ?>
+  <? var previousRound = data.capTable.getActiveRound().getPreviousRound(); ?>
+
+<para_1><Table aid:table="table" aid:tcols="3" aid:trows="<?= Object.keys(oldInvestors.holders).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Address</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Holdings</cell_c></Cell>
+<? for (var hh in oldInvestors.holders) { with(data._entitiesByName[hh]) { ?>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= hh ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= address ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!=   data.capTable.investorHoldingsInRound(hh, previousRound) ?></cell_c></Cell>
 <? } } ?>
-</Table>
-</p>
+</Table></para_1>
+  
+<a_left_sidehead>Investors Receiving New Securities</a_left_sidehead>
+  <? var newIssues = data.capTable.getActiveRound().getNewIssues(); ?>
+
+<para_1><Table aid:table="table" aid:tcols="3" aid:trows="<?= Object.keys(newIssues.holders).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Address</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Holdings</cell_c></Cell>
+<? for (var hh in newIssues.holders) { with(data._entitiesByName[hh]) { ?>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= hh ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= address ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!=   data.capTable.investorHoldingsInRound(hh) ?></cell_c></Cell>
+<? } } ?>
+</Table></para_1>
+
 <chapter_header>Signatures</chapter_header>
 <para_1><span_smallcaps>In witness whereof</span_smallcaps> this Deed has been declared and delivered on the date first above written.
 

@@ -157,5 +157,37 @@ any distribution of profits of the Company.</numbered_3_para>
 
   <?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: {} }) ?>
 
+  <schedule_header>Table of Investors</schedule_header>
+
+<a_left_sidehead>Existing Investors</a_left_sidehead>
+  <? Logger.log("shareholders_agreement/existing_investors: calling data.capTable.getActiveRound()"); ?>
+  <? var oldInvestors  = data.capTable.getActiveRound().getOldInvestors(); ?>
+  <? var previousRound = data.capTable.getActiveRound().getPreviousRound(); ?>
+
+<para_1><Table aid:table="table" aid:tcols="3" aid:trows="<?= Object.keys(oldInvestors.holders).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Address</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Holdings</cell_c></Cell>
+<? for (var hh in oldInvestors.holders) { with(data._entitiesByName[hh]) { ?>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= hh ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= address ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!=   data.capTable.investorHoldingsInRound(hh, previousRound) ?></cell_c></Cell>
+<? } } ?>
+</Table></para_1>
+  
+<a_left_sidehead>Investors Receiving New Securities</a_left_sidehead>
+  <? var newIssues = data.capTable.getActiveRound().getNewIssues(); ?>
+
+<para_1><Table aid:table="table" aid:tcols="3" aid:trows="<?= Object.keys(newIssues.holders).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Address</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Holdings</cell_c></Cell>
+<? for (var hh in newIssues.holders) { with(data._entitiesByName[hh]) { ?>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= hh ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= address ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!=   data.capTable.investorHoldingsInRound(hh) ?></cell_c></Cell>
+<? } } ?>
+</Table></para_1>
+
 </Story_Main>
 </Root>
