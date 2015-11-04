@@ -3,7 +3,7 @@
 <?!= include("inc_cover_2_parties", data, {cover_title:documentTitle, party1:data.company, party2:data.new_investor}) ?>
 <?!= include("inc_cover_jfdi", data, { in_series:"05" }) ?>
 <Firstpage_Sidebar>
-<sidebar>This document prescribes a vesting schedule for founders and early employees. If you're new to vesting, you should read http://pando.com/2012/04/26/founders-should-give-their-stock-back-why-vesting-is-in-your-startups-best-interest/</sidebar>
+<sidebar>This document prescribes a vesting schedule for founders, early employees, volunteers, interns, and advisors. If you're new to vesting, you should read http://pando.com/2012/04/26/founders-should-give-their-stock-back-why-vesting-is-in-your-startups-best-interest/</sidebar>
 </Firstpage_Sidebar>
 <Story_Main>
   <chapter_header><?= documentTitle ?></chapter_header>
