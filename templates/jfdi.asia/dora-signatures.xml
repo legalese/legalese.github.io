@@ -31,7 +31,7 @@
 
   <schedule_header>Table of Investors</schedule_header>
 
-  <a_left_sidehead>Existing Investors</a_left_sidehead>
+  <schedule_parts>Current Investors</schedule_parts>
   <? Logger.log("dora-signatures/existing_investors: calling data.capTable.getActiveRound()"); ?>
   <? var oldInvestors  = data.capTable.getActiveRound().getOldInvestors(); ?>
   <? var previousRound = data.capTable.getActiveRound().getPreviousRound(); ?>
@@ -47,7 +47,7 @@
 <? } } ?>
 </Table></para_1>
   
-<a_left_sidehead>Investors Receiving New Securities</a_left_sidehead>
+<schedule_parts>Investors Receiving New Securities</schedule_parts>
   <? var newIssues = data.capTable.getActiveRound().getNewIssues(); ?>
 
 <para_1><Table aid:table="table" aid:tcols="3" aid:trows="<?= Object.keys(newIssues.holders).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
