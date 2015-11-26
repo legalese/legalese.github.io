@@ -57,111 +57,6 @@
 		  <blockquote class="quotation">The divested Microsoft divisions have automated their legal processes and are spawning subsidiaries, IPOing them, and exchanging title in a bizarre parody of bacterial plasmid exchange, so fast that, by the time the windfall tax demands are served, the targets don't exist anymore, even though the same staff are working on the same software in the same Mumbai cubicle farms.</blockquote>
 		  <blockquote class="credit"><i>Accelerando</i>, Charlie Stross</blockquote>
 
-		  <h1>Premises and Conjectures</h1>
-
-		  <p>Consider what programmers do when they write programs, and what lawyers do when they write contracts. The similarities are striking! We believe it's possible to wrestle law and software into conjunction. Software offers a rich model for corporate law, in both content and practice. Consider:</p>
-
-		  <h2>Modeling Corporations</h2>
-		  
-		  <ol>
-			<li>A corporation may be completely represented as a data structure. More precisely: those aspects of a corporation which have to do with its nature as a legal entity may be captured by a data structure comprising state information. Over time, the state changes: as a corporation acquires directors, investors, employees, ESOPs, and other contractual counterparties, the data structure evolves. Such state changes to the data structure are analogous to git <i>commits</i>.</li>
-
-			<li>Each major change in the evolution of a corporation may be modeled with the language of git <i>releases</i> and <i>tags</i>. Each intended change may be modeled with the language of <i>issues</i> and <i>milestones</i>.</li>
-
-			<li>What, in git, we call a <i>remote origin master</i> corresponds to, in corporate law, a <a href="http://www.acra.gov.sg/">state registry of corporate details</a>.</li>
-
-			<li>Changes to the corporate data structure are formalized in shareholders' and directors' resolutions, and by executed contracts. This is <i>paperwork</i>.</li>
-
-		  </ol>
-
-		  
-		  <h2>Modeling Paperwork</h2>
-
-		  <ol>
-			<li>Corporate paperwork often requires signatures on multiple documents. Related documents may be modeled by a directed acyclic graph: if a prerequisite document is not signed, its dependents are invalid.</li>
-
-			<li>The DAG may be computed algorithmically. The paperwork may be generated automatically.</li>
-			
-			<li>With the advent of electronic and digital signatures, the execution of such paperwork may be managed online. Reminders may be sent automatically. If paperwork is in progress, the state of the dependency graph may be examined in fine detail by parties at any time.</li>
-
-			<li>A particular document may be a collection of <i>resolutions</i>, or a <i>contract</i>.
-		  </ol>
-
-		  <h2>Modeling Contracts</h2>
-
-		  <ol>
-			<li>Natural-language contracts often look like somebody trying to program, without knowing any programming languages.</li>
-			<li>To a programmer, the <a href="http://www.weagree.com/book/124-Structure+and+presentation+of+contracts.html">structure of a contract</a> reveals familiar ideas. The <i>preamble</i> is a high-level <a href="https://en.wikipedia.org/wiki/Comment_(computer_programming)">comment block</a> that may declare <a href="https://en.wikipedia.org/wiki/Assertion_(software_development)">assertions</a>. The <i>definitions</i> section declares <a href="https://en.wikipedia.org/wiki/Variable_(computer_science)">variables</a> and <a href="https://en.wikipedia.org/wiki/Constant_(computer_programming)">constants</a>. The <i>conditions precedent</i> define, well, <a href="https://en.wikipedia.org/wiki/Precondition">preconditions</a>. The <i>main clauses</i> describe the <a href="https://en.wikipedia.org/wiki/Happy_path">happy path</a>. The <i>breach</i> or <i>damages</i> clauses <a href="https://en.wikipedia.org/wiki/Exception_handling">handle exceptions</a>. The <i>term</i> clause defines a <a href="https://en.wikipedia.org/wiki/Timeout_(computing)">timeout</a>. And so on.</li>
-			<li>Few contracts use basic <a href="https://en.wikipedia.org/wiki/Structured_programming">structured programming</a> idioms. Most complex contracts read like <a href="https://en.wikipedia.org/wiki/Spaghetti_code">spaghetti code</a> &ndash; <a href="https://en.wikipedia.org/wiki/Object_code">object/machine code</a> whose control flow jumps all over the place, from one clause reference to another.</li>
-			<li>Some contracts are (inadvertently or deliberately) <a href="https://en.wikipedia.org/wiki/Obfuscation_(software)">obfuscated</a>.</li>
-			<li>The idea of drafting agreements in a <a href="https://en.wikipedia.org/wiki/High-level_programming_language">high level language</a> is not new: in many situations, parties negotiate a <a href="https://en.wikipedia.org/wiki/Term_sheet">term sheet</a>; once agreement is reached, they hand it to a lawyer to expand into definitive documentation, which the parties sign without reading; the long-form version is only read when it is being executed in the context of conflict resolution.</li>
-			<li>If a contract could be written with the rigour of a software program, it would be amenable to <a href="https://en.wikipedia.org/wiki/Formal_methods">formal methods</a> and other value-adds, like graphing and scenario visualization.</li>
-			<li>A <em>Legalese contract</em> &ndash; one written in a high-level language &ndash; could be compiled to a natural language. Obviously, the situation calls for a <a href="https://en.wikipedia.org/wiki/Compiler">compiler</a>, perhaps paired with a <a href="https://en.wikipedia.org/wiki/Domain-specific_language">domain-specific language</a>.</li>
-			<li>Such a compiler would <a href="https://en.wikipedia.org/wiki/Natural_language_generation">produce natural language contracts</a> that were backward-compatible with the legacy industry. Such backward-compatibility is valuable for lawyers, judges, and laypeople who aren't able to read the high-level DSL.</li>
-			<li>A Legalese contract could be compiled to <em>multiple</em> natural languages. Each version would be provably identical. This would be valuable in <a href="http://europa.eu/pol/mult/index_en.htm">multilingual environments</a>.</li>
-			<li>A Legalese contract could be forward-compatible to the newfangled gewgaws coming down the pike, like <a href="http://ethereum.org/">Ethereum</a>.</li>
-		  </ol>
-
-		  <h2>Modeling Social Practice</h2>
-		  
-		  <p>What if lawyers started working more like programmers?</p>
-
-		  <ol>
-			<li>Opensource dynamics might lead to the development of reusable, public, clause libraries, published under an MIT, BSD, GPL, or CC license.</li>
-			<li>End-users might bypass the priesthood of lawyers, and draft their own contracts.</li>
-			<li>Corporate secretaries could go the way of the <a href="http://www.boredpanda.com/extinct-jobs/">switchboard operator</a> or <a href="http://m.cfoinnovation.com/story/8229/future-work-death-accountant-and-auditor">tax preparer</a>.</li>
-			<li>Confidence in the codebase could arise from the bazaar model of contract development (<a href="https://en.wikipedia.org/wiki/Linus%27s_Law#By_Eric_Raymond">"given enough eyeballs, all bugs are shallow"</a>), from reputation systems, and other transparent, crowd-sourced mechanisms.</li>
-		  </ol>
-
-		  <h2>Modeling Regulations</h2>
-
-		  <ol>
-			<li>Legislative and regulatory constraints may be modeled using a <a href="https://en.wikipedia.org/wiki/Declarative_programming">declarative language</a>. Contracts and paperwork may be <a href="https://en.wikipedia.org/wiki/Automatic_programming">automatically produced</a> as satisfactions of constraints.</li>
-		  </ol>
-
-		  <h2>Examples</h2>
-
-		  <p>Example 1: a simplified model of a corporation with two shareholders and two directors.</p>
-		  <!-- maybe we need something like https://highlightjs.org/  -->
-		  <code>{ "entities" : {
-  "NewCo": {
-	"name" : "NewCo Inc.",
-	"entityType" : "corporation",
-	"jurisdiction" : "SG",
-	"externalId": { "id": "C12345678K", "idType": "UEN" },
-	"directors" : [ "Alice", "Bob" ],
-	"shareClasses" : { "ordinary": { } }
-	"shareholders" : { "Bob":   { "shareClass": "ordinary", "num": 20 },
-					   "Carol": { "shareClass": "ordinary", "num": 10 } },
-  },
-  "Alice": {
-	"name": "Alice Lovelace",
-	"entityType": "naturalPerson",
-	"externalId": { "id": "S11111111A", "idType": "NRIC" }
-  },
-  "Bob": {
-    "name": "Bob Dobbs, Jr.",
-    "entityType": "naturalPerson",
-    "externalId": { "id": "S22222222B", "idType": "NRIC" }
-  },
-  "Carol": {
-    "name": "Carol Choo-Choo",
-    "entityType": "naturalPerson",
-    "externalId": { "id": "S33333333C", "idType": "NRIC" }
-  }
-} }
-</code>
-			
-
-		  
-		  <h1>Turing-Complete Contracts</h1>
-
-		  <p>The Legalese team has started work on a JavaScript-to-English compiler. This is a research project. Software eats law in a specific way: it gets <a href="http://kk.org/thetechnium/2008/03/turingd/">Turing'd</a>, by way of a domain-specific language that, sigh, looks a lot like Javascript. (Lawyers, don't worry; <a href="http://hodgen.com/questions-are-harder-than-answers/">you'll keep your jobs</a>.)</p>
-
-		  <p>The goal? To enable a lawyer &ndash; better yet, a non-lawyer &ndash; to draft a contract more concisely and clearly than they could in a natural language, by writing what looks like computer code. The drafter gets to take advantage of all sorts of ideas from computer science: variables, functions, third-party libraries, syntax and type checking, unit testing, completeness, and consistency. And the drafting <em>community</em> can get ideas from software engineering, like collaborative version control and opensource community support practices. The contract can be tested by fuzzing against future scenarios of breach, possible legal challenges, and simulated courtrooms.</p>
-
-		  <p>As Frederik Pohl might put it, <i>a good futurist predicts the car; a great futurist predicts the traffic jam</i>. If the car is a formal language for contracts and agreements (maybe even legislation), then a taxi service might be smart contracts integrated with cryptocurrencies and wholly automated business processes, exposed through legally binding APIs. The traffic jam? Maybe that's a DDOS in the form of micro-contract spam, a welter of frivolous lawsuits, or a zero-day exploit of an error enshrined in some old piece of paperwork that didn't get patched when the last novation service pack went around.</p>
-
 		  <h2><a name="inspiration"></a>Where does the anger come from?</h2>
 
 		  <p>Once upon a time, a programmer received an investment contract containing the following text, verbatim:</p>
@@ -194,6 +89,83 @@ else                      { conversion = 50 }</code>
 
 		  <p>Implementing the vision is a <a href="http://www.catb.org/jargon/html/S/SMOP.html">simple matter of programming</a>!</p>
 
+		  <h1>Premises and Postulates</h1>
+
+		  <p>Consider what programmers do when they write programs.</p>
+		  <p>Consider what lawyers do when they write contracts.</p>
+		  <p>The similarities are striking!</p>
+		  <p>Because of these similarities, we believe that it's possible to wrestle law and software into conjunction.</p>
+		  <p>Software development offers a rich model for corporate law, in both content and practice.</p>
+
+		  <h2>Modeling Corporations</h2>
+		  
+		  <ol>
+			<li>A corporation may be completely represented as a data structure. More precisely: those aspects of a corporation which have to do with its nature as a legal entity may be captured by a data structure comprising state information. Over time, the state changes: as a corporation acquires directors, investors, employees, ESOPs, and other contractual counterparties, the data structure evolves. Such state changes to the data structure are analogous to git <i>commits</i>.</li>
+
+			<li>Each major change in the evolution of a corporation may be modeled with the language of git <i>releases</i> and <i>tags</i>. Each intended change may be modeled with the language of <i>issues</i> and <i>milestones</i>.</li>
+
+			<li>What, in git, we call a <i>remote origin master</i> corresponds to, in corporate law, a <a href="http://www.acra.gov.sg/">state registry of corporate details</a>.</li>
+
+			<li>Changes to the corporate data structure are formalized in shareholders' and directors' resolutions, and by executed contracts. This is <i>paperwork</i>.</li>
+
+		  </ol>
+
+		  
+		  <h2>Modeling Paperwork</h2>
+
+		  <ol>
+			<li>Corporate paperwork often requires signatures on multiple documents. Related documents may be modeled by a directed acyclic graph: if a prerequisite document is not signed, its dependents are invalid.</li>
+
+			<li>The DAG may be computed algorithmically. The paperwork may be generated automatically.</li>
+			
+			<li>With the advent of electronic and digital signatures, the execution of such paperwork may be managed online. Reminders may be sent automatically. If paperwork is in progress, the state of the dependency graph may be examined in fine detail by parties at any time.</li>
+
+			<li>A particular document may be a collection of <i>resolutions</i>, or a <i>contract</i>.
+		  </ol>
+
+		  <h2>Modeling Contracts</h2>
+
+		  <ol>
+			<li>Natural-language contracts often look like somebody trying to program without knowing any programming languages.</li>
+			<li>To a programmer, the <a href="http://www.weagree.com/book/124-Structure+and+presentation+of+contracts.html">structure of a contract</a> reveals familiar ideas. The <i>preamble</i> is a high-level <a href="https://en.wikipedia.org/wiki/Comment_(computer_programming)">comment block</a> that may declare <a href="https://en.wikipedia.org/wiki/Assertion_(software_development)">assertions</a>. The <i>definitions</i> section declares <a href="https://en.wikipedia.org/wiki/Variable_(computer_science)">variables</a> and <a href="https://en.wikipedia.org/wiki/Constant_(computer_programming)">constants</a>. The <i>conditions precedent</i> define, well, <a href="https://en.wikipedia.org/wiki/Precondition">preconditions</a>. The <i>main clauses</i> describe the <a href="https://en.wikipedia.org/wiki/Happy_path">happy path</a>. The <i>breach</i> or <i>damages</i> clauses <a href="https://en.wikipedia.org/wiki/Exception_handling">handle exceptions</a>. The <i>term</i> clause defines a <a href="https://en.wikipedia.org/wiki/Timeout_(computing)">timeout</a>. And so on.</li>
+			<li>Few contracts use basic <a href="https://en.wikipedia.org/wiki/Structured_programming">structured programming</a> idioms. Most complex contracts read like <a href="https://en.wikipedia.org/wiki/Spaghetti_code">spaghetti code</a> &ndash; <a href="https://en.wikipedia.org/wiki/Object_code">object/machine code</a> whose control flow jumps all over the place, from one clause reference to another.</li>
+			<li>Some contracts are (inadvertently or deliberately) <a href="https://en.wikipedia.org/wiki/Obfuscation_(software)">obfuscated</a>.</li>
+			<li>The idea of drafting agreements in a <a href="https://en.wikipedia.org/wiki/High-level_programming_language">high level language</a> is not new: in many situations, parties negotiate a <a href="https://en.wikipedia.org/wiki/Term_sheet">term sheet</a>; once agreement is reached, they hand it to a lawyer to expand into definitive documentation, which the parties sign without reading; the long-form version is only read when it is being executed in the context of conflict resolution.</li>
+			<li>If a contract could be written with the rigour of a software program, it would be amenable to <a href="https://en.wikipedia.org/wiki/Formal_methods">formal methods</a> and other value-adds, like graphing and scenario visualization.</li>
+			<li>A <em>Legalese contract</em> &ndash; one written in a high-level language &ndash; could be compiled to a natural language. Obviously, the situation calls for a <a href="https://en.wikipedia.org/wiki/Compiler">compiler</a>, perhaps paired with a <a href="https://en.wikipedia.org/wiki/Domain-specific_language">domain-specific language</a>.</li>
+			<li>Such a compiler would <a href="https://en.wikipedia.org/wiki/Natural_language_generation">produce natural language contracts</a> that were backward-compatible with the legacy industry. Such backward-compatibility is valuable for lawyers, judges, and laypeople who aren't able to read the high-level DSL.</li>
+			<li>A Legalese contract could be compiled to <em>multiple</em> natural languages. Each version would be provably identical. This would be valuable in <a href="http://europa.eu/pol/mult/index_en.htm">multilingual environments</a>.</li>
+			<li>A Legalese contract could be forward-compatible with the newfangled gewgaws coming down the pike, like <a href="http://ethereum.org/">Ethereum</a>.</li>
+		  </ol>
+
+		  <h2>Modeling Social Practice</h2>
+		  
+		  <p>What if lawyers started working more like programmers?</p>
+
+		  <ol>
+			<li>Opensource dynamics might lead to the development of reusable, public, clause libraries, published under an MIT, BSD, GPL, or CC license.</li>
+			<li>End-users might bypass the priesthood of lawyers, and draft their own contracts.</li>
+			<li>Corporate secretaries could go the way of the <a href="http://www.boredpanda.com/extinct-jobs/">switchboard operator</a> or <a href="http://m.cfoinnovation.com/story/8229/future-work-death-accountant-and-auditor">tax preparer</a>.</li>
+			<li>Confidence in the codebase could arise from the bazaar model of contract development (<a href="https://en.wikipedia.org/wiki/Linus%27s_Law#By_Eric_Raymond">"given enough eyeballs, all bugs are shallow"</a>), from reputation systems, and other transparent, crowd-sourced mechanisms.</li>
+		  </ol>
+
+		  <h2>Modeling Regulations</h2>
+
+		  <ol>
+			<li>Legislative and regulatory constraints may be modeled using a <a href="https://en.wikipedia.org/wiki/Declarative_programming">declarative language</a>. Contracts and paperwork may be <a href="https://en.wikipedia.org/wiki/Automatic_programming">automatically produced</a> as satisfactions of constraints.</li>
+		  </ol>
+
+
+		  
+		  <h1>Turing-Complete Contracts</h1>
+
+		  <p>The Legalese team has started work on a JavaScript-to-English compiler. This is a research project. Software eats law in a specific way: it gets <a href="http://kk.org/thetechnium/2008/03/turingd/">Turing'd</a>, by way of a domain-specific language that, sigh, looks a lot like Javascript. (Lawyers, don't worry; <a href="http://hodgen.com/questions-are-harder-than-answers/">you'll keep your jobs</a>.)</p>
+
+		  <p>The goal? To enable a lawyer &ndash; better yet, a non-lawyer &ndash; to draft a contract more concisely and clearly than they could in a natural language, by writing what looks like computer code. The drafter gets to take advantage of all sorts of ideas from computer science: variables, functions, third-party libraries, syntax and type checking, unit testing, completeness, and consistency. And the drafting <em>community</em> can get ideas from software engineering, like collaborative version control and opensource community support practices. The contract can be tested by fuzzing against future scenarios of breach, possible legal challenges, and simulated courtrooms.</p>
+
+		  <p>As Frederik Pohl might put it, <i>a good futurist predicts the car; a great futurist predicts the traffic jam</i>. If the car is a formal language for contracts and agreements (maybe even legislation), then a taxi service might be smart contracts integrated with cryptocurrencies and wholly automated business processes, exposed through legally binding APIs. The traffic jam? Maybe that's a DDOS in the form of micro-contract spam, a welter of frivolous lawsuits, or a zero-day exploit of an error enshrined in some old piece of paperwork that didn't get patched when the last novation service pack went around.</p>
+
+
 		  <h1>The Innovation</h1>
 
 		  <p>Very clever people have thought long and hard about a world in which computers execute contracts, where programs transfer money to people and people transfer money to programs, where decentralized cryptocurrencies disrupt banks and financial institutions. Very clever people will be involved in the effort to build a bridge between formal and natural languages. Many man-years will go into developing a Github/Wikipedia of legal templates that are freely available for all to use.</p>
@@ -202,10 +174,51 @@ else                      { conversion = 50 }</code>
 
 		  <p>You know how some extreme runners run fifty marathons in fifty consecutive days? Actually running the marathons is one kind of challenge. Arranging the flights, travel, and accommodation so the runner gets from finish line in one city to starting line in another, is different kind of challenge. Developing a domain-specific language, or a library in which to model contracts, is the former kind of challenge. Making Legalese succeed as a business is the latter kind.</p>
 
+		  <h1>Examples</h1>
+
+		  <p>A company takes funding from an investor, who becomes a shareholder. This single <i>state change</i> requires seven pieces of <i>paperwork</i> and at least one <i>contract</i>.</p>
+
+		  <h2>Corporation's Data Structure (Before)</h2>
+		  
+		  <p>A company called NewCo Inc. has two directors (Alice and Bob) and two shareholders (Bob and Carol). This simplified JSON represents the state of the company before it raises funding from the new investor, Donald.</p>
+
+		  <!-- maybe we need something like https://highlightjs.org/  -->
+		  <code>{ "entities" : {
+  "NewCo": {
+    "name" : "NewCo Inc.",
+    "entityType" : "corporation",
+    "jurisdiction" : "SG",
+    "externalId": { "id": "C12345678K", "idType": "UEN" },
+    "directors" : [ "Alice", "Bob" ],
+    "shareClasses" : { "ordinary": { } }
+    "shareholders" : { "Bob":   { "shareClass": "ordinary", "num": 20 },
+                       "Carol": { "shareClass": "ordinary", "num": 10 } },
+  },
+  "Alice": {
+    "name": "Alice Lovelace",
+    "entityType": "naturalPerson",
+    "externalId": { "id": "S11111111A", "idType": "NRIC" }
+  },
+  "Bob": {
+    "name": "Bob Dobbs, Jr.",
+    "entityType": "naturalPerson",
+    "externalId": { "id": "S22222222B", "idType": "NRIC" }
+  },
+  "Carol": {
+    "name": "Carol Choo-Choo",
+    "entityType": "naturalPerson",
+    "externalId": { "id": "S33333333C", "idType": "NRIC" }
+  }
+} }
+</code>
+			
 		  <h1>More Science Fiction</h1>
 
 		  <blockquote class="quotation">Amber fast-forwards through the dynamic chunks of the README – boring legal UML diagrams, mostly – soaking up the gist of the plan. Yemen is one of the few countries to implement traditional Sunni shari'a law and a limited liability company scam at the same time. Owning slaves is legal – the fiction is that the owner has an option hedged on the indentured laborer's future output, with interest payments that grow faster than the unfortunate victim can pay them off – and companies are legal entities. If Amber sells herself into slavery to this company, she will become a slave and the company will be legally liable for her actions and upkeep. The rest of the legal instrument – about ninety percent of it, in fact – is a set of self-modifying corporate mechanisms coded in a variety of jurisdictions that permit Turing-complete company constitutions, and which act as an ownership shell for the slavery contract. At the far end of the corporate shell game is a trust fund of which Amber is the prime beneficiary and shareholder. When she reaches the age of majority, she'll acquire total control over all the companies in the network and can dissolve her slave contract; until then, the trust fund (which she essentially owns) oversees the company that owns her (and keeps it safe from hostile takeover bids). Oh, and the company network is primed by an extraordinary general meeting that instructed it to move the trust's assets to Paris immediately. A one-way airline ticket is enclosed.</blockquote>
 		  <blockquote class="credit"><i>Accelerando</i>, Charlie Stross</blockquote>
+
+
+
 		  
 		</section>
 
