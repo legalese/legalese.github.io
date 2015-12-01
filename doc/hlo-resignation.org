@@ -1,0 +1,69 @@
+#+TITLE: High-Level Operation: Resignation
+
+* Summary
+A person resigns from an organization.
+
+This operation may trigger changes to the cap table, pursuant to a vesting agreement.
+
+This operation may trigger changes to the board of directors.
+
+* Parties
+** A Natural Person (NP)
+** A Corporation (C)
+
+* Relationship between NP and C
+One or more relationships may exist between NP and C:
+
+- V :: NP is a Volunteer
+- D :: NP is a Director
+- S :: NP is a Shareholder
+- E :: NP is an Employee
+- F :: NP is a participant in an ESOP or vesting plan (F)
+
+* Document Sets
+** 1: Trigger
+*** Letter of Resignation from NP to C
+indicating which roles will end and which will continue
+** 2: Acceptance
+*** Letter of Acceptance from C to NP
+indicating which roles will end and which will continue.
+
+statement of implications on a role-by-role basis.
+** 3: Consequent Documents
+*** Case V: termination of volunteer status
+**** return of IP and assets
+**** reminder of undertaking regarding noncompete
+**** reminder of undertaking regarding confidentiality
+*** Case D: recomposition of board of directors
+**** directors' resolutions
+***** acknowledging resignation                                                             :dr:
+The Board of Directors resolves to accept the resignation of the NP effective DDDD.
+***** optional: appointing new replacement director
+Sometimes the resigning director's seat may be left empty.
+
+Sometimes the remaining directors vote in a replacement, if allowed by the Articles.
+
+Sometimes the shareholders are needed to help fill the seat.
+****** may require director's resolution                                                   :dr:
+Resolved: that the vacated seat be filled by X NP.
+****** may require members resolution                                                      :mr:
+Resolved: NP having vacated his/her seat at the Board, that X NP be appointed in his/hear stead to complete the term.
+
+*** Case S: change in shareholding status
+no change; if the departing shareholder wants to sell the shares back to the company, that is a separate High Level Operation: Buyback
+*** Case E: termination of employment status
+**** settling of accounts
+**** what to do about pending reimbursements
+**** back pay
+**** leave
+**** return of IP and assets
+**** reminder of undertaking regarding noncompete
+**** reminder of undertaking regarding confidentiality
+*** case F: pursuant to vesting agreement
+does the resignation trigger acceleration or not?
+
+**** computation of vested shares                                                      :captable:
+***** TODO section in acceptance letter
+**** redemption of unvested shares                                                     :captable:
+***** TODO chapter in acceptance letter
+***** TODO trigger fund transfer
