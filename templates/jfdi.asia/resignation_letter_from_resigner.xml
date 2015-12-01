@@ -22,7 +22,7 @@
   if (data.resigner.as_advisor)   { resignRoles.push("advisor");   }
   if (data.resigner.as_employee)  { resignRoles.push("employee");  }
 ?>
-<para_1>I, <?= data.resigner.name ?>, hereby resign from the Company as <?= commaAnd(resignRoles) ?>.
+<para_1>I, <?= data.resigner.name ?>, hereby resign from the Company as <?= commaAnd(resignRoles) ?> effective <? if (data.resignation_effective_date) { ?><?= data.resignation_effective_date ?><? } else { ?>immediately<? } ?>.
 </para_1>
 
 <para_1>Yours,</para_1>
