@@ -1,0 +1,37 @@
+<?!= include("inc_dr_start", data, { chapter_header: "Resignation", director_or_member:"Director", article_pursuant:data.article_for_directors_resolution_in_writing, }) ?>
+
+<? var activeRound = data.capTable.getActiveRound(); ?>
+<? var newIssues = data.capTable.getActiveRound().getNewIssues(); ?>
+
+<? // --------------- DEAL WITH RESIGNATION OF DIRECTOR -------------- ?>
+
+<? var resigningDirectors = data.parties.resigner.filter(function(p){return p.as_director}); ?>
+<? if (resigningDirectors.length) { ?>
+
+<a_left_sidehead>Resignation of <?= plural(resigningDirectors, "Director") ?></a_left_sidehead>
+
+<? for (var pp in resigningDirectors) { var resigner = resigningDirectors[pp]; ?>
+
+  <numbered_2_para addnewline="true">That the resignation of <?= resigner.name ?> be accepted with immediate effect.</numbered_2_para>
+
+<? } ?>
+<? } ?>
+
+<? // --------------- DEAL WITH RESIGNATION OF PERSON WITH F SHARES -------------- ?>
+
+<? Logger.log("dr-resignation_acceptace: the parties.resigner object is: %s", data.parties.resigner); ?>
+<? var redeemedShareholders = data.parties.resigner.filter(function(p){return p._orig_f_redeemed}); ?>
+<? if (redeemedShareholders.length) { ?>
+
+<a_left_sidehead addnewline="true">Redemption of Restricted Shares Following Resignation</a_left_sidehead>
+
+<? for (var pp in redeemedShareholders) { var resigner = redeemedShareholders[pp]; ?>
+
+  <numbered_2_para addnewline="true">That, pursuant to the Class F Agreement with, and following the resignation of, <?= resigner.name ?>, the Company will redeem <?= resigner.f_redeemed ?> Class F shares for <?= resigner.f_value ?>.</numbered_2_para>
+
+<? } ?>
+<? } ?>
+
+<?!= include("inc_authority_to_bizfile", data) ?>
+<?!= include("inc_dr_end", data) ?>
+
