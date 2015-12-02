@@ -34,7 +34,7 @@
 
   <a_left_sidehead xname="lp">Liquidation Preference</a_left_sidehead>
 
-  <para_1>The Liquidation Preference on the Shares shall be <?= data.liquidation_preference ?> <?=plural(data.liquidation_preference, "time")?> the price paid.</para_1>
+  <para_1>The Liquidation Preference on the Shares shall be <?= data.liquidation_preference ?> <?=plural(data.liquidation_preference, "times", "time")?> the price paid.</para_1>
   
   <a_left_sidehead xname="closing_delivery">Closing Dates and Delivery</a_left_sidehead>
 

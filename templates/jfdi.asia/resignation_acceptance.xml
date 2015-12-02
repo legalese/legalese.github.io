@@ -24,7 +24,7 @@
 
 </Story_Main>
 <Bottom_Box>
-I hereby confirm that I have received payment in full for the <?= data.resigner.f_redeemed ?> Class F Shares which the Company has redeemed from me.
+<para_1>I hereby confirm that I have received payment in full for the <?= data.resigner.f_redeemed ?> Class F Shares which the Company has redeemed from me.</para_1>
 
 <?!= include("inc_signature", data, data.resigner) ?>
 
