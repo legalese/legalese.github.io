@@ -157,3 +157,17 @@ so you can keep working with them in future, and keep the cap table updated as f
 * Activation: Gem Install
 
 For the hackers who want to take a totally self-help approach to this, gem install some kind of software package that's configurable with JSON to produce CSV for Legalese and eventually outputs PDFs.
+
+* corporate operations                                                                    :workflow:
+
+** resignations
+*** resignation of director
+*** resignation of volunteer
+*** resignation of employee
+*** resignation of founder
+** establish esop
+** new volunteer
+- [ ] class f shares? or no
+** alteration of articles
+** new investment round
+*** subscription agreement
