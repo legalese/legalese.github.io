@@ -55,7 +55,7 @@
         <section id="main-content">
 
 		  <blockquote class="quotation">The divested Microsoft divisions have automated their legal processes and are spawning subsidiaries, IPOing them, and exchanging title in a bizarre parody of bacterial plasmid exchange, so fast that, by the time the windfall tax demands are served, the targets don't exist anymore, even though the same staff are working on the same software in the same Mumbai cubicle farms.</blockquote>
-		  <blockquote class="credit"><i>Accelerando</i>, Charlie Stross</blockquote>
+		  <blockquote class="credit"><em>Accelerando</em>, Charlie Stross</blockquote>
 
 		  <h2><a name="inspiration"></a>Where does the anger come from?</h2>
 
@@ -98,37 +98,44 @@ else                      { conversion = 50 }</code>
 		  <p>What would it take to wrestle these worlds into conjunction?</p>
 		  <p>Law is Mars and software is Earth. Time to terraform!</p>
 
-		  <h2>Modeling Corporations</h2>
+		  <h2>Modeling Entities</h2>
 		  
 		  <ol>
-			<li>A corporation may be completely represented as a data structure. More precisely: those aspects of a corporation which have to do with its nature as a legal entity may be captured by a data structure comprising state information. Over time, the state changes: as a corporation acquires directors, investors, employees, ESOPs, and other contractual counterparties, the data structure evolves. Such state changes to the data structure are analogous to git <i>commits</i>.</li>
+			<li>A corporation or a company may be completely represented as a data structure. More precisely: those aspects of a corporation which have to do with its nature as a legal entity may be captured by a data structure comprising state information. Over time, the state changes: as a corporation acquires directors, investors, employees, ESOPs, and other contractual counterparties, the data structure evolves. Such state changes to the data structure are analogous to git <em>commits</em>.</li>
 
-			<li>Each major change in the evolution of a corporation may be modeled with the language of git <i>releases</i> and <i>tags</i>. Each intended change may be modeled with the language of <i>issues</i> and <i>milestones</i>.</li>
+			<li>Each major change in the evolution of a corporation may be modeled with the language of git <em>releases</em> and <em>tags</em>. Each intended change may be modeled with the language of <em>issues</em> and <em>milestones</em>.</li>
 
-			<li>What, in git, we call a <i>remote origin master</i> corresponds to, in corporate law, a <a href="http://www.acra.gov.sg/">state registry of corporate details</a>.</li>
+			<li>What, in git, we call a <em>remote origin master</em> corresponds to, in corporate law, a <a href="http://www.acra.gov.sg/">state registry of corporate details</a>.</li>
 
-			<li>Changes to the corporate data structure are formalized in shareholders' and directors' resolutions, and by executed contracts. This is <i>paperwork</i>.</li>
+			<li>Changes to the corporate data structure are formalized in shareholders' and directors' resolutions, and by executed contracts. Putting signatures on paper is <em>execution</em>.</li>
 
+			<li>Legalese talks about corporations. Similar modeling is also needed for trusts, non-profits, etc.</li>
+			
 		  </ol>
 
 		  
-		  <h2>Modeling Paperwork</h2>
+		  <h2>Modeling Execution</h2>
 
 		  <ol>
 			<li>Corporate paperwork often requires signatures on multiple documents. Related documents may be modeled by a directed acyclic graph: if a prerequisite document is not signed, its dependents are invalid.</li>
 
 			<li>The DAG may be computed algorithmically. The paperwork may be generated automatically.</li>
 			
-			<li>With the advent of electronic and digital signatures, the execution of such paperwork may be managed online. Reminders may be sent automatically. If paperwork is in progress, the state of the dependency graph may be examined in fine detail by parties at any time.</li>
+			<li>With the advent of electronic and digital signatures, the execution of such paperwork may be managed online. Reminders may be sent automatically. If execution is in progress, the state of the dependency graph may be examined in fine detail by parties at any time.</li>
 
-			<li>A particular document may be a collection of <i>resolutions</i>, or a <i>contract</i>.
+			<li>Execution may require the observation of certain <em>formalities</em> which shade into the content and structure of the contract. For example, a novation needs to have <i>n_orig</i> + <i>n_new</i> parties involved. A deed needs to be phrased in a particular archaic way (the <a href="https://www.youtube.com/watch?v=inXC_lab-34">"Stevie Wonder phrasing"</a>) to be valid.</li>
+			
+			<li>A particular document may be a collection of <em>resolutions</em>, or a <em>contract</em>.
+
 		  </ol>
 
-		  <h2>Modeling Contracts</h2>
+		  <h2>Modeling Contracts: Drafting</h2>
 
+		  <p>While execution is concerned with the relations between contracts, and does not look into the body of a contract beyond the parties and the signatures, drafting is concerned with the <em>content</em> of contracts.</p>
+		  
 		  <ol>
 			<li>Natural-language contracts often look like somebody trying to program without knowing any programming languages.</li>
-			<li>To a programmer, the <a href="http://www.weagree.com/book/124-Structure+and+presentation+of+contracts.html">structure of a contract</a> reveals familiar ideas. The <i>preamble</i> is a high-level <a href="https://en.wikipedia.org/wiki/Comment_(computer_programming)">comment block</a> that may declare <a href="https://en.wikipedia.org/wiki/Assertion_(software_development)">assertions</a>. The <i>definitions</i> section declares <a href="https://en.wikipedia.org/wiki/Variable_(computer_science)">variables</a> and <a href="https://en.wikipedia.org/wiki/Constant_(computer_programming)">constants</a>. The <i>conditions precedent</i> define, well, <a href="https://en.wikipedia.org/wiki/Precondition">preconditions</a>. The <i>main clauses</i> describe the <a href="https://en.wikipedia.org/wiki/Happy_path">happy path</a>. The <i>breach</i> or <i>damages</i> clauses <a href="https://en.wikipedia.org/wiki/Exception_handling">handle exceptions</a>. The <i>term</i> clause defines a <a href="https://en.wikipedia.org/wiki/Timeout_(computing)">timeout</a>. And so on.</li>
+			<li>To a programmer, the <a href="http://www.weagree.com/book/124-Structure+and+presentation+of+contracts.html">structure of a contract</a> reveals familiar ideas. The <em>preamble</em> is a high-level <a href="https://en.wikipedia.org/wiki/Comment_(computer_programming)">comment block</a> that may declare <a href="https://en.wikipedia.org/wiki/Assertion_(software_development)">assertions</a>. The <em>definitions</em> section declares <a href="https://en.wikipedia.org/wiki/Variable_(computer_science)">variables</a> and <a href="https://en.wikipedia.org/wiki/Constant_(computer_programming)">constants</a>. The <em>conditions precedent</em> define, well, <a href="https://en.wikipedia.org/wiki/Precondition">preconditions</a>. The <em>main clauses</em> describe the <a href="https://en.wikipedia.org/wiki/Happy_path">happy path</a>. The <em>breach</em> or <em>damages</em> clauses <a href="https://en.wikipedia.org/wiki/Exception_handling">handle exceptions</a>. The <em>term</em> clause defines a <a href="https://en.wikipedia.org/wiki/Timeout_(computing)">timeout</a>. And so on.</li>
 			<li>Few contracts use basic <a href="https://en.wikipedia.org/wiki/Structured_programming">structured programming</a> idioms. Most complex contracts read like <a href="https://en.wikipedia.org/wiki/Spaghetti_code">spaghetti code</a> &ndash; <a href="https://en.wikipedia.org/wiki/Object_code">object/machine code</a> whose control flow jumps all over the place, from one clause reference to another.</li>
 			<li>Some contracts are (inadvertently or deliberately) <a href="https://en.wikipedia.org/wiki/Obfuscation_(software)">obfuscated</a>.</li>
 			<li>The idea of drafting agreements in a <a href="https://en.wikipedia.org/wiki/High-level_programming_language">high level language</a> is not new: in many situations, parties negotiate a <a href="https://en.wikipedia.org/wiki/Term_sheet">term sheet</a>; once agreement is reached, they hand it to a lawyer to expand into definitive documentation, which the parties sign without reading; the long-form version is only read when it is being executed in the context of conflict resolution.</li>
@@ -153,7 +160,7 @@ else                      { conversion = 50 }</code>
 		  <h2>Modeling Regulations</h2>
 
 		  <ol>
-			<li>Legislative and regulatory constraints may be modeled using a <a href="https://en.wikipedia.org/wiki/Declarative_programming">declarative language</a>. Contracts and paperwork may be <a href="https://en.wikipedia.org/wiki/Automatic_programming">automatically produced</a> as satisfactions of constraints.</li>
+			<li>Legislative and regulatory constraints may be modeled using a <a href="https://en.wikipedia.org/wiki/Declarative_programming">declarative language</a>. Contracts and execution relations may be <a href="https://en.wikipedia.org/wiki/Automatic_programming">automatically produced</a> as satisfactions of constraints.</li>
 		  </ol>
 
 
@@ -164,7 +171,7 @@ else                      { conversion = 50 }</code>
 
 		  <p>The goal? To enable a lawyer &ndash; better yet, a non-lawyer &ndash; to draft a contract more concisely and clearly than they could in a natural language, by writing what looks like computer code. The drafter gets to take advantage of all sorts of ideas from computer science: variables, functions, third-party libraries, syntax and type checking, unit testing, completeness, and consistency. And the drafting <em>community</em> can get ideas from software engineering, like collaborative version control and opensource community support practices. The contract can be tested by fuzzing against future scenarios of breach, possible legal challenges, and simulated courtrooms.</p>
 
-		  <p>As Frederik Pohl might put it, <i>a good futurist predicts the car; a great futurist predicts the traffic jam</i>. If the car is a formal language for contracts and agreements (maybe even legislation), then a taxi service might be smart contracts integrated with cryptocurrencies and wholly automated business processes, exposed through legally binding APIs. The traffic jam? Maybe that's a DDOS in the form of micro-contract spam, a welter of frivolous lawsuits, or a zero-day exploit of an error enshrined in some old piece of paperwork that didn't get patched when the last novation service pack went around.</p>
+		  <p>As Frederik Pohl might put it, <em>a good futurist predicts the car; a great futurist predicts the traffic jam</em>. If the car is a formal language for contracts and agreements (maybe even legislation), then a taxi service might be smart contracts integrated with cryptocurrencies and wholly automated business processes, exposed through legally binding APIs. The traffic jam? Maybe that's a DDOS in the form of micro-contract spam, a welter of frivolous lawsuits, or a zero-day exploit of an error enshrined in some old piece of paperwork that didn't get patched when the last novation service pack went around.</p>
 
 
 		  <h1>The Innovation</h1>
@@ -177,7 +184,7 @@ else                      { conversion = 50 }</code>
 
 		  <h1>Examples</h1>
 
-		  <p>A company takes funding from an investor, who becomes a shareholder. This single <i>state change</i> requires seven pieces of <i>paperwork</i> and at least one <i>contract</i>.</p>
+		  <p>A company takes funding from an investor, who becomes a shareholder. This single <em>state change</em> requires seven sets of <em>resolutions</em> and at least one <em>contract</em>.</p>
 
 		  <h2>Corporation's Data Structure (Before)</h2>
 		  
@@ -216,7 +223,7 @@ else                      { conversion = 50 }</code>
 		  <h1>More Science Fiction</h1>
 
 		  <blockquote class="quotation">Amber fast-forwards through the dynamic chunks of the README – boring legal UML diagrams, mostly – soaking up the gist of the plan. Yemen is one of the few countries to implement traditional Sunni shari'a law and a limited liability company scam at the same time. Owning slaves is legal – the fiction is that the owner has an option hedged on the indentured laborer's future output, with interest payments that grow faster than the unfortunate victim can pay them off – and companies are legal entities. If Amber sells herself into slavery to this company, she will become a slave and the company will be legally liable for her actions and upkeep. The rest of the legal instrument – about ninety percent of it, in fact – is a set of self-modifying corporate mechanisms coded in a variety of jurisdictions that permit Turing-complete company constitutions, and which act as an ownership shell for the slavery contract. At the far end of the corporate shell game is a trust fund of which Amber is the prime beneficiary and shareholder. When she reaches the age of majority, she'll acquire total control over all the companies in the network and can dissolve her slave contract; until then, the trust fund (which she essentially owns) oversees the company that owns her (and keeps it safe from hostile takeover bids). Oh, and the company network is primed by an extraordinary general meeting that instructed it to move the trust's assets to Paris immediately. A one-way airline ticket is enclosed.</blockquote>
-		  <blockquote class="credit"><i>Accelerando</i>, Charlie Stross</blockquote>
+		  <blockquote class="credit"><em>Accelerando</em>, Charlie Stross</blockquote>
 
 
 
