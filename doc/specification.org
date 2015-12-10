@@ -109,6 +109,114 @@ e.g. confidentiality -- either in or out, but no tweaking
 http://www.w3schools.com/xsl/xsl_value_of.asp
 ** outputting to Microsoft Word .docx
 [[http://msdn.microsoft.com/en-us/library/ee872374(v%3Doffice.12).aspx][http://msdn.microsoft.com/en-us/library/ee872374(v=office.12).aspx]]
+* Structure of Templates and Schema
+** High Level Operation
+represented by a specific worksheet in the company's spreadsheet.
+
+contains an ordered set of one or more low-level operations (LLO). if there are more than 1 LLOs, each LLO cannot begin until the previous LLO has completed.
+
+produces one or more documents for signature.
+
+what's the user-friendly, user-facing way to frame these examples?
+
+probably natural-language statements like:
+- I am bringing on a new co-founder (and I want them to get some shares).
+- One of my guys is resigning.
+- I'm hiring an employee and I want them to get some shares.
+- I previously brought someone on and now I want to give them some shares.
+- I'm raising funds and want to generate a term sheet to show investors.
+- I'm raising funds. Now that I have confirmed a few investors, I want to give them paperwork so I can take their money.
+
+The above may be organized into internal and external, etc etc.
+
+We can then translate the user intent to the appropriate HLO:
+
+*** incorporation
+*** appointment of director
+*** grant of shares to new "founder"
+**** issue of vesting shares to founders
+*** fundraising
+*** resignation
+*** establishment of ESOP
+*** start of employment
+**** issue of vesting shares to staff
+*** start of volunteership
+**** issue of vesting shares to staff
+
+
+** Low Level Operation
+contains one or more templates which can be executed in any order.
+
+considered complete only when all templates are executed.
+
+each template is labeled with a template_name.
+
+** Template
+listed on [[https://docs.google.com/spreadsheets/d/1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw/edit#gid=981127052][Available Templates]].
+
+each template corresponds to a specific XML file.
+
+the template_name is usually, but not always, the same as the template-filename on disk.
+
+a template may include another template.
+
+the included templates are usually prefixed with inc_ or mod_.
+
+** Variable
+
+*** Ordinary Variables
+Within a template, you will see things like <?= data.something ?>.
+
+That "something" refers to a variable defined in the sheet which calls the template.
+
+*** Captable Methods
+You will also see things like <?= data.captable.someMethod() ?>.
+
+That "someMethod" is usually derived from the captable sheet, which is a special sheet.
+
+*** Entity and Role Details: Multilateral Documents
+You will also see things like <?= data.parties.director ?>. This refers to entities who are nominated to a certain role.
+
+The Available Templates sheet defines To and CC columns.
+
+Roles described under "To" will be expected to sign a PDF. All the signatures will appear within the same PDF.
+
+Roles described under "CC" just get a copy of the PDF CC'ed to them, at the start and at the end of the signature process. Usually you would CC the corp sec, and anybody else who needs to receive notice, but isn't actually a party to the agreement.
+
+*** Exploded Entities: Bilateral Documents
+
+The Available Templates sheet defines a column "Explode". This identifies a special role which gets one PDF per entity with that role.
+
+So, if a template's _Explode_ column says "director", then each director of the company will get their own personal PDF of that template.
+
+You will see this in practice for things like preemptive_waiver, where each existing shareholder gets their own copy of the PDF to sign and send back.
+
+This is basically the "counterparts" idea.
+
+** Schema
+
+- A High Level Operation (HLO) has one or more Low Level Operations (LLO).
+- A Low Level Operation has one or more Templates.
+- A Template contains zero or more other Templates.
+- A Template may expand one or more variables.
+
+Thus it is possible, for any given HLO, to compute the exhaustive set of all variables which are involved in the drafting and execution of that HLO.
+
+Given that exhaustive set of variables, it is thus possible to determine if the source spreadsheet is well-formed: every variable SHOULD be declared, and every variable MAY be defined.
+
+Sometimes a template will test <? if (data.variable == undefined) { ?> and then there will be a default. So it is sometimes OK for a variable to not be defined.
+
+So in the Near Future we will be able to tell the end-user that they screwed up because they are using a spreadsheet which requires a certain variable to be defined, and they didn't define it.
+
+This code should also check that the cell formats are sensible -- many hours are wasted tracing bugs to the fact that a given cell has Automatic cell format when it should have been Number or String.
+
+We will in the Glorious Future determine the semantics of undefined vs undeclared variables, and how that affects template expansion. Right now the uncertainty keeps us from doing what fascist static-type-safe languages like ML are famous for doing.
+
+** Composition
+A given HLO may contain multiple directors' resolutions templates.
+
+In the Glorious Future, it should be possible to compute all the directors resolutions that are produced by all the templates under a given HLO, and then squish them together so they sit in the same PDF, rather than generating multiple DRs that need to be signed separately.
+
 * workflows
 ** generation
 *** start with yaml
