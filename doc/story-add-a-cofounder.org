@@ -1,0 +1,200 @@
+#+TITLE: User Story: Adding a Cofounder
+
+* Motivation
+As a sole founder, I want to bring a co-founder onboard, to help me build the business. To make it official, I want to issue paperwork giving them shares in the company, so that they don't worry about somehow being left out one day when the startup is successful.
+
+* Awareness
+After a bit of googling, I find that Legalese has good templates for this sort of thing.
+
+I ask around. My entrepreneur friends tell me they used Legalese to do this in the past.
+
+I ask my incubator/accelerator/equity-crowdfunding site. They tell me they don't provide that paperwork; I should go use Legalese.
+
+I ask Quora and Reddit. They say to use Legalese.
+
+* Acquisition
+I go to the Legalese website on my phone while taking a poo. Is there a mobile app?
+
+I finish up, wash my hands, and sit down at my laptop. I go to the website.
+
+The content on the website is segmented similar to how university websites serve multiple audiences. I focus in on the "For Startups" section.
+
+There, I see a list of stories, organized efficiently.
+
+- incorporate my startup
+- recognise funds that have previously been put into my company
+- view my startup's cap table
+- handle a resignation
+- add a co-founder
+- set up an ESOP (equity compensation plan)
+- add a volunteer/employee with or without ESOP
+- add ESOP benefits to an existing employer/volunteer
+- draft a term sheet to show investors
+- formalise definitive documents for my proposed investment
+- do a service contract with a third party
+- do a nondisclosure agreement with a third party
+
+I pick the one most similar to my situation: add a co-founder.
+
+Disclaimer splash screen comes up, bringing the WE ARE NOT YOUR LAWYER terms to the user's attention.
+
+When my mouse hovers over that option, an explanatory diagram? text? explains what this will help me achieve. The job to be done. I click to go to the "product page" for adding a co-founder.
+
+** The Product Page
+Note that each of these product pages has a proper, persistent URL, because the best way for people to enter is not actually through the front page, but through a word-of-mouth recommendation where somebody has pasted the link into their Quora answer; or via a direct deeplink from Google.
+
+If they're coming straight to us and they have no cookie, a disclaimer splash screen comes up, bringing the WE ARE NOT YOUR LAWYER terms to the user's attention.
+
+The product page says:
+
+After this operation is complete, your company will have:
+- issued or transferred shares to the joining co-founder. Those shares will vest over time.
+- established an employment or volunteership agreement with the co-founder, in which the co-founder assigns IP, executes a non-compete, and executes a confidentiality agreement.
+
+As part of achieving the above goals, Legalese will
+- alter the articles of association to create a new class of shares (RCPS)
+- create directors' resolutions to enact the above
+- obtain the approval of the existing shareholders to perform these actions
+- produce all the documents needed, as PDFs
+- send the PDFs for execution through a third-party electronic signature service of your choice
+- manage the execution workflows so that you will know at any time who hasn't signed what.
+- communicate at every step with your corporate secretary.
+
+Prerequisites. For the above workflows to happen, Legalese requires that:
+- the company already be incorporated (add to cart)
+- existing investors are already properly recognised in the cap table --> "Captable Cleanup". (add to cart)
+
+If any of those prerequisites are not met, add it to cart.
+
+If you don't know if the prerequisites are met, the Inspector might give a hint about whether they are or not, based on public information and past uploads from the user.
+
+Under "technical specifications" the user finds: This operation works for:
+- one or more new co-founders
+- Singapore companies. Delaware companies. Australia companies.
+
+If the user is not already signed in, a very short form appears:
+
+Company Name or Number: [          ]
+Jurisdiction:           [          ] (pre-filled based on the IP address of the web browser)
+
+After filling in the company name, the User clicks SUBMIT.
+
+** First Submission: Behind the Scenes
+
+Given the name of the company, or the number, the system calls out via an API to obtain the business profile of the company. It parses the business profile and reads it.
+
+The system also downloads the articles of association from the state archives.
+
+(Or the startup can upload their articles. But that's more work for the user.)
+
+The system parses the articles and builds a provisional model of the company. It populates the shareholder table, etc.
+
+If the articles already define a special class of vesting shares which would be suitable for the co-founder to hold, then the system offers two options:
+- [ ] Use existing class of "Whatever" shares
+- [ ] Amend articles to create new class of shares to use for vesting
+
+If the articles don't already define a suitable class of shares for vesting, the system proceeds with one option already checked:
+- [ ] Amend articles to create new class of shares to use for vesting
+
+If the system was unable to download any profiles or filings, the system assumes that the company has not been incorporated, and offers to send the user to the product page for incorporation.
+
+** Proof of Value
+The system now offers the end-user a diagram of all the paperwork that needs to be executed to make whatever happen.
+
+At each point in the diagram the user can preview the specific document as a filled sample template: the unknown names are all placeholders "Alice", "Bob", "Charles", etc.
+
+The known names are already filled in -- so the name of the startup is in there, because that has been given to us. Behavioural economics or whatever suggests that putting the name of the startup in there is N% more likely to increase conversion, because of Ego Attachment.
+
+** Configuration and Customization
+
+Dialog: Who's the new co-founder?
+
+- Already :: [ ] I already have an employment or other agreement with my intended. (upload)
+- Name ::  [                        ]
+- Email :: [                        ] (optional)
+- ID Number :: [                    ] (optional)
+- ID Type ::   [                    ] (optional)
+
+Fill in as much information as you have; you can always come back to fill in the blanks.
+
+- Percentage of Company :: [ 50% ]
+- Vesting ::               [ 3 years ] vesting period with a [ 6 month ] cliff.
+- Initial Grant ::         [ Do / don't ] Give a signing bonus of [ 2% ] right at the start to capture work already done to date.
+
+We do not, at this time, invite the new co-founder to join Legalese. Later we may invite them to join as a user, because they might need to create agreements of their own. But there wouldn't be much point if they didn't sign the current paperwork! lol.
+
+After the end-user fills in these customization details we quickly update all the documents that are in the diagram to have the right info.
+
+If they upload an existing agreement, we parse it for the name, etc, of the party, and we test the agreement to see if it satisfies:
+- confidentiality
+- noncompete
+- assignment of IP
+
+If it doesn't, then we generate the employment/volunteer paperwork.
+
+All this parsing and decompiling of existing PDF paperwork needs to happen within seconds.
+
+** Preview
+
+You have given Legalese enough information for us to produce all the things!
+
+Click here to download a .zip of all the PDFs.
+
+You may print and review at your leisure. You may hand this to your lawyer.
+
+You may notice that there are a shitload of signatures. This is no accident. We are completist. We are also subtly encouraging you to pay for the premium service, where we help you with the execution by injecting into an electronic signature service.
+
+The documentation does break out the sequencing. Some sequences can only be started when a previous sequence has completed.
+
+If you don't pay, you will have to print these PDFs and go around collecting signatures by hand. Is your time really worth that little?
+
+** Checkout
+
+The user has decided which workflows to purchase:
+- incorporate a company
+- recognise existing investors
+- add a co-founder
+
+Check out. In the beginning, there will be a 100% "beta" discount for everyone.
+
+Credit card. link to [[file:upl.org][Is this Legal Advice? Does Legalese constitute Unauthorized Practice of Law?]]
+
+Put a button on the dashboard that says, "get the ball rolling" -- send the paperwork out for signature.
+
+The checkout can say give a checkbox for "automatically send paperwork for signature in 1 week if i don't manually release it before then."
+
+** Triggering Execution -- Online
+
+Inject the paperwork into echosign, obeying the process sequencing defined for the purchased HLOs.
+
+Email the user a diagram and a summary of what's going to happen.
+
+Email the user a sample text that they can use to explain to the signatories about what is happening, what to expect, and what the signatories need to do.
+
+** Triggering Execution -- Offline
+Send a calendar invite to all parties inviting them to the completion ceremony.
+
+** Dashboard
+
+At any time, if the end-user comes back to the system, present a dashboard that explains what is going on.
+
+*** Certain HLOs might be under construction
+Legalese is waiting for more information from the end-user, like names and addresses. Specfic numbers -- how much money are you putting in?
+
+*** Things that are ongoing
+Who's holding up the paperwork? How soon do we need to get what signed?
+
+Offer a way for the user to upload to the system any documents which got executed on paper outside of the electronic signature service. Or just let the user inform us that that paperwork has been executed and we should mark it as complete and proceed.
+
+LINK: Somebody discovered an error in the paperwork and we need to redo an HLO either in whole or in part. Link to a different story: [[file:story-remedy.org][Remedy]].
+
+*** HLOs that have been completed
+Offer a summary of before/after, and let the user download all the files, or just "share the documents with me using Dropbox or Google Drive, at this email address"
+
+Offer an export of key dates of the agreement in .ics format.
+
+Offer an export of key deliverables in some task / project management format.
+
+LINK: Somebody discovered an error in the paperwork and we need to redo an HLO either in whole or in part. Link to a different story: [[file:story-remedy.org][Remedy]].
+
+LINK: We want to amend the terms of this agreement. Link to a different story: [[file:story-variation.org][Variation]].

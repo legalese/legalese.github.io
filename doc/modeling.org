@@ -1,0 +1,22 @@
+* Modeling the Corporation
+In the financial services industry, UML and XML models for financial transactions exist: ISO 20022 is the basis for SWIFT.
+
+We can import some of those ideas. A startup investment is, after all, just a special case of a financial transaction.
+
+Corporations are relatively lightweight structures, especially at the startup stage. Even public corporations aren't terribly complex: they have a lot of shareholders, a few directors, and a bunch of bank accounts.
+
+Astonishingly, we have not been able to find a data model schema for a corporation. So here's one.
+
+
+
+* Modeling the Execution
+the dependency and concurrency relationships between contracts and other documents, treating an individual document as a black box with just a blob of text and a bunch of signatures. it's the signatures we care about at this level.
+
+* Modeling the Drafting
+within a contract, dealing with the terms and content. it's the blob of text that we care about here.
+
+* Modeling the Resolutions
+directors?
+members?
+
+* SCHEMA
