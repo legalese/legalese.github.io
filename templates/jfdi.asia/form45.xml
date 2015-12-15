@@ -1,6 +1,6 @@
 <?!= data.xml_declaration ?>
+<?!= data.xmlRoot(['templateSpec="form45_2015.indt"', 'appendPages="false"']) ?>
 <? var mydate = (data.literal_date_override_for_form45 || data.director.start_date || data.company.date_of_incorporation || data._todays_date); ?>
-<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/" templateSpec="form45_2015.indt" appendPages="false">
   <cover_company_name><ucnumbold><?= data.company.name ?></ucnumbold></cover_company_name>
   <CoverTop><noindent_centered><ucnumbold><?= data.company.idtype ?> <?= data.company.id ?></ucnumbold></noindent_centered></CoverTop>
   <CoverBottom_series><?= mydate ?></CoverBottom_series>

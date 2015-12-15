@@ -1,5 +1,5 @@
 <?!= data.xml_declaration ?>
-<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
+<?!= data.xmlRoot() ?>
 <CoverTop><cover_title>Report of the Directors</cover_title>
 <noindent_centered addnewline="true">for the Financial Period</noindent_centered>
 <noindent_centered addnewline="true">from <?= data.financial_report_start_date ?><? if (data.financial_report_start_date === data.company.incorporation_date) { ?> (date of incorporation)<? } ?></noindent_centered>

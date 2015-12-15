@@ -1,4 +1,5 @@
-<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/" templateSpec="singlepage.indt">
+<?!= data.xml_declaration ?>
+<?!= data.xmlRoot('templateSpec="singlepage.indt"') ?>
 <letterhead><?= data.parties.accountant[0].name ?></letterhead>
 <Firstpage_Sidebar>
 <?= data.parties.accountant[0].name ?>

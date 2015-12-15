@@ -1,4 +1,8 @@
-<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/" templateSpec="singlepage.indt" font-family="Helvetica Neue" font-style="Regular">
+<?!= data.xmlRoot(['templateSpec="singlepage.indt"',
+  'appendPages="false"',
+  'font-family="Helvetica Neue"',
+  'font-style="Regular"'
+  ]) ?>
 <letterhead><?= data.parties.corporate_secretary[0].name ?></letterhead>
 <Firstpage_Sidebar>
 <?= data.parties.corporate_secretary[0].name ?>
