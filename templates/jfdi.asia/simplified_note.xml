@@ -134,8 +134,8 @@ The Investor shall have no information rights over the financials of the company
   <a_left_sidehead>Fees And Expenses</a_left_sidehead>
   <numbered_2_para>The Parties will bear their own fees and expenses incurred in the transaction.</numbered_2_para>
 
-  <a_left_sidehead>Governing Law and Jurisdiction</a_left_sidehead>
-  <numbered_2_para>This Agreement shall be governed by and construed according to the laws of Singapore.</numbered_2_para>
+  <a_left_sidehead xname="medarb">Governing Law and Jurisdiction</a_left_sidehead>
+  <?!= include("inc_mediation_arbitration", data) ?>
 
 <chapter_header>Signatures</chapter_header>
     <para_1><span_smallcaps>In witness whereof</span_smallcaps> we have hereunto set our hands.</para_1>
