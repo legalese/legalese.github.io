@@ -1,0 +1,93 @@
+#+TITLE: Legalese System Architecture
+
+* Front-End: Simple Web UI
+*Paradigm*: the usual end-user-facing interactive web app. Functionality is presented in a dashboard with a bit of a wizard.
+
+*Languages*: Javascript? Ember? Google Apps?
+* Other Front End UIs
+In the future there may be a CLI or a mobile app, not to mention third-party integrations. So the Web UI should be coded from the start as just the first of many possible client consumers of a more generic API.
+
+* Front-End UI: Under the Hood
+We expose to advanced users the underlying machinery of the system. Google Spreadsheets, Google Docs, and other infrastructural components are available for the advanced user to tweak to taste.
+
+If, for instance, the end-user wants to tweak the documents prior to PDF engrossing, there should be a way to support this, using Google Docs, or a docx roundtrip.
+
+* Back-End Components
+
+** Entity Model
+Contracts deal with parties, with changes to parties, and with changes to relationships between parties.
+*** Model of the Parties
+*Languages*: Google Spreadsheets? With strong lint checking. SQL database?
+
+*Paradigm*: Bitemporality and a commit log are probably really good ideas.
+
+Maybe [[http://pgxn.org/dist/temporal_tables/][Postgres with temporal tables]]?
+
+**** Model of the Corporation
+**** Model of the Individuals
+*** Model of Relationships
+*Languages*: NoSQL: CouchDB? Graph DB: Neo4j? SQL: Postgres? MySQL/MariaDB?
+
+**** Who is party to a given relationship?
+**** What elements of the relationship expire when?
+*** Model of Regulation; or, the Constraint Model
+external and internal requirements imposed upon the formal contracts and the execution workflow.
+
+*Languages*: Prolog? Erlang?
+
+*Paradigm*: Declarative / Logic / Functional.
+
+Examples:
+- pre-emptive notices.
+- corporate members' resolutions to authorize issue of new shares.
+- notice periods.
+- directors' resolutions required to take certain actions.
+- certain documents need to be phrased as deeds and witnessed.
+- certain documents need to be stamped with the corporate seal.
+** Execution Workflow Engine
+*Languages*: Prolog? Elixir? Erlang?
+
+*Paradigm*: Concurrent actor model, Functional.
+
+*** What documents need to be produced to satisfy the overall goals of a given high-level operation?
+*** Who needs to sign those documents?
+Inputs: requiredDocuments, partyEntities.
+
+Outputs:
+*** Actually sending the documents to an e-signature service for execution.
+*** Who has actually signed so far?
+Inputs: API with e-signature service.
+
+Output: used by Web UI.
+*** In what sequence must the documents be executed?
+Inputs: 
+** Formal Contract Model
+the formal expression of a given agreement. Reducible to natural language and to smart contracts.
+
+Probably needs some sort of DSL. If [[http://solidity.readthedocs.org/en/latest/][Ethereum's Solidity]] is sufficiently expressive we can skip creating our own DSL.
+
+handles internal cross-references.
+
+*Paradigm*: [[http://www.diku.dk/forskning/performance-engineering/Generative-software-development/Glossary/multiparadigm-design.html][multiparadigm]]: imperative / functional. Should a contract describe what parties must do, or should a contract describe what state of affairs should be the case?
+
+** Natural Language Document Generator
+Input: formal contracts.
+
+Output: one or more natural language documents losslessly expressing the concepts of the formal contract.
+
+*Paradigm*: template / compiler / NLG stack.
+
+*** Multilingual support
+It would be nice to produce N>1 natural language document instances in different languages, whose essential unity is mathematically provable.
+*** Templates may be drawn from in-house sources.
+*** Templates may be drawn from third-party sources.
+- CommonAccord, LawPatch, Contract Standards.
+** Ethereum Transpiler
+Losslessly converts our internal formal contract to [[http://solidity.readthedocs.org/en/latest/][a smart contract language]].
+
+*Paradigm*: [[https://en.wikipedia.org/wiki/Source-to-source_compiler][source-to-source compiler]]. Metaprogramming in the DSL a plus.
+
+* API
+Inter-component APIs are RESTful.
+
+Intra-component IPC and message-passing is at the discretion of the component. The component's underlying tech stack may provide its own concurrency and message-passing model, or the component may prefer an SQL, NoSQL, or other approach.
