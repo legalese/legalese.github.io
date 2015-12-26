@@ -840,7 +840,7 @@ blockquote.quotation {
   border-left: 10px;
 }
 
-blockquote.quotation.smaller {
+blockquote.quotation.smaller , blockquote.credit.smaller {
   font-size: 1em;
 }
 
