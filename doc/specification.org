@@ -1,92 +1,42 @@
-#+TITLE: Legalese 2.0
-* Introduction
-Term sheets 
+#+TITLE: Legalese 2.0 High-Level Specification
 
-* Requirements
-** Cases
-*** Garuda Investment
-#+BEGIN_SRC yaml
-  ---
-  legalese_version: 2.0
-  author: mengwong
-  documents:
-    - name: Garuda Robotics Angel Round
-      genre: term sheet
-      template: mengwong v0.1
-      flavor: convertible debt
-      jurisdiction: Singapore
-      stage: angel
-      parties:
-        partygroup:
-          - Investors:
-              - name: Wong Meng Weng
-                identifier_name: NRIC
-                identifier_val: S7533422B
-                address: 5 Chancery Hill Road, Singapore 30944
-          - the Company:
-              - name: Garuda Robotics
-                identifier_type: UEN
-                identifier_val: XXXXXXX
-                address: XXXXXXXXXX
-                country: Singapore
-                alias: the Company
-          - the Founders:
-              - name: Mark Yong
-              - name: Pulkit Jaiswal
-      currency: SGD
-      total_amount: 300_000
-      tranches: 2
-      premoney_valuation:
-        tranche_1: 1_500_000
-        tranche_2: 3_500_000
-      tranche_conditions: as described in Appendix :Tranche:
-      existing_securities:
-        ordinary_shares: 1000000
-      security: default
-      definitive_documents: default
-      reserved_matters: default
-      use_of_proceeds: default
-      pre_emptive_rights: default
-      information_rights: default
-      post_execution_obligations: default
-      expenses: default
-      confidentiality: default
-      governing_law: default
-      nonbinding_exceptions: default
-      closings: default
-      definitive_agreement: default
-      maturity_date: 3y
-      interest: 8%
-      appendices:
-        Tranche:
-          title: Disbursement Conditions
-          contents:
-            - p: "Disbursement of the tranches, and the issuance of securities, shall be determined as follows."
-            - h1: "First Tranche Conditions"
-            - p: customer LOIs
-            - h1: "Second Tranche Conditions"
-  
-#+END_SRC
-*** Temasys
-* Prior Art
-** Term Sheet Wizards
-*** [[http://www.wsgr.com/WSGR/Display.aspx?SectionName%3Dpractice/termsheet.htm][Wilson Sonsini Term Sheet Generator]]
-*** http://cooleygo.com/
-** Repositories
-*** http://www.lawdepot.com/
-*** [[http://bansea.org/index.php?option%3Dcom_content&view%3Darticle&id%3D131&Itemid%3D229][BANSEA legals]]
-** Template Web Apps
-(and repositories)
-*** https://lawcanvas.com/
-*** http://legal.cf.sg/
-** Formats Standards
-*** http://www.akomantoso.org/
-*** http://en.wikipedia.org/wiki/Legal_XML
-* Theory
-** Are contracts copyrighted by law firms?
-*** Adams, Kenneth. Copyright and the Contract Drafter. New York Law Journal, 2006.
-http://www.adamsdrafting.com/downloads/Copyright-NYLJ-8.23.06.pdf
-*** 
+This document should be read in conjunction with [[file:architecture.org][architecture.org]].
+
+
+
+* Domains of Work
+
+Legalese conceptually separates into the following Domains of Work.
+
+See also [[architecture.org]].
+
+** Frontend: User Interface
+*** Education
+Most users of the system will be first-timers and will need help understanding the decisions they are being asked to make.
+
+This is an intrinsically challenging problem, but the world of software has learned ways to manage this complexity and give end-users a reasonably satisfying experience. Lots of sensible defaults.
+
+*** Technical Support
+*** Professional Services
+*** User Management System
+** API
+Our web user interface is not the only possible user interface.
+
+Maybe in the future there will be a mobile front-end.
+
+Or maybe there will be a natural language front-end, like Clara or Peter. We could call it Beverly!
+
+So good engineering practice encourages the use of cleanly specified APIs between the front and back end.
+
+** Backend
+*** [[*Company Model][Company Model]]
+knows about the company, its shareholders, constitutional documents.
+*** [[*Execution Model][Execution Model]]
+knows about who is supposed to sign what, and whether they have actually signed it.
+
+*** [[*Company Model][Contract Model]]
+knows about how a particular docset is configured, and expands it to natural language.
+
 * Lay Observations
 ** document configuration
 *** genre
@@ -110,229 +60,9 @@ http://www.w3schools.com/xsl/xsl_value_of.asp
 ** outputting to Microsoft Word .docx
 [[http://msdn.microsoft.com/en-us/library/ee872374(v%3Doffice.12).aspx][http://msdn.microsoft.com/en-us/library/ee872374(v=office.12).aspx]]
 
-
-
-* Domains of Work
-
-Legalese conceptually separates into the following Domains of Work
-
-** Frontend: User Interface
-*** Education
-*** Technical Support
-*** Professional Services
-*** User Management System
-** API
-Our web user interface is not the only possible user interface.
-
-Maybe in the future there will be a mobile front-end.
-
-Or maybe there will be a natural language front-end, like Clara or Peter. We could call it Beverly!
-
-So good engineering practice encourages the use of cleanly specified APIs between the front and back end.
-
-** Backend
-*** Document Decompiler
-reads existing PDFs, scans, whatnot to try to extract semantics into our document and contract models. Like lawgeex. But summarizes the meaning.
-*** Document Assembler
-*** [[*Company Model][Company Model]]
-knows about the company, its shareholders, constitutional documents.
-*** [[*Execution Model][Execution Model]]
-knows about who is supposed to sign what, and whether they have actually signed it.
-
-in the Glorious Future, there will be a CLM repository of all the contracts to which the company is a party.
-*** [[*Company Model][Contract Model]]
-knows about how a particular docset is configured, and expands it to natural language.
-
-* Execution Model
-** Structure of Templates and Schema
-*** High Level Operation
-represented by a specific worksheet in the company's spreadsheet.
-
-contains an unordered set of Sequences.
-
-produces one or more documents for signature.
-
-what's the user-friendly, user-facing way to frame these examples?
-
-probably natural-language statements like:
-- I am bringing on a new co-founder (and I want them to get some shares).
-- One of my guys is resigning.
-- I'm hiring an employee and I want them to get some shares.
-- I previously brought someone on and now I want to give them some shares.
-- I'm raising funds and want to generate a term sheet to show investors.
-- I'm raising funds. Now that I have confirmed a few investors, I want to give them paperwork so I can take their money.
-
-The above may be organized into internal and external, etc etc.
-
-We can then translate the user intent to the appropriate HLO:
-
-**** incorporation
-**** appointment of director
-**** grant of shares to new "founder"
-***** issue of vesting shares to founders
-**** fundraising
-**** resignation
-**** establishment of ESOP
-**** start of employment
-***** issue of vesting shares to staff
-**** start of volunteership
-***** issue of vesting shares to staff
-
-
-*** Sequence
-
-represents the templates to be executed.
-
-a Sequence may contain one or more sub Sequences.
-
-A Sequence may be a Parallel Sequence or an Ordered Sequence.
-
-An Ordered Sequence. consists of an ordered set of one or more low-level operations (LLO). if there are more than 1 LLOs, each LLO cannot begin until the previous LLO has completed.
-
-
-Maybe we call it a DocSet.
-
-Parallel and Serial Sequences may be nested arbitrarily.
-
-
-
-*** Low Level Operation
-contains one or more templates which can be executed in any order.
-
-considered complete only when all templates are executed.
-
-each template is labeled with a template_name.
-
-*** Template
-listed on [[https://docs.google.com/spreadsheets/d/1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw/edit#gid=981127052][Available Templates]].
-
-each template corresponds to a specific XML file.
-
-the template_name is usually, but not always, the same as the template-filename on disk.
-
-a template may include another template.
-
-the included templates are usually prefixed with inc_ or mod_.
-
-*** Variable
-
-**** Ordinary Variables
-Within a template, you will see things like <?= data.something ?>.
-
-That "something" refers to a variable defined in the sheet which calls the template.
-
-**** Captable Methods
-You will also see things like <?= data.captable.someMethod() ?>.
-
-That "someMethod" is usually derived from the captable sheet, which is a special sheet.
-
-**** Entity and Role Details: Multilateral Documents
-You will also see things like <?= data.parties.director ?>. This refers to entities who are nominated to a certain role.
-
-The Available Templates sheet defines To and CC columns.
-
-Roles described under "To" will be expected to sign a PDF. All the signatures will appear within the same PDF.
-
-Roles described under "CC" just get a copy of the PDF CC'ed to them, at the start and at the end of the signature process. Usually you would CC the corp sec, and anybody else who needs to receive notice, but isn't actually a party to the agreement.
-
-**** Exploded Entities: Bilateral Documents
-
-The Available Templates sheet defines a column "Explode". This identifies a special role which gets one PDF per entity with that role.
-
-So, if a template's _Explode_ column says "director", then each director of the company will get their own personal PDF of that template.
-
-You will see this in practice for things like preemptive_waiver, where each existing shareholder gets their own copy of the PDF to sign and send back.
-
-This is basically the "counterparts" idea.
-
-*** Schema
-
-- A High Level Operation (HLO) has one or more Low Level Operations (LLO).
-- A Low Level Operation has one or more Templates.
-- A Template contains zero or more other Templates.
-- A Template may expand one or more variables.
-
-Thus it is possible, for any given HLO, to compute the exhaustive set of all variables which are involved in the drafting and execution of that HLO.
-
-Given that exhaustive set of variables, it is thus possible to determine if the source spreadsheet is well-formed: every variable SHOULD be declared, and every variable MAY be defined.
-
-Sometimes a template will test <? if (data.variable == undefined) { ?> and then there will be a default. So it is sometimes OK for a variable to not be defined.
-
-So in the Near Future we will be able to tell the end-user that they screwed up because they are using a spreadsheet which requires a certain variable to be defined, and they didn't define it.
-
-This code should also check that the cell formats are sensible -- many hours are wasted tracing bugs to the fact that a given cell has Automatic cell format when it should have been Number or String.
-
-We will in the Glorious Future determine the semantics of undefined vs undeclared variables, and how that affects template expansion. Right now the uncertainty keeps us from doing what fascist static-type-safe languages like ML are famous for doing.
-
-*** Composition
-A given HLO may contain multiple directors' resolutions templates.
-
-In the Glorious Future, it should be possible to compute all the directors resolutions that are produced by all the templates under a given HLO, and then squish them together so they sit in the same PDF, rather than generating multiple DRs that need to be signed separately.
-
-
-
-
-* Company Model
-** User Management
-We're going to have to deal with users who belong to companies with one or more roles; and who have privileges to engross certain documents and execute certain documents, possibly as a consequence of their roles and possibly as a direct grant.
-*** View Privileges
-A party to an HLO might be offered a full view or a limited view.
-
-The limited view only shows the documents to which they are a party.
-
-The full view shows all the documents which form part of the HLO.
-
-So, a directors resolution might not be visible to non-director parties.
-
-
-* Formalities
-
-Only certain people are empowered to sign certain documents on behalf of the company.
-
-Those powers need to be granted by resolution of the directors?
-
-For example, bank accounts have a well defined model for who can sign for what.
-
-We may need to set up that sort of understanding for hiring, NDAs, sales contracts, etc. This is standard contract lifecycle management / document automation practice and we can just learn from the prior art.
-
-* workflows
-** generation
-*** start with yaml
-*** yaml to json
-*** json to xml data document
-*** xslt-expand
-examines the xml data document to pick the appropriate template
-
-calls an xslt engine to fill in the template.
-
-maybe node.js xslt?
-
-produces one or more outputs, as specified on the command line
-
-by default produces all outputs
-
-**** output formats
-***** xml
-verbose comprehensive version includes everything imaginable
-***** word
-***** html
-***** post-html suitable for legal.cf.sg
-*** summary term sheet
-*** definitive doucmentation
-** backward-compatibility parsing
-*** start with a docx file
-**** deduce back to yaml and json
-** interfaces
-*** wizard to generate it
 * test cases
 TDD FTW!
 see [[*Temasys%20Investment][temasys]] for a test case.
-** parsing the YAML
-
-#+BEGIN_SRC sh
-  20140729-00:11:07 mengwong@venice:~% perl -nle 'print /..(.*)/ if (/BEGIN_SRC/../END_SRC/ and not /SRC/)' < ~/Google\ Drive/JFDI\ Shared/JFDI\ itself\ -\ Fannie/src/Legalese/specification.org  | perl -MYAML -le 'my $in = Load(join "",<>); print $in->{legalese_version}'
-  2.0
-#+END_SRC
 
 * questions
 ** conditional logic
@@ -345,6 +75,5 @@ for example, a weighted average ratchet clause.
 what gets defined in the preamble section and what gets defined later?
 ** overrides
 should be able to override any standard term with arbitrary text
-** support for cross-references?
-yes, xml does this. http://msdn.microsoft.com/en-us/library/ms950811.aspx
 
+such overrides represent a "gold dust" source of value. maybe an override is worth pushing back to the master?
