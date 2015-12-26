@@ -81,6 +81,8 @@ like a choose-your-own-adventure -- show the longitudinal study on what happened
 
 a tree structure, showing which paths have been least explored.
 
+the user gets to decide how experimental they want to be.
+
 * mascot
 
 ** orca
