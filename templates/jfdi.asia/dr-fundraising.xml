@@ -39,7 +39,7 @@ the said <?= data.parties.director[data.signing_director_index||0].name ?> be au
 
 <a_left_sidehead>Deed of Ratification and Accession</a_left_sidehead>
 <?if(data.skip_dora){?>
-<para_1>It is noted that a Deed of Ratification and Accession is not necessary in this instance as the Investor has separately executed or ratified the Shareholders' Agreement dated <?= data.previous_shareholder_agreement_date || data.shareholders_agreement_date ?>.</para_1>
+<para_1>It is noted that a Deed of Ratification and Accession is not necessary in this instance as the <?= plural(data.parties.new_investor, "Investor") ?> <?= plural_verb(data.parties.new_investor, "has") ?> separately executed or ratified the Shareholders' Agreement dated <?= data.previous_shareholder_agreement_date || data.shareholders_agreement_date ?>.</para_1>
 <?}else{?>
 <b_left_sidehead_nonum>Whereas:---</b_left_sidehead_nonum>
 
