@@ -1,0 +1,110 @@
+#+TITLE: Events
+
+* 2016-03-21 to 2016-03-25 Legalese Summit, Spring 2016, Singapore
+immediately following FOSSAsia.
+
+** Format
+Five days of afternoon sessions.
+
+Each afternoon we hold two sessions.
+
+Each session is two to three hours. Presentation, then discussion, then consensus.
+
+** Agenda
+*** Day 1A: 30,000 foot introduction to the project for the absolute n00b.
+**** introduction to the customer segment and use cases.
+invite Wobe in, together with any other users, to talk about why they found it useful.
+**** positioning, differentiation, and competitive advantage
+**** how this makes a difference to the world
+**** 10-year future vision
+**** interaction with trendy topics like smart contracts
+**** a brief history of legal informatics
+minefields and milestones
+*** Day 1B: meet the product
+**** overview of technology architecture, components, and backlog.
+**** roadmap overview: present and future
+**** working through an actual use case of the current product
+first, use it as a user.
+
+then, install a dev environment and get set up as a developer.
+
+overview of the issues list in github
+*** Day 2A: Research -- Business
+**** Lean Startup findings to date
+**** Wardley mapping of the legal informatics field
+**** competitor analysis
+*** Day 2B: Research -- Technical
+**** a longer review of prior art.
+**** areas of research required.
+**** maturing areas and projections over the next few years.
+*** Day 3A: Organization
+**** the organization of the project as both opensource and startup.
+***** participation model.
+***** IETF, opensource values
+rough consensus and running code.
+
+***** participants' expectations of the project
+***** the project's expectations of participants
+***** transparency by default; online archive is authoritative
+what to do about confidential information?
+***** funding. compensation.
+[[http://www.holacracy.org/wp-content/uploads/2015/08/Badge-basedCompensationApp-v1.0.pdf][badge-based compensation]].
+***** holacracy.
+*** Day 3B: practice with the workgroup tools
+practice with issue creation and task allocation.
+
+what do we do about simultaneous allocation?
+
+practice with communication tools
+
+practice with holacracy circles
+
+practice with interacting with the outside world. porous boundaries.
+
+What does and doesn't require permission from others?
+
+What should and shouldn't require notifications to others?
+
+*** Day 4A: Product Overview
+**** current status of running code and working, supported use cases.
+**** a laundry list of technologies involved in the current product
+is there any way to shorten the ingredient list?
+**** product roadmap. MVP. inclusion and exclusion.
+plans for the next 6, 12, 24 months.
+**** rough task allocation of issues in git.
+**** go/no-go milestones for the next 12 months
+in terms of marketing, revenue, and funding.
+*** Day 4B: Product Development
+let's build something together
+*** Day 5: Product Development Track
+Make something useful
+*** Day 5: Business Development Track
+Perform follow-ups
+** Fees
+free. Some financial assistance may be available for interns/students/etc.
+** Registration
+To register for the summit: submit a pull request that edits this document.
+** Attendees
+sorted by alpha, please
+*** In-Person
+- Alexis
+- Colin Charles
+- Jobchong
+- Meng
+*** Online
+- Chiah Li
+
+* 2016-03-18 to 2016-03-20: FOSSAsia, Singapore
+Meng will present Legalese in one of the conference sessions.
+
+http://2016.fossasia.org/
+
+** Content
+1. use of opensource in legalese. gripes about academic prior art not being opensource.
+2. legalese itself being opensource, and comparisons to other infrastructure pieces like mysql/mariadb; the demographic of the opensource contributor as being both a user and a developer of the software, often as an adjunct to the day job
+3. legalese being a facilitator of "smart contracts" and contracts generally that are themselves opensource – blurring the line between creative commons and opensource content.(edited)
+
+the inspiring theme here, perhaps, is that humans are the only animal to use language as a tool. this interpretation of humanity elevates poets, lawyers, and programmers.
+
+working backward from this agenda, what could the MVP for the purposes of fossasia look like? it could, very primitively, support the expression of a contract in our DSL, which converts to english and to ethereum. that expression of the contract should be opensourced, in a way that definitively addresses some of the unknowns highlighted in http://www.adamsdrafting.com/downloads/Copyright-NYLJ-8.23.06.pdf
+
