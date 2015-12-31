@@ -220,6 +220,150 @@ In the Glorious Future, it should be possible to compute all the directors resol
 
 
 
+*** Documentation for the Prolog Logic Engine
+
+**** Questions the Prolog Logic Engine Can Answer
+
+***** Given a Goal, what is the soonest it could possibly be achieved, if everybody signed everything they received right away?
+Sometimes there are notice requirements that delay signatures. An EGM, for instance. If the shareholders are cooperative it can be done right away -- everybody signs the members' resolution by written means. If the shareholders are uncooperative they may insist on proper notice periods before the EGM.
+
+***** Given a Goal, what are the sequences of execution?
+
+A synchronous event model entails blocking of subsequent actions.
+
+If A and B have to sign something before C and D can sign something, then there are two sequences:
+
+  sequence{name:1,
+           members:[A,B]}
+  sequence{name:2,
+           members:[C,D]}.
+
+This means Sequence 1 must complete before Sequence 2 can begin. If Sequence 1 does not complete, then Sequence 2 never begins.
+
+****** Quorum
+Each Sequence may be guarded by a quorum requirement.
+
+****** PassFail
+Each Sequence may pass or fail depending on a range of voting factors.
+
+Some votes require a 50% majority. Some require a 75% majority.
+
+****** Example Sequences
+
+The rights of Class C shares may be modified with the consent of the holders of 75% of all issued and fully paid Class C shares.
+
+Before new ordinary shares are issued under a given set of terms, all holders of ordinary shares must be given notice of the new share issue and must be offered the opportunity to purchase those shares pro rata on the same terms.
+
+Two out of three directors are required to sign any contracts worth >= $10,000.
+
+Before the directors may issue new shares, the shareholders must first approve the issue of those shares.
+
+****** Modeling this in Prolog
+a Sequence object contains the following keys:
+- name :: the name of the sequence
+- members :: a list of parties involved in executing the sequence
+- quorum :: a predicate/2 that, given a SequenceDetail object, returns YesNo.
+- passfail :: a predicate/2 that, giving a SequenceDetail object, returns YesNo.
+
+****** DAG Equivalence
+This sequence concept generalizes to a DAG, and the height of the DAG becomes a good approximation for how long it will take to meet the Goal.
+
+***** Given an HLO Goal, what necessary Actions, in what Sequence, are required to be Executed?
+
+
+***** Given a set of Actions, what Filings must follow?
+
+***** Given a set of Actions, what Notices must precede the Actions?
+
+***** Deadlines
+
+The Deadlines Module contains rules which compute the maximum and minimum times that may or must elapse between one action and another.
+
+These computations are based on facts:
+
+For example, if, by Section 1001 of the Companies Act, after Action A occurs, the company must file Filing F within D Days, then we say:
+
+ days_allowed(s1001, action_a, filing_f, d).
+
+If a company performs action_a, then the deadlines module will automatically compute that filing f needs to occur.
+
+Multiple actions, multiple filings. We can use bagof, setof, listall, etc, to capture all the necessary filings.
+
+****** days_allowed/4: requirements given
+
+****** days_required/4: requirements given
+
+****** current_date/1
+for the purposes of calculation we consider this "today".
+
+****** filed/2: (Filing, Date) 
+the date of a given filing.
+
+may be used declaratively to return one or more dates which satisfy other requirements: capture the full range and take the max to learn the latest date a filing may be performed.
+
+****** action/2
+dynamic.
+
+other rules may assert certain actions occur on certain dates. This helps with what-if scenarios.
+
+****** deadline/2
+capture a bagof deadlines to see Legalese's opinions about the compliance status of various filings it knows about, and entailments must be filed in order to maintain compliance.
+
+***** Prerequisites
+
+
+***** Actions
+
+
+
+**** Facts the Prolog Logic Engine Requires
+
+***** has the company been incorporated?
+
+***** what classes of shares are defined in the company's Articles of Association? 
+
+***** who are the shareholders as of the current date, according to ACRA?
+
+***** who are the shareholders according to the end-user?
+
+**** Connecting Reality to the Model; or, The Map is Not The Territory
+
+All the following data items are subject to bitemporality. At any given time, the system has an idea about what is true now and what was true before. And those impressions may change. The way to deal with this is Snodgrass.
+
+***** Assertions Collected From the User
+
+Like, NRIC, passport, UEN, addresses of various parties. Email addresses.
+
+***** The Known History Model
+given evidentiary documents that have been uploaded to Legalese, what facts are universally agreed to be true?
+
+In the Glorious Future, the software should be able to read those facts out of the documents.
+
+***** The Consensus Baseline Model
+All parties agree that a certain state of affairs is supposed to be the current case, whether or not it has been documented.
+Maybe things were handshaked but never written down.
+Maybe things were written down but never signed.
+Maybe things were signed but never filed.
+
+The parties seek Legalese's help in conforming paperwork to the Consensus Baseline.
+
+Over time, there may be multiple Consensus Baselines; but at any given time, there should be only one Consensus Baseline that is correct for that time.
+
+And usually they want the filings to occur in a way that doesn't attract any penalties.
+
+***** The Reported Filings Model
+To avoid penalties, sometimes it is necessary to submit filings that represent a distinctive perspective on reality.
+
+The Deadlines module will have quite a lot of input to give here.
+
+***** The Desired Future Model
+All parties agree on a future state of affairs.
+
+They seek Legalese's help in arriving there.
+
+***** Ongoing Negotiations
+Different parties may want different things, even if they are presumptively "on the same side"
+
 
 ** Formal Contract Model
 the formal expression of a given agreement. Reducible to natural language and to smart contracts.
