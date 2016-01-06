@@ -33,7 +33,7 @@
 <para_2_hanging>"Major Purchaser Dollar Threshold" means $<?= data.major_investor_minimum ?>.</para_2_hanging>
 <para_2_hanging>"Purchase Price" means $<?= data.price_per_share ?> per share (subject to any discounts applicable where all or a portion of such Purchase Price is being paid by cancellation of indebtedness of the Company to such Purchaser).</para_2_hanging>
 <para_2_hanging>"Total Series Seed Investment Amount" means $<?= data.amount_raising ?>.</para_2_hanging>
-<para_2_hanging><b>"Unallocated Post-Money Option Pool Percent"</b> means <?= data.esop_reservation ?>%.</para_2_hanging>
+<para_2_hanging><b>"Unallocated Post-Money Option Pool Percent"</b> means <?= data.capTable.getRound("TOTAL").new_investors.ESOP.percentage ?>%.</para_2_hanging>
 <para_2_hanging>"Purchaser Counsel Reimbursement Amount" means $<?= data.purchaser_counsel_reimbursement_amount ?>.</para_2_hanging>
 
 <a_left_sidehead>RESULTING CAP TABLE DEFINITIONS.</a_left_sidehead>
