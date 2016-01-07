@@ -3,5 +3,5 @@
 <? } else if (data.egm_or_written_means == "AGM") { ?>
 <para_1>At the Annual General Meeting held on <?= data.gm_date ?> the following resolutions were passed:</para_1>
 <? } else { ?>
-<para_1>The <?!= plural(data.parties.shareholder, "Member") ?> of the Company hereby <?!= plural_verb(data.parties.shareholder, "records") ?>, by written means in lieu of a General Meeting pursuant to Section <?!= plural(data.parties.shareholder, "184G", "184A") ?> of the Companies Act (Cap. 50), <?!= plural(data.parties.shareholder, "my") ?> approval for the following resolution<?= data.members_resolution_1 == undefined ? "" : "s" ?>:</para_1>
+<para_1>The <?!= plural(data.parties.shareholder, "Member") ?> of the Company hereby <?!= plural_verb(data.parties.shareholder, "records") ?>, by written means in lieu of a General Meeting pursuant to Section <?!= plural(data.parties.shareholder, "184G", "184A") ?> of the Companies Act (Cap. 50), <?!= plural(data.parties.shareholder, "my") ?> approval for the following resolution<?= data.members_resolution_2 == undefined ? "" : "s" ?>:</para_1>
 <? } ?>
