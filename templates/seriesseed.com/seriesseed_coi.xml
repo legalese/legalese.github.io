@@ -1,7 +1,7 @@
-<Root>
-<a_left_sidehead xname="seriesseed">Series Seed Preferred Stock</a_left_sidehead>
 
-<para_1>The Directors may from time to time issue shares of <b>Series Seed Preferred Stock</b> in the capital of the Company, in one or more series, each of such series to consist of such number of shares and to have such terms, rights, powers and preferences, and the qualifications and limitations with respect thereto, as stated or expressed herein.</para_1>
+<b_left_sidehead_nonum>Series Seed Preferred Stock</b_left_sidehead_nonum>
+
+<numbered_1_para xname="seriesseed">The Directors may from time to time issue shares of <b>Series Seed Preferred Stock</b> in the capital of the Company, in one or more series, each of such series to consist of such number of shares and to have such terms, rights, powers and preferences, and the qualifications and limitations with respect thereto, as stated or expressed herein.</numbered_1_para>
 
 <b_left_sidehead>Definitions</b_left_sidehead>
 
@@ -113,4 +113,4 @@ Such converted Series Seed Preferred Stock shall be retired and cancelled and ma
 <b_left_sidehead>Preemptive Rights</b_left_sidehead>
 <numbered_3_para_fl>No stockholder of the Company has a right to purchase shares of capital stock of the Company sold or issued by the Company except to the extent that such a right may from time to time be set forth in a written agreement between the Company and the stockholder.</numbered_3_para_fl>
 <? } ?>
-</Root>
+
