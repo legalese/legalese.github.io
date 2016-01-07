@@ -92,7 +92,7 @@
   <a_left_sidehead>Acceleration </a_left_sidehead>
   <b_left_sidehead>Acceleration prior to acquisition. </b_left_sidehead>
   <para_1>In the absence of a Change of Control event, </para_1>
-  <numbered_3_para>termination without cause or resignation in response to a hostile work environment shall entail redemption of Restricted Shares. </numbered_3_para>
+  <numbered_3_para>termination without cause shall entail redemption of Restricted Shares. </numbered_3_para>
   <numbered_3_para xname="quit">termination with cause or voluntary resignation shall, unless the Directors resolve otherwise, entail redemption of Restricted Shares. </numbered_3_para>
   <numbered_3_para>at the closing of the first External Financing, all Unrestricted Shares shall convert to Ordinary Shares; Restricted Shares will (by default) continue to vest as specified by this agreement, unless:---</numbered_3_para>
   <numbered_4_para>the Company elects to vest those shares under a new agreement with different terms;</numbered_4_para>
@@ -101,7 +101,7 @@
   <numbered_4_para>the Company decides to deal with the Restricted Shares in some other way.</numbered_4_para>
   <b_left_sidehead xname="acc_stock">Acceleration post acquisition for stock. </b_left_sidehead>
   <para_1>Subsequent to a Change of Control event in which the Company is acquired primarily for stock, and in which the vesting schedule is substantially preserved in the acquiring entity's stock repurchase or stock option plan, </para_1>
-  <numbered_3_para>termination without cause or resignation in response to a hostile work environment shall entail full acceleration of unvested shares causing all outstanding Restricted Shares to become Unrestricted Shares; and </numbered_3_para>
+  <numbered_3_para>termination without cause shall entail full acceleration of unvested shares causing all outstanding Restricted Shares to become Unrestricted Shares; and </numbered_3_para>
   <numbered_3_para>termination with cause or voluntary resignation shall, unless the Directors of the acquiror resolve otherwise, entail redemption or forfeiture of the unvested portion. </numbered_3_para>
   <b_left_sidehead xname="acc_cash">Acceleration post acquisition for cash. </b_left_sidehead>
   <para_1>Subsequent to a Change of Control event in which the Company is acquired primarily for cash, the Restricted Shares shall form part of the fully diluted capitalization, and cash corresponding to the unvested portion shall be escrowed on a pro rata basis. Cash shall be released from escrow mutatis mutandis with the vesting scheme. </para_1>
