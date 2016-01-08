@@ -18,6 +18,8 @@ If, for instance, the end-user wants to tweak the documents prior to PDF engross
 
 ** Entity Model
 Contracts deal with parties, with changes to parties, and with changes to relationships between parties.
+
+Most of these models persist in our [[file:spreadsheets.org][spreadsheet database]].
 *** Model of the Parties
 *Languages*: Google Spreadsheets? With strong lint checking. SQL database?
 

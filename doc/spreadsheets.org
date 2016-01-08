@@ -1,0 +1,71 @@
+#+TITLE: Spreadsheets as Database
+
+* Parking Data in a Spreadsheet
+
+The big-picture architectural idea is this. Twenty years ago we would have parked all of our persistent data about companies inside a MySQL/Postgres DB. Five years ago we would have put the data inside a NoSQL DB like Mongo or Couch. But today, embracing the Zen idea of the Artless Art and the UI-less UI, we are going with a BroSQL solution, which is to say we park the data inside a Google Spreadsheet which we don't even own; it lives inside the end-user's Google Drive.
+
+Now, every beginner programmer reinvents certain wheels, sort of as an extended kata. One of those standard wheels is an ORDBMS abstraction layer.
+
+Virgil's sire Strick used to be at Versant, which did this kind of work ages ago.
+
+Anyway, the idea is this: so far the strategy of keeping our data in spreadsheets is working out OK. We do this in part because that's how end-users think: they use spreadsheets as databases all the time. It drives real programmers mad but we can cope.
+
+There are even startups which try to take spreadsheets to the next level: http://www.smartsheet.com/ is one example.
+
+In our case, we layer a bunch of intelligence on top of the google spreadsheets.
+
+* Our Modules Provide Interfaces
+some of that intelligence lives inside https://github.com/legalese-io/legalese-google-app
+
+captable.js parses https://docs.google.com/spreadsheets/d/1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw/edit#gid=827871932
+
+readrows.js parses https://docs.google.com/spreadsheets/d/1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw/edit#gid=1632229599
+
+readrows.js around line 407 also parses https://docs.google.com/spreadsheets/d/1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw/edit#gid=981127052
+
+these little module thingies provide an interface to the spreadsheet.
+
+* The XML Templates Consume Interfaces
+these module interfaces are subsequently ​/consumed/​ by the xml templates themselves.
+
+for example, if you look inside dora-signatures.xml you will find code like
+#+BEGIN_SRC javascript
+  <? var oldInvestors  = data.capTable.getActiveRound().getOldInvestors(); ?>
+  <? var previousRound = data.capTable.getActiveRound().getPreviousRound(); ?>
+#+END_SRC
+
+why am I telling you this? because one day, relatively soon, i will desire to formalize the vesting logic which at present is just a bunch of macro variables that get imported as dumb strings into our templates. our templates are going to need to get smarter real soon, so we will need a more intelligent model of a vesting schedule.
+
+* First-Class Vesting
+so, i envision a structured representation of a vesting schedule. there are a bunch of ways to do it:
+- as a separate sheet,
+- as a set of columns inside the Entities tab,
+- as a separate ALLCAPS section within the Entities tab, or
+- as a set of attributes shoehorned under the ROLES section.
+
+** What is vesting?
+
+"wait a minute," you say. "what is a vesting schedule? and why do our templates suddenly need to get smart about vesting?"
+
+The Frog Vesting PDF introduces vesting: https://dl.dropboxusercontent.com/u/9544489/class%20f%20frog%20vesting.pdf
+
+It doesn't talk about details like single trigger vs double trigger acceleration.
+
+* Specific Cases
+if you look at line 81 of https://github.com/legalese-io/legalese-io.github.io/blob/master/templates/seriesseed.com/seriesseed_investment_agreement_sg.xml you will see that the document requires all kinds of details of the vesting schedule. in particular, one detail is the number of shares vested as of the date of the agreement.
+
+that needs to be computed.
+
+by the software.
+
+Somewhere.
+
+It could be computed in a module that knows vesting.
+
+Or it could be computed in a spreadsheet that knows vesting.
+
+* Current Work and Future Directions
+For now we have put it into a spreadsheet: https://github.com/legalese-io/legalese-io.github.io/issues/64
+
+In the future we might want to expand the rough sketch currently available in https://github.com/legalese-io/legalese-compiler/blob/master/bin/demo-vesting
+
