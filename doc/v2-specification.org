@@ -1,6 +1,6 @@
 #+TITLE: Legalese 2.0 High-Level Specification
 
-This document should be read in conjunction with [[file:architecture.org][architecture.org]].
+This document should be read in conjunction with [[file:v2-architecture.org][v2-architecture.org]].
 
 
 

@@ -1,6 +1,6 @@
-#+TITLE: Legalese System Architecture
+#+TITLE: Legalese System Architecture, version 2.0
 
-This document should be read in conjunction with [[file:specification.org][specification.org]].
+This document should be read in conjunction with [[file:v2-specification.org][v2-specification.org]].
 
 * Front-End: Simple Web UI
 *Paradigm*: the usual end-user-facing interactive web app. Functionality is presented in a dashboard with a bit of a wizard.
