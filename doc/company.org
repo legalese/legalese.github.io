@@ -21,7 +21,7 @@ Some opensource infrastructure projects are embarrassingly underfunded. [[http:/
 
 ** "Teal" organizations
 
-Self-managing organizations are better suited to Internet-era postindustrial conditions. See also
+Self-managing organizations are better suited to Internet-era post-industrial conditions. See also
 - http://www.reinventingorganizations.com/
 - http://www.holacracy.org/how-it-works/
 
@@ -37,11 +37,48 @@ Many opensource efforts have much in common with Teal organizations.
 
 - other documents :: Google Drive
 
-- project management and task tracking :: Asana
+- project management and task tracking :: Github Issues
+
+- in-person meetings :: an in-person meeting is only considered a valid project meeting only if the online project group are notified.
+
+In-person meetings are a natural human instinct, but easily become an anti-pattern. If project team members are omitted from the meeting, intentionally or inadvertently, cliques form, communication breaks down, decisions are made in secret, project members complain "nobody tells me anything", and the integrity of the organization fails.
+
+In-person meetings are acceptable if and only if:
+1. all relevant individuals are invited to the meeting
+2. provisions are made for people to participate online
+3. minutes are posted to the appropriate online chat
+4. comments and discussion after the meeting are considered as valid as in-person interaction during the meeting
+5. decisions made during the in-person meeting may be reversed or revised pursuant to online followup.
 
 ** deprecated channels
 
-- project management and forum :: basecamp
+- project management and forum :: basecamp, Asana ... we used to used both of these.
+
+* FAQ: Why do I keep getting redirected to the group chat?
+/My main point of contact with Legalese is X, but when I try to talk to X about Legalese, X doesn't seem to want to talk to me directly; instead, X tells me to talk on the mailing list, or the group chat. Why are they being so rude? Who do they think they are?/
+
+They're not being rude to you; they're just being polite to other people. Other people who should be involved in the conversation, and would object to side conversations.
+
+This may be your first experience interacting with an opensource community. Legalese -- the opensource project -- is not a traditional organization with a central point of contact. Legalese, the commercial entity, does offer that kind of support, but only to paying customers. The closer you are to being a paying customer, the more you can expect confidential, personal support. The closer you are to being a project participant, contributing bug reports and pull requests, the more you should expect to talk to your fellow participants, not to some figurehead. The PR spokesman may be the voice of the organization, but she doesn't have any more executive authority than anyone else.
+
+You wouldn't phone up the managing editor of your local newspaper and demand to have the news read to you.
+
+/Then I want to talk to somebody who's in charge!/
+
+Easy! Find a mirror. You're in charge.
+
+First, professors invented the seminar because it was more scalable than one-on-one tuition. Then they figured out they didn't even have to turn up, half the time, and the learning would still go on, as long as the students were there.
+
+In the same way, if you want to interact with Legalese, you already can. If you want to report a bug or file a feature request, go ahead: use Github issues. If you want to spend company funds, bring up the issue on the #finance chat. If you want to complain about the organizational structure, go to #meta. If you want to represent Legalese to some third party entity, you can, so long as you do not commit anyone else within the company to act, without getting their approval first.
+
+/OK, then where do I find letterhead?/
+
+The Legalese logo and artwork are available under logos. You can also get corporate letterhead under the stationery folder.
+
+* FAQ: How do I invite a new person to the project?
+
+There's an onboarding workflow; running that workflow is the responsibilty of the Onboarding Role. To trigger that workflow, speak up on #general. The Onboarding Role will canvas for objections, and if none are received, will kick off the workflow.
+
 * Innovation: Bail-only Design
 
 Adhocracies tend to be highly informal, with people joining and leaving projects all the time.
