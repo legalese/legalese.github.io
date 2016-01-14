@@ -1,11 +1,82 @@
 * Modeling the Corporation
+** Prerequisites
+To understand this document you should be familiar with object-oriented programming and domain modeling.
+
+See:
+- http://martinfowler.com/eaaCatalog/domainModel.html
+- http://www.martinfowler.com/bliki/AnemicDomainModel.html
+
+** Misc Thoughts
 In the financial services industry, UML and XML models for financial transactions exist: ISO 20022 is the basis for SWIFT.
 
-We can import some of those ideas. A startup investment is, after all, just a special case of a financial transaction.
+Maybe we can import some of those ideas. A startup investment is, after all, just a special case of a financial transaction.
 
 Corporations are relatively lightweight structures, especially at the startup stage. Even public corporations aren't terribly complex: they have a lot of shareholders, a few directors, and a bunch of bank accounts.
 
 Astonishingly, we have not been able to find a data model schema for a corporation. So here's one.
+** Entities
+*** Primary Entity: Company
+
+The Models given in this document claim to work for two kinds of primary entities. A Company is assumed to be one of the following:
+
+**** Private Limited Companies                                              :SG:SG_CA50_20160103:
+
+The Resolutions Model claims correctness for Singapore Private Limited Companies.
+
+**** Exempt Private Limited Companies                                       :SG:SG_CA50_20160103:
+
+For the purpose of the Resolutions Model, all facts true of Private Limited Companies are also true of Exempt Private Limited Companies.
+
+*** Secondary Entities                                                                   :general:
+
+Along the way, the following secondary entities will turn up:
+
+**** Natural Person                                                                     :general:
+
+Usually a human being. May be resident in any jurisdiction.
+
+May be the estate, personal representative, attorney, etc, of a human being.
+
+**** Organization                                                                       :general:
+
+Synonymous with a corporate person -- anything that is not a natural person. For example, an investment holding company may be a corporate shareholder.
+
+*** Roles
+
+The following roles exist with-respect-to the Company.
+
+**** General Role Attributes
+a role relationship starts and stops in time. So we need [[https://en.wikipedia.org/wiki/Bitemporal_data][bitemporality]].
+
+**** Director Role                                                                      :general:
+
+**** Shareholder Role                                                                   :general:
+
+May be of a specific class of shares.
+
+**** Bondholder Role                                                                    :general:
+
+Of a specific security.
+
+**** Warrantholder Role                                                                 :general:
+
+Of a specific security.
+
+**** Investor Role                                                                      :general:
+
+**** Member Role                                                            :SG:SG_CA50_20160103:
+
+Often synonymous with shareholder, but specifically defined as a person entitled to receive notices of meetings.
+
+Not tagged as global because the notion of a member may not be common outside Singapore jurisdiction.
+
+*** Entities Out of Scope                                                                :general:
+
+The resolution model does not claim to cover:
+
+**** Companies Limited by Guarantee
+**** Trusts
+**** Public Companies
 
 
 
@@ -16,7 +87,81 @@ the dependency and concurrency relationships between contracts and other documen
 within a contract, dealing with the terms and content. it's the blob of text that we care about here.
 
 * Modeling the Resolutions
-directors?
-members?
+
+This section records domain knowledge about corporate resolutions.
+
+** Jurisdiction Scope -- Space
+
+Domain facts which are generally true are tagged "general".
+
+Domain facts which are specific to a particular jurisdiction are tagged accordingly.
+
+** Jurisdiction Scope -- Time
+
+Domain facts may be tagged with both application time and system time. Facts are true as of time of writing. System time may be found in Git.
+
+Application time refers to the date that legislation/regulation comes into effect.
+
+In the case of Singapore jurisdiction, Companies Act (Cap. 50) was last revved & effective as of [2016-01-03 Sun]. Hence the tag SG_CA50_20160103.
+
+If regulations change subsequently, tag them accordingly.
+
+** Global Scope: Company
+
+Unless otherwise specified, a Resolution is assumed to belong to a [[*Primary Entity: Company][Company, modeled above]].
+
+** Resolution Types                                                           :SG:SG_CA50_20160103:
+
+If we learn that these resolution types are applicable outside Singapore then update the model accordingly.
+
+*** Directors Resolutions
+
+*** Members Resolutions
+
+**** Ordinary
+
+**** Special
+
+**** Within a Class of Shares
+Regulation, articles, or other agreement may specify that shareholders within a certain class may vote as a class on resolutions pertaining to that class of shares.
+
+** Meeting Types
+
+Resolutions may be associated with a Meeting:
+
+*** Directors Meeting
+
+**** Directors Resolutions in Writing
+
+*** Members Meeting
+
+**** AGM
+
+**** EGM
+
+**** Members Resolutions In Writing
+
+** Notices and Filings; Time and Dates
+
+*** Meetings require Notice to the attendees.
+
+*** Meetings produce Minutes.
+
+*** Some minutes must be filed with the state.
+
+*** Some minutes may be filed with the state.
+
+ 
+** Signatures
+
+** Validity: Quorum
+
+To be valid, a general meeting requires a quorum.
+
+** Validity: Pass / Fail
+
+To pass, a resolution must meet certain voting or signature requirements.
+
+The requirements may differ by subject matter.
 
 * SCHEMA
