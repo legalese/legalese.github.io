@@ -2,7 +2,31 @@
 
 What organizational structure, governance model, and communication processes does Legalese use?
 
-This is discussed on the #meta chat.
+What expectations can every project participant have about other participants?
+
+In particular, what common vocabulary and knowledge should participants possess?
+
+Discussion of this document is welcome on the #meta chat.
+
+* Welome, New Contributor!
+
+This is a welcome guide for new participants in Legalese.
+
+No financial relationship is assumed. Later, we will ask you to sign the Contributor License Agreement assigning your contributions to the project.
+
+Legalese is a big project, on the scale of a database engine or an e-commerce shopping cart. While it is possible to make useful contributions quickly, if you want to tackle some of the more challenging parts of the project, you should come up to speed on some of the underlying ideas and technologies.
+
+** The Welcome Booklet
+
+In a traditional organization, a new hire might spend a couple of weeks in training.
+
+We don't do that. Instead, we have readings and videos. The [[https://drive.google.com/open?id=0B-lTLNYJdzgKRnpKTTBQQjFVSHM][Welcome Booklet PDF]] explains why we exist. It also sets out a reading list which will help you come up to speed with the state of the art in legal informatics. Read it, and the readings in it.
+
+At some point we will move the text of that PDF into this file.
+
+** The rest of this document
+
+Also read the rest of this document; it explains how the organization works.
 
 * Inspirations
 
