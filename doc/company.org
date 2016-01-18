@@ -183,7 +183,7 @@ The number of short+long credits achieved in a given period determine the activi
 
 *** As Code
 
-#+BEGIN_CODE js
+#+BEGIN_SRC js
 
 function Company(params) {
   this.compensationPoolSharePrice = params.compensationPoolSharePrice; // 2 would mean in $2 per share
@@ -239,7 +239,7 @@ function Participant(params) {
                          
 
 
-#+END_CODE
+#+END_SRC
 
 * Innovation: Teal Architecture
 
