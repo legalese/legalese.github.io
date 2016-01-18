@@ -201,36 +201,222 @@ A rough schema for a directors' resolution could be: letterhead, item [...], sig
 
 ** Regulations and Contracts as Business Logic
 
-In an application, "business logic" is typically encoded in machine-executable form by a domain expert. Sometimes, DSLs are employed.
+Our approach departs from the prior art in a key way: we treat contract formalization not as a problem in linguistics, but as a problem in business logic modeling. Rather than parse contracts into structured syntax trees, we formalize contracts as executable programs. Programs, of course, may themselves be modeled as digraphs. Still, the goal is to represent the semantics of the contract first, and the syntax second.
 
-In the legal domain, we consider business logic to take two forms: regulatory constraints; and legal agreements and other resolutions. For short, we call these "public" and "private" legal logic respectively.
+What does that mean?
 
-The public legal logic imposes constraints -- /involuntary/ deontics.
+Let's take [[http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfcfr/CFRSearch.cfm?FR=610.40][an example of regulatory verbiage]]:
 
-The private legal logic expresses constraints -- /voluntary/ deontics -- and performative statements.
+#+BEGIN_QUOTE
+Except as specified in paragraph c, you, an establishment that collects blood, must test each donation of human blood that is intended for use in preparing a product for evidence of infection due to the following communicable disease agents:
+(1) Human immunodeficiency virus, type 1;
+(2) Human T-lymphotropic virus, type I, and
+(3) Human T-lymphotropic virus, type II.
+#+END_QUOTE
 
-Public and private logics interact constantly. For example, if a corporation performs action A by executing paperwork P, then a legally mandated filing F must be performed by date D else the corporation will be subject to penalties. A and P are private. F and D are public.
+*** As a Syntax Tree
+The linguistic approach parses the syntax (rightly or wrongly) as follows:
+#+BEGIN_SRC xml
+  <ExceptionClause2>Except as <Verb>specified</Verb> in paragraph c</ExceptionClause2>,
+  <AgentNP>you, an establishment that <Verb>collects</Verb> blood,</AgentNP>
+  <Obligation>must</Obligation>
+  <Verb>test</Verb> <ThemeNP>each donation of human blood that <Passive><Verb>is</Verb><Verb>intended</Verb></Passive> for use in preparing a product for evidence of infection due to the following communicable disease agents</ThemeNP>:
+#+END_SRC
+
+It is, fundamentally, sentence diagramming, with some wiring up of pronouns to agents.
+
+*** As Javascript
+A computational contract would represent the same text very differently. The following object-oriented code represents each agent in the sentence with its own constructor, attributes, and methods:
+#+BEGIN_SRC js
+  // This code uses syntax based on the Joose.it metaprogramming framework for Javascript.
+  // It should make sense to any programmer versed in the object-oriented paradigm.
+  Role('bloodCollectingEstablishment', {
+    has: {
+      communicableDiseaseAgentsToTest : {
+        is : 'rw',
+        init : [ "Human immunodeficiency virus, type 1",
+                 "Human T-lymphotropic virus, type I",
+                 "Human T-lymphotropic virus, type II" ] },
+      bloodDonations : { is : 'rw', init: [ ], isPrivate: true },
+      // Array of BloodDonation objects. This includes both clean and infected blood,
+      // so we limit access to specialized getter methods which should prevent
+      // unintentional retrieval of infected blood.
+      // Such methods include getCleanDonations() and getInfectedDonations(), not shown due to space limitations.
+      // They filter through the bloodDonations list, inspecting bloodDonation.testResults.
+    }
+    methods: {
+      bloodTestException : function(donation) {
+        return (new Moon).getPhase() == "waxing crescent" || 
+        donation != undefined && donation.getBloodType() == "O";
+        }
+      },
+      collectBlood : function(donation) {
+        this._initializeRelationWith(donation);
+        this.bloodDonations.push(donation);
+        // note that we always add the donation to the list of donations
+        // without regard to whether it passed or failed the communicable-disease tests.
+      },
+      _initializeRelationWith : function(donation) {
+        if (! this.bloodTestException(donation)) {
+          if (donation.getUsageIntent().match(/for use in preparing a product/)) {
+            this.getCommunicableDiseaseAgentsToTest().map(
+              function(t) { donation.sendBloodTest(t); });
+          }
+        }
+      },
+      getBloodDonations : { return "ERROR: getter restricted for safety reasons. Please use getCleanDonations(), getInfectedDonations(), or getUntestedDonations instead to make your intent clear." }
+      setCommunicableDiseaseAgentsToTest : function(tests) {
+        // in case the list of communicable disease agents changes, reschedule all donated blood for re-testing against newly introduced tests.
+        // not shown for space reasons
+      },
+    }
+  });
+
+  Class('BloodDonation', {
+    has: {
+      testResults : { is: 'rw', init: {} },
+      bloodType:    { is: 'rw' }, // one of A, B, O, AB
+      usageIntent:  { is: 'rw' },
+      collectedBy:  { is: 'ro', isa: 'bloodCollectingEstablishment' }
+    },
+    methods: {
+      sendBloodTest: function(testName) {
+        this.testResults[testName] = undefined;
+        // Submit a blood sample for testing against testName.
+        // When the result arrives, it triggers the method recvBloodtest(testName).
+      },
+      recvBloodTest: function(testName, result) {
+        this.testResults[testName] = result;
+      },
+      setUsageIntent: function(intent) { // in case the usage intent for the blood changes after we've collected it
+        this.usageIntent = intent;
+        this.getCollectedBy()._initializeRelationWith(this);
+      }
+    },
+    after : {
+      initialize: function() {
+        this.sendBloodTest("type"); // always test for blood type, as required by bloodCollectingEstablishment.bloodTestException().
+      }
+    },
+  });
+#+END_SRC
+
+Javascript was chosen for the above formalization because it is familiar to many programmers.
+
+*** As Prolog
+The equivalent program in a logic programming language:
+
+#+BEGIN_SRC prolog
+  regulation([title(21), volume(7), section([610,40,a])],
+             Subject, Scenario, Object, excepted ) :-
+      establishment(Subject), collects_blood(Subject),
+      Scenario = blood_collection, for_production(Subject, Object),
+      exception(Subject, Scenario, Object).
+
+  regulation([title(21), volume(7), section([610,40,a])],
+             Subject, Scenario, Object, pass ) :-
+      establishment(Subject), collects_blood(Subject),
+      Scenario = blood_collection, for_production(Subject, Object),
+      communicableDiseaseTests(Object).
+
+  for_production(Subject, Donation) :-
+      blood_collected_by(Subject, Donation),
+      member("for use in preparing a product", Donation.intent).
+
+  communicableDiseaseTests(Donation) :-
+      member("Human immunodeficiency virus, type 1", Donation.tests),
+      member("Human T-lymphotropic virus, type I",   Donation.tests),
+      member("Human T-lymphotropic virus, type II",  Donation.tests).
+
+  exception(_, blood_collection, Donation) :- Donation.bloodType = "O".
+  exception(_, blood_collection, _       ) :- moonphase(waxing_crescent).
+  moonphase(waning_gibbous).
+
+  establishment(chopshop).
+  collects_blood(chopshop).
+
+  blood_collected_by(chopshop,
+                     donation{ date:date(2015,1,1),
+                               name:"first donation",
+                               intent:["for use in preparing a product"],
+                               tests:[
+                                   "Human immunodeficiency virus, type 1",
+                                   "Human T-lymphotropic virus, type I",
+                                   "Human T-lymphotropic virus, type II",
+                                   "bloodType"
+                               ],
+                               bloodType:"A" }).
+#+END_SRC
+
+*** In Legalese
+
+In the Legalese Domain-Specific Language:
+
+#+BEGIN_SRC text
+  rule bloodCollection {
+      dealswith .bloodDonations [{}] ("donation of human blood")
+ 
+      (except moonphase_exception)
+
+      governs e ("you") being { .is(establishment) that .does(collectsBlood) }
+
+      e.must:
+          foreach bd in .bloodDonations that { .isForProduction? } {
+              e.must.bloodTest ("test _O_ for evidence of infection due to :-e.CDA-:") {
+                  O:bd against e.CDA.all }
+          }
+
+      bd.isForProduction? ("is intended")
+         bd.intents.contains("for use in preparing a product"
+                             INCLUDING ("as a component of" OR "used to prepare") -> "a medical device")
+      }
+      e.CDA ("communicable disease agents") = ["HIV 1", "HTLV 1", "HTLV 2"]
+  }
+#+END_SRC
+
+To output to French instead of English, we instruct Legalese with a basic mapping:
+
+#+BEGIN_SRC text
+  lingua en_to_fr {
+      you: vous / toi / tu
+      donation of human blood: don de sang humain
+      test _O_ for evidence of infection due to: _O_ examiner des preuves de l'infection due à
+      communicable disease agents: agents de maladies transmissibles
+      is intended: est destiné
+      for use in preparing a product: pour une utilisation dans la préparation d'un produit
+      as a component of: en tant que composant de
+      or: ou
+      used to prepare: utilisée pour préparer
+      a medical device: un dispositif médical
+      all: tous
+  }
+#+END_SRC
+
+
+** Legal Formalization: a Brief Overview
+
+In an application, "business rules" and "business logic" are typically encoded in machine-executable form by a domain expert. Sometimes, DSLs are employed.
+
+In the legal domain, we consider such business rules and logic to take two forms: regulatory constraints; and legal agreements and other resolutions. For short, we call these "public" and "private" respectively.
+
+The public rules impose constraints on parties -- /involuntary/ deontics.
+
+The private rules express constraints undertaken by parties -- /voluntary/ deontics -- and performative statements -- "we hereby do something".
+
+These public and private logics interact constantly. For example, if a corporation performs action A by executing paperwork P, then a legally mandated filing F must be performed by date D else the corporation will be subject to penalties. A and P are private. F and D are public.
 
 The academic literature has explored the formalization of regulations, typically in the form of XML syntax or linguistic parse trees.
 
 The academic literature has explored the automation of the formalization of regulations, using software like GATE.
 
-The academic literature has explored the formalization of contracts.
+The research community has begun to explore the formalization of private contracts -- "computable contracts" or "smart contracts" -- which express the semantics of a contract in a form executable by machine. The crucial distinction between a program expressing business logic, and a computable or smart contract, is that the contract itself, as a program, is granted executive agency, in the same way that a power of attorney might be granted to a third party, and, once invoked, is capable of effecting changes in the real world. Furthermore, the language in which a smart contract is written must be rich enough to express general computation, and not overly limited to specific domains.
 
-The literature has not, however, explored the generation of natural-language contracts from a formalization.
+** Novelties
+The research community is only just beginning to explore the generation of natural-language contracts from a formalism. At present, no software is capable of converting the formalization of the example above into a natural language. We claim that such a compiler is possible.
 
-The literature also has not explored the generation of the formalization from the constraint.
+The literature also has not explored the automated generation of private logics from public logics, as an exercise in constraint satisfaction. At present, a domain expert is required to encode such business logic. We seek to advance the state of the art from syntax to semantics, and to automate the process.
 
-Our goal is to produce an executable program, whose correspondences with the regulations are semantic, not syntactical.
-
-Our approach departs from the prior art in a key way: we treat the formalization problem and goal as a problem in business logic modeling, rather than a problem in linguistic parsing.
-
-At present, a domain expert is required to encode such business logic. We seek to advance the state of the art from syntax to semantics.
-
-
-
-At present, once business logic is encoded into an application, that logic is executed by machine, but the whys and wherefores that led to a particular outcome are often obscured. We 
-
+At present, once business logic is encoded into an application, that logic is executed by machine, but the whys and wherefores that led to a particular outcome are often obscure. Our project will explain the rationale for any highlighted component.
 
 ** Primitives
 
