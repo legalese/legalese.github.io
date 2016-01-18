@@ -350,9 +350,11 @@ The equivalent program in a logic programming language:
                                bloodType:"A" }).
 #+END_SRC
 
+The code is much shorter and expressive of the intent of the regulation, at the cost of procedural operability.
+
 *** In Legalese
 
-In the Legalese Domain-Specific Language:
+In the Legalese Domain-Specific Language, we strike a balance between executability and output to natural language:
 
 #+BEGIN_SRC text
   rule bloodCollection {
@@ -368,7 +370,8 @@ In the Legalese Domain-Specific Language:
                   O:bd against e.CDA.all }
           }
 
-      bd.isForProduction? ("is intended")
+    definitions:
+      bd.isForProduction? ("is intended") = {
          bd.intents.contains("for use in preparing a product"
                              INCLUDING ("as a component of" OR "used to prepare") -> "a medical device")
       }
