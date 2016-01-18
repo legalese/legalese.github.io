@@ -178,10 +178,13 @@ returns
 
 ** Prerequisites
 To understand this section, you should:
-- read Ken Adams, A Manual of Style for Contract Drafting
+- be reading Ken Adams, A Manual of Style for Contract Drafting
 - understand what a context-free grammar is, and be familiar with Backus-Naur Form
 - read https://drive.google.com/open?id=0BxOaYa8pqqSwTC04OTF5b1hYams Some computational properties of a model for electronic documents, TBC 1989
 - view https://drive.google.com/open?id=0BxOaYa8pqqSwUWlCajFJQURXdG8 introducing deontic logics, Gorin 2010
+- read http://wyner.info/research/Papers/2014/NL_DeonticConcepts_Lux_2014.pdf another perspective on deontic logic
+- read http://wyner.info/research/Papers/2013/WynerICAIL2013Tutorial.pdf discussing text extraction
+- read http://wyner.info/research/Papers/2013/OASISLegalRuleML.pdf on LegalRuleML.
 - read http://wyner.info/research/Papers/WynerPetersJURIX2011.pdf -- Wyner 2011, /On Rule Extraction from Regulations/
 - read https://drive.google.com/a/legalese.io/file/d/0BxOaYa8pqqSwWk9NallEck83T2M/view -- CLAN 2009
 - read https://drive.google.com/a/legalese.io/file/d/0BxOaYa8pqqSwSjRMeGtzVGhIaWs/view -- FormaLex 2011
@@ -195,6 +198,38 @@ Different jurisdictions may impose different schemas. For example, a contract wr
 A rough schema for a contract could be: title, date, parties, recitals, definitions, conditions precedent, main part, standard bits, signatures. The main part is composed of a list of clauses.
 
 A rough schema for a directors' resolution could be: letterhead, item [...], signatures. Each item is either a Resolved or a Noted.
+
+** Regulations and Contracts as Business Logic
+
+In an application, "business logic" is typically encoded in machine-executable form by a domain expert. Sometimes, DSLs are employed.
+
+In the legal domain, we consider business logic to take two forms: regulatory constraints; and legal agreements and other resolutions. For short, we call these "public" and "private" legal logic respectively.
+
+The public legal logic imposes constraints -- /involuntary/ deontics.
+
+The private legal logic expresses constraints -- /voluntary/ deontics -- and performative statements.
+
+Public and private logics interact constantly. For example, if a corporation performs action A by executing paperwork P, then a legally mandated filing F must be performed by date D else the corporation will be subject to penalties. A and P are private. F and D are public.
+
+The academic literature has explored the formalization of regulations, typically in the form of XML syntax or linguistic parse trees.
+
+The academic literature has explored the automation of the formalization of regulations, using software like GATE.
+
+The academic literature has explored the formalization of contracts.
+
+The literature has not, however, explored the generation of natural-language contracts from a formalization.
+
+The literature also has not explored the generation of the formalization from the constraint.
+
+Our goal is to produce an executable program, whose correspondences with the regulations are semantic, not syntactical.
+
+Our approach departs from the prior art in a key way: we treat the formalization problem and goal as a problem in business logic modeling, rather than a problem in linguistic parsing.
+
+At present, a domain expert is required to encode such business logic. We seek to advance the state of the art from syntax to semantics.
+
+
+
+At present, once business logic is encoded into an application, that logic is executed by machine, but the whys and wherefores that led to a particular outcome are often obscured. We 
 
 
 ** Primitives
