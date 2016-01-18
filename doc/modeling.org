@@ -217,10 +217,12 @@ Except as specified in paragraph c, you, an establishment that collects blood, m
 *** As a Syntax Tree
 The linguistic approach parses the syntax (rightly or wrongly) as follows:
 #+BEGIN_SRC xml
-  <ExceptionClause2>Except as <Verb>specified</Verb> in paragraph c</ExceptionClause2>,
-  <AgentNP>you, an establishment that <Verb>collects</Verb> blood,</AgentNP>
-  <Obligation>must</Obligation>
-  <Verb>test</Verb> <ThemeNP>each donation of human blood that <Passive><Verb>is</Verb><Verb>intended</Verb></Passive> for use in preparing a product for evidence of infection due to the following communicable disease agents</ThemeNP>:
+    <ExceptionClause2>Except as <Verb>specified</Verb> in paragraph c</ExceptionClause2>,
+    <AgentNP>you, an establishment that <Verb>collects</Verb> blood,</AgentNP>
+    <Obligation>must</Obligation> <Verb>test</Verb>
+    <ThemeNP>each donation of human blood that
+    <Passive><Verb>is</Verb><Verb>intended</Verb></Passive> for use in preparing a product
+    for evidence of infection due to the following communicable disease agents</ThemeNP>:
 #+END_SRC
 
 It is, fundamentally, sentence diagramming, with some wiring up of pronouns to agents.
