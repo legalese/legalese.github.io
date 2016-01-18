@@ -78,13 +78,178 @@ The resolution model does not claim to cover:
 **** Trusts
 **** Public Companies
 
+* Modeling the Drafting
+Within a contract, we deal with terms and content. This model cares about the conceptual/abstract representation, also known as the formal representation. It also cares about the physical text in a natural language. The physical text may include formatting instructions.
 
+** Contract-Level Examples
+*** Example 1A: definition
+#+NAME: 1A round definition series seed
+#+BEGIN_SRC js
+  var investment = newRound( {
+    security: "SeriesSeed",
+    parties: {
+      company: "MyCompany",
+      new_investors: [ { name: "Alice", commitment: 100000 },
+                       { name: "Bob",   commitment:  50000 },
+                       { name: "Carol", commitment:  20000 } ] },
+    terms: {
+      pre_money_valuation: 10000000,
+      round_size:           1000000,
+      esop:                      15
+    }
+  } );
+#+END_SRC
+
+This is the formal representation defining a simple Series Seed investment round. The meat of the definition is your basic JSON data structure, which could be constructed by a UI or read out of a spreadsheet.
+
+*** Example 1B: export to natural language
+#+NAME: 1B export natural
+#+BEGIN_SRC js
+investment.workflows().export_as({format:"XML", lang:"en-US"});
+#+END_SRC
+
+This outputs all the paperwork required to effect the round, in XML format, suitable for import into InDesign and subsequent output to PDF.
+
+In practice the workflows() method runs prerequisites(), agreements(), and filings().
+
+*** Example 1C: export to formal representation
+#+NAME: 1C export formal
+#+BEGIN_SRC js
+investment.agreements("shareholder").export_as(format:"javascript");
+#+END_SRC
+
+produces a bunch of Javascript. See the next example for a microscopic view of the clause-level exports.
+
+** Clause-Level Examples
+
+The Series Seed v3.2 Certificate of Incorporation contains a clause:
+
+#+BEGIN_QUOTE
+Mandatory Conversion. Upon either (a) the closing of the sale of shares of Common Stock to the public in a firm-commitment underwritten public offering pursuant to a prospectus filed under the Securities and Futures Act or (b) the date and time, or the occurrence of an event, specified by vote or written consent of the Requisite Holders at the time of such vote or consent, voting as a single class on an as-converted basis (the time of such closing or the date and time specified or the time of the event specified in such vote or written consent,the <b><i>“Mandatory Conversion Time”</i></b>), (i) all outstanding shares of Series Seed Preferred Stock will automatically convert into shares of Common Stock, at the applicable ratio described in Section <xref to="conversionratio" /> as the same may be adjusted from time to time in accordance with Section <xref to="conversion" /> and (ii) such shares may not be reissued by the Company.
+#+END_QUOTE
+
+In this example, we'll see how Legalese represents that clause. In particular, we are interested in how the formal representation affords natural language generation.
+
+*** Exposition in Lay Terms
+
+The Gentle Reader may not be familiar with the semantics of this clause. If you need help understanding the clause, read on.
+
+The context: the Company's constitution defines a class of shares called "Series Seed". A class attribute is "mandatory conversion". This clause describes when mandatory conversion can happen.
+
+What does conversion mean? Series Seed shares turn into Common Stock.
+
+What does mandatory conversion mean? That the conversion happens automatically, when some other condition is met. Neither the Company nor the Series Seed Holders can block the conversion.
+
+What conditions trigger mandatory conversions? It turns out there are three possible triggers.
+
+First trigger: there is an IPO -- an Initial Public Offering. Shares of the company are sold to the public in a public offering.
+
+Second trigger: a certain voting majority of the Series Seed Holders agree to 
+
+If any of these triggers occurs, then mandatory conversion follows.
+
+*** Example 2A: Conversion
+#+NAME: 2A conversion clause retrieval
+#+BEGIN_SRC js
+var clauses = investment.clauses_matching("conversion");
+#+END_SRC
+
+returns
+
+#+NAME: 2B conversion clause content
+#+BEGIN_SRC js
+  [ { clauseName: { "en-US": "Mandatory Conversion" },
+      handler: function(events) {
+    for (var event_i in events) {
+      var event = events[event_i];
+      var parties = event.parties;
+      var respect = event.respect; // party with deontic obligation perspective
+      if (event.name == "IPO" ||
+          event.name == "classVote") {
+        var company = this;
+      }
+    }
+      }
+    } ]
+#+END_SRC
+
+
+*** Example 2B: 
+
+** Prerequisites
+To understand this section, you should:
+- read Ken Adams, A Manual of Style for Contract Drafting
+- understand what a context-free grammar is, and be familiar with Backus-Naur Form
+- read https://drive.google.com/open?id=0BxOaYa8pqqSwTC04OTF5b1hYams Some computational properties of a model for electronic documents, TBC 1989
+- view https://drive.google.com/open?id=0BxOaYa8pqqSwUWlCajFJQURXdG8 introducing deontic logics, Gorin 2010
+- read http://wyner.info/research/Papers/WynerPetersJURIX2011.pdf -- Wyner 2011, /On Rule Extraction from Regulations/
+- read https://drive.google.com/a/legalese.io/file/d/0BxOaYa8pqqSwWk9NallEck83T2M/view -- CLAN 2009
+- read https://drive.google.com/a/legalese.io/file/d/0BxOaYa8pqqSwSjRMeGtzVGhIaWs/view -- FormaLex 2011
+
+** Formal Representation
+
+Formally, a legal document obeys a grammar. In this document, we treat "grammar" and "schema" as [[https://www.w3.org/People/Bos/Schema/schemas][rough homomorphisms]], with schemas being slightly more specific and grammars being slightly more general.
+
+Different jurisdictions may impose different schemas. For example, a contract written in the US style will look different from a contract written in the UK style. However, both documents will exhibit a high degree of structure. A family of UK documents will share the same schema.
+
+A rough schema for a contract could be: title, date, parties, recitals, definitions, conditions precedent, main part, standard bits, signatures. The main part is composed of a list of clauses.
+
+A rough schema for a directors' resolution could be: letterhead, item [...], signatures. Each item is either a Resolved or a Noted.
+
+
+** Primitives
+
+*** The Schema
+*** The Clause / Article / Section
+*** The Definition
+
+** Dimensions
+There are many ways to represent a given clause. Some dimensions of interest are:
+
+*** Formal vs Natural Language Representation
+
+A concept may be expressed formally.
+
+A concept may be expressed naturally, in a language like English.
+
+A concept may be expressed in a hybrid of formal and natural -- see [[https://en.wikipedia.org/wiki/Controlled_natural_language][Controlled Natural Languages]], e.g. [[https://en.wikipedia.org/wiki/Attempto_Controlled_English][Attempto]].
+
+*** Compactness vs Completeness
+
+For compactness, we want to be able to summarize a clause as tersely as possible.
+
+For completeness, we want to be able to expand a clause, to "look inside" it both syntactically and semantically.
+
+*** Locality and Coupling
+
+Some clauses are limited in scope. A standalone clause does not modify, and is not modified by, any other clause.
+
+Other clauses are highly coupled. A coupled clause explicitly modifies, or is explicitly modified by, another clause.
+
+** Distributed Deontics
+
+A contract contains, among other things, a collection of deontic propositions (obligation, prohibition, permission). [[https://www.ietf.org/rfc/rfc2119.txt][RFC2119]] specifies the language "MUST", "MUST NOT", and "MAY" respectively.
+
+These propositions can be seen as a shotgun-spray of agency and consequence: parties committing to do or not do things, and if this happens, then that follows.
+
+** Event Handling
+
+A clause contains one or more deontic statements that constrain the behaviour of the party or parties involved. We say that a party is /bound/ by contract.
+
+This means that any time a party contemplates an action or inaction, that /event/ could be /evaluated/ against every contract that /binds/ the party. An event describes a scenario involving one or more parties.
+
+This process of proposal evaluation operates much as you might imagine: each clause, or /proposition/, in the contract is /proposed/ the /event/, and /returns/ an opinion about whether the proposal passes or fails the proposition.
+
+You may be familiar with the idea of a program executing on a virtual machine on some input data. In this case, the contract is the program, the proposal is the input, and the output is a pass/fail opinion.
+
+In /introspection mode/, running a contract with a null proposal, and a party set, may return the obligations of the parties.
+
+** Respect
+
+Proposal evaluation occurs with respect to a given counterparty. In the context of a given proposition, a given counterparty may not care about a given actor's event.
 
 * Modeling the Execution
 the dependency and concurrency relationships between contracts and other documents, treating an individual document as a black box with just a blob of text and a bunch of signatures. it's the signatures we care about at this level.
-
-* Modeling the Drafting
-within a contract, dealing with the terms and content. it's the blob of text that we care about here.
 
 * Modeling the Resolutions
 
