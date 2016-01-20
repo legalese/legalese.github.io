@@ -1,11 +1,11 @@
 * Modeling the Corporation
+
 ** Prerequisites
 To understand this document you should be familiar with object-oriented programming and domain modeling.
 
 See:
 - http://martinfowler.com/eaaCatalog/domainModel.html
 - http://www.martinfowler.com/bliki/AnemicDomainModel.html
-
 ** Misc Thoughts
 In the financial services industry, UML and XML models for financial transactions exist: ISO 20022 is the basis for SWIFT.
 
@@ -81,101 +81,6 @@ The resolution model does not claim to cover:
 * Modeling the Drafting
 Within a contract, we deal with terms and content. This model cares about the conceptual/abstract representation, also known as the formal representation. It also cares about the physical text in a natural language. The physical text may include formatting instructions.
 
-** Contract-Level Examples
-*** Example 1A: definition
-#+NAME: 1A round definition series seed
-#+BEGIN_SRC js
-  var investment = newRound( {
-    security: "SeriesSeed",
-    parties: {
-      company: "MyCompany",
-      new_investors: [ { name: "Alice", commitment: 100000 },
-                       { name: "Bob",   commitment:  50000 },
-                       { name: "Carol", commitment:  20000 } ] },
-    terms: {
-      pre_money_valuation: 10000000,
-      round_size:           1000000,
-      esop:                      15
-    }
-  } );
-#+END_SRC
-
-This is the formal representation defining a simple Series Seed investment round. The meat of the definition is your basic JSON data structure, which could be constructed by a UI or read out of a spreadsheet.
-
-*** Example 1B: export to natural language
-#+NAME: 1B export natural
-#+BEGIN_SRC js
-investment.workflows().export_as({format:"XML", lang:"en-US"});
-#+END_SRC
-
-This outputs all the paperwork required to effect the round, in XML format, suitable for import into InDesign and subsequent output to PDF.
-
-In practice the workflows() method runs prerequisites(), agreements(), and filings().
-
-*** Example 1C: export to formal representation
-#+NAME: 1C export formal
-#+BEGIN_SRC js
-investment.agreements("shareholder").export_as(format:"javascript");
-#+END_SRC
-
-produces a bunch of Javascript. See the next example for a microscopic view of the clause-level exports.
-
-** Clause-Level Examples
-
-The Series Seed v3.2 Certificate of Incorporation contains a clause:
-
-#+BEGIN_QUOTE
-Mandatory Conversion. Upon either (a) the closing of the sale of shares of Common Stock to the public in a firm-commitment underwritten public offering pursuant to a prospectus filed under the Securities and Futures Act or (b) the date and time, or the occurrence of an event, specified by vote or written consent of the Requisite Holders at the time of such vote or consent, voting as a single class on an as-converted basis (the time of such closing or the date and time specified or the time of the event specified in such vote or written consent,the <b><i>“Mandatory Conversion Time”</i></b>), (i) all outstanding shares of Series Seed Preferred Stock will automatically convert into shares of Common Stock, at the applicable ratio described in Section <xref to="conversionratio" /> as the same may be adjusted from time to time in accordance with Section <xref to="conversion" /> and (ii) such shares may not be reissued by the Company.
-#+END_QUOTE
-
-In this example, we'll see how Legalese represents that clause. In particular, we are interested in how the formal representation affords natural language generation.
-
-*** Exposition in Lay Terms
-
-The Gentle Reader may not be familiar with the semantics of this clause. If you need help understanding the clause, read on.
-
-The context: the Company's constitution defines a class of shares called "Series Seed". A class attribute is "mandatory conversion". This clause describes when mandatory conversion can happen.
-
-What does conversion mean? Series Seed shares turn into Common Stock.
-
-What does mandatory conversion mean? That the conversion happens automatically, when some other condition is met. Neither the Company nor the Series Seed Holders can block the conversion.
-
-What conditions trigger mandatory conversions? It turns out there are three possible triggers.
-
-First trigger: there is an IPO -- an Initial Public Offering. Shares of the company are sold to the public in a public offering.
-
-Second trigger: a certain voting majority of the Series Seed Holders agree to 
-
-If any of these triggers occurs, then mandatory conversion follows.
-
-*** Example 2A: Conversion
-#+NAME: 2A conversion clause retrieval
-#+BEGIN_SRC js
-var clauses = investment.clauses_matching("conversion");
-#+END_SRC
-
-returns
-
-#+NAME: 2B conversion clause content
-#+BEGIN_SRC js
-  [ { clauseName: { "en-US": "Mandatory Conversion" },
-      handler: function(events) {
-    for (var event_i in events) {
-      var event = events[event_i];
-      var parties = event.parties;
-      var respect = event.respect; // party with deontic obligation perspective
-      if (event.name == "IPO" ||
-          event.name == "classVote") {
-        var company = this;
-      }
-    }
-      }
-    } ]
-#+END_SRC
-
-
-*** Example 2B: 
-
 ** Prerequisites
 To understand this section, you should:
 - be reading Ken Adams, A Manual of Style for Contract Drafting
@@ -205,7 +110,7 @@ Our approach departs from the prior art in a key way: we treat contract formaliz
 
 What does that mean?
 
-Let's take [[http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfcfr/CFRSearch.cfm?FR=610.40][an example of regulatory verbiage]]:
+Let's take [[http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfcfr/CFRSearch.cfm?FR=610.40][an example of regulatory verbiage]] which was the subject of a paper ([[http://wyner.info/research/Papers/2013/WynerICAIL2013Tutorial.pdf][with slides]]) by Peters & Wyner ([[https://legalinformatics.wordpress.com/2011/11/11/wyner-and-peters-on-rule-extraction-from-regulations/][blog post]], [[http://wyner.info/research/Papers/2014/NL_DeonticConcepts_Lux_2014.pdf][more slides on deontics]]):
 
 #+BEGIN_QUOTE
 Except as specified in paragraph c, you, an establishment that collects blood, must test each donation of human blood that is intended for use in preparing a product for evidence of infection due to the following communicable disease agents:
@@ -414,6 +319,8 @@ The academic literature has explored the formalization of regulations, typically
 
 The academic literature has explored the automation of the formalization of regulations, using software like GATE.
 
+At least one commercial effort, acquired by Oracle as [[https://redstack.wordpress.com/2010/08/03/creating-rules-in-oracle-policy-automation/][Oracle Policy Automation]] has resulted in an expert system [[https://en.wikipedia.org/wiki/Business_rule_management_system][BRMS]] which parses structured natural language and builds a query wizard.
+
 The research community has begun to explore the formalization of private contracts -- "computable contracts" or "smart contracts" -- which express the semantics of a contract in a form executable by machine. The crucial distinction between a program expressing business logic, and a computable or smart contract, is that the contract itself, as a program, is granted executive agency, in the same way that a power of attorney might be granted to a third party, and, once invoked, is capable of effecting changes in the real world. Furthermore, the language in which a smart contract is written must be rich enough to express general computation, and not overly limited to specific domains.
 
 ** Novelties
@@ -473,6 +380,102 @@ In /introspection mode/, running a contract with a null proposal, and a party se
 ** Respect
 
 Proposal evaluation occurs with respect to a given counterparty. In the context of a given proposition, a given counterparty may not care about a given actor's event.
+
+** Examples Under Construction
+*** Contract-Level Examples
+**** Example 1A: definition
+#+NAME: 1A round definition series seed
+#+BEGIN_SRC js
+  var investment = newRound( {
+    security: "SeriesSeed",
+    parties: {
+      company: "MyCompany",
+      new_investors: [ { name: "Alice", commitment: 100000 },
+                       { name: "Bob",   commitment:  50000 },
+                       { name: "Carol", commitment:  20000 } ] },
+    terms: {
+      pre_money_valuation: 10000000,
+      round_size:           1000000,
+      esop:                      15
+    }
+  } );
+#+END_SRC
+
+This is the formal representation defining a simple Series Seed investment round. The meat of the definition is your basic JSON data structure, which could be constructed by a UI or read out of a spreadsheet.
+
+**** Example 1B: export to natural language
+#+NAME: 1B export natural
+#+BEGIN_SRC js
+investment.workflows().export_as({format:"XML", lang:"en-US"});
+#+END_SRC
+
+This outputs all the paperwork required to effect the round, in XML format, suitable for import into InDesign and subsequent output to PDF.
+
+In practice the workflows() method runs prerequisites(), agreements(), and filings().
+
+**** Example 1C: export to formal representation
+#+NAME: 1C export formal
+#+BEGIN_SRC js
+investment.agreements("shareholder").export_as(format:"javascript");
+#+END_SRC
+
+produces a bunch of Javascript. See the next example for a microscopic view of the clause-level exports.
+
+*** Clause-Level Examples
+
+The Series Seed v3.2 Certificate of Incorporation contains a clause:
+
+#+BEGIN_QUOTE
+Mandatory Conversion. Upon either (a) the closing of the sale of shares of Common Stock to the public in a firm-commitment underwritten public offering pursuant to a prospectus filed under the Securities and Futures Act or (b) the date and time, or the occurrence of an event, specified by vote or written consent of the Requisite Holders at the time of such vote or consent, voting as a single class on an as-converted basis (the time of such closing or the date and time specified or the time of the event specified in such vote or written consent,the <b><i>“Mandatory Conversion Time”</i></b>), (i) all outstanding shares of Series Seed Preferred Stock will automatically convert into shares of Common Stock, at the applicable ratio described in Section <xref to="conversionratio" /> as the same may be adjusted from time to time in accordance with Section <xref to="conversion" /> and (ii) such shares may not be reissued by the Company.
+#+END_QUOTE
+
+In this example, we'll see how Legalese represents that clause. In particular, we are interested in how the formal representation affords natural language generation.
+
+**** Exposition in Lay Terms
+
+The Gentle Reader may not be familiar with the semantics of this clause. If you need help understanding the clause, read on.
+
+The context: the Company's constitution defines a class of shares called "Series Seed". A class attribute is "mandatory conversion". This clause describes when mandatory conversion can happen.
+
+What does conversion mean? Series Seed shares turn into Common Stock.
+
+What does mandatory conversion mean? That the conversion happens automatically, when some other condition is met. Neither the Company nor the Series Seed Holders can block the conversion.
+
+What conditions trigger mandatory conversions? It turns out there are three possible triggers.
+
+First trigger: there is an IPO -- an Initial Public Offering. Shares of the company are sold to the public in a public offering.
+
+Second trigger: a certain voting majority of the Series Seed Holders agree to 
+
+If any of these triggers occurs, then mandatory conversion follows.
+
+**** Example 2A: Conversion
+#+NAME: 2A conversion clause retrieval
+#+BEGIN_SRC js
+var clauses = investment.clauses_matching("conversion");
+#+END_SRC
+
+returns
+
+#+NAME: 2B conversion clause content
+#+BEGIN_SRC js
+  [ { clauseName: { "en-US": "Mandatory Conversion" },
+      handler: function(events) {
+    for (var event_i in events) {
+      var event = events[event_i];
+      var parties = event.parties;
+      var respect = event.respect; // party with deontic obligation perspective
+      if (event.name == "IPO" ||
+          event.name == "classVote") {
+        var company = this;
+      }
+    }
+      }
+    } ]
+#+END_SRC
+
+
+**** Example 2B: 
 
 * Modeling the Execution
 the dependency and concurrency relationships between contracts and other documents, treating an individual document as a black box with just a blob of text and a bunch of signatures. it's the signatures we care about at this level.
