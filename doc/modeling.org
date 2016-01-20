@@ -265,22 +265,32 @@ In the Legalese Domain-Specific Language, we strike a balance between executabil
   rule bloodCollection {
       dealswith .bloodDonations [{}] ("donation of human blood")
  
-      (except moonphase_exception)
+    except (moonphaseException) {
+      rule governs e ("you") being { .is(establishment) that .does(collectsBlood) }
 
-      governs e ("you") being { .is(establishment) that .does(collectsBlood) }
-
-      e.must:
+      e.must ("Contagious Disease Test Requirement"):
           foreach bd in .bloodDonations that { .isForProduction? } {
               e.must.bloodTest ("test _O_ for evidence of infection due to :-e.CDA-:") {
                   O:bd against e.CDA.all }
           }
-
+    }
+      
     definitions:
       bd.isForProduction? ("is intended") = {
          bd.intents.contains("for use in preparing a product"
                              INCLUDING ("as a component of" OR "used to prepare") -> "a medical device")
       }
       e.CDA ("communicable disease agents") = ["HIV 1", "HTLV 1", "HTLV 2"]
+  }
+
+  exception moonphaseException (rule) {
+      if (moon.phase == "waxing crescent") { return true }
+      return false
+  }
+
+  exception moonphaseException ( [rule, e.must, bd] ) { // rules have parameter type & arity match. this specifies a certain subtree of the code path.
+      if (bd.bloodType == "O") { return true }
+      return false
   }
 #+END_SRC
 
