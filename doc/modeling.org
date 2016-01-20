@@ -274,7 +274,7 @@ In the Legalese Domain-Specific Language, we strike a balance between executabil
                   O:bd against e.CDA.all }
           }
     }
-      
+    
     definitions:
       bd.isForProduction? ("is intended") = {
          bd.intents.contains("for use in preparing a product"
@@ -284,13 +284,11 @@ In the Legalese Domain-Specific Language, we strike a balance between executabil
   }
 
   exception moonphaseException (rule) {
-      if (moon.phase == "waxing crescent") { return true }
-      return false
+      return (moon.phase == "waxing crescent")
   }
 
   exception moonphaseException ( [rule, e.must, bd] ) { // rules have parameter type & arity match. this specifies a certain subtree of the code path.
-      if (bd.bloodType == "O") { return true }
-      return false
+      return (bd.bloodType == "O")
   }
 #+END_SRC
 
