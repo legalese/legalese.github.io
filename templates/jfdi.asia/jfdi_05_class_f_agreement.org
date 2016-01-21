@@ -7,7 +7,9 @@ Why does vesting matter, and what are some of the conventions that have arisen?
 
 Much has been written on the subject. We won't repeat that here. [[https://www.google.com/search?q=startup+vesting+guide][Google is your friend]].
 
-The JFDI template currently supports Singapore jurisdiction.
+There are two specific resources you should read:
+- [[https://dl.dropboxusercontent.com/u/9544489/class%2520f%2520frog%2520vesting.pdf][How the Frogs Invented Vesting]]
+- [[http://venturehacks.com/articles/option-pool-shuffle][Option Pool Shuffle]]
 
 * By Jurisdiction
 
@@ -15,7 +17,11 @@ The JFDI template currently supports Singapore jurisdiction.
 
 In Singapore, IRAS has [[https://www.iras.gov.sg/IRASHome/Individuals/Foreigners/Working-out-your-taxes/What-is-Taxable-What-is-Not/Stock-Options/][a page on the tax treatment of stock options]].
 
+The JFDI template currently supports Singapore jurisdiction.
+
 *** Alternative Structures for Redemption
+
+There are many ways to set up a vesting scheme. Why did JFDI choose this particular point in the space of possibilities?
 
 **** Actual Shares vs Phantom Stock
 
