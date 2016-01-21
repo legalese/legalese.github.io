@@ -5,7 +5,7 @@ Founder vesting is implemented using Class F shares. The class definitions are f
 * Introduction to Vesting
 Why does vesting matter, and what are some of the conventions that have arisen?
 
-Much has been written on the subject. We won't repeat that here. [[https://www.google.com/search?q=startup+vesting+guide][Google is your friend]].
+Much has been written on the subject. We won't repeat that here. [[https://www.google.com/search?q=startup+founder+vesting+guide][Google is your friend]].
 
 There are two specific resources you should read:
 - [[https://dl.dropboxusercontent.com/u/9544489/class%2520f%2520frog%2520vesting.pdf][How the Frogs Invented Vesting]]
