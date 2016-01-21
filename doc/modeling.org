@@ -262,17 +262,17 @@ The code is much shorter and expressive of the intent of the regulation, at the 
 In the Legalese Domain-Specific Language, we strike a balance between executability and output to natural language:
 
 #+BEGIN_SRC text
-  rule bloodCollection {
-      dealswith .bloodDonations [{}] ("donation of human blood")
+  entity e has bloodDonations [{}] ("donation of human blood")
+  rule bloodCollection governs e ("you") being { .is?(establishment) that .does?(collectsBlood) } {
+    dealswith .bloodDonations
  
     except (moonphaseException) {
-      rule governs e ("you") being { .is(establishment) that .does(collectsBlood) }
-
-      e.must ("Contagious Disease Test Requirement"):
-          foreach bd in .bloodDonations that { .isForProduction? } {
-              e.must.bloodTest ("test _O_ for evidence of infection due to :-e.CDA-:") {
-                  O:bd against e.CDA.all }
-          }
+      e.must ("Contagious Disease Test Requirement") {
+        foreach bd in .bloodDonations that { .isForProduction? } {
+            e.must.bloodTest ("test _O_ for evidence of infection due to :-e.CDA-:") {
+                O:bd against e.CDA.all }
+        }
+      }
     }
     
     definitions:
@@ -338,7 +338,7 @@ The literature also has not explored the automated generation of private logics 
 
 At present, once business logic is encoded into an application, that logic is executed by machine, but the whys and wherefores that led to a particular outcome are often obscure. Our project will explain the rationale for any highlighted component.
 
-** Primitives
+** Primitives and Principles
 
 *** The Schema
 *** The Clause / Article / Section
@@ -400,6 +400,43 @@ In /introspection mode/, running a contract with a null proposal, and a party se
 ** Respect
 
 Proposal evaluation occurs with respect to a given counterparty. In the context of a given proposition, a given counterparty may not care about a given actor's event.
+
+** Defactorization
+
+Natural language contracts often "unroll the loop", exposing a huge chunk of code inline. When another caller wants to refer to the same code, that caller often simply refers to the code and defines deltas. Programming patterns like refactoring, modularization, and parameterization are beyond capabilities of natural language programmers, but are available to formalizations.
+
+If function definitions are unavailable under the "coding style" of the natural language legal forms, then we must mimic the bad practice.
+
+Some call this antipattern "defactoring" or "obfuscation" -- deliberately reducing abstraction.
+
+** Pattern Matching Mutation
+
+As with Lisp and other strongly homoiconic languages, we expose the syntax tree to itself.
+
+This means, if we define a rule:
+
+#+BEGIN_SRC text
+  entity hotel has toilets ("toilets")
+  rule toilets governs hotel {
+      dealswith .workingToilets = .toilets.filter(t){t.working == true} ("working toilets")
+      val numMaleToilets   ("the number of working male toilets")   = hotel.workingToilets.count(t){t.gender == "m"}
+      val numFemaleToilets ("the number of working female toilets") = hotel.workingToilets.count(t){t.gender == "f"}
+      val numUnisexToilets ("the number of working unisex toilets") = hotel.workingToilets.count(t){t.gender == "u"}
+      hotel.must ("toilets") {
+        if (numMaleToilets > 0) { numFemaleToilets >= numMaleToilets }
+        else                    { numUnisexToilets  > 0 }
+      }
+  }
+#+END_SRC
+
+We can clone and modify that rule, /mutatis mutandis/:
+
+#+BEGIN_SRC text
+  entity hotel has babyrooms ("baby changing stations")
+  rule babyrooms governs hotel = mutatis(hotel.rule(toilets))
+#+END_SRC text
+
+Which means, the same rule shall apply to baby changing stations, mutatis mutandis.
 
 ** Examples Under Construction
 *** Contract-Level Examples
