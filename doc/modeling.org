@@ -343,6 +343,13 @@ At present, once business logic is encoded into an application, that logic is ex
 *** The Schema
 *** The Clause / Article / Section
 *** The Definition
+*** Deontic Obligations
+*** Exceptions
+*** Mutatis Mutandis
+*** Action Pursuant To
+*** References
+*** The Event
+*** The Deemed Event
 
 ** Dimensions
 There are many ways to represent a given clause. Some dimensions of interest are:
@@ -367,12 +374,17 @@ Some clauses are limited in scope. A standalone clause does not modify, and is n
 
 Other clauses are highly coupled. A coupled clause explicitly modifies, or is explicitly modified by, another clause.
 
+** Modals
+factive, non-factive, contrafactive, alethic, epistemic, temporal, deontic.  see p. 133 of wyner tutorial 2013.
 ** Distributed Deontics
-
 A contract contains, among other things, a collection of deontic propositions (obligation, prohibition, permission). [[https://www.ietf.org/rfc/rfc2119.txt][RFC2119]] specifies the language "MUST", "MUST NOT", and "MAY" respectively.
 
 These propositions can be seen as a shotgun-spray of agency and consequence: parties committing to do or not do things, and if this happens, then that follows.
+** Conflict Resolution
+*** Specificity
+as with CSS, the most specific match wins.
 
+scope of a rule.
 ** Event Handling
 
 A clause contains one or more deontic statements that constrain the behaviour of the party or parties involved. We say that a party is /bound/ by contract.
