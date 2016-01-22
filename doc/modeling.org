@@ -403,7 +403,7 @@ Proposal evaluation occurs with respect to a given counterparty. In the context 
 
 ** Defactorization
 
-Natural language contracts often "unroll the loop", exposing a huge chunk of code inline. When another caller wants to refer to the same code, that caller often simply refers to the code and defines deltas. Programming patterns like refactoring, modularization, and parameterization are beyond capabilities of natural language programmers, but are available to formalizations.
+Natural language contracts often "unroll the loop", exposing a huge chunk of code inline. When another caller wants to refer to the same code, that caller often simply refers to the code and defines deltas. Programming patterns like refactoring, modularization, and parameterization are beyond the capabilities of natural language programmers, but are available to formalizations.
 
 If function definitions are unavailable under the "coding style" of the natural language legal forms, then we must mimic the bad practice.
 
@@ -417,14 +417,16 @@ This means, if we define a rule:
 
 #+BEGIN_SRC text
   entity hotel has toilets ("toilets")
-  rule toilets governs hotel {
+  rule toilets governs hotel ("Restroom Requirements") {
       dealswith .workingToilets = .toilets.filter(t){t.working == true} ("working toilets")
       val numMaleToilets   ("the number of working male toilets")   = hotel.workingToilets.count(t){t.gender == "m"}
       val numFemaleToilets ("the number of working female toilets") = hotel.workingToilets.count(t){t.gender == "f"}
       val numUnisexToilets ("the number of working unisex toilets") = hotel.workingToilets.count(t){t.gender == "u"}
-      hotel.must ("toilets") {
-        if (numMaleToilets > 0) { numFemaleToilets >= numMaleToilets }
-        else                    { numUnisexToilets  > 0 }
+      hotel.must ("the Flushagette Rule") {
+        (numUnisexToilets + numFemaleToilets) >= numMaleToilets
+      }
+      hotel.mustnot ("the Rosa Parks Rule") {
+        hotel.toilets.count(t){ t.has?("race") }
       }
   }
 #+END_SRC
@@ -433,10 +435,12 @@ We can clone and modify that rule, /mutatis mutandis/:
 
 #+BEGIN_SRC text
   entity hotel has babyrooms ("baby changing stations")
-  rule babyrooms governs hotel = mutatis(hotel.rule(toilets))
+  rule babyrooms governs hotel = mutatis(hotel.rule(toilets),babyrooms)
 #+END_SRC text
 
 Which means, the same rule shall apply to baby changing stations, mutatis mutandis.
+
+Languages like Io and ReFLect make this sort of thing very natural.
 
 ** Examples Under Construction
 *** Contract-Level Examples
