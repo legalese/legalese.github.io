@@ -1,7 +1,32 @@
 #+TITLE: Events
 
 * 2016-03-21 to 2016-03-25 Legalese Summit, Spring 2016, Singapore
-immediately following FOSSAsia.
+immediately following FOSSAsia -- see [[*2016-03-18 to 2016-03-20: FOSSAsia, Singapore][below]].
+
+** Goals
+Establish customer empathy for the early adopter segment -- the non-US founder of a tech startup raising funding or setting up an ESOP.
+
+Plan out critical path toward business success:
+- web app product development
+- funding either public or private
+- research project: expressive language required for efficient support for international jurisdictions
+- opensource rollout for both the code and the legals
+- marginally profitable revenue collection
+- for scale, all human interactions to be referred out to legal or consultant partners
+
+We will answer these questions:
+- Who else is working in this domain?
+- Why haven't they succeeded yet?
+- How long will this take?
+- What kind of organization do we need to build?
+- What resources do we need to acquire?
+- What deadlines?
+- What conferences, if any, shall we attend?
+- What core competitive advantage does the Legalese project have?
+
+For each project participant, we evaluate:
+- What level of commitment and contribution can we expect over the next 12 months?
+- What level of compensation will be required to deliver that commitment?
 
 ** Format
 Five days of afternoon sessions.
@@ -24,6 +49,8 @@ minefields and milestones
 **** overview of technology architecture, components, and backlog.
 **** roadmap overview: present and future
 **** working through an actual use case of the current product
+pretend you're a founder raising funding. put everyone in the shoes of the early adopter.
+
 first, use it as a user.
 
 then, install a dev environment and get set up as a developer.
