@@ -78,7 +78,7 @@ The resolution model does not claim to cover:
 **** Trusts
 **** Public Companies
 
-* Modeling the Drafting
+* Modeling the Drafting -- Semantics
 Within a contract, we deal with terms and content. This model cares about the conceptual/abstract representation, also known as the formal representation. It also cares about the physical text in a natural language. The physical text may include formatting instructions.
 
 ** Prerequisites
@@ -538,6 +538,57 @@ returns
 
 **** Example 2B: 
 
+* Modeling the Drafting -- Syntax
+** Different styles
+A given syntax may be styled in one or more ways. Different styles are possible. For example, one style might have the Signatures precede the Schedules; another might do it the other way.
+** Singapore Contract Style
+*** As a Prolog DCG
+a BNF syntax would be an equivalent specification.
+
+#+BEGIN_SRC prolog
+  decorated_contract -->
+      cover,
+      contract.
+
+  contract -->
+      dated, sep0,
+      between_parties, sep0,
+      recitals, sep1,
+      definitions, sep1,
+      terms, sep1,
+      boilerplate, sep0,
+      schedules, sep2,
+      signatures, sep2,
+      appendices.
+
+  dated --> ['This',document,is,dated,Date],
+            { contract_date(Date) }.
+
+  between_parties --> ['Between', Parties],
+                      { parties(Parties) }.
+
+  recitals --> ['Whereas', Recitals],
+               { recitals(Recitals) }.
+
+  definitions --> [].
+  terms --> [].
+  boilerplate --> [].
+  schedules --> [].
+  signatures --> [].
+  appendices --> [].
+
+  contract_date(Date(1,1,1901)).
+  parties(['Alice', 'Bob', 'Charlie']).
+  recitals(["Alice owes Bob money"]).
+
+  sep2 --> [chapter_separator].
+  sep1 --> [section_separator].
+  sep0 --> [paragraph_separator].
+
+
+    
+#+END_SRC
+** Adams Contract Style
 * Modeling the Execution
 the dependency and concurrency relationships between contracts and other documents, treating an individual document as a black box with just a blob of text and a bunch of signatures. it's the signatures we care about at this level.
 
