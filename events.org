@@ -60,6 +60,9 @@ overview of the issues list in github
 **** Lean Startup findings to date
 **** Wardley mapping of the legal informatics field
 **** competitor analysis
+Is this even a good idea at all?
+http://feld.com/archives/2010/04/failing-fast-at-standardized-seed-deal-documents.html
+
 *** Day 2B: Research -- Technical
 **** a longer review of prior art.
 **** areas of research required.
