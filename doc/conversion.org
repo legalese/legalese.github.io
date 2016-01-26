@@ -1,0 +1,356 @@
+#+TITLE: Conversion and an Equity Round
+
+When a startup raises an equity round, existing debt may convert to equity, and an ESOP pool may be established or reset. The incoming investors set constraints that determine the specifics of the round. Different constraints produces different specifics.
+
+If the terms of the conversion and of the new round are not clearly understood by all parties, [[http://www.askthevc.com/archives/2012/11/is-there-more-than-one-type-of-convertible-debt.html][the deal may fall through]]. It's important to get this stuff right, and this document (and program) is an attempt to get everybody on the same page so that misunderstandings are minimized, there is a true meeting of minds, and no mistakes or misrepresentations vitiate the agreement.
+
+This guide explains to a lay reader the mechanics of a typical equity investment round in which debt converts. It explains the minimum needed to understand the mechanics. For strategic context, follow the links.
+
+This guide includes (and is in fact [[https://en.wikipedia.org/wiki/Literate_programming][the authoritative source for]]) the working code Legalese uses to compute the evolution of the cap table.
+
+* Definitions
+
+To assist the programmer new to corporate finance, software analogs to corporate actions are /italicized/.
+
+** The Cap Table
+
+The "capitalization table" describes the entirety of all investments made in a company: every person with an interest in the company, whether equity or debt, is listed in the table. The cap table also describes "allocated but unissued" equity, such as reservations for an ESOP or phantom stock scheme.
+
+For a history of the corporate form, see [[http://www.amazon.com/Company-History-Revolutionary-Library-Chronicles/dp/0812972872/][Micklethwait & Wooldridge 2005]] and [[http://www.amazon.com/Corporation-That-Changed-World-Multinational/dp/0745331955/][Robins 2012]]. For a modern criticism, see [[http://www.amazon.com/Corporation-Pathological-Pursuit-Profit-Power/dp/0743247469/][Bakan 2005]].
+
+** Raising a Round of Funding
+The raising of a round may be viewed as a collection of /update modifications/ to the cap table. Those updates are usually /sequenced/: some of them must run together in an /atomic block/, and those blocks are /ordered/. Subsequent blocks may depend on earlier blocks.
+
+** Ordinary Shareholders of Common Stock
+
+Typically founders set up a company with only a single class of ordinary shares. This is the /base case/, or /superclass/.
+
+In Singapore, anyone can find a company's list of shareholders, using [[http://www.bizfile.gov.sg/][Bizfile]] to retrieve a business profile.
+
+For the purposes of this document, we consider stocks and shares to be the same thing, and common stock and ordinary shares represent the same notion. "Stock" is closer to the /class/ concept, and a share is an /instance/, but we often speak of a class of shares.
+
+In our example, two founders of the company own ordinary shares.
+
+#+BEGIN_SRC prolog :tangle yes
+% NumShares may be unbound if the instrument is debt.
+% Money may be unbound if it's reserved but not issued, as in the case of an ESOP reservation
+% captable(InvestorName, SecurityType, Money, NumShares).
+  captable(frog1, ordinary, 100, 100).
+  captable(frog2, ordinary, 200, 200).
+#+END_SRC
+
+As you can see, they are frogs, and they each paid $1 per share.
+
+** Preferred Stock, which may be Redeemable and/or Convertible
+
+A company may alter its constitution (/kernel/) to define (in its /class hierarchy/) new classes of shares which /extend/ the superclass with additional /properties/ which make the shares more attractive to investors. They are therefore called preferred or preference shares.
+
+One of those properties, or /attributes/, is the right to redemption -- for an investor to get their money back.
+
+Another attribute is that preferred shares may convert to other classes if certain conditions are met.
+
+In Singapore, all preference shareholders will also be listed in the Bizfile Profile.
+
+To see if a jurisdiction supports preference shares, look to its legislation. In Singapore, the Companies Act (Cap.50) describes all the attributes that must be defined:
+
+*** Rights of holders of preference shares to be set out in constitution
+
+#+BEGIN_QUOTE
+75.—(1)  No company shall allot any preference shares or convert any issued shares into preference shares unless there are set out in its constitution the rights of the holders of those shares with respect to
+- repayment of capital,
+- participation in surplus assets and profits,
+- cumulative or non-cumulative dividends,
+- voting and
+- priority of payment of capital and dividend
+in relation to other shares or other classes of preference shares.
+#+END_QUOTE
+
+** Debt, which is Redeemable and may be Convertible
+
+Instead of issuing equity to an investor, a startup may issue debt. Why would an investor prefer debt to even preference shares? Because if the startup fails, debtholders have seniority in getting their money back. But convertible debt has upside: if the startup does well and raises an equity round, the debt can convert to equity.
+
+Also, a debt round is often considered easier than an equity round -- hence [[https://blog.leapfunder.com/benefits-of-convertible-notes/]["convertible notes have won"]] -- though [[http://www.bothsidesofthetable.com/2010/08/30/is-convertible-debt-preferable-to-equity/][many]] [[http://www.sethlevine.com/archives/2010/08/has-convertible-debt-won-and-if-it-has-is-that-a-good-thing.html][dissenters]] [[http://www.bothsidesofthetable.com/2014/09/17/bad-notes-on-venture-capital/][argue]] that a priced equity round is better for both sides, if they are willing to do the work.
+
+Anyway, it is common to see some convertible debt in the cap table by the time a startup gets to its first equity round. Even after the first equity round a startup may pick up more debt in "bridge rounds" which again convert to equity when the next equity round happens. It's like black and white keys on a keyboard.
+
+In our example, three investors hold convertible notes, issued in a previous round for [[https://www.google.com/search?q=friends+family+fools][friends, family, and fools]].
+
+#+BEGIN_SRC prolog :tangle yes
+% captable(InvestorName, SecurityType, Money, NumShares).
+  % todo: add a third argument describing the convertible security type, and use that type to specify the other attributes
+captable(friend, convertibleNote, 5000, _).
+captable(family, convertibleNote, 2500, _).
+captable(fool,   convertibleNote, 7500, _).
+#+END_SRC
+
+** Other Instruments such as Warrants, Safes, and KISSes
+
+Sometimes an investor uses some other security instead of, or alongside, debt or equity -- some sort of option-like thingy that allows them to buy the company's stock in the future.
+
+For beasts of this nature in the startup arena, look to Y Combinator's [[http://www.ycombinator.com/documents/#safe][Safe]] or 500's [[http://500.co/kiss/][KISS]].
+
+** Restricted Vesting Stock
+
+Founders vest their shares. See [[https://dl.dropboxusercontent.com/u/9544489/class%2520f%2520frog%2520vesting.pdf][How the Frogs Invented Vesting]]. JFDI defines [[../templates/jfdi.asia/jfdi_05_class_f_agreement.org][Class F Redeemable Preferred Shares]] as the vesting mechanism.
+
+** ESOPs
+
+Employees vest their shares or stock options. We use the term "ESOP" to include all such kinds of employee share ownership or incentive plans.
+
+See [[http://venturehacks.com/articles/option-pool-shuffle][Option Pool Shuffle]] for how investors usually insist on an ESOP reservation, and the dilutive effects on the founders.
+
+In Singapore, see [[https://www.iras.gov.sg/IRASHome/Individuals/Foreigners/Working-out-your-taxes/What-is-Taxable-What-is-Not/Stock-Options/][the IRAS page]].
+
+#+BEGIN_SRC prolog :tangle yes
+skip_esop(true).
+#+END_SRC
+
+** Publicly available instruments have proliferated
+
+The most common types of investments are shown at http://www.legalese.io/blog/term-canvas-20150709.png
+
+Legalese plans to model all of the above classes of securities. So go ahead and set up your cap table with its debt, preferred, Safes, and KISSes. Legalese will show how the new round interacts with old securities.
+
+** Phantom Stock or Stock Appreciation Rights
+
+This is an alternative to issuing shares and then vesting them. [[http://www.forbes.com/sites/dking/2013/10/15/why-phantom-stock-can-be-better-than-real-stock/][Read more.]]
+
+Legalese does not model this at the present time.
+
+** As-Converted, Fully Diluted
+
+In many securities you will come across the term "[[https://www.andrew.cmu.edu/user/fd0n/55%2520Anti-dilution%2520Protection%2520Postscripts.htm][fully-diluted, as-if-converted]]". That means that an investor wants to use, as the basis for their calculations, the worst-case /view/ of the cap table. That view shows the cap table with the largest number of shareholders and the largest number of shares issued. So it imagines the ESOP being fully issued, the founder shares fully vested, any notes fully converted, any ratches fully exercised.
+
+** Stock with Valuation Adjustments
+
+What's a [[https://vcexperts.com/buzz_articles/1339][ratchet]] Sometimes a security will have *antidilution*: if a subsequent round raises at a lower price per share, the security will react by expanding, as though more shares had originally been issued at that lower price, or at some price in between the original price and the lower price.
+
+See also comments by [[http://venturehacks.com/articles/terms-that-hurt][Destin]] and by [[http://feld.com/archives/2005/03/term-sheet-anti-dilution.html][Feld]].
+
+* The Convertible Instrument
+
+Suppose the previous round's convertible note had the following parameters:
+
+** Valuation Cap (Cap)
+
+If the pre-money valuation in the converting round exceeds this number, then the Price Per Share Based On The Valuation Cap (PPS_Cap) will be this number divided by the fully diluted number of shares in the company prior to conversion.
+
+In this example, $500000.
+
+#+BEGIN_SRC prolog :tangle yes
+  valuation_cap(500000).
+  effective_premoney_valuation(P) :- valuation_cap(C), pre_money(P), C >  P.
+  effective_premoney_valuation(C) :- valuation_cap(C), pre_money(P), C =< P.
+  pps_cap(PPS) :- effective_premoney_valuation(PM), existing_shares(NumShares), PPS is PM / NumShares, format("  Valuation Cap price per share is ~w.~n", [PPS]).
+#+END_SRC
+
+** Discount (Discount)
+
+The Price Per Share Based On The Discount (PPS_Discount) is the price per share of the next round (PPS_Newround) less the discount.
+
+In this example, the discount is 20%.
+
+#+BEGIN_SRC prolog :tangle yes
+   discount(0.2).
+   discount_val(V) :- pre_money(PMV), discount(D), V is PMV * (1-D).
+   pps_discount(PPS) :-
+       discount_val(DV), existing_shares(ES),
+       PPS is DV / ES,
+       format("  Discounted price per share is ~w.~n", [PPS]).
+#+END_SRC
+
+** Effective Price Per Share (PPS_Effective)
+
+is the lower of PPS_Cap and PPS_Discount.
+
+#+BEGIN_SRC prolog :tangle yes
+  pps_effective(D) :- pps_discount(D), pps_cap(C), D =< C, format("  Discounted price per share ~w is cheaper.~n", [D]).
+  pps_effective(C) :- pps_discount(D), pps_cap(C), D  > C, format("  Valuation Cap price per share ~w is cheaper.~n", [C]).
+#+END_SRC
+
+** Dollar Amount (Converting_Amount)
+
+The amount invested by all the holders of convertible securities.
+
+#+BEGIN_SRC prolog :tangle yes
+  converting_amount(Sum) :-
+      aggregate_all(sum(Amount), captable(Name, convertibleNote, Amount, _), Sum),
+      format("  What dollar value of convertible notes are going to become equity? $~w~n", [Sum]).
+#+END_SRC
+
+* Converts To (Conversion_Shares)
+
+The instrument can convert to ordinary shares or to the equities issued in the new round.
+
+We assume that either way the number of shares is the same.
+
+Conversion_Shares = Converting_Amount / PPS_Effective.
+
+#+BEGIN_SRC prolog :tangle yes
+  converted_shares(Holder, Amount, Shares) :-
+      captable(Holder, convertibleNote, Amount, _),
+      pps_effective(PPS),
+      Shares is Amount / PPS.
+
+  conversion_shares(N) :-
+      converting_amount(A), pps_effective(PPS),
+      N is A / PPS,
+      format("  How many conversion shares will be created? ~w~n", [N]).
+#+END_SRC
+
+* The New Round
+
+** Percentage of Ownership
+
+Sometimes the incoming investor just says, I want to have P percent of the company in return for M money.
+
+#+BEGIN_SRC prolog :tangle percentage.pl~
+calc_method(percentage).
+desired_percentage(alice,0.25) :- new_investor(alice, Amount),
+format("Alice, who is investing $~w, wants to have 25% of the post.~n", [Amount]).
+#+END_SRC
+
+Sometimes the incoming investor will agree a pre-money valuation and let the chips fall where they may.
+#+BEGIN_SRC prolog :tangle fixedpre.pl~
+calc_method(fixedpre).
+#+END_SRC
+
+** Pre-Money Valuation
+
+The easiest case is where the incoming investor agrees on a pre-money valuation. In this case we use $600000.
+
+#+BEGIN_SRC prolog :tangle yes
+pre_money(600000) :- calc_method(fixedpre).
+#+END_SRC
+
+If the incoming investor is fixated on having a particular percentage of the post-money, then the pre-money valuation depends on a bunch of other factors.
+
+First we calculate the other investors coming into the new round. We know how much each is putting in, so we know what percentage they will have of the post.
+
+We add all those percentages together (in future together with the ESOP) to obtain the demanded percentage totals.
+
+We know the number of shares in the cap table prior to that point. That number includes post-conversion shares granted to the convertible note holders.
+
+We know the percentage by which the company is going to grow -- how many new shares are going to be issued.
+
+We know how much money the new investors are putting in.
+
+That allows us to calculate the pre-money valuation.
+
+#+BEGIN_SRC prolog :tangle yes
+  investor_percentage_totals(IPT) :- aggregate_all(sum(Percentage), desired_percentage(Name, Percentage), IPT).
+  new_round_percentage_post(NRPP) :- total_new_investor(Amounts), desired_percentage(Holder, Percentage), new_investor(Holder, Amount),
+ NRPP is Amounts / Amount * Percentage,
+format("  Together, the new investors will hold ~w of the post.~n", NRPP).
+
+  pre_money(Pre) :-
+  calc_method(percentage),
+  new_round_percentage_post(NRPP), total_new_investor(Amount),
+      Pre is Amount * ( 1 / NRPP - 1 ).
+
+
+  demanded_percentage_totals(DPT) :- investor_percentage_totals(IPT), skip_esop(true),                          DPT is IPT.
+  demanded_percentage_totals(DPT) :- investor_percentage_totals(IPT), skip_esop(false), esop_post_required(EP), DPT is IPT + EP.
+  undemanded_shares_percentage(PSP) :- PSP is 1 - PT.
+loose_investor(Name,Amount) :- new_investor(Name,Amount), \+ desired_percentage(Name,_).
+other_new_investor_amounts(Sum) :- aggregate(sum(Amount), Name, loose_investor(Name, Amount), Sum).
+other_new_investor_percentages(ONIP) :- other_new_investor_amounts(OtherAmounts), desired_percentage(Name, Percentage), new_investor(Name, Amount), ONIP is OtherAmounts / Amount * Percentage.
+new_percentage_totals(NPT) :- other_new_investor_percentages(ONIP), demanded_percentage_totals(DPT), NPT is DPT + ONIP.
+old_percentage_totals(OPT) :- new_percentage_totals(NPT), OPT is 1 - NPT.
+new_deemed_money(NDM) :- desired_percentage(Lead, Percentage), new_investor(Lead, NewMoney), new_percentage_totals(NPT), NDM is NPT / Percentage * NewMoney.
+dilution_allowance(DA) :- pre_money(PM), total_new_investor(TAI), DA is (TAI + PM) / PM.
+#+END_SRC
+
+** Amount invested by incoming investors
+
+There may be multiple investors. Each may invest a different amount.
+
+#+BEGIN_SRC prolog :tangle yes
+new_investor(alice, 60000).
+new_investor(bob, 20000).
+new_investor(carol, 10000).
+total_new_investor(Sum) :- aggregate_all(sum(Amount), new_investor(Name, Amount), Sum).
+new_issues(NH, NHAmount, NHShares) :- new_investor(NH, NHAmount), pps_newround(PPS), NHShares is NHAmount / PPS.
+total_new_issues(TNI) :- total_new_investor(Amount), pps_newround(PPS), TNI is Amount / PPS.
+#+END_SRC
+
+** Price Per Share
+
+#+BEGIN_SRC prolog :tangle yes
+  pps_newround(PPS) :-
+      existing_shares(NS),
+      conversion_shares(CS),
+      final_esop_pool_size(ESOPshares),
+      pre_money(N),
+      PPS is N / ( NS + CS + ESOPshares ),
+      format("The new round price per share = pre-money ~w / (~w existing shares + ~w conversion shares + ~w ESOP ) = ~w~n", [N, NS, CS, ESOPshares, PPS]).
+#+END_SRC
+
+** Number of Existing Shares
+
+Should include any conversions.
+
+#+BEGIN_SRC prolog :tangle yes
+  existing_shares(NS) :- aggregate_all(sum(Shares), captable(Name, ordinary, Money, Shares), NS),
+  aggregate_all(count, captable(Name, ordinary, Money, Shares), Count),
+  format("  Prior to the conversion, there are ~w existing ordinary shares held by ~w holders.~n", [NS, Count]).
+#+END_SRC
+
+* Deemed Capitalization
+
+** Allow for ESOP allocation.
+#+BEGIN_SRC prolog :tangle yes
+  esop_post_required(0.15).
+#+END_SRC
+
+Many investors require that an ESOP pool, as a percentage of post, be allocated.
+
+If there's already an ESOP pool reserved, they'll just keep the existing allocation.
+
+#+BEGIN_SRC prolog :tangle yes
+  esop_post_actual_percentage(ESOPpercentage).
+  initial_esop_pool_size(0). % if not already allocated.
+  minimum_esop_pool_size(N) :- dilution_allowance(DA), esop_post_required(EP), existing_shares(ES), conversion_shares(CS), N is ( ES + CS ) / ( 1 - EP ) * EP * DA.
+  esop_pool_grows_by(N) :- initial_esop_pool_size(IEPS), minimum_esop_pool_size(MEPS), IEPS  > MEPS, N is 0,
+  format("  The ESOP pool is already big enough (~w > ~w), not adding to allocation.~n", [IEPS, MEPS]).
+  esop_pool_grows_by(N) :- initial_esop_pool_size(IEPS), minimum_esop_pool_size(MEPS), IEPS =< MEPS, N is MEPS - IEPS,
+  format("  The ESOP pool needs to grow (~w < ~w) by ~w shares.~n", [IEPS, MEPS, N]).
+  final_esop_pool_size(ESOPshares) :- initial_esop_pool_size(IEPS), esop_pool_grows_by(EPGB), ESOPshares is IEPS + EPGB,
+  format("  The final ESOP pool size will be ~w.~n", [ESOPshares]).
+#+END_SRC
+
+
+* Deemed Valuation
+
+This is what the "option pool shuffle" talks about.
+
+There is a configuration option -- depending on the terms of the convertible security, the ESOP allocation (if any) might be dilutive or nondilutive to the convertible shareholders. The program doesn't account for this at the moment.
+
+* Putting it all together
+#+BEGIN_SRC prolog :tangle yes
+deal :-
+existing_shares(ES1),
+format("There are ~w existing shares:~n", ES1),
+foreach(captable(EH,ordinary,EHAmount,EHShares), format("- Ordinary Shareholder ~w has ~w shares.~n", [EH, EHShares])),
+converting_amount(Converting_Amount),
+format("$~w worth of convertible securities are going to convert:~n", Converting_Amount),
+foreach(captable(CH,convertibleNote,CHAmount,_), format("- ~w has $~w to convert.~n", [CH, CHAmount])),
+format("How many shares will they get for their money? That depends on the next-round company valuation.~n"),
+foreach(new_investor(NH,NHAmount), format("New investor ~w is putting in $~w.~n", [NH, NHAmount])),
+pre_money(PM), format("The new round has a pre-money valuation of $~w.~n", [PM]),
+pps_effective(PPSE), conversion_shares(ConvShares), format("So the existing convertible holders will convert at $~w/share to ~w shares.~n", [PPSE, ConvShares]),
+foreach(converted_shares(CH,CHAmount,CHShares), format("- ~w will convert $~w to ~w shares.~n", [CH, CHAmount, CHShares])),
+total_new_investor(NT), format("The new round will see a total of $~w come in.~n", [NT]),
+pps_newround(PPS), format("The new round is priced at $~w/share.~n", [PPS]),
+format("New shareholders will receive:~n"),
+foreach(new_issues(NH, NHAmount, NHShares), format("- ~w will get ~w shares for their $~w.~n", [NH, NHShares, NHAmount])),
+final_esop_pool_size(ESOPsize),
+total_new_issues(TNI),
+TotalCap is ES1 + ConvShares + TNI + ESOPsize,
+new_issues(alice, _, AliceShares), AlicePercentage is AliceShares / TotalCap * 100, format("Alice holds ~w%.~n", AlicePercentage),
+ESOPpercentage is ESOPsize / TotalCap,
+format("ESOP percentage post ~w / ~w is ~w~n", [ ESOPsize, TotalCap, ESOPpercentage ])
+.
+#+END_SRC
+
+
