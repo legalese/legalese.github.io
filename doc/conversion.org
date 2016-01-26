@@ -155,26 +155,40 @@ In this example, $500000.
 
 The Price Per Share Based On The Discount (PPS_Discount) is the price per share of the next round (PPS_Newround) less the discount.
 
-In this example, the discount is 20%.
+In this example, the discount is 30%.
+
+We have four equations with four unknowns: ppsNewround, conversionShares, ppsDiscount, newShares
+
+ppsDiscount = (1-discount) * ppsNewround
+ppsNewround = newMoney / newShares
+newShares / ( newShares + existingShares + conversionShares) = newRoundPercentagePost
+conversionShares = conversionAmount / ppsDiscount
+
+newRoundPercentagePost, discount, newMoney, existingShares, and conversionAmount are known.
+
+so, let's do the math.
+
+newShares = newRoundPercentagePost * ( newShares + existingShares + conversionShares)
+newShares = newRoundPercentagePost * newShares + newRoundPercentagePost * existingShares + newRoundPercentagePost * conversionShares
+newShares - newRoundPercentagePost * newShares = newRoundPercentagePost * existingShares + newRoundPercentagePost * conversionShares
+newShares * ( 1 - newRoundPercentagePost) = newRoundPercentagePost * existingShares + newRoundPercentagePost * conversionShares
+newShares * ( 1 - newRoundPercentagePost) = newRoundPercentagePost * existingShares + newRoundPercentagePost * (conversionAmount / ppsDiscount)
+newShares * ( 1 - newRoundPercentagePost) = newRoundPercentagePost * existingShares + newRoundPercentagePost * (conversionAmount / ((1-discount) * ppsNewround))
+newShares * ( 1 - newRoundPercentagePost) = newRoundPercentagePost * ( existingShares + (conversionAmount / ((1-discount) * ppsNewround)) )
+newShares * ( 1 - newRoundPercentagePost) = newRoundPercentagePost * ( existingShares + (conversionAmount / ((1-discount) * newMoney / newShares )) )
+
 
 #+BEGIN_SRC prolog :tangle yes
-   discount(0.3).
-   discount_val(V) :- pre_money(PMV), discount(D), V is PMV * (1-D).
-   pps_discount(PPS) :-
-       discount_val(DV), existing_shares(ES),
-       PPS is DV / ES,
-       format("  Discounted price per share is ~w.~n", [PPS]).
+  discount(0.3).
+  pps_discount(PPS) :-
+      discount(D),
+      total_new_money(TNM),
+      converting_amount(ConversionAmount),
+      existing_shares(ES),
+      PPS is ( (1-D) * TNM - ConversionAmount ) / ES,
+      format("  Discounted price per share is ~w.~n", [PPS]).
 #+END_SRC
 
-We have three equations with three unknowns: ppsNewround, conversionShares, ppsDiscount
-
-ppsDiscount = (1-discount) * ppsNewround;
-ppsNewround = newMoney / (existingShares + conversionShares);
-conversionShares = conversionAmount / ppsDiscount;
-
-discount, newMoney, existingShares, and conversionAmount are known.
-
-These are nonlinear equations for which a specialized solver is necessary.
 
 ** Effective Price Per Share (PPS_Effective)
 
@@ -239,14 +253,14 @@ There may be multiple investors. Each may invest a different amount. In our exam
 new_investor(alice, 2000000).
 %new_investor(bob,   20000).
 %new_investor(carol, 10000).
-total_new_investor(Sum) :- aggregate_all(sum(Amount), new_investor(Name, Amount), Sum).
+total_new_money(Sum) :- aggregate_all(sum(Amount), new_investor(Name, Amount), Sum).
 #+END_SRC
 
 How many shares should we issue to these investors? At what price per share?
 
 #+BEGIN_SRC prolog :tangle yes
 new_issues(NH, NHAmount, NHShares) :- new_investor(NH, NHAmount), pps_newround(PPS), NHShares is NHAmount / PPS.
-total_new_issues(TNI) :- total_new_investor(Amount), pps_newround(PPS), TNI is Amount / PPS.
+total_new_issues(TNI) :- total_new_money(Amount), pps_newround(PPS), TNI is Amount / PPS.
 #+END_SRC
 
 It turns out that the answer depends, as [[https://www.cooleygo.com/calculating-share-price-outstanding-convertible-notes/][Cooley explains]].
@@ -307,7 +321,7 @@ We add all those percentages together (in future we'll add the ESOP too). Now we
 
 #+BEGIN_SRC prolog :tangle yes
   investor_percentage_totals(IPT) :- aggregate_all(sum(Percentage), desired_percentage(Name, Percentage), IPT).
-  new_round_percentage_post(NRPP) :- total_new_investor(Amounts), desired_percentage(Holder, Percentage), new_investor(Holder, Amount),
+  new_round_percentage_post(NRPP) :- total_new_money(Amounts), desired_percentage(Holder, Percentage), new_investor(Holder, Amount),
                                      NRPP is Amounts / Amount * Percentage,
                                      format("  Together, the new investors will hold ~w of the post.~n", NRPP).
 #+END_SRC
@@ -317,7 +331,7 @@ The pre-money valuation must be the balance.
 #+BEGIN_SRC prolog :tangle yes
   pre_money(Pre) :-
       calc_method(percentage),
-      new_round_percentage_post(NRPP), total_new_investor(Amount),
+      new_round_percentage_post(NRPP), total_new_money(Amount),
       Pre is Amount * ( 1 / NRPP - 1 ).
 #+END_SRC
 
@@ -389,7 +403,7 @@ foreach(new_investor(NH,NHAmount), format("New investor ~w is putting in $~w.~n"
 pre_money(PM), format("The new round has a pre-money valuation of $~w.~n", [PM]),
 pps_effective(PPSE), conversion_shares(ConvShares), format("So the existing convertible holders will convert at $~w/share to ~w shares.~n", [PPSE, ConvShares]),
 foreach(converted_shares(CH,CHAmount,CHShares), format("- ~w's $~w becomes ~w shares.~n", [CH, CHAmount, CHShares])),
-total_new_investor(NT), format("The new round will see a total of $~w come in.~n", [NT]),
+total_new_money(NT), format("The new round will see a total of $~w come in.~n", [NT]),
 pps_newround(PPS), format("The new round is priced at $~w/share.~n", [PPS]),
 format("New shareholders will receive:~n"),
 foreach(new_issues(NH, NHAmount, NHShares), format("- ~w will get ~w shares for their $~w.~n", [NH, NHShares, NHAmount])),
