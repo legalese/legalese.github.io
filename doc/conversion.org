@@ -157,38 +157,14 @@ The Price Per Share Based On The Discount (PPS_Discount) is the price per share 
 
 In this example, the discount is 30%.
 
-We have four equations with four unknowns: ppsNewround, conversionShares, ppsDiscount, newShares
-
-ppsDiscount = (1-discount) * ppsNewround
-ppsNewround = newMoney / newShares
-newShares / ( newShares + existingShares + conversionShares) = newRoundPercentagePost
-conversionShares = conversionAmount / ppsDiscount
-
-newRoundPercentagePost, discount, newMoney, existingShares, and conversionAmount are known.
-
-so, let's do the math.
-
-newShares = newRoundPercentagePost * ( newShares + existingShares + conversionShares)
-newShares = newRoundPercentagePost * newShares + newRoundPercentagePost * existingShares + newRoundPercentagePost * conversionShares
-newShares - newRoundPercentagePost * newShares = newRoundPercentagePost * existingShares + newRoundPercentagePost * conversionShares
-newShares * ( 1 - newRoundPercentagePost) = newRoundPercentagePost * existingShares + newRoundPercentagePost * conversionShares
-newShares * ( 1 - newRoundPercentagePost) = newRoundPercentagePost * existingShares + newRoundPercentagePost * (conversionAmount / ppsDiscount)
-newShares * ( 1 - newRoundPercentagePost) = newRoundPercentagePost * existingShares + newRoundPercentagePost * (conversionAmount / ((1-discount) * ppsNewround))
-newShares * ( 1 - newRoundPercentagePost) = newRoundPercentagePost * ( existingShares + (conversionAmount / ((1-discount) * ppsNewround)) )
-newShares * ( 1 - newRoundPercentagePost) = newRoundPercentagePost * ( existingShares + (conversionAmount / ((1-discount) * newMoney / newShares )) )
-
-
 #+BEGIN_SRC prolog :tangle yes
   discount(0.3).
   pps_discount(PPS) :-
       discount(D),
-      total_new_money(TNM),
-      converting_amount(ConversionAmount),
-      existing_shares(ES),
-      PPS is ( (1-D) * TNM - ConversionAmount ) / ES,
-      format("  Discounted price per share is ~w.~n", [PPS]).
+      pps_newround(PPSNR),
+      PPS is (1-D) * PPSNR,
+      format("  Discounted price per share (~w off ~w) is ~w.~n", [D, PPSNR, PPS]).
 #+END_SRC
-
 
 ** Effective Price Per Share (PPS_Effective)
 
@@ -259,6 +235,8 @@ total_new_money(Sum) :- aggregate_all(sum(Amount), new_investor(Name, Amount), S
 How many shares should we issue to these investors? At what price per share?
 
 #+BEGIN_SRC prolog :tangle yes
+totalNewShares(TNS) :- existing_shares(ES), new_round_percentage_post(NRPP), converting_amount(CA), discount(D), total_new_money(TNM),
+TNS is ES / ( (1/NRPP-1) - CA / ((1-D) * TNM) ).
 new_issues(NH, NHAmount, NHShares) :- new_investor(NH, NHAmount), pps_newround(PPS), NHShares is NHAmount / PPS.
 total_new_issues(TNI) :- total_new_money(Amount), pps_newround(PPS), TNI is Amount / PPS.
 #+END_SRC
@@ -279,11 +257,19 @@ PricePerShare = pre_money / existing shares
 
 #+BEGIN_SRC prolog :tangle yes
   pps_newround(PPS) :-
+  calc_method(fixedpre),
       existing_shares(NS),
       conversion_shares(CS),
       pre_money(N),
       PPS is N / ( NS + CS ),
       format("The new round price per share = pre-money ~w / (~w existing shares + ~w conversion shares ) = ~w~n", [N, NS, CS, PPS]).
+
+  pps_newround(PPS) :-
+  calc_method(percentage),
+      total_new_money(TNM),
+      totalNewShares(TNS),
+      PPS is TNM / TNS,
+      format("The new round price per share = new money ~w / (~w new shares ) = ~w~n", [TNM, TNS, PPS]).
 #+END_SRC
 
 But there's usually some convertible debt to deal with. How do we deal with it?
@@ -339,6 +325,31 @@ That pre-money, mind you, includes all the conversion shares.
 
 And that implies: to calculate a price per share for the new investors, first we need to know how many conversion shares will result from conversion. That depends in turn on the cap and discount specified by the convertible note. By adopting a *post*-money perspective on the next round, we impose a post-money perspective on the conversion, too!
 
+We have four equations with four unknowns: ppsNewround, conversionShares, ppsDiscount, newShares.
+
+#+BEGIN_SRC python
+  ppsDiscount = (1-discount) * ppsNewround
+  ppsNewround = newMoney / newShares
+  newShares / ( existingShares + conversionShares) = newRoundPercentagePost / ( 1 - newRoundPercentagePost )
+  conversionShares = conversionAmount / ppsDiscount
+#+END_SRC
+
+newRoundPercentagePost, discount, newMoney, existingShares, and conversionAmount are known.
+
+So, let's do the math.
+
+#+BEGIN_SRC python
+newShares * (1-newRoundPercentagePost) = ( existingShares + conversionShares ) * newRoundPercentagePost
+newShares * (1-newRoundPercentagePost) = ( existingShares + conversionAmount / ppsDiscount ) * newRoundPercentagePost
+newShares * (1-newRoundPercentagePost) = ( existingShares + conversionAmount / ((1-discount) * ppsNewround) ) * newRoundPercentagePost
+newShares * (1-newRoundPercentagePost) = ( existingShares + conversionAmount / ((1-discount) * newMoney / newShares ) )
+newShares * (1-newRoundPercentagePost) / newRoundPercentagePost = ( existingShares + conversionAmount / ((1-discount) * newMoney / newShares ) )
+newShares * (1/newRoundPercentagePost-1) - existingShares = conversionAmount * newShares / ((1-discount) * newMoney)
+(1/newRoundPercentagePost-1) - existingShares/newShares = conversionAmount / ((1-discount) * newMoney)
+(1/newRoundPercentagePost-1) - conversionAmount / ((1-discount) * newMoney) = existingShares/newShares
+newShares = existingShares / (1/newRoundPercentagePost-1) - conversionAmount / ((1-discount) * newMoney)
+#+END_SRC
+
 Anyway, now that we have a "pre-money" valuation set, the convertible note has enough information to decide the lesser of the cap and the discount. From that we get the effective price per share, and from that we know the number of conversion shares.
 
 Now that we know the number of existing shares and conversion shares, we have a basis to calculate a price per share for the new investment.
@@ -357,6 +368,8 @@ Excludes conversion shares.
 #+END_SRC
 
 * ESOP Details
+
+This is still TODO. We need to allow for an ESOP, as a special case of other percentage-of-post holders.
 
 ** Allow for ESOP allocation.
 #+BEGIN_SRC prolog :tangle yes
