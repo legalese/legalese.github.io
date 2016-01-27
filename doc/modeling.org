@@ -555,10 +555,10 @@ a BNF syntax would be an equivalent specification.
       between_parties, sep0,
       recitals, sep1,
       definitions, sep1,
-      terms, sep1,
+      habendum, sep1,
       boilerplate, sep0,
       schedules, sep2,
-      signatures, sep2,
+      attestation, sep2,
       appendices.
 
   dated --> ['This',document,is,dated,Date],
@@ -571,11 +571,14 @@ a BNF syntax would be an equivalent specification.
                { recitals(Recitals) }.
 
   definitions --> [].
-  terms --> [].
+  habendum --> [].
   boilerplate --> [].
   schedules --> [].
-  signatures --> [].
+  attestation --> testimonium, signatures.
   appendices --> [].
+
+  testimonium --> [].
+  signatures --> [].
 
   contract_date(Date(1,1,1901)).
   parties(['Alice', 'Bob', 'Charlie']).
