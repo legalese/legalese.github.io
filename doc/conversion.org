@@ -393,7 +393,7 @@ Many investors require that an ESOP pool, as a percentage of post, be allocated.
 If there's already an ESOP pool reserved, they'll just keep the existing allocation.
 
 #+BEGIN_SRC prolog :tangle yes
-  esop_post_actual_percentage(ESOPpercentage).
+%   esop_post_actual_percentage(ESOPpercentage).
   initial_esop_pool_size(0). % if not already allocated.
   minimum_esop_pool_size(N) :- esop_post_required(EP), existing_shares(ES), conversion_shares(CS), N is ( ES + CS ) / ( 1 - EP ) * EP.
   esop_pool_grows_by(N) :- initial_esop_pool_size(IEPS), minimum_esop_pool_size(MEPS), IEPS  > MEPS, N is 0,

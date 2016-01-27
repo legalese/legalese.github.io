@@ -311,6 +311,108 @@ To output to French instead of English, we instruct Legalese with a basic mappin
 #+END_SRC
 
 
+** Some thoughts about the DSL
+(before reading Fowler's book on DSL)
+
+*** Primitives from Patterns
+One strategy for designing a DSL is to compile a list of common patterns in the domain itself; then construct a set of primitives that make it possible to express those patterns in a form as compact, or more compact than, the original text. This concept probably has a name but not knowing what it is (no wifi!) I would call it something like "expressive efficiency". That efficiency can probably be described using the usual duality of precision and recall.
+
+One pattern pair described by Jon Bing in "Let there be LITE" is the principle of textual replacement vs omnibus replacement. (History of Legal Informatics, Paliwala, p.24)
+
+**** How would textual replacement appear in the DSL?
+
+Textural replacement transforms the text.
+
+**** How would omnibus replacement appear in the DSL?
+
+Omnibus replacement transforms the interpretation.
+
+*** Some Cognitive Dimensions
+https://en.wikipedia.org/wiki/Cognitive_dimensions_of_notations
+*** Subjective Perspectives
+
+Maybe the fundamental principle of this language is the representation -- just as the fundamental premise of Closure is the sequence, or the fundamental premise of Erlang is the message-passing actor, or the fundamental premise of Unix is the pipeline.
+
+What is a representation?
+
+The Legalese DSL is functional.
+
+The Legalese DSL is also transactional: every object contains a history of how it came to be that way.
+
+A presentation is a pattern-match against any object or pattern of objects which satisfies a predicate. A representation may alter the matched presentation.
+
+In the trivial case a representation passes thru the original presentation, with only two addenda: the business tag and the system tag, indicating that the representation acted to filter the presentation. This vocabulary alludes to bitemporality, of course; there may be cases where a representation insists that it should not be logged, in which case we omit the business tag but leave in the system tag.
+
+Reputation has to be as cheap in Legalese as tail recursion is in Lisp, or as method chaining is in an object-oriented language.
+
+Perhaps an "imputation" would be as good a word as "representation".
+
+Every pattern represented includes the following properties:
+- imputer :: this identifies the code that originates the representation. It could be a clause in a regulation or contract.
+
+**** Examples
+
+
+
+**** Allusion
+
+Note: We allude to legal usages of "representation":
+- know all men by these presents
+- a lawyer represents a client
+- a party to a contract makes representations
+- a litigator makes a presentation of a 
+
+*** Functionality
+
+*** Versioning and Representaiton
+
+In Closure, Software Transactional Memory provides transactional integrity for variable references. This is a lot like locking in a database, or rollback transactions.
+
+In a bitemporal database, every fact is inflected with its valid time and system time.
+
+Now think of git as a huge ledger in a DAG that represents commits as transactions.
+
+Why not take STM to the next level, with fully versioned variables?
+
+In Legalese, Variable Versioning records the "varying" value of "variables" across representations.
+
+In the Legalese DSL, every fact resides in a database, or ledger, which is constructed on the fly from the Premises. The database as a whole is mutable, in the same way that Prolog's database is mutable through assertions and retractions, or a git repository is mutable through commits. However, individual facts in the database are immutable. They are the equivalent of scala's vals as opposed to vars.
+
+Variables are immutable; to mutate a variable, represent it. It then becomes the master HEAD.
+
+Yes, that means that representations grow as a DAG, just as a git repository is a DAG.
+
+*** Time and Space as Organizing Principles
+
+What is time? "The universe's way of keeping everything from happening at once." -- Sandman
+
+*** A specification language first, and an implementation language second
+
+The DSL expresses constraints and deontics.
+
+From the DSL it should be possible to evaluate a given scenario; the evaluation should return the status compliance with deontics, and also the status of breach / voidable / void / performed / part performed.
+
+From the DSL it should also be possible to derive operable expressions from a party perspective -- for example, a security should offer triggers and handlers as callbacks which can be run against any future issue, or event, or scenario, or time.
+
+See also wikipedia:"Formal specification"
+
+*** Multiparadigm Support
+
+In [[http://www.amazon.com/Multi-Paradigm-Design-James-O-Coplien/dp/0201824671]["Multi-paradigm Design for C++"]] James Coplien describes how C++ supports multiple paradigms: classes, overloaded functions, templates, modules, ordinary procedural programming, and others.
+
+The patterns of lay legal contracts likewise span multiple paradigms: some more imperative, some are more declarative. Some describe state transitions on a core object or objects, with or without human input.
+
+To fit the domain, the DSL will have to allow multi-paradigm drafting.
+
+*** Implications for Reverse Engineering
+As we start to port lay contracts over, one principle that will aid drafting is to identify the dominant paradigm in each chunk of the "code".
+
+*** Homoiconicity Squared
+
+In homoiconic languages like Lisp, "code is data".
+
+In Legalese, "code execution is data" too -- the history of every computation is available. If we want to know how something got to be the way it is, we can trace current and past state.
+
 ** Legal Formalization: a Brief Overview
 
 In an application, "business rules" and "business logic" are typically encoded in machine-executable form by a domain expert. Sometimes, DSLs are employed.
