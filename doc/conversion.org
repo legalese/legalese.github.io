@@ -29,19 +29,26 @@ Typically founders set up a company with only a single class of ordinary shares.
 
 In Singapore, anyone can find a company's list of shareholders, using [[http://www.bizfile.gov.sg/][Bizfile]] to retrieve a business profile.
 
-For the purposes of this document, we consider stocks and shares to be the same thing, and common stock and ordinary shares represent the same notion. "Stock" is closer to the /class/ concept, and a share is an /instance/, but we often speak of a class of shares.
+For the purposes of this document, we consider stocks and shares to be the same thing, and common stock and ordinary shares represent the same notion. "Stock" is what a linguist would call an uncountable noun, like water. A share is an /instance/ of a particular class of shares -- or of a class of stock.
 
 In our example, two founders of the company own ordinary shares.
 
 #+BEGIN_SRC prolog :tangle yes
-% Money may be unbound if it's reserved but not issued, as in the case of an ESOP reservation
-% captable(InvestorName, SecurityType, Money, NumShares). If the instrument is debt, NumShares = "debt".
-:- dynamic captable/4.
-  captable(frog1, ordinary, 100, 100000).
-  captable(frog2, ordinary, 900, 900000).
+  % Money may be unbound if it's reserved but not issued, as in the case of an ESOP reservation
+  % captable(InvestorName, SecurityType, Money, NumShares). If the instrument is debt, NumShares = "debt".
+  :- dynamic captable/4.
+  :- discontiguous captable/4.
+  captable(frog1, ordinary, 40, 400000).
+  captable(frog2, ordinary, 60, 600000).
 #+END_SRC
 
-As you can see, they are frogs, and they each paid $1 per share.
+As you can see, they are frogs, and they each paid $0.0001 per share. Yes, you can do that.
+
+#+BEGIN_SRC prolog :tangle yes
+  existing_shares(NS) :- aggregate_all(sum(Shares), equity(Name, _, Money, Shares), NS),
+  aggregate_all(count, captable(Name, ordinary, Money, Shares), Count),
+  format("  Prior to the conversion, there are ~w existing equity shares held by ~w holders.~n", [NS, Count]).
+#+END_SRC
 
 ** Preferred Stock, which may be Redeemable and/or Convertible
 
@@ -50,6 +57,8 @@ A company may alter its constitution (/kernel/) to define (in its /class hierarc
 One of those properties, or /attributes/, is the right to redemption -- for an investor to get their money back.
 
 Another attribute is that preferred shares may convert to other classes if certain conditions are met.
+
+In this example, the company will issue, and new investors will purchase, preferred shares for the first time in the company's history.
 
 In Singapore, all preference shareholders will also be listed in the Bizfile Profile.
 
@@ -75,7 +84,7 @@ Also, a debt round is often considered easier than an equity round -- hence [[ht
 
 Anyway, it is common to see some convertible debt in the cap table by the time a startup gets to its first equity round. Even after the first equity round a startup may pick up more debt in "bridge rounds" which again convert to equity when the next equity round happens. It's like black and white keys on a keyboard.
 
-In our example, three investors hold convertible notes, issued in a previous round for [[https://www.google.com/search?q=friends+family+fools][friends, family, and fools]].
+In our example, three investors hold convertible notes, issued in a previous round for [[https://www.google.com/search?q=friends+family+fools][friends, family, and fools]], in which the company raised $1M in funding, by issuing $1M in debt -- convertible debt.
 
 #+BEGIN_SRC prolog :tangle yes
 % captable(InvestorName, SecurityType, Money, NumShares).
@@ -90,6 +99,12 @@ Sometimes an investor uses some other security instead of, or alongside, debt or
 
 For beasts of this nature in the startup arena, look to Y Combinator's [[http://www.ycombinator.com/documents/#safe][Safe]] or 500's [[http://500.co/kiss/][KISS]].
 
+For now we say that an equity instrument is something that has a specific number of shares. Debt don't.
+
+#+BEGIN_SRC prolog :tangle yes
+  equity(Name, _, Money, Shares) :- captable(Name, _, Money, Shares), number(Shares).
+#+END_SRC
+
 ** Restricted Vesting Stock
 
 Founders vest their shares. See [[https://dl.dropboxusercontent.com/u/9544489/class%2520f%2520frog%2520vesting.pdf][How the Frogs Invented Vesting]]. JFDI defines [[../templates/jfdi.asia/jfdi_05_class_f_agreement.org][Class F Redeemable Preference Shares]] as the vesting mechanism.
@@ -102,6 +117,8 @@ See [[http://venturehacks.com/articles/option-pool-shuffle][Option Pool Shuffle]
 
 In Singapore, see [[https://www.iras.gov.sg/IRASHome/Individuals/Foreigners/Working-out-your-taxes/What-is-Taxable-What-is-Not/Stock-Options/][the IRAS page]].
 
+Meng is in the middle of adding ESOP functionality to the software. For now we skip anything to do with ESOP.
+
 #+BEGIN_SRC prolog :tangle yes
 skip_esop(true).
 #+END_SRC
@@ -110,7 +127,7 @@ skip_esop(true).
 
 The most common types of investments are shown at http://www.legalese.io/blog/term-canvas-20150709.png
 
-Legalese plans to model all of the above classes of securities. So go ahead and set up your cap table with its debt, preferred, Safes, and KISSes. Legalese will show how the new round interacts with old securities.
+Legalese plans to model all of the above classes of securities. Soon you will be able to go ahead and set up your cap table with its debt, preferred, Safes, and KISSes. Legalese will show how the new round interacts with old securities.
 
 ** Phantom Stock or Stock Appreciation Rights
 
@@ -138,7 +155,7 @@ Suppose the previous round's convertible note has both cap and discount:
 
 If the pre-money valuation in the converting round exceeds this number, then the Price Per Share Based On The Valuation Cap (PPS_Cap) will be this number divided by the fully diluted number of shares in the company prior to conversion.
 
-In this example, $500000.
+In this example, we set it to twenty million.
 
 #+BEGIN_SRC prolog :tangle yes
   valuation_cap(20000000).
@@ -183,13 +200,19 @@ The dollar amount invested by all the holders of convertible securities.
 
 #+BEGIN_SRC prolog :tangle yes
   converting_amount(Sum) :-
-      aggregate_all(sum(Amount), captable(Name, convertibleNote, Amount, debt), Sum),
+      aggregate_all(sum(Amount), captable(_, convertibleNote, Amount, debt), Sum),
       format("  What dollar value of convertible notes are going to become equity? $~w~n", [Sum]).
 #+END_SRC
 
 * Converts To (Conversion_Shares)
 
-The instrument can convert to ordinary shares or to the equities issued in the new round. Either way the number of shares is the same.
+Convertible debt can convert to ordinary shares or to the equities issued in the new round. Either way the number of shares is the same.
+
+Usually it converts to the next round equity. Rarely it converts to common.
+
+#+BEGIN_SRC prolog :tangle yes
+  convert_to(nextRoundEquity).
+#+END_SRC
 
 Conversion_Shares = Converting_Amount / PPS_Effective.
 
@@ -217,19 +240,19 @@ Conversion_Shares = Converting_Amount / PPS_Effective.
 
 Read https://www.cooleygo.com/calculating-share-price-outstanding-convertible-notes/ to gain a sense of the three major approaches to capitalizing conversion.
 
-http://www.feld.com/archives/2015/06/pre-money-vs-post-money-confusion-convertible-notes.html
-
 * If the notes convert up, do they cap the LP in the resulting security?
+
+http://www.feld.com/archives/2015/06/pre-money-vs-post-money-confusion-convertible-notes.html
 
 * The New Round has Investors
 
 There may be multiple investors. Each may invest a different amount. In our example we have new investors alice, bob, and carol.
 
 #+BEGIN_SRC prolog :tangle yes
-new_investor(alice, 2000000).
-%new_investor(bob,   20000).
-%new_investor(carol, 10000).
-total_new_money(Sum) :- aggregate_all(sum(Amount), new_investor(Name, Amount), Sum).
+new_investor(alice, 1000000).
+new_investor(bob,   500000).
+new_investor(carol, 500000).
+total_new_money(Sum) :- aggregate_all(sum(Amount), new_investor(_, Amount), Sum).
 #+END_SRC
 
 How many shares should we issue to these investors? At what price per share?
@@ -295,8 +318,8 @@ Sometimes the incoming investor says, I want to have P percent of the company in
 
 #+BEGIN_SRC prolog :tangle percentage.pl~
 calc_method(percentage).
-desired_percentage(alice,Desired) :- new_investor(alice, Amount), Desired is 0.2, CD is Desired * 100,
-format("Alice, who is investing $~w, wants to have ~w% of the post.~n", [Amount,CD]).
+desired_percentage(alice,Desired) :- new_investor(alice, Amount), Desired is 0.1, DC is Desired * 100,
+format("Alice, who is investing $~w, wants to have ~w% of the post.~n", [Amount,DC]).
 #+END_SRC
 
 How do we calculate the pre-money valuation?
@@ -306,7 +329,7 @@ First we look at all the other investors coming into the new round. We know how 
 We add all those percentages together (in future we'll add the ESOP too). Now we know what percentage of post the new investors represent.
 
 #+BEGIN_SRC prolog :tangle yes
-  investor_percentage_totals(IPT) :- aggregate_all(sum(Percentage), desired_percentage(Name, Percentage), IPT).
+  investor_percentage_totals(IPT) :- aggregate_all(sum(Percentage), desired_percentage(_, Percentage), IPT).
   new_round_percentage_post(NRPP) :- total_new_money(Amounts), desired_percentage(Holder, Percentage), new_investor(Holder, Amount),
                                      NRPP is Amounts / Amount * Percentage,
                                      format("  Together, the new investors will hold ~w of the post.~n", NRPP).
@@ -356,17 +379,6 @@ Now that we know the number of existing shares and conversion shares, we have a 
 
 ** Converting with the Dollars-Invested Method
 this is the third method in the Cooley doc, but we aren't going to deal with it right now.
-** Number of Existing Shares
-
-Excludes conversion shares.
-
-#+BEGIN_SRC prolog :tangle yes
-  equity(Name, _, Money, Shares) :- captable(Name, _, Money, Shares), number(Shares).
-  existing_shares(NS) :- aggregate_all(sum(Shares), equity(Name, _, Money, Shares), NS),
-  aggregate_all(count, captable(Name, ordinary, Money, Shares), Count),
-  format("  Prior to the conversion, there are ~w existing equity shares held by ~w holders.~n", [NS, Count]).
-#+END_SRC
-
 * ESOP Details
 
 This is still TODO. We need to allow for an ESOP, as a special case of other percentage-of-post holders.
@@ -407,7 +419,7 @@ The old securities are replaced by new securities.
 deal :-
 existing_shares(ES1),
 format("There are ~w existing shares:~n", ES1),
-foreach(captable(EH,ordinary,EHAmount,EHShares), format("- Ordinary Shareholder ~w has ~w shares.~n", [EH, EHShares])),
+foreach(captable(EH,ordinary,_,EHShares), format("- Ordinary Shareholder ~w has ~w shares.~n", [EH, EHShares])),
 converting_amount(Converting_Amount),
 format("$~w worth of convertible securities are going to convert:~n", Converting_Amount),
 foreach(captable(CH,convertibleNote,CHAmount,debt), format("- ~w has $~w to convert.~n", [CH, CHAmount])),
@@ -418,17 +430,18 @@ pps_effective(PPSE), conversion_shares(ConvShares), format("So the existing conv
 foreach(converted_shares(CH,CHAmount,CHShares), format("- ~w's $~w becomes ~w shares.~n", [CH, CHAmount, CHShares])),
 total_new_money(NT), format("The new round will see a total of $~w come in.~n", [NT]),
 pps_newround(PPS), format("The new round is priced at $~w/share.~n", [PPS]),
-format("New shareholders will receive:~n"),
-foreach(new_issues(NH, NHAmount, NHShares), format("- ~w will get ~w shares for their $~w.~n", [NH, NHShares, NHAmount])),
-final_esop_pool_size(ESOPsize),
 total_new_issues(TNI),
-TotalCap is ES1 + ConvShares + TNI + ESOPsize,
-new_issues(alice, _, AliceShares), AlicePercentage is AliceShares / TotalCap * 100, format("Alice holds ~w%.~n", AlicePercentage),
-ESOPpercentage is ESOPsize / TotalCap,
-format("ESOP percentage post ~w / ~w is ~w~n", [ ESOPsize, TotalCap, ESOPpercentage ]),
-edit_captable(Holder,convertibleNote,Amount,Shares),
-listing(captable)
-.
+format("New shareholders will receive ~w shares:~n", TNI),
+foreach(new_issues(NH, NHAmount, NHShares), format("- ~w will get ~w shares for $~w.~n", [NH, NHShares, NHAmount])),
+TotalCap is ES1 + ConvShares + TNI, % + ESOPsize,
+new_issues(alice, _, AliceShares), AlicePercentage is AliceShares / TotalCap * 100, format("Alice holds ~w%.~n", AlicePercentage).
+
+% ESOPpercentage is ESOPsize / TotalCap,
+% final_esop_pool_size(ESOPsize),
+% format("ESOP percentage post ~w / ~w is ~w~n", [ ESOPsize, TotalCap, ESOPpercentage ]),
+% foreach(captable(Holder,convertibleNote,Amount,Shares), edit_captable(Holder,convertibleNote,Amount,Shares)),
+% listing(captable)
+% .
 #+END_SRC
 
 
