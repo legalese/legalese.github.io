@@ -81,7 +81,7 @@ The resolution model does not claim to cover:
 * Modeling the Drafting -- Semantics
 Within a contract, we deal with terms and content. This model cares about the conceptual/abstract representation, also known as the formal representation. It also cares about the physical text in a natural language. The physical text may include formatting instructions.
 
-** Prerequisites
+** Background Reading
 To understand this section, you should:
 - be reading Ken Adams, A Manual of Style for Contract Drafting
 - understand what a context-free grammar is, and be familiar with Backus-Naur Form
