@@ -132,7 +132,9 @@ http://2016.fossasia.org/
 ** Content
 1. use of opensource in legalese. gripes about academic prior art not being opensource.
 2. legalese itself being opensource, and comparisons to other infrastructure pieces like mysql/mariadb; the demographic of the opensource contributor as being both a user and a developer of the software, often as an adjunct to the day job
-3. legalese being a facilitator of "smart contracts" and contracts generally that are themselves opensource – blurring the line between creative commons and opensource content.(edited)
+3. legalese being a facilitator of "smart contracts" and contracts generally that are themselves opensource – blurring the line between creative commons and opensource content.
+4. some amusing remarks questioning who owns the copyright in a contract
+5. the situation with precedents is a lot like the state of software before opensource
 
 the inspiring theme here, perhaps, is that humans are the only animal to use language as a tool. this interpretation of humanity elevates poets, lawyers, and programmers.
 
