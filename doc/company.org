@@ -328,3 +328,12 @@ Legalese offers a number of products and services. Some of those products and se
 
 
 
+* Scalability
+
+This is a software project. If some kind of user request needs human support, and it looks like that class of user request is going to be recurring, we need to find a way to hand off that user request to a network of partners, e.g. law firms who have staff standing by. We focus only on components that are scalable through software.
+
+#+BEGIN_QUOTE
+It is the essence of computer science that if a methodology does not scale up, then it isn't a methodology at all.
+
+Robin Milner, /Is Computing an Experimental Science?/
+#+END_QUOTE
