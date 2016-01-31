@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# HOW TO GENERATE XML TEMPLATES
+# tweak in InDesign
+# map styles to tags
+# export to XML
+# run this on the exported file
+# will save the original to -orig.xml
+
+# requires xml_pp -- cpan install XML::Twig
+
+# originally a shell one-linef
+# 20160131-19:30:00 mengwong@venice2:~/non-db-src/l/www/templates/cub% perl -ple 's/<\/?i>//g; s/&#8221;/"/g; s/&#8220;/"/g; s/&#8217;/'"'"'/g;  ' < cub-shareholders-agreement.xml | xml_pp -s record  > cub_sha.xml
+
+mybase=`basename $1 .xml`
+orig=$mybase-orig.xml
+
+mv $1 $orig
+
+perl -ple 's/<\/?i>//g; s/&#8221;/"/g; s/&#8220;/"/g; s/&#8217;/'"'"'/g;  ' < $orig | xml_pp -s record  > $1
