@@ -402,6 +402,14 @@ In [[http://www.amazon.com/Multi-Paradigm-Design-James-O-Coplien/dp/0201824671][
 
 The patterns of lay legal contracts likewise span multiple paradigms: some more imperative, some are more declarative. Some describe state transitions on a core object or objects, with or without human input.
 
+#+BEGIN_QUOTE
+It would indeed be nice if some single logical language, with a single axiomatic base, were to satisfy all our needs, because then we could set about providing a tool kit of programs to assist designers in using this single calculus. [...]
+
+The different branches of mathematics are too various, and our linguistic invention too fertile for this kind of uniformity to be sustained. The subject matter of computation is equally various, so we would expect the same need for plurality; indeed Kim Larsen and I recently did a small experiment in process validation and found that, in the space of three or four pages, we needed three or four distinct formal calculi to express the natural proof succinctly.
+
+Robin Milner, /Is Computing an Experimental Science?/
+#+END_QUOTE
+
 To fit the domain, the DSL will have to allow multi-paradigm drafting.
 
 *** Implications for Reverse Engineering
