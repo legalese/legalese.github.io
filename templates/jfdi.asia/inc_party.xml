@@ -1,4 +1,7 @@
 <?=    newlinesToCommas(data._include.name) ?> (<?= data._include.idtype ?> <span_ucnum><?= data._include.id ?></span_ucnum>), <?
      if (data._include.party_type && data._include.party_type.toLowerCase() == "company") { ?>
-a company incorporated in <?= data._include.state ?> with its registered office at <?= newlinesToCommas(data._include.address) ?><?     } else { ?>
-a citizen of <?= data._include.state ?> receiving notices at <?= newlinesToCommas(data._include.address) ?><?     } ?>
+a company incorporated in <?= data._include.state ?> with its registered office at <?= newlinesToCommas(data._include.address) ?>
+<? if (data._include.snailmail_address) { ?> but receiving notices at <?= newlinesToCommas(data._include.snailmail_address) ?><? } ?>
+<?     } else { ?>
+<? var individual_address = data._include.snailmail_address || data._include.address; ?>
+a citizen of <?= data._include.state ?> receiving notices at <?= newlinesToCommas(individual_address) ?><?     } ?>
