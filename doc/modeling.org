@@ -783,4 +783,51 @@ To pass, a resolution must meet certain voting or signature requirements.
 
 The requirements may differ by subject matter.
 
-* SCHEMA
+* Legalese Katas
+
+These katas pose problems to be solved. They allow us to compare the solutuions proposed by different approaches -- DSLs, different languages, different paradigms.
+
+** Fundraising Tests
+see [[file:fundraising-tests.org]] for a test suite
+
+** Kata MD01: Modeling Drafting
+
+In a contract, change every instance of "Articles of Association" to "Constitutional Documents".
+
+** Kata MD02: Conditions Precedent
+
+#+BEGIN_QUOTE
+  The obligations of the parties under this Agreement shall be conditional upon the completion of the subscription for the Preference Shares being effected in accordance with the terms of the Investment Agreement.
+#+END_QUOTE
+
+** Kata MD03: Conflict Detection
+
+Detect the conflict between 3.1 vs 6.2 of http://legal.cf.sg/purchase_agreement_for_convertible_note/
+
+** Kata ML01: Modeling Legislation and Regulation
+
+As seen [[*Regulations and Contracts as Business Logic][above]]:
+
+#+BEGIN_QUOTE
+Except as specified in paragraph c, you, an establishment that collects blood, must test each donation of human blood that is intended for use in preparing a product for evidence of infection due to the following communicable disease agents:
+(1) Human immunodeficiency virus, type 1;
+(2) Human T-lymphotropic virus, type I, and
+(3) Human T-lymphotropic virus, type II.
+#+END_QUOTE
+
+*** Develop a formalism to represent the above text.
+
+*** Compile the formalism to the original English.
+
+**** Readings
+http://www.inf.ed.ac.uk/teaching/courses/nlg/
+
+*** Compile the formalism to a specification language.
+
+*** Compile the formalism to a programming language.
+
+*** Compile the formalism to a non-English natural language.
+
+** Kata MR01: Modeling Resolutions
+
+
