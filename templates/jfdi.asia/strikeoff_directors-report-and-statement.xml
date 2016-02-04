@@ -13,7 +13,7 @@
 
 
 </basic_para>
-<resolution_title>Directors' resolutions in writing&#8232;passed pursuant to Article <?= data.article_for_directors_resolution_in_writing ?> of the Company's Articles of Association</resolution_title>
+<resolution_title>Directors' resolutions in writing&#8232;passed pursuant to Article <?= data.article_for_directors_resolution_in_writing ?> of the Company's Constitution</resolution_title>
 
 <chapter_header override="startParagraph=StartParagraph.ANYWHERE">Directors' Report and Statement by Directors -- <?= data.shutdown_financial_period_end_date ?></chapter_header>
 <para_1><span_smallcaps>Resolved:---</span_smallcaps></para_1>

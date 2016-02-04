@@ -32,9 +32,10 @@ And concurrently with the issue of Class F Shares to the founders and shareholde
   <a_left_sidehead>Definitions </a_left_sidehead>
   <para_1>In this agreement, unless the context otherwise requires:- </para_1>
   <definition>Act	means the Singapore Companies Act (Cap. 50) and includes any provision thereof as from time to time modified or re-enacted; </definition>
-  <definition>Articles	means the Articles of Association of the Company; </definition>
+  <definition>Articles	means the Articles in the Constitution of the Company; </definition>
   <definition>Board	means the board of Directors for the time being of the Company; </definition>
   <definition>Change of Control	is as defined in the Articles; </definition>
+  <definition>Constitution	means the Constitution of the Company; </definition>
   <definition>Director	means a director of the Company for the time being, including where applicable an alternate director; </definition>
   <definition>Investor	means <span_ucnum>JFDI.2014</span_ucnum> Pte. Ltd.; </definition>
   <definition>JFDI	also means <span_ucnum>JFDI.2014</span_ucnum> Pte. Ltd.; </definition>
@@ -44,7 +45,6 @@ And concurrently with the issue of Class F Shares to the founders and shareholde
 <definition>Interest Rate	The <?=data.security_type_short_singular?> <? if (data.interest > 0) { ?>accrues <?= data.interest ?>% simple interest, to be payable in full on the earlier of the Maturity Date or the date on which the <?=data.security_type_short_singular?> is converted or redeemed in full,<?}else{?>carries no interest.<?}?></definition>
 <?}?>
   <definition>Trade Sale	means a sale of 75% or more of the voting share capital of the Company to a third party buyer; </definition>
-  <definition>Memorandum	means the Memorandum of Association of the Company; </definition>
   <definition>Ordinary Shares	means the ordinary shares in the capital of the Company; </definition>
   <definition>Shares	means shares in the capital of the Company whether ordinary or preferred; </definition>
 <? if (data.local_director) {?>  <definition>Unresponsiveness	in the context of a Donor / Donee relationship, means any of the following events:</definition>
@@ -80,10 +80,10 @@ taking all possible conversions, exercises of securities, and dilutions into acc
   <numbered_2_para>The Company shall within 14 days after the conversion date be obliged to allot, issue, and procure the transfer of the Conversion Shares to JFDI and/or its nominee(s), free from all liens, charges and encumbrances and with all rights attaching thereto. </numbered_2_para>
 <? if (data.security_type_operation == "exercise") {?><numbered_2_para>JFDI shall pay the Company the exercise price of the Warrant.</numbered_2_para><?}?>
   <numbered_2_para>Automatic <?=data.security_type_operation?> shall be deemed to have occurred immediately prior to the closing of the Next Financing Round. For the avoidance of doubt: JFDI shall enjoy pre-emptive rights (as described in Article <?= data.aa_preemptive_clause_number || "41" ?>), and related rights accorded to Members of the Company with respect to the Next Financing Round and to subsequent rounds. </numbered_2_para>
-  <numbered_2_para>The pre-emptive rights accruing to JFDI shall be transferable at JFDI's sole discretion to non-members notwithstanding Article <?= data.aa_preemptive_clause_number || "41" ?> of the Articles of Association; and the Founders shall procure such authorisation from the Members. </numbered_2_para>
+  <numbered_2_para>The pre-emptive rights accruing to JFDI shall be transferable at JFDI's sole discretion to non-members notwithstanding Article <?= data.aa_preemptive_clause_number || "41" ?> of the Constitution; and the Founders shall procure such authorisation from the Members. </numbered_2_para>
 <?if(data.security_type=="Convertible Note"){?>  <numbered_2_para>Should the <?=data.security_type_short_singular?> fail to <?=data.security_type_operation=="conversion"?"convert":"exercise"?> by the Maturity Date, JFDI may at any time thereafter redeem in full the outstanding principal <?if(data.interest){?>and accrued interest <?}?>of the <?=data.security_type_short_singular?>. </numbered_2_para>
 <?}?>
-  <numbered_2_para>The Company shall procure that the Existing Shareholders shall waive any and all rights of pre-emption which they have (or may have) with respect to the allotment and issue of the Conversion Shares to JFDI, whether pursuant to the Memorandum or Articles of Association of the Company, by contract or otherwise.</numbered_2_para>
+  <numbered_2_para>The Company shall procure that the Existing Shareholders shall waive any and all rights of pre-emption which they have (or may have) with respect to the allotment and issue of the Conversion Shares to JFDI, whether pursuant to the Constitution of the Company, by contract or otherwise.</numbered_2_para>
 <?if(data.security_type=="Convertible Note"){?><a_left_sidehead>Repayment </a_left_sidehead>
   <numbered_2_para>So long as the <?=data.security_type_short_singular?> has not been <?=data.security_type_operation=="conversion"?"converted":"exercised"?> pursuant to the terms set out in this <?=data.security_type_short_singular?>, if at any time and for any reason (and whether within or beyond the control of any party to this Agreement) any Event of Default has occurred, then at any time thereafter JFDI may by serving a Repayment Notice on the Company to declare the <?=data.security_type_short_singular?> to be immediately due and payable at the Repayment Amount. </numbered_2_para>
   <numbered_2_para>For the purposes of this <?=data.security_type_short_singular?>, the following events are Events of Default:--</numbered_2_para>
