@@ -56,10 +56,10 @@
 <definition_nonum>Business Day 	means a day (other than a Saturday or Sunday) on which commercial banks are open for business in Singapore;</definition_nonum>
 <definition_nonum>Company 	refers to <?!= include("inc_party",data,data.company) ?>;</definition_nonum>
 <definition_nonum>Companies Act 	means the Companies Act (Chapter 50 of Singapore);</definition_nonum>
-<definition_nonum>Constituent Documents 	means, with respect to the Company, the memorandum and articles of association of the Company, as may be amended, modified or supplemented from time to time, which the current version as of the date of this Agreement is excerpted in Schedule 1;</definition_nonum>
+<definition_nonum>Constituent Documents 	means, with respect to the Company, the constitution of the Company, as may be amended, modified or supplemented from time to time, which the current version as of the date of this Agreement is excerpted in Schedule 1;</definition_nonum>
 <definition_nonum>Conversion Shares 	means the new TradeGecko CPS or other shares to be issued upon conversion of the TGAS;</definition_nonum>
 <definition_nonum>Director 	means a director of the Company, as appointed from time to time;</definition_nonum>
-<definition_nonum>Encumbrance 	means any form of legal, equitable, or security interest, including but not limited to any mortgage, assignment, debenture, lien, charge, pledge, title retention, right to acquire, hypothecation, option, right of first refusal, pre-emption right (other than those which appear in a company's articles of association or constitutive document), any preference arrangement (including title transfers and retention arrangements or otherwise) or any other encumbrance or condition whatsoever or any other arrangements having similar effect;</definition_nonum>
+<definition_nonum>Encumbrance 	means any form of legal, equitable, or security interest, including but not limited to any mortgage, assignment, debenture, lien, charge, pledge, title retention, right to acquire, hypothecation, option, right of first refusal, pre-emption right (other than those which appear in a company's constitution), any preference arrangement (including title transfers and retention arrangements or otherwise) or any other encumbrance or condition whatsoever or any other arrangements having similar effect;</definition_nonum>
 <definition_nonum>Governmental Authority 	means any nation or government or any province or state or any other political subdivision thereof; any entity, authority or body exercising executive, legislative, judicial, regulatory or administrative functions of or pertaining to government, having jurisdiction over the applicable person or any of such person's properties;</definition_nonum>
 <definition_nonum>Ordinary Shares 	means the ordinary shares in the share capital of the Company;</definition_nonum>
 <definition_nonum>Ordinary Shareholder 	means a holder of Ordinary Shares;</definition_nonum>
@@ -96,7 +96,7 @@
 <a_left_sidehead>Conditions for Subscription</a_left_sidehead>
 
 <numbered_2_para>The issuance and subscription of the Subscription Shares is conditional upon the following Subscription Conditions:</numbered_2_para>
-<numbered_3_para>The TGA Share Class is amended into the Articles of Association.</numbered_3_para>
+<numbered_3_para>The TGA Share Class is amended into the Constitution.</numbered_3_para>
 <numbered_3_para>Members of the Company grant the Directors authority to issue the Subscription Shares.</numbered_3_para>
 <numbered_3_para>The Subscription Shares have been offered to Members of the Company entitled to receive such an offer.</numbered_3_para>
 <numbered_3_para>TradeGecko has offered the Company, and the Company has accepted, subscription for TradeGecko's CPS.</numbered_3_para>
@@ -139,7 +139,7 @@ The Subscription Price of the Subscription Shares shall be <?= data.price_per_sh
 
 <b_left_sidehead>Terms of TGAS</b_left_sidehead>
 
-<numbered_2_para>The rights and liabilities of the TGAS are specified in full in Clause 3B of the Articles of Association, annexed in Schedule 1.</numbered_2_para>
+<numbered_2_para>The rights and liabilities of the TGAS are specified in full in Clause 3B of the Constitution, annexed in Schedule 1.</numbered_2_para>
 
 <numbered_2_para>The principal feature of TGAS is convertibility. TGAS may be converted at any time, at the option of the TGAS Shareholder, but subject to limits set by TradeGecko on transfer and assignment, into Convertible Preference Share in TradeGecko, at the conversion ratio of 1:1 (adjusted as necessary to follow any share splits, combinations, conversion, restructuring and like events).</numbered_2_para>
 
@@ -272,9 +272,9 @@ The Subscription Price of the Subscription Shares shall be <?= data.price_per_sh
 <?!= include("inc_signature", data, data.company) ?>
 
 
-<schedule_header>Amendments to Articles of Association of the Company</schedule_header>
+<schedule_header>Amendments to Constitution of the Company</schedule_header>
 
-<para_1>The Company's Articles of Association are being amended to describe the TGAS.</para_1>
+<para_1>The Company's Constitution is being amended to describe the TGAS.</para_1>
 
 <?!= include("new_share_class_spec", data) ?>
 

@@ -1,4 +1,4 @@
-<ab_a_left_reset override="numberingContinue=false numberingStartAt=3">Changes to Clause 3 of the Articles of Association</ab_a_left_reset>
+<ab_a_left_reset override="numberingContinue=false numberingStartAt=3">Changes to Clause 3 of the Constitution</ab_a_left_reset>
 
 <para_1>Clause 3 currently titled "Class A Preference Shares" will be renumbered 3A.</para_1>
 
@@ -7,7 +7,7 @@
 <b_left_sidehead_nonum>Definitions</b_left_sidehead_nonum>
 <definition_nonum><?= data.security_type_short_plural ?>	means the <?= data.security_type ?> in the share capital of the Company, having the rights and being subject to the restrictions specified in these Articles described under "<?= data.security_type_plural ?>";</definition_nonum>
 <? if (data.shadows_an_underlying_security) { ?>
-<definition_nonum><?= data.underlying_security_short_plural ?>	means the <?= data.underlying_security_name ?> in the capital of <?!= include("inc_party", data, data.parties.startup[0]) ?> (the "Incubatee"), described in the Articles of Association of the Incubatee;</definition_nonum>
+<definition_nonum><?= data.underlying_security_short_plural ?>	means the <?= data.underlying_security_name ?> in the capital of <?!= include("inc_party", data, data.parties.startup[0]) ?> (the "Incubatee"), described in the Constitution of the Incubatee;</definition_nonum>
 <? } ?>
 
 <ab_a_left_sidehead override="numberingContinue=false numberingStartAt=2"><?= data.security_type_plural ?></ab_a_left_sidehead>

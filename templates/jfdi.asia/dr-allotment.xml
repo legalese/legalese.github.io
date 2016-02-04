@@ -33,7 +33,7 @@ data.parties.new_investor.map(function(p){return p.name})))) ?>,</para_2>
 </Table>
 </para_1>
 <a_left_sidehead>Share Certificates to be Issued</a_left_sidehead>
-<para_1>That the Common Seal of the Company be affixed in accordance with the Company's Articles of Association to the share certificate to be issued to the aforesaid <?= plural(Object.keys(newIssues.holders), "investor") ?>.</para_1>
+<para_1>That the Common Seal of the Company be affixed in accordance with the Company's Constitution to the share certificate to be issued to the aforesaid <?= plural(Object.keys(newIssues.holders), "investor") ?>.</para_1>
 <? } ?>
 
 <? var redemptions = data.capTable.getActiveRound().getRedemptions(); ?>
@@ -53,7 +53,7 @@ data.parties.new_investor.map(function(p){return p.name})))) ?>,</para_2>
 </Table>
 </para_1>
 <a_left_sidehead>Share Certificates to be Reissued</a_left_sidehead>
-<para_1>That the Common Seal of the Company be affixed in accordance with the Company's Articles of Association to any share certificates that may be reissued pursuant to the above redemption.</para_1>
+<para_1>That the Common Seal of the Company be affixed in accordance with the Company's Constitution to any share certificates that may be reissued pursuant to the above redemption.</para_1>
 <? } ?>
 
 <?!= include("inc_authority_to_bizfile", data, {what:"Return of Allotment of Shares"}) ?>

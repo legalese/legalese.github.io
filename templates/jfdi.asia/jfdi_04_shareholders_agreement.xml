@@ -34,10 +34,11 @@ in the spirit of mutual confidence and co-operation, the Parties have agreed to 
   <para_1>In this Agreement and in the Recitals abovementioned, unless the context otherwise requires:</para_1>
   <definition>Act	means the Singapore Companies Act (Cap. 50) and includes any provision thereof as from time to time modified or re-enacted;</definition>
   <definition>Agreement	(also <i>Shareholders' Agreement</i>) means this Agreement and shall include all modifications and supplements thereto from time to time in force;</definition>
-  <definition>Articles	means the Articles of Association of the Company;</definition>
+  <definition>Articles	means the Articles in the Constitution of the Company;</definition>
   <definition>Board	means the board of Directors for the time being of the Company;</definition>
   <definition>Business	means the business of the Company which is high-tech software product and service development;</definition>
   <definition>Change of Control	is as defined in the Articles;</definition>
+  <definition>Constitution	means the Constitution of the Company; </definition>
   <definition>Control	means the possession, direct or indirect, of the power to direct or cause the direction of the management and policies of a corporation, whether through the ownership of voting securities, by contract, or otherwise and derivative terms thereof (including <b>"Controlling"</b>, <b>"Controlled by"</b>; and "under common Control with") shall also bear such meaning as aforesaid. For the purpose of this definition, the holding of an interest (within the meaning of the Act) of more than 50% of the equity share capital of the relevant corporation shall be deemed to be "Control" of this corporation;</definition>
   <definition>Deed of Ratification	means a deed of ratification and accession whereby the signatory thereof enters into, becomes a party to and undertakes to be legally bound by the terms of this Agreement;</definition>
   <definition>Director	means a director of the Company for the time being, including where applicable an alternate director;</definition>
@@ -46,7 +47,6 @@ in the spirit of mutual confidence and co-operation, the Parties have agreed to 
   <definition>Investment	means the amount invested in the Company by the Investor in the form of the Convertible Note;</definition>
 <?}?>
   <definition>Trade Sale	means a sale of 75% or more of the issued Ordinary share capital of the Company to a third party buyer;</definition>
-  <definition>Memorandum	means the Memorandum of Association of the Company;</definition>
   <definition>Ordinary Shares	means the ordinary shares in the capital of the Company;</definition>
   <definition>Shareholders	means the Parties named above (excepting the Company) and shall include any other person who holds Shares in the Company and who has executed a Deed of Ratification and thereby become bound by the terms of this Agreement and "Shareholder" means such one of them as the case may be;</definition>
   <definition>Shares	means shares in the capital of the Company whether ordinary or preferred;</definition>
@@ -67,7 +67,7 @@ in the spirit of mutual confidence and co-operation, the Parties have agreed to 
   <numbered_3_para>recognizing different degrees of commitment and different levels of contribution from each Founder or Employee;</numbered_3_para>
   <numbered_3_para>respecting the need of each Founder or Employee to balance compensation between cash and equity; and</numbered_3_para>
   <numbered_3_para>amicably resolving scenarios in which one or more Founders or Employees leave the company.</numbered_3_para>
-  <numbered_2_para>Article <?= data.aa_preemptive_clause_number || "41" ?> of the Articles of Association confers pre-emptive rights on members of the Company. The Parties hereby waive their pre-emptive rights with regard to the issue of new Class F Shares provided that such issue occurs either as part of a vesting scheme or some other share option plan, share ownership plan, or equity-based remuneration scheme previously approved by the Company, or pursuant to a Compensation Adjustment and at the Discretionary Subscription Price as described in the Class F Agreement.</numbered_2_para>
+  <numbered_2_para>Article <?= data.aa_preemptive_clause_number || "41" ?> of the Constitution confers pre-emptive rights on members of the Company. The Parties hereby waive their pre-emptive rights with regard to the issue of new Class F Shares provided that such issue occurs either as part of a vesting scheme or some other share option plan, share ownership plan, or equity-based remuneration scheme previously approved by the Company, or pursuant to a Compensation Adjustment and at the Discretionary Subscription Price as described in the Class F Agreement.</numbered_2_para>
   <? } ?>
 
   <a_left_sidehead>Share Valuation Policy</a_left_sidehead>
@@ -96,7 +96,7 @@ in the spirit of mutual confidence and co-operation, the Parties have agreed to 
 <? } ?>
 
 <a_left_sidehead>Transferability of Rights</a_left_sidehead>
-  <numbered_2_para>The Articles of Association give shareholders pre-emptive rights (on the issue of new securities) and rights of first refusal (to purchase existing securities). These rights shall be transferable on a commercial basis, so that if a deal is oversubscribed, each holder of shares or convertible instruments can delegate their position to one or more favourite investors.</numbered_2_para>
+  <numbered_2_para>The Constitution give shareholders pre-emptive rights (on the issue of new securities) and rights of first refusal (to purchase existing securities). These rights shall be transferable on a commercial basis, so that if a deal is oversubscribed, each holder of shares or convertible instruments can delegate their position to one or more favourite investors.</numbered_2_para>
 <? if (data.previously_incorporated) { ?>
 
 <a_left_sidehead>Related Companies and Existing Proprietary Assets</a_left_sidehead>
@@ -143,7 +143,7 @@ any distribution of profits of the Company.</numbered_3_para>
 <? } ?>
 
 <a_left_sidehead>Alterations Due to External Financing</a_left_sidehead>
-  <numbered_2_para>A prospective investor may seek to alter both this Agreement and the Articles of Association as a condition of External Financing.</numbered_2_para>
+  <numbered_2_para>A prospective investor may seek to alter both this Agreement and the Constitution as a condition of External Financing.</numbered_2_para>
   <a_left_sidehead>Humility</a_left_sidehead>
   <numbered_2_para>The Founders acknowledge that the business may outgrow them, and that their primary commitment is to the success of the business. Should, one day, other leadership and management be better suited, the Founders agree to be reminded of this commitment.</numbered_2_para>
   <a_left_sidehead>Regarding Death and Disability</a_left_sidehead>

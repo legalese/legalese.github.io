@@ -26,7 +26,7 @@
 <? // if we are issuing an equity instrument then we can count the number of shares. debt instrument get denominated in dollar amounts. ?>
 <para_1>Notice is hereby given to all members of the Company that the Directors intend to issue up to <?= totalShares ? totalShares : totalCommitments+" of" ?> <?= data.security_type_plural ?> ("<?= data.security_type_short_plural ?>")<? if(data.price_per_share){?>, at a price of <?= data.price_per_share ?> per share<?}?><? if (totalShares) { ?>, for a total of <?= totalCommitments ?><? } ?>.</para_1>
 <? if (data.explanation) { ?><para_2><?= data.explanation ?></para_2><? } ?>
-<para_2>As a member of the Company, you possess the right under the Company's Articles of Association to participate in this issue.
+<para_2>As a member of the Company, you possess the right under the Company's Constitution to participate in this issue.
 <?if(data.preemptive_formality){?>We request that you waive this right, as your waiver is a necessary formality required for the Company to issue securities to <?=commaAnd(data.parties.new_investor,"name")?>.
 <?}else{?>
 <? Logger.log("attempting to calculate percentage for old_investor %s", data.shareholder.name); ?>
