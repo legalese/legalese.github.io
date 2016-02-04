@@ -35,7 +35,7 @@
 <? } else { ?> for cash consideration;
 subscription monies amounting to <?= newIssues.TOTAL.money ?> have been received by the Company in respect of the allotment of <?= newIssues.TOTAL.shares ?> <?= data.security_type_short_plural ?>;
 <? } ?>
-we have established the identity of the new <?= plural(Object.keys(newIssues.holders), "investor") ?>, <?= commaAnd(Object.keys(newIssues.holders)) ?>;
+we have established the identity of the <?= plural(Object.keys(newIssues.holders), "investor") ?>, <?= commaAnd(Object.keys(newIssues.holders)) ?>;
 and we confirm that all is in order. </numbered_2_para>
 
 <numbered_1_para>The details are as follows:</numbered_1_para>
