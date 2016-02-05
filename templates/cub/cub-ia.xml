@@ -1,21 +1,6 @@
 <?!= data.xml_declaration ?>
 <?!= data.xmlRoot() ?>
 <? var activeRound = data.capTable.getActiveRound(); ?>
-<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
-  <CoverTop>
-  </CoverTop>
-  <CoverMid>
-  </CoverMid>
-  <CoverMid>
-  </CoverMid>
-  <CoverBottom_Logotype>
-  </CoverBottom_Logotype>
-  <CoverBottom_Address>
-  </CoverBottom_Address>
-  <CoverBottom_series>
-  </CoverBottom_series>
-  <Firstpage_Sidebar delete_if_empty="true">
-  </Firstpage_Sidebar>
   <Story_Main>
     <chapter_header>Investment Agreement</chapter_header>
     <para_1><span_smallcaps><b>Made between:</b></span_smallcaps></para_1>
@@ -46,7 +31,7 @@
     <para_3_firstbold>"Completion Date" shall either be on <?=data.long_stop_date ?>, or on the Business Day falling five (5) Business Days after the fulfilment (or, as the case may be, waiver) of the last of the conditions precedent set out in Clause 2.1, or such other date as may be mutually agreed between the Parties;</para_3_firstbold>
     <para_3_firstbold>"Designated Bank Account" has the meaning ascribed thereto in Clause .2.5;</para_3_firstbold>
     <para_3_firstbold>"Directors" means the directors for the time being of the Company;</para_3_firstbold>
-    <para_3_firstbold>"Dollars" and the sign S" mean the lawful currency of Singapore;
+    <para_3_firstbold>"Dollars" and the sign S" mean the lawful currency of Singapore;</para_3_firstbold>
     <para_3_firstbold>"Equity Shares" has the meaning ascribed thereto in Recital (A);</para_3_firstbold>
     <para_3_firstbold>Founding Shareholders" means <?=data.parties.existing_investor ?>;</para_3_firstbold>
     <para_3_firstbold>Investor Director" means the members) of the Board for the time being and from time to time nominated by the Investor;</para_3_firstbold>
@@ -54,14 +39,14 @@
     <para_3_firstbold>"Key Management" refers to employees of the Company who has the authority to directly or indirectly plan and control business operations of the Company;</para_3_firstbold>
     <para_3_firstbold>"Ordinary Shares" means the ordinary shares issued and allotted by the Company from time to time pursuant to the Articles;</para_3_firstbold>
     <para_3_firstbold>"Preference Shares" means the preference shares (which shall include the Seed Preference Shares) issued and allotted by the Company from time to time pursuant to the Articles;</para_3_firstbold>
-    <para_3_firstbold>"Restructuring" has the meaning ascribed thereto in Clause <xref to="restructuring"/>;</para_3_firstbold>
-    <para_3_firstbold>"Seed Preference Shares" has the meaning ascribed thereto in Recital <xref to="seed_preference"/>;</para_3_firstbold>
+    <para_3_firstbold>"Restructuring" has the meaning ascribed thereto in Clause ;</para_3_firstbold>
+    <para_3_firstbold>"Seed Preference Shares" has the meaning ascribed thereto in Recital ;</para_3_firstbold>
     <para_3_firstbold>"Shareholders' Agreement" means the shareholders' agreement to be entered into between the Company, the Founding Shareholders and the Investors;</para_3_firstbold>
     <para_3_firstbold>"Shares" means the Ordinary Shares andor Preference Shares in the capital of the Company and Share" shall have the corresponding meaning;</para_3_firstbold>
     <para_3_firstbold>Subsidiary" has the meaning ascribed to it in the Act;</para_3_firstbold>
     <para_3_firstbold>"Taxation" means all forms of taxation whether of Singapore or elsewhere in the world, past, present and future (including, without limitation, capital gains tax, income tax, estate duty, profits tax, stamp duty, value added tax, purchase tax, goods and services tax, customs and other import or export duties) and all other statutory, governmental or state impositions, duties and levies and all penalties, charges, costs and interest relating to any Claim;</para_3_firstbold>
     <para_3_firstbold>"Transaction" includes any transaction, act, event or omission of whatever nature;</para_3_firstbold>
-    <para_3_firstbold>"Unaudited Accounts" means the management accounts of the Company on a consolidated basis for the period ended <?=data.long_stop_date ?>, a copy of all of which is set out in <xref to="appendix_a" />; and</para_3_firstbold>
+    <para_3_firstbold>"Unaudited Accounts" means the management accounts of the Company on a consolidated basis for the period ended <?=data.long_stop_date ?>, a copy of all of which is set out in XREF; and</para_3_firstbold>
     <para_3_firstbold>"Warranties" means the representations and warranties provided by the Company and the Vendors in this Agreement including, without limitation, in Schedule 1 <xref to="schedule_i" />;</para_3_firstbold>
     <numbered_2_para>any reference to a statutory provision shall include such provision and any regulations made in pursuance thereof as from time to time modified or reenacted whether before or after the date of this Agreement so far as such modification or reenactment applies or is capable of applying to any transactions entered into prior to completion and (so far as liability thereunder may exist or can arise) shall include also any past statutory provisions or regulations (as from time to time modified or reenacted) which such provisions or regulations have directly or indirectly replaced;</numbered_2_para>
     <numbered_2_para>any reference to <b>"accounts"</b> shall include cashflow statements, the directors' and auditors' reports, relevant balance sheets and profit and loss accounts and related notes together with all documents which are or would be required by law to be annexed to the accounts of the company concerned to be laid before the company in general meeting for the accounting reference period in question;</numbered_2_para>
@@ -125,7 +110,7 @@
     <numbered_3_para>if, after the signing hereof and before the Completion Date, any event shall occur which results or may result in any of the said representations, warranties or undertakings being unfulfilled, untrue or incorrect in any material respects at completion, the Company shall immediately notify each of the Investors of the same.</numbered_3_para>
     <numbered_2_firstbold>Indemnity: The Company hereby agrees and undertakes to indemnify and keep indemnified and hold harmless each of the Investors and the Investor Directors from and against all losses, liabilities, obligations, damages, judgments, deficiencies, claims, demands, suits, proceedings, arbitrations, assessments, costs and expenses (including, without limitation, expenses of investigation and enforcement of this indemnity and attorneys' fees and expenses on a full indemnity basis), suffered or paid by any of the Investors directly or indirectly, including through application of the assets of the Investors, as a result of or arising out of the Company or Founding Shareholders wilful misconduct or gross negligence.</numbered_2_firstbold>
     <numbered_1_para>MISCELLANEOUS PROVISIONS</numbered_1_para>
-    <numbered_2_firstbold>Communications: All notices, demands or other communications required or permitted to be given or made hereunder shall be in writing and delivered personally or sent by prepaid registered post or by email sent to the email address set in Schedule <xref to="schedule_ii" />, provided always that the Parties acknowledge that any notice, demand or communication for which there is a procedure prescribed under any applicable law or regulation shall be delivered in accordance with such law or regulation. Any notice, demand or communication delivered in accordance with this Clause 6.1 shall be deemed to have been duly served:-
+    <numbered_2_firstbold>Communications: All notices, demands or other communications required or permitted to be given or made hereunder shall be in writing and delivered personally or sent by prepaid registered post or by email sent to the email address set in Schedule <xref to="schedule_ii" />, provided always that the Parties acknowledge that any notice, demand or communication for which there is a procedure prescribed under any applicable law or regulation shall be delivered in accordance with such law or regulation. Any notice, demand or communication delivered in accordance with this Clause 6.1 shall be deemed to have been duly served:-</numbered_2_firstbold>
     <numbered_3_para>in the case of delivery by hand, when delivered;</numbered_3_para>
     <numbered_3_para>in the case of electronic mail, only when actually received in readable form, within 4 hours of sending, provided that the sender does not receive a transmission failure report and any electronic communication which becomes effective, in accordance with the foregoing, after 5pm in the place of receipt shall be deemed only to become effective on the following day; or</numbered_3_para>
     <numbered_3_para>in the case of registered post (if despatched to an address within the country of the sender) 5 days or (if despatched by registered air-letter to an address outside the country of the sender) 10 days after posting, and in proving the same it shall be sufficient to show that the envelope containing the same was duly addressed, stamped and posted.</numbered_3_para>
@@ -148,7 +133,7 @@
     <numbered_2_firstbold xname="dispute_resolution">Dispute Resolution:</numbered_2_firstbold>
     <numbered_3_para>Notwithstanding any provisions to the contrary in this Agreement, in the event of any dispute or difference arising out of or in connection with this Agreement (including any question regarding its existence, validity or termination) whether during the continuance of this Agreement or at any time after the termination hereof, the Parties shall first attempt to resolve the same by negotiation in good faith or through mediation at the Singapore Mediation Centre ("SMC") between the appointed representatives of the respective Parties.</numbered_3_para>
     <numbered_3_para>In the event that the dispute or difference shall remain unresolved within thirty (30) days upon conclusion of such negotiation or mediation, any Party shall be entitled to refer the dispute to arbitration in Singapore in accordance with the Law Society of Singapore Arbitration Scheme ("LSAS") following the LawSoc Arbitration Rules 20 I I for the time being in force, which rules are deemed to be incorporated by reference to this Clause. The arbitral tribunal shall consist of one (I) sole arbitrator, unless the Parties unanimously agree otherwise, to be appointed by the President of the Law Society of Singapore, under the LawSoc Arbitration Rules 2011. The Seat and Venue of the arbitration shall be in the Republic of Singapore, and the language of the arbitration shall be in English. Any award made hereunder shall be final and binding upon the Parties and judgment on such award may be entered in any court or tribunal having jurisdiction thereof.</numbered_3_para>
-    <numbered_3_para>Pending the resolution or final determination of the dispute or difference pursuant this Clause <xref to="dispute_resolution" />, the Parties shall procure that the Company shall, as far as practicable, continue to carry on its day-to-day business, having regard to the dispute or difference.
+    <numbered_3_para>Pending the resolution or final determination of the dispute or difference pursuant this Clause <xref to="dispute_resolution" />, the Parties shall procure that the Company shall, as far as practicable, continue to carry on its day-to-day business, having regard to the dispute or difference.</numbered_3_para>
     <numbered_3_para>Notwithstanding the foregoing, each of the Parties reserves its right to immediately commence any interim Court action such as an injunction against any of the other Parties to enforce the terms of this Agreement in a forum of its choice.</numbered_3_para>
     <numbered_3_para>This Clause <xref to="dispute_resolution" /> shall survive the termination of this Agreement for any reason whatsoever.</numbered_3_para>
     <numbered_2_firstbold>Applicability of the Contracts (Rights Of Third Parties) Act (Chapter 53B) of Singapore: The Contracts (Rights of Third Parties) Act (Chapter 53B) of Singapore shall not under any circumstances apply to this Agreement and any person who is not a party to this Agreement (whether or not such person shall be named, referred to, or otherwise identified, or form part of a class of persons so named, referred to or identified, in this Agreement) shall have no right whatsoever under the Contracts (Rights of Third Parties) Act (Chapter 53B) of Singapore to enforce this Agreement or any of its terms.</numbered_2_firstbold>
