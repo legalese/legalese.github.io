@@ -90,6 +90,8 @@ To understand this section, you should:
 - read conflict analysis of deontic contracts, Stephen Fenech
 - read https://drive.google.com/a/legalese.io/file/d/0BxOaYa8pqqSwWk9NallEck83T2M/view -- CLAN 2009
 - read https://drive.google.com/a/legalese.io/file/d/0BxOaYa8pqqSwSjRMeGtzVGhIaWs/view -- FormaLex 2011
+- read [[http://www.diku.dk/~paba/pubs/talks/bahr15icfp.html][Certified Symbolic Management of Financial Multi-party Contracts]]
+- review [[https://www.lexifi.com/product/technology/contract-description-language][LexiFi's Contract Description Language]], MLFi
 - read http://wyner.info/research/Papers/2014/NL_DeonticConcepts_Lux_2014.pdf another perspective on deontic logi
 - read http://wyner.info/research/Papers/WynerPetersJURIX2011.pdf -- Wyner 2011, /On Rule Extraction from Regulations/
 - read http://wyner.info/research/Papers/2013/WynerICAIL2013Tutorial.pdf discussing text extraction
