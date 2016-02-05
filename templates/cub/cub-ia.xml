@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?!= data.xml_declaration ?>
 <?!= data.xmlRoot() ?>
+<? var activeRound = data.capTable.getActiveRound(); ?>
 <Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
   <CoverTop>
   </CoverTop>
@@ -18,16 +19,15 @@
   <Story_Main>
     <chapter_header>Investment Agreement</chapter_header>
     <para_1><span_smallcaps><b>Made between:</b></span_smallcaps></para_1>
-    <?!=include("inc_cover_standard_parties") ?>
+    <?!=include("inc_cover_standard_parties",data) ?>
     <para_1><span_smallcaps><b>Dated:</b></span_smallcaps></para_1>
-    <para_1><?=data.investment_agreement_date ?></para_1>
 
-    <para_1><b>THIS AGREEMENT</b> is made on the <?!=include("inc_enumerate_parties') ?></para_1>
+    <para_1><b>THIS AGREEMENT</b> is made on <?=data.investment_agreement_date ?></para_1>
     <para_1><b>BETWEEN:-</b></para_1>
-    <?!=include("inc_enumerate_parties") ?>
+    <?!=include("inc_enumerate_parties",data) ?>
     <para_1><b>WHEREAS:-</b></para_1>
     <!-- //TODO: Include a space for summary of company business. -->
-    <numbered_1_para>The issued and paid-up capital of the Company is <?=data.capTable.getActiveRound().post-money ?> comprising <?=digitCommas_(data.capTable.getActiveRound().by_security_type["Preference Shares"].TOTAL ?> Preference Shares and <?=digitCommas_(data.capTable.getActiveRound().by_security_type["Ordinary Shares"].TOTAL) ?> Ordinary Shares, which are held by the following persons:</numbered_1_para>
+    <numbered_1_para>The issued and paid-up capital of the Company is <?=data.capTable.getActiveRound().post_money ?> comprising <?=digitCommas_(data.capTable.getActiveRound().by_security_type["Class F Shares"].TOTAL) ?> Class F Shares and <?=digitCommas_(data.capTable.getActiveRound().by_security_type["Ordinary Shares"].TOTAL) ?> Ordinary Shares, which are held by the following persons:</numbered_1_para>
     <!-- include table -->
     <numbered_1_para>The Company has requested the Investors to invest in the Company by subscribing for new preference shares (the Seed Preference Shares) and the Investors have agreed to so invest in the Company, on the terms and subject to the conditions set out in this Agreement.</numbered_1_para>
     <para_1><b>NOW IT IS HEREBY AGREED</b> as follows:</para_1>
@@ -43,7 +43,7 @@
     <para_3_firstbold>"Business Day" means a day when banks in Singapore are open for banking business (but shall not include Saturday, Sunday and gazetted public holidays in Singapore) and Business Days" shall be construed accordingly;</para_3_firstbold>
     <para_3_firstbold>"Claim" includes any notice, demand, assessment, letter or other document issued or action taken by the Inland Revenue Authority of Singapore or other statutory or governmental authority, body or official whatsoever (whether of Singapore or elsewhere in the world) whereby the Company is or may be placed or sought to be placed under a liability to make payment or deprived of any relief, allowance, credit or repayment otherwise available;
     </para_3_firstbold>
-    <para_3_firstbold>"Completion Date" shall either be on <?=date.long_stop_date ?>, or on the Business Day falling five (5) Business Days after the fulfilment (or, as the case may be, waiver) of the last of the conditions precedent set out in Clause 2.1, or such other date as may be mutually agreed between the Parties;</para_3_firstbold>
+    <para_3_firstbold>"Completion Date" shall either be on <?=data.long_stop_date ?>, or on the Business Day falling five (5) Business Days after the fulfilment (or, as the case may be, waiver) of the last of the conditions precedent set out in Clause 2.1, or such other date as may be mutually agreed between the Parties;</para_3_firstbold>
     <para_3_firstbold>"Designated Bank Account" has the meaning ascribed thereto in Clause .2.5;</para_3_firstbold>
     <para_3_firstbold>"Directors" means the directors for the time being of the Company;</para_3_firstbold>
     <para_3_firstbold>"Dollars" and the sign S" mean the lawful currency of Singapore;
@@ -61,7 +61,7 @@
     <para_3_firstbold>Subsidiary" has the meaning ascribed to it in the Act;</para_3_firstbold>
     <para_3_firstbold>"Taxation" means all forms of taxation whether of Singapore or elsewhere in the world, past, present and future (including, without limitation, capital gains tax, income tax, estate duty, profits tax, stamp duty, value added tax, purchase tax, goods and services tax, customs and other import or export duties) and all other statutory, governmental or state impositions, duties and levies and all penalties, charges, costs and interest relating to any Claim;</para_3_firstbold>
     <para_3_firstbold>"Transaction" includes any transaction, act, event or omission of whatever nature;</para_3_firstbold>
-    <para_3_firstbold>"Unaudited Accounts" means the management accounts of the Company on a consolidated basis for the period ended <?=data.long_stop_date" ?>, a copy of all of which is set out in <xref to="appendix_a" />; and</para_3_firstbold>
+    <para_3_firstbold>"Unaudited Accounts" means the management accounts of the Company on a consolidated basis for the period ended <?=data.long_stop_date ?>, a copy of all of which is set out in <xref to="appendix_a" />; and</para_3_firstbold>
     <para_3_firstbold>"Warranties" means the representations and warranties provided by the Company and the Vendors in this Agreement including, without limitation, in Schedule 1 <xref to="schedule_i" />;</para_3_firstbold>
     <numbered_2_para>any reference to a statutory provision shall include such provision and any regulations made in pursuance thereof as from time to time modified or reenacted whether before or after the date of this Agreement so far as such modification or reenactment applies or is capable of applying to any transactions entered into prior to completion and (so far as liability thereunder may exist or can arise) shall include also any past statutory provisions or regulations (as from time to time modified or reenacted) which such provisions or regulations have directly or indirectly replaced;</numbered_2_para>
     <numbered_2_para>any reference to <b>"accounts"</b> shall include cashflow statements, the directors' and auditors' reports, relevant balance sheets and profit and loss accounts and related notes together with all documents which are or would be required by law to be annexed to the accounts of the company concerned to be laid before the company in general meeting for the accounting reference period in question;</numbered_2_para>
@@ -96,12 +96,12 @@
     <numbered_2_firstbold xname="subscription_completion">Subscription Completion matters:</numbered_2_firstbold>
     <numbered_3_para>At completion, the Company shall deliver to the Investors</numbered_3_para>
     <numbered_4_para>the duly executed Shareholders' Agreement;</numbered_4_para>
-    <numbered_4_para>documentary confirmation that the share capital of the Company shall comprise <?=digitCommas_(activeRound.by_security_type["Ordinary Shares"].TOTAL" ?> Ordinary Shares (including an option pool of <?=data.not_issued ?>Ordinary Shares which may or may not have been issued as at the Completion Date and <?=data.jfdi_share_share ?>Ordinary Shares issued to JFDI) and <?=digitCommas_(activeRound.by_security_type["Seed Preference Shares"].TOTAL ?> Seed Preference Shares;</numbered_4_para>
+    <numbered_4_para>documentary confirmation that the share capital of the Company shall comprise <?=digitCommas_(activeRound.by_security_type["Ordinary Shares"].TOTAL) ?> Ordinary Shares (including an option pool of <?=data.not_issued ?> Ordinary Shares which may or may not have been issued as at the Completion Date and <?=data.jfdi_share_share ?> Ordinary Shares issued to JFDI) and <?=digitCommas_(activeRound.by_security_type["Convertible Preference Shares"].TOTAL) ?> Seed Preference Shares;</numbered_4_para>
     <numbered_4_para>a copy of the Articles of the Company reflecting the agreed terms and conditions of this Agreement and the Shareholder Agreement; and</numbered_4_para>
     <numbered_4_para>the share certificates in respect of the Seed Preference Shares.</numbered_4_para>
     <numbered_3_para>At completion, the Investors shall, against delivery of the above documents specified in <xref to="subscription_completion" /> to the Investors, the Investors shall pay to the Company the aggregate subscription price of <?=data.capTable.getActiveRound("TOTAL") ?> by way of a bank transfer to the Designated Bank Account details as follows:</numbered_3_para>
-    <para_3><!--We don't have bank details yet I think --></para_3>
-    <numbered_2_firstboldNew date for completion: If any of the provisions of this Clause 4 are not complied with on the date for completion set by this Clause, the Parties may, by mutual agreement, fix a new date for completion.</numbered_2_firstbold>
+    <para_3><!-- We don't have bank details yet I think --></para_3>
+    <numbered_2_firstbold>New date for completion: If any of the provisions of this Clause 4 are not complied with on the date for completion set by this Clause, the Parties may, by mutual agreement, fix a new date for completion.</numbered_2_firstbold>
     <numbered_1_para>WARRANTIES AND REPRESENTATIONS</numbered_1_para>
     <numbered_2_firstbold>Warranties as to title – Seed Preference Shares: The Company represents, warrants and undertakes to and with each of the Investors and its successors in title and assigns (with the intent that the provisions of this Clause shall continue to have full force and effect notwithstanding completion) that:-</numbered_2_firstbold>
     <numbered_3_para>the Seed Preference Shares will, when issued, be free and clear of all claims and encumbrances and will entitle the Investors to all rights, benefits and entitlements attaching thereto as at the Completion Date; and</numbered_3_para>
