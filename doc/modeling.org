@@ -87,12 +87,14 @@ To understand this section, you should:
 - understand what a context-free grammar is, and be familiar with Backus-Naur Form
 - read https://drive.google.com/open?id=0BxOaYa8pqqSwTC04OTF5b1hYams Some computational properties of a model for electronic documents, TBC 1989
 - view https://drive.google.com/open?id=0BxOaYa8pqqSwUWlCajFJQURXdG8 introducing deontic logics, Gorin 2010
-- read http://wyner.info/research/Papers/WynerPetersJURIX2011.pdf -- Wyner 2011, /On Rule Extraction from Regulations/
-- read http://wyner.info/research/Papers/2013/WynerICAIL2013Tutorial.pdf discussing text extraction
-- read http://wyner.info/research/Papers/2014/NL_DeonticConcepts_Lux_2014.pdf another perspective on deontic logic
-- read http://wyner.info/research/Papers/2013/OASISLegalRuleML.pdf on LegalRuleML.
+- read conflict analysis of deontic contracts, Stephen Fenech
 - read https://drive.google.com/a/legalese.io/file/d/0BxOaYa8pqqSwWk9NallEck83T2M/view -- CLAN 2009
 - read https://drive.google.com/a/legalese.io/file/d/0BxOaYa8pqqSwSjRMeGtzVGhIaWs/view -- FormaLex 2011
+- read http://wyner.info/research/Papers/2014/NL_DeonticConcepts_Lux_2014.pdf another perspective on deontic logi
+- read http://wyner.info/research/Papers/WynerPetersJURIX2011.pdf -- Wyner 2011, /On Rule Extraction from Regulations/
+- read http://wyner.info/research/Papers/2013/WynerICAIL2013Tutorial.pdf discussing text extraction
+- read http://wyner.info/research/Papers/2013/OASISLegalRuleML.pdf on LegalRuleML.
+- read Tom Hvitved's [[http://www.diku.dk/forskning/phd-studiet/phd/davidg_thesis.pdf/hvitved12phd.pdf][PhD Thesis]] which covers some of the most recent work in the field
 
 ** Formal Representation
 
