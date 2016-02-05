@@ -20,16 +20,21 @@ GetOptions(\%o,
 
 my $input = join("",<>);
 warn "input has ", length($input), " chars\n";
+my $linenum = 1;
 while (length $input) {
-  if ($input =~ s/^\n+//g) { }
+  if ($input =~ s/^\n+//) { $linenum++ }
   elsif ($o{ignorexmldeclarations} and $input =~ s/^<\?!=\s*(data.whitespace_handling|data.xml_declaration).*?\?>//s) {
 	warn "*** discarding xml declaration $1\n"; }
   elsif ($input !~ /^<\?/ && $input =~ s/^(.+?)(?=<\?)//s) {
-	warn "*** discarding text $1\n"; }
+	warn "*** discarding text $1\n";
+	my $discard = $1;
+	$linenum += ($discard =~ tr/\n/\n/);
+  }
   elsif ($input =~ s/^<\?(.*?)\s*\?>//s) {
 	my $js = $1;
-	if    ($js =~ s/^(!?)=\s*//) { if ($o{equals}) { my $func = $1 ? "noescape" : "  escape"; print "$func( ",$js," );\n" } }
-	elsif ($o{question} )   {                   print $js,"\n" }
+	$linenum += ($js =~ tr/\n/\n/);
+	if    ($js =~ s/^(!?)=\s*//) { if ($o{equals}) { my $func = $1 ? "noescape" : "  escape"; print "$func( ",$js," ); // line $linenum\n" } }
+	elsif ($o{question} )   {                   print $js," // line $linenum\n" }
 	if ($js=~tr/(/(/ != $js=~tr/)/)/) { print "// WARNING: the above line may have unbalanced parentheses.\n"; }
   }
   else {
