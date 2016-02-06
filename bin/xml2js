@@ -18,27 +18,65 @@ GetOptions(\%o,
 		   "ignorexmldeclarations",
 	);
 
+# at some point all this should just turn into a proper lexer.
+
+my (%xnames, %xrefs);
+
 my $input = join("",<>);
 warn "input has ", length($input), " chars\n";
 my $linenum = 1;
 while (length $input) {
-  if ($input =~ s/^\n+//) { $linenum++ }
-  elsif ($o{ignorexmldeclarations} and $input =~ s/^<\?!=\s*(data.whitespace_handling|data.xml_declaration).*?\?>//s) {
-	warn "*** discarding xml declaration $1\n"; }
-  elsif ($input !~ /^<\?/ && $input =~ s/^(.+?)(?=<\?)//s) {
+  if ($input =~ s/^\n+//) { $linenum++; next; }
+  if ($o{ignorexmldeclarations} and $input =~ s/^<\?!=\s*(data.whitespace_handling|data.xml_declaration).*?\?>//s) {
+	warn "*** discarding xml declaration $1\n";
+	next;
+  }
+  if ($input =~ s/<[^>]+? xname="(.+?)".*?>//) {
+	push @{$xnames{$1}}, $linenum; # doesn't work
+	print "found xname $1\n";
+	$linenum += ($& =~ tr/\n/\n/);
+	next;
+  }
+  if ($input =~ s/<xref to="(.+?)"\s*\/>//) {
+	push @{$xrefs{$1}}, $linenum;
+	print "found xref $1\n";
+	$linenum += ($& =~ tr/\n/\n/);
+	next;
+  }
+  if ($input !~ /^<\?/ && $input =~ s/^(.+?)(?=<\?)//s) {
 	warn "*** discarding text $1\n";
 	my $discard = $1;
 	$linenum += ($discard =~ tr/\n/\n/);
+	next;
   }
-  elsif ($input =~ s/^<\?(.*?)\s*\?>//s) {
+  if ($input =~ s/^<\?(.*?)\s*\?>//s) {
 	my $js = $1;
 	$linenum += ($js =~ tr/\n/\n/);
 	if    ($js =~ s/^(!?)=\s*//) { if ($o{equals}) { my $func = $1 ? "noescape" : "  escape"; print "$func( ",$js," ); // line $linenum\n" } }
 	elsif ($o{question} )   {                   print $js," // line $linenum\n" }
 	if ($js=~tr/(/(/ != $js=~tr/)/)/) { print "// WARNING: the above line may have unbalanced parentheses.\n"; }
+	next;
   }
-  else {
-	warn "*** discarding final $input\n";
-	last;
+
+  warn "*** discarding final $input\n";
+  last;
+
+}
+
+# detect dangling xrefs with no xnames
+foreach my $xref (keys %xrefs) {
+  if (! $xnames{$xref}) {
+	print "!!! xref $xref lacks corresponding xname\n";
   }
 }
+
+# detect xname collisions
+foreach my $xname (keys %xnames) {
+  if (@{$xnames{$xname}} > 1) {
+	print "!!! xname $xname defined more than once\n";
+  }
+  if (! $xrefs{$xname}) {
+	print "!!! xname $xname defined but not used by xref\n";
+  }	
+}
+
