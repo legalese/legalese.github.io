@@ -808,6 +808,9 @@ In a contract, change every instance of "Articles of Association" to "Constituti
 
 Detect the conflict between 3.1 vs 6.2 of http://legal.cf.sg/purchase_agreement_for_convertible_note/
 
+** Kata MD04: Model the conversion logic described in the [[https://www.ycombinator.com/documents/#seriesaa][YC-AA]] documents
+especially the Deemed Issue logic of the [[https://www.ycombinator.com/docs/Series_AA_COI.docx][COI]].
+
 ** Kata ML01: Modeling Legislation and Regulation
 
 As seen [[*Regulations and Contracts as Business Logic][above]]:
