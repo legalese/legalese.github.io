@@ -110,9 +110,10 @@ shall be fully-paid by the Investor at the time of issue by the Company in accor
 <numbered_3_para xname="completion_investor">On Completion, the Investor shall:</numbered_3_para>
 <?if(! data.previously_paid){?>
  <numbered_4_para>pay the Subscription Price to the Company by transfer to the Company's account set out below:</numbered_4_para>
-  <numbered_5_para>Name of Account: </numbered_5_para>
-  <numbered_5_para>Account Number: </numbered_5_para>
-  <numbered_5_para>Bank Name: </numbered_5_para>
+  <numbered_5_para>Name of Account: <?= data.company.bank_account_name ?></numbered_5_para>
+  <numbered_5_para>Account Number: <?= data.company.bank_account_number ?></numbered_5_para>
+  <numbered_5_para>Bank Name: <?= data.company.bank_name ?></numbered_5_para>
+  <numbered_5_para>Bank Transfer Details: <?= data.company.bank_transfer_details ?></numbered_5_para>
 <?}?>
 <?if(!data.skip_dora){?>
  <numbered_4_para>deliver to the Company an executed Deed of Ratification and Accession to the Shareholders' Agreement.</numbered_4_para>
