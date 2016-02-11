@@ -99,10 +99,9 @@
 
   <a_left_sidehead>Acceleration </a_left_sidehead>
   <b_left_sidehead>Acceleration prior to acquisition. </b_left_sidehead>
-  <para_1>In the absence of a Change of Control event, </para_1>
-  <numbered_3_para>termination without cause shall entail redemption of Restricted Shares. </numbered_3_para>
-  <numbered_3_para xname="quit">termination with cause or voluntary resignation shall, unless the Directors resolve otherwise, entail redemption of Restricted Shares. </numbered_3_para>
-  <numbered_3_para>at the closing of the first External Financing, all Unrestricted Shares shall convert to Ordinary Shares; Restricted Shares will (by default) continue to vest as specified by this agreement, unless:---</numbered_3_para>
+  <para_1>In the absence of a Change of Control event, at the closing of the first External Financing,</para_1>
+  <numbered_3_para>all Unrestricted Shares shall automatically convert to Ordinary Shares; and</numbered_3_para>
+  <numbered_3_para>Restricted Shares shall continue to vest as specified by this agreement, unless:---</numbered_3_para>
   <numbered_4_para>the Company elects to vest those shares under a new agreement with different terms;</numbered_4_para>
   <numbered_4_para>the Company elects to convert them to Ordinary Shares;</numbered_4_para>
   <numbered_4_para>the Company elects to redeem the Restricted Shares; or</numbered_4_para>
@@ -110,7 +109,7 @@
   <b_left_sidehead xname="acc_stock">Acceleration post acquisition for stock. </b_left_sidehead>
   <para_1>Subsequent to a Change of Control event in which the Company is acquired primarily for stock, and in which the vesting schedule is substantially preserved in the acquiring entity's stock repurchase or stock option plan, </para_1>
   <numbered_3_para>termination without cause shall entail full acceleration of unvested shares causing all outstanding Restricted Shares to become Unrestricted Shares; and </numbered_3_para>
-  <numbered_3_para>termination with cause or voluntary resignation shall, unless the Directors of the acquiror resolve otherwise, entail redemption or forfeiture of the unvested portion. </numbered_3_para>
+  <numbered_3_para>termination with cause or voluntary resignation shall, unless the Directors of the acquiror resolve otherwise, trigger redemption or forfeiture of the unvested portion. </numbered_3_para>
   <b_left_sidehead xname="acc_cash">Acceleration post acquisition for cash. </b_left_sidehead>
   <para_1>Subsequent to a Change of Control event in which the Company is acquired primarily for cash, the Restricted Shares shall form part of the fully diluted capitalization, and cash corresponding to the unvested portion shall be escrowed on a pro rata basis. Cash shall be released from escrow mutatis mutandis with the vesting scheme. </para_1>
   <b_left_sidehead>Acceleration post acquisition for cash and stock. </b_left_sidehead>
@@ -176,7 +175,7 @@
   <chapter_header>Sample Redemption Notice </chapter_header>
   <para_1> </para_1>
   <para_1>Dear <?=data.security_type?> Holder, </para_1>
-  <para_1>We refer to the <?=data.security_type?> Agreement signed on <?= data.class_f_agreement_date ?>, in particular, Clauses <xref to="redemption" /> and <xref to="quit" /> therein. </para_1>
+  <para_1>We refer to the <?=data.security_type?> Agreement signed on <?= data.class_f_agreement_date ?>, in particular, Clause <xref to="redemption" /> therein. </para_1>
   <para_1>All terms defined in the <?=data.security_type?> Agreement shall bear the same meaning when used in this letter. </para_1>
   <para_1>We understand that an event entailing redemption of Restricted Shares has occurred. For the purposes of redemption we date that event at T date. </para_1>
   <para_1>For the avoidance of doubt, we calculate the following shareholding as of that date: </para_1>
