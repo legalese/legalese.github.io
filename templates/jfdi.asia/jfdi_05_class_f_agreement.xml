@@ -1,5 +1,5 @@
 <?!= data.xmlRoot() ?>
-<? var documentTitle = (data.previous_f_agreement_date ? "Amended and Restated " : "") + "Class F Agreement"; ?>
+<? var documentTitle = (data.previous_f_agreement_date ? "Amended and Restated " : "") + data.security_type + " Agreement"; ?>
 <?!= include("inc_cover_2_parties", data, {cover_title:documentTitle, party1:data.company, party2:data.new_investor}) ?>
 <?!= include("inc_cover_jfdi", data, { in_series:"05" }) ?>
 <Firstpage_Sidebar>
@@ -16,13 +16,13 @@
 <? if (data.previous_f_agreement_date) { ?>
   <recitals>This agreement amends and restates a previous agreement dated <?= data.previous_f_agreement_date ?> with new numbers for restricted, unrestricted, cliff, and monthly vesting shares<? if (data.new_investor.recitals_text) { ?>, to <?= data.new_investor.recitals_text ?><?}?>.</recitals>
 <? } ?>
-  <recitals>The Company's Constitution defines Class F Preference Shares. </recitals>
-<? if (data.capTable.getActiveRound().by_security_type["Class F Shares"][data.new_investor.name] > 0) { ?>
-<recitals>The Company proposes to issue <?= digitCommas_(data.capTable.getActiveRound().by_security_type["Class F Shares"][data.new_investor.name]) ?> Class F Preference Shares to the Holder and the Holder has agreed to subscribe for the Class F Preference Shares on the terms and conditions below. </recitals>
+  <recitals>The Company's Constitution defines <?=data.security_type?> Preference Shares. </recitals>
+<? if (data.capTable.getActiveRound()[data.new_investor.name] && data.capTable.getActiveRound()[data.new_investor.name]._orig_shares > 0) { ?>
+<recitals>The Company proposes to issue <?= data.capTable.getActiveRound().new_investors[data.new_investor.name].shares ?> <?=data.security_type_plural?> to the Holder and the Holder has agreed to subscribe for the <?=data.security_type_plural?> on the terms and conditions below. </recitals>
 <? } ?>
-  <recitals>This Agreement describes the properties of the Holder's Class F Preference Shares.</recitals>
+  <recitals>This Agreement describes the properties of the Holder's <?=data.security_type_plural?>.</recitals>
 <? if (data.previous_f_agreement_date) {?>
-<para_1><span_smallcaps>The parties therefore</span_smallcaps> amend and restate the Class F Agreement to read in its entirety as follows:</para_1>
+<para_1><span_smallcaps>The parties therefore</span_smallcaps> amend and restate the <?=data.security_type?> Agreement to read in its entirety as follows:</para_1>
 <? } else { ?>
 <para_1><span_smallcaps>Now this agreement witnesseth</span_smallcaps> as follows:</para_1>
 <? } ?>
@@ -43,7 +43,7 @@
   <para_1>Except where the context otherwise requires, references to any person include its successors and permitted assignees. Clauses which refer to the "Company" shall apply mutatis mutandis to subsidiaries or successors of the Company which may from time to time be established. For purposes of this Agreement, employment with the Company shall include employment with a parent or subsidiary of the Company. </para_1>
   <para_1>References in this Agreement to a time of day are to Singapore time. </para_1>
   <a_left_sidehead xname="hazTable">Purchase of Shares</a_left_sidehead>
-  <para_1>The Company shall issue and sell to the Holder, and the Holder shall purchase from the Company, subject to the terms and conditions set forth in this Agreement, Class F Preference shares (the "Shares") of the Company, at a purchase price of <?= data.price_per_share ?> per share (the "Issue Price"). The aggregate purchase price for the Shares shall be paid by the Holder in cash or cheque. The number of Shares purchased by each Holder shall be the sum of the numbers shown in the <i>Unrestricted</i> and <i>Restricted</i> columns in the table below. Upon receipt of payment by the Company, the Company shall issue to the Holder one or more certificates in the name of the Holder for that number of Shares purchased by the Holder. The Holder agrees that their Shares shall be subject to the purchase options and restrictions on transfer set forth in this Agreement and in the Constitution. </para_1>
+  <para_1>The Company shall issue and sell to the Holder, and the Holder shall purchase from the Company, subject to the terms and conditions set forth in this Agreement, <?=data.security_type_plural?> (the "<?=data.security_type_short_plural?>) of the Company, at a purchase price of <?= data.price_per_share ?> per share (the "Issue Price"). The aggregate purchase price for the Shares shall be paid by the Holder in cash or cheque. The number of Shares purchased by each Holder shall be the sum of the numbers shown in the <i>Unrestricted</i> and <i>Restricted</i> columns in the table below. Upon receipt of payment by the Company, the Company shall issue to the Holder one or more certificates in the name of the Holder for that number of Shares purchased by the Holder. The Holder agrees that their Shares shall be subject to the purchase options and restrictions on transfer set forth in this Agreement and in the Constitution. </para_1>
   <para_2>For convenience of reference the table below indicates in the column titled Ordinary the number of ordinary shares presently held by the Holder.  </para_2>
   <para_2> </para_2>
 <? var tcols = 6; if (data.new_investor.f_cliff_2) { tcols = tcols + 1 } ?>
@@ -121,11 +121,11 @@
   <a_left_sidehead xname="comp_adj">Compensation Adjustment</a_left_sidehead>
   <para_1>The Directors intend to permit a Holder who is also an employee or consultant to balance his compensation from time to time in favour of cash or equity according to preference and circumstance. Accordingly, the Holder may in any given month, with the approval of the Directors, elect to subscribe for additional Unrestricted F Shares at the Discretionary Subscription Price (defined below) up to the maximum amount of his monthly pay. </para_1>
   <a_left_sidehead>Discretionary Subscription Price</a_left_sidehead>
-  <numbered_2_para>Subsequent to the initial issue of <?= data.class_f_agreement_date ?>, Class F Shares may be issued pursuant to Clause <xref to="comp_adj" /> at a "<b>Discretionary Subscription Price</b>", which shall be the greater of </numbered_2_para>
-  <numbered_3_para>the price of any previous issue of Class F Shares, </numbered_3_para>
+  <numbered_2_para>Subsequent to the initial issue of <?= data.class_f_agreement_date ?>, <?=data.security_type_short_plural?> may be issued pursuant to Clause <xref to="comp_adj" /> at a "<b>Discretionary Subscription Price</b>", which shall be the greater of </numbered_2_para>
+  <numbered_3_para>the price of any previous issue of <?=data.security_type_short_plural?>, </numbered_3_para>
   <numbered_3_para>in the event that a valuation was placed on the Company in the course of an External Financing event, a price consistent with that set for transfers among founders as described under Share Valuation Policy in the Shareholders' Agreement, or </numbered_3_para>
   <numbered_3_para>a price determined by the Board. </numbered_3_para>
-  <numbered_2_para>In the event Class F Shares are issued at a price other than provided above, the pre-emption rights waived by the Founders in the Shareholders' Agreement shall return with full force and Founders shall enjoy their pre-emptive rights with respect to the new issue. </numbered_2_para>
+  <numbered_2_para>In the event <?=data.security_type_short_plural?> are issued at a price other than provided above, the pre-emption rights waived by the Founders in the Shareholders' Agreement shall return with full force and Founders shall enjoy their pre-emptive rights with respect to the new issue. </numbered_2_para>
   <a_left_sidehead>Repurchase of Vested Shares</a_left_sidehead>
   <para_1>In the event of the Holder's termination of employment for Cause, the Company shall have the option, but not the obligation, to repurchase all or any part of the Holder's Vested Shares. In the event the Company does not, upon any such termination of employment of the Holder, exercise its option pursuant to this section, the restrictions set forth in the balance of this Agreement shall not thereby lapse, and the Holder for himself or herself, his or her heirs, legatees, executors, administrators and other successors in interest, agrees that the Shares shall remain subject to such restrictions. The following provisions shall apply to a repurchase under this Section:</para_1>
   <numbered_2_para>The per-share repurchase price of the Vested Shares to be sold to the Company upon exercise of its option under this Section shall be equal to the Redemption Price. </numbered_2_para>
@@ -139,11 +139,11 @@
   <numbered_3_para>to transfer on its books any of the Shares which shall have been sold or transferred in violation of any of the provisions set forth in this Agreement, or </numbered_3_para>
   <numbered_3_para>to treat as owner of such Shares or to pay dividends to any transferee to whom any such Shares shall have been so sold or transferred. </numbered_3_para>
   <a_left_sidehead>Restrictions on Transfer</a_left_sidehead>
-  <numbered_2_para>Subsequent to an External Financing, the provisions of the Constitution and of the Shareholders' Agreement relating to the registration, transfer, transmission, certificates and replacement thereof applicable to ordinary shares shall apply mutatis mutandis to Class F Preference Shares. </numbered_2_para>
-  <numbered_2_para>Prior to an External Financing, notwithstanding anything contained in this Constitution or the Shareholders' Agreement, Holders of Class F shares shall be allowed to transfer the Class F shares among themselves at mutually agreed valuations. The Company shall, and shall ensure that all Directors and Bondholders in the company shall, not prevent the transfer of Class F Preference Shares among the Holders prior to an External Financing. </numbered_2_para>
+  <numbered_2_para>Subsequent to an External Financing, the provisions of the Constitution and of the Shareholders' Agreement relating to the registration, transfer, transmission, certificates and replacement thereof applicable to ordinary shares shall apply mutatis mutandis to <?=data.security_type_short_plural?>. </numbered_2_para>
+  <numbered_2_para>Prior to an External Financing, notwithstanding anything contained in this Constitution or the Shareholders' Agreement, Holders of <?=data.security_type_short_plural?> shall be allowed to transfer the <?=data.security_type_short_plural?> among themselves at mutually agreed valuations. The Company shall, and shall ensure that all Directors and Bondholders in the company shall, not prevent the transfer of <?=data.security_type_short_plural?> among the Holders prior to an External Financing. </numbered_2_para>
   <a_left_sidehead>Restrictive Legends</a_left_sidehead>
   <para_1>All certificates representing Restricted Shares shall have affixed thereto legend in substantially the following form, in addition to any other legends that may be required by law:</para_1>
-  <para_1><i>The shares of stock represented by this certificate are subject to restrictions on transfer and an option to purchase set forth in a certain Class F Agreement between the corporation and the registered owner of these shares (or his predecessor in interest), and such Agreement is available for inspection without charge at the office of the Secretary of the corporation.</i></para_1>
+  <para_1><i>The shares of stock represented by this certificate are subject to restrictions on transfer and an option to purchase set forth in a certain <?=data.security_type?> Agreement between the corporation and the registered owner of these shares (or his predecessor in interest), and such Agreement is available for inspection without charge at the office of the Secretary of the corporation.</i></para_1>
   <a_left_sidehead>Adjustments for Stock Splits, Stock Dividends, etc</a_left_sidehead>
   <numbered_2_para>If from time to time there is any stock split, stock dividend, stock distribution or other reclassification of the Ordinary Shares of the Company, any and all new, substituted or additional securities to which the Holder is entitled by reason of his ownership of the Shares shall be immediately subject to the purchase and repurchase options, the restrictions on transfer and the other provisions of this Agreement in the same manner and to the same extent as the Shares, and the Redemption Price shall be appropriately adjusted. </numbered_2_para>
   <numbered_2_para>If the Shares are converted into or exchanged for, or stockholders of the Company receive by reason of any distribution in total or partial liquidation, securities of another corporation, or other property (including cash), pursuant to any merger of the Company or acquisition of its assets (including as a consequence of a Change of Control), then the rights of the Company under this Agreement shall inure to the benefit of the Company's successor and this Agreement shall apply to the securities or other property received upon such conversion, exchange or distribution in the same manner and to the same extent as to the Shares. </numbered_2_para>
@@ -178,9 +178,9 @@
 
   <chapter_header>Sample Redemption Notice </chapter_header>
   <para_1> </para_1>
-  <para_1>Dear Class F Holder, </para_1>
-  <para_1>We refer to the Class F Agreement signed on <?= data.class_f_agreement_date ?>, in particular, Clauses <xref to="redemption" /> and <xref to="quit" /> therein. </para_1>
-  <para_1>All terms defined in the Class F Agreement shall bear the same meaning when used in this letter. </para_1>
+  <para_1>Dear <?=data.security_type?> Holder, </para_1>
+  <para_1>We refer to the <?=data.security_type?> Agreement signed on <?= data.class_f_agreement_date ?>, in particular, Clauses <xref to="redemption" /> and <xref to="quit" /> therein. </para_1>
+  <para_1>All terms defined in the <?=data.security_type?> Agreement shall bear the same meaning when used in this letter. </para_1>
   <para_1>We understand that an event entailing redemption of Restricted Shares has occurred. For the purposes of redemption we date that event at T date. </para_1>
   <para_1>For the avoidance of doubt, we calculate the following shareholding as of that date: </para_1>
   <para_2>N	Ordinary Shares existed at time of the agreement; </para_2>
@@ -188,7 +188,7 @@
   <para_2>O	"Cliff" Unrestricted Shares vested on <?= data.f_cliff_end_date ?>; </para_2>
   <para_2>P	"<?=data.new_investor.f_period || "Monthly"?>" Unrestricted Shares subsequently vested up to X date; </para_2>
   <para_2>Q	Restricted Shares remain. </para_2>
-  <para_1>Pursuant to the Class F Agreement we hereby give notice that we intend to redeem the Q remaining Restricted Shares. </para_1>
+  <para_1>Pursuant to the <?=data.security_type?> Agreement we hereby give notice that we intend to redeem the Q remaining Restricted Shares. </para_1>
   <para_1>The completion shall be fourteen days from the date hereof (unless otherwise agreed in writing between ourselves.) </para_1>
   <para_1>By that date we shall make payment of <?= data.price_per_share?> per share (the "Redemption Price") for a total of S$1.23. </para_1>
   <para_1> </para_1>
