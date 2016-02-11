@@ -46,13 +46,17 @@
   <para_1>The Company shall issue and sell to the Holder, and the Holder shall purchase from the Company, subject to the terms and conditions set forth in this Agreement, Class F Preference shares (the "Shares") of the Company, at a purchase price of <?= data.price_per_share ?> per share (the "Issue Price"). The aggregate purchase price for the Shares shall be paid by the Holder in cash or cheque. The number of Shares purchased by each Holder shall be the sum of the numbers shown in the <i>Unrestricted</i> and <i>Restricted</i> columns in the table below. Upon receipt of payment by the Company, the Company shall issue to the Holder one or more certificates in the name of the Holder for that number of Shares purchased by the Holder. The Holder agrees that their Shares shall be subject to the purchase options and restrictions on transfer set forth in this Agreement and in the Constitution. </para_1>
   <para_2>For convenience of reference the table below indicates in the column titled Ordinary the number of ordinary shares presently held by the Holder.  </para_2>
   <para_2> </para_2>
+<? var tcols = 6; if (data.new_investor.f_cliff_2) { tcols = tcols + 1 } ?>
   <table_enclosing_para>
-	<Table aid:table="table" aid:tcols="6" aid:trows="2" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+	<Table aid:table="table" aid:tcols="<?=tcols?>" aid:trows="2" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
 <Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_fl>Name</cell_fl></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="50" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Ordinary</cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Unrestricted</cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Restricted</cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="40" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Cliff</cell></Cell>
+<? if (data.new_investor.f_cliff_2) { ?>
+<Cell aid:ccols="1" aid:ccolwidth="40" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Cliff 2</cell></Cell>
+<? } ?>
 <Cell aid:ccols="1" aid:ccolwidth="40" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell><?=data.new_investor.f_period || "Monthly"?></cell></Cell>
 
 <Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_fl><?= data.new_investor.name ?></cell_fl></Cell>
@@ -60,6 +64,9 @@
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_unrestricted ?></cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_restricted ?></cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="40" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_cliff ?></cell></Cell>
+<? if (data.new_investor.f_cliff_2) { ?>
+<Cell aid:ccols="1" aid:ccolwidth="40" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_cliff_2 ?></cell></Cell>
+<? } ?>
 <Cell aid:ccols="1" aid:ccolwidth="40" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_periodic || data.new_investor.f_monthly ?></cell></Cell>
 
 </Table>
@@ -71,6 +78,9 @@
   <numbered_3_para>the number of shares in the Restricted column of the above table shall initially be subject to the Redemption Right. </numbered_3_para>
   <numbered_3_para>the number of shares in the Unrestricted column of the above table shall not be subject to the Redemption Right; they shall be deemed vested upon issue and are convertible to Ordinary Shares. </numbered_3_para>
   <numbered_3_para>the number of shares in the Cliff column of the above table shall vest on <?= data.f_cliff_end_date ?>. </numbered_3_para>
+<? if (data.new_investor.f_cliff_2 && data.new_investor.f_cliff_end_date_2) { ?>
+  <numbered_3_para>the number of shares in the Cliff 2 column of the above table shall vest on <?= data.new_investor.f_cliff_end_date_2 ?>. </numbered_3_para>
+<? } ?>
   <numbered_3_para>thereafter, the number of shares in the <?=data.new_investor.f_period || "Monthly"?> column of the above table shall vest on the last business day of each <?=(data.new_investor.f_period || "Monthly").toLowerCase().replace(/ly$/,"")?> until such time as all Shares are fully vested. </numbered_3_para>
 
   <numbered_2_para xname="cause">For purposes of this Agreement, <b>"Cause"</b> shall mean </numbered_2_para>
