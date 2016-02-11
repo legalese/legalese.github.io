@@ -98,7 +98,7 @@
   <numbered_2_para xname="termination">Termination by the Company for Good Reason shall be deemed to be without Cause. </numbered_2_para>
 
   <a_left_sidehead>Acceleration </a_left_sidehead>
-  <b_left_sidehead>Acceleration prior to acquisition. </b_left_sidehead>
+  <b_left_sidehead>Acceleration upon Funding. </b_left_sidehead>
   <para_1>In the absence of a Change of Control event, at the closing of the first External Financing,</para_1>
   <numbered_3_para>all Unrestricted Shares shall automatically convert to Ordinary Shares; and</numbered_3_para>
   <numbered_3_para>Restricted Shares shall continue to vest as specified by this agreement, unless:---</numbered_3_para>
@@ -114,6 +114,9 @@
   <para_1>Subsequent to a Change of Control event in which the Company is acquired primarily for cash, the Restricted Shares shall form part of the fully diluted capitalization, and cash corresponding to the unvested portion shall be escrowed on a pro rata basis. Cash shall be released from escrow mutatis mutandis with the vesting scheme. </para_1>
   <b_left_sidehead>Acceleration post acquisition for cash and stock. </b_left_sidehead>
   <para_1>In the event the Company is acquired for both cash and stock, the above sections <xref to="acc_stock" /> and <xref to="acc_cash" /> shall apply in pro rata fashion. </para_1>
+  <b_left_sidehead xname="acc_other">No Other Acceleration. </b_left_sidehead>
+  <para_1>Any other Change of Control event will have no effect on the <?= data.security_type ?> shares. </para_1>
+
   <a_left_sidehead xname="comp_adj">Compensation Adjustment</a_left_sidehead>
   <para_1>The Directors intend to permit a Holder who is also an employee or consultant to balance his compensation from time to time in favour of cash or equity according to preference and circumstance. Accordingly, the Holder may in any given month, with the approval of the Directors, elect to subscribe for additional Unrestricted F Shares at the Discretionary Subscription Price (defined below) up to the maximum amount of his monthly pay. </para_1>
   <a_left_sidehead>Discretionary Subscription Price</a_left_sidehead>
