@@ -74,14 +74,16 @@
 
   <a_left_sidehead xname="redemption">Redemption</a_left_sidehead>
   <numbered_2_para>Subject to Sections <xref to="cause" />, <xref to="good reason" />, and <xref to="termination" /> below, </numbered_2_para>
-  <numbered_3_para>in the event that the Holder is discharged by the Company from employment or volunteership, with Cause (as defined below) and prior to a Change of Control event, the Company shall have the right and option (the "Redemption Right") to purchase from the Holder, at a price per share equal to the Issue Price (the "Redemption Price"), up to the total number of Shares that have not vested according to the table in Section <xref to="hazTable" /> (the "Restricted Shares"). </numbered_3_para>
-  <numbered_3_para>the number of shares in the Restricted column of the above table shall initially be subject to the Redemption Right. </numbered_3_para>
-  <numbered_3_para>the number of shares in the Unrestricted column of the above table shall not be subject to the Redemption Right; they shall be deemed vested upon issue and are convertible to Ordinary Shares. </numbered_3_para>
-  <numbered_3_para>the number of shares in the Cliff column of the above table shall vest on <?= data.f_cliff_end_date ?>. </numbered_3_para>
+  <numbered_3_para>in the event that the Holder is discharged by the Company from employment or volunteership, with Cause (as defined below) and prior to a Change of Control event,</numbered_3_para>
+  <numbered_3_para>or in the event that the Holder resigns, unless the resignation is for Good Reason,</numbered_3_para>
+  <numbered_3_para>the Company shall have the right (the "Redemption Right") to redeem from the Holder, at a price per share equal to the Issue Price (the "Redemption Price"), up to the total number of Shares that have not vested according to the table in Section <xref to="hazTable" /> (the "Restricted Shares"). </numbered_3_para>
+  <numbered_3_para>The number of shares in the Restricted column of the above table shall initially be subject to the Redemption Right. </numbered_3_para>
+  <numbered_3_para>The number of shares in the Unrestricted column of the above table shall not be subject to the Redemption Right; they shall be deemed vested upon issue and are convertible to Ordinary Shares. </numbered_3_para>
+  <numbered_3_para>The number of shares in the Cliff column of the above table shall vest on <?= data.f_cliff_end_date ?>. </numbered_3_para>
 <? if (data.new_investor.f_cliff_2 && data.new_investor.f_cliff_end_date_2) { ?>
-  <numbered_3_para>the number of shares in the Cliff 2 column of the above table shall vest on <?= data.new_investor.f_cliff_end_date_2 ?>. </numbered_3_para>
+  <numbered_3_para>The number of shares in the Cliff 2 column of the above table shall vest on <?= data.new_investor.f_cliff_end_date_2 ?>. </numbered_3_para>
 <? } ?>
-  <numbered_3_para>thereafter, the number of shares in the <?=data.new_investor.f_period || "Monthly"?> column of the above table shall vest on the last business day of each <?=(data.new_investor.f_period || "Monthly").toLowerCase().replace(/ly$/,"")?> until such time as all Shares are fully vested. </numbered_3_para>
+  <numbered_3_para>Thereafter, the number of shares in the <?=data.new_investor.f_period || "Monthly"?> column of the above table shall vest on the last business day of each <?=(data.new_investor.f_period || "Monthly").toLowerCase().replace(/ly$/,"")?> until such time as all Shares are fully vested. </numbered_3_para>
 
   <numbered_2_para xname="cause">For purposes of this Agreement, <b>"Cause"</b> shall mean </numbered_2_para>
   <numbered_3_para>any act or omission which constitutes a material breach by the Holder of the terms of </numbered_3_para>
@@ -92,7 +94,7 @@
   <numbered_3_para>the commission by the Holder of an arrestable offence, a criminal act in connection with an arrestable offence, or any dishonest or wrongful act involving fraud; </numbered_3_para>
   <numbered_3_para>the commission by the Holder of an act of moral turpitude which may adversely effect the reputation or business of the Company as reasonably determined by the Board; or </numbered_3_para>
   <numbered_3_para>the Holder's willful or continuing failure to perform the Holder's duties reasonably assigned during the course of employment or volunteership. </numbered_3_para>
-  <numbered_2_para xname="good reason">For purposes of this Agreement, the term "<b>Good Reason</b>" shall mean termination due to a material breach by the Company of the Holder's Volunteer Agreement or Employment Agreement, as the case may be, which breach remains uncured by the Company, if curable, for a period of thirty (30) days following receipt of a written notice of breach from the Holder, specifying the act or omission upon which the Holder's claim of breach is based. </numbered_2_para>
+  <numbered_2_para xname="good reason">For purposes of this Agreement, the term "<b>Good Reason</b>" shall mean termination due to a material breach of the Holder's Volunteer Agreement or Employment Agreement, as the case may be, which breach remains uncured, if curable, for a period of thirty (30) days following receipt of a written notice of breach, specifying the act or omission upon which the claim of breach is based. </numbered_2_para>
   <numbered_2_para xname="termination">Termination for Good Reason shall be deemed to be termination by the Company without Cause under this Agreement. </numbered_2_para>
 
   <a_left_sidehead>Acceleration </a_left_sidehead>
