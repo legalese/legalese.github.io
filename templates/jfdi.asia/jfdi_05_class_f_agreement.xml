@@ -76,7 +76,7 @@
   <numbered_2_para>Subject to Sections <xref to="cause" />, <xref to="good reason" />, and <xref to="termination" /> below, </numbered_2_para>
   <numbered_3_para>in the event that the Holder is discharged by the Company from employment or volunteership, with Cause (as defined below) and prior to a Change of Control event,</numbered_3_para>
   <numbered_3_para>or in the event that the Holder resigns, unless the resignation is for Good Reason,</numbered_3_para>
-  <numbered_3_para>the Company shall have the right (the "Redemption Right") to redeem from the Holder, at a price per share equal to the Issue Price (the "Redemption Price"), up to the total number of Shares that have not vested according to the table in Section <xref to="hazTable" /> (the "Restricted Shares"). </numbered_3_para>
+  <numbered_3_para>the Company shall have the right (the "Redemption Right") to redeem from the Holder, at a price per share equal to the Issue Price (the "Redemption Price"), up to the total number of Restricted Shares held by the Holder as at the date of the redemption notice.</numbered_3_para>
   <numbered_3_para>The number of shares in the Restricted column of the above table shall initially be subject to the Redemption Right. </numbered_3_para>
   <numbered_3_para>The number of shares in the Unrestricted column of the above table shall not be subject to the Redemption Right; they shall be deemed vested upon issue and are convertible to Ordinary Shares. </numbered_3_para>
   <numbered_3_para>The number of shares in the Cliff column of the above table shall vest on <?= data.f_cliff_end_date ?>. </numbered_3_para>
