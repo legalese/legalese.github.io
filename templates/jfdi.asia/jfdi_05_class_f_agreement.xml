@@ -83,7 +83,7 @@
 <? if (data.new_investor.f_cliff_2 && data.new_investor.f_cliff_end_date_2) { ?>
   <numbered_3_para>The number of shares in the Cliff 2 column of the above table shall vest on <?= data.new_investor.f_cliff_end_date_2 ?>. </numbered_3_para>
 <? } ?>
-  <numbered_3_para>Thereafter, the number of shares in the <?=data.new_investor.f_period || "Monthly"?> column of the above table shall vest on the last calendar day of each <?=(data.new_investor.f_period || "Monthly").toLowerCase().replace(/ly$/,"")?> until such time as all Shares are fully vested. </numbered_3_para>
+  <numbered_3_para>Thereafter, the number of Restricted Shares in the <?=data.new_investor.f_period || "Monthly"?> column of the above table shall convert to Unrestricted Shares on the last calendar day of each <?=(data.new_investor.f_period || "Monthly").toLowerCase().replace(/ly$/,"")?> until such time as no Restricted Shares remain. </numbered_3_para>
 
   <numbered_2_para xname="cause">For purposes of this Agreement, <b>"Cause"</b> shall mean </numbered_2_para>
   <numbered_3_para>any act or omission which constitutes a material breach by the Holder of the terms of </numbered_3_para>
