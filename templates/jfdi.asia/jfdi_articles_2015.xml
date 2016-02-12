@@ -7,12 +7,13 @@
 <b_left_sidehead_nonum>Interpretation</b_left_sidehead_nonum>
 <numbered_1_para restart="true">In these Regulations:---</numbered_1_para>
 
-<definition_nonum>"Act"	means the Companies Act (Cap. 50);</definition_nonum>
-<definition_nonum>"Articles"	means the regulations contained in this Constitution;</definition_nonum>
+<definition_nonum>Act	means the Companies Act (Cap. 50);</definition_nonum>
+<definition_nonum>Regulations	means the regulations contained in this Constitution;</definition_nonum>
+<definition_nonum>Article	is synonymous with "Regulation";</definition_nonum>
 <definition_nonum>External Financing	means a fund-raising event in which the company raises no less than $500,000 within one round or series by issue of equity or securities convertible to equity.</definition_nonum>
 
-<definition_nonum>"seal"	means the common seal of the company;</definition_nonum>
-<definition_nonum>"secretary"	means any person appointed to perform the duties of a secretary of the company;</definition_nonum>
+<definition_nonum>seal	means the common seal of the company;</definition_nonum>
+<definition_nonum>secretary	means any person appointed to perform the duties of a secretary of the company;</definition_nonum>
 <para_1>expressions referring to writing shall, unless the contrary intention appears, be construed as including references to printing, lithography, photography and other modes of representing or reproducing words in a visible form;</para_1>
 <para_1>words or expressions contained in these Regulations shall be interpreted in accordance with the provisions of the Interpretation Act (Cap. 1), and of the Act as in force at the date at which these Regulations become binding on the company.</para_1>
 <b_left_sidehead_nonum>Share capital and variation of rights</b_left_sidehead_nonum>
@@ -37,9 +38,9 @@
 <numbered_1_para>The directors may, on the issue of shares, differentiate between the holders as to the amount of calls to be paid and the times of payment.</numbered_1_para>
 <numbered_1_para>The directors may, if they think fit, receive from any member willing to advance the same all or any part of the money uncalled and unpaid upon any shares held by him, and upon all or any part of the money so advanced may (until the same would, but for the advance, become payable) pay interest at such rate not exceeding (unless the company in general meeting shall otherwise direct) 8% per annum as may be agreed upon between the directors and the member paying the sum in advance.</numbered_1_para>
 <b_left_sidehead_reset_a_invisible xname="transfer">Transfer of shares</b_left_sidehead_reset_a_invisible>
-<numbered_2_para>The Company is a private company, and accordingly the number of the Members (not including persons who are in the employment of the Company or of its subsidiary, and persons who, having been formerly in the employment of the Company or of its subsidiary, were while in that employment and have continued after the determination of that employment, to be Members) shall be limited to fifty (50), provided that, for the purposes of this provision, where two or more persons hold one or more shares in the Company jointly they shall be treated as a single Member; and the right to transfer the shares of the Company shall be restricted in the manner provided in these Articles.</numbered_2_para>
-<numbered_2_para>Subject to these Articles, any member may transfer all or any of his shares by instrument in writing in any usual or common form or in any other form which the directors may approve. The instrument shall be executed by or on behalf of the transferor and the transferor shall remain the holder of the shares transferred until the transfer is registered and the name of the transferee is entered in the register of members in respect thereof.</numbered_2_para>
-<numbered_2_para xname="permitted_transfer">The restrictions set out in this Article <xref to="transfer" /> shall not apply to any transfer of shares in the following circumstances:</numbered_2_para>
+<numbered_2_para>The Company is a private company, and accordingly the number of the Members (not including persons who are in the employment of the Company or of its subsidiary, and persons who, having been formerly in the employment of the Company or of its subsidiary, were while in that employment and have continued after the determination of that employment, to be Members) shall be limited to fifty (50), provided that, for the purposes of this provision, where two or more persons hold one or more shares in the Company jointly they shall be treated as a single Member; and the right to transfer the shares of the Company shall be restricted in the manner provided in these Regulations.</numbered_2_para>
+<numbered_2_para>Subject to these Regulations, any member may transfer all or any of his shares by instrument in writing in any usual or common form or in any other form which the directors may approve. The instrument shall be executed by or on behalf of the transferor and the transferor shall remain the holder of the shares transferred until the transfer is registered and the name of the transferee is entered in the register of members in respect thereof.</numbered_2_para>
+<numbered_2_para xname="permitted_transfer">The restrictions set out in this Regulation <xref to="transfer" /> shall not apply to any transfer of shares in the following circumstances:</numbered_2_para>
 <numbered_3_para xname="permitted_transfer_reconstruction">by any Member being a corporation of any shares, to another corporation resulting from a reconstruction or amalgamation of such Member or to any subsidiary or holding company of such Member or to another subsidiary of such holding company;</numbered_3_para>
 <numbered_3_para xname="permitted_transfer_p2c">by any Member being a natural person, to a corporation wholly owned by that Member or to a trust in which the Member is a beneficiary or trustee;</numbered_3_para>
 <numbered_3_para xname="permitted_transfer_c2p">by any Member being a corporation wholly owned by a natural person, to that person;</numbered_3_para>
@@ -53,7 +54,7 @@
 <numbered_3_para>the certificate of the shares to which the instrument of transfer relates;</numbered_3_para>
 <numbered_3_para>any other evidence as the directors may reasonably require to show the
 right of the transferor to make the transfer.</numbered_3_para>
-<numbered_2_para>Upon receipt of the items referred to in paragraph <xref to="transfer_prereqs"/>, the company must, subject to Article <xref to="transfer_decline"/>, lodge with the Registrar a notice of transfer of shares in accordance with section 128 of the Act and retain the instrument of transfer referred to in Article <xref to="transfer_instrument"/>.</numbered_2_para>
+<numbered_2_para>Upon receipt of the items referred to in paragraph <xref to="transfer_prereqs"/>, the company must, subject to Regulation <xref to="transfer_decline"/>, lodge with the Registrar a notice of transfer of shares in accordance with section 128 of the Act and retain the instrument of transfer referred to in Regulation <xref to="transfer_instrument"/>.</numbered_2_para>
 <numbered_2_para xname="transfer_decline">The directors may decline to lodge a notice of transfer of shares with the Registrar if:--</numbered_2_para>
 <numbered_3_para>the shares are not fully paid shares;</numbered_3_para>
 <numbered_3_para>the directors do not approve of the transferee; or</numbered_3_para>
@@ -217,89 +218,109 @@ right of the transferor to make the transfer.</numbered_3_para>
 
 
 
-<b_left_sidehead_nonum>Class F Redeemable Preference Shares</b_left_sidehead_nonum>
+<a_left_sidehead xname="class_f">Class F Redeemable Preference Shares</a_left_sidehead>
 
 
-<numbered_1_para xname="class_f">The Company may issue preference shares in the capital of the Company ("Class F Shares"), at an issue price of S$0.0001 each or such other amount as the Directors may determine, which shall carry the following rights, benefits and privileges and be subject to the following restrictions:</numbered_1_para>
+<para_1>The Company may issue preference shares in the capital of the Company ("Class F Shares"), at an issue price of S$0.0001 each or such other amount as the Directors may determine, which shall carry the following rights, benefits and privileges and be subject to the following restrictions:</para_1>
 
 
-<numbered_2_firstbold>As regards issue. Class F Shares may be issued with the sanction of an ordinary resolution pursuant to agreements between the Company and individual holders ("Class F Agreements"), the terms of which the Directors may determine.</numbered_2_firstbold>
+<b_left_sidehead_nonum>As regards issue</b_left_sidehead_nonum>
+
+<numbered_2_para>Class F Shares may be issued with the sanction of an ordinary resolution pursuant to agreements between the Company and individual holders ("Class F Agreements"), the terms of which the Directors may determine.</numbered_2_para>
 
 
-<numbered_2_firstbold>As regards redemption and restriction. The Company shall have the right to redeem Class F Shares. Redemption may occur at the issue price or such other price as the Directors may determine. The rules governing the Company's right of redemption over a holder's shares shall be set out in agreements with that holder. Those rules shall include a description of how a holder's Class F Shares vest over time. Unvested shares, also known as Restricted F Shares, are subject to redemption. Vested shares, also known as Unrestricted F Shares, are not subject to redemption except under special circumstances.</numbered_2_firstbold>
+<b_left_sidehead_nonum>As regards redemption and restriction</b_left_sidehead_nonum>
+
+<numbered_2_para>The Company shall have the right to redeem Class F Shares. Redemption may occur at the issue price or such other price as the Directors may determine. The rules governing the Company's right of redemption over a holder's shares shall be set out in agreements with that holder. Those rules shall include a description of how a holder's Class F Shares vest over time. Unvested shares, also known as Restricted F Shares, are subject to redemption. Vested shares, also known as Unrestricted F Shares, are not subject to redemption except under special circumstances described in Regulation <xref to="f_redemption_unrestricted"/>.</numbered_2_para>
 
 
-<numbered_3_firstbold xname="f_redemption_restricted">Redemption of Restricted Shares. The Company may exercise the Redemption Right with respect to Restricted F Shares by delivering or mailing to the Holder (or his estate), within 60 days after the termination of the employment or volunteership of the Holder with the Company, a written notice of exercise of the Redemption Right. Such notice shall specify the number of Shares to be redeemed. If and to the extent the Redemption Right is not so exercised by the giving of such a notice within such 60-day period, the Redemption Right shall automatically expire and terminate effective upon the expiration of such 60-day period.</numbered_3_firstbold>
-  <numbered_3_para>The Company shall pay to the Holder the aggregate Redemption Price within 10 days of the notice date.</numbered_3_para>
-  <numbered_3_para>After the time at which the Redemption Right is exercised with respect to any Shares, the Company shall not pay any dividend to the Holder on account of such Shares or permit the Holder to exercise any of the privileges or rights of a stockholder with respect to such Shares. </numbered_3_para>
-  <numbered_3_para>The Company shall not redeem any fraction of a Share upon exercise of the Redemption Right, and any fraction of a Share resulting from a computation made pursuant to this Agreement shall be rounded to the nearest whole Share (with any one-half Share being rounded upward). </numbered_3_para>
+<b_left_sidehead_nonum>Redemption of Restricted Shares</b_left_sidehead_nonum>
+
+<numbered_2_para xname="f_redemption_restricted">The Company may exercise its redemption right with respect to Restricted F Shares by delivering or mailing to the Holder (or his estate), within 60 days after the termination of the employment or volunteership of the Holder with the Company, a written notice of exercise of the Redemption Right. Such notice shall specify the number of Shares to be redeemed. If and to the extent the Redemption Right is not so exercised by the giving of such a notice within such 60-day period, the Redemption Right shall automatically expire and terminate effective upon the expiration of such 60-day period.</numbered_2_para>
+<numbered_2_para>The Company shall pay to the Holder the aggregate Redemption Price within 10 days of the notice date.</numbered_2_para>
+<numbered_2_para>After the time at which the Redemption Right is exercised with respect to any Shares, the Company shall not pay any dividend to the Holder on account of such Shares or permit the Holder to exercise any of the privileges or rights of a stockholder with respect to such Shares. </numbered_2_para>
+<numbered_2_para>The Company shall not redeem any fraction of a Share upon exercise of the Redemption Right, and any fraction of a Share resulting from a computation made pursuant to this Agreement shall be rounded to the nearest whole Share (with any one-half Share being rounded upward). </numbered_2_para>
+
+<b_left_sidehead_nonum>Redemption of Unrestricted Shares</b_left_sidehead_nonum>
+  <numbered_2_para xname="f_redemption_unrestricted">In the event the Company terminates the Holder's employment or volunteership for Cause, as defined in the relevant agreements, the Company shall have the option, but not the obligation, to redeem all or any part of the Holder's Unrestricted Shares in addition to the Holder's Restricted Shares. The mechanics of redemption shall be as described in Regulation <xref to="f_redemption_restricted"/>.</numbered_2_para>
 
 
-  <numbered_2_firstbold xname="f_redemption_unrestricted">Redemption of Unrestricted Shares. In the event the Company terminates the Holder's employment or volunteership for Cause, as defined in the relevant agreements, the Company shall have the option, but not the obligation, to redeem all or any part of the Holder's Unrestricted Shares in addition to the Holder's Restricted Shares. The mechanics of redemption shall be as described in Article <xref to="f_redemption_restricted"/>.</numbered_2_firstbold>
-
-
-  <numbered_2_firstbold>Failure to Deliver Shares; Effect of Prohibited Transfer. In the event that the Holder or his or her successor in interest fails to deliver the share certificates to be redeemed by the Company under this Agreement, the Company may elect:</numbered_2_firstbold>
-  <numbered_2_para>immediately to take such action as is appropriate to transfer record title of such Shares from the Holder to the Company and to treat the Holder and such Shares in all respects as if delivery of such Shares had been made as required by this Agreement. The Holder hereby irrevocably grants the Company a power of attorney which shall be coupled with an interest for the purpose of effectuating the preceding sentence. The Company shall not be required </numbered_2_para>
-  <numbered_3_para>to transfer on its books any of the Shares which shall have been sold or transferred in violation of any of the provisions set forth in this Agreement, or </numbered_3_para>
-  <numbered_3_para>to treat as owner of such Shares or to pay dividends to any transferee to whom any such Shares shall have been so sold or transferred. </numbered_3_para>
-  <numbered_2_para>immediately to lodge filings with the Registrar to update the electronic register of members.</numbered_2_para>
+  <b_left_sidehead_nonum>Failure to Deliver Shares; Effect of Prohibited Transfer</b_left_sidehead_nonum>
+  
+  <numbered_2_para>In the event that the Holder or his or her successor-in-interest fails to deliver the share certificates to be redeemed by the Company under this Agreement, the Company may elect:</numbered_2_para>
+  <numbered_3_para>immediately to take such action as is appropriate to transfer record title of such Shares from the Holder to the Company and to treat the Holder and such Shares in all respects as if delivery of such Shares had been made as required by this Agreement. The Holder hereby irrevocably grants the Company a power of attorney which shall be coupled with an interest for the purpose of effectuating the preceding sentence. The Company shall not be required </numbered_3_para>
+  <numbered_4_para>to transfer on its books any of the Shares which shall have been sold or transferred in violation of any of the provisions set forth in this Agreement, or</numbered_4_para>
+  <numbered_4_para>to treat as owner of such Shares or to pay dividends to any transferee to whom any such Shares shall have been so sold or transferred.</numbered_4_para>
+  <numbered_3_para>immediately to lodge filings with the Registrar to update the electronic register of members.</numbered_3_para>
 <para_1>and the share certificates held by the Holder shall be invalid.</para_1>
 
 
+<b_left_sidehead_nonum>As regards conversion</b_left_sidehead_nonum>
+<numbered_2_para xname="f_conversion">The Directors may elect to convert a holder's Unrestricted F Shares to Ordinary Shares at any time.</numbered_2_para>
+<numbered_2_para>Restricted F Shares are not convertible except to Unrestricted F Shares as specified in the relevant vesting schedule, and pursuant to Regulation <xref to="aa_f_acceleration"/>.</numbered_2_para>
 
-<numbered_2_firstbold xname="f_conversion">As regards conversion.</numbered_2_firstbold>
-<numbered_3_para>The Directors may elect to convert a holder's Unrestricted F Shares to Ordinary Shares at any time.</numbered_3_para>
-<numbered_3_para>Restricted F Shares are not convertible except:</numbered_3_para>
-<numbered_4_para>to Unrestricted F Shares as specified in the relevant vesting schedule; and</numbered_4_para>
-<numbered_4_para>pursuant to Article <xref to="aa_f_acceleration"/>.</numbered_4_para>
+<numbered_2_para>F Shares shall convert to ordinary shares at a one-to-one ratio.</numbered_2_para>
 
-<numbered_3_para>F Shares shall convert to ordinary shares at a one-to-one ratio.</numbered_3_para>
-
-
-<numbered_2_firstbold xname="f_automatic_conversion">As regards automatic conversion. In event of a Change of Control,</numbered_2_firstbold>
+<b_left_sidehead_nonum>As regards automatic conversion</b_left_sidehead_nonum>
+<numbered_2_para xname="f_automatic_conversion">In event of a Change of Control,</numbered_2_para>
 <numbered_3_para>all Unrestricted Class F Shares shall automatically convert to ordinary shares at a one-for-one ratio, and</numbered_3_para>
 <numbered_3_para xname="aa_f_acceleration">all Restricted Class F Shares shall be dealt with according to the Class F Agreements governing those shares or (if those agreements are silent on the matter) at the absolute discretion of the Directors.</numbered_3_para>
 
+<b_left_sidehead_nonum>As regards voting</b_left_sidehead_nonum>
+<numbered_2_para xname="f_voting">Other than as provided for under the Act, the Holders of Unrestricted F Shares shall be entitled to vote on any matter in a general meeting of the Company, pari passu with holders of ordinary shares, and in the case of a poll their votes shall be counted according to the number of ordinary shares they would hold if all their Unrestricted F Shares were converted.</numbered_2_para>
+<para_2>For the avoidance of doubt, Restricted F Shares carry no voting rights.</para_2>
 
-<numbered_2_firstbold xname="f_voting">As regards voting. Other than as provided for under the Act, the Holders of Unrestricted F Shares shall be entitled to vote on any matter in a general meeting of the Company, pari passu with holders of ordinary shares, and in the case of a poll their votes shall be counted according to the number of ordinary shares they would hold if all their Unrestricted F Shares were converted. For the avoidance of doubt, Restricted F Shares carry no voting rights.</numbered_2_firstbold>
+<b_left_sidehead_nonum>As regards income</b_left_sidehead_nonum>
+<numbered_2_para xname="f_income">The Holders of Class F Shares shall not be entitled to participate in the profits of the Company available for distribution by way of dividend or otherwise.</numbered_2_para>
 
+<b_left_sidehead_nonum>As regards surplus profits and assets</b_left_sidehead_nonum>
+<numbered_2_para xname="f_surplus">The Holders of Class F Shares shall have no right to participate in the profits or assets or any distributions of proceeds of the Company beyond the rights conferred under this Regulation.</numbered_2_para>
 
-<numbered_2_firstbold>As regards income. The Holders of Class F Shares shall not be entitled to participate in the profits of the Company available for distribution by way of dividend or otherwise.</numbered_2_firstbold>
+<b_left_sidehead_nonum>As regards transfers, registration, register and replacement</b_left_sidehead_nonum>
+<numbered_2_para xname="f_transfers">Class F Shares will be in registered form. The provisions of these Regulations relating to the registration, transfer, transmission, certificates and replacement thereof applicable to ordinary shares shall apply mutatis mutandis to Class F Shares subject to the terms of the Agreement.</numbered_2_para>
+<? var preemptive_rights_articles = (! data.preemptive_rights_for_new_issues == false) ? 'Regulations <xref to="rofr" /> and <xref to="preemptive" />' : 'Regulation <xref to="rofr" />'; ?>
 
-
-<numbered_2_firstbold>As regards surplus profits and assets. The Holders of Class F Shares shall have no right to participate in the profits or assets or any distributions of proceeds of the Company beyond the rights conferred under this Article.</numbered_2_firstbold>
-<numbered_2_firstbold>As regards transfers, registration, register and replacement. Class F Shares will be in registered form. The provisions of these Articles relating to the registration, transfer, transmission, certificates and replacement thereof applicable to ordinary shares shall apply mutatis mutandis to Class F Shares subject to the terms of the Agreement.</numbered_2_firstbold>
-<? var preemptive_rights_articles = (! data.preemptive_rights_for_new_issues == false) ? 'Articles <xref to="rofr" /> and <xref to="preemptive" />' : 'Article <xref to="rofr" />'; ?>
-<numbered_2_firstbold xname="f_preemptive">As regards pre-emptive rights of Members. Notwithstanding <?!= preemptive_rights_articles ?>, and pursuant to Section 161 of the Act, the Directors may issue new Class F Shares, and transfer existing Class F Shares, without first offering the shares to existing Members, provided that such transfers and issues occur as part of a vesting scheme or some other share option plan, share ownership plan, or equity-based remuneration scheme previously approved by the Company.</numbered_2_firstbold>
-
-<numbered_2_firstbold xname="f_dsp">Discretionary Subscription Price. Subsequent to their initial issue to a given holder, Class F Shares may be issued to that holder at a "<b>Discretionary Subscription Price</b>", which shall be the greater of</numbered_2_firstbold>
+<b_left_sidehead_nonum>As regards pre-emptive rights of Members</b_left_sidehead_nonum>
+<numbered_2_para xname="f_preemptive">Notwithstanding <?!= preemptive_rights_articles ?>, and pursuant to Section 161 of the Act, the Directors may issue new Class F Shares, and transfer existing Class F Shares, without first offering the shares to existing Members, provided that such transfers and issues occur as part of a vesting scheme or some other share option plan, share ownership plan, or equity-based remuneration scheme previously approved by the Company.</numbered_2_para>
+<b_left_sidehead_nonum>Discretionary Subscription Price</b_left_sidehead_nonum>
+<numbered_2_para xname="f_dsp">Subsequent to their initial issue to a given holder, Class F Shares may be issued to that holder at a "<b>Discretionary Subscription Price</b>", which shall be the greater of</numbered_2_para>
   <numbered_3_para>the price of any previous issue of Class F Shares, </numbered_3_para>
-  <numbered_3_para>in the event that a valuation was placed on the Company in the course of an External Financing event, a price consistent with that set for transfers among founders as described in Article <xref to="transfer_svp"/>, and </numbered_3_para>
+  <numbered_3_para>in the event that a valuation was placed on the Company in the course of an External Financing event, a price consistent with that set for transfers among founders as described in Regulation <xref to="transfer_svp"/>, and </numbered_3_para>
   <numbered_3_para>a price determined by the Board. </numbered_3_para>
   <numbered_2_para>In the event Class F Shares are issued at a price other than provided above, the pre-emption rights waived by the parties in the Shareholders' Agreement shall return with full force and all members shall enjoy their pre-emptive rights with respect to the new issue. </numbered_2_para>
 
-<numbered_2_firstbold xname="transfer_svp">Share Valuation Policy.</numbered_2_firstbold>
-<numbered_3_para>For the purposes of transferring Class F shares among holders, an ordinary share of the company may be valued</numbered_3_para>
-<numbered_4_para>if an External Financing occurred less than 1 year before the transfer, at 25% less than the valuation agreed therein;</numbered_4_para>
-<numbered_4_para>if an External Financing has not occurred, or has occurred more than 1 year prior to the transfer, then as the transacting members agree amongst themselves.</numbered_4_para>
-<numbered_3_para>Variation from this rule shall require the approval of the Directors. If the Directors do not give their approval to a variant valuation they may refuse to register the transfer.</numbered_3_para>
+  <b_left_sidehead xname="transfer_svp">Share Valuation Policy</b_left_sidehead>
+
+<para_1>For the purposes of transferring Class F shares among holders, an ordinary share of the company may be valued</para_1>
+<numbered_3_para>if an External Financing occurred less than 1 year before the transfer, at 25% less than the valuation agreed therein;</numbered_3_para>
+<numbered_3_para>if an External Financing has not occurred, or has occurred more than 1 year prior to the transfer, then as the transacting members agree amongst themselves.</numbered_3_para>
+<numbered_2_para>Variation from this rule shall require the approval of the Directors. If the Directors do not give their approval to a variant valuation they may refuse to register the transfer.</numbered_2_para>
   
  <? if (! data.no_class_f) { ?>
- <numbered_3_para>For purposes of calculating the valuation of the company, Class F shares both issued and reserved shall contribute to the fully-diluted capitalization, and shall be valued on an as-if-converted basis.</numbered_3_para>
+ <numbered_2_para>For purposes of calculating the valuation of the company, Class F shares both issued and reserved shall contribute to the fully-diluted capitalization, and shall be valued on an as-if-converted basis.</numbered_2_para>
 <? } ?>
 
-<numbered_2_firstbold>As regards pre-emptive rights to other classes of shares. Notwithstanding <?!= preemptive_rights_articles ?>, and pursuant to Section 161 of the Act, when the Directors first offer to issue new non-Class F Shares or offer to transfer existing non-Class F Shares to existing Members, Restricted Class F Shares shall be excluded from the eligibility calculation.</numbered_2_firstbold>
-<numbered_2_firstbold>As regards substitution securities. In the event of Change of Control, winding-up, or dissolution of the Company pursuant to reconstruction, amalgamation, merger or consolidation, the resultant corporate entity responsible for the liabilities of the Company with respect to Class F Shares shall issue such securities in substitution and replacement of Class F Shares and on such terms as shall be approved by at least 51% of all then existing Holders of Class F Shares unless the terms of such securities in substitution are no less favourable than the terms of Class F Shares in which case the approval by Holders of Class F Shares shall not be required.</numbered_2_firstbold>
+<b_left_sidehead_nonum>As regards pre-emptive rights to other classes of shares</b_left_sidehead_nonum>
+<numbered_2_para xname="f_pre_other">Notwithstanding <?!= preemptive_rights_articles ?>, and pursuant to Section 161 of the Act, when the Directors first offer to issue new non-Class F Shares or offer to transfer existing non-Class F Shares to existing Members, Restricted Class F Shares shall be excluded from the eligibility calculation.</numbered_2_para>
+
+<b_left_sidehead_nonum>As regards substitution securities</b_left_sidehead_nonum>
+<numbered_2_para xname="f_substitution">In the event of Change of Control, winding-up, or dissolution of the Company pursuant to reconstruction, amalgamation, merger or consolidation, the resultant corporate entity responsible for the liabilities of the Company with respect to Class F Shares shall issue such securities in substitution and replacement of Class F Shares and on such terms as shall be approved by at least 51% of all then existing Holders of Class F Shares unless the terms of such securities in substitution are no less favourable than the terms of Class F Shares in which case the approval by Holders of Class F Shares shall not be required.</numbered_2_para>
+
+
 <numbered_2_para>Save as provided above, there are no other anti-dilution or protective provisions in respect of the Class F Shares.</numbered_2_para>
 
-<b_left_sidehead_nonum>Class F-NV Redeemable Preference Shares</b_left_sidehead_nonum>
-<numbered_1_para xname="class_f_nv">The Company may issue preference shares in the capital of the Company ("Class F-NV Shares"), at an issue price of S$0.0001 each or such other amount as the Directors may determine, which are identical to, and shall be treated identically with, Class F Redeemable Preference Shares (defined above in Article <xref to="class_f"/>) save for the following differences:</numbered_1_para>
+
+<a_left_sidehead xname="class_f_nv">Nonvoting Class F Redeemable Preference Shares</a_left_sidehead>
+<para_1>The Company may issue nonvoting Class F Redeemable Preference Shares in the capital of the Company ("Class F-NV Shares"), at an issue price of S$0.0001 each or such other amount as the Directors may determine, which are identical to, and shall be treated identically with, Class F Redeemable Preference Shares (defined above in Regulation <xref to="class_f"/>) save for the following differences:</para_1>
 <numbered_2_para xname="class_f_nv_no_notices">Class F-NV Shares carry no right to receive notices of meetings of the company;</numbered_2_para>
 <numbered_2_para xname="class_f_nv_no_vote">Class F-NV Shares carry no right to vote at general meetings of the company; and</numbered_2_para>
-<numbered_2_para xname="class_f_nv_conversion_to_nonvoting">Class F-NV Shares are convertible only to Nonvoting Ordinary Shares.</numbered_2_para>
+<numbered_2_para xname="class_f_nv_conversion_to_nonvoting">whereas Class F Shares are convertible to Ordinary Shares, Class F-NV Shares are convertible to Nonvoting Ordinary Shares.</numbered_2_para>
 
-<b_left_sidehead_nonum>Nonvoting Ordinary Shares</b_left_sidehead_nonum>
-<numbered_1_para xname="ordinary_nonvoting">The Company may issue <b>Nonvoting Ordinary Shares</b>, which are identical to, and shall be treated identically with, ordinary shares save for the following differences:</numbered_1_para>
+
+
+
+<a_left_sidehead xname="ordinary_nonvoting">Nonvoting Ordinary Shares</a_left_sidehead>
+<para_1>The Company may issue <b>Nonvoting Ordinary Shares</b>, which are identical to, and shall be treated identically with, ordinary shares save for the following differences:</para_1>
 <numbered_2_para xname="ordinary_nv_no_notices">Nonvoting Ordinary Shares carry no right to receive notices of meetings of the company; and</numbered_2_para>
-<numbered_2_para xname="ordinary_nv_no_vote">Ordinary Novoting Shares carry no right to vote at general meetings of the company.</numbered_2_para>
+<numbered_2_para xname="ordinary_nv_no_vote">Nonvoting Ordinary Shares carry no right to vote at general meetings of the company.</numbered_2_para>
 

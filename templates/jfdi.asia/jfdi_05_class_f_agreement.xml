@@ -29,9 +29,9 @@
   <a_left_sidehead>Definitions</a_left_sidehead>
   <para_1>In the Agreement (including the Recitals and the Schedules), except to the extent that the context otherwise requires, the following terms shall have the meanings set forth below: </para_1>
   <definition>Act	means the Companies Act (Cap. 50) of Singapore and includes any provision thereof as from time to time modified or re-enacted; </definition>
-  <definition>Articles	means the Articles in the Constitution of the Company; </definition>
+  <definition>Regulations	means the Regulations in the Constitution of the Company; </definition>
   <definition>Board	means the board of Directors for the time being of the Company; </definition>
-  <definition>Change of Control	is as defined in the Articles; </definition>
+  <definition>Change of Control	is as defined in the Regulations; </definition>
   <definition>Constitution	means the Constitution of the Company; </definition>
   <definition>Vest / Vesting	in relation to a Share means the waiver of the Company's Redemption Right over that Share; </definition>
   <definition>Vested / Unrestricted	in relation to a Share means that the Company has waived its right of redemption in regard to that Share; </definition>
@@ -129,7 +129,7 @@
   <numbered_2_para>If from time to time there is any stock split, stock dividend, stock distribution or other reclassification of the Ordinary Shares of the Company, any and all new, substituted or additional securities to which the Holder is entitled by reason of his ownership of the Shares shall be immediately subject to the redemption options, the restrictions on transfer and the other provisions of this Agreement in the same manner and to the same extent as the Shares, and the Redemption Price shall be appropriately adjusted. </numbered_2_para>
   <numbered_2_para>If the Shares are converted into or exchanged for, or stockholders of the Company receive by reason of any distribution in total or partial liquidation, securities of another corporation, or other property (including cash), pursuant to any merger of the Company or acquisition of its assets (including as a consequence of a Change of Control), then the rights of the Company under this Agreement shall inure to the benefit of the Company's successor and this Agreement shall apply to the securities or other property received upon such conversion, exchange or distribution in the same manner and to the same extent as to the Shares. </numbered_2_para>
   <a_left_sidehead>Conversion</a_left_sidehead>
-  <para_1>Pursuant to Article <?= data.aa_f_clause_number ?>.3 of the Constitution, Unrestricted Shares may be converted at any time to Ordinary Shares with the Directors' approval. </para_1>
+  <para_1>Pursuant to Regulation <?= data.aa_f_clause_number ?>.3 of the Constitution, Unrestricted Shares may be converted at any time to Ordinary Shares with the Directors' approval. </para_1>
   <numbered_2_para>To effect conversion, a Holder shall simply give written notice to the Board of Directors indicating the number of shares to be converted and the effective date of conversion. If the Holder desires updated share certificates he should enclose his existing certificate or certificates with that notice. If the Directors do not respond within 30 days the conversion is taken to be denied.</numbered_2_para>
   <numbered_2_para>In the event of a Change of Control or a winding-up of the Company, all Unrestricted Shares shall be deemed to have been converted to Ordinary Shares on the calendar day prior to the event and the Holder shall be entitled to all the rights of an ordinary shareholder during the course of, and subsequent to, that event. </numbered_2_para>
   <a_left_sidehead>No Rights To Employment</a_left_sidehead>
@@ -139,7 +139,7 @@
   <a_left_sidehead>Binding Effect</a_left_sidehead>
   <para_1>This Agreement shall be binding upon and inure to the benefit of the Company and the Holder and their respective heirs, executors, administrators, legal representatives, successors and assigns, subject to the restrictions on transfer set forth above. </para_1>
   <a_left_sidehead>Notice</a_left_sidehead>
-  <para_1>All notices required or permitted hereunder shall be in writing and deemed effectively given according to the Articles. </para_1>
+  <para_1>All notices required or permitted hereunder shall be in writing and deemed effectively given according to the Regulations. </para_1>
   <a_left_sidehead>Entire Agreement</a_left_sidehead>
   <para_1>This Agreement constitutes the entire agreement between the parties, and supersedes all prior agreements and understandings, relating to the subject matter of this Agreement. </para_1>
   <a_left_sidehead>Amendment</a_left_sidehead>
