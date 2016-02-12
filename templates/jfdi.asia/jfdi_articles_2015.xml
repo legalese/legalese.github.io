@@ -230,7 +230,26 @@ right of the transferor to make the transfer.</numbered_3_para>
 <numbered_2_firstbold>As regards surplus profits and assets. The Holders of Class F Shares shall have no right to participate in the profits or assets or any distributions of proceeds of the Company beyond the rights conferred under this Article.</numbered_2_firstbold>
 <numbered_2_firstbold>As regards transfers, registration, register and replacement. Class F Shares will be in registered form. The provisions of these Articles relating to the registration, transfer, transmission, certificates and replacement thereof applicable to ordinary shares shall apply mutatis mutandis to Class F Shares subject to the terms of the Agreement.</numbered_2_firstbold>
 <? var preemptive_rights_articles = (! data.preemptive_rights_for_new_issues == false) ? 'Articles <xref to="rofr" /> and <xref to="preemptive" />' : 'Article <xref to="rofr" />'; ?>
-<numbered_2_firstbold>As regards pre-emptive rights of Members. Notwithstanding <?!= preemptive_rights_articles ?>, and pursuant to Section 161 of the Act, the Directors may issue new Class F Shares, and transfer existing Class F Shares, without first offering the shares to existing Members, provided that such transfers and issues occur as part of a vesting scheme or some other share option plan, share ownership plan, or equity-based remuneration scheme previously approved by the Company.</numbered_2_firstbold>
+<numbered_2_firstbold xname="f_preemptive">As regards pre-emptive rights of Members. Notwithstanding <?!= preemptive_rights_articles ?>, and pursuant to Section 161 of the Act, the Directors may issue new Class F Shares, and transfer existing Class F Shares, without first offering the shares to existing Members, provided that such transfers and issues occur as part of a vesting scheme or some other share option plan, share ownership plan, or equity-based remuneration scheme previously approved by the Company.</numbered_2_firstbold>
+
+<numbered_2_firstbold xname="f_dsp">Discretionary Subscription Price. Subsequent to their initial issue to a given holder, Class F Shares may be issued to that holder at a "<b>Discretionary Subscription Price</b>", which shall be the greater of</numbered_2_firstbold>
+  <numbered_3_para>the price of any previous issue of Class F Shares, </numbered_3_para>
+  <numbered_3_para>in the event that a valuation was placed on the Company in the course of an External Financing event, a price consistent with that set for transfers among founders as described in Article <xref to="transfer_svp"/>, or </numbered_3_para>
+  <numbered_3_para>a price determined by the Board. </numbered_3_para>
+  <numbered_2_para>In the event Class F Shares are issued at a price other than provided above, the pre-emption rights waived by the parties in the Shareholders' Agreement shall return with full force and all members shall enjoy their pre-emptive rights with respect to the new issue. </numbered_2_para>
+
+<definition_nonum>External Financing	means a fund-raising event in which the company raises no less than $500,000 within one round or series by issue of equity or securities convertible to equity.</definition_nonum>
+
+<numbered_2_firstbold xname="transfer_svp">Share Valuation Policy.</numbered_2_firstbold>
+<numbered_3_para>For the purposes of transferring Class F shares among holders, an ordinary share of the company may be valued</numbered_3_para>
+<numbered_4_para>if an External Financing occurred less than 1 year before the transfer, at 25% less than the valuation agreed therein;</numbered_4_para>
+<numbered_4_para>if an External Financing has not occurred, or has occurred more than 1 year prior to the transfer, then as the transacting members agree amongst themselves.</numbered_4_para>
+<numbered_3_para>Variation from this rule shall require the approval of the Directors. If the Directors do not give their approval to a variant valuation they may refuse to register the transfer.</numbered_3_para>
+  
+ <? if (! data.no_class_f) { ?>
+ <numbered_3_para>For purposes of calculating the valuation of the company, Class F shares both issued and reserved shall contribute to the fully-diluted capitalization, and shall be valued on an as-if-converted basis.</numbered_3_para>
+<? } ?>
+
 <numbered_2_firstbold>As regards pre-emptive rights to other classes of shares. Notwithstanding <?!= preemptive_rights_articles ?>, and pursuant to Section 161 of the Act, when the Directors first offer to issue new non-Class F Shares or offer to transfer existing non-Class F Shares to existing Members, Restricted Class F Shares shall be excluded from the eligibility calculation.</numbered_2_firstbold>
 <numbered_2_firstbold>As regards substitution securities. In the event of Change of Control, winding-up, or dissolution of the Company pursuant to reconstruction, amalgamation, merger or consolidation, the resultant corporate entity responsible for the liabilities of the Company with respect to Class F Shares shall issue such securities in substitution and replacement of Class F Shares and on such terms as shall be approved by at least 51% of all then existing Holders of Class F Shares unless the terms of such securities in substitution are no less favourable than the terms of Class F Shares in which case the approval by Holders of Class F Shares shall not be required.</numbered_2_firstbold>
 <numbered_2_para>Save as provided above, there are no other anti-dilution or protective provisions in respect of the Class F Shares.</numbered_2_para>

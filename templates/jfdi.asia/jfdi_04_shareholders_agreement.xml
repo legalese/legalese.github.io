@@ -70,15 +70,6 @@ in the spirit of mutual confidence and co-operation, the Parties have agreed to 
   <numbered_2_para>Article <?= data.aa_preemptive_clause_number || "41" ?> of the Constitution confers pre-emptive rights on members of the Company. The Parties hereby waive their pre-emptive rights with regard to the issue of new Class F Shares provided that such issue occurs either as part of a vesting scheme or some other share option plan, share ownership plan, or equity-based remuneration scheme previously approved by the Company, or pursuant to a Compensation Adjustment and at the Discretionary Subscription Price as described in the Class F Agreement.</numbered_2_para>
   <? } ?>
 
-  <a_left_sidehead>Share Valuation Policy</a_left_sidehead>
-<? if (! data.no_class_f) { ?>
-  <numbered_2_para>For purposes of calculating the valuation of the company, Class F shares both issued and reserved shall contribute to the fully-diluted capitalization value, and shall be valued on an as-if-converted basis.</numbered_2_para>
-<? } ?>
-  <numbered_2_para>For purposes of transferring shares among the Shareholders, an ordinary share of the company shall be valued</numbered_2_para>
-  <numbered_3_para>if an External Financing occurred less than 1 year ago, at 25% less than the valuation agreed therein;</numbered_3_para>
-  <numbered_3_para>if an External Financing has not occurred, or has occurred more than 1 year prior to the date of the transfer of shares, then as the shareholders agree amongst themselves.</numbered_3_para>
-  <numbered_2_para>Variation from this rule shall require the approval of the Directors. If the Directors do not give their approval to a variant valuation they may refuse to register the transfer.</numbered_2_para>
-
   <a_left_sidehead xname="medarb">Dispute Resolution</a_left_sidehead>
   <numbered_2_para>Founders and Employees will first attempt to settle disputes amongst themselves. If a dispute, controversy or claim arises out of or relates to this contract, or breach, termination or invalidity thereof, and if such dispute, controversy or claim cannot be settled and resolved through negotiation, the parties agree to proceed as follows:</numbered_2_para>
   <?!= include("inc_mediation_arbitration", data) ?>
