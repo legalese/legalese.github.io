@@ -211,22 +211,29 @@ right of the transferor to make the transfer.</numbered_3_para>
 <numbered_2_para>in the event that the existing members of the Company's Board of Directors (the "Incumbent Board") cease for any reason to constitute at least fifty percent (50%) of the Company's Board of Directors. (If the election, or nomination for election by the Company's shareholders, of any new member of the Board of Directors is approved by a vote of at least fifty percent (50%) of the Incumbent Board, such new member of the Board of Directors shall be considered as a member of the Incumbent Board.); or</numbered_2_para>
 <numbered_2_para>any other transaction or series of transactions that would have substantially the same effect as the change of control events described above.</numbered_2_para>
 
+
+
+
+
 <b_left_sidehead_nonum>Class F Redeemable Preference Shares</b_left_sidehead_nonum>
+
+
 <numbered_1_para xname="class_f">The Company may issue preference shares in the capital of the Company ("Class F Shares"), at an issue price of S$0.0001 each or such other amount as the Directors may determine, which shall carry the following rights, benefits and privileges and be subject to the following restrictions:</numbered_1_para>
+
+
 <numbered_2_firstbold>As regards issue. Class F Shares may be issued with the sanction of an ordinary resolution pursuant to agreements between the Company and individual holders ("Class F Agreements"), the terms of which the Directors may determine.</numbered_2_firstbold>
 
 
 <numbered_2_firstbold>As regards redemption and restriction. The Company shall have the right to redeem Class F Shares. Redemption may occur at the issue price or such other price as the Directors may determine. The rules governing the Company's right of redemption over a holder's shares shall be set out in agreements with that holder. Those rules shall include a description of how a holder's Class F Shares vest over time. Unvested shares, also known as Restricted F Shares, are subject to redemption. Vested shares, also known as Unrestricted F Shares, are not subject to redemption except under special circumstances.</numbered_2_firstbold>
-<numbered_3_firstbold xname="f_redemption_exercise">Exercise of Redemption Right. The Company may exercise the Redemption Right with respect to F Shares by delivering or mailing to the Holder (or his estate), within 60 days after the termination of the employment or volunteership of the Holder with the Company, a written notice of exercise of the Redemption Right. Such notice shall specify the number of Shares to be purchased. If and to the extent the Redemption Right is not so exercised by the giving of such a notice within such 60-day period, the Redemption Right shall automatically expire and terminate effective upon the expiration of such 60-day period.</numbered_3_firstbold>
+
+
+<numbered_3_firstbold xname="f_redemption_restricted">Redemption of Restricted Shares. The Company may exercise the Redemption Right with respect to Restricted F Shares by delivering or mailing to the Holder (or his estate), within 60 days after the termination of the employment or volunteership of the Holder with the Company, a written notice of exercise of the Redemption Right. Such notice shall specify the number of Shares to be redeemed. If and to the extent the Redemption Right is not so exercised by the giving of such a notice within such 60-day period, the Redemption Right shall automatically expire and terminate effective upon the expiration of such 60-day period.</numbered_3_firstbold>
   <numbered_3_para>The Company shall pay to the Holder the aggregate Redemption Price within 10 days of the notice date.</numbered_3_para>
   <numbered_3_para>After the time at which the Redemption Right is exercised with respect to any Shares, the Company shall not pay any dividend to the Holder on account of such Shares or permit the Holder to exercise any of the privileges or rights of a stockholder with respect to such Shares. </numbered_3_para>
   <numbered_3_para>The Company shall not redeem any fraction of a Share upon exercise of the Redemption Right, and any fraction of a Share resulting from a computation made pursuant to this Agreement shall be rounded to the nearest whole Share (with any one-half Share being rounded upward). </numbered_3_para>
 
 
-  <numbered_2_firstbold>Redemption of Unrestricted Shares. In the event the Company terminates the Holder's employment or volunteership for Cause, as defined in the relevant agreements, the Company shall have the option, but not the obligation, to redeem all or any part of the Holder's Unrestricted Shares. The following provisions shall apply to redemption under this Section:</numbered_2_firstbold>
-  <numbered_3_para>The per-share redemption price of the Unrestricted Shares pursuant to this Section shall be equal to the Redemption Price. </numbered_3_para>
-  <numbered_3_para>The Company's option to redeem the Holder's Unrestricted Shares in the event of termination of employment or volunteership for Cause shall be valid for a period of sixty (60) days commencing with the date of such termination. </numbered_3_para>
-  <numbered_3_para>The mechanics of redemption shall be as described in Article <xref to="f_redemption_exercise"/>.</numbered_3_para>
+  <numbered_2_firstbold xname="f_redemption_unrestricted">Redemption of Unrestricted Shares. In the event the Company terminates the Holder's employment or volunteership for Cause, as defined in the relevant agreements, the Company shall have the option, but not the obligation, to redeem all or any part of the Holder's Unrestricted Shares in addition to the Holder's Restricted Shares. The mechanics of redemption shall be as described in Article <xref to="f_redemption_restricted"/>.</numbered_3_para>
 
 
   <a_left_sidehead>Failure to Deliver Shares; Effect of Prohibited Transfer</a_left_sidehead>
