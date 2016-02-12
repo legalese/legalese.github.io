@@ -9,6 +9,8 @@
 
 <definition_nonum>"Act"	means the Companies Act (Cap. 50);</definition_nonum>
 <definition_nonum>"Articles"	means the regulations contained in this Constitution;</definition_nonum>
+<definition_nonum>External Financing	means a fund-raising event in which the company raises no less than $500,000 within one round or series by issue of equity or securities convertible to equity.</definition_nonum>
+
 <definition_nonum>"seal"	means the common seal of the company;</definition_nonum>
 <definition_nonum>"secretary"	means any person appointed to perform the duties of a secretary of the company;</definition_nonum>
 <para_1>expressions referring to writing shall, unless the contrary intention appears, be construed as including references to printing, lithography, photography and other modes of representing or reproducing words in a visible form;</para_1>
@@ -51,8 +53,8 @@
 <numbered_3_para>the certificate of the shares to which the instrument of transfer relates;</numbered_3_para>
 <numbered_3_para>any other evidence as the directors may reasonably require to show the
 right of the transferor to make the transfer.</numbered_3_para>
-<numbered_2_para>Upon receipt of the items referred to in paragraph <xref to="transfer_prereqs"/>, the company must, subject to Article <xref to="transfer_decline"/>, lodge with the Registrar a notice of transfer of shares in accordance with section 128 of the Act and retain the instrument of transfer referred to in Article <xref to="transfer_instrument"/>.
-<numbered_2_para xname="transfer_decline">The directors may decline to lodge a notice of transfer of shares with the Registrar if:--
+<numbered_2_para>Upon receipt of the items referred to in paragraph <xref to="transfer_prereqs"/>, the company must, subject to Article <xref to="transfer_decline"/>, lodge with the Registrar a notice of transfer of shares in accordance with section 128 of the Act and retain the instrument of transfer referred to in Article <xref to="transfer_instrument"/>.</numbered_2_para>
+<numbered_2_para xname="transfer_decline">The directors may decline to lodge a notice of transfer of shares with the Registrar if:--</numbered_2_para>
 <numbered_3_para>the shares are not fully paid shares;</numbered_3_para>
 <numbered_3_para>the directors do not approve of the transferee; or</numbered_3_para>
 <numbered_3_para>the company has a lien on the shares.</numbered_3_para>
@@ -233,10 +235,10 @@ right of the transferor to make the transfer.</numbered_3_para>
   <numbered_3_para>The Company shall not redeem any fraction of a Share upon exercise of the Redemption Right, and any fraction of a Share resulting from a computation made pursuant to this Agreement shall be rounded to the nearest whole Share (with any one-half Share being rounded upward). </numbered_3_para>
 
 
-  <numbered_2_firstbold xname="f_redemption_unrestricted">Redemption of Unrestricted Shares. In the event the Company terminates the Holder's employment or volunteership for Cause, as defined in the relevant agreements, the Company shall have the option, but not the obligation, to redeem all or any part of the Holder's Unrestricted Shares in addition to the Holder's Restricted Shares. The mechanics of redemption shall be as described in Article <xref to="f_redemption_restricted"/>.</numbered_3_para>
+  <numbered_2_firstbold xname="f_redemption_unrestricted">Redemption of Unrestricted Shares. In the event the Company terminates the Holder's employment or volunteership for Cause, as defined in the relevant agreements, the Company shall have the option, but not the obligation, to redeem all or any part of the Holder's Unrestricted Shares in addition to the Holder's Restricted Shares. The mechanics of redemption shall be as described in Article <xref to="f_redemption_restricted"/>.</numbered_2_firstbold>
 
 
-  <numbered_2_firstbold>Failure to Deliver Shares; Effect of Prohibited Transfer. In the event that the Holder or his or her successor in interest fails to deliver the share certificates to be redeemed by the Company under this Agreement, the Company may elect:</para_1>
+  <numbered_2_firstbold>Failure to Deliver Shares; Effect of Prohibited Transfer. In the event that the Holder or his or her successor in interest fails to deliver the share certificates to be redeemed by the Company under this Agreement, the Company may elect:</numbered_2_firstbold>
   <numbered_2_para>immediately to take such action as is appropriate to transfer record title of such Shares from the Holder to the Company and to treat the Holder and such Shares in all respects as if delivery of such Shares had been made as required by this Agreement. The Holder hereby irrevocably grants the Company a power of attorney which shall be coupled with an interest for the purpose of effectuating the preceding sentence. The Company shall not be required </numbered_2_para>
   <numbered_3_para>to transfer on its books any of the Shares which shall have been sold or transferred in violation of any of the provisions set forth in this Agreement, or </numbered_3_para>
   <numbered_3_para>to treat as owner of such Shares or to pay dividends to any transferee to whom any such Shares shall have been so sold or transferred. </numbered_3_para>
@@ -272,11 +274,9 @@ right of the transferor to make the transfer.</numbered_3_para>
 
 <numbered_2_firstbold xname="f_dsp">Discretionary Subscription Price. Subsequent to their initial issue to a given holder, Class F Shares may be issued to that holder at a "<b>Discretionary Subscription Price</b>", which shall be the greater of</numbered_2_firstbold>
   <numbered_3_para>the price of any previous issue of Class F Shares, </numbered_3_para>
-  <numbered_3_para>in the event that a valuation was placed on the Company in the course of an External Financing event, a price consistent with that set for transfers among founders as described in Article <xref to="transfer_svp"/>, or </numbered_3_para>
+  <numbered_3_para>in the event that a valuation was placed on the Company in the course of an External Financing event, a price consistent with that set for transfers among founders as described in Article <xref to="transfer_svp"/>, and </numbered_3_para>
   <numbered_3_para>a price determined by the Board. </numbered_3_para>
   <numbered_2_para>In the event Class F Shares are issued at a price other than provided above, the pre-emption rights waived by the parties in the Shareholders' Agreement shall return with full force and all members shall enjoy their pre-emptive rights with respect to the new issue. </numbered_2_para>
-
-<definition_nonum>External Financing	means a fund-raising event in which the company raises no less than $500,000 within one round or series by issue of equity or securities convertible to equity.</definition_nonum>
 
 <numbered_2_firstbold xname="transfer_svp">Share Valuation Policy.</numbered_2_firstbold>
 <numbered_3_para>For the purposes of transferring Class F shares among holders, an ordinary share of the company may be valued</numbered_3_para>
