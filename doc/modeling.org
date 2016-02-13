@@ -87,12 +87,12 @@ To understand this section, you should:
 - understand what a context-free grammar is, and be familiar with Backus-Naur Form
 - read https://drive.google.com/open?id=0BxOaYa8pqqSwTC04OTF5b1hYams Some computational properties of a model for electronic documents, TBC 1989
 - view https://drive.google.com/open?id=0BxOaYa8pqqSwUWlCajFJQURXdG8 introducing deontic logics, Gorin 2010
-- read conflict analysis of deontic contracts, Stephen Fenech
+- read [[https://www.um.edu.mt/__data/assets/pdf_file/0008/51749/wict08_submission_17.pdf][conflict analysis of deontic contracts, Stephen Fenech]]
 - read https://drive.google.com/a/legalese.io/file/d/0BxOaYa8pqqSwWk9NallEck83T2M/view -- CLAN 2009
 - read https://drive.google.com/a/legalese.io/file/d/0BxOaYa8pqqSwSjRMeGtzVGhIaWs/view -- FormaLex 2011
 - read [[http://www.diku.dk/~paba/pubs/talks/bahr15icfp.html][Certified Symbolic Management of Financial Multi-party Contracts]]
 - review [[https://www.lexifi.com/product/technology/contract-description-language][LexiFi's Contract Description Language]], MLFi
-- read http://wyner.info/research/Papers/2014/NL_DeonticConcepts_Lux_2014.pdf another perspective on deontic logi
+- read http://wyner.info/research/Papers/2014/NL_DeonticConcepts_Lux_2014.pdf another perspective on deontic logic
 - read http://wyner.info/research/Papers/WynerPetersJURIX2011.pdf -- Wyner 2011, /On Rule Extraction from Regulations/
 - read http://wyner.info/research/Papers/2013/WynerICAIL2013Tutorial.pdf discussing text extraction
 - read http://wyner.info/research/Papers/2013/OASISLegalRuleML.pdf on LegalRuleML.
@@ -104,7 +104,7 @@ Formally, a legal document obeys a grammar. In this document, we treat "grammar"
 
 Different jurisdictions may impose different schemas. For example, a contract written in the US style will look different from a contract written in the UK style. However, both documents will exhibit a high degree of structure. A family of UK documents will share the same schema.
 
-A rough schema for a contract could be: title, date, parties, recitals, definitions, conditions precedent, main part, standard bits, signatures. The main part is composed of a list of clauses.
+A rough schema for a contract could be: title, date, parties, recitals, definitions, conditions precedent, habendum, standard bits, attestation. The habendum is composed of a list of clauses.
 
 A rough schema for a directors' resolution could be: letterhead, item [...], signatures. Each item is either a Resolved or a Noted.
 
@@ -335,7 +335,7 @@ Omnibus replacement transforms the interpretation.
 https://en.wikipedia.org/wiki/Cognitive_dimensions_of_notations
 *** Subjective Perspectives
 
-Maybe the fundamental principle of this language is the representation -- just as the fundamental premise of Closure is the sequence, or the fundamental premise of Erlang is the message-passing actor, or the fundamental premise of Unix is the pipeline.
+Maybe the fundamental principle of this language is the representation -- just as the fundamental premise of Clojure is the sequence, or the fundamental premise of Erlang is the message-passing actor, or the fundamental premise of Elm is the signal, or the fundamental premise of Unix is the pipeline.
 
 What is a representation?
 
