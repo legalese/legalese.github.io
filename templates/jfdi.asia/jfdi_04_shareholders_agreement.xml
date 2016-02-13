@@ -10,8 +10,9 @@
 
   <para_1><span_smallcaps>Whereas:</span_smallcaps></para_1>
 
-  <!-- // TODO: change data.company.commitment to something pulled out of the capTable object. -->
-  <!-- // TODO: change data.company.num_shares to something pulled out of the capTable object. -->
+<? if (data.previous_shareholder_agreement_date) { ?>
+  <recitals>This agreement amends and restates a previous agreement dated <?= data.previous_shareholder_agreement_date ?>.</recitals>
+<? } ?>
   <recitals>As of the date of this Agreement, the Company has an issued and paid-up share capital of <?= data.capTable.getActiveRound().post.money ?> divided into <?= digitCommas_(data.capTable.getActiveRound().by_security_type["Ordinary Shares"].TOTAL) ?> Ordinary Shares.</recitals>
   <recitals><? if(data.founder_agreement_date){?>Pursuant to a Founder Agreement dated <?= data.founder_agreement_date ?>, and in<?}else{?>In<?}?> conjunction with:</recitals>
   <?if(data.other_agreements){?><para_2_hanging><?=data.other_agreements?></para_2_hanging>
