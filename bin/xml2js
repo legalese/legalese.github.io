@@ -37,7 +37,7 @@ while (length $input) {
 	$linenum += ($& =~ tr/\n/\n/);
 	next;
   }
-  if ($input =~ s/<xref to="(.+?)"\s*\/>//) {
+  if ($input =~ s/<xref to="(.+?)"(\s+format=".*?")?\s*\/>//) {
 	push @{$xrefs{$1}}, $linenum;
 	print "found xref $1\n";
 	$linenum += ($& =~ tr/\n/\n/);
