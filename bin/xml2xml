@@ -17,4 +17,4 @@ orig=$mybase-orig.xml
 
 mv $1 $orig
 
-perl -ple 's/<\/?i>//g; s/&#8221;/"/g; s/&#8220;/"/g; s/&#8217;/'"'"'/g;  ' < $orig | xml_pp -s record  > $1
+perl -ple 's/<\/?i>//g; s/&quot;/"/g; s/&#8221;/"/g; s/&#8220;/"/g; s/&#8217;/'"'"'/g;  ' < $orig | xml_pp -s record  > $1

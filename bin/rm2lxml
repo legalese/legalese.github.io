@@ -1,0 +1,86 @@
+#!/usr/bin/perl
+
+# redmart xml to legalese xml
+# 
+# for processing the redmart shareholder agreement into a form usable for otherss
+# 
+# to generate the source files, run adobe acrobat pro DC export PDF to HTML, one file per section
+# 10062  2016-02-15 15:47  rsync -va RM-SSA/ rmxml/
+# 10063  2016-02-15 15:48  cd rmxml/
+# 10064  2016-02-15 15:48  ls
+# 10065  2016-02-15 15:48  rename s/htm/xml/ *
+# 10067  2016-02-15 15:48  time for i in *.xml; do ~/non-db-src/l/www/bin/xml2xml $i; done
+
+use strict;
+my %twigs;
+
+use Tie::IxHash;
+tie %twigs, 'Tie::IxHash';
+
+$|++; select STDERR; $|++; select STDOUT;
+
+use XML::Twig;
+foreach my $file (@ARGV) {
+  my $t = $twigs{$file} = XML::Twig->new(comments=>"keep",pretty_print=>"record");
+  $t->parsefile( $file ); # build it
+
+  foreach my $el ($t->get_xpath("//p[\@class='nav']"),
+				  $t->get_xpath("//p[\@class='top_nav']"),
+				  $t->get_xpath("//head"),
+				  $t->get_xpath("//br"))    { $el->delete }
+  foreach my $el ($t->get_xpath("//p"),
+				  $t->get_xpath("//h3"))   { numbered($t, $el) }
+  foreach my $el ($t->get_xpath("//body")) { $el->erase }
+  foreach my $el ($t->get_xpath("//html")) { $el->set_gi("Inclusion"); $el->del_atts; }
+}
+
+foreach my $file (keys %twigs) {
+  my $t = $twigs{$file};
+  $t->print();
+}
+
+sub numbered {
+  my ($t, $el) = @_;
+
+  if (grep { $_->name ne "#PCDATA" } $el->children) {
+	my $childrens = join(" ", map { $_->sprint } grep { $_->name ne "#PCDATA" } $el->children );
+#	$el->insert_new_elt(before => "#COMMENT", {}, "HAD CHILDREN $childrens");
+  }
+
+  
+  my $text = $el->text;
+  for ($text) { s/^\s+//; s/\s+$//; }
+  my $comment;
+  
+  if ($text =~ s/^([0-9.]+)\.?(\s|$)//) {
+	my $num = $1;
+	$num =~ s/\.$//;
+	$el->latt("orig_num") = $num;
+	my $dotcount = $num =~ tr/././;
+	if    ($dotcount == 0) { $el->set_gi("a_left_sidehead"); $el->latt("xname") = asvar($text); }
+	elsif ($dotcount == 1) { $el->set_gi("numbered_2_para"); }
+	elsif ($dotcount == 2) { $el->set_gi("numbered_3_para"); }
+	elsif ($dotcount == 3) { $el->set_gi("numbered_4_para"); }
+  }
+  else {
+	$comment = "MAY NEED FIXING";
+  }
+  for ($text) { s/^\s+//; s/\s+$//; s/\s*[\r\n]\s*//g; }
+  if (not length $text) { $el->delete; return; }
+  if ($comment) { $el->insert_new_elt(before => "#COMMENT", {}, $comment) }
+  $el->set_text($text);
+  $el->del_att("style", "class");
+}
+  
+sub asvar {
+  local $_ = lc shift;
+  s/^\s+//;
+  s/\s+$//;
+  s/\s+/ /;
+  s/\W/_/g;
+  s/ /_/g;
+  s/_+/_/g;
+  s/^_//;
+  s/_$//;
+  return $_;
+}
