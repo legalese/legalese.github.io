@@ -54,10 +54,11 @@ for my $i (0 .. $#output) {
   local $_ = $output[$i];
   if (/^\s*(<xref to.*)/) {
 	$output[$i-1] .= $1;
-	$output[$i] = "";
+	splice(@output,$i,1,());
+	redo;
   }
 }
-@output = grep length, @output;
+
 print join"\n",@output;
 
 # input: <p>1.2 blah blah</p>
@@ -161,13 +162,13 @@ sub xref {
   my ($t, $el) = @_;
   return if not ($el->text =~ /Clause ([0-9.]+)/);
   my $text = $el->text;
-  warn "*** replacing Clause $1!\n";
+#  warn "*** replacing Clause $1!\n";
   $text =~ s/Clause ([0-9.]+)/"Clause " . xref_to($1,$el)/eg;
   # split text into children : PCDATA, clause link, PCDATA, clause link, PCDATA.
   my @new_children = split(/(?=<xref)|(?<=\/>)/, $text);
   $el->cut_children;
   for (@new_children) {
-	warn " *- $_\n";
+#	warn " *- $_\n";
 	if (/<xref to="([^"]+)"\s*\/>/) {
 	  $el->insert_new_elt(last_child => xref => { to => $1 });
 	  # TODO: if the subsequent bit of text has parens and is ucfirsted, and if the dstel has tag=~/firstbold$/, add the attribute      format="Paragraph Number (firstbold)"	}
@@ -182,17 +183,20 @@ sub xref {
 
 sub xref_to {
   my ($num, $src) = @_;
-  warn ">>> xref linking to destination $num\n";
+#  warn ">>> xref linking to destination $num\n";
   
   my $dst = $knownclauses{$num};
-  if (not $dst) { warn " >> we haven't encountered that in knownclauses.\n"; return $num }
+  if (not $dst) {
+	# warn " >> we haven't encountered that in knownclauses.\n";
+	return $num;
+  }
 
   my $dstel = $dst->[1];
 
   my $xname = $dstel->att("xname");
   if (! $xname) { $dstel->set_att(xname => $xname = xname($dstel, $num)); }
 
-  warn "  > linked to xname $xname\n";
+#  warn "  > linked to xname $xname\n";
   return qq(<xref to="$xname"/>);
 }
 
