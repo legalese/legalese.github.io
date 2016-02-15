@@ -79,10 +79,10 @@ in the spirit of mutual confidence and co-operation, the Parties have agreed to 
   <numbered_2_para>If a Trade Sale is approved by 75% or more of voting shares (subject to any protective provisions that happen to be held by subsequent Preferred Shareholders or creditors) then the minority shareholders shall give their consent to such a sale.</numbered_2_para>
 
   <a_left_sidehead>Tag-Along Rights</a_left_sidehead>
-<? if (data.tags == "simple") { ?>
-  <numbered_2_para>Should one or more Shareholders offer to sell their shares to a third Party or Parties such that the new Parties would hold more than 25% of the voting stock of the company, those Shareholders must offer all other Shareholders an opportunity, calculated pro rata, to sell their shares also.</numbered_2_para>
+<? if (data.security_type == "Series Seed" && ! data.tags == "simple") { ?>
+  <?!= include("inc_ss_tags", data) ?>
 <? } else { ?>
-  <?!= include("inc_tags", data) ?>
+  <numbered_2_para>Should one or more Shareholders offer to sell their shares to a third Party or Parties such that the new Parties would hold more than 25% of the voting stock of the company, those Shareholders must offer all other Shareholders an opportunity, calculated pro rata, to sell their shares also.</numbered_2_para>
 <? } ?>
   
   <a_left_sidehead>New Parties</a_left_sidehead>
