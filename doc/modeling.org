@@ -811,6 +811,31 @@ Detect the conflict between 3.1 vs 6.2 of http://legal.cf.sg/purchase_agreement_
 ** Kata MD04: Model the conversion logic described in the [[https://www.ycombinator.com/documents/#seriesaa][YC-AA]] documents
 especially the Deemed Issue logic of the [[https://www.ycombinator.com/docs/Series_AA_COI.docx][COI]].
 
+** Kata MD05: antidilution clause
+
+Model this!
+
+#+BEGIN_QUOTE
+WHEREAS
+
+(A)Company will apply the following provision(s) to this Agreement, in addition to the shareholder rights defined in the Company Memorandum of Association.
+
+ADDENDUM
+
+NOW, THEREFORE, THE PARTIES HAVE AGREED AS FOLLOWS:
+
+1. ANTI-DILUTION
+
+If the Company issues any additional shares (including, but not limited to, all classes of shares, warrants, rights to subscribe for shares and securities convertible into any share class) for a consideration per share that is less than the Subscription price per share (as adjusted for any change of nominal values of shares, e.g. share splits and similar events), the subscription price (as adjusted for share splits, consolidations of shares and similar events) of the subscribed shares issued subject to this Investment shall be adjusted on a full ratchet basis.
+The adjustment will be made through the issuance of additional shares to the Subscriber at par value (i.e. S$1.00 per subscribed share of nominally S$1.00), so that the ownership of the Subscriber after the dilutive issuance shall be set equal to the ownership that the Subscriber would have had if the subscription price paid by the Subscriber (based on the Investment amount, added for the avoidance of doubt, the amount paid to Subscribe for the anti-dilution shares) had been the same as the price of the dilutive issuance.
+
+SIGNED BY AND AMONG:
+
+Company Pte. Limited
+
+Investor
+#+END_QUOTE  
+
 ** Kata ML01: Modeling Legislation and Regulation
 
 As seen [[*Regulations and Contracts as Business Logic][above]]:
