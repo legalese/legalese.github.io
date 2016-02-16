@@ -74,8 +74,10 @@ This Agreement shall be governed by and interpreted in accordance with the laws 
 <Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>New Issues</cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Consideration</cell_c></Cell>
+
 <? for (var hh in newIssues.holders) { with(data._entitiesByName[hh]) { ?>
-<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= hh ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= hh ?></cell_c>
+<cell_c><?= address ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!= data.capTable.getActiveRound().new_investors[hh]._inWords ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= data.capTable.getActiveRound().new_investors[hh].money ?></cell_c></Cell>
 <? } } ?>
@@ -102,8 +104,7 @@ This Agreement shall be governed by and interpreted in accordance with the laws 
 <? for (var hh in keyHolders) {
   Logger.log("keyHolders: outputting based on data.parties.key_holder[%s] = %s", hh, keyHolders[hh].name);
   with(keyHolders[hh]) { ?>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= name ?></cell_c>
-<cell_c><?= address ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= name ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!= data.capTable.investorHoldingsInRound(name, previousRound) ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= f_commencement ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="50" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c>Class F Shares</cell_c></Cell>
