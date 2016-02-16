@@ -13,6 +13,8 @@
 
 <definition_nonum>Requisite Holders	means the holders of at least a majority of the outstanding shares of Series Seed Preferred Stock.</definition_nonum>
 
+<definition_nonum>Substantial Holder	means a Series Seed Shareholder who holds Ordinary Shares (and/or would hold Ordinary Shares if such Shareholder’s Series Seed Shares were fully converted at the then applicable conversion rate) constituting at least 5% of the then total number of Ordinary Shares issued in the capital of the Company (on a fully diluted and as converted basis at the then applicable conversion rate)</definition_nonum>
+
 <? if (data.auto_conversion) { ?>
 <para_1>All shares of any Preferred Stock of the Company are hereby designated "Series Seed Preferred Stock".</para_1>
 <? } ?>
