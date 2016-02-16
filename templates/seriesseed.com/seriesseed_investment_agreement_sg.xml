@@ -121,7 +121,7 @@ This Agreement shall be governed by and interpreted in accordance with the laws 
 
 
 
-<a_left_sidehead restart="true">Conditions Precedent.
+<a_left_sidehead restart="true">Conditions Precedent.</a_left_sidehead>
 
 <para_1>The obligations of the parties under this agreement are subject to the following condition precedent being fulfilled or waived:</para_1>
 
@@ -166,8 +166,16 @@ if (data.warrants_by_key_holders_also){?> and each Key Holder, severally and not
 <b_left_sidehead>Capitalization.</b_left_sidehead>
 <numbered_3_para_fl>The authorized capital of the Company consists, immediately prior to the Agreement Date (unless otherwise noted), of the following:</numbered_3_para_fl>
 <numbered_4_para_fltab>The common stock of the Company (the "Common Stock"), of which that number of shares of Common Stock equal to (a) the Common Shares Issued and Outstanding Pre-Money are issued and outstanding as of immediately prior to the Agreement Date, (b) the number of shares of Common Stock which are issuable on conversion of shares of the Series Seed Preferred Stock have been reserved for issuance upon conversion of the Series Seed Preferred Stock and (c) the Total Post-Money Shares Reserved for Option Pool have been reserved for issuance pursuant to the Stock Plan, and of such Total Post-Money Shares Reserved for Option Pool, that number of shares of Common Stock equal to the Number of Issued And Outstanding Options are currently subject to outstanding options and that number of shares of Common Stock equal to the Unallocated Post-Money Option Pool Shares remain available for future issuance to officers, directors, employees, volunteers, and consultants pursuant to the Stock Plan. The ratio determined by dividing (x) the Unallocated Post-Money Option Pool Shares by (y) the Fully-Diluted Share Number (as defined below) is equal to the Unallocated Post-Money Option Pool Percent. All of the outstanding shares of Common Stock are duly authorized, validly issued, fully paid and nonassessable and were issued in material compliance with all applicable securities laws. The Stock Plan has been duly adopted by the Board of Directors of the Company (the "Board") and approved by the Company's stockholders. For purposes of this Agreement, the term "Fully-Diluted Share Number" shall mean that number of shares of the Company's capital stock equal to the sum of (i) all shares of the Company's capital stock (on an as-converted basis) issued and outstanding, assuming exercise or conversion of all options, warrants and other convertible securities and (ii) all shares of the Company's capital stock reserved and available for future grant under any equity incentive or similar plan.</numbered_4_para_fltab>
-<numbered_4_para_fltab>The shares of the Class F Preferred Stock of the Company (the "Class F Shares").</numbered_4_para_fltab>
-<numbered_4_para_fltab>The shares of the Series Seed Preferred Stock of the Company (the "Preferred Stock"), none of which is issued and outstanding immediately prior to the Agreement Date.</numbered_4_para_fltab>
+
+<numbered_4_para_fltab>The Class F Preferred Stock of the Company (the "Class F Shares"), of which, immediately prior to the Effective Date of this agreement, there will be <?= digitCommas_(activeRound.by_security_type["Class F Shares"].TOTAL) ?> shares.</numbered_4_para_fltab>
+
+<numbered_4_para_fltab>The Series Seed Preferred Stock of the Company (the "Preferred Stock"), <?
+if (previousRound.by_security_type["Series Seed Shares"].TOTAL == 0) {?>
+none of which is issued and outstanding immediately prior to the Agreement Date
+<? } else { ?>
+of which, immediately prior to the Effective Date of this agreement, there will be <?= digitCommas_(previousRound.by_security_type["Series Seed Shares"].TOTAL) ?> shares.<?}?>
+</numbered_4_para_fltab>
+
 <numbered_3_para_fl>There are no outstanding preemptive rights, options, warrants, conversion privileges or rights (including but not limited to rights of first refusal or similar rights), orally or in writing, to purchase or acquire any securities from the Company including, without limitation, any shares of Common Stock, or Preferred Stock, or any securities convertible into or exchangeable or exercisable for shares of Common Stock or Preferred Stock, except for (a) the conversion privileges of the Series Seed Preferred Stock pursuant to the terms of the Amended Constitution and (b) the securities and rights described in this Agreement.</numbered_3_para_fl>
 <numbered_3_para_fl>The Key Holders set forth in Schedule 1 (each a "Key Holder") hold that number of shares of the Company's stock set forth opposite each such Key Holder's name in Schedule 1 (such shares, the "Key Holders' Shares"), some or all of which may be subject to vesting and/or the Company's repurchase right on the terms specified in Schedule 1 (the "Key Holders' Vesting Schedules"). Except as specified in Schedule 1, the Key Holders do not own or have any other rights to any other securities of the Company.</numbered_3_para_fl>
 <para_2>The Key Holders' Vesting Schedules specify for each Key Holder (i) the vesting commencement date for each issuance of shares to or options held by such Key Holder, (ii) the number of shares or options held by such Key Holder that are currently vested, (iii) the number of shares or options held by such Key Holder that remain subject to vesting and/or the Company's repurchase right and (iv) the terms and conditions, if any, under which the Key Holders' Vesting Schedules would be accelerated.
