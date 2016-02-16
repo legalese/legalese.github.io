@@ -3,7 +3,10 @@
 <?!= include("inc_cover_standard_parties", data, {cover_title:"Series Seed Subscription Agreement", rcpts_to:rcpts_to}) ?>
 <Story_Main>
 <chapter_header>Series Seed Preferred Stock Investment Agreement</chapter_header>
-<para_1>This Series Seed Preferred Stock Investment Agreement (this "Agreement") is dated as of the Agreement Date and is between the Company, the Purchasers and the Key Holders.</para_1>
+<para_1>This Series Seed Preferred Stock Investment Agreement (this "Agreement") is dated as of the Agreement Date and is between the Company, the Purchasers and the Key Holders:</para_1>
+
+<?!= include("inc_enumerate_parties", data, rcpts_to, { term:{"new_investor": "purchaser"} }) ?>
+
 <para_1>The parties agree as follows:</para_1>
 <numbered_1_firstbold>Definitions. Capitalized terms used and not otherwise defined in this Agreement or the Exhibit and Schedules thereto have the meanings set forth in Exhibit A.</numbered_1_firstbold>
 <numbered_1_firstbold>Investment. Subject to the terms and conditions of this Agreement, including the Agreement Terms set forth in Exhibit B, (i) each Purchaser shall purchase at the applicable Closing and the Company shall sell and issue to each Purchaser at such Closing that number of shares of Series Seed Preferred Stock set forth opposite such Purchaser's name on Schedule 1, at a price per share equal to the Purchase Price (subject to any applicable discounts when all or a portion of such Purchase Price is being paid by cancellation of indebtedness of the Company to such Purchaser) and (ii) each Purchaser, the Company, and each Key Holder agrees to be bound by the obligations set forth in this Agreement and to grant to the other parties hereto the rights set forth in this Agreement.</numbered_1_firstbold>
@@ -44,7 +47,9 @@ This Agreement shall be governed by and interpreted in accordance with the laws 
 
 <a_left_sidehead>RESULTING CAP TABLE DEFINITIONS.</a_left_sidehead>
 <? var activeRound = data.capTable.getActiveRound(); ?>
+<? var previousRound = activeRound.getPreviousRound(); ?>
 <para_2_hanging><b>"Common Shares Issued and Outstanding Pre-Money"</b> means <?= digitCommas_(activeRound.by_security_type["Ordinary Shares"].TOTAL) ?> shares.</para_2_hanging>
+<para_2_hanging><b>"Series Seed Shares Issued and Outstanding Pre-Money"</b> means <?= digitCommas_(previousRound.by_security_type["Series Seed Shares"].TOTAL) ?> shares.</para_2_hanging>
 <para_2_hanging><b>"Class F Shares Issued and Outstanding"</b> means <?= digitCommas_(activeRound.by_security_type["Class F Shares"].TOTAL) ?> shares.</para_2_hanging>
 <para_2_hanging><b>"Total Post-Money Shares Reserved for Option Pool"</b> means <?= digitCommas_(data.capTable.getRound("TOTAL").ESOP.reserved()) ?> shares.</para_2_hanging>
 <para_2_hanging>"Number of Issued And Outstanding Options" means <?= data.issued_and_outstanding_options ?>.</para_2_hanging>
@@ -97,7 +102,8 @@ This Agreement shall be governed by and interpreted in accordance with the laws 
 <? for (var hh in keyHolders) {
   Logger.log("keyHolders: outputting based on data.parties.key_holder[%s] = %s", hh, keyHolders[hh].name);
   with(keyHolders[hh]) { ?>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= name ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= name ?></cell_c>
+<cell_c><?= address ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!= data.capTable.investorHoldingsInRound(name, previousRound) ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= f_commencement ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="50" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c>Class F Shares</cell_c></Cell>
