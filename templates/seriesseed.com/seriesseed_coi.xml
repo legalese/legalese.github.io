@@ -61,6 +61,16 @@
 
 <numbered_4_para_fltab>increase or decrease the number of directors of the Company; </numbered_4_para_fltab>
 
+<? if (data.ss_reserved) { ?>
+
+<numbered_4_para_fltab>obtain any loans or incur indebtedness exceeding a total of $4,000</numbered_4_para_fltab>
+
+<numbered_4_para_fltab>set or change salaries or any remuneration of the Key Holders as defined in the Series Seed Subscription Agreement of <?= data.investment_agreement_date ?>.</numbered_4_para_fltab>
+
+<numbered_4_para_fltab>agree to remunerate any employee or contractor more than S$8,000 per month.</numbered_4_para_fltab>
+
+<? } ?>
+
 <numbered_4_para_fltab>liquidate, dissolve, or wind-up the business and affairs of the Company, effect any Deemed Liquidation Event, or consent, agree or commit to do any of the foregoing without conditioning such consent, agreement or commitment upon obtaining the approval required by this Section <xref to="stockprotection" />.</numbered_4_para_fltab>
 
 <b_left_sidehead xname="conversion">Conversion</b_left_sidehead>
