@@ -7,7 +7,11 @@
 
 <para_1>As used in this Section <xref to="seriesseed" />, the following terms have the meanings set forth below:</para_1>
 
-<definition_nonum>Board Composition	means for so long as at least 25% percent of the initially issued shares of Series Seed Preferred Stock remain outstanding, the holders of record of the shares of Series Seed Preferred Stock exclusively and as a separate class, are entitled to elect <?= data.number_directors_seriesseed ?> director(s) of the Company (the "Series Seed Director(s)"), the holders of record of the shares of Common Stock, exclusively and as a separate class, shall be entitled to elect <?= data.number_directors_common ?> director(s) of the Company, and any additional directors will be elected by the affirmative vote of a majority of the Series Seed Preferred Stock and Common Stock, voting together as a single class on an as-converted basis. For administrative convenience, the initial Series Seed Director may also be appointed by the Board in connection with the approval of the initial issuance of Series Seed Preferred Stock without a separate action by the holders of a majority of Series Seed Preferred Stock.</definition_nonum>
+<definition_nonum>Board Composition	means for so long as at least 25% percent of the initially issued shares of Series Seed Preferred Stock remain outstanding,</definition_nonum>
+<definition_list>the holders of record of the shares of Series Seed Preferred Stock exclusively and as a separate class, are entitled to elect <?= data.number_directors_seriesseed ?> director(s) of the Company (the "Series Seed Director(s)");</definition_list>
+<definition_list>the holders of record of the shares of Common Stock, exclusively and as a separate class, shall be entitled to elect <?= data.number_directors_common ?> director(s) of the Company; and</definition_list>
+<definition_list>any additional directors will be elected by the affirmative vote of the majority, within each class, counted on an as-converted basis, of the Series Seed Preferred Stock and Common Stock.</definition_list>
+<definition_list>For administrative convenience, the initial Series Seed Director may also be appointed by the Board in connection with the approval of the initial issuance of Series Seed Preferred Stock without a separate action by the holders of a majority of Series Seed Preferred Stock.</definition_list>
 
 <definition_nonum>Original Issue Price	means <?= data.price_per_share ?> per share for the Series Seed Preferred Stock.</definition_nonum>
 
