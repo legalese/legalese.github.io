@@ -83,7 +83,7 @@ This Agreement shall be governed by and interpreted in accordance with the laws 
 <? } } ?>
 </Table></para_1>
 
-<b_left_sidehead_nonum>Key Holders</b_left_sidehead_nonum>
+<b_left_sidehead_nonum>Key Holders and Vesting Schedules</b_left_sidehead_nonum>
 <? var activeRound = data.capTable.getActiveRound(); ?>
 <? for (var bstk in activeRound.by_security_type) { var bstv = activeRound.by_security_type[bstk]; ?>
 <?   Logger.log("keyHolders: round=%s, by_security_type:%s has keys keys %s", activeRound.name, bstk, bstv); ?>
@@ -115,6 +115,9 @@ This Agreement shall be governed by and interpreted in accordance with the laws 
 
 <? } } ?>
 </Table></para_1>
+
+
+
 
 <chapter_header>Exhibit B: Agreement Terms</chapter_header>
 <centered>Purchase and Sale of Series Seed Preferred Stock.</centered>
@@ -178,11 +181,12 @@ of which, immediately prior to the Effective Date of this agreement, there will 
 
 <numbered_3_para_fl>There are no outstanding preemptive rights, options, warrants, conversion privileges or rights (including but not limited to rights of first refusal or similar rights), orally or in writing, to purchase or acquire any securities from the Company including, without limitation, any shares of Common Stock, or Preferred Stock, or any securities convertible into or exchangeable or exercisable for shares of Common Stock or Preferred Stock, except for the conversion privileges of the Series Seed Preferred Stock pursuant to the terms of the Amended Constitution.</numbered_3_para_fl>
 <numbered_3_para_fl>The Key Holders set forth in Schedule 1 (each a "Key Holder") hold that number of shares of the Company's stock set forth opposite each such Key Holder's name in Schedule 1 (such shares, the "Key Holders' Shares"), some or all of which may be subject to vesting and/or the Company's repurchase right on the terms specified in Schedule 1 (the "Key Holders' Vesting Schedules"). Except as specified in Schedule 1, the Key Holders do not own or have any other rights to any other securities of the Company.</numbered_3_para_fl>
-<para_2>The Key Holders' Vesting Schedules specify for each Key Holder (i) the vesting commencement date for each issuance of shares to or options held by such Key Holder, (ii) the number of shares or options held by such Key Holder that are currently vested, (iii) the number of shares or options held by such Key Holder that remain subject to vesting and/or the Company's repurchase right and (iv) the terms and conditions, if any, under which the Key Holders' Vesting Schedules would be accelerated.
-Other than the Key Holders' Shares, which vest pursuant to the applicable Key Holders' Vesting Schedules,</para_2>
+<para_2>The Key Holders' Vesting Schedules specify for each Key Holder (i) the vesting commencement date for each issuance of shares to or options held by such Key Holder, (ii) the number of shares or options held by such Key Holder that are currently vested, (iii) the number of shares or options held by such Key Holder that remain subject to vesting and/or the Company's repurchase right and (iv) the terms and conditions, if any, under which the Key Holders' Vesting Schedules would be accelerated.</para_2>
+<? if (false) { // pending https://github.com/seriesseed/equity/issues/40 ?>
+<para_2>Other than the Key Holders' Shares, which vest pursuant to the applicable Key Holders' Vesting Schedules,</para_2>
 <numbered_4_para_fltab>all options granted and other Stock outstanding vest as follows: twenty-five percent (25%) of the shares vest one (1) year following the vesting commencement date, with the remaining seventy-five percent (75%) vesting in equal installments over the next three (3) years and
 no stock plan, stock purchase, stock option or other agreement or understanding between the Company and any holder of any equity securities or rights to purchase equity securities provides for acceleration or other changes in the vesting provisions or other terms of such agreement or understanding as the result of (i) termination of employment (whether actual or constructive), (ii) any merger, consolidated sale of stock or assets, change in control or any other transaction(s) by the Company, or (iii) the occurrence of any other event or combination of events.</numbered_4_para_fltab>
-
+<? } ?>
 
 <b_left_sidehead>Subsidiaries.</b_left_sidehead>
 
