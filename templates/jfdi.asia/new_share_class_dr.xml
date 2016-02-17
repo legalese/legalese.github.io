@@ -11,6 +11,11 @@
 
 <?!= include("inc_member_notices", data) ?>
 
+<?!= include("inc_additional_resolutions", data, {
+  header:data.directors_resolution_headerstyle || "b_left_sidehead",
+  prefix:"directors_resolution",
+  bodystyle:data.directors_resolution_bodystyle } ) ?>
+
 <?!= include("inc_authority_to_bizfile", data) ?>
 
 <?!= include("inc_dr_end", data, { member_or_director: "Director", butWaitTheresMore:true } ) ?>
