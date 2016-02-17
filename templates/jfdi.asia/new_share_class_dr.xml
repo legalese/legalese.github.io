@@ -12,7 +12,7 @@
 <?!= include("inc_member_notices", data) ?>
 
 <?!= include("inc_additional_resolutions", data, {
-  header:data.directors_resolution_headerstyle || "b_left_sidehead",
+  header:data.directors_resolution_headerstyle || "a_left_sidehead",
   prefix:"directors_resolution",
   bodystyle:data.directors_resolution_bodystyle } ) ?>
 
