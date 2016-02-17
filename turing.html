@@ -101,11 +101,11 @@ else                      { conversion = 50 }</code>
 		  <h2>Modeling Entities</h2>
 		  
 		  <ol>
-			<li>A corporation or a company may be completely represented as a data structure. More precisely: those aspects of a corporation which have to do with its nature as a legal entity may be captured by a data structure comprising state information. Over time, the state changes: as a corporation acquires directors, investors, employees, ESOPs, and other contractual counterparties, the data structure evolves. Such state changes to the data structure are analogous to git <em>commits</em>.</li>
+			<li>A corporation or a company may be completely represented as a data structure. More precisely: those aspects of a corporation which have to do with its nature as a legal entity may be captured by a data structure comprising state information. Over time, the state changes: as a corporation acquires directors, investors, employees, ESOPs, and other contractual counterparties, the data structure evolves. Such state changes to the data structure are analogous to git <em>commits</em> or to database <em>transactions</em>.</li>
 
 			<li>Each major change in the evolution of a corporation may be modeled with the language of git <em>releases</em> and <em>tags</em>. Each intended change may be modeled with the language of <em>issues</em> and <em>milestones</em>. What, in git, we call a <em>remote origin master</em> corresponds to, in corporate law, a <a href="http://www.acra.gov.sg/">state registry of corporate details</a>.</li>
 
-			<li>Alternatively, these changes can be modeled with a bitemporal database. Either way, formal structure can apply.</li>
+			<li>Alternatively, these changes can be modeled with a bitemporal database -- ACID CRUD. Either way, formal structure can apply.</li>
 
 			<li>Changes to the corporate data structure are formalized in shareholders' and directors' resolutions, and by executed contracts. Putting signatures on paper is <em>execution</em>.</li>
 
