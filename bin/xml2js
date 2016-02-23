@@ -33,13 +33,13 @@ while (length $input) {
   }
   if ($input =~ s/<[^>]+? xname="(.+?)".*?>//) {
 	push @{$xnames{$1}}, $linenum; # doesn't work
-	print "found xname $1\n";
+	warn "xxx found xname $1\n";
 	$linenum += ($& =~ tr/\n/\n/);
 	next;
   }
   if ($input =~ s/<xref to="(.+?)"(\s+format=".*?")?\s*\/>//) {
 	push @{$xrefs{$1}}, $linenum;
-	print "found xref $1\n";
+	warn "xxx found xref $1\n";
 	$linenum += ($& =~ tr/\n/\n/);
 	next;
   }
@@ -66,17 +66,17 @@ while (length $input) {
 # detect dangling xrefs with no xnames
 foreach my $xref (keys %xrefs) {
   if (! $xnames{$xref}) {
-	print "!!! xref $xref lacks corresponding xname\n";
+	warn "!!! xref $xref lacks corresponding xname\n";
   }
 }
 
 # detect xname collisions
 foreach my $xname (keys %xnames) {
   if (@{$xnames{$xname}} > 1) {
-	print "!!! xname $xname defined more than once\n";
+	warn "!!! xname $xname defined more than once\n";
   }
   if (! $xrefs{$xname}) {
-	print "!!! xname $xname defined but not used by xref\n";
+	warn "!!! xname $xname defined but not used by xref\n";
   }	
 }
 
