@@ -13,19 +13,7 @@
 <? if (data.previous_shareholder_agreement_date) { ?>
   <recitals>This agreement amends and restates a previous agreement dated <?= data.previous_shareholder_agreement_date ?>.</recitals>
 <? } ?>
-  <recitals>As of the date of this Agreement, the Company has an issued and paid-up share capital of <?= data.capTable.getActiveRound().post.money ?> divided into <?= digitCommas_(data.capTable.getActiveRound().by_security_type["Ordinary Shares"].TOTAL) ?> Ordinary Shares.</recitals>
-  <recitals><? if(data.founder_agreement_date){?>Pursuant to a Founder Agreement dated <?= data.founder_agreement_date ?>, and in<?}else{?>In<?}?> conjunction with:</recitals>
-  <?if(data.other_agreements){?><para_2_hanging><?=data.other_agreements?></para_2_hanging>
-  <?}?>
-<? if (! data.no_class_f) { ?>
-  <para_2_hanging>a "Class F Agreement" between the Founders<?if(data.parties.employee){?>, Employees,<?}?> and the Company, by which the Founders<?if(data.parties.employee){?> and Employees<?}?> subscribe for Class F Preference Shares whose rights of redemption are governed by a vesting schedule described therein; and</para_2_hanging><? } ?>
-<? if (data.parties.jfdi_investor) { ?>
-<para_2_hanging>a "<?= data.jfdi_investment_agreement_title ?>" dated <?= data.jfdi_investment_agreement_date ?>, by which the Investor shall become a shareholder upon <?= data.security_type_operation ?>;</para_2_hanging>
-<? }?>
-<? if (data.parties.existing_investor && data.previously_incorporated && data.previous_investors && data.previous_incorporation_locale && data.previous_incorporation_locale.toLowerCase() != "singapore") { ?>
-<recitals>The <?= plural(data.parties.existing_investor, "Existing Investor") ?> <?= plural_verb(data.parties.existing_investor, "has") ?> invested in a Previous Company <?!= include("inc_party", data, data.parties.previous_company[0]) ?> whose economic interests will henceforth be represented by the Company instead;</recitals>
-<? } ?>
-
+<recitals>New members are joining the company in relation to an issue of Series Seed Preference Shares.</recitals>
 <recitals>To regulate the relationship of the Parties inter se being present and prospective members of the Company, and the conduct of the business and affairs of the Company, <? if (data.parties.existing_investor && data.previously_incorporated && data.previous_investors && data.previous_incorporation_locale && data.previous_incorporation_locale.toLowerCase() != "singapore") { ?>
 and to protect the interests of the <?= plural(data.parties.existing_investor, "Existing Investor") ?> by ensuring fair representation in the Company, <? } ?>
 in the spirit of mutual confidence and co-operation, the Parties have agreed to enter into this Agreement on the terms and conditions hereinafter set out.</recitals>
@@ -43,6 +31,7 @@ in the spirit of mutual confidence and co-operation, the Parties have agreed to 
   <definition>Control	means the possession, direct or indirect, of the power to direct or cause the direction of the management and policies of a corporation, whether through the ownership of voting securities, by contract, or otherwise and derivative terms thereof (including <b>"Controlling"</b>, <b>"Controlled by"</b>; and "under common Control with") shall also bear such meaning as aforesaid. For the purpose of this definition, the holding of an interest (within the meaning of the Act) of more than 50% of the equity share capital of the relevant corporation shall be deemed to be "Control" of this corporation;</definition>
   <definition>Deed of Ratification	means a deed of ratification and accession whereby the signatory thereof enters into, becomes a party to and undertakes to be legally bound by the terms of this Agreement;</definition>
   <definition>Director	means a director of the Company for the time being, including where applicable an alternate director;</definition>
+  <definition>Equity Sale	means a sale by Shareholders to third party purchaser(s) of all or at least 75% of the Shares of the Company;</definition>
   <definition>External Financing	means a fund-raising event which in which the company raises no less than <?= data.qualified_financing_proceeds?></definition>
 <? if (data.parties.jfdi_investor) { ?>
   <definition>Investment	means the amount invested in the Company by the Investor in the form of the Convertible Note;</definition>
@@ -61,34 +50,26 @@ in the spirit of mutual confidence and co-operation, the Parties have agreed to 
   <para_1>Any reference in this Agreement to a Shareholder procuring and derivative terms thereof (including "shall procure"), shall only oblige the Shareholder to exercise its voting rights in the Company to vote in favour of the Company performing its obligation as required.</para_1>
   <para_1>This Agreement shall be governed by and interpreted in accordance with the laws of the Republic of Singapore.</para_1>
 
+  <a_left_sidehead>Effective Date</a_left_sidehead>
+  <numbered_2_para orig_num="2.1">This Agreement shall come into effect following Completion of the Series Seed Preference Shares Investment Agreements with the New Investors.</numbered_2_para>
+  <numbered_2_para orig_num="2.2">At that time any previous Shareholder Agreements will be superseded and replaced in its entirety by this Agreement.</numbered_2_para>
+
 <? if (! data.no_class_f) { ?>
-  <a_left_sidehead>Founder Stock Vesting Scheme</a_left_sidehead>
-  <!-- // TODO: change data.total_f_shares to something pulled out of the capTable object; we need consistency in esop.xml, esop.js, and here. -->
-  <numbered_2_para>The Company may issue and certain Parties may subscribe for Class F Shares as described in the Class F Agreement, a model of which is annexed. These shares provide a mechanism for:</numbered_2_para>
-  <numbered_3_para>recognizing different degrees of commitment and different levels of contribution from each Founder or Employee;</numbered_3_para>
-  <numbered_3_para>respecting the need of each Founder or Employee to balance compensation between cash and equity; and</numbered_3_para>
-  <numbered_3_para>amicably resolving scenarios in which one or more Founders or Employees leave the company.</numbered_3_para>
-  <numbered_2_para>Article <?= data.aa_preemptive_clause_number || "41" ?> of the Constitution confers pre-emptive rights on members of the Company. The Parties hereby waive their pre-emptive rights with regard to the issue of new Class F Shares provided that such issue occurs either as part of a vesting scheme or some other share option plan, share ownership plan, or equity-based remuneration scheme previously approved by the Company, or pursuant to a Compensation Adjustment and at the Discretionary Subscription Price as described in the Class F Agreement.</numbered_2_para>
+  <a_left_sidehead>Waiver in regard to ESOP Shares</a_left_sidehead>
+  <numbered_2_para>The Parties hereby waive their pre-emptive rights with regard to the issue of new Class F Shares provided that such issue occurs either as part of a vesting scheme or some other share option plan, share ownership plan, or equity-based remuneration scheme previously approved by the Company, or pursuant to a Compensation Adjustment and at the Discretionary Subscription Price as described in the Class F Agreement and the Constitution respectively.</numbered_2_para>
   <? } ?>
 
-  <a_left_sidehead xname="medarb">Dispute Resolution</a_left_sidehead>
-  <numbered_2_para>Founders and Employees will first attempt to settle disputes amongst themselves. If a dispute, controversy or claim arises out of or relates to this contract, or breach, termination or invalidity thereof, and if such dispute, controversy or claim cannot be settled and resolved through negotiation, the parties agree to proceed as follows:</numbered_2_para>
-  <?!= include("inc_mediation_arbitration", data) ?>
+  <?!= include("rm_tags", data) ?>
 
-  <a_left_sidehead>Drag-Along Rights</a_left_sidehead>
-  <numbered_2_para>If a Trade Sale is approved by 75% or more of voting shares (subject to any protective provisions that happen to be held by subsequent Preferred Shareholders or creditors) then the minority shareholders shall give their consent to such a sale.</numbered_2_para>
 
-  <a_left_sidehead>Tag-Along Rights</a_left_sidehead>
-<? if (data.security_type == "Series Seed" && ! data.tags == "simple") { ?>
-  <?!= include("inc_ss_tags", data) ?>
-<? } else { ?>
-  <numbered_2_para>Should one or more Shareholders offer to sell their shares to a third Party or Parties such that the new Parties would hold more than 25% of the voting stock of the company, those Shareholders must offer all other Shareholders an opportunity, calculated pro rata, to sell their shares also.</numbered_2_para>
-<? } ?>
+  <?!= include("rm_drags", data) ?>
+
   
   <a_left_sidehead>New Parties</a_left_sidehead>
-  <numbered_2_para>New Shareholders shall be required to execute a Deed of Ratification and be bound by this Agreement.</numbered_2_para>
+  <numbered_2_para orig_num="47" xname="fev_sha_dora_required">It shall be a condition precedent to the issuance of new shares by the Company to a third party that such third party shall be required to execute the Deed of Ratification and Accession under which it agrees to be bound by and be entitled to the benefit of this Agreement as if it were an original party thereto.</numbered_2_para>
+
 <? if (data.parties.investor) { ?>
-  <numbered_2_para>While the Investor at the date of the signing of this Agreement is holder of Convertible Debt and not a Shareholder, upon conversion whether in whole or in part, the Investor shall be deemed to have ratified and acceded to this Agreement and agrees to be bound by the terms of this Agreement.</numbered_2_para>
+  <numbered_2_para>Any party who is a holder of Convertible Debt and not a Shareholder, upon conversion whether in whole or in part, shall be deemed to have ratified and acceded to this Agreement.</numbered_2_para>
 <? } ?>
 
 <a_left_sidehead>Transferability of Rights</a_left_sidehead>
