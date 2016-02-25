@@ -191,8 +191,8 @@ any distribution of profits of the Company.</numbered_3_para>
 
 <numbered_2_firstbold xname="ss_termination">Termination. Unless terminated earlier pursuant to the terms of this Agreement,</numbered_2_firstbold>
 <numbered_3_para>the rights, duties and obligations under Sections <xref to="ss_covenants_company"/><?if(data.ia_spells_out_participation_right){?>, <xref to="ss_participation_right"/><?}?> and <xref to="ss_election_of_board"/> will terminate immediately prior to the closing of the Company's initial public offering of Common Stock pursuant to an effective prospectus registered under the Securities Act,</numbered_3_para>
-<numbered_3_para>notwithstanding anything to the contrary herein, this Agreement (excluding any then-existing obligations) will terminate upon the closing of a Deemed Liquidation Event as defined in the Company's Amended Constitution, as amended from time to time and</numbered_3_para>
-<numbered_3_para>notwithstanding anything to the contrary herein, Section <xref to="ss_confidentiality" format="Paragraph Number (firstbold)"/> will survive any termination of this Agreement.</numbered_3_para>
+<numbered_3_para>notwithstanding anything to the contrary herein, this Agreement (excluding any then-existing obligations) will terminate upon the closing of a Deemed Liquidation Event as defined in the Company's Amended Constitution, as amended from time to time; and</numbered_3_para>
+<numbered_3_para>Section <xref to="ss_confidentiality" format="Paragraph Number (firstbold)"/> will survive any termination of this Agreement.</numbered_3_para>
 
 
   
