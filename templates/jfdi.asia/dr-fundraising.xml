@@ -42,7 +42,7 @@ the said <?= data.parties.director[data.signing_director_index||0].name ?> be au
 
 <a_left_sidehead>Shareholders' Agreement</a_left_sidehead>
 
-<numbered_2_para>that the Company execute an amended and restated Shareholders' Agreement (the "Instrument") with the current Shareholders and the new Shareholders; and
+<numbered_2_para>that the Company execute an amended and restated Shareholders' Agreement (the "Instrument") with the existing Shareholders and the incoming Investors; and
 that, pursuant to the authority granted in the aforementioned Resolution <xref to="signing_authority" />, the hand of the now thrice-above-named <?= data.parties.director[data.signing_director_index||0].name ?> be the instrument of the Company's abovementioned ratification of the abovementioned Instrument.</numbered_2_para>
 
 
