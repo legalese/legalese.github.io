@@ -26,7 +26,6 @@
 <? if (data.extra) { ?><para_1><?= data.extra ?></para_1><? } ?>
 
 <para_1>Yours faithfully</para_1>
-<? data.signature_comment = "Director"; ?>
 <?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, no_section_header:true, _include2: {} }) ?>
 
 </Story_Main>
