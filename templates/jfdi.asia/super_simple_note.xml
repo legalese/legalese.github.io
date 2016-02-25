@@ -38,7 +38,7 @@
   <numbered_2_para>This Agreement shall be effective when the Investor delivers to the Company evidence of the transfer of funds by the Investor to the Third Party as described in "Payment to Third-Party".</numbered_2_para>
 
   <a_left_sidehead>Subscription</a_left_sidehead>
-  <numbered_2_para>The Parties agree to recognize a resulting debt of <?= data.new_investor.new_commitment ?> (the &#8220;Investment Amount&#8221;) owed by the Company in the form of a convertible promissory notes (the &#8220;Note&#8221;) issued by the Company to the Investor.</numbered_2_para>
+  <numbered_2_para>The Parties agree to recognize a resulting debt of <?= data.new_investor.new_commitment ?> (the &#8220;Investment Amount&#8221;) owed by the Company in the form of a convertible promissory note (the &#8220;Note&#8221;) issued by the Company to the Investor.</numbered_2_para>
 
   <a_left_sidehead>Total Round Size</a_left_sidehead>
   <numbered_2_para>The Note issued to the Investor may form part of a series of such Notes issued on essentially identical terms (the "Series") except that the Investor, Investment Amount<?= data.variable_terms ?data.variable_terms:","?> and Closing Date may change from Note to Note. The total amount of the Series shall not exceed <?= data.amount_raising ?> without the written agreement of all the holders of the Notes in the Series currently outstanding.</numbered_2_para>
