@@ -38,7 +38,17 @@ the said <?= data.parties.director[data.signing_director_index||0].name ?> be au
 </numbered_2_para><numbered_2_para xname="signing_authority"><?= data.parties.director[data.signing_director_index||0].name ?> be authorised to do all acts or things necessary or desirable in connection with the foregoing including without limitation, signing and executing such documents or approving any modifications to such documents as he may deem necessary or expedient for the foregoing purpose and that the signing thereof by such director be conclusive of such approval.</numbered_2_para>
 <?if(data.omit_dora){?>
 <!-- dora omitted entirely -->
+<?} else if (data.new_sha) { ?>
+
+<a_left_sidehead>Shareholders' Agreement</a_left_sidehead>
+
+<numbered_2_para>that the Company execute an amended and restated Shareholders' Agreement (the "Instrument") with the current Shareholders and the new Shareholders; and
+that, pursuant to the authority granted in the aforementioned Resolution <xref to="signing_authority" />, the hand of the now thrice-above-named <?= data.parties.director[data.signing_director_index||0].name ?> be the instrument of the Company's abovementioned ratification of the abovementioned Instrument.</numbered_2_para>
+
+
 <?} else { ?>
+
+
 
 <a_left_sidehead>Deed of Ratification and Accession</a_left_sidehead>
 <?if(data.skip_dora){?>
