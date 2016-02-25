@@ -62,8 +62,6 @@ in the spirit of mutual confidence and co-operation, the Parties have agreed to 
   <?!= include("rm_tags", data) ?>
 
 
-  <?!= include("rm_drags", data) ?>
-
   
   <a_left_sidehead>New Parties</a_left_sidehead>
   <numbered_2_para orig_num="47" xname="fev_sha_dora_required">It shall be a condition precedent to the issuance of new shares by the Company to a third party that such third party shall be required to execute the Deed of Ratification and Accession under which it agrees to be bound by and be entitled to the benefit of this Agreement as if it were an original party thereto.</numbered_2_para>

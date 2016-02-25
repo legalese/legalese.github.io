@@ -1,6 +1,6 @@
 <?!= data.xml_declaration ?>
 <?!= data.xmlRoot() ?>
-<?!= include("inc_cover_standard_parties", data, {cover_title:"Series Seed Subscription Agreement", rcpts_to:rcpts_to}) ?>
+<?!= include("inc_cover_standard_parties", data, {cover_title:"Series Seed Investment Agreement", rcpts_to:rcpts_to}) ?>
 <Story_Main>
 <chapter_header>Series Seed Preferred Stock Investment Agreement</chapter_header>
 <para_1>This Series Seed Preferred Stock Investment Agreement (this "Agreement") is dated as of the Agreement Date and is between the Company, the Purchasers and the Key Holders:</para_1>
@@ -40,7 +40,7 @@ This Agreement shall be governed by and interpreted in accordance with the laws 
 
 <a_left_sidehead>TERM SHEET DEFINITIONS.</a_left_sidehead>
 <para_2_hanging>"Major Purchaser Dollar Threshold" means $<?= data.major_investor_minimum ?>.</para_2_hanging>
-<para_2_hanging>"Purchase Price" means $<?= data.price_per_share ?> per share (subject to any discounts applicable where all or a portion of such Purchase Price is being paid by cancellation of indebtedness of the Company to such Purchaser).</para_2_hanging>
+<para_2_hanging>"Purchase Price" means <?= data.price_per_share ?> per share (subject to any discounts applicable where all or a portion of such Purchase Price is being paid by cancellation of indebtedness of the Company to such Purchaser).</para_2_hanging>
 <para_2_hanging>"Total Series Seed Investment Amount" means $<?= data.amount_raising ?>.</para_2_hanging>
 <para_2_hanging><b>"Unallocated Post-Money Option Pool Percent"</b> means <?= data.capTable.getRound("TOTAL").new_investors.ESOP.percentage ?>%.</para_2_hanging>
 <para_2_hanging>"Purchaser Counsel Reimbursement Amount" means $<?= data.purchaser_counsel_reimbursement_amount ?>.</para_2_hanging>
@@ -76,8 +76,9 @@ This Agreement shall be governed by and interpreted in accordance with the laws 
 <Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Consideration</cell_c></Cell>
 
 <? for (var hh in newIssues.holders) { with(data._entitiesByName[hh]) { ?>
-<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= hh ?></cell_c>
-<cell_c><?= address ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= hh ?>
+
+<?= address ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!= data.capTable.getActiveRound().new_investors[hh]._inWords ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= data.capTable.getActiveRound().new_investors[hh].money ?></cell_c></Cell>
 <? } } ?>
