@@ -966,7 +966,7 @@ my company is a Company with:
 my safe is a SafeInstrument.
 
 the safe has parties:
-  investors:
+  investors (each an 'investor'):
     - name: Alice, id: S1111111A, purchaseAmount: 20000
     - name: Bob,   id: S2222222B, purchaseAmount: 10000
     - name: Carol (defined elsewhere)
@@ -1001,7 +1001,7 @@ a Security generally has:
   
 a SafeInstrument generally has:
   explode: one doc per investor
-  date(): investor.date || today()
+  effectiveDate: { investor.date || today() }
 
 a SafeInstrument (locale:"en-UK") has:
   explode: one doc for all parties
@@ -1010,8 +1010,8 @@ a SafeInstrument generally has:
   parts: [ intro, topDefinitions, events, conditionsPrecedent, definitions, representationsCompany, representationsInvestor, miscellaneous, attestation]
   intro: {
     "this document" certifies {
-      consideration({from: inv, to: company}),
-      hereby( issues( rightTo( shares( subjectTo( terms ) ) ) ) ) )
+      consideration({from: investor, to: company}) ->
+      company.hereby( issues( rightTo( shares( subjectTo( terms ) ) ) ) ) )
   }
   topDefinitions: company.terms.FILTER(discount,valuation,maturity)
   events:
@@ -1028,7 +1028,7 @@ a SafeInstrument generally has:
           given conversionPrice = equityIssue.pricePerShare
           given numShares = investor.purchaseAmount / conversionPrice
 
-		  safe.parties.investors(each an 'investor').all(
+		  safe.parties.investors.all(
 			company.addObligation(upon(equityIssue.stage=='completion' and
 									   investor.EFdocs.all(_.executed(_) and _.received_by(company))
 									  ) {
