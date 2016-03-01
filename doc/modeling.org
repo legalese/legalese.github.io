@@ -957,101 +957,235 @@ http://www.inf.ed.ac.uk/teaching/courses/nlg/
 ** YC SAFE (SG)
 
 #+BEGIN_SRC yaml
-my fundraise is an InvestmentFinancingWorkflow.
-
-my company is a Company with:
-  id: 2016000001A
-  name: My Example Inc.
-
-my safe is a SafeInstrument.
-
-the safe has parties:
-  investors (each an 'investor'):
-    - name: Alice, id: S1111111A, purchaseAmount: 20000
-    - name: Bob,   id: S2222222B, purchaseAmount: 10000
-    - name: Carol (defined elsewhere)
-  company: (defined elsewhere)
-
-one investor has:
-  name: Carol
-  id: S3333333C
-  purchaseAmount: 5000
-
-the safe has terms:
-  discount:  0.2
-  valuation: 100000
-  maturity:  3y
-
-the safe also has:
-  agreementDate: 2016-02-30
-
-a SafeInstrument is a Security.
-
-a Security is an Agreement.
-
-an Agreement generally has:
-  effectiveDate: is a Date
-  parties.company: is a Company
-
-a Security generally has:
-  term: is a DateInterval
-  terminationDate: is a Date {
-    .effectiveDate + .term
-  }
+  # comment: we define the company as an instance of the Company class
+  #          or, if you're a functional programmer, as having a Company type
   
-a SafeInstrument generally has:
-  explode: one doc per investor
-  effectiveDate: { investor.date || today() }
-
-a SafeInstrument (locale:"en-UK") has:
-  explode: one doc for all parties
-
-a SafeInstrument generally has:
-  parts: [ intro, topDefinitions, events, conditionsPrecedent, definitions, representationsCompany, representationsInvestor, miscellaneous, attestation]
-  intro: {
-    "this document" certifies {
-      consideration({from: investor, to: company}) ->
-      company.hereby( issues( rightTo( shares( subjectTo( terms ) ) ) ) ) )
-  }
-  topDefinitions: company.terms.FILTER(discount,valuation,maturity)
-  events:
-    'equity financing': {
-      upon(parties.company.event.financing.equityIssue ('equityIssue') and
-		   equityIssue.has(preMoneyValuation) and
-		   equityIssue.stage=='primary negotiation complete' and
-           equityIssue.closingDate < .terminationDate) {
-
-		defining safe.parties.investors.all( _.EFdocs = equityIssue.transactionDocuments.filter.hasParty(_) )
-        defining EFpurchasers = equityIssue.purchasers
-
-		company.must(automatically): {
-          given conversionPrice = equityIssue.pricePerShare
-          given numShares = investor.purchaseAmount / conversionPrice
-
-		  safe.parties.investors.all(
-			company.addObligation(upon(equityIssue.stage=='completion' and
-									   investor.EFdocs.all(_.executed(_) and _.received_by(company))
-									  ) {
-			  .issue(equityIssue.shareClass, quantity:numShares).to(investor) ('ShareIssue')
-			})
-          }
-		}
-
-        (inConnectionWith(ShareIssue))
-        investor.must(.EFdocs.all(_.parties.any(|p| EFpurchasers.any(_ == p)))
-                      and
-                      (.EFdocs.all(not _.has(dragAlongRights) or
-								   _.has(dragAlongRights) and
-								   _.dragAlongRights.applyTo(investor) and
-								   _.has(exceptions.dragAlongRights or dragAlongRights.exceptions) ('dragE') and
-								   dragE.any.applyTo(investor)))): {
-		  .EFdocs.all(.execute(_) and .deliver(_).to(company))
-        }
-      }
+  my company is a Company with:
+    id: 2016000001A
+    name: My Example Inc.
+  
+  # the syntax looks a lot like YAML. I prefer YAML to JSON because:
+  # 1. we have better uses for curly braces.
+  # 2. Ingy is a personal friend.
+  
+  # instead of cryptic punctuation (preferred by Hardcore Computer Scientists)
+  # and terse keywords (preferred by Real Programmers),
+  # the Legalese DSL is more verbose, more applescripty, because our users are more lay.
+  
+  
+  
+  # comment: a safeRound is an instance of the InvestmentFinancingWorkflow class.
+  # with prototypal inheritance, other objects could themselves inherit from safeRound.
+    
+  my safeRound is an InvestmentFinancingWorkflow.
+  
+  # after introducing a thing by saying "my" or "a", we subsequently refer to it as "the".
+  # this is syntactic sugar; think of "my" and "a" as a variable declaration. indeed, perl uses "my"!
+  # the my/a variable declaration is responsible for setting the type.
+  # 
+  # subsequently, we use "the" to refer to a variable that has been declared somewhere above.
+  # this is consistent with English grammatical norms.
+  # so a layperson reading a fragment which says "the thing" will know to search for "a thing".
+  # if code gets moved around so that "the" comes before "a" the compiler will know to throw a type error.
+  #
+  # "my" establishes a singleton global object.
+  # "a" establishes a potentially one-of-many object.
+  # "an" is a synonym for "a".
+  
+  the safeRound has parties:
+    investors (each an 'investor'):
+      - name: Alice, id: S1111111A, purchaseMoney: US$20000
+      - name: Bob,   id: S2222222B, purchaseMoney: US$10000
+      - name: Carol (defined above/below)
+    company: (defined above/below)
+  
+  # we infer from above that safeRound.parties.investors is an array of generic objects
+  # we infer that each of those objects has attributes name,id,purchaseMoney
+  # each of which has their own inferred types.
+  # Idris would be really strong at inferring dependent types.
+  
+  # the above stanza also introduces the parenthetical remark.
+  # Like most languages, parentheses are used for argument-passing to function calls and method calls.
+  # Parentheses are also used for expression grouping.
+  # Unlike most languages, Legalese uses parentheses following a symbol as a compiler hint and/or as an expression that appears in the output text.
+  # Single quotes are used to identify a symbol in much the same way that Prolog uses them.
+  # If an array is hinted with "(each a 'thingy')" then whenever we iterate through that array,
+  # Legalese automatically binds 'thingy' as the loop variable.
+  
+  
+  # next comes an example of defining an investor separately.
+  # note that it is linked in to the safeRound.parties.investors array.
+  # how is that done?
+  # the (defined above/below) token instructs the compiler to expect to find an investor with "name: Carol" elsewhere in the program.
+  # later, when "a particular investor has" the name Carol, that is unified into safeRound.parties.investors due to matching type and name.
+  
+  a particular investor has:
+    name: Carol
+    id: S3333333C
+    purchaseMoney: US$5000
+  
+  # comment: we define a safeInstrument as a specific document signed between the investors and the company.
+  # we could also have worded this as "and all of" or "and any of" or just the thing.
+  # safeInstrument is an instance/subclass of Security, which would normally be defined in a library separately.
+  
+  a safeInstrument defines a Security relation between company and each of safeRound.parties.investors.
+  
+  # under the hood, this creates a cartesian product of the 1 or more arrays specified. there is some subtlety here.
+  
+  # you actually get a generator named safeInstrument, which is iterable.
+  # for the sake of illustration you can imagine that we are dealing with something kind of like:
+  #   safeInstruments = [ safeInstrument1, ..., safeInstrument2 ]
+  #   safeInstrument1.company = company
+  #   safeInstrument1.investor = Alice
+  #   safeInstrument2.company = company
+  #   safeInstrument2.investor = Bob
+  #   safeInstrument3.company = company
+  #   safeInstrument3.investor = Carol
+  
+  # what is the subtlety? if we had said
+  # a safeInstrument defines a Security relation between company and all of safeRound.parties.investors.
+  # or the identical
+  # a safeInstrument defines a Security relation between company and        safeRound.parties.investors.
+  #
+  # then we would have a single safeInstrument with
+  # safeInstrument.company = company
+  # safeInstrument.investors = [ Alice, Bob, Carol ]
+  
+  # if we had said
+  # a safeInstrument defines a Security relation between company and any of safeRound.parties.investors.
+  # then the moment any of the investors signs the document, the relation is considered satisfied.
+  # when might we want to do that? maybe when any one of N directors has previously been authorized to sign something.
+  
+  # if you are already a bad-ass Haskell programmer these ideas will come very naturally to you:
+  # cartProd xs ys = [(x,y) | x <- xs, y <- ys]
+  
+  
+  
+  
+  # next we come to objects and pattern-matching on attributes.
+  
+  # comment: saying "a Thing generally has Blah" is syntactic sugar for establishing Thing.Blah as itself an object with its own attributes.
+  
+  the safeInstrument generally has terms:
+    discount:  0.2
+    valuation: 100000
+    maturity:  3y
+  
+  # safeInstrument.terms = { discount: 0.2, valuation: 10000, maturity: 3y }
+  #    or, spelling it out,
+  # safeInstrument.terms.discount = 0.2
+  # safeInstrument.terms.valuation = 100000
+  # safeInstrument.terms.maturity = 3y
+  
+  the safeInstrument generally also has:
+    agreementDate: 2016-02-30 is a Date
+    effectiveDate: {{ .investor.date || today() }}
+  
+  # if a thing is enclosed in double curly braces, that means it is an expression meant to be executed at compile time.
+  # the "investor" symbol is available to the safeInstrument because the relation is defined between company and safeRound.parties.investors, each of which was defined earlier to be 'investor'.
+  # note that there are two paths to the 'company' symbol -- global scope and object scope. both point to the same actual company.
+  # in this case the object is the safeInstrument.
+  # the safeInstrument has an attribute 'investor'. so that's how that gets there.
+  # what does a dot prefix mean? it's syntactic sugar, or rather syntactic aspartame, for "this.".
+  
+  # Legalese has two implicit context variables: . and _.
+  #  the .  prefix means "this.". The "this" comes from the containing contex.t
+  #  the _. prefix is the loop variable in a list comprehension, like array.all( print _.name ). It's like perl's $_ in that situation.
+  
+  
+  # notice how we've been saying "the Thingy generally has"?
+  # that means that a Thingy with a specific set of properties may be dealt with differently.
+  # this is kind of like your basic prolog/erlang-style pattern-matching, or like Haskell's guards:
+  
+  the SafeInstrument generally has:
+    explode: one doc per investor
+  
+  a SafeInstrument (locale:"en-UK") has:
+    explode: one doc for all parties
+  
+  # is that prototypal inheritance? Why, I suppose it is.
+  
+  the SafeInstrument generally has:
+    parts: [ intro, topDefinitions, events, conditionsPrecedent, definitions, representationsCompany, representationsInvestor, miscellaneous, attestation]
+    intro: {
+      "this document" certifies {
+        consideration({from: investor, to: company}) ->
+        company.hereby( issues( rightTo( shares( subjectTo( terms ) ) ) ) ) )
     }
-  }    
-// define somePreferredStock as being named Standard or Safe Preferred Stock depending on the situation
-
+    topDefinitions: company.terms.FILTER(discount,valuation,maturity)
+  
+    # check it out, Legalese supports reactive programming.
+    # An object can define an "events" dictionary, which registers a set of "upon" handlers.
+    # Legalese makes it easy to call all "upon" handlers against a scenario.
+    events:
+      - upon(company.event.financing.equityIssue ('equityIssue'))
+        ('Equity Financing') {
+          # check it out, Legalese supports deontic modal logic.
+          # the special method .must() on an object registers an obligation for our mu-calculus engine to reason about.
+          # syntax: object.must(conditions) { body }
+          company.must(automatically) {
+            safe.parties.investors.all(
+              company.must(upon(equityIssue.stage=="completion")) {
+                .issue(equityIssue.shareClass, quantity:investor.purchaseMoney / equityIssue.pricePerShare)
+                .to(investor) ('ShareIssue')
+              }
+            )
+          }
+  
+          # check it out, Legalese supports the definition of "variables" which are really functors.
+          # the text output engine is responsible for optimizing these definitions into comprehensible natural language.
+          defining safe.parties.investors.all( _.EFdocs = equityIssue.transactionDocuments.filter.hasParty(_) )
+          defining EFpurchasers = equityIssue.purchasers
+  
+          # parentheticals may prefix or suffix any expression.
+          # sometimes they serve no semantic function, only a narrative function.
+          (inConnectionWith(ShareIssue))
+          investor.must(.EFdocs.all(_.parties.any(|p| EFpurchasers.any(_ == p)))
+                        and
+                        (.EFdocs.all(_.has(dragAlongRights) and
+                                     _.dragAlongRights.applyTo(investor) and
+                                     _.has(dragAlongRights.exceptions) ('dragE') and
+                                     dragE.any.applyTo(investor)))): {
+            .EFdocs.all(.execute(_) and .deliver(_).to(company))
+          }
+          # that last bit was kinda dense but it can't be helped;
+          # when the CS formalizations are as cryptic as the legal-latin incantations, we know we're dealing in the same order of complexity.
+        }
+    }    
+  
+  
+  
+  // define somePreferredStock as being named Standard or Safe Preferred Stock depending on the situation
+  
+  
+  # comment: the definitions of Security, Agreement, Document, etc would normally live in separate library modules
+  # but we display them here for completeness, so you can see the object model
+    
+  a Security is an Agreement.
+  
+  a Security generally has:
+    term: is a DateInterval
+    terminationDate: is a Date {
+      .effectiveDate + .term
+    }
+  
+  # comment: we define Agreement
+    
+  an Agreement generally has:
+    effectiveDate: is a Date
+    parties.company: is a Company
+  
+  an Agreement is a Document.
+  
+  # commen: we define Document
+  
+  a Document generally has:
+    locale: is a String
+    name: is a String
+    templateUrl: is a URL
+    version: is a String
+    
+  
 #+END_SRC
 
 #+BEGIN_SRC
