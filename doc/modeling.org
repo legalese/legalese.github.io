@@ -78,6 +78,8 @@ The resolution model does not claim to cover:
 **** Trusts
 **** Public Companies
 
+
+
 * Modeling the Drafting -- Semantics
 Within a contract, we deal with terms and content. This model cares about the conceptual/abstract representation, also known as the formal representation. It also cares about the physical text in a natural language. The physical text may include formatting instructions.
 
@@ -425,6 +427,16 @@ In homoiconic languages like Lisp, "code is data".
 
 In Legalese, "code execution is data" too -- the history of every computation is available. If we want to know how something got to be the way it is, we can trace current and past state.
 
+*** Compile time versus run time
+
+UPPERCASE keywords run at compile time and help construct the text of the contract.
+
+lowercase keywords are the meat of the contract itself.
+
+in C, think #ifdef vs if()
+
+in our case we would have `IF()` vs `if()`
+
 ** Legal Formalization: a Brief Overview
 
 In an application, "business rules" and "business logic" are typically encoded in machine-executable form by a domain expert. Sometimes, DSLs are employed.
@@ -454,9 +466,86 @@ At present, once business logic is encoded into an application, that logic is ex
 
 ** Primitives and Principles
 
-*** The Schema
-*** The Clause / Article / Section
-*** The Definition
+
+*** requirements principles
+**** entities are modelled using objects / types
+
+Elements belong to sets.
+
+#+BEGIN_QUOTE
+This agreement is between A, B, C (the "Alphas"), 1, 2, (the "Numbers"), and #! (the "Punct"), collectively the "Parties".
+#+END_QUOTE
+
+Elements can join and leave sets.
+
+#+BEGIN_QUOTE
+The New Investors hereby accede to and ratify the Previous Agreement, and agree to be bound by the terms and conditions of the Previous Agreement as if they had been a party thereto, and to duly and punctually perform and discharge all liabilities and obligations whatsoever from time to time to be performed or discharged by it under or by virtue of the Previous Agreement in all respects as if named as a party therein.
+#+END_QUOTE
+
+**** relations are modelled using objects / types
+
+A share is a relation between a Company and a Shareholder, with certain attributes, such as issue price, voting rights, convertibility, etc.
+
+**** a relation can be created, modified, or terminated by an agreement
+
+an investment agreement creates a shareholder relation.
+
+#+BEGIN_QUOTE
+Each investor listed as a "Purchaser" on Schedule 1 (each, a "Purchaser") shall purchase at the applicable Closing and the Company agrees to sell and issue to each Purchaser at such Closing that number of shares of Series Seed Preferred Stock of the Company ("Series Seed Preferred Stock") set forth opposite such Purchaser's name on Schedule 1, at a purchase price per share equal to the Purchase Price.
+#+END_QUOTE
+
+an employment agreement creates an employer--employee relation.
+
+a volunteer agreement creates an unpaid employee relation.
+
+a nondisclosure agreement creates an NDA relation.
+
+**** functional -- representations
+
+A term in an expression may be functional in nature, in the sense that it depends on many other terms, each of which may be depend on other terms.
+
+method share.conversion_price = least_of(antidilution_price, discount_price, valuation_cap)
+
+**** actor / reactor model
+
+both entities and relations are expected to respond to scenarios by emitting transformations.
+
+**** language-orientation
+
+a compiler generates an isomorphic natural language representation of programs written in the DSL.
+
+**** homoiconicity
+
+a program may modify itself:
+
+#+BEGIN_QUOTE
+Except where the context otherwise requires, references to any person include its successors and permitted assignees. Except where the context otherwise requires, Clauses which refer to the "Company" shall apply mutatis mutandis to subsidiaries or successors of the Company which may from time to time be established.
+#+END_QUOTE
+
+**** traces, history, and state
+
+a piece of code must be able to reason based on knowledge available at time of execution. It needs to know what actions have been taken by the program and all related entities to date. If those actions are available in a log, great. That log may need to contain a representation of the relevant objects at a different time.
+
+So bitemporality applies to object state.
+
+#+BEGIN_QUOTE
+If the Company issues any additional shares (including, but not limited to, all classes of shares, warrants, rights to subscribe for shares and securities convertible into any share class) for a consideration per share that is less than the Subscription price per share (as adjusted for any change of nominal values of shares, e.g. share splits and similar events), the subscription price (as adjusted for share splits, consolidations of shares and similar events) of the subscribed shares issued subject to this Investment shall be adjusted on a full ratchet basis.
+The adjustment will be made through the issuance of additional shares to the Subscriber at par value (i.e. S$1.00 per subscribed share of nominally S$1.00), so that the ownership of the Subscriber after the dilutive issuance shall be set equal to the ownership that the Subscriber would have had if the subscription price paid by the Subscriber (based on the Investment amount, added for the avoidance of doubt, the amount paid to Subscribe for the anti-dilution shares) had been the same as the price of the dilutive issuance.
+#+END_QUOTE
+
+**** temporal logic
+
+The functions used to compute a term may finally depend on state which may have arisen and changed between the times of negotiation, execution, and eventuation.
+
+**** deontic modal logic
+
+A contract defines obligations.
+
+Obligations may be violated; such violations may entail further obligations.
+
+*** Agreements follow a Document Schema
+*** Elements of Agreements: the Clause / Article / Section
+*** The Definitions
 *** Deontic Obligations
 *** Exceptions
 *** Mutatis Mutandis
@@ -863,3 +952,108 @@ http://www.inf.ed.ac.uk/teaching/courses/nlg/
 ** Kata MR01: Modeling Resolutions
 
 
+* Full Cases
+
+** YC SAFE (SG)
+
+#+BEGIN_SRC yaml
+my fundraise is an InvestmentFinancingWorkflow.
+
+my company is a Company with:
+  id: 2016000001A
+  name: My Example Inc.
+
+my safe is a SafeInstrument.
+
+the safe has parties:
+  investors:
+    - name: Alice, id: S1111111A, purchaseAmount: 20000
+    - name: Bob,   id: S2222222B, purchaseAmount: 10000
+    - name: Carol (defined elsewhere)
+  company: (defined elsewhere)
+
+one investor has:
+  name: Carol
+  id: S3333333C
+  purchaseAmount: 5000
+
+the safe has terms:
+  discount:  0.2
+  valuation: 100000
+  maturity:  3y
+
+the safe also has:
+  agreementDate: 2016-02-30
+
+a SafeInstrument is a Security.
+
+a Security is an Agreement.
+
+an Agreement generally has:
+  effectiveDate: is a Date
+  parties.company: is a Company
+
+a Security generally has:
+  term: is a DateInterval
+  terminationDate: is a Date {
+    .effectiveDate + .term
+  }
+  
+a SafeInstrument generally has:
+  explode: one doc per investor
+  date(): investor.date || today()
+
+a SafeInstrument (locale:"en-UK") has:
+  explode: one doc for all parties
+
+a SafeInstrument generally has:
+  parts: [ intro, topDefinitions, events, conditionsPrecedent, definitions, representationsCompany, representationsInvestor, miscellaneous, attestation]
+  intro: {
+    "this document" certifies {
+      consideration({from: inv, to: company}),
+      hereby( issues( rightTo( shares( subjectTo( terms ) ) ) ) ) )
+  }
+  topDefinitions: company.terms.FILTER(discount,valuation,maturity)
+  events:
+    'equity financing': {
+      upon(parties.company.event.financing.equityIssue ('equityIssue') and
+		   equityIssue.has(preMoneyValuation) and
+		   equityIssue.stage=='primary negotiation complete' and
+           equityIssue.closingDate < .terminationDate) {
+
+		defining safe.parties.investors.all( _.EFdocs = equityIssue.transactionDocuments.filter.hasParty(_) )
+        defining EFpurchasers = equityIssue.purchasers
+
+		company.must(automatically): {
+          given conversionPrice = equityIssue.pricePerShare
+          given numShares = investor.purchaseAmount / conversionPrice
+
+		  safe.parties.investors(each an 'investor').all(
+			company.addObligation(upon(equityIssue.stage=='completion' and
+									   investor.EFdocs.all(_.executed(_) and _.received_by(company))
+									  ) {
+			  .issue(equityIssue.shareClass, quantity:numShares).to(investor) ('ShareIssue')
+			})
+          }
+		}
+
+        (inConnectionWith(ShareIssue))
+        investor.must(.EFdocs.all(_.parties.any(|p| EFpurchasers.any(_ == p)))
+                      and
+                      (.EFdocs.all(not _.has(dragAlongRights) or
+								   _.has(dragAlongRights) and
+								   _.dragAlongRights.applyTo(investor) and
+								   _.has(exceptions.dragAlongRights or dragAlongRights.exceptions) ('dragE') and
+								   dragE.any.applyTo(investor)))): {
+		  .EFdocs.all(.execute(_) and .deliver(_).to(company))
+        }
+      }
+    }
+  }    
+// define somePreferredStock as being named Standard or Safe Preferred Stock depending on the situation
+
+#+END_SRC
+
+#+BEGIN_SRC
+moo
+#+END_SRC
