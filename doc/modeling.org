@@ -1034,7 +1034,7 @@ http://www.inf.ed.ac.uk/teaching/courses/nlg/
   
   # you actually get a generator named safeInstrument, which is iterable.
   # for the sake of illustration you can imagine that we are dealing with something kind of like:
-  #   safeInstruments = [ safeInstrument1, ..., safeInstrument2 ]
+  #   safeInstruments = [ safeInstrument1, ..., safeInstrumentn ]
   #   safeInstrument1.company = company
   #   safeInstrument1.investor = Alice
   #   safeInstrument2.company = company
@@ -1113,6 +1113,10 @@ http://www.inf.ed.ac.uk/teaching/courses/nlg/
         company.hereby( issues( rightTo( shares( subjectTo( terms ) ) ) ) ) )
     }
     topDefinitions: company.terms.FILTER(discount,valuation,maturity)
+    # whoa, what's the difference between object.filter() and object.FILTER()?
+    # uppercase methods and functions run at compile time!
+    # lowercase methods and functions represent contractual intent and are translated for output.
+    # it's like the difference between #ifdef and if().
   
     # check it out, Legalese supports reactive programming.
     # An object can define an "events" dictionary, which registers a set of "upon" handlers.
