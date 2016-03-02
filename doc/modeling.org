@@ -408,6 +408,7 @@ From the DSL it should also be possible to derive operable expressions from a pa
 
 See also wikipedia:"Formal specification"
 
+
 *** Multiparadigm Support
 
 In [[http://www.amazon.com/Multi-Paradigm-Design-James-O-Coplien/dp/0201824671]["Multi-paradigm Design for C++"]] James Coplien describes how C++ supports multiple paradigms: classes, overloaded functions, templates, modules, ordinary procedural programming, and others.
@@ -1128,8 +1129,7 @@ http://www.inf.ed.ac.uk/teaching/courses/nlg/
     # An object can define an "events" dictionary, which registers a set of "upon" handlers.
     # Legalese makes it easy to call all "upon" handlers against a scenario.
     events:
-      - upon(company.event.financing.equityIssue ('equityIssue'))
-        ('Equity Financing') {
+      - upon(company.event.financing.equityIssue ('equityIssue')) {
           # check it out, Legalese supports deontic modal logic.
           # the special method .must() on an object registers an obligation for our mu-calculus engine to reason about.
           # syntax: object.must(conditions) { body }
@@ -1160,13 +1160,61 @@ http://www.inf.ed.ac.uk/teaching/courses/nlg/
           }
           # that last bit was kinda dense but it can't be helped;
           # when the CS formalizations are as cryptic as the legal-latin incantations, we know we're dealing in the same order of complexity.
-        }
-    }    
   
+          (investor & company).must( unless investor.EFdocs.any(_.has(proRataRights) and
+                                                                _.proRataRights.applyTo(investor))) {
+            .execute(new proRataRightsAgreement)
+          }
+        }    
   
+        - upon(company.event.liquidity ('liquidityEvent')) {
+  
+          investor.may( # missing a notice period deadline here
+          ) { choose any one .liquidityPayout from [ cashPayout, speciePayout ] }
+          else { .liquidityPayout = speciePayout }
+  
+          company.may( liquidityEvent.status=="preconsummation") else
+          company.must(liquidityEvent.status==   "consummation") {
+            var cashPaid = {
+              if (investor.liquidityPayout == cashPayout) {
+                defining 'Cash-Out Investors' = safeRound.parties.investors.filter(_.liquidityPayout == cashPayout)
+                var origCashPayable = 'Cash-Out Investors'.sum(_.moneyAmount)
+    
+                company.board.may(liquidityEvent by_virtue_of company.event.changeOfControl
+                                  and
+                                  company.event.changeOfControl.intentions.include(
+                                  "to qualify as a tax-free reorganization for U.S. federal income tax purposes")) {
+                  var reducedPaymentAmount = origCashPayable - company.board.resolution(reducePaymentBy)
+                  # this is the I/O problem of pure functional languages
+                                  }
+                                  
+                var cashPayableAggregate  = reducedPaymentAmount or origCashPayable
+                val cashPayment = proRataPayment(investor, 'Cash-Out Investors',purchaseMoney,
+                                                 cashPayableAggregate,company.fundsAvailable)
+                company.pay(cashPayment).to(investor)
+              }
+              else { 0 }
+            }
+            company.issue(company.stock.common,
+                          quantity:(investor.purchaseMoney - cashPaid) / liquidityEvent.pricePerShare)
+          }
+          
+        - upon(company.event.dissolution ('dissolutionEvent')) {
+            company.must() {
+              val cashPayment = proRataPayment(investor, safeRound.parties.investors, purchaseMoney,
+                                               safeRound.parties.investors.sum(purchaseMoney),
+                                               company.fundsAvailable)
+              company.pay(cashPayment).to(investor)
+            }
+          }
   
   // define somePreferredStock as being named Standard or Safe Preferred Stock depending on the situation
   
+  function _proRata(i,is,key) { i[key] / is.sum(_[key]) }
+  
+  function proRataPayment(individual, all, key, desiredAmount, fundsAvailable) {
+    return desiredAmount * _proRata(individual,all,key) * ((fundsAvailable >= desiredAmount) ? 1 : fundsAvailable / desiredAmount)
+  }
   
   # comment: the definitions of Security, Agreement, Document, etc would normally live in separate library modules
   # but we display them here for completeness, so you can see the object model
@@ -1194,6 +1242,7 @@ http://www.inf.ed.ac.uk/teaching/courses/nlg/
     name: is a String
     templateUrl: is a URL
     version: is a String
+    
     
   
 #+END_SRC
