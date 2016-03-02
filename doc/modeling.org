@@ -394,11 +394,17 @@ What is time? "The universe's way of keeping everything from happening at once."
 
 *** A specification language first, and an implementation language second
 
+Regulations are specifications.
+
+What about contracts?
+
+Is a contract a program? Or the specification for a program?
+
 The DSL expresses constraints and deontics.
 
-From the DSL it should be possible to evaluate a given scenario; the evaluation should return the status compliance with deontics, and also the status of breach / voidable / void / performed / part performed.
+From the DSL it should be possible to evaluate a given scenario; the evaluation should return the status of compliance with deontics, the description of penalties, and the status of the contract generally: breach / voidable / void / performed / part performed. In that sense a contract is a specification.
 
-From the DSL it should also be possible to derive operable expressions from a party perspective -- for example, a security should offer triggers and handlers as callbacks which can be run against any future issue, or event, or scenario, or time.
+From the DSL it should also be possible to derive operable expressions from a party perspective -- for example, a security should offer triggers and handlers as callbacks which can be run against any future issue, or event, or scenario, or time. So in that sense a contract is a program.
 
 See also wikipedia:"Formal specification"
 
