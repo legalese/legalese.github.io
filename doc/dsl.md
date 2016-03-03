@@ -59,6 +59,55 @@ Templating systems with inheritance, that is.
 
 2.  
 
-### examples
+### Object Deontic Formulae
+
+A formula consists of a one or more deontic primitives defined on an object.
+
+An object may have multiple formulae.
+
+The deontic block primitives are: upon, when, if, unless, may, must, lest, else.
+
+In practice, those are implemented as methods on an object. Any object that supports deontics can run these methods. (Whether it inherits from, fills the role of, or mixes in a deontic class/trait/whatever, depending on your flavour of object oriented programming.)
+
+A typical formula is written like this:
+
+	object.when(world.isRaining())
+	      .if  (not object.isFeelingCarefree())
+		  .may {object.umbrella.deploy()}
+		  .lest{object.isWet(true)}
+
+What looks like method chaining allows us to split the formula over multiple lines. In practice, each deontic method actually returns a formula, so that the formula is curried/carried over to subsequent methods.
+
+What does this formula mean? When it's raining, and if you're not feeling carefree, then you open your umbrella. If for some reason the umbrella doesn't work, then you get wet.
+
+The formula *delists* after the `may`-block returns true. We may call this *discharge*.
+
+Each primitive is described below:
+
+	object.upon { upon-block }
+
+The system runs the upon-block many times. It is read-only: it may read from the world but must not write to the world.
+
+If the upon-block returns true, the rest of the formula proceeds. 
+
+	object.when { when-block }
+
+.if   {   if-block }
+		  .may  {  may-block }
+	      
+if (`when-block` && `if-block`) { may-block }
+
+The `when` block must be pure, except for time, in the sense that it will be evaluated many times.
+
+The `if` block is not expected to be pure; it is expected to perform IO, querying one or more entities. It is memoized. Continuations are supported.
+
+The `may` block always runs after `when` and `if` return true.
+
+	object.must (condition) { block }
+
+	object.must (condition) { block } lest { block }
+
+	object.may (condition)  { } else object.must (condition) { block }
 
 What would a BNF for term sheets look like?
+
