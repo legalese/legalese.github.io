@@ -99,6 +99,7 @@ To understand this section, you should:
 - read http://wyner.info/research/Papers/2013/WynerICAIL2013Tutorial.pdf discussing text extraction
 - read http://wyner.info/research/Papers/2013/OASISLegalRuleML.pdf on LegalRuleML.
 - read Tom Hvitved's [[http://www.diku.dk/forskning/phd-studiet/phd/davidg_thesis.pdf/hvitved12phd.pdf][PhD Thesis]] which covers some of the most recent work in the field
+- http://people.dsv.su.se/~petia/Publications/lap98.pdf shows how to model deontics for software specifications, in software
 
 ** Formal Representation
 
