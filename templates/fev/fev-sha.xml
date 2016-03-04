@@ -59,6 +59,8 @@ in the spirit of mutual confidence and co-operation, the Parties have agreed to 
   <numbered_2_para orig_num="2.1">This Agreement shall come into effect following Completion of the Series Seed Preference Shares Investment Agreements with the New Investors.</numbered_2_para>
   <numbered_2_para orig_num="2.2">At that time any previous Shareholder Agreements will be superseded and replaced in its entirety by this Agreement.</numbered_2_para>
 
+  <numbered_2_para>Within 30 business days of the Effective Date, each Key Holder shall execute employment agreements with the Company, which agreements shall be approved by a Board composed as described in clause <xref to="ss_election_of_board" />, or else forfeit all his Restricted Class F Shares.</numbered_2_para>
+
   
 <? if (! data.no_class_f) { ?>
 <a_left_sidehead>Class F Shares</a_left_sidehead>
