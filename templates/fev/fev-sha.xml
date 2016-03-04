@@ -224,7 +224,7 @@ any distribution of profits of the Company.</numbered_3_para>
 <numbered_3_para>notwithstanding anything to the contrary herein, this Agreement (excluding any then-existing obligations) will terminate upon the closing of a Deemed Liquidation Event as defined in the Company's Amended Constitution, as amended from time to time; and</numbered_3_para>
 <numbered_3_para>Section <xref to="ss_confidentiality" format="Paragraph Number (firstbold)"/> will survive any termination of this Agreement.</numbered_3_para>
 
-
+<numbered_2_firstbold xname="ss_priority">Priority. In the event of any ambiguity or discrepancy between the provisions of this Agreement and the Constitution, then the provisions of this Agreement shall prevail and accordingly the parties shall exercise all voting and other rights and powers available to them so as to give effect to the provisions of this Agreement and shall further if necessary procure any required amendment to the said Constitution.</numbered_2_firstbold>
   
   <chapter_header>Signatures</chapter_header>
   <para_1><span_smallcaps>In witness whereof</span_smallcaps> we have hereunto set our hand on <?= data.shareholders_agreement_date ?></para_1>
