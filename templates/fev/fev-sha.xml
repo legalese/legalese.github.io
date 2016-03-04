@@ -34,6 +34,9 @@ in the spirit of mutual confidence and co-operation, the Parties have agreed to 
   <definition>Equity Sale	means a sale by Shareholders to third party purchaser(s) of all or at least 75% of the Shares of the Company;</definition>
   <definition>External Financing	means a fund-raising event in which the company raises no less than <?= data.qualified_financing_proceeds ?> within one round or series<? if (data.external_financing_after) {?>, and in which the closing date (or the transfer of funds amounting to <?= data.qualified_financing_proceeds ?>) occurs after <?=data.external_financing_after?><? } ?>;</definition>
 <? if (data.parties.jfdi_investor) { ?>
+<definition>Common Board Member Count	means <?= data.number_directors_common ?>;</definition>
+<definition>Mutual Consent Board Member Count	means <?= data.number_directors_jointly ?>;</definition>
+<definition>Series Seed Board Member Count	means <?= data.number_directors_seriesseed ?>;</definition>
   <definition>Investment	means the amount invested in the Company by the Investor in the form of the Convertible Note;</definition>
 <?}?>
   <definition>Trade Sale	means a sale of 75% or more of the issued Ordinary share capital of the Company to a third party buyer;</definition>
