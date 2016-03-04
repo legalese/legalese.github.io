@@ -37,6 +37,7 @@ in the spirit of mutual confidence and co-operation, the Parties have agreed to 
 <definition>Common Board Member Count	means <?= data.number_directors_common ?>;</definition>
 <definition>Mutual Consent Board Member Count	means <?= data.number_directors_jointly ?>;</definition>
 <definition>Series Seed Board Member Count	means <?= data.number_directors_seriesseed ?>;</definition>
+<definition>Common Control Holders	means the Key Holders who are then providing services to the company as employees or as volunteers.</definition>
   <definition>Investment	means the amount invested in the Company by the Investor in the form of the Convertible Note;</definition>
 <?}?>
   <definition>Trade Sale	means a sale of 75% or more of the issued Ordinary share capital of the Company to a third party buyer;</definition>
@@ -217,7 +218,7 @@ any distribution of profits of the Company.</numbered_3_para>
 
 <a_left_sidehead name="ss_misc">Miscellaneous Provisions</a_left_sidehead>
 
-<numbered_2_firstbold xname="ss_sha_a_and_w">Amendments and Waivers. Any term of this Agreement may be amended, terminated or waived (either generally or in a particular instance and either retroactively or prospectively) only with the written consent of the Company and the Shareholders holding a majority of the then-outstanding shares of Series Seed Preferred Stock (or Common Stock issued on conversion thereof); provided, however, that any amendment to Section <xref to="ss_common_board_designees" /> (Common Board Designees) or Section <xref to="ss_mutual_consent_board_designees" /> (Mutual Consent Board Designees) will, in addition to any other consents required, also require the written consent of the holders of a majority of the outstanding shares of the Company's Common Stock then held by all of the Common Control Holders (defined in the relevant Series Seed Investment Agreeements).</numbered_2_firstbold>
+<numbered_2_firstbold xname="ss_sha_a_and_w">Amendments and Waivers. Any term of this Agreement may be amended, terminated or waived (either generally or in a particular instance and either retroactively or prospectively) only with the written consent of the Company and the Shareholders holding a majority of the then-outstanding shares of Series Seed Preferred Stock (or Common Stock issued on conversion thereof); provided, however, that any amendment to Section <xref to="ss_common_board_designees" /> (Common Board Designees) or Section <xref to="ss_mutual_consent_board_designees" /> (Mutual Consent Board Designees) will, in addition to any other consents required, also require the written consent of the holders of a majority of the outstanding shares of the Company's Common Stock then held by all of the Common Control Holders.</numbered_2_firstbold>
 
 <numbered_2_firstbold xname="ss_termination">Termination. Unless terminated earlier pursuant to the terms of this Agreement,</numbered_2_firstbold>
 <numbered_3_para>the rights, duties and obligations under Sections <xref to="ss_covenants_company"/><?if(data.ia_spells_out_participation_right){?>, <xref to="ss_participation_right"/><?}?> and <xref to="ss_election_of_board"/> will terminate immediately prior to the closing of the Company's initial public offering of Common Stock pursuant to an effective prospectus registered under the Securities Act,</numbered_3_para>

@@ -36,7 +36,6 @@ This Agreement shall be governed by and interpreted in accordance with the laws 
 <para_2_hanging>"Common Board Member Count" means <?= data.number_directors_common ?>.</para_2_hanging>
 <para_2_hanging>"Mutual Consent Board Member Count" means <?= data.number_directors_jointly ?>.</para_2_hanging>
 <para_2_hanging>"Series Seed Board Member Count" means <?= data.number_directors_seriesseed ?>.</para_2_hanging>
-<para_2_hanging>"Common Control Holders" means the Key Holders who are then providing services to the company as employees or as volunteers.</para_2_hanging>
 
 <a_left_sidehead>TERM SHEET DEFINITIONS.</a_left_sidehead>
 <para_2_hanging>"Purchase Price" means <?= data.price_per_share ?> per share (subject to any discounts applicable where all or a portion of such Purchase Price is being paid by cancellation of indebtedness of the Company to such Purchaser).</para_2_hanging>
