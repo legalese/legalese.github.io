@@ -42,7 +42,7 @@
   <? if (data.full_time) { ?>
   <a_left_sidehead>Commitment Level</a_left_sidehead>
   <numbered_2_para>During the Term of Service, the Volunteer will devote substantially all of their working time to the development of the Company’s products and services and otherwise in furtherance of the Company’s business.</numbered_2_para>
-  <numbered_2_para>If the Volunteer ceases to perform this commitment to the satisfaction of the Board of Directors, and the breach remains uncured, the Company may terminate the Volunteership, and the termination shall be considered to be for Good Reason.</numbered_2_para>
+  <numbered_2_para>If the Volunteer ceases to perform this commitment to the satisfaction of the Board of Directors, and the breach remains uncured, the Company may terminate the Volunteership, and the termination shall be considered to be for Cause.</numbered_2_para>
   <? } ?>
   <a_left_sidehead>Termination</a_left_sidehead>
   <numbered_2_para>Either party may terminate this agreement in writing.</numbered_2_para>
