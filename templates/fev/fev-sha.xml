@@ -69,15 +69,13 @@ in the spirit of mutual confidence and co-operation, the Parties have agreed to 
   ?>
   <? Logger.log("shareholders_agreement/class_f_holders: found class F holders = %s", classFholders); ?>
 
-<para_1><Table aid:table="table" aid:tcols="3" aid:trows="<?= Object.keys(classFholders).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+<para_1><Table aid:table="table" aid:tcols="2" aid:trows="<?= Object.keys(classFholders).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
 <Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Address</cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Holdings</cell_c></Cell>
 <? for (var hh in classFholders) {
   if (data._entitiesByName[hh] == undefined) { continue }
   with(data._entitiesByName[hh]) { ?>
 <Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= hh ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= address ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!=   data.capTable.investorHoldingsInRound(hh, previousRound) ?></cell_c></Cell>
 <? } } ?>
 </Table></para_1>
@@ -85,7 +83,7 @@ in the spirit of mutual confidence and co-operation, the Parties have agreed to 
 
 
 
-<b_left_sidehead_nonum>Waiver in regard to ESOP Shares</b_left_sidehead_nonum>
+<b_left_sidehead_nonum>Waiver of pre-emptive rights</b_left_sidehead_nonum>
   <numbered_2_para>The Parties hereby waive their pre-emptive rights with regard to the issue of new Class F Shares provided that such issue occurs either as part of a vesting scheme or some other share option plan, share ownership plan, or equity-based remuneration scheme previously approved by the Company, or pursuant to a Compensation Adjustment and at the Discretionary Subscription Price as described in the Class F Agreement and the Constitution respectively.</numbered_2_para>
   <? } ?>
 
