@@ -65,7 +65,11 @@ A formula consists of a one or more deontic primitives defined on an object.
 
 An object may have multiple formulae.
 
-The deontic block primitives are: upon, when, if, unless, may, must, lest, else.
+The deontic block primitives are:
+- upon, when, while, before, after
+- if, unless, provided
+- must, may, mustnot
+- lest, else
 
 In practice, those are implemented as methods on an object. Any object that supports deontics can run these methods. (Whether it inherits from, fills the role of, or mixes in a deontic class/trait/whatever, depending on your flavour of object oriented programming.)
 
@@ -78,6 +82,14 @@ A typical formula is written like this:
 
 What looks like method chaining allows us to split the formula over multiple lines. In practice, each deontic method actually returns a formula, so that the formula is curried/carried over to subsequent methods.
 
+It could alternatively be written like this:
+	object.deonticFormula(
+		when: function() { world.isRaining() },
+		if:   function() { not object.isFeelingCarefree() },
+	    may:  function() { object.umbrella.deploy() },
+		lest  function() { object.isWet(true) },
+	);
+
 What does this formula mean? When it's raining, and if you're not feeling carefree, then you open your umbrella. If for some reason the umbrella doesn't work, then you get wet.
 
 The formula *delists* after the `may`-block returns true. We may call this *discharge*.
@@ -88,7 +100,7 @@ Each primitive is described below:
 
 The system runs the upon-block many times. It is read-only: it may read from the world but must not write to the world.
 
-If the upon-block returns true, the rest of the formula proceeds. 
+If the upon-block returns true, the rest of the formula proceeds once: 
 
 	object.when { when-block }
 
