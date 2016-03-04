@@ -32,7 +32,7 @@ in the spirit of mutual confidence and co-operation, the Parties have agreed to 
   <definition>Deed of Ratification	means a deed of ratification and accession whereby the signatory thereof enters into, becomes a party to and undertakes to be legally bound by the terms of this Agreement;</definition>
   <definition>Director	means a director of the Company for the time being, including where applicable an alternate director;</definition>
   <definition>Equity Sale	means a sale by Shareholders to third party purchaser(s) of all or at least 75% of the Shares of the Company;</definition>
-  <definition>External Financing	means a fund-raising event which in which the company raises no less than <?= data.qualified_financing_proceeds?></definition>
+  <definition>External Financing	means a fund-raising event in which the company raises no less than <?= data.qualified_financing_proceeds ?> within one round or series<? if (data.external_financing_after) {?>, and in which the closing date (or the transfer of funds amounting to <?= data.qualified_financing_proceeds ?>) occurs after <?=data.external_financing_after?><? } ?></definition>
 <? if (data.parties.jfdi_investor) { ?>
   <definition>Investment	means the amount invested in the Company by the Investor in the form of the Convertible Note;</definition>
 <?}?>
