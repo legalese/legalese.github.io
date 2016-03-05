@@ -1,4 +1,5 @@
 <chapter_header>Constitution</chapter_header>
+<? var director_rotation = data.director_rotation || "always"; //optional||none ?>
 
 <b_left_sidehead_nonum>Model Constitution Excluded</b_left_sidehead_nonum>
 
@@ -121,7 +122,6 @@ right of the transferor to make the transfer.</numbered_3_para>
 <numbered_1_para>The instrument appointing a proxy and the power of attorney or other authority, if any, under which it is signed or a notarially certified copy of that power or authority shall be deposited at the registered office of the company, or at such other place in Singapore as is specified for that purpose in the notice convening the meeting, not less than 48 hours before the time for holding the meeting or adjourned meeting at which the person named in the instrument proposes to vote, or, in the case of a poll, not less than 24 hours before the time appointed for the taking of the poll, and in default the instrument of proxy shall not be treated as valid.</numbered_1_para>
 <numbered_1_para>A vote given in accordance with the terms of an instrument of proxy or attorney shall be valid notwithstanding the previous death or mental disorder of the principal or revocation of the instrument or of the authority under which the instrument was executed, or the transfer of the share in respect of which the instrument is given, if no intimation in writing of such death, mental disorder, revocation, or transfer as aforesaid has been received by the company at the registered office before the commencement of the meeting or adjourned meeting at which the instrument is used.</numbered_1_para>
 <b_left_sidehead_nonum>Directors: Appointment, etc.</b_left_sidehead_nonum>
-<? var director_rotation = data.director_rotation || "always"; //optional||none ?>
 <? if (director_rotation != "none") { ?>
 <numbered_1_para>At the first annual general meeting of the company all the directors shall retire from office, and at the annual general meeting in every subsequent year one-third of the directors for the time being, or, if their number is not 3 or a multiple of 3, then the number nearest one-third, shall retire from office.</numbered_1_para>
 <numbered_1_para>A retiring director shall be eligible for re-election.</numbered_1_para>
