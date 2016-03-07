@@ -59,8 +59,6 @@ in the spirit of mutual confidence and co-operation, the Parties have agreed to 
   <numbered_2_para orig_num="2.1">This Agreement shall come into effect following Completion of the Series Seed Preference Shares Investment Agreements with the New Investors.</numbered_2_para>
   <numbered_2_para orig_num="2.2">At that time any previous Shareholder Agreements will be superseded and replaced in its entirety by this Agreement.</numbered_2_para>
 
-  <numbered_2_para>Within 30 business days of the Effective Date, each Key Holder shall execute employment agreements with the Company, which agreements shall be approved by a Board composed as described in clause <xref to="ss_election_of_board" />, or else forfeit all his Restricted Class F Shares.</numbered_2_para>
-
   
 <? if (! data.no_class_f) { ?>
 <a_left_sidehead>Class F Shares</a_left_sidehead>
@@ -180,6 +178,9 @@ any distribution of profits of the Company.</numbered_3_para>
 <numbered_2_firstbold>Reservation of Common Stock. The Company shall at all times reserve and keep available, solely for issuance and delivery upon the conversion of the Series Seed Preferred Stock, all Common Stock issuable from time to time upon conversion of that number of shares of Series Seed Preferred Stock equal to the Total Shares Authorized for Sale, regardless of whether or not all such shares have been issued at such time.</numbered_2_firstbold>
 <? } ?>
 
+<a_left_sidehead>Covenants of the Key Holders</a_left_sidehead>
+
+<numbered_2_para>Within 30 business days of the Effective Date, each Key Holder shall execute employment agreements with the Company, which agreements shall be approved by a Board composed as described in clause <xref to="ss_election_of_board" />, or else forfeit all his Restricted Class F Shares.</numbered_2_para>
 
 
 <a_left_sidehead>RESTRICTIONS ON TRANSFER; DRAG ALONG.</a_left_sidehead>
