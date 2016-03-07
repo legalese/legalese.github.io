@@ -63,11 +63,11 @@
 
 <? if (data.ss_reserved) { ?>
 
-<numbered_4_para_fltab>obtain any loans or incur indebtedness (including the giving of any guarantees) exceeding a total of $4,000 in any transaction or series of transactions</numbered_4_para_fltab>
+<numbered_4_para_fltab>obtain any loans or incur indebtedness (including the giving of any guarantees)</numbered_4_para_fltab>
 
-<numbered_4_para_fltab>set or change salaries or any remuneration of the Key Holders as defined in the Series Seed Subscription Agreement of <?= data.investment_agreement_date ?>.</numbered_4_para_fltab>
+<numbered_4_para_fltab>set or change salaries or any remuneration of the Key Holders as defined in the Series Seed Investment Agreement of <?= data.investment_agreement_date ?>.</numbered_4_para_fltab>
 
-<numbered_4_para_fltab>agree to remunerate any employee or contractor more than S$8,000 per month.</numbered_4_para_fltab>
+<numbered_4_para_fltab>agree to remunerate any employee or contractor more than S$5,000 per month.</numbered_4_para_fltab>
 
 <? } ?>
 
