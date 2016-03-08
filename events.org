@@ -35,17 +35,90 @@ Each afternoon we hold two sessions.
 
 Each session is two to three hours. Presentation, then discussion, then consensus.
 
+** Food
+wee nam kee chicken rice
+
+bak kut teh
+
+indian fishhead curry
+
+warong nasi pariaman
+
+eng seng pepper crab
+
+dim sum in geylang? 126
+
+newton stingray from stall 39
+
+roti paratha
+
+ya kun teatime
+
 ** Agenda
 *** Day 1A: 30,000 foot introduction to the project for the absolute n00b.
 **** introduction to the customer segment and use cases.
 invite Wobe in, together with any other users, to talk about why they found it useful.
 **** positioning, differentiation, and competitive advantage
 **** how this makes a difference to the world
+**** introductions over breakfast
 **** 10-year future vision
 **** interaction with trendy topics like smart contracts
+**** the presentations i've been giving
 **** a brief history of legal informatics
 minefields and milestones
-*** Day 1B: meet the product
+*** Day 1B: meet the incumbent industry
+**** How do lawyers work?
+**** How are contracts drafted?
+**** How are contracts negotiated?
+counterparty offers feedback, you reject half of it
+**** Defined Terms
+inline or up front?
+
+functional evaluation -- looking things up, six bookmarks deep
+**** Clause Banks
+when you leave, you leave with you
+**** Precedent Libraries
+different teams don't share.
+**** What do Lawyers actually do for clients?
+***** negotiation
+***** education
+***** drafting of the primary agreements
+***** drafting of the ancillary paperwork like resolutions
+***** drafting of letters, e.g. a notice template
+***** getting the commissioner uncles to come and sign things
+***** execution management
+*** Day 2A: Research -- Business
+so we want to disrupt the incumbents.
+
+let's look at the state of the art -- what other people are thinking.
+
+**** competitor analysis
+Is this even a good idea at all?
+http://feld.com/archives/2010/04/failing-fast-at-standardized-seed-deal-documents.html
+
+different families of approaches:
+
+***** NLP -- reading existing contracts.
+***** helping with litigation
+***** helping with research
+***** helping with paperwork
+***** helping with execution and signatures
+***** datarooms
+***** other players
+***** what stanford is up to
+***** commonaccord
+***** ethereum
+
+**** Lean Startup findings to date
+***** who's the customer?
+***** and the rest of the lean canvas
+
+**** Wardley mapping of the legal informatics field
+why we're in the right place at the right time.
+**** how will this become a billion-dollar business?
+the MySQL / MariaDB story
+
+*** Day 2B: Research -- Technical
 **** overview of technology architecture, components, and backlog.
 **** roadmap overview: present and future
 **** working through an actual use case of the current product
@@ -56,16 +129,8 @@ first, use it as a user.
 then, install a dev environment and get set up as a developer.
 
 overview of the issues list in github
-*** Day 2A: Research -- Business
-**** Lean Startup findings to date
-**** Wardley mapping of the legal informatics field
-**** competitor analysis
-Is this even a good idea at all?
-http://feld.com/archives/2010/04/failing-fast-at-standardized-seed-deal-documents.html
-
-*** Day 2B: Research -- Technical
 **** a longer review of prior art.
-**** areas of research required.
+**** areas of research required. the future product. interaction with IHLs and RIs.
 **** maturing areas and projections over the next few years.
 *** Day 3A: Organization
 **** the organization of the project as both opensource and startup.
@@ -104,12 +169,23 @@ plans for the next 6, 12, 24 months.
 **** rough task allocation of issues in git.
 **** go/no-go milestones for the next 12 months
 in terms of marketing, revenue, and funding.
+*** Day 4 lunch: special guest: crowdfunding site to explain their requirements
 *** Day 4B: Product Development
 let's build something together
-*** Day 5: Product Development Track
-Make something useful
-*** Day 5: Business Development Track
-Perform follow-ups
+*** Day 5A: Progress.
+Make something useful, or independent activity
+
+Perform follow-ups, emails, start executing action items from the week
+
+invite special guest that we can summarize to; get opinion, hear what they think.
+
+friendly VC to explain what metrics they would want to see from us before investing.
+
+*** Day 5B: relax.
+afternoon off, let's go to sentosa. calamari at tanjung beach club.
+
+then marina barrage to see skyline.
+
 ** Fees
 free. Some financial assistance may be available for interns/students/etc.
 ** Registration
@@ -117,12 +193,17 @@ To register for the summit: submit a pull request that edits this document.
 ** Attendees
 sorted by alpha, please
 *** In-Person
-- Alexis
-- Colin Charles
-- Jobchong
-- Meng
+- alexis
+- byte (Colin Charles) for first 2 days?
+- jobchong
+- mengwong
+- oatsandsugar
+- anuj
+- advancingdragon
+- virgil?
 *** Online
 - Chiah Li
+- Daniela
 
 * 2016-03-18 to 2016-03-20: FOSSAsia, Singapore
 Meng will present Legalese in one of the conference sessions.
