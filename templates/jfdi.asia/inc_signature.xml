@@ -1,5 +1,5 @@
 <? var rows = [ ["name"], ["idtype","id"], ["_email_firstline"] ];
-  if (data._include.party_type == "company" && data._include.signatory_name != undefined ) { rows.push(["signatory_name"]); }
+  if (data._include.party_type == "company" && data._include.signatory_name != undefined && data._include.signatory_name.length ) { rows.push(["signatory_name"]); }
   var rowcount = rows.length;
   if (data.signature_comment != undefined) { rowcount++ }
 ?>

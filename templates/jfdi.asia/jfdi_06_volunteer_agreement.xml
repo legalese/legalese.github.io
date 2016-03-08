@@ -39,6 +39,13 @@
   <para_1>This Agreement shall be governed by and interpreted in accordance with the laws of the Republic of Singapore.</para_1>
   <a_left_sidehead>No Employment Relationship Assumed</a_left_sidehead>
   <numbered_2_para>The Volunteer is volunteering their time and energy on behalf of the Company for their own reasons and expects no salary compensation during the Term of this Agreement.</numbered_2_para>
+  <? if (data.full_time) { ?>
+  <a_left_sidehead>Commitment Level</a_left_sidehead>
+  <numbered_2_para>During the Term of Service, the Volunteer will devote substantially all of their working time to the development of the Company’s products and services and otherwise in furtherance of the Company’s business.</numbered_2_para>
+  <numbered_2_para>If the Volunteer ceases to perform this commitment to the satisfaction of the Board of Directors, and the breach remains uncured, the Company may terminate the Volunteership, and the termination shall be considered to be for Cause.</numbered_2_para>
+  <? } ?>
+  <a_left_sidehead>Termination</a_left_sidehead>
+  <numbered_2_para>Either party may terminate this agreement in writing.</numbered_2_para>
   <a_left_sidehead>Execution and Extension</a_left_sidehead>
   <numbered_2_para>This Agreement shall be effective upon execution and shall remain in full force and effect until terminated in writing, or until the execution of any subsequent volunteer or employment agreement. This Agreement may be extended by the Parties through a contract extension agreement.</numbered_2_para>
   <a_left_sidehead>Non-Competition</a_left_sidehead>
