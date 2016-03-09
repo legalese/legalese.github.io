@@ -57,7 +57,10 @@ ya kun teatime
 ** Agenda
 *** Day 1A: 30,000 foot introduction to the project for the absolute n00b.
 **** introduction to the customer segment and use cases.
-invite Wobe in, together with any other users, to talk about why they found it useful.
+invite guest in, together with any other users, to talk about why they found it useful.
+
+guest will come at 10am monday morning to our resort venue.
+
 **** positioning, differentiation, and competitive advantage
 **** how this makes a difference to the world
 **** introductions over breakfast
