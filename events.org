@@ -1,6 +1,6 @@
 #+TITLE: Events
 
-* 2016-03-21 to 2016-03-25 Legalese Summit, Spring 2016, Singapore
+* 2016-03-21 to 2016-03-25 Legalese Summit, Singapore
 immediately following FOSSAsia -- see [[*2016-03-18 to 2016-03-20: FOSSAsia, Singapore][below]].
 
 ** Goals
