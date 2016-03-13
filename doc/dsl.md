@@ -1,5 +1,83 @@
 # Domain Specific Language
 
+## Requirements
+
+This section describes the requirements for the L4 language and associated compiler/interpreter.
+
+### Accessibility
+
+THis section assumes the L4 DSL is embedded in a host GPL.
+
+End-users of the L4 language are referred to as L4 programmers.
+
+Novice L4 programmers -- "brogrammers" -- should not need to know the host GPL.
+
+Intermediate L4 programmers can be expected to learn the host GPL.
+
+Advanced L4 programmers can be expected to learn L4 internals.
+
+### Accessibility to Novices -- Brogrammers
+
+Just as 90% of programming is maintenance, 90% of the use cases for L4 will be customization by end-users who just want to dip in to an existing codebase (which they think of as the "template") and make only those tweaks (which they think of as "configuration") necessary to get their job done (the current "deal").
+
+These end-users may be business users, in-house counsel (or someone pretending to be in-house counsel), or junior lawyers in a progressive law firm. We use the collective term "brogrammers" to describe such lay users.
+
+For their sake, an L4 program should be transparent and "self-documenting", in the sense that an intelligent, technically minded individual with no prior programming experience beyond high school C, PHP or Javascript should be able to intuit the syntax and vocabulary of the language from inspection of the code she wants to modify, just as a male native English tourist in France should be able to puzzle out "Toilettes" by similarity, "Femmes" by linguistic root, and "Hommes" by process of elimination, pun intended, ha ha.
+
+### Semantic Representation ###
+
+It should be possible to express in L4 without loss of meaning the semantics of
+- a traditional legal contract
+- directors' and members' resolutions
+- legislation and regulations
+
+A template has free variables. An instance has bound variables.
+
+Templates turn into instances. Instances turn into output.
+
+### Model Checking and Verification
+
+The L4 engine should detect semantic errors.
+
+The L4 engine should raise a compiler warning in the following circumstances:
+
+- If two clauses of the same document contradict each other.
+- If a certain expression is unreachable.
+- If a scenario fails to handle all possible input cases.
+
+### Syntactic Representation and Negotiability ###
+
+Contracts are the subject of negotiation between parties.
+
+In the pre-L4 world, parties propose patches by emailing Word documents around, with Track Changes turned on.
+
+Programmers have better tools.
+
+In the L4 world, parties using those tools should find the collaboration experience superior to the pre-L4 experience.
+
+There is no need to build a full-fledged negotiation platform. Others are doing that:  The tools that programmers use to communicate changes are sufficient: diffs, Git, comments.
+
+If the language is text-based, with relatively short line lengths, then it will be compatible with the same tools.
+
+### Projectional Editing (future requirement) ###
+
+In the future, L4 programs should be expressible in visual forms.
+
+The visual form should be editable, and edits should roundtrip back to L4.
+
+For an illustration of projectional editing see
+- Intentional Software
+- MPS: https://youtu.be/iN2PflvXUqQ?t=13m00s
+- Bret Victor, Inventing on Principle: https://vimeo.com/36579366
+
+### Output to Natural Language
+
+It should be possible to compile an L4 program into one or more natural languages. The initial target is American English, following the style guidelines set out in Adams. The second target is Australian English, following Peter Butts. The third target may be Italian, Chinese, German, or Polish.
+
+### Output to Formal Language
+
+It should be possible to compile an L4 program to an Ethereum source or bytecode form, to the extent that the semantic models correspond.
+
 ## Proposed Components and Branding ##
 
 The DSL itself: L4. Refers to both the Lagrangian point and to M4. Also, backformed from the "i18n" and "l10n" convention, if "m4" -> "macro" then "l4" -> "legal".
@@ -145,6 +223,7 @@ The primitives are:
 - (performative) warrant, hereby
 - (deontic) must, may, mustnot
 - (deontic) lest, else
+- (scope) defining
 
 In practice, these could be implemented as methods on an object, or functions on a variable.
 
