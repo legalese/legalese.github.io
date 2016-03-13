@@ -13,40 +13,42 @@ Previous efforts include FormaLex and CLAN, as well as papers by Szabo and by Hv
 
 ## This is a Multi-Paradigm, Multi-Level Challenge ##
 
-A contract can be regarded as a collection of different
-conceptual models that are interrelated, and various
-paradigms can be employed to represent them. At one level
-of abstraction, a contract is an organized collection of
-concepts.
+> A contract can be regarded as a collection of different
+> conceptual models that are interrelated, and various
+> paradigms can be employed to represent them. At one level
+> of abstraction, a contract is an organized collection of
+> concepts.
+> 
+> At another level, a contract is a collection of
+> obligations, permissions, entitlements, powers and so on
+> (Jones et al., 1992, 1993, 1996; Jones, 1990). These are
+> notions that have been studied extensively in legal theory
+> (Hohfeld, 1913; Kanger, 1985; Kanger et al., 1966, Lindahl,
+> 1977; and many others).
+> 
+> At a third level a contract can be regarded as a collection
+> of procedures (protocols) that specify its operational
+> aspects (how the business exchange is to be conducted in
+> practice). These have temporal and action aspects that are
+> at the core of much current research in Artificial
+> Intelligence, Computer Science and Philosophical Logic. And
+> from another standpoint still, a contract may be represented
+> as a collection of parameters (the parties, the product in
+> question, the price, the delivery quantities, the delivery
+> date and so on).
+> 
+> Contractual activities are not all concerned with all
+> aspects of a contract. Each focuses on some particular
+> parts.
+> 
+> Alternative views of contracts need to be represented and
+> sometimes integrated into a single system to support a
+> variety of functions. However, as mentioned earlier,
+> information that is not contained in contractual documents
+> is also required to support some aspects of contractual
+> activity.
 
-At another level, a contract is a collection of
-obligations, permissions, entitlements, powers and so on
-(Jones et al., 1992, 1993, 1996; Jones, 1990). These are
-notions that have been studied extensively in legal theory
-(Hohfeld, 1913; Kanger, 1985; Kanger et al., 1966, Lindahl,
-1977; and many others).
-
-At a third level a contract can be regarded as a collection
-of procedures (protocols) that specify its operational
-aspects (how the business exchange is to be conducted in
-practice). These have temporal and action aspects that are
-at the core of much current research in Artificial
-Intelligence, Computer Science and Philosophical Logic. And
-from another standpoint still, a contract may be represented
-as a collection of parameters (the parties, the product in
-question, the price, the delivery quantities, the delivery
-date and so on).
-
-Contractual activities are not all concerned with all
-aspects of a contract. Each focuses on some particular
-parts.
-
-Alternative views of contracts need to be represented and
-sometimes integrated into a single system to support a
-variety of functions. However, as mentioned earlier,
-information that is not contained in contractual documents
-is also required to support some aspects of contractual
-activity.
+http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.36.4777&rep=rep1&type=pdf
 
 ## Requirements
 
