@@ -325,12 +325,20 @@ To output to French instead of English, we instruct Legalese with a basic mappin
 **** http://martinfowler.com/dsl.html
 **** http://www.martinfowler.com/articles/languageWorkbench.html
 **** https://www.jetbrains.com/mps/
-**** 
 
 *** Primitives from Patterns
-One strategy for designing a DSL is to compile a list of common patterns in the domain itself; then construct a set of primitives that make it possible to express those patterns in a form as compact, or more compact than, the original text. This concept probably has a name but not knowing what it is (no wifi!) I would call it something like "expressive efficiency". That efficiency can probably be described using the usual duality of precision and recall.
+One strategy for designing a DSL is to compile a list of common patterns in the domain itself; then construct a set of primitives that make it possible to express those patterns in a formal, unambiguous, machine-readable form.
 
-One pattern pair described by Jon Bing in "Let there be LITE" is the principle of textual replacement vs omnibus replacement. (History of Legal Informatics, Paliwala, p.24)
+That form should be approximately as compact as the original text.
+
+If the formal version is longer than the original text, that diffuseness should arise from the desire for unambiguous specification.
+
+If the formal version is shorter than the original, that terseness should arise from the correct application of mathematical and programming concepts like modularity, abstraction, encapsulation, and recursion.
+
+*** Recognizing existing concepts from legal drafting
+Legal drafting already adumbrates a number of concepts which we can translate to our domain..
+
+For example, one pattern pair described by Jon Bing in "Let there be LITE" is the principle of textual replacement vs omnibus replacement. (History of Legal Informatics, Paliwala, p.24)
 
 **** How would textual replacement appear in the DSL?
 
@@ -342,21 +350,22 @@ Omnibus replacement transforms the interpretation.
 
 *** Some Cognitive Dimensions
 https://en.wikipedia.org/wiki/Cognitive_dimensions_of_notations
-*** Subjective Perspectives
 
-Maybe the fundamental principle of this language is the representation -- just as the fundamental premise of Clojure is the sequence, or the fundamental premise of Erlang is the message-passing actor, or the fundamental premise of Elm is the signal, or the fundamental premise of Unix is the pipeline.
+*** A Blue-Sky Wild-Eyed Suggestion: Subjective Perspectives
+
+Maybe the fundamental principle of this language is the representation -- just as the fundamental premise of Clojure is the sequence, or the fundamental premise of Erlang is the message-passing actor, or the fundamental premise of Elm is the signal, or the fundamental innovation of Unix is the pipeline.
 
 What is a representation?
 
 The Legalese DSL is functional.
 
-The Legalese DSL is also transactional: every object contains a history of how it came to be that way.
+The Legalese DSL is also transactional: every object contains a history of how it came to be that way. Fowler, as usual, is ahead of us: he calls this the [[http://martinfowler.com/eaaDev/EventSourcing.html][Event Sourcing model]].
 
 A presentation is a pattern-match against any object or pattern of objects which satisfies a predicate. A representation may alter the matched presentation.
 
-In the trivial case a representation passes thru the original presentation, with only two addenda: the business tag and the system tag, indicating that the representation acted to filter the presentation. This vocabulary alludes to bitemporality, of course; there may be cases where a representation insists that it should not be logged, in which case we omit the business tag but leave in the system tag.
+In the trivial case a representation passes thru the original presentation, with only two addenda: the business tag and the system tag, indicating that the representation acted to filter the presentation. This vocabulary alludes to bitemporality. There may be cases where a representation insists that it should not be logged, in which case we omit the business tag but leave in the system tag.
 
-Reputation has to be as cheap in Legalese as tail recursion is in Lisp, or as method chaining is in an object-oriented language.
+Representation has to be as cheap in Legalese as tail recursion is in Lisp, or as method chaining is in an object-oriented language.
 
 Perhaps an "imputation" would be as good a word as "representation".
 
@@ -377,9 +386,14 @@ Note: We allude to legal usages of "representation":
 
 *** Functionality
 
+The strongly functional ideas of referential transparency and purity should help in drafting contracts.
+
+*** Modularity
+One obvious place where they help: a drafter can choose the degree of modularity: they can subscribe so adamantly to Don't Repeat Yourself that the code ends up being obfuscated; or they can "unroll the loop" so much that a reader will be constantly flipping between pages just to see if the definitions have stayed the same.
+
 *** Versioning and Representaiton
 
-In Closure, Software Transactional Memory provides transactional integrity for variable references. This is a lot like locking in a database, or rollback transactions.
+In Clojure, Software Transactional Memory provides transactional integrity for variable references. This is a lot like locking in a database, or rollback transactions.
 
 In a bitemporal database, every fact is inflected with its valid time and system time.
 
@@ -405,7 +419,9 @@ Regulations are specifications.
 
 What about contracts?
 
-Is a contract a program? Or the specification for a program?
+Is a contract a program? Or the specification for a program? Or a program that validates past execution?
+
+Maybe the DSL will need to support all of the above notions.
 
 The DSL expresses constraints and deontics.
 
@@ -413,7 +429,7 @@ From the DSL it should be possible to evaluate a given scenario; the evaluation 
 
 From the DSL it should also be possible to derive operable expressions from a party perspective -- for example, a security should offer triggers and handlers as callbacks which can be run against any future issue, or event, or scenario, or time. So in that sense a contract is a program.
 
-See also wikipedia:"Formal specification"
+See also [[https://en.wikipedia.org/wiki/Formal_specification][wikipedia:"Formal specification"]]
 
 
 *** Multiparadigm Support
@@ -459,7 +475,7 @@ In the legal domain, we consider such business rules and logic to take two forms
 
 The public rules impose constraints on parties -- /involuntary/ deontics.
 
-The private rules express constraints undertaken by parties -- /voluntary/ deontics -- and performative statements -- "we hereby do something".
+The private rules express constraints undertaken by parties -- /voluntary/ deontics -- and performative statements -- "we hereby do something", or "we warrant that...".
 
 These public and private logics interact constantly. For example, if a corporation performs action A by executing paperwork P, then a legally mandated filing F must be performed by date D else the corporation will be subject to penalties. A and P are private. F and D are public.
 
@@ -809,6 +825,10 @@ a BNF syntax would be an equivalent specification.
     
 #+END_SRC
 ** Adams Contract Style
+http://www.amazon.com/Manual-Style-Contract-Drafting-ebook/dp/B00GUUQTZY/ is one bible
+** Australian Style
+Peter Butt's [[http://www.cambridge.org/au/academic/subjects/law/law-general-interest/modern-legal-drafting-guide-using-clearer-language-3rd-edition?format=PB&isbn=9781107607675][Modern Legal Drafting: A Guide to Using Clearer Language, 3rd Edition]]
+
 * Modeling the Execution
 the dependency and concurrency relationships between contracts and other documents, treating an individual document as a black box with just a blob of text and a bunch of signatures. it's the signatures we care about at this level.
 
@@ -969,14 +989,6 @@ http://www.inf.ed.ac.uk/teaching/courses/nlg/
 
 If the Company proposes to undertake an issuance of New Securities, it shall give notice to each Major Shareholder of its intention to issue New Securities (the "Notice") describing the type of New Securities and the price and the general terms upon which the Company proposes to issue the New Securities.
 
-if (Company intendsTo issue(NewSecurities)) {
-  Ob(Company, know(Shareholder, NewSecurities))
-}
-
--- is the epistemic test satisified if C knows that S knows NS?
--- or is the action required, that C tell S about NS?
-
-know x fact  send noticeTo(x) of(fact)
 
 ** Right of First Refusal Notice
 
