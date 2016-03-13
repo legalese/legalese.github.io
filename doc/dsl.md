@@ -2,7 +2,7 @@
 
 ## Motivation ##
 
-At present, parties proposal legal agreements tend to email contracts in Microsoft Word to each other. This is like teenage warez enthusiasts in 1980 snail-mailing floppy disks to one another, with handwritten instructions to open up a .EXE or .COM file in a hex editor, and to change byte location 0xBEEF from "02" to "44".
+At present, parties proposing to enter into legal agreement tend to email contracts in Microsoft Word to each other. This is like teenage warez enthusiasts in 1980 snail-mailing floppy disks to one another, with handwritten instructions to open up a .EXE or .COM file in a hex editor, and to change byte location 0xBEEF from "02" to "44".
 
 Whitehead said:
 By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and in effect increases the mental power of the race.
