@@ -1,12 +1,60 @@
 # Domain Specific Language
 
+## Motivation ##
+
+At present, parties proposal legal agreements tend to email contracts in Microsoft Word to each other. This is like teenage warez enthusiasts in 1980 snail-mailing floppy disks to one another, with handwritten instructions to open up a .EXE or .COM file in a hex editor, and to change byte location 0xBEEF from "02" to "44".
+
+Whitehead said:
+By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and in effect increases the mental power of the race.
+
+We propose L4, a superior notation for expressing legal agreements, so as to increase the mental power of the race.
+
+Previous efforts include FormaLex and CLAN, as well as papers by Szabo and by Hvitved. See the [modeling.org](modeling.org) document for a reading list and the [Turing page](http://legalese.io/turing.html) for prior art.
+
+## This is a Multi-Paradigm, Multi-Level Challenge ##
+
+A contract can be regarded as a collection of different
+conceptual models that are interrelated, and various
+paradigms can be employed to represent them. At one level
+of abstraction, a contract is an organized collection of
+concepts.
+
+At another level, a contract is a collection of
+obligations, permissions, entitlements, powers and so on
+(Jones et al., 1992, 1993, 1996; Jones, 1990). These are
+notions that have been studied extensively in legal theory
+(Hohfeld, 1913; Kanger, 1985; Kanger et al., 1966, Lindahl,
+1977; and many others).
+
+At a third level a contract can be regarded as a collection
+of procedures (protocols) that specify its operational
+aspects (how the business exchange is to be conducted in
+practice). These have temporal and action aspects that are
+at the core of much current research in Artificial
+Intelligence, Computer Science and Philosophical Logic. And
+from another standpoint still, a contract may be represented
+as a collection of parameters (the parties, the product in
+question, the price, the delivery quantities, the delivery
+date and so on).
+
+Contractual activities are not all concerned with all
+aspects of a contract. Each focuses on some particular
+parts.
+
+Alternative views of contracts need to be represented and
+sometimes integrated into a single system to support a
+variety of functions. However, as mentioned earlier,
+information that is not contained in contractual documents
+is also required to support some aspects of contractual
+activity.
+
 ## Requirements
 
 This section describes the requirements for the L4 language and associated compiler/interpreter.
 
-### Accessibility
+We assume the L4 DSL is embedded in a host GPL.
 
-THis section assumes the L4 DSL is embedded in a host GPL.
+### Novice, Intermediate, Advanced Users
 
 End-users of the L4 language are referred to as L4 programmers.
 
@@ -16,7 +64,7 @@ Intermediate L4 programmers can be expected to learn the host GPL.
 
 Advanced L4 programmers can be expected to learn L4 internals.
 
-### Accessibility to Novices -- Brogrammers
+#### Accessibility to Novices -- Brogrammers ####
 
 Just as 90% of programming is maintenance, 90% of the use cases for L4 will be customization by end-users who just want to dip in to an existing codebase (which they think of as the "template") and make only those tweaks (which they think of as "configuration") necessary to get their job done (the current "deal").
 
@@ -26,14 +74,14 @@ For their sake, an L4 program should be transparent and "self-documenting", in t
 
 ### Semantic Representation ###
 
-It should be possible to express in L4 without loss of meaning the semantics of
+It should be possible to express in L4, without loss of meaning, the semantics of
 - a traditional legal contract
 - directors' and members' resolutions
 - legislation and regulations
 
 A template has free variables. An instance has bound variables.
 
-Templates turn into instances. Instances turn into output.
+Templates turn into instances. Instances turn into output, like a PDF.
 
 ### Model Checking and Verification
 
@@ -45,6 +93,34 @@ The L4 engine should raise a compiler warning in the following circumstances:
 - If a certain expression is unreachable.
 - If a scenario fails to handle all possible input cases.
 
+#### Large Models ####
+
+The universe may span multiple agreements and multiple documents.
+
+Detect conflict across those agreements.
+
+#### Regulatory Compliance ####
+
+It should be possible to express a policy specification in L4. For example, it should be possible to translate the Companies Act into L4.
+
+It should be possible to test a specific contract for compliance with that Act.
+
+### Specification vs Implementation vs Validation ###
+
+An L4 program may express a specification.
+
+An L4 program may implement a contract, in the sense that it may trigger real-world events, e.g. transferring Bitcoin or making an entry in a blockchain, sending PDFs for e-signature, calling against a government filing API, or emailing a notice to counterparties.
+
+Implementation example: parties PA, PB, and PC agree that when A pays B, then C must pay A. Instead of the tedium of PA proving to PC that it has paid PB, the proof of payment could sit in a publicly accessible blockchain, and PC could set a monitor on the blockchain, such that when the proof of payment appears, PC automatically pays PA. The contract itself would trigger the payment, and PA would not need to consciously approve or initiate anything. This is desirable because it allows PA to post selfies to Instagram and browse cat pictures instead: this is progress, by Whitehead's definition: 
+
+An L4 program may validate an event log, auditing a set of past events, or evaluating a proposed scenario (series of future events), and returning an opinion regarding compliance, breach, and current state.
+
+Validation example: "I'm afraid I can't disclose that because I'm under NDA. My lawyer, I mean, my L4 system, told me not to. Sorry!"
+
+#### Derivation of Implementation from Specification ####
+
+It may be possible to derive an implementation from the specification, in the way that a [constraint solver](https://en.wikipedia.org/wiki/Constraint_satisfaction) produces a set of variables that satisfy given constraints. The variables may be an L4 program.
+
 ### Syntactic Representation and Negotiability ###
 
 Contracts are the subject of negotiation between parties.
@@ -55,9 +131,23 @@ Programmers have better tools.
 
 In the L4 world, parties using those tools should find the collaboration experience superior to the pre-L4 experience.
 
-There is no need to build a full-fledged negotiation platform. Others are doing that:  The tools that programmers use to communicate changes are sufficient: diffs, Git, comments.
+There is no need to build a full-fledged negotiation platform. Others are doing that: http://synergist.io/ is just one example.
+
+For the purposes of L4, existing tools that programmers use to communicate changes are sufficient: diffs, Git, comments.
 
 If the language is text-based, with relatively short line lengths, then it will be compatible with the same tools.
+
+### Output to Natural Language
+
+It should be possible to compile an L4 program into one or more natural languages. The initial target is American English, following the style guidelines set out in Adams. The second target is Australian English, following Peter Butts. The third target may be Italian, Chinese, German, or Polish.
+
+### Output to Formal Language
+
+It should be possible to compile an L4 program to an Ethereum source or bytecode form, to the extent that the semantic models correspond.
+
+## Future Requirements ##
+
+Not needed in the current effort but worth keeping in mind for purposes of "futureproofing".
 
 ### Projectional Editing (future requirement) ###
 
@@ -69,14 +159,6 @@ For an illustration of projectional editing see
 - Intentional Software
 - MPS: https://youtu.be/iN2PflvXUqQ?t=13m00s
 - Bret Victor, Inventing on Principle: https://vimeo.com/36579366
-
-### Output to Natural Language
-
-It should be possible to compile an L4 program into one or more natural languages. The initial target is American English, following the style guidelines set out in Adams. The second target is Australian English, following Peter Butts. The third target may be Italian, Chinese, German, or Polish.
-
-### Output to Formal Language
-
-It should be possible to compile an L4 program to an Ethereum source or bytecode form, to the extent that the semantic models correspond.
 
 ## Proposed Components and Branding ##
 
