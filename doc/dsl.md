@@ -4,8 +4,7 @@
 
 At present, parties proposing to enter into legal agreement tend to email contracts in Microsoft Word to each other. This is like teenage warez enthusiasts in 1980 snail-mailing floppy disks to one another, with handwritten instructions to open up a .EXE or .COM file in a hex editor, and to change byte location 0xBEEF from "02" to "44".
 
-Whitehead said:
-By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and in effect increases the mental power of the race.
+Whitehead said: *By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and in effect increases the mental power of the race.*
 
 We propose L4, a superior notation for expressing legal agreements, so as to increase the mental power of the race.
 
@@ -113,7 +112,7 @@ An L4 program may express a specification.
 
 An L4 program may implement a contract, in the sense that it may trigger real-world events, e.g. transferring Bitcoin or making an entry in a blockchain, sending PDFs for e-signature, calling against a government filing API, or emailing a notice to counterparties.
 
-Implementation example: parties PA, PB, and PC agree that when A pays B, then C must pay A. Instead of the tedium of PA proving to PC that it has paid PB, the proof of payment could sit in a publicly accessible blockchain, and PC could set a monitor on the blockchain, such that when the proof of payment appears, PC automatically pays PA. The contract itself would trigger the payment, and PA would not need to consciously approve or initiate anything. This is desirable because it allows PA to post selfies to Instagram and browse cat pictures instead: this is progress, by Whitehead's definition: 
+Implementation example: parties PA, PB, and PC agree that when A pays B, then C must pay A. Instead of the tedium of PA proving to PC that it has paid PB, the proof of payment could sit in a publicly accessible blockchain, and PC could set a monitor on the blockchain, such that when the proof of payment appears, PC automatically pays PA. The contract itself would trigger the payment, and neither PA nor PC would not need to consciously approve or initiate anything. This is desirable because it allows PA to post selfies to Instagram and browse cat pictures instead: this is progress, by Whitehead's definition: *Civilization advances by extending the number of important operations which we can perform without thinking about them.*
 
 An L4 program may validate an event log, auditing a set of past events, or evaluating a proposed scenario (series of future events), and returning an opinion regarding compliance, breach, and current state.
 
