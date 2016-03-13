@@ -36,9 +36,11 @@ To solve this problem, a different level of thinking is required. If we move the
 
 Legal regulations are full of constraints which may be expressed and explored in a logic programming language.
 
-For example, Singapore's Companies Act regulation requires shareholder approval for certain corporate actions. Shareholder approval in turn requires certain actions by the directors. Such dependencies can be expressed and evaluated effectively in a language like Prolog. Or in some other language which provides an implementation of Prolog, or something close enough, like miniKanren.
+For example, Singapore's Companies Act regulation requires shareholder approval for certain corporate actions. Shareholder approval in turn requires certain actions by the directors.
 
-### LISP
+Such dependencies can be expressed and evaluated effectively in declarative / logical / functional languages like Prolog. Or in some other language which provides an implementation of Prolog, or something close enough, like miniKanren.
+
+### functional / homoiconic
 
 Parties often elaborate contracts by turning simple but vague terms into better defined, more complex clauses. Clauses lengthen. Definitions gain "it depends".
 Portions of the contract depend on the evaluation of other portions.
@@ -57,15 +59,6 @@ Templating systems are the natural forebears of our system.
 
 Templating systems with inheritance, that is.
 
-### Core Features
-
-1.  Inheritance
-
-    Mason sets the gold standard here, with entire classes of templates. Templates can inherit from and override one another.
-    
-    But maybe we don't need that.
-
-2.  
 
 ### Compilation Considerations ###
 
