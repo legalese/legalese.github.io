@@ -1,4 +1,6 @@
-# Domain Specific Language
+# L4: a Domain Specific Language for Legal
+
+See also (Clause)[clause.md], the Library / Package system for L4.
 
 ## Motivation ##
 
@@ -59,13 +61,13 @@ We assume the L4 DSL is embedded in a host GPL.
 
 End-users of the L4 language are referred to as L4 programmers.
 
-Novice L4 programmers -- "brogrammers" -- should not need to know the host GPL.
+Novice L4 programmers should not need to know the host GPL (much).
 
 Intermediate L4 programmers can be expected to learn the host GPL.
 
 Advanced L4 programmers can be expected to learn L4 internals.
 
-#### Accessibility to Novices -- Brogrammers ####
+#### User-Friendliness ####
 
 Just as 90% of programming is maintenance, 90% of the use cases for L4 will be customization by end-users who just want to dip in to an existing codebase (which they think of as the "template") and make only those tweaks (which they think of as "configuration") necessary to get their job done (the current "deal").
 
@@ -112,7 +114,7 @@ An L4 program may express a specification.
 
 An L4 program may implement a contract, in the sense that it may trigger real-world events, e.g. transferring Bitcoin or making an entry in a blockchain, sending PDFs for e-signature, calling against a government filing API, or emailing a notice to counterparties.
 
-Implementation example: parties PA, PB, and PC agree that when A pays B, then C must pay A. Instead of the tedium of PA proving to PC that it has paid PB, the proof of payment could sit in a publicly accessible blockchain, and PC could set a monitor on the blockchain, such that when the proof of payment appears, PC automatically pays PA. The contract itself would trigger the payment, and neither PA nor PC would not need to consciously approve or initiate anything. This is desirable because it allows PA to post selfies to Instagram and browse cat pictures instead: this is progress, by Whitehead's definition: *Civilization advances by extending the number of important operations which we can perform without thinking about them.*
+Implementation example: parties PA, PB, and PC agree that when PB pays PC, then PA must pay PB. Instead of the tedium of PB proving to PA that it has paid PC, the proof of payment could sit in a publicly accessible blockchain, and PA could set a monitor on the blockchain, such that when the proof of payment appears, PA automatically pays PB. The contract itself would trigger the payment, and neither PA nor PB would need to consciously approve or initiate anything. This is desirable. Humans have better things to do. PA can keep on posting selfies to Instagram, and PB can keep on browsing cat videos. This is progress, by Whitehead's definition: *Civilization advances by extending the number of important operations which we can perform without thinking about them.*
 
 An L4 program may validate an event log, auditing a set of past events, or evaluating a proposed scenario (series of future events), and returning an opinion regarding compliance, breach, and current state.
 
