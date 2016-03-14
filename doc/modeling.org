@@ -102,7 +102,7 @@ To understand this section, you should:
 - http://people.dsv.su.se/~petia/Publications/lap98.pdf shows how to model deontics for software specifications, in software
 - watch Surden's [[https://www.youtube.com/watch?v=KLAE_SKMeAY&index=61&list=PL48E61C121CAD0E1B][2011 talk on Computable Contracts]]
 - watch the Futurelaw [2013-04-26 Fri] [[https://www.youtube.com/watch?v=KBI8_tv2VDM][presentation on Computational Law and Contracts]]
-- watch the FutureLaw [2016-04-30 Sat] [[https://www.youtube.com/watch?v=efr9VctcMe8&index=1&list=LLprx0R928jz7WPTG5EBdrnQ][panel discussion]]
+- watch the FutureLaw [2016-04-30 Sat] [[https://www.youtube.com/watch?v=efr9VctcMe8&index=1&list=LLprx0R928jz7WPTG5EBdrnQ][panel discussion: New Breakthroughs in Computational Law]]
 
 ** Formal Representation
 
