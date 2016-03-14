@@ -20,31 +20,31 @@
   <numbered_2_para>For reporting purposes our Principal Activities may be described using SIC <?!= plural(data.company.principal_activities_2 ? 2 : 1, "code") ?> <?= data.company.principal_activities_1 ?><? if (data.company.principal_activities_2) { ?> and <?= data.company.principal_activities_2 ?><? } ?>.</numbered_2_para><?}?>
   <numbered_1_para>The total paid-up capital of the company is <?= data.capTable.getActiveRound().post.money ?> divided into <?= digitCommas_(data.capTable.getActiveRound().by_security_type["Ordinary Shares"].TOTAL) ?> shares.<? if (! data.different_share_prices) { ?> Each ordinary share is being issued at <?= data.price_per_share ?> per share at the date of incorporation.<? } ?></numbered_1_para>
   <numbered_1_para>The shares in the original or any increased capital may be divided into several classes, and there may be attached thereto respectively any preferential, deferred or other special rights, privileges, conditions or restrictions as to dividend, capital, voting or otherwise. </numbered_1_para>
-  <numbered_1_para><? if (data.parties.shareholder.length > 1) { ?>We, the several persons whose names, citizenship, and addresses are hereunto subscribed are<?} else {?>
+  <numbered_1_para><? if (data.parties.new_investor.length > 1) { ?>We, the several persons whose names, citizenship, and addresses are hereunto subscribed are<?} else {?>
 I, the sole shareholder whose name, citizenship, and address are hereunto subscribed am<? } ?>
- desirous of incorporating a company in pursuance of this Constitution and <?= plural(data.parties.shareholder.length, "I hereby", "we respectively") ?> agree to take the number of shares in the capital of the Company set opposite <?= plural(data.parties.shareholder.length, "my name", "our respective names") ?>. </numbered_1_para>
+ desirous of incorporating a company in pursuance of this Constitution and <?= plural(data.parties.new_investor.length, "I hereby", "we respectively") ?> agree to take the number of shares in the capital of the Company set opposite <?= plural(data.parties.new_investor.length, "my name", "our respective names") ?>. </numbered_1_para>
   <table_enclosing_para>
-	<Table aid:table="table" aid:tcols="5" aid:trows="<?= data.parties.shareholder.length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+	<Table aid:table="table" aid:tcols="5" aid:trows="<?= data.parties.new_investor.length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
 <Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Citizenship</cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="76" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>ID</cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="120" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Address</cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Number of Shares Held</cell_c></Cell>
-<? for (var i = 0; i<data.parties.shareholder.length; i++) { with(data.parties) { ?>
-<Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= shareholder[i].name ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= shareholder[i].state ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="76" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= shareholder[i].idtype ?> <span_ucnum><?= shareholder[i].id ?></span_ucnum></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="120" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= shareholder[i].address ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= shareholder[i].num_new_shares ?> ordinary shares for <?= shareholder[i].new_commitment ?></cell_c></Cell>
+<? for (var i = 0; i<data.parties.new_investor.length; i++) { with(data.parties) { ?>
+<Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= new_investor[i].name ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= new_investor[i].state ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="76" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= new_investor[i].idtype ?> <span_ucnum><?= new_investor[i].id ?></span_ucnum></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="120" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= new_investor[i].address ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= new_investor[i].num_new_shares ?> ordinary shares for <?= new_investor[i].new_commitment ?></cell_c></Cell>
 <? } } ?>
 </Table>
 </table_enclosing_para>
 
-<para_1 override="keepWithNext=1">Affirming the above <?= plural(data.parties.shareholder, "I", "we") ?>
- hereby set <?= plural(data.parties.shareholder, "my hand", "our hands") ?>:---</para_1>
+<para_1 override="keepWithNext=1">Affirming the above <?= plural(data.parties.new_investor, "I", "we") ?>
+ hereby set <?= plural(data.parties.new_investor, "my hand", "our hands") ?>:---</para_1>
 
-	<? for (var i = 0; i < data.parties.shareholder.length; i++) { ?>
-	<?!= include("inc_signature", data, data.parties.shareholder[i] ) ?>
+	<? for (var i = 0; i < data.parties.new_investor.length; i++) { ?>
+	<?!= include("inc_signature", data, data.parties.new_investor[i] ) ?>
 	<? } ?>
 
 <?!= include("jfdi_articles_2015", data) ?>
