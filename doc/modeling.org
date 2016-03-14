@@ -1033,6 +1033,112 @@ Each Major Shareholder will have (10) days from the date of notice, to agree in 
 
 * Full Cases
 
+** YC SAFE
+
+*** Newborn Clause
+
+The Company will issue to the Investor ten shares of SAFE Preferred Stock.
+
+*** Newborn Birthday Clause
+
+On January 1 2018, the Company will issue to the Investor ten shares of SAFE Preferred Stock.
+
+*** Infant Clause
+
+The Company will issue to the Investor a number of shares of SAFE Preferred Stock equal to the Purchase Amount divided by the SAFE Price.
+
+*** Swaddled Infant
+
+Definitions Section:
+
+Equity Financing means a bona fide transaction or series of transactions with the principal purpose of raising capital, pursuant to which the Company issues and sells shares of preferred stock of the Company at a fixed pre-money valuation.
+
+SAFE Preferred Stock means the shares of a series of the Company’s preferred stock issued to the Investor in an Equity Financing, having the identical rights, privileges, preferences and restrictions as the shares of Standard Preferred Stock, other than with respect to the per share liquidation preference, which will equal the SAFE Price, as well as price-based antidilution protection and dividend rights, which will be based on such SAFE Price.
+
+SAFE Price means the price per share equal to the quotient obtained by dividing the Valuation Cap by either
+- the Company Capitalization as of immediately prior to the Equity Financing or
+- the capitalization of the Company used to calculate the price per share of the Standard Preferred Stock, whichever calculation results in a lower price.
+
+Standard Preferred Stock means the shares of a series of the Company’s preferred stock issued to the investors investing new money in the Company in connection with the initial closing of the Equity Financing.
+
+*** Swaddled Infant's Mama and Papa
+
+This agreement is between
+
+Party A (the "Investor")
+
+and
+
+Party B (the "Company").
+
+*** Baby Clause, wearing Green
+
+If the pre-money valuation is greater than the Valuation Cap,
+
+  the Company will issue to the Investor a number of shares of SAFE Preferred Stock equal to the Purchase Amount divided by the SAFE Price,
+
+otherwise,
+
+  the Company will issue to the Investor a number of shares of Standard Preferred Stock sold in the Equity Financing equal to the Purchase Amount divided by the price per share of the Standard Preferred Stock
+
+*** Baby Clause, wearing Blue
+
+(this clause is semantically identical to the Green clause, just syntactically refactored.)
+
+The Company will issue to the Investor either:
+
+- a number of shares of Standard Preferred Stock sold in the Equity Financing equal to the Purchase Amount divided by the price per share of the Standard Preferred Stock, if the pre-money valuation is less than or equal to the Valuation Cap; or
+
+- a number of shares of SAFE Preferred Stock equal to the Purchase Amount divided by the SAFE Price, if the pre-money valuation is greater than the Valuation Cap.
+
+*** Toddler Clause
+
+(the clause becomes a callback to be automatically executed, conditional upon an event.)
+
+If there is an Equity Financing before the expiration or termination of this instrument, the Company will automatically issue to the Investor either:
+
+- a number of shares of Standard Preferred Stock sold in the Equity Financing equal to the Purchase Amount divided by the price per share of the Standard Preferred Stock, if the pre-money valuation is less than or equal to the Valuation Cap; or
+
+- a number of shares of SAFE Preferred Stock equal to the Purchase Amount divided by the SAFE Price, if the pre-money valuation is greater than the Valuation Cap.
+
+*** Toddler Twins
+
+If there is an Equity Financing before the expiration or termination of this instrument, the Company will automatically issue to the Investor either:
+
+- a number of shares of Standard Preferred Stock sold in the Equity Financing equal to the Purchase Amount divided by the price per share of the Standard Preferred Stock, if the pre-money valuation is less than or equal to the Valuation Cap; or
+
+- a number of shares of SAFE Preferred Stock equal to the Purchase Amount divided by the SAFE Price, if the pre-money valuation is greater than the Valuation Cap.
+
+In connection with the issuance of Standard Preferred Stock or SAFE Preferred Stock, as applicable, by the Company to the Investor pursuant to this provision:
+
+- The Investor will execute and deliver to the Company all transaction documents related to the Equity Financing; and
+
+- This instrument will expire and terminate.
+
+*** The Complete Equity Financing Clause
+
+If there is an Equity Financing before the expiration or termination of this instrument, the Company will automatically issue to the Investor either:
+
+- a number of shares of Standard Preferred Stock sold in the Equity Financing equal to the Purchase Amount divided by the price per share of the Standard Preferred Stock, if the pre-money valuation is less than or equal to the Valuation Cap; or
+
+- a number of shares of SAFE Preferred Stock equal to the Purchase Amount divided by the SAFE Price, if the pre-money valuation is greater than the Valuation Cap.
+
+In connection with the issuance of Standard Preferred Stock or SAFE Preferred Stock, as applicable, by the Company to the Investor pursuant to this provision:
+
+- The Investor will execute and deliver to the Company all transaction documents related to the Equity Financing; provided, that such transaction documents are the same documents to be entered into with the purchasers of the Standard Preferred Stock, with appropriate variations for the SAFE Preferred Stock if applicable;
+
+- The Investor and the Company will execute a Pro Rata Rights Agreement, unless the Investor is already included in such rights in the transaction documents related to the Equity Financing; and
+
+- This instrument will expire and terminate.
+
+*** Learning to Keep Secrets
+
+Confidentiality. The Investor will not disclose anything about this deal to any third party.
+
+*** Promising to Keep Secrets Forever
+
+Survival. Clause "Confidentialty" will survive the termination of this Agreement.
+
 ** YC SAFE (SG)
 
 #+BEGIN_SRC yaml
