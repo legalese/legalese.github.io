@@ -90,19 +90,26 @@ To understand this section, you should:
 - read https://drive.google.com/open?id=0BxOaYa8pqqSwTC04OTF5b1hYams Some computational properties of a model for electronic documents, TBC 1989
 - view https://drive.google.com/open?id=0BxOaYa8pqqSwUWlCajFJQURXdG8 introducing deontic logics, Gorin 2010
 - read [[https://www.um.edu.mt/__data/assets/pdf_file/0008/51749/wict08_submission_17.pdf][conflict analysis of deontic contracts, Stephen Fenech]]
-- read https://drive.google.com/a/legalese.io/file/d/0BxOaYa8pqqSwWk9NallEck83T2M/view -- CLAN 2009
-- read https://drive.google.com/a/legalese.io/file/d/0BxOaYa8pqqSwSjRMeGtzVGhIaWs/view -- FormaLex 2011
 - read [[http://www.diku.dk/~paba/pubs/talks/bahr15icfp.html][Certified Symbolic Management of Financial Multi-party Contracts]]
-- review [[https://www.lexifi.com/product/technology/contract-description-language][LexiFi's Contract Description Language]], MLFi
 - read http://wyner.info/research/Papers/2014/NL_DeonticConcepts_Lux_2014.pdf another perspective on deontic logic
 - read http://wyner.info/research/Papers/WynerPetersJURIX2011.pdf -- Wyner 2011, /On Rule Extraction from Regulations/
 - read http://wyner.info/research/Papers/2013/WynerICAIL2013Tutorial.pdf discussing text extraction
-- read http://wyner.info/research/Papers/2013/OASISLegalRuleML.pdf on LegalRuleML.
-- read Tom Hvitved's [[http://www.diku.dk/forskning/phd-studiet/phd/davidg_thesis.pdf/hvitved12phd.pdf][PhD Thesis]] which covers some of the most recent work in the field
 - http://people.dsv.su.se/~petia/Publications/lap98.pdf shows how to model deontics for software specifications, in software
+
+Video
 - watch Surden's [[https://www.youtube.com/watch?v=KLAE_SKMeAY&index=61&list=PL48E61C121CAD0E1B][2011 talk on Computable Contracts]]
 - watch the Futurelaw [2013-04-26 Fri] [[https://www.youtube.com/watch?v=KBI8_tv2VDM][presentation on Computational Law and Contracts]]
 - watch the FutureLaw [2016-04-30 Sat] [[https://www.youtube.com/watch?v=efr9VctcMe8&index=1&list=LLprx0R928jz7WPTG5EBdrnQ][panel discussion: New Breakthroughs in Computational Law]]
+
+Previous Legal DSLs:
+- read Tom Hvitved's [[http://www.diku.dk/forskning/phd-studiet/phd/davidg_thesis.pdf/hvitved12phd.pdf][PhD Thesis]] which covers some of the most recent work in the field
+- read https://drive.google.com/a/legalese.io/file/d/0BxOaYa8pqqSwWk9NallEck83T2M/view -- CLAN 2009
+- read https://drive.google.com/a/legalese.io/file/d/0BxOaYa8pqqSwSjRMeGtzVGhIaWs/view -- FormaLex 2011
+- read http://wyner.info/research/Papers/2013/OASISLegalRuleML.pdf on LegalRuleML.
+- review [[https://www.lexifi.com/product/technology/contract-description-language][LexiFi's Contract Description Language]], MLFi
+- review [[https://github.com/mpoulshock/HammurabiProject/blob/master/Code/DSL/DSL.pdf][Hammurabi's DSL]]
+- review the DSL presented in Hvitved's [[http://www.diku.dk/forskning/phd-studiet/phd/davidg_thesis.pdf/hvitved12phd.pdf][PhD Thesis]], particularly Appendix E.2.3
+
 
 ** Formal Representation
 
