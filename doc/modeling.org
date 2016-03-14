@@ -100,6 +100,9 @@ To understand this section, you should:
 - read http://wyner.info/research/Papers/2013/OASISLegalRuleML.pdf on LegalRuleML.
 - read Tom Hvitved's [[http://www.diku.dk/forskning/phd-studiet/phd/davidg_thesis.pdf/hvitved12phd.pdf][PhD Thesis]] which covers some of the most recent work in the field
 - http://people.dsv.su.se/~petia/Publications/lap98.pdf shows how to model deontics for software specifications, in software
+- watch Surden's [[https://www.youtube.com/watch?v=KLAE_SKMeAY&index=61&list=PL48E61C121CAD0E1B][2011 talk on Computable Contracts]]
+- watch the Futurelaw [2013-04-26 Fri] [[https://www.youtube.com/watch?v=KBI8_tv2VDM][presentation on Computational Law and Contracts]]
+- watch the FutureLaw [2016-04-30 Sat] [[https://www.youtube.com/watch?v=efr9VctcMe8&index=1&list=LLprx0R928jz7WPTG5EBdrnQ][panel discussion]]
 
 ** Formal Representation
 
