@@ -1007,14 +1007,19 @@ http://www.inf.ed.ac.uk/teaching/courses/nlg/
 
 *** Completion
 
-When all the conditions are met, the following mutual obligations will arise:
+If all the conditions are met before a certain date, the following mutual obligations will arise
+- on that date
+- when all the conditions are met
+- when parties give notice that the conditions are met
 
 **** Party P1 must perform Obligations Ob11 and Ob12
 **** Party P2 must perform Obligations Ob21 and Ob22
 
 *** Failure to Achieve Conditions Precedent
 
-What happens if the Conditions Precedent are not met?
+(by a certain date)
+
+What happens if the Conditions Precedent are not met by a certain date?
 
 There is no penalty.
 
