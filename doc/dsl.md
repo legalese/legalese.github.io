@@ -303,12 +303,13 @@ An object may have multiple formulae.
 
 The primitives are:
 - (temporal) upon, when, while, before, after
-- (conditional) if, unless, provided
+- (conditional) if, unless, provided, savefor
 - (predicate) party
 - (performative) warrant, hereby
 - (deontic) must, may, mustnot
 - (deontic) lest, else
-- (scope) defining
+- (trace) by virtue of
+- (scoped functions) defining
 
 In practice, these could be implemented as methods on an object, or functions on a variable.
 
