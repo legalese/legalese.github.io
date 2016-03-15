@@ -1035,13 +1035,21 @@ Each Major Shareholder will have (10) days from the date of notice, to agree in 
 
 ** YC SAFE
 
+*** Conception Clause
+
+Alice will pay ten dollars to Bob.
+
 *** Newborn Clause
 
-The Company will issue to the Investor ten shares of SAFE Preferred Stock.
+The Company means Bob.
+
+Investor means Bob.
+
+The Company will issue to the Investor ten shares of Common Stock.
 
 *** Newborn Birthday Clause
 
-On January 1 2018, the Company will issue to the Investor ten shares of SAFE Preferred Stock.
+On January 1 2018, the Company will issue to the Investor ten shares of Common Stock.
 
 *** Infant Clause
 
