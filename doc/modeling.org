@@ -1007,9 +1007,9 @@ http://www.inf.ed.ac.uk/teaching/courses/nlg/
 
 *** Completion
 
-If all the conditions are met before a certain date, the following mutual obligations will arise
-- on that date
-- when all the conditions are met
+If all the conditions are met before a certain date, the following mutual obligations will arise (choose one)
+- on that date; or
+- as soon as all the conditions are met; or
 - when parties give notice that the conditions are met
 
 **** Party P1 must perform Obligations Ob11 and Ob12
