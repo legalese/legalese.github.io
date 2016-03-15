@@ -1043,7 +1043,9 @@ Alice will pay ten dollars to Bob.
 
 The Company means Bob.
 
-Investor means Bob.
+Investor means Alice.
+
+The Investor will pay ten dollars to the Company.
 
 The Company will issue to the Investor ten shares of Common Stock.
 
