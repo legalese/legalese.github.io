@@ -995,6 +995,31 @@ http://www.inf.ed.ac.uk/teaching/courses/nlg/
 
 ** Kata MR01: Modeling Resolutions
 
+** Kata MC01: Completion
+
+*** R&W
+
+*** Conditions Precedent
+
+**** Condition Alpha
+**** Condition Beta
+**** Condition Gamma
+
+*** Completion
+
+When all the conditions are met, the following mutual obligations will arise:
+
+**** Party P1 must perform Obligations Ob11 and Ob12
+**** Party P2 must perform Obligations Ob21 and Ob22
+
+*** Failure to Achieve Conditions Precedent
+
+What happens if the Conditions Precedent are not met?
+
+*** Failure to Perform Obligations
+
+What happens if the Obligations are not met?
+
 ** Securities Notice.
 
 If the Company proposes to undertake an issuance of New Securities, it shall give notice to each Major Shareholder of its intention to issue New Securities (the "Notice") describing the type of New Securities and the price and the general terms upon which the Company proposes to issue the New Securities.
@@ -1438,3 +1463,4 @@ Survival. Clause "Confidentialty" will survive the termination of this Agreement
 #+BEGIN_SRC
 moo
 #+END_SRC
+
