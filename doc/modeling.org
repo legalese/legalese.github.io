@@ -1001,16 +1001,15 @@ http://www.inf.ed.ac.uk/teaching/courses/nlg/
 
 *** Conditions Precedent
 
+The obligations of the parties under this Agreement are conditional upon the following matters being fulfilled [on or prior to the Completion Date:-
 **** Condition Alpha
 **** Condition Beta
 **** Condition Gamma
+(the "Conditions Precedent")
+
 
 *** Completion
-
-If all the conditions are met before a certain date, the following mutual obligations will arise (choose one)
-- on that date; or
-- as soon as all the conditions are met; or
-- when parties give notice that the conditions are met
+If any of the Conditions Precedent are not fulfilled (or  waived by [usually investor]) by the Completion Date, this Agreement shall ipso facto cease and determine and none of the Parties shall have any claim against the others for costs, damages, compensation or otherwise, except that all reasonable legal fees incurred in the preparation, negotiation and execution of this Agreement shall be borne by [usually, Company]).
 
 **** Party P1 must perform Obligations Ob11 and Ob12
 **** Party P2 must perform Obligations Ob21 and Ob22
