@@ -1016,9 +1016,13 @@ When all the conditions are met, the following mutual obligations will arise:
 
 What happens if the Conditions Precedent are not met?
 
+There is no penalty.
+
 *** Failure to Perform Obligations
 
 What happens if the Obligations are not met?
+
+There is a penalty.
 
 ** Securities Notice.
 
