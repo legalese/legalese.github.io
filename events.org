@@ -101,6 +101,10 @@ http://feld.com/archives/2010/04/failing-fast-at-standardized-seed-deal-document
 
 different families of approaches:
 
+A brief pictorial overview https://drive.google.com/open?id=0BzJyMUr3UozTNTZvT3BJMHZUUVk
+
+A more detailed look at the landscape including whether founders has law and CS training https://docs.google.com/spreadsheets/d/1UJzUk_ejxUioU276Da8dSebEF7vJFAi1_Yw1_vxSRGE/edit#gid=0
+
 ***** NLP -- reading existing contracts.
 ***** helping with litigation
 ***** helping with research
