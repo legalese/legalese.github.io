@@ -304,12 +304,23 @@ An object may have multiple formulae.
 The primitives are:
 - (temporal) upon, when, while, before, after
 - (conditional) if, unless, provided, savefor
-- (predicate) party
-- (performative) warrant, hereby
+- (priority) subjectTo, notwithstanding, prevails
+- (predicate) party, parties
+- (performative) warrant, guarantee, hereby
 - (deontic) must, may, mustnot
-- (deontic) lest, else
+- (deontic penalty) lest, else
 - (trace) by virtue of
 - (scoped functions) defining
+
+warrant :: Person -> Statement -> Bool
+warrant a b c = Person a states for the record that statement b is c
+
+hereby :: Person -> ActionStatement -> Time
+hereby a b c = Simply by making this statement, Person a performs ActionStatement b at time c.
+-- example: hereby husband (repeat 3 divorce) now
+
+
+must partya do { } lest do { penalty }
 
 In practice, these could be implemented as methods on an object, or functions on a variable.
 
@@ -366,4 +377,7 @@ The `may` block always runs after `when` and `if` return true.
 	object.may (condition)  { } else object.must (condition) { block }
 
 What would a BNF for term sheets look like?
+
+What would an actual term sheet in this language look like?
+
 
