@@ -1070,7 +1070,7 @@ Each Major Shareholder will have (10) days from the date of notice, to agree in 
 
 *** Conception Clause
 
-Alice will pay ten dollars to Bob.
+Alice must pay ten dollars to Bob.
 
 *** Newborn Clause
 
