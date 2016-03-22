@@ -63,7 +63,11 @@ guest will come at 10am monday morning to our resort venue.
 
 **** positioning, differentiation, and competitive advantage
 **** how this makes a difference to the world
+**** why meng is excited about it
+history with SPF
+**** why lots of other people seem to be excited about it
 **** introductions over breakfast
+customers: martin from ncinga, wobe
 **** 10-year future vision
 **** interaction with trendy topics like smart contracts
 **** the presentations i've been giving
@@ -90,7 +94,33 @@ different teams don't share.
 ***** drafting of letters, e.g. a notice template
 ***** getting the commissioner uncles to come and sign things
 ***** execution management
-*** Day 2A: Research -- Business
+*** Day 2A: Organization
+**** the organization of the project as both opensource and startup.
+***** participation model.
+***** IETF, opensource values
+rough consensus and running code.
+
+***** participants' expectations of the project
+***** the project's expectations of participants
+***** transparency by default; online archive is authoritative
+what to do about confidential information?
+***** funding. compensation.
+[[http://www.holacracy.org/wp-content/uploads/2015/08/Badge-basedCompensationApp-v1.0.pdf][badge-based compensation]].
+***** holacracy.
+**** minutes https://guides.github.com/features/issues/
+
+a new contributor's guide.
+
+start with a readme file. not "come and talk to meng."
+
+then you see a CONTRIBUTING file in the repo somewhere, connected to issues.
+
+mariadb uses jira. worklogs.
+
+let's consider using https://gitter.im/ which is more open than slack.
+
+could this be a good project for google summer of code 2017?
+*** Day 2B: Research -- Business
 so we want to disrupt the incumbents.
 
 let's look at the state of the art -- what other people are thinking.
@@ -125,7 +155,7 @@ why we're in the right place at the right time.
 **** how will this become a billion-dollar business?
 the MySQL / MariaDB story
 
-*** Day 2B: Research -- Technical
+*** Day 3A: Research -- Technical
 **** overview of technology architecture, components, and backlog.
 **** roadmap overview: present and future
 **** working through an actual use case of the current product
@@ -139,19 +169,11 @@ overview of the issues list in github
 **** a longer review of prior art.
 **** areas of research required. the future product. interaction with IHLs and RIs.
 **** maturing areas and projections over the next few years.
-*** Day 3A: Organization
-**** the organization of the project as both opensource and startup.
-***** participation model.
-***** IETF, opensource values
-rough consensus and running code.
 
-***** participants' expectations of the project
-***** the project's expectations of participants
-***** transparency by default; online archive is authoritative
-what to do about confidential information?
-***** funding. compensation.
-[[http://www.holacracy.org/wp-content/uploads/2015/08/Badge-basedCompensationApp-v1.0.pdf][badge-based compensation]].
-***** holacracy.
+
+
+
+
 *** Day 3B: practice with the workgroup tools
 practice with issue creation and task allocation.
 
