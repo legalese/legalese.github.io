@@ -120,6 +120,17 @@ mariadb uses jira. worklogs.
 let's consider using https://gitter.im/ which is more open than slack.
 
 could this be a good project for google summer of code 2017?
+
+http://hackingbusinessmodel.info/
+
+dogfood: get paid to do a pull request.
+
+post-payment = convertible note.
+
+pre-payment = executory contract. because it locks the issue to you and others can't work on it.
+
+https://github.com/cbas/lgtm
+
 *** Day 2B: Research -- Business
 so we want to disrupt the incumbents.
 
