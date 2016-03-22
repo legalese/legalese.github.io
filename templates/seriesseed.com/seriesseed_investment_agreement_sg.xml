@@ -47,7 +47,7 @@ This Agreement shall be governed by and interpreted in accordance with the laws 
 <? var activeRound = data.capTable.getActiveRound(); ?>
 <? var previousRound = activeRound.getPreviousRound(); ?>
 <para_2_hanging><b>"Common Shares Issued and Outstanding Pre-Money"</b> means <?= digitCommas_(activeRound.by_security_type["Ordinary Shares"].TOTAL) ?> shares.</para_2_hanging>
-<para_2_hanging><b>"Series Seed Shares Issued and Outstanding Pre-Money"</b> means <?= digitCommas_(previousRound.by_security_type["Series Seed Shares"].TOTAL) ?> shares.</para_2_hanging>
+<para_2_hanging><b>"Series Seed Shares Issued and Outstanding Pre-Money"</b> means <?= previousRound.by_security_type["Series Seed Shares"] ? digitCommas_(previousRound.by_security_type["Series Seed Shares"].TOTAL) : 0 ?> shares.</para_2_hanging>
 <para_2_hanging><b>"Class F Shares Issued and Outstanding"</b> means <?= digitCommas_(activeRound.by_security_type["Class F Shares"].TOTAL) ?> shares.</para_2_hanging>
 <para_2_hanging><b>"Total Post-Money Shares Reserved for Option Pool"</b> means <?= digitCommas_(data.capTable.getRound("TOTAL").ESOP.reserved()) ?> shares.</para_2_hanging>
 <para_2_hanging>"Number of Issued And Outstanding Options" means <?= data.issued_and_outstanding_options ?>.</para_2_hanging>
@@ -172,12 +172,15 @@ if (data.warrants_by_key_holders_also){?> and each Key Holder, severally and not
 
 <numbered_4_para_fltab>The Class F Preferred Stock of the Company (the "Class F Shares"), of which, immediately prior to the Effective Date of this agreement, there will be <?= digitCommas_(activeRound.by_security_type["Class F Shares"].TOTAL) ?> shares.</numbered_4_para_fltab>
 
+<?
+if (previousRound.by_security_type["Series Seed Shares"]) { ?>
 <numbered_4_para_fltab>The Series Seed Preferred Stock of the Company (the "Preferred Stock"), <?
 if (previousRound.by_security_type["Series Seed Shares"].TOTAL == 0) {?>
 none of which is issued and outstanding immediately prior to the Agreement Date
 <? } else { ?>
 of which, immediately prior to the Effective Date of this agreement, there will be <?= digitCommas_(previousRound.by_security_type["Series Seed Shares"].TOTAL) ?> shares.<?}?>
 </numbered_4_para_fltab>
+<? } ?>
 
 <numbered_3_para_fl>There are no outstanding preemptive rights, options, warrants, conversion privileges or rights (including but not limited to rights of first refusal or similar rights), orally or in writing, to purchase or acquire any securities from the Company including, without limitation, any shares of Common Stock, or Preferred Stock, or any securities convertible into or exchangeable or exercisable for shares of Common Stock or Preferred Stock, except for the conversion privileges of the Series Seed Preferred Stock pursuant to the terms of the Amended Constitution.</numbered_3_para_fl>
 
