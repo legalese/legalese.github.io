@@ -1472,3 +1472,47 @@ Survival. Clause "Confidentialty" will survive the termination of this Agreement
 moo
 #+END_SRC
 
+** Orrick Term Sheet for Convertible Note
+
+#+BEGIN_SRC
+
+Company = new Party alias "Company" ( idtype = "UEN", id = "123243524" )
+
+Holder = new Party alias "Alice" ( idtype = "NRIC", id = "3453545345" ) alias [ "Investor", "Holder" ]
+
+instrument = new ConvertibleNote alias "Notes" (
+  interestRate = rate(1% + observable(bbsa) || unobservable(last_observed(bbsa)), annual), // run-time evaluation
+  amount_raising = 4455663.34,
+  total_amount_raised = 0,
+  security_interest = (),
+  closing_dates = [ date(2016-04-10) ],
+  maturity = earlier_of( default_maturity_date(2019-04-01) alias "Maturity Date" ),
+  accumulated_interest = monad of some sort,
+  amount_owing = principal + accumulated_interest alias "principal and accrued interest") holder {
+
+  do_closing d amount =
+    | total_amount_raised <= 445674567 = closing_dates.push(d);
+                                         total_amount_raised += amount;
+    | otherwise = error("raised too much money")
+
+ifEvent (after (maturity) &&
+    Holder.emits(demand) &&
+    not (...below...) ) {
+  Company.must.pay(amount_owing)
+}
+
+conversionSum = sum ( x | x <- Company.instruments.filter(isConvertible) )
+
+ifEvent (Company.raises( equityFinancing )
+    && isEquity( equityFinancing )
+    && equityFinancing.amount_raising(including=conversionSum ) >= 446674567
+    ) {
+  instrument.convert( amount = (principal +
+                               (instrument.poll(company, "do you want to pay accrued interest?") ? accumulated_interest : 0),
+                      pricePerShare = majority $ equityFinancing.pricePerShare
+                    )
+}
+
+
+
+#+End_SRC
