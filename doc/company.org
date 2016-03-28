@@ -2,6 +2,8 @@
 
 What organizational structure, governance model, and communication processes does Legalese use?
 
+How does Legalese deal with contributions, cash, equity and other expressions of finance?
+
 What expectations can every project participant have about other participants?
 
 In particular, what common vocabulary and knowledge should participants possess?
@@ -14,25 +16,59 @@ This is a welcome guide for new participants in Legalese.
 
 No financial relationship is assumed. Later, we will ask you to sign the Contributor License Agreement assigning your contributions to the project.
 
-Legalese is a big project, on the scale of a database engine or an e-commerce shopping cart. While it is possible to make useful contributions quickly, if you want to tackle some of the more challenging parts of the project, you should come up to speed on some of the underlying ideas and technologies.
+Legalese is a big project, on the scale of a database language (like SQL) plus a database engine (like InnoDB). While it is possible to make useful contributions quickly, the more challenging parts of the project require you to come up to speed on some of the underlying ideas and technologies.
+
+If you are new to any of:
+- opensource projects
+- high-tech, high-growth, innovation-driven startups
+- commercial organizations
+- distributed/virtual/remote organizations
+
+you may find that the way we work is different to the way you have worked in the past, because we combine elements of all of the above.
+
+** Companies build products. Entrepreneurs build companies.
+
+Entrepreneurs build companies. Companies build products.
+
+In the early days, when a handful of founders are doing all the work, it's easy to lose sight of the distinction between working /in/ the company and working /on/ the company, a distinction [[http://www.amazon.com/E-Myth-Revisited-Small-Businesses-About/dp/0887307280/][popularized by Gerber]]. Those who work /in/ the company are *staff*; those who work /on/ the company are *management* or maybe *leadership* or something like that. Founders, especially in the early days, wear both hats.
+
+The traditional model of /staff/ vs /management/ is under attack from new models like Holacracy, which believes that the management function should be distributed across staff, rather than reserving it to specific individuals who carry the burden of being paymaster, boss, and lightning rod.
+
+** Developers build products for users. But users can become developers!
+
+We can look at it from a different angle. The opensource world is already used to muddying the boundary between user and developer.
+
+Engineers are used to *layer models* (for example, [[https://en.wikipedia.org/wiki/OSI_model][the OSI 7-layer network stack]]). The commercial software world might use an organizational boundary to separate users (above) from developers (beneath). There might be more than two layers: in between, there might be tech support or consultants as well.
+
+Opensource invites boundary-crossing between layers. Such promiscuity disgusts some people from the commercial world, but is widely accepted in more progressive segments of society.
+
+Engineers help to develop a product for end-users. Developers work on Legalese to make a product that some random end-user can use in a number of ways -- for example, to produce contracts, resolutions, and workflows; or to learn the meaning of such documents by exploring scenarios.
+
+Where do these developers come from? Often, the lifecycle of an opensource developer begins as an end-user who initially just consumes the product. Then she starts helping others in the support forums. She progresses to file issues, fix bugs, and add features. Eventually she becomes a code reviewer approving or rejecting other people's pull requests.
+
+Now think of company itself as a product. Think of developers as end-users of the company. In that sense, [[http://avc.com/2012/02/the-management-team-guest-post-from-joel-spolsky/][managers are developers]], not of the /end-user/ product, but of the /company/ "product": they help make an organization that developers can use in a number of ways. For example, to obtain expense reimbursements, salary, project fees, and equity upside. Or to learn the meaning of such rewards by exploring scenarios. This category of individual is traditionally called "management" and represents an element of social order that has been around since the invention of the agricultural surplus. They do work which is not product engineering, but is useful to the company nonetheless: for example, before the company is cash flow positive, these "managers" are responsible for going out and talking to investors and bringing capital in, so that the company can afford to pay the engineers who do the real work. They are responsible for filing paperwork that the government requires: for example, audited accounts. They are responsible for getting the t-shirts made.
+
+In the same way that opensource development invites conversion from users to developers, an opensource company invites conversion from engineering to management. Developers can work on building the company. But they don't have to stop being engineers. Anytime an engineer participates in an employment interview, helping to screen new hires, she is performing a management function, without giving up her engineering role.
+
+Both Legalese the company, and Legalese the product, are things that can be versioned and milestoned. Both have end-user personas and requirements specifications and use cases and story cards. Both have a release approval process. Both invite users to become developers.
+
+On the product side, before an contributor can work on certain parts of the codebase, they must first earn badges to prove they are qualified, often by reading specific books (e.g. /Learn You A Haskell For Great GOod/) or videos (like [[https://www.youtube.com/watch?v=peU756mYfjQ][The State of the Art of Legal Technology Circa 2015]]).
+
+On the company side, before a contributor can work on certain parts of the company, they must first read books like /Holacracy/, /the Five Dysfunctions of a Team/, and /the Art of the Start/. But these are just badges, and at the end of the day anyone can level up into any role based on capability and inclination -- as with any opensource project, in theory.
+
+This document describes Legalese the company and the software -- the processes -- that its developers produce.
 
 ** The Welcome Booklet
 
-In a traditional organization, a new hire might spend a couple of weeks in training.
+The [[https://drive.google.com/open?id=0B-lTLNYJdzgKRnpKTTBQQjFVSHM][Welcome Booklet PDF]] explains why we exist. It also sets out a reading list which will help you come up to speed with the state of the art in legal informatics. Read it, and the readings in it. (At some point we will move the text of that PDF into this file.)
 
-We don't do that. Instead, we have readings and videos. The [[https://drive.google.com/open?id=0B-lTLNYJdzgKRnpKTTBQQjFVSHM][Welcome Booklet PDF]] explains why we exist. It also sets out a reading list which will help you come up to speed with the state of the art in legal informatics. Read it, and the readings in it.
+In a traditional organization, a new hire might spend a couple of weeks, even a couple of months, in training. If McDonalds can have a [[http://www.aboutmcdonalds.com/mcd/corporate_careers/training_and_development/hamburger_university.html][university]], we can have some amount of training. In the software world, we think of training as READMEs, FAQs, docs, and onboarding videos.
 
-At some point we will move the text of that PDF into this file.
+The work we do is harder than flipping burgers, so it will take you longer to read all the books. It often takes up to a year for a new contributor to be fully onboarded. Books take time to read.
 
 ** The rest of this document
 
 Also read the rest of this document; it explains how the organization works.
-
-You, a contributor, help to develop a product for end-users -- you work on Legalese to make something that some random person can use in a number of ways. For example, to produce contracts, resolutions, and workflows. Or to learn the meaning of such documents by exploring scenarios.
-
-But the company is itself a product, and you are its end-user. Some members of the company work on the company itself, to make an organization that you can use, in a number of ways. For example, to obtain expense reimbursements, salary, project fees, and equity upside. Or to learn the meaning of such rewards by exploring scenarios.
-
-Both are things that can be versioned and milestoned. Both have end-user personas and requirements specifications and use cases and story cards. Both have a release approval process.
 
 * Inspirations
 
@@ -46,8 +82,7 @@ The Internet is built on open software and open standards. Legalese aims to be a
 
 Legalese costs money to run. Where will that money come from?
 
-Some opensource infrastructure projects are embarrassingly underfunded. [[http://www.technologyreview.com/view/526386/the-underfunded-project-keeping-the-web-secure/][OpenSSL]] and [[http://www.propublica.org/article/the-worlds-email-encryption-software-relies-on-one-guy-who-is-going-broke][GPG]] recently put out calls for donations. Legalese must be more sustainable than just relying on donations. That means incorporating as a business, maybe getting venture funding. There are many precedents for opensource businesses, including [[http://en.wikipedia.org/wiki/MariaDB][MariaDB]].
-
+Some opensource infrastructure projects are embarrassingly underfunded. [[http://www.technologyreview.com/view/526386/the-underfunded-project-keeping-the-web-secure/][OpenSSL]] and [[http://www.propublica.org/article/the-worlds-email-encryption-software-relies-on-one-guy-who-is-going-broke][GPG]] recently put out calls for donations. Legalese must be more sustainable than just relying on donations. That means incorporating as a business, maybe getting venture funding. There are many precedents for opensource businesses, including [[http://en.wikipedia.org/wiki/MariaDB][MySQL and MariaDB]].
 
 ** "Teal" organizations
 
@@ -61,15 +96,15 @@ Many opensource efforts have much in common with Teal organizations.
 
 - realtime chat :: Slack
 
-- email :: Google Groups
+- email :: Google Groups -- active-team@legalese.io is the primary address. You can [[https://groups.google.com/a/legalese.io/forum/#!forum/active-team][browse the archives]].
 
 - source code, legal templates, and some documents :: Github
 
-- other documents :: Google Drive
+- other documents :: Google Drive: [[https://drive.google.com/drive/folders/0B-lTLNYJdzgKfldRU290T3d2LVA3Yk01UG4xM2tlOWU5dU1JaVh4d3h6cmo3Ny1wRWZBeFU][Legalese Shared]].
 
-- project management and task tracking :: Github Issues
+- project management and task tracking :: Github Issues. We used to use Asana and Basecamp before.
 
-- in-person meetings :: an in-person meeting is only considered a valid project meeting only if the online project group are notified.
+- in-person meetings :: an in-person meeting is only considered a valid project meeting only if the online project group are notified with minutes.
 
 In-person meetings are a natural human instinct, but easily become an anti-pattern. If project team members are omitted from the meeting, intentionally or inadvertently, cliques form, communication breaks down, decisions are made in secret, project members complain "nobody tells me anything", and the integrity of the organization fails.
 
@@ -79,10 +114,6 @@ In-person meetings are acceptable if and only if:
 3. minutes are posted to the appropriate online chat
 4. comments and discussion after the meeting are considered as valid as in-person interaction during the meeting
 5. decisions made during the in-person meeting may be reversed or revised pursuant to online followup.
-
-** deprecated channels
-
-- project management and forum :: basecamp, Asana ... we used to used both of these.
 
 * FAQ: Why do I keep getting redirected to the group chat?
 /My main point of contact with Legalese is X, but when I try to talk to X about Legalese, X doesn't seem to want to talk to me directly; instead, X tells me to talk on the mailing list, or the group chat. Why are they being so rude? Who do they think they are?/
@@ -107,7 +138,7 @@ The Legalese logo and artwork are available under logos. You can also get corpor
 
 * FAQ: How do I invite a new person to the project?
 
-There's an onboarding workflow; running that workflow is the responsibilty of the Onboarding Role. To trigger that workflow, speak up on #general. The Onboarding Role will canvas for objections, and if none are received, will kick off the workflow.
+There's an onboarding workflow; running that workflow is the responsibilty of the Onboarding Role. To trigger that workflow, speak up on #general. The Onboarding Role will canvass for objections, and if none are received, will kick off the workflow.
 
 * Innovation: Bail-only Design
 
@@ -125,26 +156,34 @@ Legalese may take a commercial, for-profit form to maximize sustainability and s
 
 We draw on the conventions established in the startup industry to manage expectations. If the company has cash available, and participants need to draw a salary from Legalese to continue contributing, then an employment or contractor relationship can be established. If the participant is willing to trade equity for cash, then the participant can be registered in the stock pool. Ideally, cash and equity should be interchangeable.
 
-Compensation should be determined by a participant's fellow Circle members and immediate business units.
+Compensation could be determined by a participant's fellow Circle members and immediate business units.
 
 Or maybe we do a next-generation approach using some kind of [[http://swarm.fund/][Swarm]] or [[http://www.assembly.com/][Assembly]] or other [[http://www.scribd.com/doc/255347578/SWARM-Working-Paper-Distributed-Networks-and-the-Law][Distributed Collaborative Organisation]] model.
+
+The remainder of this section are notes taken during the March 2016 Legalese Summit.
 
 ** Principles
 
 *** Tensions should be pushed to the place where they are best processed, which is often to the edge.
 
-** Requirements
+*** We should not spend so much time navel-gazing that everybody gets demoralized and no work gets done.
+https://en.wikipedia.org/wiki/The_Centipede%27s_Dilemma
 
-*** These are the reference exit scenarios:
+** These are the reference exit scenarios:
 - Ludicrous Exit :: The company exits for $10B after 8 years.
 - Decent Riches :: The company exits for $60M after 4 years.
 - Sad Puppy :: The company exits for $150,000 after 2 years.
+- Death :: There is no exit and we agree to shut it all down after 3 years.
+
+** Requirements
+
+This section records requirements expressed by people on the team. It aims to anticipate the expected requirements of future participants.
 
 *** Component: Survival ([[https://en.wikipedia.org/wiki/Kiasi][Kiasiïsm]])
 
 Staff need to have enough money to survive and focus on the job, without having to take outside jobs.
 
-1. It's a bad idea for founders to pay themselves so little they can't work full time on the startup.
+It's a bad idea for founders to pay themselves so little they can't work full time on the startup.
 
 *** Component: Opportunity Cost (Kiasuism on the part of the Contributor)
 
@@ -161,16 +200,15 @@ Happy Path: If Person A could have made $100,000 doing independent consulting or
 *** Component: Replacement Value (Kiasuism on the part of the Company)
 Nobody is irreplaceable, so if somebody wants to get paid more than they are worth to the Company, maybe the BATNA is: no deal.
 
-1. What would it cost to contract out that piece of work? This is "core competency" theory.
+The company should ask: what would it cost to contract out that piece of work? This is "core competency" theory.
 
 https://open.buffer.com/introducing-open-salaries-at-buffer-including-our-transparent-formula-and-all-individual-salaries/
 
-and we will add a lawyer grade.
+(we should add a lawyer grade.)
 
 From [[http://www.pnas.org/content/107/38/16489.full][Kahnemann]], perhaps this component should be a nonlinear function, that more or less caps out around $75,000 a year, adjusted for purchasing power parity.
 
 http://economistsview.typepad.com/economistsview/2008/03/income-and-happ.html
-
 
 *** Component: Greed
 
@@ -178,7 +216,9 @@ We don't want to micro-detail the intangible contributions -- people should act 
 
 We could stack rank these equity awards or we could leave them in an unexamined pot.
 
-https://en.wikipedia.org/wiki/The_Centipede%27s_Dilemma
+Much of this component should be satisfied by one's equity holdings.
+
+*** Initial Snowflake Concept
 
 The "Snowflake Award" shows up as a bonus at the time of exit, out of the equity stake. It is very hard to measure the serendipitous contributions that each person makes, so we just trust that some other people may get a little more than you, and that's okay.
 
@@ -229,13 +269,13 @@ Perhaps the company could point out that the contributors are already getting an
 3. All of the above needs to be tax-structured and optimized.
 4. We don't want to distort people's behaviours -- we want to create a structure that brings out the best in people without stressing them out and making them do unnatural things.
 
-*** Sebastiaan's Wet Dream
+*** Base plus project?
 
 Base rate: negotiate an hourly/monthly base rate with the compensation committee, but attached to the badge/role rather than the person.
 
 Project rate: like bountysource. This feature is worth $X to the company. Go do it. Get paid.
 
-Each contributor gets to decide on their cash vs equity split.
+Each contributor gets to decide their cash vs equity split each month.
 
 ** Scenarios
 
