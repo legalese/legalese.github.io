@@ -36,23 +36,15 @@ Each afternoon we hold two sessions.
 Each session is two to three hours. Presentation, then discussion, then consensus.
 
 ** Food
-wee nam kee chicken rice
-
-bak kut teh
-
-indian fishhead curry
-
-warong nasi pariaman
-
-eng seng pepper crab
-
-dim sum in geylang? 126
-
-newton stingray from stall 39
-
-roti paratha
-
-ya kun teatime
+*** CANCELLED newton stingray from stall 39
+*** DONE master crab chili crab
+*** DONE warong nasi pariaman
+*** DONE wee nam kee chicken rice
+*** TODO bak kut teh
+*** TODO dim sum in geylang? 126
+*** TODO indian fishhead curry
+*** TODO roti paratha
+*** TODO ya kun teatime
 
 ** Agenda
 *** Day 1A: 30,000 foot introduction to the project for the absolute n00b.
