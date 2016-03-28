@@ -6,7 +6,7 @@ What expectations can every project participant have about other participants?
 
 In particular, what common vocabulary and knowledge should participants possess?
 
-Discussion of this document is welcome on the #meta chat.
+Discussion of this document is welcome on the #meta and #startup chats.
 
 * Welome, New Contributor!
 
@@ -27,6 +27,12 @@ At some point we will move the text of that PDF into this file.
 ** The rest of this document
 
 Also read the rest of this document; it explains how the organization works.
+
+You, a contributor, help to develop a product for end-users -- you work on Legalese to make something that some random person can use in a number of ways. For example, to produce contracts, resolutions, and workflows. Or to learn the meaning of such documents by exploring scenarios.
+
+But the company is itself a product, and you are its end-user. Some members of the company work on the company itself, to make an organization that you can use, in a number of ways. For example, to obtain expense reimbursements, salary, project fees, and equity upside. Or to learn the meaning of such rewards by exploring scenarios.
+
+Both are things that can be versioned and milestoned. Both have end-user personas and requirements specifications and use cases and story cards. Both have a release approval process.
 
 * Inspirations
 
@@ -122,6 +128,141 @@ We draw on the conventions established in the startup industry to manage expecta
 Compensation should be determined by a participant's fellow Circle members and immediate business units.
 
 Or maybe we do a next-generation approach using some kind of [[http://swarm.fund/][Swarm]] or [[http://www.assembly.com/][Assembly]] or other [[http://www.scribd.com/doc/255347578/SWARM-Working-Paper-Distributed-Networks-and-the-Law][Distributed Collaborative Organisation]] model.
+
+** Principles
+
+*** Tensions should be pushed to the place where they are best processed, which is often to the edge.
+
+** Requirements
+
+*** These are the reference exit scenarios:
+- Ludicrous Exit :: The company exits for $10B after 8 years.
+- Decent Riches :: The company exits for $60M after 4 years.
+- Sad Puppy :: The company exits for $150,000 after 2 years.
+
+*** Component: Survival ([[https://en.wikipedia.org/wiki/Kiasi][Kiasiïsm]])
+
+Staff need to have enough money to survive and focus on the job, without having to take outside jobs.
+
+1. It's a bad idea for founders to pay themselves so little they can't work full time on the startup.
+
+*** Component: Opportunity Cost (Kiasuism on the part of the Contributor)
+
+Don't lose relative to something else. "I spent two years working for a startup and all I got was this stupid t-shirt."
+
+Happy Path: If Person A could have made $100,000 doing independent consulting or working for a Big Company doing a Boring Day Job but instead spent their time at the startup, they should get at least $100,000 upon exit. If Person B could have made $200,000, ditto.
+
+1. People should feel like their opportunity cost was respected.
+2. There could be a certain discount to represent the fact that they are taking a risk -- see next section, /Dreams of Avarice/. Founders usually take a pay cut to do their startup. At least, that's what investors want to see.
+3. If there is not enough money at the time of exit to give both Persons A and B $300,000, then the compensation should be reduced pro rata, pari passu. So A gets $50,000 and B gets $100,000.
+4. If the specific number is not known, then the compensation committee can make a [[https://open.buffer.com/introducing-open-salaries-at-buffer-including-our-transparent-formula-and-all-individual-salaries/][suggestion]]. And if the negotiations fail, then there is no deal.
+
+
+*** Component: Replacement Value (Kiasuism on the part of the Company)
+Nobody is irreplaceable, so if somebody wants to get paid more than they are worth to the Company, maybe the BATNA is: no deal.
+
+1. What would it cost to contract out that piece of work? This is "core competency" theory.
+
+https://open.buffer.com/introducing-open-salaries-at-buffer-including-our-transparent-formula-and-all-individual-salaries/
+
+and we will add a lawyer grade.
+
+From [[http://www.pnas.org/content/107/38/16489.full][Kahnemann]], perhaps this component should be a nonlinear function, that more or less caps out around $75,000 a year, adjusted for purchasing power parity.
+
+http://economistsview.typepad.com/economistsview/2008/03/income-and-happ.html
+
+
+*** Component: Greed
+
+We don't want to micro-detail the intangible contributions -- people should act in the best interests of the company, and evangelize and speak at conferences and make introductions, without asking for a cash reward each time; they should feel that they will benefit down the road, out of equity upside in the future, that will be worth way more in the future than cash today.
+
+We could stack rank these equity awards or we could leave them in an unexamined pot.
+
+https://en.wikipedia.org/wiki/The_Centipede%27s_Dilemma
+
+The "Snowflake Award" shows up as a bonus at the time of exit, out of the equity stake. It is very hard to measure the serendipitous contributions that each person makes, so we just trust that some other people may get a little more than you, and that's okay.
+
+Initial naive proposal: if the above components are all satisfied, then the Snowflake Award is $1M to each participant. And you can take that money and buy some therapy to feel better about yourself.
+
+*** Adjusted Snowflake Algorithm
+
+Monthly, everybody is allocated the kiaxi + kiasu minimum, then they get to decide how much cash vs equity they want to trade off.
+
+Quarterly variable could be contribution.
+
+Different people will then hold different amounts of equity.
+
+In the *Decent Riches* scenario, the exit is $60,000,000. Investors own half the company, and they get $30,000,000. The other $30M is available for distribution to contributors, which is the pot.
+
+pot = 30,000,000. How do we split the loot from the heist?
+
+first, the snowflake award. every contributor who has been with the company for a certain amount of time gets $1M. This is a bit like a professor being awarded tenure. Maybe we take the idea that everybody gets an equal split of a certain percentage of the pot. For example: if there is a acquisition for cash and the pot is 30,000,000.
+
+We decide to take one-third of the cash exit and distribute that equally among all Snowflake contributors.
+
+The other two-thirds are distributed pro rata by shareholding.
+
+The one-third vs two-third could by any N vs (1-N).
+
+*** Component: Intangible Contributions
+
+Person A is a great fit for the startup. They create more value working at that startup than they would working anywhere else.
+
+The Contribution Adjustment could be stack-ranked on a quarterly basis based on outcomes.
+
+For example, introduction to investors could be rewarded. But if the investor actually invests, the contribution could be adjusted up.
+
+*** Component: Cash/Equity Tradeoff
+
+Instead of taking $100 in cash, each contributor can choose to take $50 in cash and invest the other $50, buying equity at the last priced-round rate, or some adjusted interpolation, extrapolation, or approximation thereof. Or each contributor could take $0 in cash and $100 in equity.
+
+At what price should contributors buy that equity?
+
+Should there be a discount? Contributors would say, yes. Other purely financial investors would say, no.
+
+Perhaps the company could point out that the contributors are already getting an intangible benefit because they have the option to buy shares at all; the man on the street does not. And every $50 that they buy today will turn into $5000 in 4 years -- or to $0. So it's an all-or-nothing situation, and they shouldn't quibble about a discount. If they'd gotten a discount, the $50 they put in could turn into $6000 in 4 years.
+
+*** Considerations
+
+1. Do we overvalue people with existing jobs? It is known that people forgo "normal dayjob" levels of compensation to work on their startup.
+2. People who join earlier are taking more risk and should be rewarded accordingly. This is the Risk/Reward Ratio.
+3. All of the above needs to be tax-structured and optimized.
+4. We don't want to distort people's behaviours -- we want to create a structure that brings out the best in people without stressing them out and making them do unnatural things.
+
+*** Sebastiaan's Wet Dream
+
+Base rate: negotiate an hourly/monthly base rate with the compensation committee, but attached to the badge/role rather than the person.
+
+Project rate: like bountysource. This feature is worth $X to the company. Go do it. Get paid.
+
+Each contributor gets to decide on their cash vs equity split.
+
+** Scenarios
+
+What happens if Person A does not contribute to the product, but introduces a $2M investor? Should this be paid as a finder's fee?
+
+** Issue-based compensation
+
+Anyone can file a new issue in Github Issues.
+
+Only the Issues Committee can put price tags on issues.
+
+Anyone can start working on an issue. If their pull request satisfies the issue and is approved, they get paid.
+
+Let's not measure everything too much because unmeasured work increases the value of our equity anyway.
+
+
+** How do we filter new people who want to join the company? 
+
+Either fulfil the minimum criteria which have been defined as issues -- write documentation, or write code.
+
+Or demonstrate unexpected value to the company on your own initiative, and then be approved. You pay your own airfare to the Legalese summit.
+
+Along the way, don't collect any vetos from any of the existing cabal.
+
+"Congratulations! You have been on the opensource project for quite some time, and now your probation period, which you didn't know about, has ended. We would like to offer you a contract to cover a base rate to spend more time on the product side and be a part of the team. We will now cover your airfare to the next Legalese summit."
+
+
 
 ** Proposal 1
 

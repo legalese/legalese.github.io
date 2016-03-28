@@ -72,12 +72,30 @@ User has experienced a trigger event which gives rise to a pain point:
 
 ** hiring a new employee
 *** now needs an employment agreement and a corresponding ESOP
-doesn't know they might also need a dora
+what they don't know:
 
-if the ESOP is being set up for the first time, might need an alteration to the articles
-and all the consents that that implies.
+if the ESOP is being set up for the first time, might need an alteration to the articles, and all the consents that that implies.
+
+if the employee is getting shares, and if there exists a shareholders agreement, then the new employee might also need a dora, lol.
+
 ** hiring a new cofounder
 *** now needs a vesting agreement and to extend the shareholder agreement
+
+** angel round fundraising
+
+*** now needs what futurebooks calls a "secretarial rescue"
+*** bring the company into good standing with the government
+*** prepare all needed financial accounts
+**** submit for audit if necessary
+*** file all outstanding AGMs
+*** all the due diligence needed for a semi-professional investment
+**** employment contracts
+**** nondisclosure
+**** IP assignment
+**** etc
+
+** do an AGM
+
 
 
 * Activation: Browse
@@ -152,6 +170,35 @@ Pay for an optional expert opinion if you're confused about how to work a cap ta
 so you can keep working with them in future, and keep the cap table updated as future deals occur.
 
 ** Page 6: sign up to prevent inadvertent breach
+
+
+* Directors
+
+// section in the Constitution
+var directors = Array(5);
+
+directors[0] = "Bob";
+directors[1] = "Chuck";
+directors[2] = "Dick";
+directors[3] = "Ed";
+directors[4] = "Lian";
+
+directors.resolve([...]);
+
+directors[3] = undefined;
+directors[3] = "Pat";
+
+function addDirector(candidate) {
+  if (this.allowedToAddDirector(candidate)) { // guard or precondition
+    this.directors[3] = candidate;
+  } else {
+    // log that there is drama
+  }
+}
+
+function allowedToAddDirector(candidate) {
+  return majorityShareholders.vote("allow adding " + candidate);
+}
 
 
 * Activation: Gem Install

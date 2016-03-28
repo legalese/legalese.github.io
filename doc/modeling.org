@@ -1499,6 +1499,7 @@ ifEvent (after (maturity) &&
     Holder.emits(demand) &&
     not (...below...) ) {
   Company.must.pay(amount_owing)
+  .lest{contract is now in breach}
 }
 
 conversionSum = sum ( x | x <- Company.instruments.filter(isConvertible) )

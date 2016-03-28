@@ -39,6 +39,16 @@ http://napavalleyregister.com/business/columnists/mary-luros/practicing-law-with
 
 
 * Possible revenue models for Legalese
+** TODO insert the list of revenue possibilities from the lean canvas of mar 22? 2016
+
+** arbitron: voluntary dispute resolution
+*** we are the arbitration of first resort
+with a limited list of remedies available on appeal.
+*** faults
+errors of law
+
+
+
 ** allow in-house counsel to do private cloud.
 but why aren't in-house counsel already using an existing document assembly solution?
 ** is there an opportunity for brandsoftheworld.com for entity data like UEN, address, etc?
