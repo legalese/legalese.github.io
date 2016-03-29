@@ -31,7 +31,7 @@
 <? var and_interest_on = "of" ?>
 <? if (data.security_essential == "debt") { ?>
 <?!= cell_l ?>Interest</cell></Cell>
-<?!= cell_r ?><? if (data._orig_interest > 0) { ?>
+<?!= cell_r ?><? if (data._orig_interest) { ?>
 Interest will accrue on an annual basis at the rate of <?= data.interest ?> per annum based on a 365 day year.<?
 and_interest_on = "and unpaid accrued interest on"; } else { ?>
 The <?= data.security_type_short_plural ?> shall be interest-free.<? } ?></cell_fl></Cell>
