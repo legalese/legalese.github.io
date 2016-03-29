@@ -24,8 +24,8 @@
   else { ?><?= data.nonstandard_valuation_text ?><? } ?>"</i>;
 <? if (! data.no_class_f) { ?>
 And concurrently with the issue of Class F Shares to the founders and shareholders of the Company ("the Founders") and of other securities to other parties with rights and interests in the Company at the time of execution of this Agreement (together, "Existing Holders"), <? } ?></recitals>
-<recitals>The Company will issue, and JFDI will take up, a <?= data.security_type.toLowerCase() ?> in the total amount of <?= jfdi_investor.money ?> (the "<?=data.security_type_short_singular?>"), with the expectation that the <?=data.security_type_short_singular?> will, upon <?= data.security_type_operation ?> at the next round of financing, make <?= data.parties.jfdi_investor[0].short_name ?> a holder of <? if (data.agreed_percentage_minimum) { ?><?=data.agreed_percentage_minimum?>--<?}?>
-<?=data.agreed_percentage?>% of the fully-diluted capital of the Company.</recitals>
+<recitals>The Company will issue, and JFDI will take up, a <?= data.security_type.toLowerCase() ?> in the total amount of <?= jfdi_investor.money ?> (the "<?=data.security_type_short_singular?>"), with the expectation that the <?=data.security_type_short_singular?> will, upon <?= data.security_type_operation ?> at the next round of financing, make <?= data.parties.jfdi_investor[0].short_name ?> a holder of <? if (data._orig_agreed_percentage_minimum) { ?><?=data.agreed_percentage_minimum?>--<?}?>
+<?=data.agreed_percentage?> of the fully-diluted capital of the Company.</recitals>
 
   <para_1>Now it is hereby agreed as follows:---</para_1>
 
@@ -42,7 +42,7 @@ And concurrently with the issue of Class F Shares to the founders and shareholde
 <?if(data.term){?>  <definition>Maturity Date	means <?= data.jfdi_maturity_date ?>, being <?=data.term.match(/months/) ? data.term : data.term+" months" ?> from date of issue of the <?=data.security_type_short_singular?>; or such other date as may be mutually agreed between the Parties; </definition>
 <?}?>
 <?if(data.interest != undefined){?>
-<definition>Interest Rate	The <?=data.security_type_short_singular?> <? if (data.interest > 0) { ?>accrues <?= data.interest ?>% simple interest, to be payable in full on the earlier of the Maturity Date or the date on which the <?=data.security_type_short_singular?> is converted or redeemed in full,<?}else{?>carries no interest.<?}?></definition>
+<definition>Interest Rate	The <?=data.security_type_short_singular?> <? if (data._orig_interest > 0) { ?>accrues <?= data.interest ?> simple interest, to be payable in full on the earlier of the Maturity Date or the date on which the <?=data.security_type_short_singular?> is converted or redeemed in full,<?}else{?>carries no interest.<?}?></definition>
 <?}?>
   <definition>Trade Sale	means a sale of 75% or more of the voting share capital of the Company to a third party buyer; </definition>
   <definition>Ordinary Shares	means the ordinary shares in the capital of the Company; </definition>
@@ -69,13 +69,13 @@ full and accurate disclosure by the Company of information used to calculate the
 <a_left_sidehead xname="conversion"><?= data.security_type_operation?></a_left_sidehead>
   <numbered_2_para>The <?=data.security_type_short_singular?> shall be <?=data.security_type_operation=="conversion"?"converted":"exercised"?> in accordance with this Clause <xref to="conversion" />. </numbered_2_para>
   <numbered_2_para>At the closing of the first subsequent financing<? if (data.qualified_round_type == "debt or equity") { ?>, whether equity or debt,<?}else{?> of equity securities<?}?> in which the company raises no less than <?= data.qualified_financing_proceeds?> within a single round or series of securities (the "Next Financing Round"), the <?=data.security_type_short_singular?> shall automatically <? if (data.security_type_operation=="conversion"){?>convert into<?}else{?>be deemed to have been exercised, resulting in the issue of<?}?> such securities of the Company as are issued in that Next Financing Round (the "Conversion Shares"), such that 
-<?= data.parties.jfdi_investor[0].name ?> shall own <?=data.agreed_percentage?>% ("Conversion Percentage") of the total share capital in the Company, such total being calculated </numbered_2_para>
+<?= data.parties.jfdi_investor[0].name ?> shall own <?=data.agreed_percentage?> ("Conversion Percentage") of the total share capital in the Company, such total being calculated </numbered_2_para>
 <numbered_3_para>immediately prior to the issues due to the Next Financing Round; and
 taking all possible conversions, exercises of securities, and dilutions into account, including </numbered_3_para>
 <numbered_3_para>all shares of phantom stock, and</numbered_3_para>
 <numbered_3_para>conversion of all preference shares to ordinary shares.</numbered_3_para>
 <numbered_2_para>Should multiple forms of securities be issued in the Next Financing Round, then JFDI shall have the option to choose its class of Conversion Shares from amongst all those forms.</numbered_2_para>
-<? if(data.agreed_percentage_adjustable && data.agreed_percentage_minimum){ ?><numbered_2_para>The Conversion Percentage may be adjusted by mutual agreement of the Company and the Investor to no lower than <?= data.agreed_percentage_minimum ?>% according to the terms of the Founder Agreement, but shall in any event be fixed by <?= data.agreed_percentage_adjustment_date ?>.</numbered_2_para>
+<? if(data.agreed_percentage_adjustable && data._orig_agreed_percentage_minimum){ ?><numbered_2_para>The Conversion Percentage may be adjusted by mutual agreement of the Company and the Investor to no lower than <?= data.agreed_percentage_minimum ?> according to the terms of the Founder Agreement, but shall in any event be fixed by <?= data.agreed_percentage_adjustment_date ?>.</numbered_2_para>
 <?}?>
   <numbered_2_para>The Company shall within 14 days after the conversion date be obliged to allot, issue, and procure the transfer of the Conversion Shares to JFDI and/or its nominee(s), free from all liens, charges and encumbrances and with all rights attaching thereto. </numbered_2_para>
 <? if (data.security_type_operation == "exercise") {?><numbered_2_para>JFDI shall pay the Company the exercise price of the Warrant.</numbered_2_para><?}?>
