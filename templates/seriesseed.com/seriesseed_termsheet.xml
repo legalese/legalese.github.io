@@ -10,7 +10,7 @@
     <definition>Securities to Issue. Shares of Series Seed Preferred Stock of the Company (the <b><i>“Series Seed”</i></b>).</definition>
     <definition>Aggregate Proceeds. <? =data.proceeds ?> in aggregate.</definition>
     <definition><? if data.accredited_investor.length == 1 {?>Purchaser. <?} if data.accredited_investor.length > 1 {?>Purchasers. <?}?><? =commaAnd(data.accredited_investor) ?> (the <b><i>"Purchasers"</i></b>).</definition>
-    <definition>Price per Share. Price per share (the <b><i>“Original Issue Price”</i></b>), based on a pre-money valuation of <? =data.pre_money_valuation ?>, including an available option pool of <? =data.option_pool ?>%.</definition>
+    <definition>Price per Share. Price per share (the <b><i>“Original Issue Price”</i></b>), based on a pre-money valuation of <? =data.pre_money_valuation ?>, including an available option pool of <?= data.capTable.getRound("TOTAL").new_investors.ESOP.percentage ?>.</definition>
     <definition>Liquidation Preference. One times the Original Issue Price plus declared but unpaid dividends on each share of Series Seed, balance of proceeds paid to Common.  A merger, reorganization or similar transaction will be treated as a liquidation.</definition>
     <definition>Conversion. Convertible into one share of Common (subject to proportional adjustments for stock splits, stock dividends and the like) at any time at the option of the holder.</definition>
     <definition>Voting Rights. Votes together with the Common Stock on all matters on an as converted basis.  Approval of a majority of the Preferred Stock required to:</definition>

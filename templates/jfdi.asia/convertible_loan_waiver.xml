@@ -55,7 +55,7 @@ if (data.relationship_plural   == undefined) { data.relationship_plural   = "cre
     <para_1><span_smallcaps>Whereas</span_smallcaps> the <?
    if (data.parties.jfdi_investor.length == 1) { ?>Investor is a <?= data.relationship_singular ?> the Company<? } else { ?>Investors are <?= data.relationship_plural ?> the Company<? } ?>
  by virtue of a <?= data.security_title ?> executed on or about <?= data.original_agreement_date ?>, in the total amount of <?= data.principal_amount || data.parties.jfdi_investor[0].commitment ?><?
-   if (data.interest) { ?> (plus any accrued and unpaid interest)<? } ?>
+   if (data._orig_interest) { ?> (plus any accrued and unpaid interest)<? } ?>
  (the "<?= data.security_shortname ?> Amount");</para_1>
 <para_1><i>In view of the Company's expressed intention to cease operations,</i>
 <? if (data.extra_text_1 != undefined) { ?><?= data.extra_text_1 ?>

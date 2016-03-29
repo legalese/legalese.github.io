@@ -58,7 +58,7 @@ if (data.valuation_basis == "table") { ?>
 <Cell aid:ccols="1" aid:ccolwidth="226.33779527550004" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl>Startup has a prototype developed and launched, and at least 30 daily active users (B2C) or three positive customer testimonials (B2B).</cell_fl></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="67.93779527550001" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>S$170,000</cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="226.33779527550004" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl>Startup has no users, but a prototype developed based on at least 12 customer development interviews.</cell_fl></Cell>
-</Table><? if (data.agreed_percentage) { ?>The Conversion Percentage has been tentatively agreed at <?= data.agreed_percentage ?>. Confirmation will be subject to delivery and acceptance of substantiating evidence.<? }
+</Table><? if (data._orig_agreed_percentage) { ?>The Conversion Percentage has been tentatively agreed at <?= data.agreed_percentage ?>. Confirmation will be subject to delivery and acceptance of substantiating evidence.<? }
 else { ?>Valuation basis to be measured and fixed at the start of the "Accelerate" phase.<? } ?></table_enclosing_para><numbered_1_para><? } ?><? }
 else if (data.valuation_basis == "existing") { ?> determined on the basis of the valuation set in the previous round of financing by professional investors.</numbered_1_para>
 <numbered_2_para_indent>The Startup shall disclose to JFDI the details of the previous round of financing, including the identities of the investors, terms of the investment, and evidence of funds transferred.

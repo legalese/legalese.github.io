@@ -20,7 +20,7 @@
      fall out of sync!
 -->
 
-<? if (data.interest) { data.plus_interest = " and unpaid accrued interest" } else { data.plus_interest = "" } ?>
+<? if (data._orig_interest) { data.plus_interest = " and unpaid accrued interest" } else { data.plus_interest = "" } ?>
 
 <h1>Purchase Agreement for Convertible Note</h1>
 <p><b>This agreement</b> (the "Agreement") is made on <?= data.agreement_date ?> (the "Agreement Date")</p>
@@ -75,11 +75,11 @@
 
 <?!= newclause(2, "... in a Qualified Financing") ?>
 
-    <p>If the Company issues Equity Securities in a Qualified Financing, then the Notes<? if (data.interest) { ?>, and any accrued but unpaid interest thereon,<? } ?> will automatically convert into the equity securities issued pursuant to the Qualified Financing at the Conversion Price.</p>
+    <p>If the Company issues Equity Securities in a Qualified Financing, then the Notes<? if (data._orig_interest) { ?>, and any accrued but unpaid interest thereon,<? } ?> will automatically convert into the equity securities issued pursuant to the Qualified Financing at the Conversion Price.</p>
 
 <?!= newclause(2, "... at the Maturity Date") ?>
 
-	<p>At the Maturity Date, the Notes<? if (data.interest) { ?>, and any accrued but unpaid interest thereon,<? } ?> will automatically convert into Equity Securities at <?= 100*(1-data._orig_maturity_conversion_discount) ?>% of the Valuation Cap.</p>
+	<p>At the Maturity Date, the Notes<? if (data._orig_interest) { ?>, and any accrued but unpaid interest thereon,<? } ?> will automatically convert into Equity Securities at <?= 100*(1-data._orig_maturity_conversion_discount) ?>% of the Valuation Cap.</p>
 
 <?!= newclause(1, "Optional Conversion") ?>
       <p>If the Maturity Date or a Qualified Financing has not occurred, the Investor may elect to convert the entire Investment Amount into Equity Securities at the Valuation Cap.</p>
