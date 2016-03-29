@@ -37,12 +37,12 @@
   <numbered_2_para>The Notes issued to the Investor may form part of a series of such Notes issued on essentially identical terms except that the Investor, Investment Amount<?= data.variable_terms ?data.variable_terms:","?> and Closing Date may change from Note to Note. The total amount of the Series shall not exceed <?= data.amount_raising ?> without the written agreement of all the holders of the Notes in the Series currently outstanding.</numbered_2_para>
 
   <a_left_sidehead>Maturity Date</a_left_sidehead>
-  <numbered_2_para>The Principal <? if (data.interest != 0) { ?>and unpaid accrued interest on<? } else { ?>of<? } ?> the Notes will be due and payable <?= data.term ?> from the date of the signing of this Agreement (the &#8220;<b>Maturity Date</b>&#8221;).</numbered_2_para>
+  <numbered_2_para>The Principal <? if (data._orig_interest != 0) { ?>and unpaid accrued interest on<? } else { ?>of<? } ?> the Notes will be due and payable <?= data.term ?> from the date of the signing of this Agreement (the &#8220;<b>Maturity Date</b>&#8221;).</numbered_2_para>
 
 
   <a_left_sidehead>Interest</a_left_sidehead>
-  <numbered_2_para><? if (data.interest != 0) { ?>
-Interest on the Notes will accrue on an annual basis at the rate of <?= data.interest ?>% per annum based on a 365 days year.<? } else { ?>
+  <numbered_2_para><? if (data._orig_interest != 0) { ?>
+Interest on the Notes will accrue on an annual basis at the rate of <?= data.interest ?> per annum based on a 365 days year.<? } else { ?>
 The Notes shall bear no interest. <? } ?>
 </numbered_2_para>
 
@@ -84,7 +84,7 @@ shares with respect to which the holders of a majority of the outstanding Notes 
 <? } ?>
 
 <a_left_sidehead>Automatic Conversion</a_left_sidehead>
-  <numbered_2_para><b>Automatic Conversion in a Qualified Financing.</b> If the Company issues Equity Securities in a Qualified Financing, then the Notes<? if (data.interest != 0) { ?>, and any accrued but unpaid interest thereon,<? } ?> will automatically convert into the equity securities issued pursuant to the Qualified Financing at the Conversion Price.</numbered_2_para>
+  <numbered_2_para><b>Automatic Conversion in a Qualified Financing.</b> If the Company issues Equity Securities in a Qualified Financing, then the Notes<? if (data._orig_interest != 0) { ?>, and any accrued but unpaid interest thereon,<? } ?> will automatically convert into the equity securities issued pursuant to the Qualified Financing at the Conversion Price.</numbered_2_para>
   <? if (iHaveCap) { ?>
   <numbered_2_para><b>Automatic Conversion at the Maturity Date.</b> If the Notes have not been previously converted pursuant to a Qualified Financing, then, effective upon the Maturity Date, the Notes, and any accrued but unpaid interest thereon, will automatically convert into Equity Securities at <?= (100 - data.maturity_conversion_discount).toFixed(2) ?>% of the Valuation Cap.</numbered_2_para>
 <?}?>

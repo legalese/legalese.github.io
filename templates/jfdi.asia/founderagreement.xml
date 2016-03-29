@@ -1,7 +1,5 @@
 <?!= data.xmlRoot() ?>
-<? var jfdi_investor = data.capTable.getRound("JFDI Round").new_investors["JFDI.2014 Pte. Ltd."];
-   jfdi_investor.name = "JFDI.2014 Pte. Ltd.";
-?>
+<? var jfdi_investor = data.parties.jfdi_investor[0]; ?>
 <?!= include("inc_cover_standard_parties", data, {cover_title:"JFDI Founder Agreement", rcpts_to:rcpts_to}) ?>
 <?!= include("inc_cover_jfdi", data, { in_series:"03" }) ?>
 <Firstpage_Sidebar>
@@ -60,18 +58,18 @@ if (data.valuation_basis == "table") { ?>
 <Cell aid:ccols="1" aid:ccolwidth="226.33779527550004" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl>Startup has a prototype developed and launched, and at least 30 daily active users (B2C) or three positive customer testimonials (B2B).</cell_fl></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="67.93779527550001" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>S$170,000</cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="226.33779527550004" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl>Startup has no users, but a prototype developed based on at least 12 customer development interviews.</cell_fl></Cell>
-</Table><? if (data.agreed_percentage) { ?>The Conversion Percentage has been tentatively agreed at <?= data.agreed_percentage ?>%. Confirmation will be subject to delivery and acceptance of substantiating evidence.<? }
+</Table><? if (data._orig_agreed_percentage) { ?>The Conversion Percentage has been tentatively agreed at <?= data.agreed_percentage ?>. Confirmation will be subject to delivery and acceptance of substantiating evidence.<? }
 else { ?>Valuation basis to be measured and fixed at the start of the "Accelerate" phase.<? } ?></table_enclosing_para><numbered_1_para><? } ?><? }
 else if (data.valuation_basis == "existing") { ?> determined on the basis of the valuation set in the previous round of financing by professional investors.</numbered_1_para>
 <numbered_2_para_indent>The Startup shall disclose to JFDI the details of the previous round of financing, including the identities of the investors, terms of the investment, and evidence of funds transferred.
 <? if (data.previous_post_money_valuation) { ?>
-As an example, if the previous round of financing established a post-money valuation for the Startup at <?= data.previous_post_money_valuation ?>, then JFDI's total investment of <?= jfdi_investor.money ?> (cash) plus <?= data.intangibles_value ?> (intangibles) determines the Conversion Percentage at <?= data.agreed_percentage ?>%.
+As an example, if the previous round of financing established a post-money valuation for the Startup at <?= data.previous_post_money_valuation ?>, then JFDI's total investment of <?= jfdi_investor.money ?> (cash) plus <?= data.intangibles_value ?> (intangibles) determines the Conversion Percentage at <?= data.agreed_percentage ?>.
 <? } ?>
 </numbered_2_para_indent>
 <numbered_1_para><? }
        else if (data.valuation_basis == "discussion") { ?> determined as agreed by the Parties.
-<?   } else if (data.valuation_basis == "fixed") { ?> <?= data.agreed_percentage ?>%<?
-if(data._orig_tranche_1_percentage){?> in two tranches: the first being <?=data.tranche_1_amount?> for <?=data.tranche_1_percentage?>%, and the second being <?=data.tranche_2_amount?> for <?=data.tranche_2_percentage?>%<?}?>.
+<?   } else if (data.valuation_basis == "fixed") { ?> <?= data.agreed_percentage ?><?
+if(data._orig_tranche_1_percentage){?> in two tranches: the first being <?=data.tranche_1_amount?> for <?=data.tranche_1_percentage?>, and the second being <?=data.tranche_2_amount?> for <?=data.tranche_2_percentage?><?}?>.
 <?   } ?>
 <? } ?>
 The Founders shall travel to and from Singapore at their own expense. JFDI.Asia and JFDI.2014 shall not be obligated to reimburse any expenses incurred, or transfer any funds to the Founders or to their Startup, prior to formal acceptance to the Accelerate phase.
@@ -88,9 +86,9 @@ started acquiring users or customers
 <para_1>Teams which do not meet these criteria by <?= data.accelerate_start_date ?> will be considered for a subsequent bootcamp.</para_1>
 <numbered_1_para><? } ?>
 Within four weeks of the start of the Accelerate phase, the Founders shall <? if (data.previously_incorporated) { ?>have incorporated the Startup as a Singapore Private Limited legal entity and <? } ?>have opened a Singapore corporate bank account.
-After Accelerate begins, the Startup's Singapore bank account is ready, and the Startup and Founders have signed the JFDI Investment Agreement, the Shareholders' Agreement, the Founders Agreement, and the Class F agreement, JFDI.2014 will transfer <? if (data.skip_hoops != true) { ?><?=data.tranche_1_amount?>, that being the first tranche of its total cash investment, in return for a future <?=data.tranche_1_percentage?>% of the business.
+After Accelerate begins, the Startup's Singapore bank account is ready, and the Startup and Founders have signed the JFDI Investment Agreement, the Shareholders' Agreement, the Founders Agreement, and the Class F agreement, JFDI.2014 will transfer <? if (data.skip_hoops != true) { ?><?=data.tranche_1_amount?>, that being the first tranche of its total cash investment, in return for a future <?=data.tranche_1_percentage?> of the business.
 Conditional upon demonstrating further traction, the Startup will also be offered a chance to pitch to potential investors on Demo Day. If the Startup is struggling to show traction, JFDI.Asia may cancel the pitch. For the avoidance of doubt, a Startup which does not qualify to pitch will not be invited to Demo Day, not even to be in the audience.
-JFDI.2014 shall make the second tranche payment of <?=data.tranche_2_amount?> on or around Demo Day. This payment shall be made at JFDI.Asia's sole discretion, but is typically conditional upon the Founders participating in the Singapore component of the bootcamp, and the Startup demonstrating product/market fit in the form of a revenue commitment from at least two external, arms-length customers. The second tranche payment will entail a further <?=data.tranche_2_percentage?>% in the business. If the second tranche payment is not paid, JFDI.2014 will maintain its interest at the first-tranche level of <?=data.tranche_1_percentage?>%. The Startup may not decline the second tranche investment.
+JFDI.2014 shall make the second tranche payment of <?=data.tranche_2_amount?> on or around Demo Day. This payment shall be made at JFDI.Asia's sole discretion, but is typically conditional upon the Founders participating in the Singapore component of the bootcamp, and the Startup demonstrating product/market fit in the form of a revenue commitment from at least two external, arms-length customers. The second tranche payment will entail a further <?=data.tranche_2_percentage?> in the business. If the second tranche payment is not paid, JFDI.2014 will maintain its interest at the first-tranche level of <?=data.tranche_1_percentage?>. The Startup may not decline the second tranche investment.
 <? } else { ?><?= jfdi_investor.money ?> in one tranche.
 <? } ?>
 The Startup shall grant JFDI.2014 the right but not the obligation to invest a separate S$70,000 in the Startup at any time up to and including the Next External Financing, on the same terms as enjoyed by any other third-party investors.
