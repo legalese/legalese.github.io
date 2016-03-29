@@ -1,7 +1,5 @@
 <?!= data.xmlRoot() ?>
-<? var jfdi_investor = data.capTable.getRound("JFDI Round").new_investors["JFDI.2014 Pte. Ltd."];
-   jfdi_investor.name = "JFDI.2014 Pte. Ltd.";
-?>
+<? var jfdi_investor = data.parties.jfdi_investor; ?>
 <?!= include("inc_cover_standard_parties", data, {cover_title:"JFDI Founder Agreement", rcpts_to:rcpts_to}) ?>
 <?!= include("inc_cover_jfdi", data, { in_series:"03" }) ?>
 <Firstpage_Sidebar>
