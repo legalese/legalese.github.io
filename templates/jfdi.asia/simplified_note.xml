@@ -42,7 +42,7 @@
 
   <a_left_sidehead>Interest</a_left_sidehead>
   <numbered_2_para><? if (data._orig_interest != 0) { ?>
-Interest on the Notes will accrue on an annual basis at the rate of <?= data._orig_interest ?>% per annum based on a 365 days year.<? } else { ?>
+Interest on the Notes will accrue on an annual basis at the rate of <?= data.interest ?> per annum based on a 365 days year.<? } else { ?>
 The Notes shall bear no interest. <? } ?>
 </numbered_2_para>
 
