@@ -1,5 +1,5 @@
 <?!= data.xmlRoot() ?>
-<? var jfdi_investor = data.parties.jfdi_investor; ?>
+<? var jfdi_investor = data.parties.jfdi_investor[0]; ?>
 <?!= include("inc_cover_standard_parties", data, {cover_title:"JFDI Founder Agreement", rcpts_to:rcpts_to}) ?>
 <?!= include("inc_cover_jfdi", data, { in_series:"03" }) ?>
 <Firstpage_Sidebar>
