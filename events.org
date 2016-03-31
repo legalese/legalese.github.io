@@ -223,7 +223,7 @@ With the six critical issues resolved, that makes it usable by a determined end-
 
 Legalese v2.0 has a much nicer skin and front-end with defaults that pre-fills and wraps the v1.0 spreadsheets.
 
-v1.0 handles, for any Singapore startup,
+v2.0 handles, for any Singapore startup,
 - incorporation
 - NDAs / confidentiality
 - ESOP
