@@ -87,6 +87,7 @@ Within a contract, we deal with terms and content. This model cares about the co
 To understand this section, you should:
 - be reading Ken Adams, A Manual of Style for Contract Drafting
 - understand what a context-free grammar is, and be familiar with Backus-Naur Form
+- read http://content.iospress.com/articles/semantic-web/sw224, a survey of the landscape of computational legal semantics
 - read https://drive.google.com/open?id=0BxOaYa8pqqSwTC04OTF5b1hYams Some computational properties of a model for electronic documents, TBC 1989
 - view https://drive.google.com/open?id=0BxOaYa8pqqSwUWlCajFJQURXdG8 introducing deontic logics, Gorin 2010
 - read [[https://www.um.edu.mt/__data/assets/pdf_file/0008/51749/wict08_submission_17.pdf][conflict analysis of deontic contracts, Stephen Fenech]]
