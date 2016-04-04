@@ -1,3 +1,4 @@
+<?!= data.xml_declaration ?>
 <?!= data.xmlRoot() ?>
 <?!= include("inc_cover_2_parties", data, {cover_title:"Simplified Convertible Loan Agreement", party1:data.company, party2:data.new_investor}) ?>
 <?!= include("inc_cover_jfdi", data) ?>

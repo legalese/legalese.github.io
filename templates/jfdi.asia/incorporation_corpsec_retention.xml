@@ -1,3 +1,4 @@
+<?!= data.xml_declaration ?>
 <?!= data.xmlRoot(['templateSpec="singlepage.indt"',
   'appendPages="false"',
   'font-family="Helvetica Neue"',

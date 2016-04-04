@@ -1,3 +1,4 @@
+<?!= data.xml_declaration ?>
 <?!= data.xmlRoot('templateSpec="singlepage.indt"') ?>
 <CoverTop><? 
 if (data.security     == undefined) { data.security     = "Convertible Loan" }

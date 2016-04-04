@@ -1,3 +1,4 @@
+<?!= data.xml_declaration ?>
 <?!= data.xmlRoot() ?>
 <? var documentTitle = (data.previous_f_agreement_date ? "Amended and Restated " : "") + data.security_type + " Agreement"; ?>
 <?!= include("inc_cover_2_parties", data, {cover_title:documentTitle, party1:data.company, party2:data.new_investor}) ?>

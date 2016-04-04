@@ -1,3 +1,4 @@
+<?!= data.xml_declaration ?>
 <?!= data.xmlRoot() ?>
 <?!= include("inc_cover_standard_parties", data, {cover_title:"Term Sheet for "+ (data.investment_stage ? data.investment_stage+ " " : "") + data.security_type+" Investment", disclaimer:true}) ?>
 <?!= include("inc_cover_jfdi", data, { }) ?>

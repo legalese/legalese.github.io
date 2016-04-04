@@ -1,3 +1,4 @@
+<?!= data.xml_declaration ?>
 <?!= data.xmlRoot() ?>
 <?!= include("inc_cover_2_parties", data, {cover_title:"Super Simplified Convertible Loan Agreement", party1:data.company, party2:data.new_investor}) ?>
 <? var iHaveCap = data._orig_pre_money_valuation ? true : false; Logger.log("simplified_note: data.pre_money_valuation = %s (%s)", data.pre_money_valuation, iHaveCap); ?>

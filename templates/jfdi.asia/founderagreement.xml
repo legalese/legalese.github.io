@@ -1,3 +1,4 @@
+<?!= data.xml_declaration ?>
 <?!= data.xmlRoot() ?>
 <? var jfdi_investor = data.parties.jfdi_investor[0]; ?>
 <?!= include("inc_cover_standard_parties", data, {cover_title:"JFDI Founder Agreement", rcpts_to:rcpts_to}) ?>

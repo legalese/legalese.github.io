@@ -1,3 +1,4 @@
+<?!= data.xml_declaration ?>
 <?!= data.xmlRoot() ?>
 <CoverTop>
 <cover_title>Notice Regarding Pre-Emptive Rights

@@ -1,5 +1,5 @@
 <?!= data.xml_declaration ?>
-<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
+<?!= data.xmlRoot() ?>
   <CoverTop><cover_title>Terms for Private Placement of Series Seed Preferred Stock of <? =data.company.name ?></cover_title>
   <cover_title><? =data.agreement.date ?></cover_title></CoverTop>
 

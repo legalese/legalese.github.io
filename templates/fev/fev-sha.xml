@@ -1,3 +1,4 @@
+<?!= data.xml_declaration ?>
 <?!= data.xmlRoot() ?>
 <?!= include("inc_cover_standard_parties", data, {cover_title:"Shareholders' Agreement", rcpts_to:rcpts_to}) ?>
 <?!= include("inc_cover_jfdi", data, { in_series:"04" }) ?>
