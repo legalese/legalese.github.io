@@ -921,6 +921,11 @@ To pass, a resolution must meet certain voting or signature requirements.
 
 The requirements may differ by subject matter.
 
+* Further Research
+
+** Toulmin
+Stephen Toulmin (1922- ) held that formal logic is inappropriare as a model for argumentation. He developed a new and more adaptible model for nonformal reasoning. He also developed a way to diagram arguments widely in use today.
+
 * Legalese Katas
 
 These katas pose problems to be solved. They allow us to compare the solutuions proposed by different approaches -- DSLs, different languages, different paradigms.
