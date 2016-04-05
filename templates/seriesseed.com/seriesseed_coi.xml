@@ -1,4 +1,4 @@
-
+<? // don't add a data.xml_declaration here because this file is an include, not a standalone template. ?>
 <a_left_sidehead xname="ss.coi seriesseed">Series Seed Preferred Stock</a_left_sidehead>
 
 <para_1>The Directors may from time to time issue shares of <b>Series Seed Preferred Stock</b> in the capital of the Company, in one or more series, each of such series to consist of such number of shares and to have such terms, rights, powers and preferences, and the qualifications and limitations with respect thereto, as stated or expressed herein.</para_1>

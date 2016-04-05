@@ -1,3 +1,4 @@
+<? // don't add a data.xml_declaration here because this file is an include, not a standalone template. ?>
 <chapter_header>Constitution</chapter_header>
 <? var director_rotation = data.director_rotation || "always"; //optional||none ?>
 
