@@ -89,6 +89,7 @@ Some opensource infrastructure projects are embarrassingly underfunded. [[http:/
 Self-managing organizations are better suited to Internet-era post-industrial conditions. See also
 - http://www.reinventingorganizations.com/
 - http://www.holacracy.org/how-it-works/
+- http://venturebeat.com/2015/08/01/our-startup-got-rid-of-email-meetings-and-managers-and-thrived/
 
 Many opensource efforts have much in common with Teal organizations.
 
