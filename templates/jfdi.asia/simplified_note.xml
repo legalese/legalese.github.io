@@ -87,7 +87,7 @@ shares with respect to which the holders of a majority of the outstanding Notes 
 <a_left_sidehead>Automatic Conversion</a_left_sidehead>
   <numbered_2_para><b>Automatic Conversion in a Qualified Financing.</b> If the Company issues Equity Securities in a Qualified Financing, then the Notes<? if (data._orig_interest != 0) { ?>, and any accrued but unpaid interest thereon,<? } ?> will automatically convert into the equity securities issued pursuant to the Qualified Financing at the Conversion Price.</numbered_2_para>
   <? if (iHaveCap) { ?>
-  <numbered_2_para><b>Automatic Conversion at the Maturity Date.</b> If the Notes have not been previously converted pursuant to a Qualified Financing, then, effective upon the Maturity Date, the Notes, and any accrued but unpaid interest thereon, will automatically convert into Equity Securities at <?= (100 - data._orig_maturity_conversion_discount).toFixed(2) ?>% of the Valuation Cap.</numbered_2_para>
+  <numbered_2_para><b>Automatic Conversion at the Maturity Date.</b> If the Notes have not been previously converted pursuant to a Qualified Financing, then, effective upon the Maturity Date, the Notes, and any accrued but unpaid interest thereon, will automatically convert into Equity Securities at <?= (100 - data._orig_maturity_conversion_discount*100).toFixed(2) ?>% of the Valuation Cap.</numbered_2_para>
 <?}?>
 
   <? if (iHaveCap) { ?>
