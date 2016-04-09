@@ -975,6 +975,25 @@ Company Pte. Limited
 Investor
 #+END_QUOTE  
 
+Reformatted for clarity
+
+#+BEGIN_SRC
+If (the Company
+    issues any additional shares
+       (including, but not limited to, all classes of shares, warrants, rights to subscribe for shares and securities convertible into any share class)
+    for a consideration per share that is
+    less than the Subscription price per share
+       (as adjusted for any change of nominal values of shares, e.g. share splits and similar events)),
+    {
+      the subscription price
+          (as adjusted for share splits, consolidations of shares and similar events)
+      of the subscribed shares
+         issued subject to this Investment
+      shall be adjusted
+      on a full ratchet basis.
+    }
+#+END_SRC
+
 ** Kata ML01: Modeling Legislation and Regulation
 
 As seen [[*Regulations and Contracts as Business Logic][above]]:
@@ -1033,6 +1052,91 @@ There is no penalty.
 What happens if the Obligations are not met?
 
 There is a penalty.
+
+** Kata TA02: Trademark Application
+
+#+BEGIN_QUOTE
+The Company has filed an application for registration of trade mark for the "XXX" mark with the Registrar of Trade Marks in Singapore, as set forth in the Disclosure Schedule ("Application"). As at the date hereof, neither the Company nor any Key Holder has any reason to believe that the Application will be opposed, revoked or refused for registration. On and from the Agreement Date, the Company shall, and each Key Holder shall procure that the Company will diligently monitor and pursue the Application, and provide each Purchaser with updates and information materially affecting the Application.
+#+END_QUOTE
+
+This decomposes into three bits
+
+1. The Company has filed an application for registration of trade mark for the "XXX" mark with the Registrar of Trade Marks in Singapore, as set forth in the Disclosure Schedule ("Application").
+2. As at the date hereof, neither the Company nor any Key Holder has any reason to believe that the Application will be opposed, revoked or refused for registration.
+3. On and from the Agreement Date, the Company shall, and each Key Holder shall procure that the Company will diligently monitor and pursue the Application, and provide each Purchaser with updates and information materially affecting the Application.
+
+Of which the third statement becomes
+
+1. On and from the Agreement Date,
+2. the Company shall,
+3. and each Key Holder shall procure that the Company will
+4. diligently
+   1. monitor
+   2. and pursue
+   3. the Application,
+5. and provide each Purchaser with updates and information materially affecting the Application.
+
+The semantic model of this statement looks something like:
+
+Expression:
+- conditional upon: execution of main contract (no other conditions)
+- temporal start: starting on the agreement date
+- temporal end: not specified in the clause.
+- temporal end: keyed to the life of the application, so the expression terminates when the application succeeds or fails.
+- obligation 1:
+  - party: company
+  - action:
+    - first part:
+      - monitor the application
+      - pursue the application
+    - second part:
+      - provide each purchaser with updates and information materially affecting the application
+- obligation 2:
+  - party: each of [ key holders ]
+  - action:
+    - procure that the company performs obligation 1
+
+In Leiden Language 1, we would express this as:
+CE case ifpredicate=Contract_Execution
+TE from Agreement_Date
+PE party Company ("PE1")
+   OE must
+      [ monitor, pursue ] `perform` the application
+      lest BC breach_exception
+   OE must
+      provide [ updates, information ] <*> purchasers
+        where updates,information materially affecting application
+PE party in [ Key_Holders ] ("PE2")
+   OE must
+   action = perform procurement PE1
+
+** From this we can think about well-formedness of expressions and subexpressions. Let us call this the Leiden Language 1.
+
+*** breach_consequence
+BC ::= intensional_consequence+ | extensional_consequence+ | breach_exception
+intensional_consequence ::= party.attribute_change()
+extensional_consequence ::= TE
+breach_exception ::= monad
+
+*** obligation expression
+OE ::= ( must | may | mustnot ) (action+ lest BC+)+
+action ::= perform | send_notice
+perform ::= act_monad | hereby_statement | procurement
+send_notice ::= party sends notice to some other party
+procurement ::= procure PE
+
+*** party expression
+PE ::= party OE+
+party ::= individual | corporation
+
+*** temporal expression
+TE ::= temporal PE+
+temporal ::= ( at | upon | when | while | before | after | from ) datetime
+
+*** conditional expression
+CE ::= case ( ifpredicate TE+ )* default ( TE | null )
+ifpredicate ::= condition_monad
+
 
 ** Securities Notice.
 
