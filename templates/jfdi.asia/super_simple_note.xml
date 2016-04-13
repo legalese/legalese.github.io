@@ -64,7 +64,7 @@ The Note shall bear no interest. <? } ?>
   <numbered_2_para><b>Automatic Conversion at the Maturity Date.</b> On the Maturity Date, the Note, and any accrued but unpaid interest thereon, will automatically convert into Equity Securities at <?= (100 - 100*data._orig_maturity_conversion_discount).toFixed(2) ?>% of the Conversion Price.</numbered_2_para>
 
 <a_left_sidehead>Optional Conversion</a_left_sidehead>
-<numbered_2_para>At any time prior to the Maturity Date, the Investor may elect to convert the entire Investment Amount into Equity Securities at the Conversion Price.</numbered_2_para>
+<numbered_2_para>At any time prior to the Maturity Date, the Company may elect to convert the entire Investment Amount into Equity Securities at the Conversion Price.</numbered_2_para>
 
 <a_left_sidehead>Conversion Price</a_left_sidehead>
 
