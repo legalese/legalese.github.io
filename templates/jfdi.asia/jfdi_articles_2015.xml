@@ -2,6 +2,8 @@
 <chapter_header>Constitution</chapter_header>
 <? var director_rotation = data.director_rotation || "always"; //optional||none ?>
 
+<?!= include("inc_sg_memorandum", data, {}) ?>
+
 <b_left_sidehead_nonum>Model Constitution Excluded</b_left_sidehead_nonum>
 
 <para_1>The model constitution provided by the Companies Act (Cap.50), Companies (Model Constitutions) Regulations 2015, First Schedule, shall not apply to the company.</para_1>
