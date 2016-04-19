@@ -1,5 +1,6 @@
 <? var rows = [ ["name"], ["idtype","id"], ["_email_firstline"] ];
-  if (data._include.party_type == "company" && data._include.signatory_name != undefined && data._include.signatory_name.length ) { rows.push(["signatory_name"]); }
+  if (data._include.party_type == "company" && data._include.signatory_name != undefined && data._include.signatory_name.length ) { rows.splice(2,0,["signatory_name"]); }
+  if (data._include.party_type == "company" && data._include.signatory_role != undefined && data._include.signatory_role.length ) { rows.splice(2,0,["signatory_role"]); }
   var rowcount = rows.length;
   if (data.signature_comment != undefined) { rowcount++ }
 ?>
@@ -12,6 +13,6 @@
 rows[i] != undefined ? rows[i].map(function(r){return data._include[r]}).join(" ") : ""
 ?><? if (i==1) { ?></span_ucnum><? } ?></cell></Cell>
 <? } if (data.signature_comment != undefined) { ?>
-<Cell aid:ccols="1" aid:ccolwidth="150" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell><?= data.signature_comment ?></cell></Cell>
+<!-- signature_comment --><Cell aid:ccols="1" aid:ccolwidth="150" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell><?= data.signature_comment ?></cell></Cell>
 <? } ?>
 </Table></table_enclosing_para>
