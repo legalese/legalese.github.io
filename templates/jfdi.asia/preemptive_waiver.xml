@@ -57,7 +57,6 @@ There is no obligation to participate. If you do not, <?= commaAnd(data.parties.
 <?}?>
 If we do not hear from you within <?= data.preemptive_rights_notice_period || 7 ?> days from the date of this letter, we will understand that you waive your rights in relation to this issue.
 </para_2>
-<? data.signature_comment = "Director"; ?>
 <?!= include("inc_signature", data, data.company) ?>
 </Story_Main>
 <Bottom_Box delete_if_empty="true">
@@ -66,7 +65,6 @@ If we do not hear from you within <?= data.preemptive_rights_notice_period || 7 
 .</para_1>
 <? if(data.waiver_additional_text){?><para_2><?= data.waiver_additional_text ?>
 </para_2><?}?>
-<? data.signature_comment = "Shareholder"; ?>
 <?!= include("inc_signature", data, data.shareholder) ?>
 </Bottom_Box>
 </Root>
