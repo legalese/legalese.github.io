@@ -2,10 +2,8 @@
 <? var founding_investors = Object.keys(new_investors); ?>
 
   <numbered_1_para restart="true">The name of the company is <?= data.company.name ?></numbered_1_para>
-  <numbered_1_para>The Registered Office of the Company will be situated in Singapore, at</numbered_1_para>
-  <para_2><?= data.company.address ?></para_2>
+  <numbered_1_para>The Registered Office of the Company will be situated in Singapore.</numbered_1_para>
   <numbered_1_para>The liability of the members is limited. </numbered_1_para>
-  <numbered_1_para>Subject to the provisions of the Companies Act (Cap. 50) and the Company's Constitution, the Company has full capacity, rights and powers to carry on or undertake any business or activity and to do any act or enter into any transactions and/or arrangements. </numbered_1_para>
   <numbered_1_para><? if (founding_investors.length > 1) { ?>We, the several persons whose names, citizenship, and addresses are hereunto subscribed are<?} else {?>
 I, the sole shareholder whose name, citizenship, and address are hereunto subscribed am<? } ?>
  desirous of incorporating a company in pursuance of this Constitution and <?= plural(founding_investors.length, "I hereby", "we respectively") ?> agree to take the number of shares in the capital of the Company set opposite <?= plural(founding_investors.length, "my name", "our respective names") ?>. </numbered_1_para>
