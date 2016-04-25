@@ -131,7 +131,7 @@ Easy! Find a mirror. You're in charge.
 
 First, professors invented the seminar because it was more scalable than one-on-one tuition. Then they figured out they didn't even have to turn up, half the time, and the learning would still go on, as long as the students were there.
 
-In the same way, if you want to interact with Legalese, you already can. If you want to report a bug or file a feature request, go ahead: use Github issues. If you want to spend company funds, bring up the issue on the #finance chat. If you want to complain about the organizational structure, go to #meta. If you want to represent Legalese to some third party entity, you can, so long as you do not commit anyone else within the company to act, without getting their approval first.
+In the same way, if you want to interact with Legalese, you already can. If you want to report a bug or file a feature request, go ahead: use Github issues. If you want to spend company funds, bring up the issue on the #reimbursement chat. If you want to complain about the organizational structure, go to #meta. If you want to represent Legalese to some third party entity, you can, so long as you do not commit anyone else within the company to act, without getting their approval first.
 
 /OK, then where do I find letterhead?/
 
