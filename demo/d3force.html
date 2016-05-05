@@ -67,7 +67,7 @@ d3.json("https://raw.githubusercontent.com/jobchong/newlegalesetemplates/master/
       .enter().append("g")
       .attr("class", "node")
       .on("click", function (d) { d.fixed = true } )
-      .on("click", function(d) { if (!d.url) { alert ("This node has no documents associated with it!") }  else { window.open (d.url) }})
+      .on("click", function(d) { if (!d.url) { return null }  else { window.open (d.url) }})
       .call(force.drag);
 
   node.append("circle")
