@@ -52,6 +52,7 @@ d3.json("https://raw.githubusercontent.com/jobchong/newlegalesetemplates/master/
       .data(json.nodes)
       .enter().append("g")
       .attr("class", "node")
+      .on("click", function (d) { d.fixed = true } )
       .call(force.drag);
 
   node.append("circle")
