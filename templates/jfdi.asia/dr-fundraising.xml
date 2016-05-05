@@ -34,8 +34,8 @@ it <?if(data.previously_paid){?>was<?}else{?>is<?}?> in the interests of the Com
 <?if(! data.previously_paid){?>the Company enters into the Agreement;
 <?}?>
 <?= data.parties.director[data.signing_director_index||0].name ?> be authorised to sign the same on behalf of the Company;
-the said <?= data.parties.director[data.signing_director_index||0].name ?> be authorised in his absolute discretion to approve any amendment, alteration, or modification to the Agreement and that the signing and sealing thereof or of a copy thereof be conclusive evidence of such approval; and<? } ?>
-</numbered_2_para><numbered_2_para xname="signing_authority"><?= data.parties.director[data.signing_director_index||0].name ?> be authorised to do all acts or things necessary or desirable in connection with the foregoing including without limitation, signing and executing such documents or approving any modifications to such documents as he may deem necessary or expedient for the foregoing purpose and that the signing thereof by such director be conclusive of such approval.</numbered_2_para>
+the said <?= data.parties.director[data.signing_director_index||0].name ?> be authorised in <?= data.parties.director[data.signing_director_index||0].possessive_pronoun || "his" ?> absolute discretion to approve any amendment, alteration, or modification to the Agreement and that the signing and sealing thereof or of a copy thereof be conclusive evidence of such approval; and<? } ?>
+</numbered_2_para><numbered_2_para xname="signing_authority"><?= data.parties.director[data.signing_director_index||0].name ?> be authorised to do all acts or things necessary or desirable in connection with the foregoing including without limitation, signing and executing such documents or approving any modifications to such documents as <?= data.parties.director[data.signing_director_index||0].pronoun || "he" ?> may deem necessary or expedient for the foregoing purpose and that the signing thereof by such director be conclusive of such approval.</numbered_2_para>
 <?if(data.omit_dora){?>
 <!-- dora omitted entirely -->
 <?} else if (data.new_sha) { ?>
