@@ -6,7 +6,6 @@
 <para_1><span_smallcaps>Dated this:</span_smallcaps> <?= data.resolution_date || data._include.date || data._todays_date ?></para_1>
 <? } ?>
 
-<? data.signature_comment = (data._include.director_or_member) || "Director"; ?>
 <? if (data._include.director_or_member == "Member") { ?>
 <? for (var i=0;i<data.parties.shareholder.length;i++) { ?><?!= include("inc_signature", data, data.parties.shareholder[i]) ?><? } ?>
 <? } else { ?>

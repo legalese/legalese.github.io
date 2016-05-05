@@ -1,5 +1,5 @@
 <?!= data.xml_declaration ?>
-<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/" templateSpec="kindle.indt" addnewline="false">
+<?!= data.xmlRoot(['templateSpec="kindle.indt"', 'addnewline="false"']) ?>
 <CoverTop><cover_company_name><?= data.new_participant.name ?></cover_company_name></CoverTop>
 <CoverBottom_Logotype><cover_corporate_logotype>legalese.io</cover_corporate_logotype></CoverBottom_Logotype>
 <CoverBottom_series><noindent_centered><span_smallcaps>Project Participant Introduction</span_smallcaps>

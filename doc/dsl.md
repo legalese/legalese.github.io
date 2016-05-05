@@ -173,7 +173,7 @@ The optimization engine responsible for syntactic sugar: Legalose
 
 A parser for L4: Legalase
 
-## True DSL or Embedded DSL?
+## Internal (Embedded) DSL or External DSL?
 
 Numerous papers have observed that [contracts are ripe for formalization](http://www.diku.dk/hjemmesider/ansatte/hvitved/publications/hvitved10flacosb.pdf). A common impulse is to say, "let's design a [DSL](https://en.wikipedia.org/wiki/Domain-specific_language)!"
 
@@ -303,14 +303,18 @@ An object may have multiple formulae.
 
 The primitives are:
 - (temporal) upon, when, while, before, after
-- (conditional) if, unless, provided, savefor
-- (priority) subjectTo, notwithstanding, prevails
+- (conditional) if, unless, provided, saveFor
+- (priority ordering) subjectTo, notwithstanding, prevails
+
 - (predicate) party, parties
 - (performative) warrant, guarantee, hereby
 - (deontic) must, may, mustnot
 - (deontic penalty) lest, else
 - (trace) by virtue of
 - (scoped functions) defining
+
+- (anaphora) referring to another clause
+- (functor) mutatis mutandis
 
 warrant :: Person -> Statement -> Bool
 warrant a b c = Person a states for the record that statement b is c
@@ -359,10 +363,12 @@ If the upon-block returns true, the rest of the formula proceeds once:
 
 	object.when { when-block }
 
-.if   {   if-block }
-		  .may  {  may-block }
+If and May
+
+    .if   {   if-block }
+    .may  {  may-block }
 	      
-if (`when-block` && `if-block`) { may-block }
+    if (`when-block` && `if-block`) { may-block }
 
 The `when` block must be pure, except for time, in the sense that it will be evaluated many times.
 

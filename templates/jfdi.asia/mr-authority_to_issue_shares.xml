@@ -1,8 +1,9 @@
-<para_1>That pursuant to Section 161 of the Companies Act (Cap. 50), the <?= plural(data.parties.director, "Director") ?> of the Company be and <?= plural_verb(data.parties.director, "is") ?> hereby authorised to allot and to issue <?= data.security_type_plural || "" ?>
+<para_1>That pursuant to Section 161 of the Companies Act (Cap. 50), the <?= plural(data.parties.director, "Director") ?> of the Company be and <?= plural_verb(data.parties.director, "is") ?> hereby authorised to allot and to issue <? if (data.share_issuance_total_shares) { ?><?= data.share_issuance_total_shares + " " ?><? } ?><?= data.security_type_plural || "" ?>
 <?= data.security_type_plural ? " " : "shares " ?>
 <? if (data.security_essential && data.security_essential.match(/equity/)) { ?>in the capital of the Company<? } ?>
 <?= data.share_issuance_to_persons || " to such persons" ?>
 <?= data.share_issuance_terms || " on such terms and conditions" ?>
- and with such rights and restrictions as they may think fit to impose; and that such authority shall continue in force <? if (data.subsection_161_4) { ?>under Subsection 161(4) beyond the expiration described in Subsection 161(3).<? } else { ?>
-until the conclusion of the Annual General meeting commencing next after this date, or the expiration of the period within which the next Annual General Meeting of the Company is required by law to be held, whichever is earlier.<? } ?>
-</para_1>
+<?= data.share_issuance_rights || " and with such rights and restrictions as they may think fit to impose" ?>
+<? if (! data.share_issuance_continues === false) { ?>; and that such authority shall continue in force <? if (data.subsection_161_4) { ?>under Subsection 161(4) beyond the expiration described in Subsection 161(3)<? if (data.security_type_operation) {?> as needed to fulfill contractual obligations regarding <?=data.security_type_operation?><?}?><? } else { ?>
+until the conclusion of the Annual General meeting commencing next after this date, or the expiration of the period within which the next Annual General Meeting of the Company is required by law to be held, whichever is earlier<? } ?>
+<? } ?>.</para_1>

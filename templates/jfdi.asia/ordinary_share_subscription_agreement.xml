@@ -1,3 +1,4 @@
+<?!= data.xml_declaration ?>
 <?!= data.xmlRoot() ?>
 <?!= include("inc_cover_2_parties", data, {cover_title:data.security_type + " Subscription Agreement", party1:data.company, party2:data.new_investor}) ?>
 <?!= include("inc_cover_jfdi", data) ?>
@@ -110,10 +111,9 @@ shall be fully-paid by the Investor at the time of issue by the Company in accor
 <numbered_3_para xname="completion_investor">On Completion, the Investor shall:</numbered_3_para>
 <?if(! data.previously_paid){?>
  <numbered_4_para>pay the Subscription Price to the Company by transfer to the Company's account set out below:</numbered_4_para>
-  <numbered_5_para>Name of Account: <?= data.company.bank_account_name ?></numbered_5_para>
-  <numbered_5_para>Account Number: <?= data.company.bank_account_number ?></numbered_5_para>
-  <numbered_5_para>Bank Name: <?= data.company.bank_name ?></numbered_5_para>
-  <numbered_5_para>Bank Transfer Details: <?= data.company.bank_transfer_details ?></numbered_5_para>
+  <numbered_5_para>Name of Account: <?= data.company.bank_account_name || data.bank_account_name ?></numbered_5_para>
+  <numbered_5_para>Account Number: <?= data.company.bank_account_number || data.bank_account_number ?></numbered_5_para>
+  <numbered_5_para>Bank Name: <?= data.company.bank_name || data.bank_name ?></numbered_5_para>
 <?}?>
 <?if(!data.skip_dora){?>
  <numbered_4_para>deliver to the Company an executed Deed of Ratification and Accession to the Shareholders' Agreement.</numbered_4_para>
@@ -311,7 +311,7 @@ shall be fully-paid by the Investor at the time of issue by the Company in accor
   var myShareholder = data.parties.new_investor[i];
   if (myShareholder == data.new_investor) { continue }
 ?>
-<bullets><?= newlinesToCommas(myShareholder.name) ?> is party to an agreement similar to this one, and is expected to hold <?= digitCommas_(myShareholder.num_new_shares || myShareholder.num_shares, 0) ?> ordinary shares upon completion of that agreement.</bullets>
+<bullets><?= newlinesToCommas(myShareholder.name) ?> is party to an agreement similar to this one, and is expected to hold <?= myShareholder.num_new_shares ?> new ordinary shares upon completion of that agreement.</bullets>
 <? } ?>
 
 
@@ -324,6 +324,11 @@ shall be fully-paid by the Investor at the time of issue by the Company in accor
 
 <?}else{?><para_1>There are no Other New Investors.</para_1>
 <?}?>
+
+<chapter_header>Signatures</chapter_header>
+<para_1><span_smallcaps>In witness whereof</span_smallcaps> the parties hereto have executed this Agreement as of the date and year first written above.</para_1>
+
+  <?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: { } } ) ?>
 
 </Story_Main>
 </Root>

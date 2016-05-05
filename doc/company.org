@@ -89,6 +89,7 @@ Some opensource infrastructure projects are embarrassingly underfunded. [[http:/
 Self-managing organizations are better suited to Internet-era post-industrial conditions. See also
 - http://www.reinventingorganizations.com/
 - http://www.holacracy.org/how-it-works/
+- http://venturebeat.com/2015/08/01/our-startup-got-rid-of-email-meetings-and-managers-and-thrived/
 
 Many opensource efforts have much in common with Teal organizations.
 
@@ -118,7 +119,7 @@ In-person meetings are acceptable if and only if:
 * FAQ: Why do I keep getting redirected to the group chat?
 /My main point of contact with Legalese is X, but when I try to talk to X about Legalese, X doesn't seem to want to talk to me directly; instead, X tells me to talk on the mailing list, or the group chat. Why are they being so rude? Who do they think they are?/
 
-They're not being rude to you; they're just being polite to other people. Other people who should be involved in the conversation, and would object to side conversations.
+They're not being rude to you; they're just being polite to other people. Other people who should be involved in the conversation, and would object to [[http://www.svilendobrev.com/rabota/orgpat/6-1-change-all.html][side conversations]]. Or people who would benefit, tomorrow, from seeing your conversation today. Some of these people might not even be with us yet: they will join tomorrow. Their access to historical discussions means they can learn what happened without having to bother you. This is the fundamental value proposition of the technology called "literacy": it scales better than [[https://en.wikipedia.org/wiki/Walter_J._Ong][the alternative, which is orality]].
 
 This may be your first experience interacting with an opensource community. Legalese -- the opensource project -- is not a traditional organization with a central point of contact. Legalese, the commercial entity, does offer that kind of support, but only to paying customers. The closer you are to being a paying customer, the more you can expect confidential, personal support. The closer you are to being a project participant, contributing bug reports and pull requests, the more you should expect to talk to your fellow participants, not to some figurehead. The PR spokesman may be the voice of the organization, but she doesn't have any more executive authority than anyone else.
 
@@ -130,7 +131,7 @@ Easy! Find a mirror. You're in charge.
 
 First, professors invented the seminar because it was more scalable than one-on-one tuition. Then they figured out they didn't even have to turn up, half the time, and the learning would still go on, as long as the students were there.
 
-In the same way, if you want to interact with Legalese, you already can. If you want to report a bug or file a feature request, go ahead: use Github issues. If you want to spend company funds, bring up the issue on the #finance chat. If you want to complain about the organizational structure, go to #meta. If you want to represent Legalese to some third party entity, you can, so long as you do not commit anyone else within the company to act, without getting their approval first.
+In the same way, if you want to interact with Legalese, you already can. If you want to report a bug or file a feature request, go ahead: use Github issues. If you want to spend company funds, bring up the issue on the #reimbursement chat. If you want to complain about the organizational structure, go to #meta. If you want to represent Legalese to some third party entity, you can, so long as you do not commit anyone else within the company to act, without getting their approval first.
 
 /OK, then where do I find letterhead?/
 

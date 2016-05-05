@@ -14,8 +14,8 @@
 <basic_para>
 
 </basic_para>
-<para_1><?= data.shareholder.name ?></para_1>
-<basic_para><?= data.shareholder.address ?>
+<para_1><?= data.sitout_shareholder.name ?></para_1>
+<basic_para><?= data.sitout_shareholder.address ?>
 
 </basic_para>
 <? var activeRound = data.capTable.getActiveRound(); ?>
@@ -29,14 +29,14 @@
 <para_2>As a member of the Company, you possess the right under the Company's Constitution to participate in this issue.
 <?if(data.preemptive_formality){?>We request that you waive this right, as your waiver is a necessary formality required for the Company to issue securities to <?=commaAnd(data.parties.new_investor,"name")?>.
 <?}else{?>
-<? Logger.log("attempting to calculate percentage for old_investor %s", data.shareholder.name); ?>
-<? var percentage = data.capTable.getActiveRound().old_investors[data.shareholder.name]._orig_shares / data.capTable.getActiveRound().pre_money._orig_shares; ?>
+<? Logger.log("attempting to calculate percentage for sitout_shareholder %s", data.sitout_shareholder.name); ?>
+<? var percentage = data.capTable.getActiveRound().sitout_shareholders[data.sitout_shareholder.name]._orig_shares / data.capTable.getActiveRound().pre_money._orig_shares; ?>
 <? var pr_tf = 2;
   var pro_rata = (100*percentage).toFixed(pr_tf);
   while (pro_rata == 0) { pr_tf++; pro_rata = (100*percentage).toFixed(pr_tf); }
 ?>
 <? Logger.log("preemptive_waiver: percentage=%s; pro_rata=%s",percentage, pro_rata); ?>
-Given that you presently hold <?= data.capTable.getActiveRound().old_investors[data.shareholder.name].shares ?> out of <?= data.capTable.getActiveRound().pre_money.shares ?> existing shares, you have the right to subscribe for up to <?= pro_rata ?>% of this new issue: <?
+Given that you presently hold <?= data.capTable.getActiveRound().sitout_shareholders[data.sitout_shareholder.name].shares ?> out of <?= data.capTable.getActiveRound().pre_money.shares ?> existing shares, you have the right to subscribe for up to <?= pro_rata ?>% of this new issue: <?
 if (data.security_essential == "equity") {
   var num_securities = percentage * newIssues.TOTAL._orig_shares;
 ?>
@@ -57,16 +57,14 @@ There is no obligation to participate. If you do not, <?= commaAnd(data.parties.
 <?}?>
 If we do not hear from you within <?= data.preemptive_rights_notice_period || 7 ?> days from the date of this letter, we will understand that you waive your rights in relation to this issue.
 </para_2>
-<? data.signature_comment = "Director"; ?>
 <?!= include("inc_signature", data, data.company) ?>
 </Story_Main>
 <Bottom_Box delete_if_empty="true">
 <? // TODO: add form fields https://www.echosign.adobe.com/content/dam/echosign/docs/pdfs/Forms%20-%20Text%20Tags%20Acrobat%20Form%20Fields%20Companion.pdf ?>
-<para_1>I, <?= newlinesToCommas(data.shareholder.name) ?> (<?= data.shareholder.idtype ?> <span_ucnum><?= data.shareholder.id ?></span_ucnum>), being a shareholder of <?= data.company.name ?> hereby decline to subscribe for the <?= data.security_type_short_plural ?> in this issue<? if (data.security_type != "Ordinary Shares") { ?> and give my approval for any subsequent <?= data.security_type_operation ?> as well<? } ?>
+<para_1>I, <?= newlinesToCommas(data.sitout_shareholder.name) ?> (<?= data.sitout_shareholder.idtype ?> <span_ucnum><?= data.sitout_shareholder.id ?></span_ucnum>), being a shareholder of <?= data.company.name ?> hereby decline to subscribe for the <?= data.security_type_short_plural ?> in this issue<? if (data.security_type != "Ordinary Shares" && data.security_type_operation) { ?> and give my approval for any subsequent <?= data.security_type_operation ?> of the <?= data.security_type_short_plural ?> resulting in a future issue of equity securities.<? } ?>
 .</para_1>
 <? if(data.waiver_additional_text){?><para_2><?= data.waiver_additional_text ?>
 </para_2><?}?>
-<? data.signature_comment = "Shareholder"; ?>
-<?!= include("inc_signature", data, data.shareholder) ?>
+<?!= include("inc_signature", data, data.sitout_shareholder) ?>
 </Bottom_Box>
 </Root>

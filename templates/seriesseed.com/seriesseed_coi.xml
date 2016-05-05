@@ -1,4 +1,4 @@
-
+<? // don't add a data.xml_declaration here because this file is an include, not a standalone template. ?>
 <a_left_sidehead xname="ss.coi seriesseed">Series Seed Preferred Stock</a_left_sidehead>
 
 <para_1>The Directors may from time to time issue shares of <b>Series Seed Preferred Stock</b> in the capital of the Company, in one or more series, each of such series to consist of such number of shares and to have such terms, rights, powers and preferences, and the qualifications and limitations with respect thereto, as stated or expressed herein.</para_1>
@@ -13,7 +13,7 @@
 <definition_list>any additional directors will be elected by the affirmative vote of the majority, within each class, counted on an as-converted basis, of the Series Seed Preferred Stock and Common Stock.</definition_list>
 <definition_list>For administrative convenience, the initial Series Seed Director may also be appointed by the Board in connection with the approval of the initial issuance of Series Seed Preferred Stock without a separate action by the holders of a majority of Series Seed Preferred Stock.</definition_list>
 
-<definition_nonum>Original Issue Price	means <?= data.price_per_share ?> per share for the Series Seed Preferred Stock.</definition_nonum>
+<definition_nonum>Original Issue Price	means <?= data.ss_price_per_share || data.price_per_share ?> per share for the Series Seed Preferred Stock.</definition_nonum>
 
 <definition_nonum>Requisite Holders	means the holders of at least a majority of the outstanding shares of Series Seed Preferred Stock.</definition_nonum>
 
@@ -49,29 +49,33 @@
 
 <numbered_3_firstbold_fl xname="ss.coi stockprotection">Protective Provisions. At any time when at least 25% of the initially issued shares of Series Seed Preferred Stock remain outstanding, the Company shall not, either directly or indirectly by amendment, merger, consolidation or otherwise, do any of the following without (in addition to any other vote required by law or these Regulations) the written consent or affirmative vote of the Requisite Holders, given in writing or by vote at a meeting, consenting, or voting (as the case may be) separately as a single class:</numbered_3_firstbold_fl>
 
-<numbered_4_para_fltab>alter the rights, powers or privileges of the Series Seed Preferred Stock set forth in these Regulations in a way that adversely affects the Series Seed Preferred Stock;</numbered_4_para_fltab>
+<numbered_4_para_fltab>alter the rights, powers or privileges of the Series Seed Preferred Stock set forth in these Regulations in a way that adversely affects the Series Seed Preferred Stock</numbered_4_para_fltab>
 
-<numbered_4_para_fltab>increase or decrease the authorized number of shares of any class or series of capital stock;</numbered_4_para_fltab>
+<numbered_4_para_fltab>increase or decrease the authorized number of shares of any class or series of capital stock</numbered_4_para_fltab>
 
-<numbered_4_para_fltab>authorize or create (by reclassification or otherwise) any new class or series of capital stock having rights, powers, or privileges set forth in the certificate of incorporation of the Company, as then in effect, that are senior to or on a parity with any series of Series Seed Preferred Stock;</numbered_4_para_fltab>
+<numbered_4_para_fltab>authorize or create (by reclassification or otherwise) any new class or series of capital stock having rights, powers, or privileges set forth in the certificate of incorporation of the Company, as then in effect, that are senior to or on a parity with any series of Series Seed Preferred Stock</numbered_4_para_fltab>
 
-<numbered_4_para_fltab>redeem or repurchase any shares of Common Stock or Series Seed Preferred Stock (other than pursuant to employee or consultant agreements giving the Company the right to repurchase shares upon the termination of services pursuant to the terms of the applicable agreement);</numbered_4_para_fltab>
+<numbered_4_para_fltab>redeem or repurchase any shares of Common Stock or Series Seed Preferred Stock (other than pursuant to employee or consultant agreements giving the Company the right to repurchase shares upon the termination of services pursuant to the terms of the applicable agreement)</numbered_4_para_fltab>
 
-<numbered_4_para_fltab>declare or pay any dividend or otherwise make a distribution to holders of Series Seed Preferred Stock or Common Stock; </numbered_4_para_fltab>
+<numbered_4_para_fltab>declare or pay any dividend or otherwise make a distribution to holders of Series Seed Preferred Stock or Common Stock</numbered_4_para_fltab>
 
-<numbered_4_para_fltab>increase or decrease the number of directors of the Company; </numbered_4_para_fltab>
+<numbered_4_para_fltab>increase or decrease the number of directors of the Company </numbered_4_para_fltab>
 
 <? if (data.ss_reserved) { ?>
 
 <numbered_4_para_fltab>obtain any loans or incur indebtedness (including the giving of any guarantees)</numbered_4_para_fltab>
 
-<numbered_4_para_fltab>set or change salaries or any remuneration of the Key Holders as defined in the Series Seed Investment Agreement of <?= data.investment_agreement_date ?>.</numbered_4_para_fltab>
+<numbered_4_para_fltab>set or change salaries or any remuneration of the Key Holders as defined in the Series Seed Investment Agreement of <?= data.investment_agreement_date ?></numbered_4_para_fltab>
 
-<numbered_4_para_fltab>agree to remunerate any employee or contractor more than S$5,000 per month.</numbered_4_para_fltab>
+<numbered_4_para_fltab>agree to remunerate any employee or contractor more than S$5,000 per month</numbered_4_para_fltab>
 
 <? } ?>
 
-<numbered_4_para_fltab>liquidate, dissolve, or wind-up the business and affairs of the Company, effect any Deemed Liquidation Event, or consent, agree or commit to do any of the foregoing without conditioning such consent, agreement or commitment upon obtaining the approval required by this Section <xref to="ss.coi stockprotection" />.</numbered_4_para_fltab>
+<numbered_4_para_fltab>liquidate, dissolve, or wind-up the business and affairs of the Company, effect any Deemed Liquidation Event, or consent, agree or commit to do any of the foregoing without conditioning such consent, agreement or commitment upon obtaining the approval required by this Section <xref to="ss.coi stockprotection" /></numbered_4_para_fltab>
+
+<? if (data.ss_yet_more_protective_provisions) { ?>
+<numbered_4_para_fltab><?= data.ss_yet_more_protective_provisions ?></numbered_4_para_fltab>
+<? } ?>
 
 <b_left_sidehead xname="ss.coi conversion">Conversion</b_left_sidehead>
 

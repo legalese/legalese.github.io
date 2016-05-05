@@ -1,4 +1,5 @@
-<Root xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/" xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/">
+<?!= data.xml_declaration ?>
+<?!= data.xmlRoot() ?>
 <?!= include("inc_cover_standard_parties", data, {cover_title:"Series YC-AA Investors' Right Agreement", disclaimer:true, rcpts_to:rcpts_to}) ?>
 <Firstpage_Sidebar>
 <sidebar>This document records an Investors' Rights Agreement with regards to the investment made by the Investors in Series YC-AA Convertible Preference Shares in <?=data.company.name?>. This Agreement is modeled on on the Series AA model documents published by Y Combinator.</sidebar>

@@ -1,3 +1,4 @@
+<? // don't add a data.xml_declaration here because this file is an include, not a standalone template. ?>
 <chapter_header>Employee Stock Ownership Plan</chapter_header>
 
 <a_left_sidehead restart="true">Introduction</a_left_sidehead>

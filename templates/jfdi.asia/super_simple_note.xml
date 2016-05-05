@@ -1,3 +1,4 @@
+<?!= data.xml_declaration ?>
 <?!= data.xmlRoot() ?>
 <?!= include("inc_cover_2_parties", data, {cover_title:"Super Simplified Convertible Loan Agreement", party1:data.company, party2:data.new_investor}) ?>
 <? var iHaveCap = data._orig_pre_money_valuation ? true : false; Logger.log("simplified_note: data.pre_money_valuation = %s (%s)", data.pre_money_valuation, iHaveCap); ?>
@@ -44,26 +45,26 @@
   <numbered_2_para>The Note issued to the Investor may form part of a series of such Notes issued on essentially identical terms (the "Series") except that the Investor, Investment Amount<?= data.variable_terms ?data.variable_terms:","?> and Closing Date may change from Note to Note. The total amount of the Series shall not exceed <?= data.amount_raising ?> without the written agreement of all the holders of the Notes in the Series currently outstanding.</numbered_2_para>
 
   <a_left_sidehead>Maturity Date</a_left_sidehead>
-  <numbered_2_para>The Principal <? if (data.interest != 0) { ?>and unpaid accrued interest on<? } else { ?>of<? } ?> the Note will be due and payable <?= data.term ?> from the date of the signing of this Agreement (the &#8220;<b>Maturity Date</b>&#8221;).</numbered_2_para>
+  <numbered_2_para>The Principal <? if (data._orig_interest != 0) { ?>and unpaid accrued interest on<? } else { ?>of<? } ?> the Note will be due and payable <?= data.term ?> from the date of the signing of this Agreement (the &#8220;<b>Maturity Date</b>&#8221;).</numbered_2_para>
 
 
   <a_left_sidehead>Interest</a_left_sidehead>
-  <numbered_2_para><? if (data.interest != 0) { ?>
-Interest on the Note will accrue on an annual basis at the rate of <?= data.interest ?>% per annum based on a 365 days year.<? } else { ?>
+  <numbered_2_para><? if (data._orig_interest != 0) { ?>
+Interest on the Note will accrue on an annual basis at the rate of <?= data.interest ?> per annum based on a 365 days year.<? } else { ?>
 The Note shall bear no interest. <? } ?>
 </numbered_2_para>
 
 
 <a_left_sidehead>Repayment</a_left_sidehead>
 
-<numbered_2_para>The Company may repay the Principal<? if (data.interest != 0) { ?>and unpaid accrued interest<? }?> at any time prior to the Maturity Date, or conversion, whichever is sooner.</numbered_2_para>
+<numbered_2_para>The Company may repay the Principal<? if (data._orig_interest != 0) { ?>and unpaid accrued interest<? }?> at any time prior to the Maturity Date, or conversion, whichever is sooner.</numbered_2_para>
 
 
 <a_left_sidehead>Automatic Conversion</a_left_sidehead>
-  <numbered_2_para><b>Automatic Conversion at the Maturity Date.</b> On the Maturity Date, the Note, and any accrued but unpaid interest thereon, will automatically convert into Equity Securities at <?= (100 - data.maturity_conversion_discount).toFixed(2) ?>% of the Conversion Price.</numbered_2_para>
+  <numbered_2_para><b>Automatic Conversion at the Maturity Date.</b> On the Maturity Date, the Note, and any accrued but unpaid interest thereon, will automatically convert into Equity Securities at <?= (100 - 100*data._orig_maturity_conversion_discount).toFixed(2) ?>% of the Conversion Price.</numbered_2_para>
 
 <a_left_sidehead>Optional Conversion</a_left_sidehead>
-<numbered_2_para>At any time prior to the Maturity Date, the Investor may elect to convert the entire Investment Amount into Equity Securities at the Conversion Price.</numbered_2_para>
+<numbered_2_para>At any time prior to the Maturity Date, the Company may elect to convert the entire Investment Amount into Equity Securities at the Conversion Price.</numbered_2_para>
 
 <a_left_sidehead>Conversion Price</a_left_sidehead>
 
