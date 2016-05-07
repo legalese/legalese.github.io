@@ -42,8 +42,6 @@ svg.append("defs").selectAll("marker")
 
 var force = d3.layout.force()
     .gravity(0.05)
-    .distance(100)
-    .charge(-100)
     .size([width, height]);
 
 d3.json("https://raw.githubusercontent.com/jobchong/newlegalesetemplates/master/d3force.json", function(error, json) {
@@ -54,35 +52,30 @@ d3.json("https://raw.githubusercontent.com/jobchong/newlegalesetemplates/master/
       .links(json.links)
       .start();
 
+  var typeColors = { party:      color(0),
+					 subsection: color(1),
+					 pdf:        color(2) };
+
   var link = svg.selectAll(".link")
       .data(json.links)
       .enter().append("line")
       .attr("class", "link")
       .attr("marker-end", "url(#end)");
 
-  var typeColors = { party:      color(0),
-					 subsection: color(1),
-					 pdf:        color(2) };
-
   var node = svg.selectAll(".node")
       .data(json.nodes)
       .enter().append("g")
       .attr("class", "node")
-      .on("click", function (d) { d.fixed = true } )
       .call(force.drag);
 
   node.append("circle")
-      .attr("class", "node")
+    .attr("class", function(d) { return d.type })
       .attr("r", 5)
       .style("fill", function(d) { return color(typeColors[d.type]); })
       .call(force.drag);
 
 
-  node.append("a")
-      .attr("xlink:href", function (d) { return d.url } )
-      .append("text")
-      .attr("dx", 12)
-      .attr("dy", ".35em")
+  node.append("svg:title")
       .text(function(d) { return d.title });
 
   force.on("tick", function() {
