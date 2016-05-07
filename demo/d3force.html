@@ -54,6 +54,7 @@ var force = d3.layout.force()
     .gravity(0.05)
     .size([width, height]);
 
+//d3.json("http://localhost/~mengwong/d3/stages.json", function(error, json) {
 d3.json("https://raw.githubusercontent.com/jobchong/newlegalesetemplates/master/d3force.json", function(error, json) {
   if (error) throw error;
 
@@ -69,13 +70,22 @@ d3.json("https://raw.githubusercontent.com/jobchong/newlegalesetemplates/master/
   //
   // after the growth phase we proceed to the ripening phase, described below.
 
-  json.stages = json.stages || [ { id:1, nodes:json.nodes, links:json.links } ];
-  
   var stage = json.stages.shift();
 
   console.log("growth: rendering initial stage " + stage.id + " with " + stage.nodes.length + " nodes");
 
   drawStage(stage);
+	for (var s = 0; s < json.stages.length; s++) {
+	  var newstage = json.stages.shift();
+	  for (var ni = 0; ni < newstage.nodes.length; ni++) {
+		console.log("pushing new node " + newstage.nodes[ni].title);
+		stage.nodes.push(newstage.nodes[ni]);
+	  }
+	  for (var li = 0; li < newstage.links.length; li++) {
+		stage.links.push(newstage.links[li]);
+	  }
+	}
+  force.start();
 
 });
 
