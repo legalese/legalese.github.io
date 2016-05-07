@@ -70,11 +70,11 @@ d3.json("https://raw.githubusercontent.com/jobchong/newlegalesetemplates/master/
   //
   // after the growth phase we proceed to the ripening phase, described below.
 
-  var stage = json.stages.shift();
+    var stage = json.stages.shift();
+
 
   console.log("growth: rendering initial stage " + stage.id + " with " + stage.nodes.length + " nodes");
 
-  drawStage(stage);
 	for (var s = 0; s < json.stages.length; s++) {
 	  var newstage = json.stages.shift();
 	  for (var ni = 0; ni < newstage.nodes.length; ni++) {
@@ -85,7 +85,8 @@ d3.json("https://raw.githubusercontent.com/jobchong/newlegalesetemplates/master/
 		stage.links.push(newstage.links[li]);
 	  }
 	}
-  force.start();
+
+      drawStage(stage);
 
 });
 
