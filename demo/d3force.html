@@ -17,8 +17,7 @@
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script>
 
-var width = 1080,
-height = 1080
+var width = 720, height = 640;
 
 var color = d3.scale.category10().domain([0, 1, 2, 3, 4, 5, 6, 7, 8, 9,]);
 
@@ -65,19 +64,23 @@ d3.json("https://raw.githubusercontent.com/jobchong/newlegalesetemplates/master/
   var node = svg.selectAll(".node")
       .data(json.nodes)
       .enter().append("g")
-      .attr("class", "node")
+      .attr("class", function(d) { return "node " + d.type })
       .call(force.drag);
 
   node.append("circle")
-    .attr("class", function(d) { return d.type })
       .attr("r", 5)
       .style("fill", function(d) { return color(typeColors[d.type]); })
       .call(force.drag);
 
-
   node.append("svg:title")
       .text(function(d) { return d.title });
 
+  svg.selectAll(".node.subsection")
+	.append("text")
+    .attr("dx", 12)
+    .attr("dy", ".35em")
+	.text(function(d) { return d.title });
+  
   force.on("tick", function() {
     link.attr("x1", function(d) { return d.source.x; })
         .attr("y1", function(d) { return d.source.y; })
