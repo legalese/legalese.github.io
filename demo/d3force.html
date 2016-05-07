@@ -12,6 +12,16 @@
   fill: navy;
 }
 
+.node.subsection {
+  fill: navy;
+}
+.node.pdf {
+  fill: red;
+}
+.node.party {
+  fill: blue;
+}
+
 </style>
 <body>
 <script src="https://d3js.org/d3.v3.min.js"></script>
@@ -38,7 +48,6 @@ svg.append("defs").selectAll("marker")
     .append("path")
     .attr("d", "M0,-5L10,0L0,5");
 
-
 var force = d3.layout.force()
     .gravity(0.05)
     .size([width, height]);
@@ -46,30 +55,52 @@ var force = d3.layout.force()
 d3.json("https://raw.githubusercontent.com/jobchong/newlegalesetemplates/master/d3force.json", function(error, json) {
   if (error) throw error;
 
-  force
-      .nodes(json.nodes)
-      .links(json.links)
-      .start();
+  // GROWTH
+  // we expect the incoming json nodes and links to be partitioned into multiple stages.
+  // so json.stages = [ { id: stageid, nodes:[nodes], links:[links] }, ... ]
+  // stage 000: the main goal = the root subsection
+  // stage 100: the PDFs for that subsection
+  // stage 200: the signatories for those PDFs
+  // stage 300: the other three subsections
+  // stage 400: the PDFs for those subsections
+  // stage 500: the signatories for those PDFs
+  //
+  // after the growth phase we proceed to the ripening phase, described below.
+
+  json.stages = json.stages || [ { id:1, nodes:json.nodes, links:json.links } ];
+  
+  var stage = json.stages.shift();
+
+  console.log("growth: rendering initial stage " + stage.id + " with " + stage.nodes.length + " nodes");
 
   var typeColors = { party:      color(0),
 					 subsection: color(1),
 					 pdf:        color(2) };
 
+  drawStage(stage);
+
+});
+
+function drawStage(stage) {
+  force
+    .nodes(stage.nodes)
+    .links(stage.links)
+	.start();
+  
   var link = svg.selectAll(".link")
-      .data(json.links)
+      .data(stage.links)
       .enter().append("line")
       .attr("class", "link")
       .attr("marker-end", "url(#end)");
 
   var node = svg.selectAll(".node")
-      .data(json.nodes)
+      .data(stage.nodes)
       .enter().append("g")
       .attr("class", function(d) { return "node " + d.type })
       .call(force.drag);
 
   node.append("circle")
       .attr("r", 5)
-      .style("fill", function(d) { return color(typeColors[d.type]); })
       .call(force.drag);
 
   node.append("svg:title")
@@ -89,6 +120,7 @@ d3.json("https://raw.githubusercontent.com/jobchong/newlegalesetemplates/master/
 
     node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
   });
-});
+
+}
 
 </script>
