@@ -1,5 +1,6 @@
 <?!= data.xml_declaration ?>
 <?!= data.xmlRoot() ?>
+<? var holder_alias = data.new_investor.f_holder_alias ||  "Holder"; ?>
 <? var documentTitle = (data.previous_f_agreement_date ? "Amended and Restated " : "") + data.security_type + " Agreement"; ?>
 <?!= include("inc_cover_2_parties", data, {cover_title:documentTitle, party1:data.company, party2:data.new_investor}) ?>
 <?!= include("inc_cover_jfdi", data, { in_series:"05" }) ?>
@@ -10,7 +11,7 @@
   <chapter_header><?= documentTitle ?></chapter_header>
   <para_1><span_smallcaps>This agreement is dated</span_smallcaps> <?= data.class_f_agreement_date ?></para_1>
   <para_1>between:</para_1>
-  <parties><?!= include("inc_party", data, data.new_investor) ?> (the "Holder"); and</parties>
+  <parties><?!= include("inc_party", data, data.new_investor) ?> (the "<?=holder_alias?>"); and</parties>
   <parties><?!= include("inc_party", data, data.company) ?> (the "Company").</parties>
 
   <para_1><span_smallcaps>Whereas:</span_smallcaps></para_1>
@@ -19,9 +20,9 @@
 <? } ?>
   <recitals>The Company's Constitution defines <?=data.security_type?> Preference Shares. </recitals>
 <? if (data.capTable.getActiveRound()[data.new_investor.name] && data.capTable.getActiveRound()[data.new_investor.name]._orig_shares > 0) { ?>
-<recitals>The Company proposes to issue <?= data.capTable.getActiveRound().new_investors[data.new_investor.name].shares ?> <?=data.security_type_plural?> to the Holder and the Holder has agreed to subscribe for the <?=data.security_type_plural?> on the terms and conditions below. </recitals>
+<recitals>The Company proposes to issue <?= data.capTable.getActiveRound().new_investors[data.new_investor.name].shares ?> <?=data.security_type_plural?> to the <?=holder_alias?> and the <?=holder_alias?> has agreed to subscribe for the <?=data.security_type_plural?> on the terms and conditions below. </recitals>
 <? } ?>
-  <recitals>This Agreement describes the properties of the Holder's <?=data.security_type_plural?>.</recitals>
+  <recitals>This Agreement describes the properties of the <?=holder_alias?>'s <?=data.security_type_plural?>.</recitals>
 <? if (data.previous_f_agreement_date) {?>
 <para_1><span_smallcaps>The parties therefore</span_smallcaps> amend and restate the <?=data.security_type?> Agreement to read in its entirety as follows:</para_1>
 <? } else { ?>
@@ -37,15 +38,15 @@
   <definition>Vest / Vesting	in relation to a Share means the waiver of the Company's Redemption Right over that Share; </definition>
   <definition>Vested / Unrestricted	in relation to a Share means that the Company has waived its right of redemption in regard to that Share; </definition>
   <definition>Unvested / Restricted	in relation to a Share means that the Company possesses a right of redemption over that Share; </definition>
-  <definition>Redemption	in relation to a Share means that the Company pays the Holder for the Share and cancels it;</definition>
+  <definition>Redemption	in relation to a Share means that the Company pays the <?=holder_alias?> for the Share and cancels it;</definition>
   <definition>External Financing	means a fund-raising event in which the company raises no less than <?= data.qualified_financing_proceeds ?> within one round or series<? if (data.external_financing_after) {?>, and in which the closing date (or the transfer of funds amounting to <?= data.qualified_financing_proceeds ?>) occurs after <?=data.external_financing_after?><? } ?>;</definition>
   <para_1>Except where the context otherwise requires, words importing the singular include the plural and vice versa, words importing a gender include every gender and references to persons include bodies corporate or unincorporated, any state or any agency thereof and any other entity. </para_1>
   <para_1>Headings, marginal sidenotes, and graphic art are for ease of reference only and have no legal effect. Reference to Clauses and Sections are, unless otherwise indicated, to Clauses and Sections of this Agreement and references to this Agreement includes any amendments or supplementals thereto. </para_1>
   <para_1>Except where the context otherwise requires, references to any person include its successors and permitted assignees. Clauses which refer to the "Company" shall apply mutatis mutandis to subsidiaries or successors of the Company which may from time to time be established. For purposes of this Agreement, employment or volunteership with the Company shall include employment or volunteership with a parent or subsidiary of the Company. </para_1>
   <para_1>References in this Agreement to a time of day are to Singapore time. </para_1>
   <a_left_sidehead xname="hazTable">Purchase of Shares</a_left_sidehead>
-  <para_1>The Company shall issue and sell to the Holder, and the Holder shall purchase from the Company, subject to the terms and conditions set forth in this Agreement, <?=data.security_type_plural?> (the "<?=data.security_type_short_plural?>) of the Company, at a purchase price of <?= data.price_per_share ?> per share (the "Issue Price"). The aggregate purchase price for the Shares shall be paid by the Holder in cash or cheque. The number of Shares purchased by each Holder shall be the sum of the numbers shown in the <i>Unrestricted</i> and <i>Restricted</i> columns in the table below. Upon receipt of payment by the Company, the Company shall issue to the Holder one or more certificates in the name of the Holder for that number of Shares purchased by the Holder. The Holder agrees that their Shares shall be subject to the purchase options and restrictions on transfer set forth in this Agreement and in the Constitution. </para_1>
-  <para_2>For convenience of reference the table below indicates in the column titled Ordinary the number of ordinary shares presently held by the Holder.  </para_2>
+  <para_1>The Company shall issue and sell to the <?=holder_alias?>, and the <?=holder_alias?> shall purchase from the Company, subject to the terms and conditions set forth in this Agreement, <?=data.security_type_plural?> (the "<?=data.security_type_short_plural?>) of the Company, at a purchase price of <?= data.price_per_share ?> per share (the "Issue Price"). The aggregate purchase price for the Shares shall be paid by the <?=holder_alias?> in cash or cheque. The number of Shares purchased by each <?=holder_alias?> shall be the sum of the numbers shown in the <i>Unrestricted</i> and <i>Restricted</i> columns in the table below. Upon receipt of payment by the Company, the Company shall issue to the <?=holder_alias?> one or more certificates in the name of the <?=holder_alias?> for that number of Shares purchased by the <?=holder_alias?>. The <?=holder_alias?> agrees that their Shares shall be subject to the purchase options and restrictions on transfer set forth in this Agreement and in the Constitution. </para_1>
+  <para_2>For convenience of reference the table below indicates in the column titled Ordinary the number of ordinary shares presently held by the <?=holder_alias?>.  </para_2>
   <para_2> </para_2>
 <? var tcols = 6; if (data.new_investor.f_cliff_2) { tcols = tcols + 1 } ?>
   <table_enclosing_para>
@@ -75,9 +76,9 @@
 
   <a_left_sidehead xname="redemption">Redemption</a_left_sidehead>
   <numbered_2_para>Subject to Sections <xref to="cause" />, <xref to="good reason" />, and <xref to="termination" /> below, </numbered_2_para>
-  <numbered_3_para>in the event that the Holder is discharged by the Company from employment or volunteership, with Cause (as defined below) and prior to a Change of Control event,</numbered_3_para>
-  <numbered_3_para>or in the event that the Holder resigns, unless the resignation is for Good Reason,</numbered_3_para>
-  <numbered_3_para>the Company shall have the right (the "Redemption Right") to redeem from the Holder, at a price per share equal to the Issue Price (the "Redemption Price"), up to the total number of Restricted Shares held by the Holder as at the date of the redemption notice.</numbered_3_para>
+  <numbered_3_para>in the event that the <?=holder_alias?> is discharged by the Company from employment or volunteership, with Cause (as defined below) and prior to a Change of Control event,</numbered_3_para>
+  <numbered_3_para>or in the event that the <?=holder_alias?> resigns, unless the resignation is for Good Reason,</numbered_3_para>
+  <numbered_3_para>the Company shall have the right (the "Redemption Right") to redeem from the <?=holder_alias?>, at a price per share equal to the Issue Price (the "Redemption Price"), up to the total number of Restricted Shares held by the <?=holder_alias?> as at the date of the redemption notice.</numbered_3_para>
   <numbered_3_para>The number of shares in the Restricted column of the above table shall initially be subject to the Redemption Right. </numbered_3_para>
   <numbered_3_para>The number of shares in the Unrestricted column of the above table shall not be subject to the Redemption Right; they shall be deemed vested upon issue and are convertible to Ordinary Shares. </numbered_3_para>
   <numbered_3_para>The number of shares in the Cliff column of the above table shall vest on <?= data.f_cliff_end_date ?>. </numbered_3_para>
@@ -87,15 +88,15 @@
   <numbered_3_para>Thereafter, the number of Restricted Shares in the <?=data.new_investor.f_period || "Monthly"?> column of the above table shall convert to Unrestricted Shares on the last calendar day of each <?=(data.new_investor.f_period || "Monthly").toLowerCase().replace(/ly$/,"")?> until such time as no Restricted Shares remain. </numbered_3_para>
 
   <numbered_2_para xname="cause">For purposes of this Agreement, <b>"Cause"</b> shall mean </numbered_2_para>
-  <numbered_3_para>any act or omission which constitutes a material breach by the Holder of the terms of </numbered_3_para>
+  <numbered_3_para>any act or omission which constitutes a material breach by the <?=holder_alias?> of the terms of </numbered_3_para>
   <numbered_4_para>this Agreement, </numbered_4_para>
-  <numbered_4_para>the Holder's Volunteer Agreement or Employment Agreement as the case may be, or </numbered_4_para>
-  <numbered_4_para>any other written and signed agreement between the Holder and the Company, </numbered_4_para>
-  <indented_3_para>which breach remains uncured by the Holder for a period of thirty (30) days following the Holder's receipt of a written notice of breach from the Company, specifying the act or omission upon which the Company's claim of breach is based;</indented_3_para>
-  <numbered_3_para>the commission by the Holder of an arrestable offence, a criminal act in connection with an arrestable offence, or any dishonest or wrongful act involving fraud; </numbered_3_para>
-  <numbered_3_para>the commission by the Holder of an act of moral turpitude which may adversely effect the reputation or business of the Company as reasonably determined by the Board; or </numbered_3_para>
-  <numbered_3_para>the Holder's willful or continuing failure to perform the Holder's duties reasonably assigned during the course of employment or volunteership. </numbered_3_para>
-  <numbered_2_para xname="good reason">For purposes of this Agreement, the term "<b>Good Reason</b>" shall mean termination by the Holder due to a material breach by the Company of the Holder's Volunteer Agreement or Employment Agreement, as the case may be, which breach remains uncured by the Company, if curable, for a period of thirty (30) days following receipt of a written notice of breach from the Holder, specifying the act or omission upon which the Holder's claim of breach is based. </numbered_2_para>
+  <numbered_4_para>the <?=holder_alias?>'s Volunteer Agreement or Employment Agreement as the case may be, or </numbered_4_para>
+  <numbered_4_para>any other written and signed agreement between the <?=holder_alias?> and the Company, </numbered_4_para>
+  <indented_3_para>which breach remains uncured by the <?=holder_alias?> for a period of thirty (30) days following the <?=holder_alias?>'s receipt of a written notice of breach from the Company, specifying the act or omission upon which the Company's claim of breach is based;</indented_3_para>
+  <numbered_3_para>the commission by the <?=holder_alias?> of an arrestable offence, a criminal act in connection with an arrestable offence, or any dishonest or wrongful act involving fraud; </numbered_3_para>
+  <numbered_3_para>the commission by the <?=holder_alias?> of an act of moral turpitude which may adversely effect the reputation or business of the Company as reasonably determined by the Board; or </numbered_3_para>
+  <numbered_3_para>the <?=holder_alias?>'s willful or continuing failure to perform the <?=holder_alias?>'s duties reasonably assigned during the course of employment or volunteership. </numbered_3_para>
+  <numbered_2_para xname="good reason">For purposes of this Agreement, the term "<b>Good Reason</b>" shall mean termination by the <?=holder_alias?> due to a material breach by the Company of the <?=holder_alias?>'s Volunteer Agreement or Employment Agreement, as the case may be, which breach remains uncured by the Company, if curable, for a period of thirty (30) days following receipt of a written notice of breach from the <?=holder_alias?>, specifying the act or omission upon which the <?=holder_alias?>'s claim of breach is based. </numbered_2_para>
   <numbered_2_para xname="termination">Termination by the Company for Good Reason shall be deemed to be without Cause. </numbered_2_para>
 
   <a_left_sidehead>Acceleration </a_left_sidehead>
@@ -119,38 +120,38 @@
   <para_1>Any other Change of Control event will have no effect on the <?= data.security_type ?> shares. </para_1>
 
   <a_left_sidehead xname="comp_adj">Compensation Adjustment</a_left_sidehead>
-  <para_1>The Directors intend to permit a Holder who is also an employee or consultant to balance his compensation from time to time in favour of cash or equity according to preference and circumstance. Accordingly, the Holder may in any given month, with the approval of the Directors, elect to subscribe for additional Unrestricted F Shares at the Discretionary Subscription Price (defined in the Constitution) up to the maximum amount of his monthly pay. </para_1>
+  <para_1>The Directors intend to permit a <?=holder_alias?> who is also an employee or consultant to balance his compensation from time to time in favour of cash or equity according to preference and circumstance. Accordingly, the <?=holder_alias?> may in any given month, with the approval of the Directors, elect to subscribe for additional Unrestricted F Shares at the Discretionary Subscription Price (defined in the Constitution) up to the maximum amount of his monthly pay. </para_1>
   <a_left_sidehead>Restrictions on Transfer</a_left_sidehead>
   <numbered_2_para>Subsequent to an External Financing, the provisions of the Constitution and of the Shareholders' Agreement relating to the registration, transfer, transmission, certificates and replacement thereof applicable to ordinary shares shall apply mutatis mutandis to <?=data.security_type_short_plural?>. </numbered_2_para>
-  <numbered_2_para>Prior to an External Financing, notwithstanding anything contained in this Constitution or the Shareholders' Agreement, Holders of <?=data.security_type_short_plural?> shall be allowed to transfer the <?=data.security_type_short_plural?> among themselves at mutually agreed valuations. The Company shall, and shall ensure that all Directors and Bondholders in the company shall not prevent the transfer of <?=data.security_type_short_plural?> among the Holders prior to an External Financing. Any Restricted Shares that are transferred pursuant to this clause shall be added to the number of Restricted Shares then held by the transferee. There shall be no change to the number of Restricted Shares per month which are converted to Unrestricted Shares.</numbered_2_para>
+  <numbered_2_para>Prior to an External Financing, notwithstanding anything contained in this Constitution or the Shareholders' Agreement, <?=holder_alias?>s of <?=data.security_type_short_plural?> shall be allowed to transfer the <?=data.security_type_short_plural?> among themselves at mutually agreed valuations. The Company shall, and shall ensure that all Directors and Bondholders in the company shall not prevent the transfer of <?=data.security_type_short_plural?> among the <?=holder_alias?>s prior to an External Financing. Any Restricted Shares that are transferred pursuant to this clause shall be added to the number of Restricted Shares then held by the transferee. There shall be no change to the number of Restricted Shares per month which are converted to Unrestricted Shares.</numbered_2_para>
   <a_left_sidehead>Restrictive Legends</a_left_sidehead>
   <para_1>All certificates representing Restricted Shares shall have affixed thereto a legend in substantially the following form, in addition to any other legends that may be required by law:</para_1>
   <para_1><i>The shares of stock represented by this certificate are subject to restrictions on transfer and an option to redeem set forth in a certain <?=data.security_type?> Agreement between the corporation and the registered owner of these shares (or his predecessor in interest), and such Agreement is available for inspection without charge at the office of the Secretary of the corporation.</i></para_1>
   <a_left_sidehead>Adjustments for Stock Splits, Stock Dividends, etc</a_left_sidehead>
-  <numbered_2_para>If from time to time there is any stock split, stock dividend, stock distribution or other reclassification of the Ordinary Shares of the Company, any and all new, substituted or additional securities to which the Holder is entitled by reason of his ownership of the Shares shall be immediately subject to the redemption options, the restrictions on transfer and the other provisions of this Agreement in the same manner and to the same extent as the Shares, and the Redemption Price shall be appropriately adjusted. </numbered_2_para>
+  <numbered_2_para>If from time to time there is any stock split, stock dividend, stock distribution or other reclassification of the Ordinary Shares of the Company, any and all new, substituted or additional securities to which the <?=holder_alias?> is entitled by reason of his ownership of the Shares shall be immediately subject to the redemption options, the restrictions on transfer and the other provisions of this Agreement in the same manner and to the same extent as the Shares, and the Redemption Price shall be appropriately adjusted. </numbered_2_para>
   <numbered_2_para>If the Shares are converted into or exchanged for, or stockholders of the Company receive by reason of any distribution in total or partial liquidation, securities of another corporation, or other property (including cash), pursuant to any merger of the Company or acquisition of its assets (including as a consequence of a Change of Control), then the rights of the Company under this Agreement shall inure to the benefit of the Company's successor and this Agreement shall apply to the securities or other property received upon such conversion, exchange or distribution in the same manner and to the same extent as to the Shares. </numbered_2_para>
   <a_left_sidehead>Conversion</a_left_sidehead>
   <para_1>Pursuant to Regulation <?= data.aa_f_clause_number ?>.3 of the Constitution, Unrestricted Shares may be converted at any time to Ordinary Shares with the Directors' approval. </para_1>
-  <numbered_2_para>To effect conversion, a Holder shall simply give written notice to the Board of Directors indicating the number of shares to be converted and the effective date of conversion. If the Holder desires updated share certificates he should enclose his existing certificate or certificates with that notice. If the Directors do not respond within 30 days the conversion is taken to be denied.</numbered_2_para>
-  <numbered_2_para>In the event of a Change of Control or a winding-up of the Company, all Unrestricted Shares shall be deemed to have been converted to Ordinary Shares on the calendar day prior to the event and the Holder shall be entitled to all the rights of an ordinary shareholder during the course of, and subsequent to, that event. </numbered_2_para>
+  <numbered_2_para>To effect conversion, a <?=holder_alias?> shall simply give written notice to the Board of Directors indicating the number of shares to be converted and the effective date of conversion. If the <?=holder_alias?> desires updated share certificates he should enclose his existing certificate or certificates with that notice. If the Directors do not respond within 30 days the conversion is taken to be denied.</numbered_2_para>
+  <numbered_2_para>In the event of a Change of Control or a winding-up of the Company, all Unrestricted Shares shall be deemed to have been converted to Ordinary Shares on the calendar day prior to the event and the <?=holder_alias?> shall be entitled to all the rights of an ordinary shareholder during the course of, and subsequent to, that event. </numbered_2_para>
   <a_left_sidehead>No Rights To Employment</a_left_sidehead>
-  <para_1>Nothing contained in this Agreement shall be construed as giving the Holder any right to be retained, in any position, as an employee of or volunteer with the Company. </para_1>
+  <para_1>Nothing contained in this Agreement shall be construed as giving the <?=holder_alias?> any right to be retained, in any position, as an employee of or volunteer with the Company. </para_1>
   <a_left_sidehead>Severability</a_left_sidehead>
   <para_1>The invalidity or unenforceability of any provision of this Agreement shall not affect the validity or enforceability of any other provision of this Agreement, and each other provision of this Agreement shall be severable and enforceable to the extent permitted by law. </para_1>
   <a_left_sidehead>Binding Effect</a_left_sidehead>
-  <para_1>This Agreement shall be binding upon and inure to the benefit of the Company and the Holder and their respective heirs, executors, administrators, legal representatives, successors and assigns, subject to the restrictions on transfer set forth above. </para_1>
+  <para_1>This Agreement shall be binding upon and inure to the benefit of the Company and the <?=holder_alias?> and their respective heirs, executors, administrators, legal representatives, successors and assigns, subject to the restrictions on transfer set forth above. </para_1>
   <a_left_sidehead>Notice</a_left_sidehead>
   <para_1>All notices required or permitted hereunder shall be in writing and deemed effectively given according to the Regulations. </para_1>
   <a_left_sidehead>Entire Agreement</a_left_sidehead>
   <para_1>This Agreement constitutes the entire agreement between the parties, and supersedes all prior agreements and understandings, relating to the subject matter of this Agreement. </para_1>
   <a_left_sidehead>Amendment</a_left_sidehead>
-  <para_1>This Agreement may be amended or modified only by a written instrument executed by both the Company and the Holder. </para_1>
+  <para_1>This Agreement may be amended or modified only by a written instrument executed by both the Company and the <?=holder_alias?>. </para_1>
   <a_left_sidehead xname="medarb">Governing Law</a_left_sidehead>
   <?!= include("inc_mediation_arbitration", data) ?>
   <chapter_header>Signatures</chapter_header>
   <para_1>In witness whereof we have hereunto set our hand on <?= data.class_f_agreement_date ?></para_1>
 
-  <para_1><i>For the Holder:</i></para_1>
+  <para_1><i>For the <?=holder_alias?>:</i></para_1>
 <?!= include("inc_signature", data, data.new_investor) ?>
 
 <para_1><i>For and on behalf of the Company:</i></para_1>
@@ -158,7 +159,7 @@
 
   <chapter_header>Sample Redemption Notice </chapter_header>
   <para_1> </para_1>
-  <para_1>Dear <?=data.security_type?> Holder, </para_1>
+  <para_1>Dear <?=data.security_type?> <?=holder_alias?>, </para_1>
   <para_1>We refer to the <?=data.security_type?> Agreement signed on <?= data.class_f_agreement_date ?>, in particular, Clause <xref to="redemption" /> therein. </para_1>
   <para_1>All terms defined in the <?=data.security_type?> Agreement shall bear the same meaning when used in this letter. </para_1>
   <para_1>We understand that an event entailing redemption of Restricted Shares has occurred. For the purposes of redemption we date that event at T date. </para_1>
