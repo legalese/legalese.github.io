@@ -244,16 +244,17 @@ right of the transferor to make the transfer.</numbered_3_para>
 
 <numbered_2_para>The Company shall have the right to redeem Class F Shares. Redemption may occur at the issue price or such other price as the Directors may determine. The rules governing the Company's right of redemption over a holder's shares shall be set out in agreements with that holder. Those rules shall include a description of how a holder's Class F Shares vest over time. Unvested shares, also known as Restricted F Shares, are subject to redemption. Vested shares, also known as Unrestricted F Shares, are not subject to redemption except under special circumstances described in Regulation <xref to="cons f_redemption_unrestricted"/>.</numbered_2_para>
 
+<numbered_3_para>For the purposes of this Regulation <xref to="cons class_f" /> a Principal means the employee or volunteer whose relationship with the Company is the subject of a given Class F Agreement. The Holder of Class F Shares described by a given Class F Agreement may be the Principal, or another entity.</numbered_3_para>
 
 <b_left_sidehead_nonum>Redemption of Restricted Shares</b_left_sidehead_nonum>
 
-<numbered_2_para xname="cons f_redemption_restricted">The Company may exercise its redemption right with respect to Restricted F Shares by delivering or mailing to the Holder (or his estate), within 60 days after the termination of the employment or volunteership of the Holder with the Company, a written notice of exercise of the Redemption Right. Such notice shall specify the number of Shares to be redeemed. If and to the extent the Redemption Right is not so exercised by the giving of such a notice within such 60-day period, the Redemption Right shall automatically expire and terminate effective upon the expiration of such 60-day period.</numbered_2_para>
+<numbered_2_para xname="cons f_redemption_restricted">The Company may exercise its redemption right with respect to Restricted F Shares by delivering or mailing to the Holder (or his estate), within 60 days after the termination of the employment or volunteership of the Principal with the Company, a written notice of exercise of the Redemption Right. Such notice shall specify the number of Shares to be redeemed. If and to the extent the Redemption Right is not so exercised by the giving of such a notice within such 60-day period, the Redemption Right shall automatically expire and terminate effective upon the expiration of such 60-day period.</numbered_2_para>
 <numbered_2_para>The Company shall pay to the Holder the aggregate Redemption Price within 10 days of the notice date.</numbered_2_para>
 <numbered_2_para>After the time at which the Redemption Right is exercised with respect to any Shares, the Company shall not pay any dividend to the Holder on account of such Shares or permit the Holder to exercise any of the privileges or rights of a stockholder with respect to such Shares. </numbered_2_para>
 <numbered_2_para>The Company shall not redeem any fraction of a Share upon exercise of the Redemption Right, and any fraction of a Share resulting from a computation made pursuant to this Agreement shall be rounded to the nearest whole Share (with any one-half Share being rounded upward). </numbered_2_para>
 
 <b_left_sidehead_nonum>Redemption of Unrestricted Shares</b_left_sidehead_nonum>
-  <numbered_2_para xname="cons f_redemption_unrestricted">In the event the Company terminates the Holder's employment or volunteership for Cause, as defined in the relevant agreements, the Company shall have the option, but not the obligation, to redeem all or any part of the Holder's Unrestricted Shares in addition to the Holder's Restricted Shares. The mechanics of redemption shall be as described in Regulation <xref to="cons f_redemption_restricted"/>.</numbered_2_para>
+  <numbered_2_para xname="cons f_redemption_unrestricted">In the event the Company terminates the Principal's employment or volunteership for Cause, as defined in the relevant agreements, the Company shall have the option, but not the obligation, to redeem all or any part of the Holder's Unrestricted Shares in addition to the Holder's Restricted Shares. The mechanics of redemption shall be as described in Regulation <xref to="cons f_redemption_restricted"/>.</numbered_2_para>
 
 
   <b_left_sidehead_nonum>Failure to Deliver Shares; Effect of Prohibited Transfer</b_left_sidehead_nonum>
@@ -267,7 +268,7 @@ right of the transferor to make the transfer.</numbered_3_para>
 
 
 <b_left_sidehead_nonum>As regards conversion</b_left_sidehead_nonum>
-<numbered_2_para xname="cons f_conversion">After a holder requests in writing to convert Unrestricted F Shares to Ordinary Shares, the Directors may approve such a request and effect such conversion without the need to seek further approval from the Members.</numbered_2_para>
+<numbered_2_para xname="cons f_conversion">After a Holder requests in writing to convert Unrestricted F Shares to Ordinary Shares, the Directors may approve such a request and effect such conversion without the need to seek further approval from the Members.</numbered_2_para>
 <numbered_2_para>Restricted F Shares are not convertible except to Unrestricted F Shares as specified in the relevant vesting schedule, and pursuant to Regulation <xref to="cons aa_f_acceleration"/>.</numbered_2_para>
 
 <numbered_2_para>F Shares shall convert to ordinary shares at a one-to-one ratio.</numbered_2_para>
