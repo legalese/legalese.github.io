@@ -113,7 +113,7 @@ See Section <xref to="definitions" /> for certain additional defined terms.
 <numbered_2_para>"Conversion Price" means either:</numbered_2_para>
 <numbered_3_para>the Safe Price or
 the Discount Price,</numbered_3_para>
-<para_2>whichever calculation results in a greater number of shares of Safe Preferred Stock.</para_2>
+<para_1>whichever calculation results in a greater number of shares of Safe Preferred Stock.</para_1>
 <? } ?>
 
 <? if (data._orig_discount) { ?>
