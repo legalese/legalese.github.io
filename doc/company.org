@@ -17,6 +17,10 @@ Onboarding consists of two parts:
 
         This is the initial onboarding process that everyone has to go through. Unless otherwise specifically and publicly approved by the compensation committee, the completion of Initial Onboarding is a prerequisite for compensation and/or a stake in the organisation.
 
+If you're just here to ask a question on Slack, go right ahead.
+
+But if you want committer access to the repository, or to get paid, you will need to walk the path.
+
         The tasks to be fulfilled for initial onboarding are:-   
 
         1. finish reading this document (a.k.a. company.org)
