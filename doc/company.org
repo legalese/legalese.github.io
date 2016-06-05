@@ -1,4 +1,4 @@
-#+TITLE: Legalese.io the Company
+#+TITLE: :octopus: Legalese, the Company :octopus:
 
 What organizational structure, governance model, and communication processes does Legalese use?
 
@@ -8,25 +8,88 @@ What expectations can every project participant have about other participants?
 
 In particular, what common vocabulary and knowledge should participants possess?
 
-Discussion of this document is welcome on the #meta and #startup chats.
+Discussion of this document is welcome on the #mgmt-organisation and #startup chats.
 
-* Welome, New Contributor!
+# :confetti_ball: Welcome, New Contributor! :confetti_ball:
 
-This is a welcome guide for new participants in Legalese.
+You are here because someone requested that you be onboarded.
 
-No financial relationship is assumed. Later, we will ask you to sign the Contributor License Agreement assigning your contributions to the project.
+Onboarding consists of two parts:
 
-Legalese is a big project, on the scale of a database language (like SQL) plus a database engine (like InnoDB). While it is possible to make useful contributions quickly, the more challenging parts of the project require you to come up to speed on some of the underlying ideas and technologies.
+      **Part 1: Initial Onboarding**
+
+        This is the initial onboarding process that everyone has to go through. Unless otherwise specifically and publicly approved by the compensation committee, the completion of Initial Onboarding is a prerequisite for compensation and/or a stake in the organisation.
+
+        The tasks to be fulfilled for initial onboarding are:-   
+
+        1. finish reading this document (a.k.a. company.org)
+
+        2. finish reading the Welcome Booklet (and the readings set out therein)  
+            + The [[https://drive.google.com/open?id=0B-lTLNYJdzgKRnpKTTBQQjFVSHM][Welcome Booklet PDF]] explains why we exist. It also sets out a reading list which will help you come up to speed with the state of the art in legal informatics. Read it, and the readings in it. (At some point we will move the text of that PDF into this file.)
+            + In a traditional organization, a new hire might spend a couple of weeks, even a couple of months, in training. If McDonalds can have a [[http://www.aboutmcdonalds.com/mcd/corporate_careers/training_and_development/hamburger_university.html][university]], we can have some amount of training. In the software world, we think of training as READMEs, FAQs, docs, and onboarding videos.
+            + The work we do is harder than flipping burgers, so it will take you longer to read all the books. It often takes up to a year for a new contributor to be fully onboarded. Books take time to read.
+
+        3. sign the Contributor License Agreement
+
+
+      **Part 2: problem-specific / role-specific onboarding**  
+        This part will be continuous and ongoing throughout your lifetime with us. As you might have gathered from the name, the pre-requisites under this onboarding arm will vary according to problems and/or roles that you wish to take on.
+
+        Legalese is a big project, on the scale of a database language (like SQL) plus a database engine (like InnoDB). While it is possible to make useful contributions quickly, the more challenging parts of the project require you to come up to speed on some of the underlying ideas and technologies.
+
+        *Before working on any issue*, please file it under GitHub Issues and raise it publicly on slack.
+
+        *If the issue is already filed*, please ensure that you have satisfied the pre-requisites to undertake the issue. If you're unsure what these are, check with the team on Slack.
+
+- *Unless you have the compensation committee's written and public approval on this, no financial relationship is assumed.*
 
 If you are new to any of:
 - opensource projects
 - high-tech, high-growth, innovation-driven startups
 - commercial organizations
 - distributed/virtual/remote organizations
-
 you may find that the way we work is different to the way you have worked in the past, because we combine elements of all of the above.
 
-** Companies build products. Entrepreneurs build companies.
+As you will come to realise, we adhere to many principles, beliefs, and their associated bastards (e.g. Holacracy).
+
+# Our 3 commandments
+
+As a company, however, we don't have very many rules but we do have 3 commandments that operate jointly and concomitantly extend to _everything_:
+
+  *FIRST COMMANDMENT: Do not make or expect another person to do what he/she is unwilling to do.*
+        + if you want an issue solved, you are empowered to follow the prescribe protocols to solve it. this includes persuading the relevant persons to do what you cannot or will not do. if this does not happen, be prepared to accept that it probably will not get solved. this is fine.
+
+    *SECOND COMMANDMENT: Do not make promises on behalf of the company or other people in the company without going through the exhaustive protocols*
+
+    *THIRD COMMANDMENT: By default, all conversations must be held publicly - this means either in email copying active-team@legalese.io and/or on a public channel in Slack*
+      + If there are good reasons why the conversation cannot be held publicly and openly, then the Compensation Committee must at least be involved and consulted
+
+# Overview of this document                       
+1. :couple_with_heart: What we think of companies and users
+    - companies build products; entrepreneurs buiid companies
+    - developers build products for users; but users can also be developers
+2. :golf: Roadmap and where we are now (as of: 5 June 2016)
+3. :tent: Organisational Architecture
+
+    * 3A. Inspirations
+    - opensource projects
+    - opensource businesses
+    - _teal_ organisations
+
+    * 3B. Communication channels
+
+    * 3C. Bail-only Design
+
+    * 3D. Compensation
+
+4. :space_invader: Frequently Asked Questions
+   * 4A. About the organisation
+   * 4B. About money & compensation
+   * 4C. About the future
+
+# 1. What we think of companies and users :couple_with_heart:
+
+## Companies build products; entrepreneurs build companies
 
 Entrepreneurs build companies. Companies build products.
 
@@ -34,7 +97,7 @@ In the early days, when a handful of founders are doing all the work, it's easy 
 
 The traditional model of /staff/ vs /management/ is under attack from new models like Holacracy, which believes that the management function should be distributed across staff, rather than reserving it to specific individuals who carry the burden of being paymaster, boss, and lightning rod.
 
-** Developers build products for users. But users can become developers!
+## Developers build products for users. But users can become developers!
 
 We can look at it from a different angle. The opensource world is already used to muddying the boundary between user and developer.
 
@@ -52,153 +115,242 @@ In the same way that opensource development invites conversion from users to dev
 
 Both Legalese the company, and Legalese the product, are things that can be versioned and milestoned. Both have end-user personas and requirements specifications and use cases and story cards. Both have a release approval process. Both invite users to become developers.
 
-On the product side, before an contributor can work on certain parts of the codebase, they must first earn badges to prove they are qualified, often by reading specific books (e.g. /Learn You A Haskell For Great GOod/) or videos (like [[https://www.youtube.com/watch?v=peU756mYfjQ][The State of the Art of Legal Technology Circa 2015]]).
+On the product side, before an contributor can work on certain parts of the codebase, they must first earn badges to prove they are qualified, often by reading specific books (e.g. /Learn You A Haskell For Great Good/) or videos (like [[https://www.youtube.com/watch?v=peU756mYfjQ][The State of the Art of Legal Technology Circa 2015]]).
 
 On the company side, before a contributor can work on certain parts of the company, they must first read books like /Holacracy/, /the Five Dysfunctions of a Team/, and /the Art of the Start/. But these are just badges, and at the end of the day anyone can level up into any role based on capability and inclination -- as with any opensource project, in theory.
 
 This document describes Legalese the company and the software -- the processes -- that its developers produce.
 
-** The Welcome Booklet
+#2. Roadmap and where we are now (as of: 5 June 2016) :golf:
 
-The [[https://drive.google.com/open?id=0B-lTLNYJdzgKRnpKTTBQQjFVSHM][Welcome Booklet PDF]] explains why we exist. It also sets out a reading list which will help you come up to speed with the state of the art in legal informatics. Read it, and the readings in it. (At some point we will move the text of that PDF into this file.)
+*Who the current Compensation Committee consists of*
+Alexis, Chiahli, meaning
 
-In a traditional organization, a new hire might spend a couple of weeks, even a couple of months, in training. If McDonalds can have a [[http://www.aboutmcdonalds.com/mcd/corporate_careers/training_and_development/hamburger_university.html][university]], we can have some amount of training. In the software world, we think of training as READMEs, FAQs, docs, and onboarding videos.
+*Who is being compensated and what for*
+- Backend development: Anuj is on probation at SGD$1.4k/month
 
-The work we do is harder than flipping burgers, so it will take you longer to read all the books. It often takes up to a year for a new contributor to be fully onboarded. Books take time to read.
+*Roadmap*
+    _*Phase One: June - August 2015*_
+          *externally*  
+          - [ ] Singapore: complete the pitching and collecting of polite Nos / oh-that-looks-promising-lets-chat-after-you've-actually-got-a-product
+          - [ ] Angel round from friends, family, and fools: send out the emails and start the conversations going
+          - [ ] Conduct interviews to validate:
+                1. identification of early adopter (EA) demographics
+                2. our definition of minimum features to solve the EAs' problems
+                3. a price that EAs are willing to pay for the product that has the minimum features in v1
+                4. a price that EAs are willing to pay for the minimum features in v2
+          *internally*
+          - [ ] complete the 20p business plan
+          - [ ] refine / create moqup of what v2 should look like
+          - [ ] build pages to test monetisation models
+          - [ ] test monetisation models
+          - [ ] do back-of-the-envelope calculations to see if business will be viable based on what people are willing to pay
+          - [ ] start internal fortnight email digest going by end June
+          - [ ] start building up social media and web presence (twitter, angelist, etc)
 
-** The rest of this document
+    _*Phase Two: Sept - Oct 2016*_
+          *externally*  
+          - [ ] boston / SV: pitch
+          - [ ] continue with efforts on angel round from friends, family, and fools
+          - [ ] set up product to test channel hypothesis (e.g. links from other bodies in the SG startup ecosystem to be measured on inbound volume and conversion)
+          *internally*
+          - [ ] build v2 as our MVP
+          - [ ] consolidate learnings and iterate experiments done during Phase One
+          - [ ] compensation committee to finalise compensation architecture
 
-Also read the rest of this document; it explains how the organization works.
+    _*Phase Three: November - Dec 2016*_
+          *externally*  
+          - close angel round of 500K
+          - launch MVP (i.e. v2)
+          *internally*  
+          - set up trackers and experiments for v2 (for (i) monetisation and (ii) interface)
+          - implement payment system for v2
+          - build/refine pitch deck and business plan for 2m seed round
+          - compensation committee to have compensation conversations
 
-* Inspirations
+#3. Organisational Architecture :tent:
 
-** Opensource Projects
+##3A. Inspirations
 
-Legalese belongs to the opensource and Creative Commons traditions of Wikipedia, Git, Linux, and Public.Resource.Org, to name a few.
+  ** Opensource Projects
 
-The Internet is built on open software and open standards. Legalese aims to be a major infrastructural pillar of Internet-enabled future commerce, in the same way that Wikipedia has become a major pillar of online education and research.
+      Legalese belongs to the opensource and Creative Commons traditions of Wikipedia, Git, Linux, and Public.Resource.Org, to name a few.
 
-** Opensource Businesses
+      The Internet is built on open software and open standards. Legalese aims to be a major infrastructural pillar of Internet-enabled future commerce, in the same way that Wikipedia has become a major pillar of online education and research.
 
-Legalese costs money to run. Where will that money come from?
+  ** Opensource Businesses
 
-Some opensource infrastructure projects are embarrassingly underfunded. [[http://www.technologyreview.com/view/526386/the-underfunded-project-keeping-the-web-secure/][OpenSSL]] and [[http://www.propublica.org/article/the-worlds-email-encryption-software-relies-on-one-guy-who-is-going-broke][GPG]] recently put out calls for donations. Legalese must be more sustainable than just relying on donations. That means incorporating as a business, maybe getting venture funding. There are many precedents for opensource businesses, including [[http://en.wikipedia.org/wiki/MariaDB][MySQL and MariaDB]].
+      Legalese costs money to run. Where will that money come from?
 
-** "Teal" organizations
+      Some opensource infrastructure projects are embarrassingly underfunded. [[http://www.technologyreview.com/view/526386/the-underfunded-project-keeping-the-web-secure/][OpenSSL]] and [[http://www.propublica.org/article/the-worlds-email-encryption-software-relies-on-one-guy-who-is-going-broke][GPG]] recently put out calls for donations. Legalese must be more sustainable than just relying on donations. That means incorporating as a business, maybe getting venture funding. There are many precedents for opensource businesses, including [[http://en.wikipedia.org/wiki/MariaDB][MySQL and MariaDB]].
 
-Self-managing organizations are better suited to Internet-era post-industrial conditions. See also
-- http://www.reinventingorganizations.com/
-- http://www.holacracy.org/how-it-works/
-- http://venturebeat.com/2015/08/01/our-startup-got-rid-of-email-meetings-and-managers-and-thrived/
+  ** _Teal_ organizations
 
-Many opensource efforts have much in common with Teal organizations.
+      Self-managing organizations are better suited to Internet-era post-industrial conditions. See also
+      - http://www.reinventingorganizations.com/
+      - http://www.holacracy.org/how-it-works/
+      - http://venturebeat.com/2015/08/01/our-startup-got-rid-of-email-meetings-and-managers-and-thrived/
 
-* Communication Channels
+      Many opensource efforts have much in common with Teal organizations.
 
-- realtime chat :: Slack
+          #+BEGIN_QUOTE
+          Any sufficiently complicated company w/o management contains an ad hoc, informally-specified, bug-ridden, slow implementation of management.
+          https://twitter.com/wycats/status/368752712894017536
+          #+END_QUOTE
 
-- email :: Google Groups -- active-team@legalese.io is the primary address. You can [[https://groups.google.com/a/legalese.io/forum/#!forum/active-team][browse the archives]].
+      A Teal or Holacratic architecture doesn't mean anarchy. It doesn't mean absence of management. It means self-management. In a Teal organization, people spend /more/ time doing management than in a traditional business. The difference is, people manage themselves and one another; they don't manage up and down.
 
-- source code, legal templates, and some documents :: Github
+      *** Participants
 
-- other documents :: Google Drive: [[https://drive.google.com/drive/folders/0B-lTLNYJdzgKfldRU290T3d2LVA3Yk01UG4xM2tlOWU5dU1JaVh4d3h6cmo3Ny1wRWZBeFU][Legalese Shared]].
+      Individual human beings elect to participate in the company. Volunteers, interns, employees, contractors, opensource developers, content contributors, mailing list subscribers -- all are Participants. By participating in the company, they agree to abide by this governance model, and they have the right under this governance model to make requests, ask for advice, and be asked for advice. They also agree to subject themselves to the dispute resolution process.
 
-- project management and task tracking :: Github Issues. We used to use Asana and Basecamp before.
+      A special category of "end-user" or "customer" exists. They are not considered a "participant" operating under this governance model until they take on a differentiated role, such as moderator, community leader, or opensource contributor. When they do, they are onboarded to this governance model, mostly by reading this document.
 
-- in-person meetings :: an in-person meeting is only considered a valid project meeting only if the online project group are notified with minutes.
+      *** Roles
 
-In-person meetings are a natural human instinct, but easily become an anti-pattern. If project team members are omitted from the meeting, intentionally or inadvertently, cliques form, communication breaks down, decisions are made in secret, project members complain "nobody tells me anything", and the integrity of the organization fails.
+      A Role expresses a set of work processes. In a restaurant, Roles might be Waiter, Chef, Host, or Cashier. An individual at the restaurant might enact multiple roles: in a small restaurant, the Host might also act as a Cashier and a Waiter.
 
-In-person meetings are acceptable if and only if:
-1. all relevant individuals are invited to the meeting
-2. provisions are made for people to participate online
-3. minutes are posted to the appropriate online chat
-4. comments and discussion after the meeting are considered as valid as in-person interaction during the meeting
-5. decisions made during the in-person meeting may be reversed or revised pursuant to online followup.
+      Individual participants can be onboarded to one or more Roles in a company.
 
-* FAQ: Why do I keep getting redirected to the group chat?
-/My main point of contact with Legalese is X, but when I try to talk to X about Legalese, X doesn't seem to want to talk to me directly; instead, X tells me to talk on the mailing list, or the group chat. Why are they being so rude? Who do they think they are?/
+      *** Circles
 
-They're not being rude to you; they're just being polite to other people. Other people who should be involved in the conversation, and would object to [[http://www.svilendobrev.com/rabota/orgpat/6-1-change-all.html][side conversations]]. Or people who would benefit, tomorrow, from seeing your conversation today. Some of these people might not even be with us yet: they will join tomorrow. Their access to historical discussions means they can learn what happened without having to bother you. This is the fundamental value proposition of the technology called "literacy": it scales better than [[https://en.wikipedia.org/wiki/Walter_J._Ong][the alternative, which is orality]].
+      If multiple individuals play the same Role, they form a group called a Circle. Circles are a unit of abstraction and MUST exhibit consensus when dealing with other parties, even if that consensus is simply a statement explaining that there is no consensus yet, and describing the conflicting positions.
 
-This may be your first experience interacting with an opensource community. Legalese -- the opensource project -- is not a traditional organization with a central point of contact. Legalese, the commercial entity, does offer that kind of support, but only to paying customers. The closer you are to being a paying customer, the more you can expect confidential, personal support. The closer you are to being a project participant, contributing bug reports and pull requests, the more you should expect to talk to your fellow participants, not to some figurehead. The PR spokesman may be the voice of the organization, but she doesn't have any more executive authority than anyone else.
+      In a restaurant with multiple chefs, the Circle might be called Kitchen, and the waiters might deal with the Kitchen as a unit of abstraction: orders go in, dishes come out. Waiters don't want to know which chef is preparing which dish. Chefs don't want to know which waiter is serving which table. There is just a hole in the wall and a little bell that goes "ding!"
 
-You wouldn't phone up the managing editor of your local newspaper and demand to have the news read to you.
+      A Circle may appoint a member or members to act as Lead Links -- representatives of the Circle to other parts of the organization. If a waiter hears consistently from diners that the steaks are coming out too rare, that waiter needs to be able to raise the issue either with the entire Kitchen circle, or with one representative of the Kitchen who collates the feedback.
 
-/Then I want to talk to somebody who's in charge!/
+      *** Transparency.
 
-Easy! Find a mirror. You're in charge.
+      It is annoying to not be able to find information when you need it. It is also annoying to be interrupted by people asking you for information.
 
-First, professors invented the seminar because it was more scalable than one-on-one tuition. Then they figured out they didn't even have to turn up, half the time, and the learning would still go on, as long as the students were there.
+      All information relevant to other people in the company, particularly information that crosses the organizational boundary, SHOULD be recorded in a shared location accessible by other participants. This includes questions, discussions, decisions, policies, and processes.
 
-In the same way, if you want to interact with Legalese, you already can. If you want to report a bug or file a feature request, go ahead: use Github issues. If you want to spend company funds, bring up the issue on the #reimbursement chat. If you want to complain about the organizational structure, go to #meta. If you want to represent Legalese to some third party entity, you can, so long as you do not commit anyone else within the company to act, without getting their approval first.
+      Chat logs and mailing list logs are available and searchable in the messaging system. Note that direct messaging between participants about company business is discouraged. Even if there are only two participants of a Circle, the discussions within those participants should be conducted in a shared venue, and logged for the benefit of other participants of the company, and for the benefit of future members of the Circle!
 
-/OK, then where do I find letterhead?/
+      So long as non-Asperger humans are involved in the project, face-to-face and tele/video conversations between team members are unlikely to ever be stamped out, but they MUST be minuted in a forum/archive accessible either to the relevant circle or, preferably, company-wide. The point here is that ephemeral discussions may live on in the memory traces of the participants, but the human mind is a fallible thing; [[http://www.english.illinois.edu/-people-/faculty/debaron/482/482readings/phaedrus.html][over Thamus's objections, we adopted writing]], and we should make the most of it.
 
-The Legalese logo and artwork are available under logos. You can also get corporate letterhead under the stationery folder.
+      Some exceptions exist.
+      - Confidential information relating to private matters regarding participant/employee health, family, etc, may be excluded.
+      - Private, ephemeral chats about non-company business may be excluded. "Lunch?" "Yoga?" etc.
+      - Confidential, sensitive, or proprietary information such as passwords, competitive trade secrets, and user data protected by personal data privacy legislation may be excluded from the general transparency rule. In such cases, participants, roles, and circles may elect to share data within circles instead of with the whole company.
 
-* FAQ: How do I invite a new person to the project?
+      By default, all information should be fully public, even to non-participants of the company, unless there is a compelling reason to keep it private. Reasons to keep information within the company include: half-baked discussions-in-progress should not be exposed to misinterpretation by an uninformed public; competitive strategy may hurt the company if disclosed at the wrong time or in the wrong way; information relating to partnerships may be covered by NDA.
 
-There's an onboarding workflow; running that workflow is the responsibilty of the Onboarding Role. To trigger that workflow, speak up on #general. The Onboarding Role will canvass for objections, and if none are received, will kick off the workflow.
+      *** The advice process.
 
-* Innovation: Bail-only Design
+      Before making a decision, a role player (acting on behalf of their circle) MUST seek the advice of all parties who will be substantively affected by that decision.
 
-Adhocracies tend to be highly informal, with people joining and leaving projects all the time.
+      *** The request process.
 
-By analogy with [[http://en.wikipedia.org/wiki/Crash-only_software][crash-only software design]], a bail-only organizational structure aims to increase robustness by removing critical dependence on any individual, allowing any participant to leave the company at any time, and rejoin at a later time -- or never!
+      Any participant can submit a request to any other participant about the way they play their role generally, or about a particular action specifically.
 
-Swappable *roles* are emphasized over job titles and fixed areas of authority/responsibility. Any individual who satisfies the prerequisites to assume a role may do so.
+      *** The dispute resolution process.
 
-* Innovation: Compensation
+      If a conflict arises which is not naturally resolved within a circle, dispute resolution process defines an escalation pathway: a dispute resolution committee involving representatives from all advisory parties MUST be convened. If the dispute is not resolved within that committee, larger and larger advisory committees are convened. (In practice, the dispute is referred to larger and larger gatherings of the community. (There is a tension between the frequency of such referenda, and the size of the dispute. The decision to refer to a larger committee may be made by the dispute resolution committee.)
 
-In a purely volunteer not-for-profit project, little is needed beyond an IP/copyright assignment.
+      *** The contribution process.
 
-Legalese may take a commercial, for-profit form to maximize sustainability and satisfy investors. How will participants be rewarded?
+      Content contributors and technology developers are subject to the [[https://guides.github.com/activities/contributing-to-open-source/][usual conventions of software projects]]. They may submit pull requests or have merge authority. The circle of Maintainers is usually smaller than the circle of Contributors. Contributors may be promoted to Maintainers by consensus of the Maintainer circle.
 
-We draw on the conventions established in the startup industry to manage expectations. If the company has cash available, and participants need to draw a salary from Legalese to continue contributing, then an employment or contractor relationship can be established. If the participant is willing to trade equity for cash, then the participant can be registered in the stock pool. Ideally, cash and equity should be interchangeable.
+  ** Training for Aesthetics
 
-Compensation could be determined by a participant's fellow Circle members and immediate business units.
+      In organizations expressing design-driven innovations, important decisions often fall into an aesthetic rather than technical or economic domain.
 
-Or maybe we do a next-generation approach using some kind of [[http://swarm.fund/][Swarm]] or [[http://www.assembly.com/][Assembly]] or other [[http://www.scribd.com/doc/255347578/SWARM-Working-Paper-Distributed-Networks-and-the-Law][Distributed Collaborative Organisation]] model.
+      Part of new-participant onboarding MUST involve recruitment for, and training in, the dominant aesthetics, principles, values, vision, and tensions of the project.
 
-The remainder of this section are notes taken during the March 2016 Legalese Summit.
+      Minority or opposition opinions should be actively sought and aired. Consider the "Devil's Advocate" process.
 
-** Principles
+  ** Corporate Form
 
-*** Tensions should be pushed to the place where they are best processed, which is often to the edge.
+      Legalese is incorporated in Singapore as a Private Limited company.
 
-*** We should not spend so much time navel-gazing that everybody gets demoralized and no work gets done.
-https://en.wikipedia.org/wiki/The_Centipede%27s_Dilemma
+      Legalese needs to be scrupulously aware of the Legal Profession Act.
 
-** These are the reference exit scenarios:
-- Ludicrous Exit :: The company exits for $10B after 8 years.
-- Decent Riches :: The company exits for $60M after 4 years.
-- Sad Puppy :: The company exits for $150,000 after 2 years.
-- Death :: There is no exit and we agree to shut it all down after 3 years.
+      Legalese offers a number of products and services. Some of those products and services are free. Some are paid.
 
-** Requirements
+##3B. Communication Channels
+  - realtime chat :: Slack
+  - email :: Google Groups -- active-team@legalese.io is the primary address. You can [[https://groups.google.com/a/legalese.io/forum/#!forum/active-team][browse the archives]].
+  - source code, legal templates, and some documents :: Github
+  - other documents :: Google Drive: [[https://drive.google.com/drive/folders/0B-lTLNYJdzgKfldRU290T3d2LVA3Yk01UG4xM2tlOWU5dU1JaVh4d3h6cmo3Ny1wRWZBeFU][Legalese Shared]].
+  - project management and task tracking :: Github Issues. We used to use Asana and Basecamp before.
+  - in-person meetings :: an in-person meeting is only considered a valid project meeting only if the online project group are notified with minutes.
+      + in-person meetings are a natural human instinct, but easily become an anti-pattern. If project team members are omitted from the meeting, intentionally or inadvertently, cliques form, communication breaks down, decisions are made in secret, project members complain "nobody tells me anything", and the integrity of the organization fails.
+      + In-person meetings are acceptable if and only if:
+          1. all relevant individuals are invited to the meeting
+          2. provisions are made for people to participate online
+          3. minutes are saved onto the appropriate folder on G:Drive and notified to the appropriate slack channel
+          4. comments and discussion after the meeting are considered as valid as in-person interaction during the meeting
+          5. decisions made during the in-person meeting may be reversed or revised pursuant to online followup -- this has to be made clear to the other party
 
+##3C. Bail-only Design
+
+  Adhocracies tend to be highly informal, with people joining and leaving projects all the time.
+
+  By analogy with [[http://en.wikipedia.org/wiki/Crash-only_software][crash-only software design]], a bail-only organizational structure aims to increase robustness by removing critical dependence on any individual, allowing any participant to leave the company at any time, and rejoin at a later time -- or never!
+
+  Swappable *roles* are emphasized over job titles and fixed areas of authority/responsibility. Any individual who satisfies the prerequisites to assume a role may do so.
+
+##3D. Innovation: Compensation
+
+  In a purely volunteer not-for-profit project, little is needed beyond an IP/copyright assignment.
+
+  Legalese may take a commercial, for-profit form to maximize sustainability and satisfy investors. How will participants be rewarded?
+
+  We draw on the conventions established in the startup industry to manage expectations. If the company has cash available, and participants need to draw a salary from Legalese to continue contributing, then an employment or contractor relationship can be established. If the participant is willing to trade equity for cash, then the participant can be registered in the stock pool. Ideally, cash and equity should be interchangeable.
+
+  Compensation could be determined by a participant's fellow Circle members and immediate business units.
+
+  Or maybe we do a next-generation approach using some kind of [[http://swarm.fund/][Swarm]] or [[http://www.assembly.com/][Assembly]] or other [[http://www.scribd.com/doc/255347578/SWARM-Working-Paper-Distributed-Networks-and-the-Law][Distributed Collaborative Organisation]] model.
+
+##DO NOT COMMIT LEGALESE OR ANYONE TO ANY EXPENDITURE UNTIL THE FOLLOWING HAS BEEN COMPLIED WITH:-
+1.  Request is described and detailed in #finance on Slack
+    _Details to be included_
+    - subject matters
+    - which version of the software or arm of the company this is to be expended for / on
+    - amount requested
+    - alternatives examined
+    - evaluation of why this is the preferred choice
+    - is this critical to the current version of the software that we are building? Y/N
+    - what will it cost us if we wait on spending this money? tell us about the actual costs and opportunity costs
+    - which roles and circles in the organisation does this affect or involve?
+    - have all stakeholders been consulted and are in agreement prior to this request on #finance?
+    - fundraising option to be used?  see: https://docs.google.com/document/d/1rB5Y1jzhHfsUqOralpyup-WxBTINuatX3KyYEjhlfk8/edit
+
+2.  All relevant documentation evidencing the details set out in the above must be saved in the appropriate folder in Drive.
+
+3. Wait for approval from the Compensation Committee.
+
+###Compensation discussions held during the 2016 Legalese Summit
+
+*Reference exit scenarios*
+    - Ludicrous Exit :: The company exits for $10B after 8 years.
+    - Decent Riches :: The company exits for $60M after 4 years.
+    - Sad Puppy :: The company exits for $150,000 after 2 years.
+    - Death :: There is no exit and we agree to shut it all down after 3 years.
+
+**Requirements**
 This section records requirements expressed by people on the team. It aims to anticipate the expected requirements of future participants.
 
-*** Component: Survival ([[https://en.wikipedia.org/wiki/Kiasi][Kiasiïsm]])
+*Component: Survival*   ([[https://en.wikipedia.org/wiki/Kiasi][Kiasiïsm]])
+  - Staff need to have enough money to survive and focus on the job, without having to take outside jobs.
 
-Staff need to have enough money to survive and focus on the job, without having to take outside jobs.
+  - It's a bad idea for founders to pay themselves so little they can't work full time on the startup.
 
-It's a bad idea for founders to pay themselves so little they can't work full time on the startup.
+*Component: Opportunity Cost (Kiasuism on the part of the Contributor)*
+Don't lose relative to something else.
+_"I spent two years working for a startup and all I got was this stupid t-shirt."_
 
-*** Component: Opportunity Cost (Kiasuism on the part of the Contributor)
+  - Happy Path: If Person A could have made $100,000 doing independent consulting or working for a Big Company doing a Boring Day Job but instead spent their time at the startup, they should get at least $100,000 upon exit. If Person B could have made $200,000, ditto.
 
-Don't lose relative to something else. "I spent two years working for a startup and all I got was this stupid t-shirt."
-
-Happy Path: If Person A could have made $100,000 doing independent consulting or working for a Big Company doing a Boring Day Job but instead spent their time at the startup, they should get at least $100,000 upon exit. If Person B could have made $200,000, ditto.
-
-1. People should feel like their opportunity cost was respected.
-2. There could be a certain discount to represent the fact that they are taking a risk -- see next section, /Dreams of Avarice/. Founders usually take a pay cut to do their startup. At least, that's what investors want to see.
-3. If there is not enough money at the time of exit to give both Persons A and B $300,000, then the compensation should be reduced pro rata, pari passu. So A gets $50,000 and B gets $100,000.
-4. If the specific number is not known, then the compensation committee can make a [[https://open.buffer.com/introducing-open-salaries-at-buffer-including-our-transparent-formula-and-all-individual-salaries/][suggestion]]. And if the negotiations fail, then there is no deal.
+    1. People should feel like their opportunity cost was respected.
+    2. There could be a certain discount to represent the fact that they are taking a risk -- see next section, /Dreams of Avarice/. Founders usually take a pay cut to do their startup. At least, that's what investors want to see.
+    3. If there is not enough money at the time of exit to give both Persons A and B $300,000, then the compensation should be reduced pro rata, pari passu. So A gets $50,000 and B gets $100,000.
+    4. If the specific number is not known, then the compensation committee can make a [[https://open.buffer.com/introducing-open-salaries-at-buffer-including-our-transparent-formula-and-all-individual-salaries/][suggestion]]. And if the negotiations fail, then there is no deal.
 
 
-*** Component: Replacement Value (Kiasuism on the part of the Company)
+*Component: Replacement Value (Kiasuism on the part of the Company)*
 Nobody is irreplaceable, so if somebody wants to get paid more than they are worth to the Company, maybe the BATNA is: no deal.
 
 The company should ask: what would it cost to contract out that piece of work? This is "core competency" theory.
@@ -211,21 +363,19 @@ From [[http://www.pnas.org/content/107/38/16489.full][Kahnemann]], perhaps this 
 
 http://economistsview.typepad.com/economistsview/2008/03/income-and-happ.html
 
-*** Component: Greed
-
+*Component: Greed*
 We don't want to micro-detail the intangible contributions -- people should act in the best interests of the company, and evangelize and speak at conferences and make introductions, without asking for a cash reward each time; they should feel that they will benefit down the road, out of equity upside in the future, that will be worth way more in the future than cash today.
 
 We could stack rank these equity awards or we could leave them in an unexamined pot.
 
 Much of this component should be satisfied by one's equity holdings.
 
-*** Initial Snowflake Concept
-
+_Initial Snowflake Concept_
 The "Snowflake Award" shows up as a bonus at the time of exit, out of the equity stake. It is very hard to measure the serendipitous contributions that each person makes, so we just trust that some other people may get a little more than you, and that's okay.
 
 Initial naive proposal: if the above components are all satisfied, then the Snowflake Award is $1M to each participant. And you can take that money and buy some therapy to feel better about yourself.
 
-*** Adjusted Snowflake Algorithm
+_Adjusted Snowflake Algorithm_
 
 Monthly, everybody is allocated the kiaxi + kiasu minimum, then they get to decide how much cash vs equity they want to trade off.
 
@@ -237,7 +387,7 @@ In the *Decent Riches* scenario, the exit is $60,000,000. Investors own half the
 
 pot = 30,000,000. How do we split the loot from the heist?
 
-first, the snowflake award. every contributor who has been with the company for a certain amount of time gets $1M. This is a bit like a professor being awarded tenure. Maybe we take the idea that everybody gets an equal split of a certain percentage of the pot. For example: if there is a acquisition for cash and the pot is 30,000,000.
+First, the snowflake award. every contributor who has been with the company for a certain amount of time gets $1M. This is a bit like a professor being awarded tenure. Maybe we take the idea that everybody gets an equal split of a certain percentage of the pot. For example: if there is a acquisition for cash and the pot is 30,000,000.
 
 We decide to take one-third of the cash exit and distribute that equally among all Snowflake contributors.
 
@@ -245,7 +395,7 @@ The other two-thirds are distributed pro rata by shareholding.
 
 The one-third vs two-third could by any N vs (1-N).
 
-*** Component: Intangible Contributions
+*Component: Intangible Contributions*
 
 Person A is a great fit for the startup. They create more value working at that startup than they would working anywhere else.
 
@@ -253,8 +403,7 @@ The Contribution Adjustment could be stack-ranked on a quarterly basis based on 
 
 For example, introduction to investors could be rewarded. But if the investor actually invests, the contribution could be adjusted up.
 
-*** Component: Cash/Equity Tradeoff
-
+*Component: Cash/Equity Tradeoff*
 Instead of taking $100 in cash, each contributor can choose to take $50 in cash and invest the other $50, buying equity at the last priced-round rate, or some adjusted interpolation, extrapolation, or approximation thereof. Or each contributor could take $0 in cash and $100 in equity.
 
 At what price should contributors buy that equity?
@@ -263,26 +412,18 @@ Should there be a discount? Contributors would say, yes. Other purely financial 
 
 Perhaps the company could point out that the contributors are already getting an intangible benefit because they have the option to buy shares at all; the man on the street does not. And every $50 that they buy today will turn into $5000 in 4 years -- or to $0. So it's an all-or-nothing situation, and they shouldn't quibble about a discount. If they'd gotten a discount, the $50 they put in could turn into $6000 in 4 years.
 
-*** Considerations
+**Base plus project?**
+Base rate :: negotiate an hourly/monthly base rate with the compensation committee, but attached to the badge/role rather than the person.
 
-1. Do we overvalue people with existing jobs? It is known that people forgo "normal dayjob" levels of compensation to work on their startup.
-2. People who join earlier are taking more risk and should be rewarded accordingly. This is the Risk/Reward Ratio.
-3. All of the above needs to be tax-structured and optimized.
-4. We don't want to distort people's behaviours -- we want to create a structure that brings out the best in people without stressing them out and making them do unnatural things.
-
-*** Base plus project?
-
-Base rate: negotiate an hourly/monthly base rate with the compensation committee, but attached to the badge/role rather than the person.
-
-Project rate: like bountysource. This feature is worth $X to the company. Go do it. Get paid.
+Project rate :: like bountysource. This feature is worth $X to the company. Go do it. Get paid.
 
 Each contributor gets to decide their cash vs equity split each month.
 
-** Scenarios
+**Scenarios**
+- What happens if Person A does not contribute to the product, but introduces a $2M investor?
+- Should this be paid as a finder's fee?
 
-What happens if Person A does not contribute to the product, but introduces a $2M investor? Should this be paid as a finder's fee?
-
-** Issue-based compensation
+**Issue-based compensation**
 
 Anyone can file a new issue in Github Issues.
 
@@ -292,33 +433,30 @@ Anyone can start working on an issue. If their pull request satisfies the issue 
 
 Let's not measure everything too much because unmeasured work increases the value of our equity anyway.
 
+**Considerations**
+1. Do we overvalue people with existing jobs? It is known that people forgo "normal dayjob" levels of compensation to work on their startup.
+2. People who join earlier are taking more risk and should be rewarded accordingly. This is the Risk/Reward Ratio.
+3. All of the above needs to be tax-structured and optimized.
+4. We don't want to distort people's behaviours -- we want to create a structure that brings out the best in people without stressing them out and making them do unnatural things.
+5. How do we filter new people who want to join the company?
+    - Either fulfil the minimum criteria which have been defined as issues -- write documentation, or write code.
+    - Or demonstrate unexpected value to the company on your own initiative, and then be approved. You pay your own airfare to the Legalese summit.
+    - Along the way, don't collect any vetos from any of the existing cabal.
+    - "Congratulations! You have been on the opensource project for quite some time, and now your probation period, which you didn't know about, has ended. We would like to offer you a contract to cover a base rate to spend more time on the product side and be a part of the team. We will now cover your airfare to the next Legalese summit."
 
-** How do we filter new people who want to join the company? 
 
-Either fulfil the minimum criteria which have been defined as issues -- write documentation, or write code.
-
-Or demonstrate unexpected value to the company on your own initiative, and then be approved. You pay your own airfare to the Legalese summit.
-
-Along the way, don't collect any vetos from any of the existing cabal.
-
-"Congratulations! You have been on the opensource project for quite some time, and now your probation period, which you didn't know about, has ended. We would like to offer you a contract to cover a base rate to spend more time on the product side and be a part of the team. We will now cover your airfare to the next Legalese summit."
-
-
-
-** Proposal 1
-
+**Proposal 1**
 Each participant's compensation is their task fees plus badge rate adjusted for activity level plus circle bonus.
 
-*** Task Fees
-When a circle needs something done, it posts a project/task in Asana, with the following attributes:
-- badges :: qualifications needed to accomplish that task.
-- short credit :: estimated short-term value add, typically measured in cash
-- long credits :: estimated long-term value add, typically measured in equity
-- hard deliverables :: required acceptance criteria
-- soft deliverables :: if the task is done by a certain deadline, or in a certain way, additional short and/or long credits are awarded.
-- mutex :: either exclusive or open.
-- mushroom :: recurring tasks are mushrooms which anyone can clone and claim.
-
++  a. Task Fees
+When a circle needs something done, it posts a project/task in Github Issues, with the following attributes:
+    - badges :: qualifications needed to accomplish that task.
+    - short credit :: estimated short-term value add, typically measured in cash
+    - long credits :: estimated long-term value add, typically measured in equity
+    - hard deliverables :: required acceptance criteria
+    - soft deliverables :: if the task is done by a certain deadline, or in a certain way, additional short and/or long credits are awarded.
+    - mutex :: either exclusive or open.
+    - mushroom :: recurring tasks are mushrooms which anyone can clone and claim.
 The short and long credits are allocated out of a budget set by the circle's parent.
 
 A project/task may be restricted to a specific role or circle; or it may be unrestricted. Such a restriction is expressed through the badge mechanism.
@@ -327,37 +465,35 @@ If mutex==exclusive then the task can only be assigned to one person at a time.
 
 If mutex==melee then multiple people may compete to execute the task. The first person to demonstrate delivery may win the prize.
 
-*** Auction Mechanism
++ Auction Mechanism
 It is possible for prospects to negotiate elements of a task after it has been posted, so that the short/long credits may float until the market clears. However, such negotiation must occur in the task comments directly. An auction model may arise with multiple prospects bidding for a given task.
 
-*** Credits
++ Credits
 Both short and long credits are convertible to a mix of cash and equity.
+    - short credits may be converted to 100% cash and 0% equity, or 80% cash and 20% equity, or anywhere in between
+    - long credits may be converted to 0% cash and 100% equity, or 20% cash and 80% equity, or anywhere in between.
 
-Short credits may be converted to 100% cash and 0% equity, or 80% cash and 20% equity, or anywhere in between.
-
-Long credits may be converted to 0% cash and 100% equity, or 20% cash and 80% equity, or anywhere in between.
-
-*** Badge Rate
++ Badge Rate
 Every participant is entitled to badge rate, multiplied by their activity level.
 
-**** Badges ("Skills")
++ Badges ("Skills")
 counts the number and size of badges held by a participant, like plates of sushi at a conveyor belt restaurant.
 
 Badges may run in series, like Javascript Programmer Bronze, then Javascript Programmer Silver, then Javascript Programmer Gold.
 
-**** Seniority
++ Seniority
 is represented by a special badge that increments every month. A decay function may apply to cover any interruptions or absences. Think of this as the traditional salary band, but with less weight.
 
-**** Roles
++ Roles
 are represented by one badge for each role.
 
-*** Badge Weights
++ Badge Weights
 
 Each badge of each participant possesses a weight rating -- a real number usually in the range 0 to 100. If participant wins a bid on a project/task, but does not deliver it to the satisfaction of the commissioning party, they get to choose which of their badges should lose weight. If the project is accepted, the weight increases. When the weight goes over a certain amount, they earn the next badge in the series.
 
 Don't bid for jobs that you don't think you can do, especially mutex jobs.
 
-*** Activity Level
++ Activity Level
 The number of short+long credits achieved in a given period determine the activity level for that period. The activity level is a value between 0 and 1. You may read it this way:
 - 0   :: participant was effectively inactive
 - 0.5 :: participant was part-time
@@ -418,104 +554,98 @@ function Participant(params) {
     var totalTaskSize = tasks.sum(function(t){return t.short + t.long});
     var activityLevel = (totalTaskSize > activityLevelFullTime ? 1   :
                          totalTaskSize > activityLevelPartTime ? 0.5 : 0);
-                         
-
 
 #+END_SRC
 
-* Innovation: Teal Architecture
+#4. Frequently Asked Questions
 
-#+BEGIN_QUOTE
-Any sufficiently complicated company w/o management contains an ad hoc, informally-specified, bug-ridden, slow implementation of management.
-https://twitter.com/wycats/status/368752712894017536
-#+END_QUOTE
+## About the organisation
 
-A Teal or Holacratic architecture doesn't mean anarchy. It doesn't mean absence of management. It means self-management. In a Teal organization, people spend /more/ time doing management than in a traditional business. The difference is, people manage themselves and one another; they don't manage up and down.
+_Why do I keep getting redirected to the group chat?_
+/My main point of contact with Legalese is X, but when I try to talk to X about Legalese, X doesn't seem to want to talk to me directly; instead, X tells me to talk on the mailing list, or the group chat. Why are they being so rude? Who do they think they are?/
 
-** Participants
+>They're not being rude to you; they're just being polite to other people. Other people who should be involved in the conversation, and would object to [[http://www.svilendobrev.com/rabota/orgpat/6-1-change-all.html][side conversations]]. Or people who would benefit, tomorrow, from seeing your conversation today. Some of these people might not even be with us yet: they will join tomorrow. Their access to historical discussions means they can learn what happened without having to bother you. This is the fundamental value proposition of the technology called "literacy": it scales better than [[https://en.wikipedia.org/wiki/Walter_J._Ong][the alternative, which is orality]].
 
-Individual human beings elect to participate in the company. Volunteers, interns, employees, contractors, opensource developers, content contributors, mailing list subscribers -- all are Participants. By participating in the company, they agree to abide by this governance model, and they have the right under this governance model to make requests, ask for advice, and be asked for advice. They also agree to subject themselves to the dispute resolution process.
+>This may be your first experience interacting with an opensource community. Legalese -- the opensource project -- is not a traditional organization with a central point of contact. Legalese, the commercial entity, does offer that kind of support, but only to paying customers. The closer you are to being a paying customer, the more you can expect confidential, personal support. The closer you are to being a project participant, contributing bug reports and pull requests, the more you should expect to talk to your fellow participants, not to some figurehead. The PR spokesman may be the voice of the organization, but she doesn't have any more executive authority than anyone else.
 
-A special category of "end-user" or "customer" exists. They are not considered a "participant" operating under this governance model until they take on a differentiated role, such as moderator, community leader, or opensource contributor. When they do, they are onboarded to this governance model, mostly by reading this document.
+>You wouldn't phone up the managing editor of your local newspaper and demand to have the news read to you.
 
-** Roles
+/Then I want to talk to somebody who's in charge!/
 
-A Role expresses a set of work processes. In a restaurant, Roles might be Waiter, Chef, Host, or Cashier. An individual at the restaurant might enact multiple roles: in a small restaurant, the Host might also act as a Cashier and a Waiter.
+>Easy! Find a mirror. You're in charge.
 
-Individual participants can be onboarded to one or more Roles in a company.
+>First, professors invented the seminar because it was more scalable than one-on-one tuition. Then they figured out they didn't even have to turn up, half the time, and the learning would still go on, as long as the students were there.
 
-** Circles
+>In the same way, if you want to interact with Legalese, you already can. If you want to report a bug or file a feature request, go ahead: use Github issues. If you want to spend company funds, bring up the issue on the #reimbursement chat. If you want to complain about the organizational structure, go to #meta. If you want to represent Legalese to some third party entity, you can, so long as you do not commit anyone else within the company to act, without getting their approval first.
 
-If multiple individuals play the same Role, they form a group called a Circle. Circles are a unit of abstraction and MUST exhibit consensus when dealing with other parties, even if that consensus is simply a statement explaining that there is no consensus yet, and describing the conflicting positions.
+/OK, then where do I find letterhead?/
 
-In a restaurant with multiple chefs, the Circle might be called Kitchen, and the waiters might deal with the Kitchen as a unit of abstraction: orders go in, dishes come out. Waiters don't want to know which chef is preparing which dish. Chefs don't want to know which waiter is serving which table. There is just a hole in the wall and a little bell that goes "ding!"
+>The Legalese logo and artwork are available under logos. You can also get corporate letterhead under the stationery folder.
 
-A Circle may appoint a member or members to act as Lead Links -- representatives of the Circle to other parts of the organization. If a waiter hears consistently from diners that the steaks are coming out too rare, that waiter needs to be able to raise the issue either with the entire Kitchen circle, or with one representative of the Kitchen who collates the feedback.
+_How do I invite a new person to the project?_
+>There's an onboarding workflow; running that workflow is the responsibilty of the Onboarding Role. To trigger that workflow, speak up on #general. The Onboarding Role will canvass for objections, and if none are received, will kick off the workflow.
 
-** Transparency.
+_Tell me about scalability_
+> This is a software project. If some kind of user request needs human support, and it looks like that class of user request is going to be recurring, we need to find a way to hand off that user request to a network of partners, e.g. law firms who have staff standing by. We focus only on components that are scalable through software.
 
-It is annoying to not be able to find information when you need it. It is also annoying to be interrupted by people asking you for information.
+    #+BEGIN_QUOTE
+    It is the essence of computer science that if a methodology does not scale up, then it isn't a methodology at all.
+    Robin Milner, /Is Computing an Experimental Science?/
+    #+END_QUOTE
 
-All information relevant to other people in the company, particularly information that crosses the organizational boundary, SHOULD be recorded in a shared location accessible by other participants. This includes questions, discussions, decisions, policies, and processes.
+_Are you a non-profit?_
+> No. We are a for-profit with currently no profits. There are many moving parts. We are flogging ourselves for not moving fast enough. We are pleasantly surprised but also therefore immensely grateful for everyone's patience and indulgence so far.
 
-Chat logs and mailing list logs are available and searchable in the messaging system. Note that direct messaging between participants about company business is discouraged. Even if there are only two participants of a Circle, the discussions within those participants should be conducted in a shared venue, and logged for the benefit of other participants of the company, and for the benefit of future members of the Circle!
+_How much law do i need to know?_
+> Not much, it changes all the time anyway and from jurisdiction to jurisdiction. But you should ​*understand*​ it. Understand what people mean why they say they need a lawyer, what lawyers actually do, what lawyers pretend that they do (unfortunately, most of them don't even realise that they're playing pretend), understand what a contract, a workflow, an outcome consists of -- these consist at least of dependencies and modalities that need to be understood.  See: Rudyard Kipling's six honest serving men.
 
-So long as non-Asperger humans are involved in the project, face-to-face and tele/video conversations between team members are unlikely to ever be stamped out, but they MUST be minuted in a forum/archive accessible either to the relevant circle or, preferably, company-wide. The point here is that ephemeral discussions may live on in the memory traces of the participants, but the human mind is a fallible thing; [[http://www.english.illinois.edu/-people-/faculty/debaron/482/482readings/phaedrus.html][over Thamus's objections, we adopted writing]], and we should make the most of it.
+_What if this is not what I want and you guys don't seem to want to / be able to give me what I want_
+> That's okay. We all have a right to say no to what isn't quite right for us. It isn't a dichotomy though -- we are an open source company and you are welcome to fly-on-the-wall and tourist with us until the day you feel like it's aligned with what you want.
 
-Some exceptions exist.
+>At the same time, embrace the polyamory! Embrace the other options out there! We like to think that the wabisabi beauty of our organisation is that the decision tree doesn't end with us and nothing at all. There may be accrued intensional states (e.g. 'disappointment'), but the decision tree is uh, all the world​ and all of its opportunities.
 
-Confidential information relating to private matters regarding participant/employee health, family, etc, may be excluded.
+>Can I attempt a fable?
+So... I've never read/watched The Hunger Games, but from what my students tell me, I think it may be relevant. Otherwise, just treat it as my submission of evidence why I am so crap at writing that lawyering was the obvious way to go:   the protagonist thinks she knows what her one true love ("OTL") looks like and ought to look like. she meets Handsome-Man, who looks a lot like what she imagined her OTL to look like and was like omg, he's perfect! Uh. Almost perfect. Well, if only...
 
-Private, ephemeral chats about non-company business may be excluded. "Lunch?" "Yoga?" etc.
+>Now, see, that's the problem, "if onlys" do not sit well with the concept of OTL. So this poor girl went on a host of adventures, and at the end of the day, realised that all she really had and wanted was pita bread. I think this means that whether Handsome-Man can be moulded (snigger) to become your OTL doesn't really mean much when you've got a yeast infection. This video was educational:  https://www.youtube.com/watch?v=bZ3pU-saMLQ
 
-Confidential, sensitive, or proprietary information such as passwords, competitive trade secrets, and user data protected by personal data privacy legislation may be excluded from the general transparency rule. In such cases, participants, roles, and circles may elect to share data within circles instead of with the whole company.
+##About Compensation
 
-By default, all information should be fully public, even to non-participants of the company, unless there is a compelling reason to keep it private. Reasons to keep information within the company include: half-baked discussions-in-progress should not be exposed to misinterpretation by an uninformed public; competitive strategy may hurt the company if disclosed at the wrong time or in the wrong way; information relating to partnerships may be covered by NDA.
+_Does Legalese have money?_
+> Short answer: No.
+> Long answer: The company has zero money. Zilch.
 
-** The advice process.
+/What the frak? I thought you guys paid for all that cool stuff during the summit, have been flying around for conferences, and eating oh god, ​_all that food_​./
+>Uh yeah. Humans paid for those. Mostly, very mostly, Meng. Sometimes Chiahli. Sometimes Alexis. In fact, the humans in the organisation have had to lend the company money for its meetings, flights, sustenance, intellectual nourishment, etc.
 
-Before making a decision, a role player (acting on behalf of their circle) MUST seek the advice of all parties who will be substantively affected by that decision.
+_Who is majority shareholder? How is the organisation split?_
+> On paper, Meng. And if I may be so bold as to direct your attention to the Q&A immediately  in the foregoing, I put it to you that there is no split, no paperwork on the split because there is nothing to be split.
 
-** The request process.
+/But you've been working on these for a year! For no money? Or equity?/
+> (gulp) That would be correct. But I should also add that following in the trend of lending money to the organisation, we have also been tapping on some or all of the following to subsidise our work on legalese:   savings, the legal industry's incumbents, family, friends and fools.
 
-Any participant can submit a request to any other participant about the way they play their role generally, or about a particular action specifically.
+  <!-- #+BEGIN_QUOTE "Fool of a Took!", he growled. This is a serious journey, not a hobbit walking-party. Throw yourself in next time, and then you will be no further nuisance. -->
 
-** The dispute resolution process.
+_Can I have money?_
+> It depends. We can lend some money to the company to pay people to build v2 (if you don't know what this entails, you should probably read more of the information on GitHub).
 
-If a conflict arises which is not naturally resolved within a circle, dispute resolution process defines an escalation pathway: a dispute resolution committee involving representatives from all advisory parties MUST be convened. If the dispute is not resolved within that committee, larger and larger advisory committees are convened. (In practice, the dispute is referred to larger and larger gatherings of the community. (There is a tension between the frequency of such referenda, and the size of the dispute. The decision to refer to a larger committee may be made by the dispute resolution committee.)
+/Why v2 and not v4 or v5, you ask/
+> Later versions if we can afford it.  We ​*are*​ building a full-stack startup the way Intuit and Adobe did it from ground up. But until we find investors who are willing to let us spend their money on research, we first need to have a product. Or at least masquerade our research spending behind a product. We don't have a product. We take guidance from the way Uber didn't spend their first few years and money on self-driving cars (despite that being ​*the*​ grand plan), and did that only last year: http://www.theverge.com/transportation/2015/5/19/8622831/uber-self-driving-cars-carnegie-mellon-poached  
 
-** The contribution process.
+> Talking to the Valley people (VCs, other founders) this past week has also helped validate that. Investors don't want to fund research projects. They want to see growth, traction, product-market fit. V2 is our attempting at starting with those.
 
-Content contributors and technology developers are subject to the [[https://guides.github.com/activities/contributing-to-open-source/][usual conventions of software projects]]. They may submit pull requests or have merge authority. The circle of Maintainers is usually smaller than the circle of Contributors. Contributors may be promoted to Maintainers by consensus of the Maintainer circle.
+/Wait. What? NO product? We have googleapps. And that spreadsheet thingy./
+>I know it's a trope that we should ship products before we feel ready, and ship products we are embarrassed of, but I'm sceptical if that extends to a product with a human UI (i.e. meng) for a software product. Probably not.
 
-* Innovation: Training for Aesthetics
+/So what about the genius minds like ours? We are doing the real hard work, that is, the invention and the research. What does all this mean for me?/
+> You are critical to our long-term success. And we are working very very hard to find ways to enable and empower the research arm. In the early days though, this means looking for public grants, research grants, collaborations. Virgil has been a god-sent cheerleader on this, but this also means that the researchers on the team will probably have to be aggressively applying for grants and partnerships. The resilience to rejection, fortitude and perseverance to keep working at it, finding new money wells, finding ways around money walls, seems like good character building. The point is, the process is probably not going to be easy.
 
-In organizations expressing design-driven innovations, important decisions often fall into an aesthetic rather than technical or economic domain.
+/But i want to create meaning! not this time-wasting begging for money, writing applications, doing everything that eats away at my research time/
+>We love that! Go do that! I hear there's a few companies and universities out there with specific departments for that. Unfortunately, our startup can't quite pay you to do that yet.
 
-Part of new-participant onboarding MUST involve recruitment for, and training in, the dominant aesthetics, principles, values, vision, and tensions of the project.
-
-Minority or opposition opinions should be actively sought and aired. Consider the "Devil's Advocate" process.
-
-* Corporate Form
-
-As of 2015-06-06 Legalese has not been incorporated. This section proposes a corporate form.
-
-Because it represents a high-potential, high-tech, high-impact innovation with commercial potential, Legalese needs to be able to take venture funding.
-
-Legalese will be incorporated in Singapore as a Private Limited company.
-
-Legalese needs to be scrupulously aware of the Legal Profession Act.
-
-Legalese offers a number of products and services. Some of those products and services are free. Some are paid.
-
+_Can I just work for equity then, since you have no money?_
+> Bingo. Read compensation in further details in the main doc or ask on slack.  Anyway, we want to structure it such that equity and compensation eventually becomes interchangeable. If you want a full description of what this means, checkout company.org on github. Now that we know how to structure it though, we just need to actually, uh, structure it. This involves long and extended conversations with everyone on the team. And architectural planning to ensure that it doesn't freak out the investors. This will probably take awhile. So yes, you probably can work for equity (subject to holacracy rules and compensation committee's rules), but what that means exactly, how much that is, will probably take us at least 3 months to get back to you on.
 
 
-* Scalability
-
-This is a software project. If some kind of user request needs human support, and it looks like that class of user request is going to be recurring, we need to find a way to hand off that user request to a network of partners, e.g. law firms who have staff standing by. We focus only on components that are scalable through software.
-
-#+BEGIN_QUOTE
-It is the essence of computer science that if a methodology does not scale up, then it isn't a methodology at all.
-
-Robin Milner, /Is Computing an Experimental Science?/
-#+END_QUOTE
+_Can i get something in writing?_
+>We can probably generate an employment agreement in writing once the procedures are followed through with. And if the bugs don't kill us. We can probably generate a bunch of other documents. But if you want equity in writing, we have nothing to carve from now. And you should probably also realise that, that is essentially asking if you can have a piece of paper from us to tell you that we have no money, but when we do have money, we may splice some of that off for you and everyone else based on a yet to be defined metric.......
