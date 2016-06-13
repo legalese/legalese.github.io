@@ -131,7 +131,7 @@ This document describes Legalese the company and the software -- the processes -
 
 ** Roadmap
 
-*** Phase One: June - August 2015
+*** Phase One: June - August 2016
 *externally*  
 + Singapore: complete the pitching and collecting of polite Nos / oh-that-looks-promising-lets-chat-after-you've-actually-got-a-product
 + Angel round from friends, family, and fools: send out the emails and start the conversations going
@@ -141,13 +141,13 @@ This document describes Legalese the company and the software -- the processes -
           3. a price that EAs are willing to pay for the product that has the minimum features in v1
           4. a price that EAs are willing to pay for the minimum features in v2
 *internally*
-+ complete the 20p business plan
-+ refine / create moqup of what v2 should look like
-+ build pages to test monetisation models
-+ test monetisation models
-+ do back-of-the-envelope calculations to see if business will be viable based on what people are willing to pay
-+ start internal fortnight email digest going by end June
-+ start building up social media and web presence (twitter, angelist, etc)
+**** TODO complete the 20p business plan
+**** TODO refine / create moqup of what v2 should look like
+**** TODO build pages to test monetisation models
+**** TODO test monetisation models
+**** DONE do back-of-the-envelope calculations to see if business will be viable based on what people are willing to pay
+**** TODO start internal fortnight email digest going by end June
+**** TODO start building up social media and web presence (twitter, angelist, etc)
 
 *** Phase Two: Sept - Oct 2016
 *externally*  
