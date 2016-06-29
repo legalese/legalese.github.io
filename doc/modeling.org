@@ -1310,6 +1310,15 @@ Each Major Shareholder will have (10) days from the date of notice, to agree in 
 
 Alice must pay ten dollars to Bob.
 
+Note: There is no deadline on this! Is this a wise contract? No. Is this a valid contract? Maybe.
+What happens if alice overpays? what happens if alice underpays?
+
+It is up to the compiler to complain.
+
+So the module that handles payments needs to know how to handle all these scenarios.
+
+And the unit testing too.
+
 *** Newborn Clause
 
 The Company means Bob.
