@@ -26,7 +26,7 @@
       data.hundred_minus_discount = (100-100*data._orig_discount).toFixed(2);
 	}
 ?>
-The <b>"Discount Rate"</b> is <?= data.hundred_minus_discount ?>%.
+The <b>"Discount Rate"</b> is <?= data.hundred_minus_discount ?>.
 <? } ?>
 <? if (iHaveCap || data._orig_discount) { ?>
 See Section <xref to="definitions" /> for certain additional defined terms.
@@ -117,7 +117,7 @@ the Discount Price,</numbered_3_para>
 <? } ?>
 
 <? if (data._orig_discount) { ?>
-<numbered_2_para>"Discount Price" means the price per share of the Standard Preferred Stock sold in the Equity Financing multiplied by the Discount Rate (<?= data.hundred_minus_discount ?>%).</numbered_2_para>
+<numbered_2_para>"Discount Price" means the price per share of the Standard Preferred Stock sold in the Equity Financing multiplied by the Discount Rate (<?= data.hundred_minus_discount ?>).</numbered_2_para>
 <? } ?>
 
 
