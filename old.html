@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Legalese.io</title>
+    
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63573011-4', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Legalese 2.0</h1>
+        <h2>Software is eating law.</h2>
+        <a href="https://github.com/legalese/" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div class="menu-wrap">
+    <nav class="menu">
+        <ul class="clearfix">
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <a target="_blank" href="tutorials.html">Tutorials <span class="arrow">&#9660;</span></a>
+ 
+                <ul class="sub-menu">
+		        <li> <a href="tutorials.html#t1">the EULA</a></li>
+			<li> <a href="tutorials.html#t2">Hello, World!</a></li>
+			<li> <a href="tutorials.html#t3">Send for Signature!</a></li>
+			<li> <a href="tutorials.html#t4">A Real Nondisclosure Agreement</a></li>
+			<li> <a href="tutorials.html#t5">What Docsets Are Available?</a></li>
+		        <li> <a href="tutorials.html#t6">Generating Multiple Documents &ndash; Incorporation</a></li>
+		        <li> <a href="tutorials.html#t7">Developing Your Own Templates</a></li>
+                </ul>
+            </li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="help.html">Help</a></li>
+	    <li><a href="turing.html">Turing-Complete Contracts</a></li>
+        </ul>
+    </nav>
+</div>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+
+		  <blockquote class="quotation">"These are really smart people,” said one lawyer who works with startups. “They believe in world-domination of the engineering class; everything can be reduced to an algorithm, and legal documents are not going to be spared."</blockquote>
+		  <blockquote class="credit">&ndash; <a target="_blank" href="http://techcrunch.com/2015/01/10/documents-just-want-to-be-free/">TechCrunch, January 10 2015</a></blockquote>
+
+          <h1>Engage!</h1>
+
+		  <p>Legalese's v1 early beta has supported over $1.4M in deal volume. We are now working on a more user-friendly v2.</p>
+
+		  <p>Being an opensource project, Legalese welcomes contributions from developers, domain experts, and entrepreneurial engineers. Lurk on the <a href="https://groups.google.com/a/lists.legalese.com/d/forum/wellwishers">announcements</a> list or say hi on the <a href="https://groups.google.com/a/lists.legalese.com/d/forum/talk">discussion</a> list.</p>
+
+		  <h1>The Vision</h1>
+
+		  <p>These articles survey the LegalTech space and point to the long-term vision of Legalese:</p>
+
+		  <ul>
+			<li> <a href="http://www.ft.com/cms/s/0/c3a9347e-fdb4-11e5-b5f5-070dca6d0a0d.html#axzz45iKAu8vS"><i>Breaking The Law</i> -- Financial Times, Michael Skapinker, April 11, 2016.</a></li>
+			<li> <a href="https://medium.com/@ConsenSys/what-if-we-developed-legal-contracts-like-we-developed-software-applications-1b5bc8fbb915#.uoiiqx9ku">What if we developed legal contracts like we developed software applications?</a> -- Guest post by Joe Dewey, April 6, 2016.</li>
+			<li> <a href="http://www.lawtechnologytoday.org/2014/12/smart-startups/">Bessemer reviews their LegalTech portfolio</a> December 16, 2014.</li>
+			<li> <a href="http://tech.co/legal-industry-startup-invasion-2013-03">6 Reasons the Legal Industry is Ripe for Startup Invasion</a> March, 2013.</li>
+			<li> <a href="https://peermonitor.thomsonreuters.com/wp-content/uploads/2016/01/2016_PM_GT_Final-Report.pdf">2016 Report on the State of the Legal Market</a> shows the legal industry in the crosshairs</li>
+			<li> <a href="http://www.coindesk.com/barclays-smart-contracts-templates-demo-r3-corda/">Coindesk describes Barclay's work with Corda</a> and links to some slides about <a href="https://www.scribd.com/doc/310534422/Smart-Contract-Templates-1">Smart Contract Templates</a>.</li>
+			<li> <a href="http://www.uclalawreview.org/four-futures-legal-automation/">Four Futures of Legal Automation</a>, UCLA Law Review.</li>
+		  </ul>
+
+		  <h1 id="brief">For Investors and Partners</h1>
+
+		  <p><em>adapted from correspondence with an unnamed Silicon Valley VC, 2016-05-11</em></p>
+		  
+		  <p>Legalese.io is a LegalTech startup founded by a team of computer scientists and lawyers who are making it possible to develop legal applications the way programmers develop software. Our first product is a SaaS app that makes it easy for an entrepreneur to configure and engross all the paperwork required for an angel or seed round – not just term sheets but shareholders agreements, corporate resolutions and amendments, rights notices, and other prerequisites like ESOPs and vesting, all compiled automatically from high-level, structured expressions.</p>
+
+		  <p>How is Legalese different from existing approaches like Clerky, Ironclad, Docracy, Commonform, and CommonAccord? Such initiatives tend to run aground on the shoals of English: their "logic" is templates, stitched together the way PHP stitches together HTML. Taking a cue from commercial successes like ContractExpress which use deeper formalisms (Prolog), Legalese is developing a domain-specific language from first principles. The DSL does for the <a href="http://link.springer.com/book/10.1007%2F978-3-642-31570-1">deontic</a> modal calculus what functional languages do for the <a href="http://dl.acm.org/citation.cfm?id=363749">lambda calculus</a>. This solid foundation in CS theory enables the mapping of mature software concepts to the legal domain: compilation, dependency management, static analysis, and unit & integration testing.</p>
+
+		  <p>Formal semantics makes it possible to automate the production of <a href="http://www.tbrnet.org/blog/2014/08/01/legal-update-bilingual-contracts/">bilingual contracts</a> (think Quebec, Indonesia, China, EU, etc), using natural language generation tools that operate in the opposite direction to the current trend of natural language processing (Judicata, Lex Machina). Legalese will also automate the drafting of paperwork in the growing "self-help" segment currently served by LegalZoom. Eventually Legalese may help states rewrite existing legislation and regulation in a formal grammar; such formalisms would make it much easier for companies like FiscalNote to achieve their goals.</p>
+
+		  <p>What is Legalese's vision? Law today is where software was in the assembly era: getting ready to make the jump from macros to compiled languages. <a href="http://www.amazon.com/Tomorrows-Lawyers-Introduction-Your-Future/dp/019966806X/">Tomorrow's lawyers</a> will look a lot like today's programmers: drawing on opensource libraries, they will configure code for clients that compiles to readable contracts – maybe English, maybe Ethereum/Hyperledger. From that future, we will look back on today's lawyers, drafting agreements in Microsoft Word and checking references mandraulically, as white-collar successors to <a href="https://en.wikipedia.org/wiki/John_Henry_(folklore)">John Henry</a>.</p>
+
+		  <p>A "smart contracts" world needs Legalese more than ever: <i>Because few lawyers have the coding skills to draft their own smart contracts, computer programmers would play a larger role, creating new liability questions for faulty algorithms and even ethical issues regarding the practice of law by non-lawyers. Conceivably, smart contracts could reduce some legal cost around contract execution and dispute resolution by making execution automatic. However, legal cost could shift from execution to the drafting phase. As Houman Shadab, a professor at New York Law School, has pointed out, “By requiring parties to strictly commit, at the outset, to decisions of a smart contract, the need for transactional attorneys and others to structure smart contractual relationships may increase. Parties would most likely want to specify a more detailed range of contingencies and outcomes ahead of time before committing themselves to abide by the decisions of a software-driven contract.” &ndash; <a href="https://www.iif.com/publication/research-note/getting-smart-contracts-blockchain">Getting Smart: Contracts on the Blockchain, Institute of International Finance, 2016</a></i></p>
+
+		  <p>Why now? Thirty years of academic research in deontic modal logic, contract formalization, static analysis, and language design are coming to fruition in papers like <a href="http://www.diku.dk/hjemmesider/ansatte/hvitved/publications/hvitved12phd.pdf">Tom Hvitved's PhD thesis (2013)</a>. Contracts are multiparadigmatic: they can be object-oriented, event-driven (reactive), functional, aspect-oriented, declarative, and imperative, all in the same document. Academic contract formalizations are just now beginning to satisfy the necessary properties for reduction to software practice.</p>
+
+		  <p>Our first application of the above ideas can be found in a web app for founders to get their seed financings done.</p>
+		  
+		  <h1>Help, my startup needs legal agreements!</h1>
+
+		  <p>Most first-time visitors want simple templates in Word format that they can edit and show a lawyer friend.</p>
+		  
+		  <p>Are you in the right place? Maybe not &ndash; if all you need is an NDA or an employment agreement, try <a href="#template_libraries">one of these</a> instead. Legalese is overkill for basic contracts, which are the corporate equivalent of a <a href="https://gist.github.com/discover">gist</a>.</p>
+
+		  <p>When should you use Legalese? When you're raising funds. Anything to do with investment or shares is more like a kernel patch. If you mess up, you might be <a href="http://statutes.agc.gov.sg/aol/search/display/view.w3p;ident=6974c138-3aa5-4405-bad8-b0b8fa534cd6,f532eb65-cbf2-4852-8836-327cc6dafc4d;page=0;query=DocId%3Ac3063e4b-61ed-4faf-8014-fabd5b998ed7%20Depth%3A0%20Status%3Ainforce;rec=0">breaking the law</a> or you might just <a href="http://heidiroizen.tumblr.com/post/118473647305/how-to-build-a-unicorn-from-scratch-and-walk">make other people very rich yet walk away with nothing</a>.</p>
+
+		  <p>The normal response to this level of FUD is to go talk to a lawyer. But startups aren't normal. <a href="https://www.quora.com/Should-a-startup-be-spending-money-on-lawyers-during-the-pre-launch-phase">They don't want</a> to spend <a href="https://www.quora.com/Why-are-startups-and-other-small-companies-so-scared-of-hiring-lawyers">any money on lawyers.</a> Is there a better way?</p>
+
+		  <p>Opensource hackers are used to downloading, for free, entire stacks of abstractions which (with all due respect to lawyers), dwarf the complexity of any given contract or even any lawsuit. In the unlikely case that what you want doesn't exist, you can create it yourself and send a pull request! In the open paradigm, the answer to complexity is computation; the answer to repeating demand is scalable supply; and the default social dynamic is cooperation.</p>
+
+		  <p>But the world of legal is still stuck in the 1980s. In the proprietary paradigm, the answer to complexity is human expertise, the answer to repeating demand is billable hours, and the default social dynamic is competition and conflict.</p>
+
+		  <p>Legalese brings the open paradigm to law. Software is eating law &ndash; first we model corporations in software, then we put contract clauses in Github, and pretty soon the drafting of transactions starts to look a lot like writing code. Or, rather, downloading free code and configuring for your local situation. Just as programmers write an application once for a million end-users to play with, legal hackers will write a contract once for a million businesses to execute.</p>
+		  
+		  <p>A handful of startups are in the game, focusing on <a href="#startup_workflows">investment workflows</a>. Legalese is the opensource member of that family, created by hackers, for hackers, to help founders and investors configure and compile the "loadable modules" for startups: ESOPs, vesting schedules, convertible notes, and equity angel rounds are just another problem in algorithms and data structures.</p>
+		  
+		  <p>Investment deals involve up to a dozen overlapping agreements. If you omit any one component, the entire patch may be void, or you might be in breach of a prior contract. For example, most companies define <i>pro rata</i> rights: any new investmenta greement requires sign-off from existing shareholders. If you issue new shares without consulting existing shareholders, you might be breaking the law. For fundraising deals, filling in random Word templates without thinking about the bigger picture is like whacking at a binary executable with a hex editor.</p>
+		  
+		  <p>That's why we made Legalese. It produces complete, consistent, coordinated sets of documents that confidently move your company's state vector from A to B. We've gathered free early-stage fundraising agreements published by YC and 500 Startups, marked them up, and turned them into Legalese templates. You only have to fill in your details once, and we'll generate all the agreements that you need to get your seed, safe, or Series AA round going.</p>
+
+		  <p>There are more startups outside the U.S. than inside, so we've also added an i18n layer to internationalize the agreements for jurisdictions like Singapore and India. All the templates are open-source, so if you don't find what you're looking for, send a pull request!</p>
+		  
+		  <ul>
+			<li> <a target="_blank" href="demo/incorporation-1.html">Demo: Legalese streamlines startup incorporation.</a></li>
+			<li> <a target="_blank" href="demo/">Demo: Legalese streamlines an angel/seed early-stage fundraising.</a></li>
+		  </ul>
+
+		  <p>Of course, Legalese is not a substitute for qualified legal advice. You should read every word of every agreement you sign, and that includes the PDFs that Legalese produces. You should also show those PDFs to a lawyer for review. <i>If you get substantive edits from your lawyer about the <b>legal</b> elements we produce, please submit a pull request so those changes can benefit future users.</i> If your lawyer gives you <b>business</b> or <b>commercial</b> advice, you might want to consult our <a href="blog/term-canvas-20150709.png">comparison of standard docs</a> to find an alternative document that makes her happier.</p>
+		  
+		  <h1><a name="tutorials"></a>Tutorials</h1>
+
+		  <p>These tutorials create PDFs that you can actually sign. On behalf of a company, you will create agreements of increasing complexity for execution by third-party signatories.</p>
+
+		  <ol>
+			<li> <a target="_blank" href="tutorials.html#t1">the EULA</a></li>
+			<li> <a target="_blank" href="tutorials.html#t2">Hello, World!</a></li>
+			<li> <a target="_blank" href="tutorials.html#t3">Send for Signature!</a></li>
+			<li> <a target="_blank" href="tutorials.html#t4">A Real Nondisclosure Agreement</a></li>
+			<li> <a target="_blank" href="tutorials.html#t5">What Docsets Are Available?</a></li>
+			<li> <a target="_blank" href="tutorials.html#t6">Generating Multiple Documents &ndash; from Incorporation to Seed Investment</a></li>
+			<li> <a target="_blank" href="tutorials.html#t7">Developing Your Own Templates</a></li>
+		  </ol>
+		  
+		  <h1 id="priorart">Prior Art and Alternative Resources</h1>
+
+		  <p>Legalese comes with a bit of a learning curve. Before you dive in, check out the competition &ndash; a wave of entrepreneurs are <a href="http://techcrunch.com/2014/12/06/legal-tech-startups-have-a-short-history-and-a-bright-future/">busy trying to disrupt law</a>, and Legalese has enormous respect for their work. If we didn't like the prior art, we wouldn't be eating it.</p>
+
+		  <div class="li-inline">
+		  
+		  <h3>Law Online</h3>
+
+			<p>Early Stage Investment Templates for Startups</p>
+		  <ul>
+			<li> <a href="http://www.ycombinator.com/documents/">Y Combinator</a> has both Series AA and SAFE instruments in four flavours</li>
+			<li> <a href="http://www.techstars.com/docs/">Techstars</a> has both equity and debt instruments</li>
+			<li> <a href="http://www.500.co/kiss">500 Startups</a> offers the KISS</li>
+			<li> <a href="http://www.seriesseed.com/">Series Seed</a> (also for <a href="http://www.seriesseed.fi/">Finland</a> and <a href="http://seriesseed.in/">India</a>)</li>
+			<li> <a href="http://seedsummit.org/legal-docs/">SeedSummit for Europe, by SeedCamp</a></li>
+			<li> <a href="http://shockwaveinnovations.com/2013/12/21/reviewing-the-new-safe-investment-instrument/">Comparative reviews</a>.</li>
+			<li> <a href="http://www.contractual.ly/">Contractual.ly</a></li>
+		  </ul>
+
+		  <p class="nobold">Legalese is importing all of these agreements. After you configure your deal in a spreadsheet <i>once</i>, Legalese will compile <i>all</i> the agreements you need, automatically translated for your jurisdiction.</p>
+
+		  <p id="startup_workflows">Workflow Solutions for Startups</p>
+			<ul>
+			  <li> <a href="https://stripe.com/atlas">Stripe Atlas</a> (Delaware)</li>
+			  <li> <a href="https://www.flashfunders.com/">FlashFunders</a> is an equity crowdfunding platform with a ton of augmentations, <a href="http://techcrunch.com/2015/05/11/equity-crowdfunding-platform-flashfunders-is-automating-securities-law-for-seed-stage-rounds/#.umyjoj:J2Lt">according to Techcrunch</a>
+			  <li> <a href="https://www.ironcladapp.com/">Ironclad</a> automates a range of startup-friendly legal templates, with Dropbox and HelloSign integration (for values of "startup" that mean "Delaware corporations operating in California")</li>
+			  <li> <a href="http://valcu.co/">Valcu</a> offers document automation and some scripting</li>
+			  <li> <a href="http://hellobonsai.com/">Bonsai</a> helps freelancers get paid</li>
+			  <li> <a href="http://captable.io/">Captable.io</a> </li>
+			  <li> <a href="https://www.esharesinc.com/">eShares</a> </li>
+			  <li> <a href="http://termsheet.io/">Termsheet.io</a> (India &amp; US)</li>
+			  <li> <a href="https://www.clerky.com/">Clerky</a> (Delaware)</li>
+			  <li> <a href="http://dragonlaw.com.hk/">DragonLaw</a> (Hong Kong and Singapore)</li>
+			  <li> <a href="http://patentory.com/">Patentory</a></li>
+			  <li> <a href="http://www.concordnow.com/">Concord</a> is end-to-end</li>
+			  <li> <a href="https://www.startupdocuments.com/">StartupDocuments</a> is affiliated with <a href="http://bedrocksf.com/">Bedrock</a></li>
+			</ul>
+
+		  <p id="template_libraries">Template Libraries for Startups</p>
+			<ul>
+			  <li> <a href="https://www.documents-taylorwessing.com/">Taylor Wessing's Documents</a> (UK)</li>
+			  <li> <a href="http://www.bvca.co.uk/ResearchPublications/Publications/StandardIndustryDocuments/Modeldocumentsforearlystageinvestments.aspx">BVCA</a> (UK)</li>
+			  <li> <a href="https://www.orrick.com/practices/corporate/emergingCompanies/startup/forms_index.asp">Orrick's Start-Up Forms Library</a>
+				and <a href="https://tsc.orrick.com/">term sheets</a>  </li>
+			  <li> <a href="http://legal.cf.sg/">Legal.CF.SG</a>  </li>
+			  <li> <a href="http://www.lawcanvas.com/">LawCanvas &ndash; Easy Legal Documents for Singapore</a>  </li>
+			  <li> <a href="http://simmondsstewart.com/templates/">Simmonds Stewart</a> for New Zealanders  </li>
+			  <li> <a href="http://www.forbes.com/sites/chancebarnett/2014/05/30/the-entrepreneurs-guide-to-term-sheets-and-equity-crowdfunding/">The
+				  Entrepreneur's Guide to Term Sheets and Equity Crowdfunding</a></li>
+			  <li> <a href="http://www.legalzebra.com.au/legal-forms/shareholders-agreement-template/">LegalZebra</a> (for Australia)</li>
+			  <li> <a href="http://www.avcal.com.au/resources/open-source-seed-financing-documents">AVCAL</a> (for Australia)</li>
+			</ul>
+
+		  <p>Generic Template Libraries and Legal Marketplaces</p>
+			<ul>
+			  <li> <a href="http://legalzoom.com/">LegalZoom</a></li>
+			  <li> <a href="http://www.rocketlawyer.com/">RocketLawyer</a></li>
+			  <li> <a href="http://www.avvo.com/">Avvo</a></li>
+			  <li> <a href="http://123.ai/">123.AI</a></li>
+			  <li> <a href="https://www.asialawnetwork.com/">Asia Law Network</a> (for Singapore) </li>
+			  <li> <a href="https://www.lawdingo.com/">LawDingo</a></li>
+			  <li> <a href="https://www.upcounsel.com/">UpCounsel</a></li>
+			  <li> <a href="https://www.priorilegal.com/">Priori Legal</a></li>
+			  <li> <a href="http://lawtrades.com/">Lawtrades</a></li>
+			  <li> <a href="https://www.lexoo.co.uk/">Lexoo</a>
+			  <li> <a href="https://lawkick.com/">LawKick</a>
+			  <li> <a href="http://www.docracy.com/">Docracy</a>  </li>
+			  <li> <a href="http://onecle.com/">Onecle</a>  </li>
+			  <li> <a href="https://www.ilrg.com/forms">ILRG Legal Forms Archive</a>
+			  <li> <a href="http://www.lawdepot.com/">LawDepot</a>  </li>
+			  <li> <a href="http://techcrunch.com/2015/09/03/goodbye-docstoc/">DocStoc died</a></li>
+			  <li> <a href="http://www.lawcanvas.com/">LawCanvas</a> (for Singapore)  </li>
+			  <li> <a href="https://foundersuite.com/">FounderSuite</a></li>
+			  <li> <a href="https://www.fairdocument.com/how-it-works/index.html">Fair Document</a></li>
+			  <li> <a href="http://www.ndasforfree.com/">NDAs for Free</a></li>
+			  <li> <a href="https://www.lawgives.com/">LawGives</a></li>
+			  <li> <a href="https://angel.co/wirelawyer">WireLawyer</a></li>
+			  <li> <a href="http://www.lawpolis.com/">Lawpolis</a></li>
+			  <li> <a href="http://www.adamsdrafting.com/downloads/Copyright-NYLJ-8.23.06.pdf">Adams, Kenneth. Copyright and the Contract Drafter. New York Law Journal, 2006</a> asks: are contracts copyrightable?</li>
+			</ul>
+
+		  <p>Education for Startups</p>
+		  <ul>
+			<li> <a href="http://quibb.com/links/how-startups-burn-money-on-lawyers/view">How Startups Burn Money on Lawyers</a></li>
+			<li> <a href="http://www.quora.com/When-founding-a-startup-is-it-worth-immediately-investing-in-a-lawyer-or-can-you-get-by-with-pre-made-documents-from-the-likes-of-LawBite-and-similar-for-the-first-few-months">When founding a startup is it worth immediately investing in a lawyer, or can you get by with pre-made documents?</a> on Quora.</li>
+			<li> <a href="http://heidiroizen.tumblr.com/post/118473647305/how-to-build-a-unicorn-from-scratch-and-walk">Walkthrough</a></li>
+			<li> <a href="http://www.docracy.com/topic/5snzara7ks/term-sheet-guide-book?startPdfDownload=false">Docracy's guide to Term Sheets</a></li>
+			<li> <a href="http://www.feld.com/archives/2005/08/term-sheet-series-wrap-up.html">Brad Feld's Term Sheet Blog Series</a>, now available as a book,
+			  <i><a href="http://www.amazon.com/Venture-Deals-Smarter-Lawyer-Capitalist-ebook/dp/B00AO2PWOI/">Venture Deals</a></i></li>
+			<li> <a href="http://www.amazon.com/Deal-Terms-Venture-Structures-Valuations/dp/1587622084/">Deal Terms, by Wilmerding</a>  </li>
+			<li> <a href="http://www.marsdd.com/mars-library/angel-or-seed-investing-angel-term-sheets-for-startups/">Angel or seed investing: Angel term sheets for startups</a>, from the MaRS Library</li>
+			<li> <a href="http://www.paulgraham.com/hiresfund.html">Paul Graham on High Resolution Fundraising</a></li>
+			<li> <a href="http://www.bothsidesofthetable.com/2012/09/05/the-truth-about-convertible-debt-at-startups-and-the-hidden-terms-you-didnt-understand/">The Truth About Convertible Debt at Startups and The Hidden Terms You Didn’t Understand</a></li>
+			<li> <a href="http://www.bothsidesofthetable.com/2014/09/17/bad-notes-on-venture-capital/">Mark Suster's Bad Notes on Venture Capital</a></li>
+			<li> <a href="http://www.startupcompanylawyer.com/">StartupCompanyLawyer</a></li>
+			<li> <a href="http://www.liveplan.com/">LivePlan</a> helps you with forecasts</li>
+			<li> <a href="https://www.wrike.com/blog/ultimate-list-legal-resources-startups/">The Ultimate List of Legal Resources for Startups</a></li>
+		  </ul>
+		  
+		  <p>Cap Tables</p>
+			<ul>
+			  <li> <a href="http://www.quora.com/What-is-the-best-cap-table-template-available-online">See also Quora</a></li>
+			  <li> <a href="http://venturehacks.com/articles/cap-table">VentureHacks</a>  </li>
+			  <li> <a href="http://www.askthevc.com/wp/archives/tag/cap-table">AskTheVC</a>  </li>
+			  <li> <a href="http://captable.io/">Captable.io</a>  </li>
+			  <li> <a href="http://reportally.com/">Reportally.com</a>  </li>
+			  <li> <a href="https://www.capshare.com/">Capshare.com</a>  </li>
+			  <li> <a href="https://www.nasdaqprivatemarket.com/exactequity/?from=ee">ExactEquity</a></li>
+			  <li> <a href="https://esharesinc.zendesk.com/hc/en-us/articles/203979799-Pro-Forma-Round-Modeling-Spreadsheet">eShares round modeling</a></li>
+			</ul>
+		  
+		  <p>Other Tools for Startups and Investors</p>
+		  <ul>
+			<li> <a href="http://www.valuative.com/">Valuative</a> capital structure modeling and visualization</li>
+			<li> <a href="http://www.handshakes.com.sg/">Handshakes</a> maps out all relationships between companies and persons</li>
+			<li> <a href="https://vcexperts.com/">VCExperts</a> offers due diligence and other tools</li>
+			<li> <a href="http://www.justinvesting.com/home/products/">JustInvesting</a> moves investing online</li>
+			<li> <a href="http://visible.vc/">Visible.VC</a> offers a <a href="https://visible.vc/blog/tech-investing-software-stack/">Tech Investing Software Stack</a></li>
+			<li> <a href="http://www.docdep.com/">DocDep</a> takes you from investment to divestment</li>
+		  </ul>
+
+		  <p>Document Generators by Law Firms</p>
+			<ul>
+			  <li> <a href="http://www.cooleygo.com/documents/index-document-generators">CooleyGo</a></li>
+			  <li> <a href="https://www.wsgr.com/WSGR/Display.aspx?SectionName=practice/termsheet.htm">Wilson Sonsini's Termsheet Generator</a></li>
+			  <li> <a href="http://launch.wilmerhale.com/build/document-generator/">Wilmerhale</a>  </li>
+			  <li> <a href="http://www.foundersworkbench.com/document-driver/">Founders Workbench</a>  </li>
+			  <li> <a href="https://tsc.orrick.com/">Orrick's Term Sheet Creator</a></li>
+			  <li> <a href="http://ebrevia.com/">eBrevia</a></li>
+			  <li> <a href="https://kirasystems.com/">DiligenceEngine</a></li>
+			  <li> <a href="https://venturedocs.com/">VentureDocs</a></li>
+			  
+			  <li> <a href="http://www.vanillalaw.com.sg/">Vanilla Law</a> by MG/Chambers <a href="http://www.straitstimes.com/business/companies-markets/software-designed-to-help-smes-with-legal-documents">(news article)</a></li>
+			</ul>
+
+		  <p>Document Generators and More by Non-Law Firms</p>
+			<ul>
+			  <li> <a href="http://www.neotalogic.com/">Neota Logic</a> has an expert system.</li>
+			  <li> <a href="http://www.mintchalk.com/">Mintchalk</a> is a web IDE for smart contracts</li>
+			  <li> <a href="https://www.rocketlawyer.com/legal-documents-forms.rl">RocketLawyer</a>  </li>
+			  <li> <a href="http://www.shakelaw.com/">Shake</a></li>
+			  <li> <a href="http://contractstandards.com/">Contract Standards</a></li>
+			  <li> <a href="http://clausehound.com/">Clausehound</a></li>
+			  <li> <a href="http://www.ultradox.com/">UltraDox</a> converts Google Docs to Microsoft Word</li>
+			  <li> <a href="http://www.weagree.com/">WeAgree</a></li>
+			  <li> <a href="http://www.legalcontract.com/">LegalContract</a> has good decent wizards covering the US</li>
+			  <li> <a href="https://termsfeed.com/">TermsFeed</a> generates EULAs, privacy policies, and more.</li>
+			  <li> <a href="http://kmstandards.com/">KM Standards (Kingsley Martin)</a> reads and writes contracts. See <a href="https://www.youtube.com/watch?v=KBI8_tv2VDM&feature=youtu.be&t=11m15s">his 2013 FutureLaw talk</a>.</li>
+			</ul>
+		  
+		  <p>Document Assembly for Law Firms and In-House Counsel</p>
+			<ul>
+			  <li> <a href="http://www.hotdocs.com/">HotDocs</a>  </li>
+			  <li> <a href="http://www.business-integrity.com/">ContractExpress by Business Integrity</a>  </li>
+			  <li> <a href="http://www.exari.com/">Exari</a></li>
+			  <li> <a href="https://caserails.com/">CaseRails</a></li>
+			  <li> <a href="http://docassemble.org/">DocAssemble</a> is opensource (YAML and Python) and allows domain experts to build what <a href="https://cgi.csc.liv.ac.uk/~tbc/publications/deepModels.pdf">TBC would call</a> a shallow-model expert system wizard.</li>
+			</ul>
+
+		  <p>Open Clause Libraries</p>
+		  <ul>
+			<li>Every law firm has proprietary precedents, of course. These are open</li>
+			<li> <a href="http://contractstandards.com/">Contract Standards</a></li>
+			<li> <a href="http://lawpatch.org/">LawPatch</a></li>
+			<li> <a href="http://www.commonaccord.org/">CommonAccord</a></li>
+			<li> See also <a href="turing.html#priorart">Turing Prior Art</a></li>
+		  </ul>
+		  
+		  <p>Other Legal Startups</p>
+		  <ul>
+			<li> <a href="https://www.techinasia.com/fiscalnote-legal-tech-asia-expansion">FiscalNote</a>, Tim Hwang's startup, has raised $20M</li>
+			<li> <a href="http://www.complyglobal.com/">ComplyGlobal</a> helps big business cover their many widely dispersed asses.</li>
+			<li> <a href="http://legalscience.io/">Legal Science</a> tracks current law across 50 states.</li>
+			<li> <a href="http://www.legaltechlabs.com/portfolio/">LegalTechLabs</a> has a portfolio of startups</li>
+			<li> <a href="http://www.synergist.io/">Synergist</a> is a platform for online negotiation</li>
+			<li> <a href="https://parleypro.com/">Parley Pro</a> negotiate better contracts faster</li>
+			<li> <a href="http://www.businessinsider.com/joshua-browder-bot-for-parking-tickets-2016-2?IR=T&op=1&utm_content=bufferd4151&utm_medium=social&utm_source=facebook.com&utm_campaign=buffer?r=US&IR=T">Joshua Browder's bot</a> gets you out of parking tickets</li>
+			<li> <a href="https://hirepeter.com/">Peter</a> does for legal what <a href="http://claralabs.com/">Clara</a> does for appointments.</li>
+			<li> <a href="http://www.axiomlaw.com/">Axiom</a> is positioning initially as an outsourcing option for in-house counsel. See <a href="http://lawprofessors.typepad.com/legalwhiteboard/2013/11/is-axiom-the-bellwether-for-disruption-in-the-legal-industry-look-what-is-happening-in-houston.html">coverage</a></li>
+			<li> <a href="http://www.judicata.com/">Judicata</a></li>
+			<li> <a href="http://www.lexmachina.com/">Lex Machina</a> groks patent law</li>
+			<li> <a href="http://www.elementaryip.com/">elementaryIP</a> groks patent law</li>
+			<li> <a href="http://www.lawgeex.com/">LawGeex</a> reads contracts</li>
+			<li> <a href="https://kirasystems.com/">Kira</a> reads contracts</li>
+			<li> <a href="http://techcrunch.com/2015/08/14/jeugene-detects-errors-in-legal-documents-saving-time-and-money/?ncid=rss&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+Techcrunch+%28TechCrunch%29&sr_share=twitter">jEugene</a> reads contracts</li>
+			<li> <a href="http://counselytics.com/">Counselytics</a> reads contracts</li>
+			<li> <a href="https://legalrobot.com/">LegalRobot</a> reads contracts</li>
+			<li> <a href="http://litiq.com/">LitIQ drafts contracts</a></li>
+			<li> <a href="https://www.vizlegal.com/">VizLegal</a> for legal research</li>
+			<li> <a href="http://logikcull.com/">Logikcull</a> does e-discovery</li>
+			<li> <a href="http://everlaw.com/">Everlaw</a> also does e-discovery</li>
+			<li> <a href="http://hlpintegration.com/?doing_wp_cron=1455722411.7378211021423339843750">HLP Integration</a></li>
+			<li> <a href="https://www.rsvplaw.com/">RSVPlaw</a></li>
+			<li> See also <a href="http://www.inc.com/drew-hendricks/the-4-startups-changing-the-legal-landscape.html">Inc.com on 4 Startups changing the Legal Landscape</a></li>
+			<li> <a href="https://www.ramendocs.com/">RamenDocs</a></li>
+			<li> <a href="http://www.allegorylaw.com/#allegory">Allegory Law</a></li>
+			<li> <a href="https://www.ravellaw.com/">Ravel Law</a></li>
+			<li> <a href="https://angel.co/haystackhq">Haystack HQ</a></li>
+			<li> <a href="https://www.cicayda.com/">Cicayda</a></li>
+			<li> <a href="http://www.lexbe.com/">Lexbe</a></li>
+			<li> <a href="http://www.modria.com/">Modria</a></li>
+			<li> <a href="https://www.linkedin.com/company/waytosettle">WayToSettle</a></li>
+			<li> <a href="https://www.linkedin.com/company/zipcourt">ZipCourt</a></li>
+			<li> <a href="https://juristat.com/">Juristat</a></li>
+			<li> <a href="http://ipstreet.com/">IPStreet</a></li>
+			<li> <a href="https://www.goclio.com/">Clio</a></li>
+			<li> <a href="http://www.mycase.com/">MyCase</a></li>
+			<li> <a href="https://www.cosmolex.com/">CosmoLex</a></li>
+			<li> <a href="http://www.lawyerfy.com/">Lawyerfy</a></li>
+			<li> <a href="http://www.firmzen.com/">Firmzen</a></li>
+			<li> <a href="http://www.legify.com/">Legify</a></li>
+			<li> <a href="http://lawful.ly/">Lawful.ly</a></li>
+			<li> <a href="http://www.simplelegal.com/">SimpleLegal</a></li>
+			<li> <a href="https://www.viewabill.com/pages/home">Viewabill</a></li>
+			<li> <a href="http://www.lawhackers.co/">Law Hackers</a> for a curated list of legal startups</li>
+
+		  </ul>
+
+		  <p>About the #LegalTech startup scene generally</p>
+		  <ul>
+			<li> <a href="http://techcrunch.com/2014/08/05/the-jury-is-out-on-legal-startups/">The Jury Is Out On Legal Startups, Aug 5, 2014</a></li>
+			<li> Ambrogi's <a href="http://www.lawsitesblog.com/2016/04/number-legal-startups-nearly-triples-two-years.html">Number of Legal Startups Nearly Triples in Two Years (April 13, 2016)</a> attracts rebuttal <a href="http://associatesmind.com/2016/04/20/not-explosion-legaltech/">There is NOT An Explosion In LegalTech</a></li>
+		  </ul>
+		  
+		  <p>Legal Research</p>
+		  <ul>
+		    <li> <a href="http://leiterlawschool.typepad.com/leiter/2015/12/promotional-feature-makeover-for-statutory-supplements-is-long-overdue-michael-simkovic.html#">LawEdge</a></li>
+		    <li> <a href="http://www.global-regulation.com/search.php?open">Global-Regulation</a></li>
+		    <li> <a href="https://www.justia.com/">Justia</a></li>
+		    <li> <a href="https://www.fastcase.com/">FastCase</a></li>
+		    <li> <a href="https://casetext.com/">CaseText</a></li>
+		    <li> <a href="https://pushlegal.com/">PushLegal</a></li>
+		    <li> <a href="https://www.docketalarm.com/">Docket Alarm</a></li>
+			<li> <a href="http://www.acadmx.com/">Academx</a> helps lawyers write</li>
+			<li> <a href="https://www.mylegalwhiz.com/">MyLegalWhiz</a>, <a href="https://www.intelllex.com/users/sign_up">Intelllex</a> and <a href="http://www.rossintelligence.com/">Ross Intelligence</a> help lawyers do research</li>
+			<li> <a href="http://www.bluejlegal.com/">Blue J Legal</a> helps lawyers research tax law</li>
+		  </ul>
+
+		  <p>Github Repository</p>
+		  <ul>
+		    <li> <a href="https://ironsides.github.io/">Ironsides</a> open legal operating system for start-up companies</li>
+		    <li> <a href="https://github.com/commonform/commonform-orrick">Common Form</a> on Orrick's templates</li>
+		    <li> <a href="https://github.com/seriesnext/seriesnext">Seriesnext</a> a community revision of the Series Seed financing documents</li>
+		  </ul>
+
+		  <h3 id="academic">Academic Research and Development</h3>
+
+		  <ul>
+			<li> <a href="http://www.cocounsel.co/">CO/COUNSEL</a></li>
+		        <li> <a href="http://www.plainsite.org/">PlainSite</a></li>
+		        <li> <a href="http://complaw.stanford.edu/">Stanford Computational Law</a></li>
+			<li> <a href="http://codex.stanford.edu/projects/">Stanford's Codex Center for Legal Informatics</a> produces <a href="http://www.legalproductivity.com/technology/codex-legal-tech-startups/">a crop of startups every year</a></li>
+			<li> <a href="http://www.effacts.com/blog/the-stanford-computable-contracts-initiative">Stanford's Computable Contracts Initiative</a></li>
+			<li> <a href="https://legalinformatics.wordpress.com/legal-informatics-research-network-google-group/">Legal Informatics Research Network</a></li>
+			<li> <a href="http://www.commonaccord.org/">CommonAccord</a></li>
+			<li> <a href="http://lexpert.com/en/documents/Haapio-Next_Generation_Contracts.pdf">Next Generation Contracts</a> by Helena Haapio</li>
+			<li> <a href="http://szabo.best.vwh.net/contractlanguage.html">Nick Szabo on formal languages</a></li>
+			<li> <a href="http://lawreview.law.ucdavis.edu/issues/46/2/Articles/46-2_Surden.pdf">Surden on Computable Contracts</a></li>
+			<li> <a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2538224">Floyd &amp; Goodenough, Contracts as Automata</a></li>
+			<li> <a href="https://twitter.com/richardsusskind">Richard Susskind</a>, author of <a href="http://www.amazon.com/Tomorrows-Lawyers-Introduction-Your-Future/dp/019966806X/">Tomorrow's Lawyers</a></li>
+			<li> <a href="https://twitter.com/StanfordLaw/lists/abafutures">ABA Futures</a> and <a href="http://www.abajournal.com/legalrebels/article/welcome_to_the_future_a_travel_guide_to_tomorrows_lawyer_careers?utm_source=internal&utm_medium=navigation&utm_campaign=navbar">ABA Journal</a></li>
+			<li> <a href="http://radicalconcepts.com/wp-content/uploads/2015/01/Legal-Technology-Informatics_-Course-Reader.1.15.15.pdf">Ron Dolin's Legal Technology and Informatics Course Reader</a>
+		  </ul>
+
+		  <p>Smart Contract Implementations and Papers</p>
+		  <ul>
+			<li> <a href="https://erisindustries.com/components/erislegal/">ERIS</a> is doing good work</li>
+			<li> <a href="http://www.ethereum.org/">Ethereum</a></li>
+			<li> <a href="http://counterparty.io/">Counterparty</a></li>
+			<li> <a href="http://smartcontract.com/">SmartContract</a></li>
+			<li> <a href="http://www.otonomos.com/">Otonomos</a></li>
+			<li> <a href="http://democracy.earth/">Democracy Earth</a></li>
+			<li> <a href="https://eprint.iacr.org/2015/460.pdf">Step by Step Towards Creating a Safe Smart Contract: Lessons and Insights from a Cryptocurrency Lab</a> by Delmolino, Arnett, Kosba, Miller, &amp; Shi</li>
+			<li> <a href="http://www.diku.dk/hjemmesider/ansatte/hvitved/publications/hvitved10flacosb.pdf">A Survey of Formal Languages for Contracts</a> from FLACOS 2010</li>
+			<li> <a href="http://www.diku.dk/~simonsen/papers/c2.pdf">Compositional Specification of Commercial Contracts</a></li>
+			<li> <a href="http://research.microsoft.com/en-us/um/people/simonpj/Papers/financial-contracts/contracts-icfp.pdf">Composing contracts: an adventure in financial engineering</a></li>
+			<li> <a href="http://www.diku.dk/~paba/pubs/files/bahr15icfp-paper.pdf">Certified Symbolic Management of Financial Multi-party Contracts</a></li>
+			<li> <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.36.4777&rep=rep1&type=pdf">The Representation of Legal Contracts</a> by Aspassia Daskalopulu and Marek Sergot, 1997</li>
+		  </ul>
+		  
+		  <h3>Electronic Signatures and Contract Management</h3>
+
+			<ul>
+			  <li> <a href="http://echosign.adobe.com/">Adobe EchoSign</a> is the well-respected granddaddy, modulo <a href="https://medium.com/@mengwong/why-after-a-year-with-adobe-echosign-i-m-taking-my-business-elsewhere-835cbd23d4a6">some grumpiness</a>  </li>
+			  <li> competititors include:</li>
+			  <li> <a href="https://www.docusign.com/">DocuSign</a></li>
+			  <li> <a href="https://www.hellosign.com/">HelloSign</a></li>
+			  <li> <a href="http://getsigneasy.com/">SignEasy</a></li>
+			  <li> <a href="http://scrive.com/">Scrive</a></li>
+			  <li> <a href="https://digisigner.com/">DigiSigner</a></li>
+			  <li> <a href="https://rightsignature.com/">RightSignature</a></li>
+			  <li> <a href="https://www.silanis.com/">e-SignLive by Silanis</a></li>
+			  <li> <a href="http://www.elock.com/solutions.html">E-Lock</a></li>
+			  <li> and <a href="http://digital-signature.softwareinsider.com/">dozens more (see the full list)</a></li>
+			</ul>
+
+		  <p>Contract Lifecycle Management:</p>
+			
+			<ul>
+			  <li> <a href="http://www.contractlogix.com/">Contract Logix</a></li>
+			  <li> <a href="http://www.concordnow.com/">Concord Now</a></li>
+			  <li> <a href="http://www.exari.com/">Exari</a></li>
+			  <li> <a href="http://www.icertis.com/solution/">Icertis</a></li>
+			</ul>
+		  </div>
+
+		  <h3 id="upl">Unauthorized Practice of Law</h3>
+
+		  <p>Wait, aren't a lot of these startups <a href="http://www.abajournal.com/magazine/article/latest_legal_victory_has_legalzoom_poised_for_growth">breaking the law</a>? Well, maybe the law is broken.</p>
+		  <ul>
+			<li> <a href="http://www.robotandhwang.com/">Robot, Robot &amp; Hwang</a></li>
+			<li> 2016-03-31 letter from the <a href="http://www.americanbar.org/content/dam/aba/images/office_president/final_unregulated_lsp_entities_issues_paper.pdf">ABA Commission on the Future of Legal Services</a></li>
+			<li> <a href="https://www.questia.com/library/journal/1G1-75707100/when-public-policies-collide-legal-self-help-software">When Public Policies Collide: Self-Help Software and UPL</a></li>
+			<li> <a href="http://www.lawtechnologytoday.org/2015/06/technology-and-the-unauthorized-practice-of-law/">Technology and the Unauthorized Practice of Law</a></li>
+			<li> <a href="http://www.abajournal.com/magazine/article/latest_legal_victory_has_legalzoom_poised_for_growth">Latest legal victory has LegalZoom poised for growth</a></li>
+			<li> In India, <a href="http://www.livemint.com/Companies/XqsAI5vIItPbA59gQ8H6KP/Law-firms-fight-to-protect-their-turf-against-accountants.html">Law firms fight to protect their turf from accountants</a></li>
+		  </ul>
+
+		  <h3>Other Links and Lists</h3>
+		  <ul>
+			<li> <a href="http://www.lawsitesblog.com/legal-tech-startups">Ambrogi's Legal Tech Startups list</a></li>
+			<li> <a href="http://tech.law.stanford.edu/">Discover Legal Technology</a> hosted by CodeX at Stanford, launched May 2016</li>
+			<li> <a href="https://blog.abevoelker.com/gitlaw-github-for-laws-and-legal-documents-a-tourniquet-for-american-liberty/">github for laws</a></li>
+			<li> <a href="http://lawyersongithub.com/">lawyers on github</a></li>
+			<li> <a href="http://opencounsel.net/services.php">Open Counsel</a>, headed by <a href="http://aliquidnovi.org/about-2/">Andrew Rens</a>, gets it.</li>
+			<li> <a href="https://startjeffreyup.wordpress.com/2014/01/09/where-are-the-legal-web-startups-in-asia/">Legal Web Startups in Asia</a> points to ex-Asia cases</li>
+		  </ul>
+		  
+		  
+		  <h2 id="differentiation">Wait, then how is Legalese different or better than all these resources?</h2>
+
+		  <p>Most of the resources above are <i>document-oriented</i>. Each template, for instance, gets you a single agreement for a set of parties to execute. Typically, you fill in the blanks in a Word doc, or in a web app wizard. The result is flattened onto the page. This is fine for simple agreements, like an NDA.</p>
+
+		  <p>But some deals involve multiple documents, all of which have to agree with one another. Think about an investment deal which needs a Term Sheet, a Subscription Agreement, a Shareholders Agreement, and a Deed of Ratification and Accession, not to mention all the corp-sec Directors' and Members' Resolutions needed to validate each corporate act. The same names and terms appear in multiple documents. (A deal begins to look like something you can &ndash; and should &ndash; configure and compile using <code>m4</code> and <code>make</code>!)</p>
+
+		  <p>So, the world needs <i>workflow-oriented</i> solutions.</p>
+		  
+		  <p><a href="http://www.clerky.com/">Clerky</a> is workflow-oriented. It has the notion of <i>Document Sets</i>. But Clerky doesn't support a lot of workflows. They support incorporation but not investment. (At time of writing, 20150504) And the templates are closed, so you can't add your own.</p>
+
+		  <p><a href="http://valcu.co/">Valcu</a> is worth a look too.</p>
+		  
+		  <p><a href="http://www.docracy.com/">Docracy</a> is more open. Their vision is to be Github for legal documents. Their web editing UI is pretty nifty, and you can fork any document. But they're document-, not workflow-oriented. And you have to be a lawyer to add a new document.</p>
+			
+		  <p>Legalese is both workflow-oriented and open. Each workflow in Legalese produces one or more agreements for the parties to execute. Instead of editing the document directly, you describe the particulars of the parties and the terms of the deal in a separate spreadsheet. Legalese compiles your workflow's <i>docset</i> by combining the spreadsheet with the templates. To rebuild your docs, just hit <code>make</code>.</p>
+
+		  <p>For Unix hackers, this is pseudocode for what happens behind the scenes of the Web UI:</p>
+		  
+		  <code>% make model seedround send
+<br />loading negotiated term sheet from Google Sheets...
+<br />loading cap table from Google Sheets...
+<br />loading party particulars from Google Sheets...
+<br />downloading latest legal rule engine for relevant jurisdiction...
+<br />fetching missing information via regulatory APIs...
+<br />fetching latest version of agreement templates from Github...
+<br />computing amendments required for constitutional documents...
+<br />parsing articles-of-association.pdf
+<br />computing corporate actions and resolutions required...
+<br />parsing history of corporate actions... 16 PDFs found...
+<br />analysis complete. constructing company model... done.
+<br />computing dependency graph for seed round financing... staging... producing PDFs...
+<br />stage 1 PDF: Term Sheet for Seed Round
+<br />stage 1 PDF: New Articles of Association describing Vesting/ESOP and Series AA shares
+<br />stage 1 PDF: Directors' Resolutions Announcing Fundraising and Alterations to Articles
+<br />stage 1 PDF: Members' Resolutions Approving Alterations to Articles of Association
+<br />stage 1 PDF: Volunteer Agreements -- IP Assignment, Confidentiality, Noncompete
+<br />stage 1 PDF: Shareholder Agreements -- Drags/Tags, Preemptive &amp; Information Rights
+<br />stage 1 PDF: Description of Vesting Scheme and ESOP
+<br />stage 1 PDF: Directors' Resolutions Announcing Vesting Scheme and ESOP
+<br />stage 1 PDF: Members' Resolutions Approving Vesting Scheme and ESOP
+<br />stage 1 PDF: Directors' Resolutions Announcing Issue of New Shares for Vesting/ESOP
+<br />stage 1 PDF: Members' Resolutions Approving Issue of New Shares for Vesting/ESOP
+<br />stage 1 PDF: Directors Notify Shareholders of Pro Rata Rights for Vesting/ESOP
+<br />stage 1 PDF: Shareholders Waive Pro Rata Rights for Vesting/ESOP
+<br />stage 1 PDF: Directors' Resolutions to Issue and Allot New Vesting/ESOP Shares
+<br />stage 1 PDF: Instruction to Corporate Secretary to File Vesting/ESOP Shares
+<br />stage 2 PDF: Checklist Bundle for Conditions Precedent
+<br />stage 2 PDF: Cap Table, before Series AA
+<br />stage 2 PDF: Cap Table, after Series AA
+<br />stage 2 PDF: Investment Agreement for Seed Round Series AA
+<br />stage 2 PDF: Deed of Ratification and Accession for Seed Round Series AA
+<br />stage 3 PDF: Directors' Resolutions to Issue and Allot New Series AA Shares
+<br />stage 3 PDF: Instruction to Corporate Secretary to File Series AA Shares
+<br />stage 3 PDF: Series AA Share Certificates
+<br />sending Stage 1 PDFs for signature via Adobe EchoSign...
+<br />seed round Stage 1 paperwork sent. Please check your email.
+<br />will poll Stage 1 paperwork status once an hour.
+<br />will send Stage 2 PDFs when all Stage 1 PDFs are received.
+<br />will send Stage 3 PDFs when all Stage 2 PDFs are received and funds arrive.</code>
+
+		  <p />
+		  <p>Legalese takes openness to a new level: the templates sit in public Github repositories (right now, the templates are in XML, which admittedly might scare off some people.) And the configuration spreadsheets live in Google Spreadsheets. So you can import and export your data as you see fit.</p>
+
+		  <p>Legalese has global ambitions. Most of the above services focus on one, at most two jurisdictions. Legalese serves people who live outside the U.S. too.</p>
+
+		  <p>Legalese is Web 2.0 the way YouTube, Wikipedia, and Github are Web 2.0. Convincing or paying lawyers to upload their precious precedents doesn't scale. We're betting on user-generated content. Maybe only one in a hundred users will upload their lawyer-drafted documents into Legalese; with enough users, that should be enough. Maybe we'll even have Kickstarter for desired contracts!</p>
+		  
+		  <p id="investment_example">Programmers should already be nodding their heads, but let's walk through an example that shows how it all comes together.</p>
+
+		  <p>Suppose a startup is raising a small angel round. The investors put money in. In return they get a piece of paper which they hope will be worth a lot of money one day. But what exactly is that piece of paper? Is it a convertible note? A plain old stock certificate for ordinary shares? A warrant? A KISS? A SAFE? A Series Seed? There are dozens of ways to skin this cat. When Brad Feld posted about <a href="http://www.feld.com/archives/2010/03/the-proliferation-of-standardized-seed-financing-documents.html">Proliferation of Standardized Seed Financing Documents</a> it was 2010. Since then, many new sets of docs have come up: 500 Startups released their KISS, and Y Combinator published a sequel to their Series AA in the form of a SAFE. This is called the <a href="http://www.xkcd.com/927/">XKCD/927</a> problem.</p>
+
+		  <p>Y Combinator's SAFE comes in four flavours. 500 Startups's KISS comes in two versions, debt and equity. They're slightly different to a standard convertible note, which is again different to a basic common-stock investment. You can see where this is going: if you don't keep your eye on the prize, the <a href="http://www.amazon.com/Paradox-Choice-Barry-Schwartz-ebook/dp/B000TDGGVU/">paradox of choice</a> could strangle your deal even before it gets out of the starting gate.</p>
+
+		  <p>A conversation between first-time founders and tyro investors often has the feel of two teenagers trying to make it past second base: the earnestness greatly exceeds the understanding of the mechanics.</p>
+
+		  <p>"Hey, I love what your startup is doing. I want to put some money in," says the Newbie Angel. "Send me the paperwork."</p>
+
+		  <p>"Awesome!" reply the euphoric founders. "We'll get right on it."</p>
+
+		  <p>Somebody on Quora recommends the <a href="http://www.quora.com/Are-there-any-standard-contract-templates-that-investors-and-founders-can-use-for-startup-funding">Wilson Sonsini Term Sheet generator.</a> Six pages into the 43-page wizard, the founders realize they didn't ask the investor &ndash; let's call her "Investor A" &ndash; a few important questions, like: <i>how much money do you want to put in?</i></p>
+
+		  <p>So they go back to the angel. "Hey, er, how much money do you want to put in?"</p>
+
+		  <p>"How about fifty thousand? For a third of the company?"</p>
+
+		  <p>"Wait, that seems like a lot. That means the pre-money valuation is only $100,000."</p>
+
+		  <p>"Okay, make it a fifth of the company."</p>
+
+		  <p>"A fifth sounds good, but we've decided we want to raise at least $100,000 to keep us going for a few months."</p>
+
+		  <p>"Okay, I'll put in $50,000 toward your $100,000 raise, and if you get the full amount, then the $100,000 will be a fifth of the company."</p>
+
+		  <p>"Great! We'll send you the paperwork! Common stock, right?"</p>
+
+		  <p>"Sure, whatever."</p>
+
+		  <p>The founders give up on the WSGR term sheet generator, and download a Subscription Agreement for Common Stock, or Ordinary Shares, off the Internet. And they go hunting for other people to make up the other $50,000.</p>
+
+		  <p>One investor &ndash; investor "B" &ndash; says, "Sure, I'll put in $25k. And this is going to be equity, right?"</p>
+
+		  <p>"Yeah, we negotiated a valuation of $400,000 with our lead investor."</p>
+
+		  <p>"Sounds good. Send me your cap table and the paperwork you want me to sign. If it helps, here's a link to the <a href="https://500startups.box.com/s/wxkh7gqyqsfmoxixk7vm">Equity KISS</a>. We used that for my last deal and I thought it was pretty good."</p>
+
+		  <p>Another investor &ndash; investor "C" &ndash; says, "You're only $25k short? Fine, I'll take it. Are you doing a SAFE or a convertible note?"</p>
+
+		  <p>Nonplussed, the founders look at each other before saying, "Yes, we think so."</p>
+
+		  <p>Laughing inside, Investor C says, "Okay, look, I think you're still too early for a priced round. To be fair to both sides, let's go with the usual convertible note, with a 20% discount on the next round or a $400,000 cap."</p>
+
+		  <p>The founders aren't really sure what that means, but two alternatives sounds fairer than just one. Thinking "we really need that $25k to unlock the $100k round", the founders say, "sure! Sounds great!"</p>
+
+		  <p>They go back to Investor A, saying "we found other investors. One wants to use an Equity SAFE and the other wants a 20% discount."</p>
+
+		  <p>Investor A says, "OK, well, send me the paperwork and I'll take a look at it. And by the way, I'll want you to take care of your vesting and ESOP at some point."</p>
+
+		  <p><b>What have the founders gotten themselves into?</b> In three short conversations they have spanned ordinary shares, warrants, and convertible debt. They now need to understand discounts, caps, and conversion. Mark Suster will be the first to point out that the founders are <a href="http://www.bothsidesofthetable.com/2014/09/17/bad-notes-on-venture-capital/">walking into a minefield</a> &ndash; and they haven't even gotten into <a href="http://venturehacks.com/articles/option-pool-shuffle">the option pool shuffle</a> or <a href="http://www.quora.com/Whats-an-appropriate-founder-vesting-schedule">founder vesting</a>.</p>
+
+		  <p>The founders consult their mentor, who says, "maybe you should take a week off work and educate yourselves by reading Brad Feld's <a href="http://www.feld.com/archives/2005/08/term-sheet-series-wrap-up.html">blog</a>/<a href="http://www.amazon.com/Venture-Deals-Smarter-Lawyer-Capitalist/dp/B00AO2PWOI/">book</a>, Wilmerding's <a href="http://www.amazon.com/Term-Sheets-Valuations-Intricacies-Valutions-ebook/dp/B003XYERWM/">Term Sheets &amp; Valuations</a> and <a href="http://www.amazon.com/Deal-Terms-Venture-Structures-Valuations-ebook/dp/B003XYESD0/">Deal Terms</a>, and Wasserman's <a href="http://www.amazon.com/Founders-Dilemmas-Anticipating-Innovation-Entrepreneurship-ebook/dp/B007AIXKUM/">Founder's Dilemmas</a>."</p>
+
+		  <p>The founders say, "we just launched and we're growing 25% week-on-week. We can't afford a week to go learn this stuff. There are so many templates out there. Can't we just choose something that works for all three investors?"</p>
+
+		  <p>This is where Legalese comes in.</p>
+		  
+		  <p>Because the terms of a given deal reside in the spreadsheet, Legalese is aware of the semantics of your deal. Because Legalese already contains all the standard templates, you can switch from one to the next just by changing one config option. If you take a snapshot of your latest negotiation and put it into Legalese, the system will automatically pick the template that fits best. If the negotiation evolves, Legalese takes changes in stride: by changing a single cell, you can switch from a Debt KISS to a Cap-and-Discount SAFE. Two more clicks recompile the documents and send them out to investors for review.</p>
+
+		  <p>Legalese keeps your deal configuration in Google Spreadsheets, not in a one-off wizard, so you can fiddle with it until it works.</p>
+
+		  <h3>So ... why Legalese?</h3>
+
+		  <p>Gosh. That's a lot of prior art. Law firms serving startups. Startups eating law firms. Is there really a
+		  reason to launch yet another effort?</p>
+
+		  <p>Well, yes. Two reasons, actually.</p>
+
+		  <p>First: almost all the prior art is aimed at the US market. Americans enjoy the second-largest economy in
+			the world. One language, one currency, one legal jurisdiction (assuming Delaware). But if you don't live in
+			the US, you're on the outside looking in. There are startups in Singapore and entrepreneurs in Europe who
+			need tools like these. But American myopia means they'll need to fend for themselves. Hence Legalese.</p>
+
+		  <p>Second: being hackers, we take a righteously opensource attitude to software development. We're not against
+			startups. Indeed, our first agreements are aimed at serving startups. Indeed, we will soon launch Legalese as a
+			service startup, following in the footsteps of Github. We'll monetize on premium features: a Template
+			Editor, a PDF generator, a Template Store. But the core codebase is opensource, and any hacker who wants to
+		    create their own agreements, or submit pull requests over existing agreements, is welcome to do so.</p>
+
+
+
+
+		  <h1>Contributor Licence Agreements</h1>
+
+		  <p>Contributor Licence Agreements are critical to the legal integrity of any opensource project. Most importantly, they describe the copyright and patent licences contributors create and assign to the managers of the project. They come in two main flavours: firstly for the individual contributor, and secondly for the corporate contributor to ensure that copyright and patent claims in employment agreements do not get in the way of contributions to the project.</p>
+		  <h3>Existing Contributor Licence Agreements</h3>
+		  <div class="li-inline">
+		    <ul>
+		    <li> <a href="https://cla.developers.google.com/about/google-individual">Google Individual Contributor's Licence Agreement</a></li>
+		    <li> <a href="https://www.apache.org/licenses/icla.txt">Apache Individual Contributor's Licence Agreement</a></li>
+		    <li> <a href="https://review.openstack.org/static/cla.html">Openstack Individual Contributor's Licence Agreement</a></li>
+		    </ul>
+		  </div>
+		  <p>As you can see, most of them are pretty similar. The corporate version for most of these agreements adds an additional clause where the company represents that certain employees are authorised to submit contributions to the project.</p>
+		  <h3>Helpful tools to create Contributor Licence Agreements</h3>
+		  <div class="li-inline">
+		    <ul>
+		    <li> <a href="http://contributoragreements.org/chooser/">Build an Agreement based on existing examples, e.g. the GPL or Creative Commons licence.</a></li>
+		    <li> <a href="http://selector.harmonyagreements.org/">A similar tool, again building from existing examples.</a></li>
+		    </ul>
+		    </div>
+
+          <h1>Infographic: Computational Legal</h1>
+		  <div class="infographic" align="center">
+			<img src="http://www.legalese.io/images/pompous%20investor%20notice/know-all-men-by-these-presents-1000.png">
+		  </div>
+		  
+        </section>
+
+        <aside id="sidebar">
+          <a href="tutorials.html" class="button">
+            <small>Try the tutorial</small>
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/legalese">Legalese</a> is a <a href="https://jfdi.asia/">JFDI.Asia</a> spinoff, initially hosted by <a href="https://github.com/cofounders">Cofounders</a> and later moved to its own project.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+  
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
