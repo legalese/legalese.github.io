@@ -9,7 +9,8 @@ the formalization of (smart) contracts
 * prior to June this was something that relatively few people were concerned about
 
 * and then TheDAO happened, and $150M of Ether went into a smart contract that turned out to have a zero-day in it.
-https://steemit.com/thedao/@xeroc/ongoing-attack-on-thedao---eth-draining-from-the-pot
+
+[[https://steemit.com/thedao/@xeroc/ongoing-attack-on-thedao---eth-draining-from-the-pot][onoes thedao buggy halp]]
 
 * and now a lot of people are suddenly interested in the security of smart contracts.
 so, even though i've been thinking about these things for a while, i've barely scratched the surface of the domain -- in other words i'm basically at the level of a master's degree, but nowhere near a PhD.
@@ -26,6 +27,7 @@ in 2020, contracts which are not produced using the techniques described above, 
 
 * Anybody here not hear about TheDAO?
 You know about TheDAO, right? So Reddit is discovering formal methods
+
 https://www.reddit.com/r/ethereum/comments/4oimok/can_we_please_never_again_put_100m_in_a_contract/
 
 They think that formal proofs will help to prevent the next embarrassment for Ethereum; i don't think there's anybody in this room who would disagree. Haskell programmers especially.
@@ -98,8 +100,9 @@ https://xkcd.com/435/
 | For Mathematicians Who Need A Little Help       | CoQ                               |
 | Dependently Typed Functional Programmers        | Agda/Idris                        |
 | Statically Typed Functional Programmers         | Haskell                           |
-| Statically Typed Procedural Programmers         | C++                               |
-| Dynamically Typed Procedural Programmers        | Javascript                        |
+| Statically Typed Object-Oriented Programmers    | C++, Java, everybody & their dog  |
+| Dynamically Typed Object-Oriented Programmers   | Javascript                        |
+| Statically Typed Procedural Programmers         | C                                 |
 | Dynamically Typed Imperative Programmers        | Assembly                          |
 
 This hierarchy turns out to be more or less a projection from the
