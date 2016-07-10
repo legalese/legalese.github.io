@@ -1,0 +1,198 @@
+#+TITLE: Will the Smart Contracts of the Future be written in Haskell?
+Or, why today's smart contracts are neither smart nor contracts, and how a new calculus can help.
+
+presentation to Haskell meetup, Singapore, 2017-07-11
+
+* so i want to share something that i've been thinking about for the last year or so.
+the formalization of (smart) contracts
+
+* prior to June this was something that relatively few people were concerned about
+
+* and then TheDAO happened, and $150M of Ether went into a smart contract that turned out to have a zero-day in it.
+https://steemit.com/thedao/@xeroc/ongoing-attack-on-thedao---eth-draining-from-the-pot
+
+* and now a lot of people are suddenly interested in the security of smart contracts.
+so, even though i've been thinking about these things for a while, i've barely scratched the surface of the domain -- in other words i'm basically at the level of a master's degree, but nowhere near a PhD.
+
+tonight i'm going to make some claims, not because i have evidence they're true, but because i'd like to stimulate some thinking, and invite you to join a small community of people who are exploring these claims, to see if they are true or not.
+
+* so my main claim tonight is this:
+
+in 2020, some contracts will be extracted from proofs, expressed as programs, and formally verified to be correct, consistent, and complete; these proofs will be based a calculus called deontic modal logic, which will be as fundamental to contract programming as the lambda calculus is to functional programming.
+
+the high-level languages for smart contracts may derive from languages like Agda, and be compiled to Ethereum bytecode, with Solidity as a possible intermediate form.
+
+in 2020, contracts which are not produced using the techniques described above, will be tested by those techniques anyway; bugs will be found and exploited. This dynamic will cause formally proven contracts to dominate.
+
+* Anybody here not hear about TheDAO?
+You know about TheDAO, right? So Reddit is discovering formal methods
+https://www.reddit.com/r/ethereum/comments/4oimok/can_we_please_never_again_put_100m_in_a_contract/
+
+They think that formal proofs will help to prevent the next embarrassment for Ethereum; i don't think there's anybody in this room who would disagree. Haskell programmers especially.
+
+Haskell programmers believe that imperative, procedural languages are a breeding ground for bugs.
+
+* Shall we look at some bugs?
+** So the problem is this
+
+we're all used to writing code where, if there's a bug, commit a patch and let's see what happens.
+
+fail fast, fail often
+
+move fast and break things
+
+patches welcome!
+
+** that's OK if you're building, say, Facebook in 2007, but you'd like to think Serious Coder Write Serious Code 
+http://fan.lib.ru/img/s/shumil_p/tale5entxt/cat05.jpg
+
+** there's a spectrum of software reliability
+
+from ecommerce websites
+http://www.forbes.com/sites/kellyclay/2013/08/19/amazon-com-goes-down-loses-66240-per-minute/#2901a84c3c2a
+
+to spacecraft
+http://www.nature.com/news/software-error-doomed-japanese-hitomi-spacecraft-1.19835
+
+to medical devices
+http://courses.cs.vt.edu/~cs3604/lib/Therac_25/Therac_1.html
+
+and the list goes on
+https://raygun.com/blog/2014/05/10-costly-software-errors-history/
+
+https://en.wikipedia.org/wiki/List_of_software_bugs
+
+** and there's a spectrum of ways to deal with these problems,
+
+from detection
+https://raygun.com/
+
+to prevention
+http://www.coverity.com/products/
+
+http://www.mathworks.com/company/newsletters/articles/verifying-code-when-software-reliability-is-critical.html?
+
+to formal verification
+
+* so reddit is beginning to discover this
+https://www.reddit.com/r/ethereum/comments/4opjov/the_bug_which_the_dao_hacker_exploited_was_not/
+
+* but there was already a ton of research
+for example
+- http://www.diku.dk/~paba/pubs/entries/bahr15icfp.html
+- http://publications.lib.chalmers.se/records/fulltext/234939/234939.pdf
+- https://www.researchgate.net/publication/303679677_Evaluation_of_Logic-Based_Smart_Contracts_for_Blockchain_Systems
+
+so i think it'll be an interesting opportunity to connect the dots.
+
+i have to admit i suffer from mathematian envy here.
+
+* Because what doesn't have bugs? Mathematical proofs.
+
+* Obligatory XKCD
+https://xkcd.com/435/
+
+* So here's the hierarchy of awesomeness
+
+| For Mathematicians Who Do Things In Their Heads | Proofs, Handwritten in the Margin |
+| For Mathematicians Who Need A Little Help       | CoQ                               |
+| Dependently Typed Functional Programmers        | Agda/Idris                        |
+| Statically Typed Functional Programmers         | Haskell                           |
+| Statically Typed Procedural Programmers         | C++                               |
+| Dynamically Typed Procedural Programmers        | Javascript                        |
+| Dynamically Typed Imperative Programmers        | Assembly                          |
+
+This hierarchy turns out to be more or less a projection from the
+https://en.wikipedia.org/wiki/Lambda_cube
+
+Each dimension of this cube represents increasing sophistication of a type system, and at each point you get a different calculus and a different programming language.
+
+But the point I want to make, at the cost of belabouring the obvious, the takeaway here, is that the Lambda calculus is the basis for functional programming. Functional programming is based on the Lambda calculus.
+
+Which illustrates the Curry-Howard correspondence between programs and proofs.
+https://en.wikipedia.org/wiki/Curry%E2%80%93Howard_correspondence
+
+So, another way to put it is this:
+
+data Lang     = Lang { typing::Typing, paradigms::[Paradigm] }
+data Typing   = Dynamic | Static | Dependent
+
+assembly   = Lang { typing=Dynamic,   paradigms=[Imperative] }
+javascript = Lang { typing=Dynamic,   paradigms=[            Procedural, Functional, Object] }
+cpp        = Lang { typing=Static,    paradigms=[            Procedural, Functional, Object] }
+prolog     = Lang { typing=Dynamic,   paradigms=[Logic] }
+haskell    = Lang { typing=Static,    paradigms=[                        Functional] }
+ocaml      = Lang { typing=Static,    paradigms=[                        Functional, Object] }
+reo        = Lang { typing=Static,    paradigms=[CTL] }
+ethereum   = Lang { typing=Static,    paradigms=[Imperative,                         Object] }
+agda       = Lang { typing=Dependent, paradigms=[                        Functional] }
+l4         = Lang { typing=Dependent, paradigms=[                        Functional, Object, Deontic] }
+
+data Paradigm = Imperative | Procedural | Functional | Object | CTL | Logic  | Deontic
+data Calculus = VonNeumann | Turing     | Lambda     | FCo    | Pi  | Fluent | Mu
+
+curryhoward :: Paradigm -> Calculus
+curryhoward Imperative = VonNeumann
+curryhoward Procedural = Turing
+curryhoward Functional = Lambda
+curryhoward Object     = FCo
+curryhoward CTL        = Pi
+curryhoward Logic      = Fluent
+curryhoward Deontic    = Mu
+
+If Lambda calculus leads to functional programming,
+(and you can read about this in Landin's correspondence between ALGOL 60 and Church's Lambda notation)
+
+[[file:~/Google%20Drive/Legalese%20Shared/8.%20Institutional%20Knowledge%20(readings%20+%20data%20sources)/Readings%20and%20Resources/Academic%20Research/p89-landin%20lambda%20calculus.pdf][file:~/Google Drive/Legalese Shared/8. Institutional Knowledge (readings + data sources)/Readings and Resources/Academic Research/p89-landin lambda calculus.pdf]]
+
+* some really interesting bits i came across
+https://en.wikipedia.org/wiki/Z_notation
+
+The reason for this fundamental conclusion is as follows. All instances of smart contract theft or loss – in fact, the very definition of smart contract theft or loss, is fundamentally about differences between implementation and intent. If, in a given case, implementation and intent are the same thing, then any instance of “theft” is in fact a donation, and any instance of “loss” is voluntary money-burning, economically equivalent to a proportional donation to the ETH token holder community by means of deflation. This leads to the next challenge: intent is fundamentally complex.
+
+stump book on agda
+
+reading 
+
+* but back to contracts
+is to assert a similar relation between the modal calculus and a paradigm family of contract languages
+
+* because, what does a real-world contract look like?
+
+in the world of traditional legal contracts,
+xkcd-purity-law.png
+
+the five-pointed star
+
+* what is the deontic modal calculus?
+hvitved12.pdf
+
+* some code: POETS 3gerp
+
+* other approaches to contract formalization
+C-O diagrams
+CNL
+compk.stanford.edu are working on something but haven't released it yet.
+
+* does this help with ethereum?
+https://blog.ethereum.org/2016/06/19/thinking-smart-contract-security/
+
+i don't know.
+
+* does this help with real-world contracts?
+i don't know.
+
+* our goal: 
+
+** write a DSL embedded in Haskell or Agda/Idris
+
+** formal methods static analysis
+
+** natural language generation to a controlled natural language
+attempto
+
+** parallel compilation to multiple NLs
+
+** parallel compilation to ethereum (EVM or Solidity)
+
+* are these the right goals? should we have other goals? how can we achieve these goals? discussion.
