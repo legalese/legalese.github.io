@@ -1,7 +1,7 @@
 #+TITLE: Will the Smart Contracts of the Future be written in Haskell?
 Or, why today's smart contracts are neither smart nor contracts, and how a new calculus can help.
 
-presentation to Haskell meetup, Singapore, 2017-07-11
+presentation to Haskell meetup, Singapore, 2016-07-11
 
 * so i want to share something that i've been thinking about for the last year or so.
 the formalization of (smart) contracts
@@ -114,6 +114,7 @@ https://en.wikipedia.org/wiki/Curry%E2%80%93Howard_correspondence
 
 So, another way to put it is this:
 
+#+BEGIN_SRC haskell
 data Lang     = Lang { typing::Typing, paradigms::[Paradigm] }
 data Typing   = Dynamic | Static | Dependent
 
@@ -139,35 +140,49 @@ curryhoward Object     = FCo
 curryhoward CTL        = Pi
 curryhoward Logic      = Fluent
 curryhoward Deontic    = Mu
+#+END_SRC haskell
 
 If Lambda calculus leads to functional programming,
 (and you can read about this in Landin's correspondence between ALGOL 60 and Church's Lambda notation)
+http://fi.ort.edu.uy/innovaportal/file/20124/1/22-landin_correspondence-between-algol-60-and-churchs-lambda-notation.pdf
 
-[[file:~/Google%20Drive/Legalese%20Shared/8.%20Institutional%20Knowledge%20(readings%20+%20data%20sources)/Readings%20and%20Resources/Academic%20Research/p89-landin%20lambda%20calculus.pdf][file:~/Google Drive/Legalese Shared/8. Institutional Knowledge (readings + data sources)/Readings and Resources/Academic Research/p89-landin lambda calculus.pdf]]
-
-* some really interesting bits i came across
+* some really interesting bits i came across along the way
 https://en.wikipedia.org/wiki/Z_notation
 
+vitalik:
 The reason for this fundamental conclusion is as follows. All instances of smart contract theft or loss – in fact, the very definition of smart contract theft or loss, is fundamentally about differences between implementation and intent. If, in a given case, implementation and intent are the same thing, then any instance of “theft” is in fact a donation, and any instance of “loss” is voluntary money-burning, economically equivalent to a proportional donation to the ETH token holder community by means of deflation. This leads to the next challenge: intent is fundamentally complex.
 
 stump book on agda
 
-reading 
-
 * but back to contracts
-is to assert a similar relation between the modal calculus and a paradigm family of contract languages
+the big idea was to assert a similar relation between the modal calculus and a paradigm family of contract languages
 
-* because, what does a real-world contract look like?
+not necessarily for ethereum contracts but for computable contracts generally
+http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2216866
+
+* after formalization, what does a real-world contract look like?
+
+it depends who you ask.
 
 in the world of traditional legal contracts,
 xkcd-purity-law.png
 
-the five-pointed star
+we pick a five-pointed star:
+
+clause1 =
+1. party
+2. must/may perform action of type A
+3. satisfying conditions C
+4. after T1 before T2
+5. and if they do that, -> clause2
+6. and if they don't,   -> clause3
 
 * what is the deontic modal calculus?
 hvitved12.pdf
+http://www.diku.dk/hjemmesider/ansatte/hvitved/publications/hvitved12phd.pdf
 
 * some code: POETS 3gerp
+https://bitbucket.org/jespera/poets/src/
 
 * other approaches to contract formalization
 C-O diagrams
