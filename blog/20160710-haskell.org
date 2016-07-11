@@ -121,31 +121,33 @@ https://en.wikipedia.org/wiki/Curry%E2%80%93Howard_correspondence
 So, another way to put it is this:
 
 #+BEGIN_SRC haskell
+module ModalMonads where
+
 data Lang     = Lang { typing::Typing, paradigms::[Paradigm] }
 data Typing   = Dynamic | Static | Dependent
 
 assembly   = Lang { typing=Dynamic,   paradigms=[Imperative] }
+prolog     = Lang { typing=Dynamic,   paradigms=[Logic] }
 javascript = Lang { typing=Dynamic,   paradigms=[            Procedural, Functional, Object] }
 cpp        = Lang { typing=Static,    paradigms=[            Procedural, Functional, Object] }
-prolog     = Lang { typing=Dynamic,   paradigms=[Logic] }
 haskell    = Lang { typing=Static,    paradigms=[                        Functional] }
 ocaml      = Lang { typing=Static,    paradigms=[                        Functional, Object] }
-reo        = Lang { typing=Static,    paradigms=[CTL] }
-ethereum   = Lang { typing=Static,    paradigms=[Imperative,                         Object] }
+erlang     = Lang { typing=Static,    paradigms=[Actor,                  Functional] }
 agda       = Lang { typing=Dependent, paradigms=[                        Functional] }
+ethereum   = Lang { typing=Static,    paradigms=[Imperative,                         Object] }
 l4         = Lang { typing=Dependent, paradigms=[                        Functional, Object, Deontic] }
 
-data Paradigm = Imperative | Procedural | Functional | Object | CTL | Logic  | Deontic
-data Calculus = VonNeumann | Turing     | Lambda     | FCo    | Pi  | Fluent | Mu
+data Paradigm = Imperative | Procedural | Functional | Object | Actor | Logic  | Deontic
+data Calculus = VonNeumann | Turing     | Lambda     | FCo    | Pi    | Fluent | Mu
 
 curryhoward :: Paradigm -> Calculus
 curryhoward Imperative = VonNeumann
 curryhoward Procedural = Turing
-curryhoward Functional = Lambda
+curryhoward Functional = Lambda       -- λ
 curryhoward Object     = FCo
-curryhoward CTL        = Pi
+curryhoward Actor      = Pi           -- π
 curryhoward Logic      = Fluent
-curryhoward Deontic    = Mu
+curryhoward Deontic    = Mu           -- μ
 #+END_SRC haskell
 
 If Lambda calculus leads to functional programming,
