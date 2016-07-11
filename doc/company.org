@@ -113,7 +113,7 @@ In the same way that opensource development invites conversion from users to dev
 
 Both Legalese the company, and Legalese the product, are things that can be versioned and milestoned. Both have end-user personas and requirements specifications and use cases and story cards. Both have a release approval process. Both invite users to become developers.
 
-On the product side, before an contributor can work on certain parts of the codebase, they must first earn badges to prove they are qualified, often by reading specific books (e.g. /Learn You A Haskell For Great Good/) or videos (like [[https://www.youtube.com/watch?v=peU756mYfjQ][The State of the Art of Legal Technology Circa 2015]]).
+On the product side, before a contributor can work on certain parts of the codebase, they must first earn badges to prove they are qualified, often by reading specific books (e.g. /Learn You A Haskell For Great Good/) or videos (like [[https://www.youtube.com/watch?v=peU756mYfjQ][The State of the Art of Legal Technology Circa 2015]]).
 
 On the company side, before a contributor can work on certain parts of the company, they must first read books like /Holacracy/, /the Five Dysfunctions of a Team/, and /the Art of the Start/. But these are just badges, and at the end of the day anyone can level up into any role based on capability and inclination -- as with any opensource project, in theory.
 
@@ -544,7 +544,7 @@ function Participant(params) {
 /No. We are a for-profit with currently no profits. There are many moving parts. We are flogging ourselves for not moving fast enough. We are pleasantly surprised but also therefore immensely grateful for everyone's patience and indulgence so far./
 
 *How much law do i need to know?*
-/Not much, it changes all the time anyway and from jurisdiction to jurisdiction. But you should ​*understand*​ it. Understand what people mean why they say they need a lawyer, what lawyers actually do, what lawyers pretend that they do (unfortunately, most of them don't even realise that they're playing pretend), understand what a contract, a workflow, an outcome consists of -- these consist at least of dependencies and modalities that need to be understood.  See: Rudyard Kipling's six honest serving men./
+/Not much, it changes all the time anyway and from jurisdiction to jurisdiction. But you should ​*understand*​ it. Understand what people mean when they say they need a lawyer, what lawyers actually do, what lawyers pretend that they do (unfortunately, most of them don't even realise that they're playing pretend), understand what a contract, a workflow, an outcome consists of -- these consist at least of dependencies and modalities that need to be understood.  See: Rudyard Kipling's six honest serving men./
 
 *What if this is not what I want and you guys don't seem to want to / be able to give me what I want*
 /That's okay. We all have a right to say no to what isn't quite right for us. It isn't a dichotomy though -- we are an open source company and you are welcome to fly-on-the-wall and tourist with us until the day you feel like it's aligned with what you want./
