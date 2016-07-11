@@ -93,6 +93,8 @@ As a company, however, we don't have very many rules but we do have 3 commandmen
 
 In the early days, when a handful of founders are doing all the work, it's easy to lose sight of the distinction between working /in/ the company and working /on/ the company, a distinction [[http://www.amazon.com/E-Myth-Revisited-Small-Businesses-About/dp/0887307280/][popularized by Gerber]]. Those who work /in/ the company are *staff*; those who work /on/ the company are *management* or maybe *leadership* or something like that. Founders, especially in the early days, wear both hats.
 
+See also [[https://medium.com/the-modern-team/lazy-leadership-8ba19e34f959][Lazy Leadership]].
+
 The traditional model of /staff/ vs /management/ is under attack from new models like Holacracy, which believes that the management function should be distributed across staff, rather than reserving it to specific individuals who carry the burden of being paymaster, boss, and lightning rod.
 
 ** Developers build products for users. But users can become developers!
