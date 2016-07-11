@@ -3,6 +3,8 @@ Or, why today's smart contracts are neither smart nor contracts, and how a new c
 
 presentation to Haskell meetup, Singapore, 2016-07-11
 
+https://youtu.be/VFuiY0M0HWw
+
 * so i want to share something that i've been thinking about for the last year or so.
 the formalization of (smart) contracts
 
@@ -75,6 +77,7 @@ http://www.coverity.com/products/
 http://www.mathworks.com/company/newsletters/articles/verifying-code-when-software-reliability-is-critical.html?
 
 to formal verification
+http://web1.cs.columbia.edu/~junfeng/09fa-e6998/papers/sel4.pdf
 
 * so reddit is beginning to discover this
 https://www.reddit.com/r/ethereum/comments/4opjov/the_bug_which_the_dao_hacker_exploited_was_not/
