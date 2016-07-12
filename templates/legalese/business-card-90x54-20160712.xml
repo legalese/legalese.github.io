@@ -1,0 +1,11 @@
+<?!= data.xml_declaration ?>
+<?!= data.xmlRoot(['templateSpec="business-card-90x54-20160712.indt"']) ?>
+<Root>
+  <Front>
+	<name><?= data.name ?></name>
+	<email><?= data.email ?></email>
+	<companyTwitter><?= data.companytwitter ?></companyTwitter>
+	<personalTwitter><?= data.personaltwitter ?></personalTwitter>
+	<phone><?= data.phone ?></phone>
+  </Front>
+</Root>
