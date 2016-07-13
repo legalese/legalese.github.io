@@ -64,8 +64,13 @@ As a company, however, we don't have very many rules but we do have 3 commandmen
 
     *2. Do not make promises on behalf of the company or other people in the company without going through the exhaustive protocols*
 
-    *3. By default, all conversations must be held publicly - this means either in email copying active-team@legalese.io and/or on a public channel in Slack*
-      + If there are good reasons why the conversation cannot be held publicly and openly, then the Compensation Committee must at least be involved and consulted
+    *3. Conversations should be held publicly - this means either in email copying active-team@legalese.io (alias collective@legalese.com) and/or on a public channel in Slack*
+      + If there are good reasons why the conversation cannot be open, then create a private chat on Slack and invite the appropriate people to join it -- preferably more than one other person. Private chats are not logged to our public archives.
+      + Good reasons for going nonpublic: you need to expose data that is confidential to an end-user; or you want to discuss a possible ethics violation of another contributor, without publicly libeling them; or you want to discuss your own compensation privately. Note that even such discussions should not be secret (1-on-1) but are semiprivate (few-on-few).
+      + Secret 1-on-1 conversations are heavily discounted -- if it didn't happen on Slack, on a mailing list, or at an official summit, then did it really happen? By analogy, in a seminar-style class, if you ask questions in class, you get credit for participation; if you wait until the end of the lecture for everybody else to leave before you approach the professor privately, no credit.
+      + In traditional organizations, managers are intended to be single-point-of-contact gateways to the rest of the organization -- they act as a filter so you can get work done. And when you talk to them, you are respecting the "chain of command": your manager is responsible for conveying your discussion to the rest of the organization, if appropriate.
+      + At Legalese, we don't have the "agricultural surplus" needed to support a manager class. Instead, guided by [[http://www.benkler.org/CoasesPenguin.html][Coase's Penguin]], we make everything public by default and expect you to filter it. Having a single point of contact that represents the organization is a luxury. Very well-heeled clients may be entitled to an account manager, but contributors and staff are not.
+      + To sum up, if you want to engage with the organization, talk in a public channel. If you don't know where to talk, start with #general. If you try to talk privately with someone you think is in charge, you might be wasting both your time and theirs.
 
 * Overview of this document                       
 *1. What we think of companies and users*  :couple_with_heart: 
@@ -312,15 +317,15 @@ A Teal or Holacratic architecture doesn't mean anarchy. It doesn't mean absence 
 
 3. Wait for approval from the Compensation Committee.
 
-* Compensation discussions held during the 2016 Legalese Summit
+** Compensation discussions held during the 2016 Legalese Summit
 
-** Reference exit scenarios
+*** Reference exit scenarios
     - Ludicrous Exit :: The company exits for $10B after 8 years.
     - Decent Riches :: The company exits for $60M after 4 years.
     - Sad Puppy :: The company exits for $150,000 after 2 years.
     - Death :: There is no exit and we agree to shut it all down after 3 years.
 
-** Requirements
+*** Requirements
 This section records requirements expressed by people on the team. It aims to anticipate the expected requirements of future participants.
 
 *Component: Survival   ([[https://en.wikipedia.org/wiki/Kiasi][Kiasiïsm]])*
@@ -404,7 +409,7 @@ pot = 30,000,000. How do we split the loot from the heist?
               - Along the way, don't collect any vetos from any of the existing cabal.
               - "Congratulations! You have been on the opensource project for quite some time, and now your probation period, which you didn't know about, has ended. We would like to offer you a contract to cover a base rate to spend more time on the product side and be a part of the team. We will now cover your airfare to the next Legalese summit."
 
-** Proposal 1
+*** Proposal 1
 Each participant's compensation is their task fees plus badge rate adjusted for activity level plus circle bonus.
 
 *Task Fees*
@@ -452,7 +457,7 @@ Each participant's compensation is their task fees plus badge rate adjusted for 
           - 0.5 :: participant was part-time
           - 1   :: participant was full-time
 
-** As Code
+*** As Code
 #+BEGIN_SRC js
 
 function Company(params) {
