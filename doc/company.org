@@ -516,6 +516,13 @@ function Participant(params) {
 
 * 4. Frequently Asked Questions :space_invaders:
 
+** FAQs about the product
+
+*** you can start by learning the product from an end-user perspective.
+
+*** once you've done all the tutorials, go make yourself a business card:
+https://docs.google.com/spreadsheets/d/1zPwx-0S6AwAyYtxtE0X64TkEXQywz99m56xZZWOv8cE/edit#gid=212450702
+
 ** FAQs about the organisation
 
 *Why do I keep getting redirected to the group chat? / My main point of contact with Legalese is X, but when I try to talk to X about Legalese, X doesn't seem to want to talk to me directly; instead, X tells me to talk on the mailing list, or the group chat. Why are they being so rude? Who do they think they are?*
