@@ -161,6 +161,7 @@ vitalik:
 The reason for this fundamental conclusion is as follows. All instances of smart contract theft or loss – in fact, the very definition of smart contract theft or loss, is fundamentally about differences between implementation and intent. If, in a given case, implementation and intent are the same thing, then any instance of “theft” is in fact a donation, and any instance of “loss” is voluntary money-burning, economically equivalent to a proportional donation to the ETH token holder community by means of deflation. This leads to the next challenge: intent is fundamentally complex.
 
 stump book on agda
+http://dl.acm.org/citation.cfm?id=2841316
 
 * but back to contracts
 the big idea was to assert a similar relation between the modal calculus and a paradigm family of contract languages
@@ -168,12 +169,15 @@ the big idea was to assert a similar relation between the modal calculus and a p
 not necessarily for ethereum contracts but for computable contracts generally
 http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2216866
 
+remember, the original "Smart Contracts" work by Nick Szabo predated blockchain
+http://szabo.best.vwh.net/smart_contracts_idea.html
+
 * after formalization, what does a real-world contract look like?
 
 it depends who you ask.
 
-in the world of traditional legal contracts,
-xkcd-purity-law.png
+how does the traditional legal world line up?
+https://drive.google.com/open?id=0BxOaYa8pqqSwR194OWthRnp4WVE
 
 we pick a five-pointed star:
 
@@ -184,6 +188,12 @@ clause1 =
 4. after T1 before T2
 5. and if they do that, -> clause2
 6. and if they don't,   -> clause3
+
+* Are lawyers really going to think formally and write programs?
+apparently!
+- http://www.kwm.com/en/au/knowledge/insights/10-things-you-need-to-know-smart-contracts-20160630
+- http://www.kwm.com/en/au/knowledge/insights/smart-contracts-open-source-model-dna-digital-analogue-human-20160630
+- https://github.com/KingandWoodMallesonsAU/Project-DnA/blob/master/Project%20DnA%20Digital%20Terms is concept-design pseudocode based on an early version of L4 which we shared with KWM at our March 2016 summit.
 
 * what is the deontic modal calculus?
 hvitved12.pdf
