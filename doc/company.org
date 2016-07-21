@@ -74,7 +74,7 @@ As a company, however, we don't have very many rules but we do have 3 commandmen
 
 * Overview of this document                       
 *1. What we think of companies and users*  :couple_with_heart: 
-    + companies build products; entrepreneurs buiid companies
+    + companies build products; entrepreneurs build companies
     + developers build products for users; but users can also be developers
 *2. Roadmap and where we are now (as of: 5 June 2016)* :golf: 
 
@@ -114,7 +114,9 @@ Engineers help to develop a product for end-users. Developers work on Legalese t
 
 Where do these developers come from? Often, the lifecycle of an opensource developer begins as an end-user who initially just consumes the product. Then she starts helping others in the support forums. She progresses to file issues, fix bugs, and add features. Eventually she becomes a code reviewer approving or rejecting other people's pull requests.
 
-Now think of company itself as a product. Think of developers as end-users of the company. In that sense, [[http://avc.com/2012/02/the-management-team-guest-post-from-joel-spolsky/][managers are developers]], not of the /end-user/ product, but of the /company/ "product": they help make an organization that developers can use in a number of ways. For example, to obtain expense reimbursements, salary, project fees, and equity upside. Or to learn the meaning of such rewards by exploring scenarios. This category of individual is traditionally called "management" and represents an element of social order that has been around since the invention of the agricultural surplus. They do work which is not product engineering, but is useful to the company nonetheless: for example, before the company is cash flow positive, these "managers" are responsible for going out and talking to investors and bringing capital in, so that the company can afford to pay the engineers who do the real work. They are responsible for filing paperwork that the government requires: for example, audited accounts. They are responsible for getting the t-shirts made.
+Now think of the company itself as a product. Think of developers as end-users of the company. In that sense, [[http://avc.com/2012/02/the-management-team-guest-post-from-joel-spolsky/][managers are developers]], not of the /end-user/ product, but of the /company/ "product": they help make an organization that developers can use in a number of ways. For example, to obtain expense reimbursements, salary, project fees, and equity upside. Or to learn the meaning of such rewards by exploring scenarios. This category of individual is traditionally called "management" and represents an element of social order that has been around since the invention of the agricultural surplus. They do work which is not product engineering, but is useful to the company nonetheless: for example, before the company is cash flow positive, these "managers" are responsible for going out and talking to investors and bringing capital in, so that the company can afford to pay the engineers who do the real work. They are responsible for filing paperwork that the government requires: for example, audited accounts. They are responsible for getting the t-shirts made.
+
+The same idea shows up in https://www.tesla.com/blog/master-plan-part-deux
 
 In the same way that opensource development invites conversion from users to developers, an opensource company invites conversion from engineering to management. Developers can work on building the company. But they don't have to stop being engineers. Anytime an engineer participates in an employment interview, helping to screen new hires, she is performing a management function, without giving up her engineering role.
 
