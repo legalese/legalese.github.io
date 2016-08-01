@@ -1,10 +1,10 @@
+<?!= data.xml_declaration ?>
+<?!= data.xmlRoot() ?>
 <!--This contract is for a:
 - short term (no longer than 3 months) contractor.
 - fixed term, with  option for renewal.
 - not an employment agreement.-->
 
-<?!= data.xml_declaration ?>
-<?!= data.xmlRoot() ?>
 <CoverTop>
 <cover_title>Contract for Service</cover_title>
 <cover_company_name>
@@ -140,7 +140,7 @@ Recitals (non-binding)
 <numbered_3_para>at the date of its disclosure can be proved by documentary evidence to be information which is publicly available or which subsequently becomes publicly available other than by consequence of breach of this Contract by Contractor or breach of any confidentiality obligations by a third party; or</numbered_3_para>
 <numbered_3_para>at the date of its disclosure can be proved by documentary evidence to be already rightfully available and/or in the possession to Contractor prior to receipt from Company, and that had not been acquired (directly or indirectly) from the Company or any person known to Contractor as being under an obligation of confidence; or</numbered_3_para>
 <numbered_3_para>is compelled to be disclosed by applicable laws, regulations, and rules of a competent jurisdiction to which Contractor is subject, or by a court of competent jurisdiction, regulator, or any competent supervisory or regulatory body to which Contractor may be subject, <b>provided</b> that to the extent reasonably practicable and permissible by applicable laws, regulations and rules, prior to any such disclosure, Contractor shall promptly inform Company and take Company's instructions as to the form, nature and/or purpose of any proposed disclosure; or</numbered_3_para>
-<numbered_3_para>is developed by Contractor independently without the use and/or reference to Confidential Information.
+<numbered_3_para>is developed by Contractor independently without the use and/or reference to Confidential Information.</numbered_3_para>
 <!--Termination-->
 <a_left_sidehead>Termination of Contract</a_left_sidehead>
 <numbered_2_para>Termination by Notice</numbered_2_para>
