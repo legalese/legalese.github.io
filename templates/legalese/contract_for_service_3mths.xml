@@ -45,7 +45,7 @@ Recitals (non-binding)
 <recitals>The Company is desirous of engaging the Contractor and the Contractor agrees to be engaged for her services in the capacity of a <?= data.role ?> according to the terms and subject to the conditions set out in this Contract.</recitals>
 <!--Start of contract and legend for guiding interpretation and definitions. Nothing that is undefined should be capitalised unless it is a proper noun-->
 <para_1><span_smallcaps>Now it is hereby agreed</span_smallcaps> as follows:-</para_1>
-<a_left_sidehead>Definitions & Interpretations</a_left_sidehead>
+<a_left_sidehead>Definitions &amp; Interpretations</a_left_sidehead>
 <para_1>In this Contract, unless the subject or context otherwise requires:-</para_1>
 <definition>Board means the board of directors of the Company from time to time;</definition>
 <definition>Business  means the business and undertakings of the Company which the Company may now and/or hereafter engage, comprising <i>inter alia</i>, all the businesses, services, undertaking, assets, and activities of, related to, and/or arising from the Company which is the <?= data.company_business_activity ?>, including but not limited to all of the Company's actual or demonstrably anticipated research and development activities;</definition>
@@ -87,11 +87,11 @@ Recitals (non-binding)
 <numbered_3_para>the Company shall not be responsible for any taxes (including any withholding taxes) with respect to Contractor's Fees hereunder; and</numbered_3_para>
 <numbered_3_para>Contractor shall have no claim against the Company hereunder or otherwise for vacation pay, sick leave, retirement benefits, social security, employee's compensation, health or disability benefits, unemployment insurance benefits, or employee benefits of any kind.</numbered_3_para>
 <!--Services-->
-<a_left_sidehead xname="Services"/>Services</a_left_sidehead>
+<a_left_sidehead xname="Services">Services</a_left_sidehead>
 <!--TODO: at some point we should automate these into the form so that they can be easily replaced for different roles-->
 <numbered_2_para>During the Engagement Term, Contractor shall devote her time, energy, ability and resources as may be necessary, expedient, and efficient, to resolve the issues and/or milestones set out at Github within any timeframes specified therein. Company may from time to time, suggest priorities for such via Slack and/or emails. ("<b>Services</b>").</numbered_2_para>
 <!--Reps and warranties-->
-<a_left_sidehead>Representations & Warranties</a_left_sidehead>
+<a_left_sidehead>Representations &amp; Warranties</a_left_sidehead>
 <!--Company reps and warranties-->
 <numbered_2_para>Company hereby represents and warrants that:-</numbered_2_para>
 <numbered_3_para>it has the power and capacity to enter into this Contract;</numbered_3_para>
@@ -122,7 +122,7 @@ Recitals (non-binding)
 <a_left_sidehead>Conflicts of Interest</a_left_sidehead>
 <numbered_2_para>Contractor acknowledges that as an independent contractor, she is free to engage in other activities, including any activities in the role of <b><?= data.role ?></b> during the Engagement Term <i><b>PROVIDED</b></i> that Contractor shall not accept work, enter into agreements, and/or undertake obligations inconsistent and/or incompatible with its obligations and provision of Services under this Contract.</numbered_2_para>
 <!--Rights, Work and IP rights-->
-<a_left_sidehead>Rights, Work, & Confidential Information</a_left_sidehead>
+<a_left_sidehead>Rights, Work, &amp; Confidential Information</a_left_sidehead>
 <numbered_2_para>The Company does not give any warranty or representation to Contractor as to the accuracy and/or completeness of Confidential Information, and Company shall not be liable to Contractor for damages, claims, or losses resulting from the use of Confidential Information.</numbered_2_para>
 <numbered_2_para>Save where expressly permitted under this Contract, Contractor shall not, without the prior written consent of the Company, (i) use, copy, reproduce, or otherwise exploit any Company Property or Confidential Information; or (ii) distribute, publish, copy, reproduce, or otherwise disclose any Confidential Information or Company Property to any person for or in connection with anything other than for fulfilling Contractor's obligations under this Contract.</numbered_2_para>
 <numbered_2_para>Contractor hereby undertakes and agree to protect the Company Property and Confidential Information using the same standard of care it applies to its own proprietary and/or confidential information and data (but no less than reasonable care) and to the extent reasonably practicable and permitted by applicable laws, regulations, and rules, procure, and ensure that the Confidential Information and Company Property is stored, handled, and maintained in such a way as to prevent unauthorised disclosure.</numbered_2_para>
@@ -167,10 +167,10 @@ Recitals (non-binding)
 <!--boilerplates-->
 <a_left_sidehead>General Provisions</a_left_sidehead>
 <!--electronic signatures & communications - in SG does not extend to deeds, POAs, instruments-->
-<numbered_2_para>Electronic signatures & communications</numbered_2_para>
+<numbered_2_para>Electronic signatures &amp; communications</numbered_2_para>
 <numbered_3_para>The Parties agree that this Contract may be electronically signed, and electronic signatures appearing on this Contract shall be taken as the same as handwritten signatures for the purposes of validity, enforceability, and admissibility. The Parties hereby also consent to transact and conduct its affairs under this Contract using electronic communications, to receive notices, and disclosures electronically, and to utilise electronic signatures in lieu of paper documents.</numbered_3_para>
 <!--governing law & jurisdiction-->
-<numbered_2_para>Governing law & jurisdiction</numbered_2_para>
+<numbered_2_para>Governing law &amp; jurisdiction</numbered_2_para>
 <numbered_3_para>This Contract for Service shall be governed by and construed in accordance with the laws of the Republic of Singapore without regard to the principles of conflict of laws, and Parties hereby submit to the non-exclusive jurisdiction of the courts in Singapore.</numbered_3_para>
 <!--dispute reso - litigation preferred as it saves money and time without having to separately seek to enforce the settlement/arbitration judgment.-->
 <numbered_2_para>Dispute resolution</numbered_2_para>
@@ -210,3 +210,5 @@ Recitals (non-binding)
 <? } ?>
 <b_left_sidehead_nonum>For the Company <?= data.company.name ?></b_left_sidehead_nonum>
 <?!= include("inc_signature", data, data.company) ?>
+</Story_Main>
+</Root>
