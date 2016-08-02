@@ -3,7 +3,13 @@ Or, why today's smart contracts are neither smart nor contracts, and how a new c
 
 presentation to Haskell meetup, Singapore, 2016-07-11
 
-https://youtu.be/VFuiY0M0HWw
+by [[http://twitter.mengwong.com/][@mengwong]]
+
+the recording of the talk: https://youtu.be/VFuiY0M0HWw
+
+a much better talk by somebody else about types in general: https://youtu.be/SWTWkYbcWU0
+
+and a talk from Devcon 2015 about how types could help Ethereum: https://www.youtube.com/watch?v=H2uwUdzVD9I
 
 * so i want to share something that i've been thinking about for the last year or so.
 the formalization of (smart) contracts
@@ -104,7 +110,7 @@ https://xkcd.com/435/
 | Dependently Typed Functional Programmers        | Agda/Idris                        |
 | Statically Typed Functional Programmers         | Haskell                           |
 | Statically Typed Object-Oriented Programmers    | C++, Java, everybody & their dog  |
-| Dynamically Typed Object-Oriented Programmers   | Javascript                        |
+| Dynamically Typed Object-Oriented Programmers   | Javascript, Python, Ruby, Perl    |
 | Statically Typed Procedural Programmers         | C                                 |
 | Dynamically Typed Imperative Programmers        | Assembly                          |
 
