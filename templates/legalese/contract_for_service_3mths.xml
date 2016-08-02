@@ -90,14 +90,14 @@ Recitals (non-binding)
 <para_2>reference to Clauses are to clauses of this Contract, and references to this Contract include any schedules, amendments, and supplementals thereto;</para_2>
 <para_2>references to any person include its successors and permitted assigns;</para_2>
 <para_2>references to a time of day are to Singapore time, and '<b>$</b>' or '<b>dollars</b>' denotes Singapore dollars; and</para_2>
-<para_2>references to a statutory provision include such provision and any regulations made in pursuance thereof as from time to time modified and/or re-enacted whether before or after the date of this Contract so far as such modification and/or re-enactment applies or is capable of applying to and/or in connection with this Contract.</para_2>
+<para_2>references to a statutory provision include such provision and any regulations made in pursuance thereof as from time to time modified and/or re-enacted whether before or after the Effective Date so far as such modification and/or re-enactment applies or is capable of applying to and/or in connection with this Contract.</para_2>
 <!--Service to be provided-->
 
 
 
 <a_left_sidehead>Scope of Service</a_left_sidehead>
 <numbered_2_para xname="Fees">In consideration of the fees of <b><?= data.total_service_fees ?></b> ("<b>Fees</b>") to be paid by the Company to Contractor, Contractor hereby agrees to provide Services as an independent contractor -- specifically in the role of <b><?= data.role ?></b> -- to the Company in accordance with the terms of this Contract.</numbered_2_para>
-<numbered_2_para xname="First Payment Date">During the Engagement Term, Fees shall be paid by Company to Contractor in equal monthly installments. The first of such payments shall be made within 7 days of the Effective Date, such date to be determined at the Company's sole and absolute discretion (<b>"First Payment Date"</b>), and shall be for the period of one (1) month from the Effective Date. Thereafter, subsequent payments shall be made monthly in advance on the first day of each month of the Engagement Term (save for the first payment).</numbered_2_para>
+<numbered_2_para xname="First Payment Date">During the Engagement Term, Fees shall be paid by Company to Contractor in equal monthly installments. The first of such payments shall be made within 7 days of the Effective Date, such date to be determined at the Company's sole and absolute discretion (<b>"First Payment Date"</b>), and shall be for the period of one (1) month from the Effective Date. Thereafter, subsequent payments shall be made monthly in advance on the first day of each month of the Engagement Term.</numbered_2_para>
 <numbered_2_para>Company's payment of Fees to Contractor shall be via a transfer from Company's Coinbase Account to Contractor's Account.</numbered_2_para>
 <numbered_2_para>This Contract shall become effective upon the Effective Date and expire upon a period of <b><?= data.engagement_term ?></b> therefrom, unless otherwise terminated under this Contract or renewed in accordance with Clause <xref to="Renewal" /> below.</numbered_2_para>
 <numbered_2_para xname="Renewal">This Contract may be extended on identical terms for a maximum of <?= data.engagement_term ?> upon signed mutual agreement in writing between the Parties. In such event, Engagement Term shall be extended accordingly.</numbered_2_para>
@@ -107,7 +107,7 @@ Recitals (non-binding)
 <a_left_sidehead>Relationship between the Parties</a_left_sidehead>
 <numbered_2_para>The Parties acknowledge and accept that, during the Engagement Term and after, to the fullest extent possible under applicable laws, regulations, and rules:-</numbered_2_para>
 <numbered_3_para>Contractor shall provide Services to the Company on her own account as a self-employed independent contractor and nothing in this Contract shall be construed as creating a joint venture, partnership, franchise, agency, employer/employee, or similar relationship between the Parties, or as authorising either Party to act as the agent of the other;</numbered_3_para>
-<numbered_3_para>Contractor shall be solely and independently responsible for acquiring and controlling the tools, equipment, means, details, manner, methods, working place, and such other factors of production as may be required to provide the Services and/or fulfill its obligations under this Contract;and</numbered_3_para>
+<numbered_3_para>Contractor shall be solely and independently responsible for acquiring and controlling the tools, equipment, means, details, manner, methods, working place, and such other factors of production as may be required to provide the Services and/or fulfill its obligations under this Contract; and</numbered_3_para>
 <numbered_3_para>Contractor has the right to perform and/or provide the Services (subject to Clause <xref to="Services"/>) from any place and at such times as the Contractor shall determine in her own discretion;</numbered_3_para>
 <numbered_3_para>the Company shall not be responsible for any taxes (including any withholding taxes) with respect to Contractor's Fees hereunder; and</numbered_3_para>
 <numbered_3_para>Contractor shall have no claim against the Company hereunder or otherwise for vacation pay, sick leave, retirement benefits, social security, employee's compensation, health or disability benefits, unemployment insurance benefits, or employee benefits of any kind.</numbered_3_para>
@@ -116,7 +116,7 @@ Recitals (non-binding)
 <!--Services-->
 <a_left_sidehead xname="Services">Services</a_left_sidehead>
 <!--TODO: at some point we should automate these into the form so that they can be easily replaced for different roles-->
-<numbered_2_para>During the Engagement Term, Contractor shall devote her time, energy, ability and resources as may be necessary, expedient, and efficient, to resolve the issues and/or milestones set out at Github within any timeframes specified therein. Company may from time to time, suggest priorities for such via Slack and/or emails. ("<b>Services</b>").</numbered_2_para>
+<numbered_2_para>During the Engagement Term, Contractor shall devote her time, energy, ability and resources as may be necessary, expedient, and efficient, to resolve the issues and/or milestones set out at GitHub within any timeframes specified therein. Company may from time to time, suggest priorities for such via Slack and/or emails. ("<b>Services</b>").</numbered_2_para>
 <!--Reps and warranties-->
 <a_left_sidehead>Representations &amp; Warranties</a_left_sidehead>
 <!--Company reps and warranties-->
@@ -129,7 +129,7 @@ Recitals (non-binding)
 <numbered_2_para>Contractor hereby represents and warrants to the Company that:-</numbered_2_para>
 <numbered_3_para>she has the power, capacity, competence, ability, and experience to enter into this Contract, perform the Services, and fulfill her obligations under this Contract;</numbered_3_para>
 <numbered_3_para>her performance of the Services and fulfillment of her obligations under this Contract does not and will not breach any other agreement to which she is a party and that she has not and will not during the Engagement Term, enter into any oral or written agreement in conflict with any of the provisions under this Contract;</numbered_3_para>
-<numbered_3_para>any and all undertaking, commencement, or progress made pursuant to this Contract with respect to the milestones and/or issues listed at Github shall be promptly communicated (at least within 2 days of such progress) to the Company via Slack and/or within Github itself;</numbered_3_para>
+<numbered_3_para>any and all undertaking, commencement, or progress made pursuant to this Contract with respect to the milestones and/or issues listed at GitHub shall be promptly communicated (at least within 2 days of such progress) to the Company via Slack and/or within GitHub itself;</numbered_3_para>
 <numbered_3_para>the Services shall be performed in accordance with and shall not violate any applicable laws, rules, and regulations (including any of the Company's policies as may be communicated to Contractor from time to time) and Contractor has obtained all permits and/or permissions and done all such acts as may be required to comply with such applicable laws, rules, and regulations;</numbered_3_para>
 <numbered_3_para>the Company shall not be required to supervise the Contractor;</numbered_3_para>
 <numbered_3_para>the Company shall not be required to hire, supervise, or pay any assistants and/or additional persons to help Contractor perform the Services and her obligations under this Contract; and</numbered_3_para>
@@ -158,7 +158,7 @@ Recitals (non-binding)
 <numbered_2_para>Contractor hereby agrees and undertakes to:-</numbered_2_para>
 <numbered_3_para>hold in strictest confidence the Confidential Information;</numbered_3_para>
 <numbered_3_para>take all steps to prevent any unauthorised reproduction, duplication, and/or copying of Confidential Information and the Company Property by any person;</numbered_3_para>
-<numbered_3_para>take all steps to ensure that documents and items of work-in-progress that embody the Company Property or Confidential Information are kept and/or maintained securely (including without limitation, using two-factor authentication protection whenever possible);</numbered_3_para>
+<numbered_3_para>take all steps to ensure that documents and items of work-in-progress that embody the Company Property or Confidential Information are kept and/or maintained securely (including without limitation, using disk encryption and two-factor authentication protection whenever possible);</numbered_3_para>
 <numbered_3_para>not reproduce, adapt, modify, translate, manufacture, market, publish, distribute, sell, license (or sublicense), transfer, rent, lease, transmit, broadcast, display, or use Company Property or Confidential Information (including any portion or copy thereof) in any form, in a fashion beyond the Company's control;</numbered_3_para>
 <numbered_3_para>not create derivative works from, provide access electronically to, or enter into computer memory beyond the Company's control, the Company Property or Confidential Information (including  any portion or copy thereof) in any form;</numbered_3_para>
 <numbered_3_para>not apply for, or apply to register, any patent, copyright, trademark or other industrial property right or intellectual property right in or related to Confidential Information or Company Property, in Singapore or any other country or region; and</numbered_3_para>
