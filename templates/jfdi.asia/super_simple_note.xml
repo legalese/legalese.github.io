@@ -70,7 +70,7 @@ The Note shall bear no interest. <? } ?>
 
 <a_left_sidehead>Conversion Price</a_left_sidehead>
 
-<numbered_2_para>The "Conversion Price" shall be <?= data.price_per_share ?> per share (the &#8220;<b>Conversion Price</b>&#8221;), subject to proportional adjustment for stock splits, stock dividends, combinations, recapitalizations and the like..</numbered_2_para>
+<numbered_2_para>The "Conversion Price" shall be <?= data.price_per_share ?> per share (the &#8220;<b>Conversion Price</b>&#8221;), subject to proportional adjustment for stock splits, stock dividends, combinations, recapitalizations and the like.</numbered_2_para>
 
 <? if (data.antidilution || data.new_investor.antidilution) { var antidilution = data.antidilution || data.new_investor.antidilution; ?>
 <a_left_sidehead>Anti-Dilution</a_left_sidehead>
