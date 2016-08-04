@@ -22,8 +22,8 @@
 
 <para_1><span_smallcaps>Whereas:</span_smallcaps></para_1>
   <recitals>The Company is a private company incorporated in Singapore limited by shares.</recitals>
-  <recitals>The Company wishes to pay a third party, but lacking funds, relies on the Investor to do so on its behalf.</recitals>
-  <recitals>When the Investor makes that payment, the Company shall be in his debt.</recitals>
+  <recitals>The Company wishes to pay a third party, but lacking sufficient funds, looks to the Investor for assistance.</recitals>
+  <recitals>The result of this assistance will be a debt owned by the Comapny to the Investor.</recitals>
   <recitals>The Company presently lacking the funds to repay that debt in cash, the Company is prepared to issue equity to the Investor in future.</recitals>
   <recitals>The Investor and the Company desire and wish to enter into this Agreement to regulate the relationship between the Parties.</recitals>
 
@@ -36,7 +36,9 @@
   <definition>Principal	means <?=data.new_investor.new_commitment?>, that being agreed as the Singapore Dollar equivalent of the Payment to Third Party.</definition>
 
   <a_left_sidehead>Condition Precedent</a_left_sidehead>
-  <numbered_2_para>This Agreement shall be effective when the Investor delivers to the Company evidence of the transfer of funds by the Investor to the Third Party as described in "Payment to Third-Party".</numbered_2_para>
+  <numbered_2_para>This Agreement shall be effective when the Investor delivers to the Company evidence of the transfer of either</numbered_2_para>
+  <numbered_3_para>funds from the Investor to the Third Party as described in "Payment to Third-Party"; or</numbered_3_para>
+  <numbered_3_para>the Principal to the Company.</numbered_3_para>
 
   <a_left_sidehead>Subscription</a_left_sidehead>
   <numbered_2_para>The Parties agree to recognize a resulting debt of <?= data.new_investor.new_commitment ?> (the &#8220;Investment Amount&#8221;) owed by the Company in the form of a convertible promissory note (the &#8220;Note&#8221;) issued by the Company to the Investor.</numbered_2_para>
