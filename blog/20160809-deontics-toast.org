@@ -1,0 +1,56 @@
+#+TITLE: Contract Deontics: an exercise in Computational Semantics
+
+On August 6, Ken Adams asked:
+[[https://twitter.com/KonciseD/status/761994710399459328]["Acme hereby waives the right to" = "Acme shall not": use language of prohibition, not language of performance?]]
+
+At Legalese, we translate informal specifications -- contract and regulatory text -- into formal logic.
+
+How might we use deontic modal logic to help answer this question?
+
+Is standard deontic logic sufficient to the task, or do we need to go beyond?
+
+In this post we offer a simple, informal case for discussion. Later, if this case is found useful, we might revisit it with a formalization.
+
+* A Simple Case: Dinner Toast
+
+Let's examine a simple concrete case: what does it mean to have a right? What does it mean to waive a right?
+
+Suppose Acme is a matriarch who, every year, hosts the annual family gathering of her extended clan.
+
+Acme's extended family is full of loudspoken, opinionated, convivial members, who all love wine and merriment and the sound of their own voices. At the family dinner every year, many clan members attempt to give toasts, boasting of their achievements in the past year. To signal that she wants to give a toast, a clan member picks up her wine glass and taps it with a fork. Every place at the table is set with a wine glass.
+
+But, over the years, so many toasts have been given, and the dinners have stretched so late, that nowadays, only the best speakers are able to command the attention of the crowd. Most of the time, if you pick up your wine glass and ting it, people will just glance at you, and keep talking amongst themselves.
+
+Did I say that every place at the table is set with a wine glass? I lied. Uncle Donald, famous for his maudlin tendencies, is no longer allowed to drink, and is no longer allowed to toast. At his seat, there is no wine glass. He is effectively prohibited from giving a toast.
+
+It's the opposite for Acme. Since she is the clan elder, all members of the clain grant her the right to give a toast. This right is recognized by the placing of a special golden goblet at her seat, in addition to her regular wine glass. It makes a very different sound, and everybody has been taught the rule that when they hear that sound, they have to shush.
+
+One year, Acme invites a few special guests to speak at the dinner: the Dalai Lama, Gal Gadot, and Bruce Wayne have all agreed to speak. "How wonderful," thinks Acme, "it'll be a dinner to remember."
+
+A month before the dinner, Acme's organizing committee come up to her with a worried look. "The schedule is tight," they explain. "We've already got three golden goblets on the table, and if you want us to serve dessert before midnight, you might have to skip your toast."
+
+"Sure," says Acme. "I'll waive my right to give a toast this year. My goblet can stay on the shelf."
+
+On the night of the dinner, the organizing committee approach Acme again. "Bruce Wayne can't make it," they say. "His office called and said he's gone on a last-minute trip to some nightclubs downtown with his latest boyfriend, and they'll be tied up all night. Can you give a toast after all?"
+
+"Sure," says Acme. "I'm always ready."
+
+Dinner proceeds smoothly. The Dalai Lama rings his golden goblet and gives a short speech in surprisingly good English, complimenting the tenderness of the steak. A dozen other people ring their glasses; of those, three are received by the crowd. Gal Gadot taps her goblet and amuses the crowd with an accounting of how Wonder Woman is almost the exact opposite of the Dalai Lama.
+
+Then Acme stands up, holding just her wine glass, not her goblet; she taps it, and it rings, not as loudly or clearly as her goblet would have, but it works all the same: the people next to her pause, look over, see that it's her, and shush themselves; the pool of silence slowly fills the room, and she gives the final toast of the evening.
+
+What just happened? Acme waived her right to speak, but she spoke anyway. Just because she gave up her golden goblet doesn't mean she gave up her wine glass as well.
+
+In the language of deontic logic, having a right to give a toast means that Acme is /permitted/ to /oblige/ others to listen when she speaks. (If you stand up and speak, but nobody listens to you, you have failed to give a toast; it takes two hands to clap.)
+
+Acme is /not/ directly obliged to give a toast: she can spend the entire dinner in silence, and nobody will think anything is wrong.
+
+But when she does exercise her right -- as permitted -- then the others are obliged to listen.
+
+Uncle Donald is /prohibited/ from giving toasts; he has no wine glass, and cannot even begin to seek attention.
+
+When Acme gives up her golden goblet, she is no longer permitted to oblige others to listen. Her status is the same as everybody else's: she is /permitted/ to speak, but listening to her is /optional/.
+
+And she does speak, and they do listen.
+
+Just because she has waived her right to do something, doesn't mean that she shall not do that something. She only gave up her golden goblet, not her regular glass.
