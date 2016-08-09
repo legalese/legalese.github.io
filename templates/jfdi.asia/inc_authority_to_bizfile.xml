@@ -1,4 +1,4 @@
-<? if (data.skip_bizfile != true) { ?>
+<? if (data.skip_bizfile != true) {  Logger.log ("data.skip_bizfile = %s", data.skip_bizfile); ?>
 <a_left_sidehead>Authority to Bizfile</a_left_sidehead>
 
 <para_1>That the Corporate Secretary of the Company<?
