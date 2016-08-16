@@ -39,12 +39,17 @@ But if you want committer access to the repository, or to get paid, you will nee
 
         Legalese is a big project, on the scale of a database language (like SQL) plus a database engine (like InnoDB). While it is possible to make useful contributions quickly, the more challenging parts of the project require you to come up to speed on some of the underlying ideas and technologies.
 
-        *Before working on any issue*, please file it under GitHub Issues and raise it publicly on slack.
+        Before working on any issue, please follow these steps:-  
+        - check our existing issues on Github to see if anyone is already working on it
+        - go to the relevant circles and nominate yourself (if you don't know which circles might be involved, ask on Slack)
+        - get positive public confirmation on Slack that you can proceed with the issue from at least the lead link  
 
-        *If the issue is already filed*, please ensure that you have satisfied the pre-requisites to undertake the issue. If you're unsure what these are, check with the team on Slack.
+        *If the issue has already been filed*, please ensure that you have satisfied the pre-requisites to undertake the issue (if you're unsure what these are, check with the team on Slack). You need to also check-in with the existing circles and assignees on whether you can take it over / work on it too -- we don't want any unnecessary duplication of effort - that's just a waste! 
 
 
-*PLEASE REMEMBER THAT unless you have the compensation committee's written and public approval on this, no financial relationship is assumed.*
+*PLEASE REMEMBER THAT unless you have the compensation committee's written and public approval (i.e. on Slack) on this, no financial relationship is assumed.*
+
+*Legalese does not make private promises or representations with anyone. If someone in our team promises you anything on behalf of Legalese, please know that the action is invalid and unenforceable. It is against our company principles.*
 
 
 If you are new to any of:
@@ -67,7 +72,7 @@ As a company, however, we don't have very many rules but we do have 3 commandmen
     *3. Conversations should be held publicly - this means either in email copying active-team@legalese.io (alias collective@legalese.com) and/or on a public channel in Slack*
       + If there are good reasons why the conversation cannot be open, then create a private chat on Slack and invite the appropriate people to join it -- preferably more than one other person. Private chats are not logged to our public archives.
       + Good reasons for going nonpublic: you need to expose data that is confidential to an end-user; or you want to discuss a possible ethics violation of another contributor, without publicly libeling them; or you want to discuss your own compensation privately. Note that even such discussions should not be secret (1-on-1) but are semiprivate (few-on-few).
-      + Secret 1-on-1 conversations are heavily discounted -- if it didn't happen on Slack, on a mailing list, or at an official summit, then did it really happen? By analogy, in a seminar-style class, if you ask questions in class, you get credit for participation; if you wait until the end of the lecture for everybody else to leave before you approach the professor privately, no credit.
+      + In the eyes of the company, secret 1-on-1 conversations never happened (and we don't care who your secret Legalese buddy is) -- if it didn't happen on Slack, on a mailing list, or at an official summit, then did it really happen? By analogy, in a seminar-style class, if you ask questions in class, you get credit for participation; if you wait until the end of the lecture for everybody else to leave before you approach the professor privately, no credit.
       + In traditional organizations, managers are intended to be single-point-of-contact gateways to the rest of the organization -- they act as a filter so you can get work done. And when you talk to them, you are respecting the "chain of command": your manager is responsible for conveying your discussion to the rest of the organization, if appropriate.
       + At Legalese, we don't have the "agricultural surplus" needed to support a manager class. Instead, guided by [[http://www.benkler.org/CoasesPenguin.html][Coase's Penguin]], we make everything public by default and expect you to filter it. Having a single point of contact that represents the organization is a luxury. Very well-heeled clients may be entitled to an account manager, but contributors and staff are not.
       + To sum up, if you want to engage with the organization, talk in a public channel. If you don't know where to talk, start with #general. If you try to talk privately with someone you think is in charge, you might be wasting both your time and theirs.
@@ -171,13 +176,14 @@ This document describes Legalese the company and the software -- the processes -
 
 *** Phase Three: November - Dec 2016
 *externally*  
-+ close angel round of 500K
-+ launch MVP (i.e. v2)
++ close angel round 
 *internally*  
++ build v2 as our MVP
+
+*** Phase Four: Jan - Mar 2017
 + set up trackers and experiments for v2 (for (i) monetisation and (ii) interface)
 + implement payment system for v2
 + build/refine pitch deck and business plan for 2m seed round
-+ compensation committee to have compensation conversations
 
 * 3. Organisational Architecture :tent:
 
@@ -260,8 +266,9 @@ A Teal or Holacratic architecture doesn't mean anarchy. It doesn't mean absence 
       Part of new-participant onboarding MUST involve recruitment for, and training in, the dominant aesthetics, principles, values, vision, and tensions of the project.
 
       Minority or opposition opinions should be actively sought and aired. Consider the "Devil's Advocate" process.
-
-*Corporate form*
+      We believe in the disagree and commit strategy [http://electronicdesign.com/energy/disagree-and-commit-risk-conflict-teams]. 
+      
+      *Corporate form*
 - Legalese is incorporated in Singapore as a Private Limited company.
 - Legalese needs to be scrupulously aware of the Legal Profession Act.
 - Legalese offers a number of products and services. Some of those products and services are free. Some are paid.
