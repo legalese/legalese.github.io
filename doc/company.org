@@ -133,7 +133,7 @@ On the company side, before a contributor can work on certain parts of the compa
 
 This document describes Legalese the company and the software -- the processes -- that its developers produce.
 
-* 2. Roadmap and where we are now (as of: 5 June 2016) :golf:
+* 2. Roadmap and where we are now (as of: 20 Aug 2016) :golf:
 
 *Who the current Compensation Committee consists of*:
 - Alexis
@@ -206,6 +206,7 @@ Self-managing organizations are better suited to Internet-era post-industrial co
       - http://www.reinventingorganizations.com/
       - http://www.holacracy.org/how-it-works/
       - http://venturebeat.com/2015/08/01/our-startup-got-rid-of-email-meetings-and-managers-and-thrived/
+      - http://www.ubuntu.com/about/about-ubuntu/conduct
 
 Many opensource efforts have much in common with Teal organizations.
           #+BEGIN_QUOTE
