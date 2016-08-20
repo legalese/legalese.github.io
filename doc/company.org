@@ -276,7 +276,7 @@ A Teal or Holacratic architecture doesn't mean anarchy. It doesn't mean absence 
 
 ** 3B. Communication Channels
   - realtime chat :: Slack
-  - email :: Google Groups -- active-team@legalese.io is the primary address. You can [[https://groups.google.com/a/legalese.io/forum/#!forum/active-team][browse the archives]].
+  - email :: Google Groups -- collective@legalese.com is the primary address. You can [[https://groups.google.com/a/legalese.io/forum/#!forum/active-team][browse the archives]]. The default is that all communications are CC-ed to the team.
   - source code, legal templates, and some documents :: Github
   - other documents :: Google Drive: [[https://drive.google.com/drive/folders/0B-lTLNYJdzgKfldRU290T3d2LVA3Yk01UG4xM2tlOWU5dU1JaVh4d3h6cmo3Ny1wRWZBeFU][Legalese Shared]].
   - project management and task tracking :: Github Issues. We used to use Asana and Basecamp before.
