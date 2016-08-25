@@ -49,7 +49,7 @@ But if you want committer access to the repository, or to get paid, you will nee
 
 *PLEASE REMEMBER THAT unless you have the compensation committee's written and public approval (i.e. on Slack) on this, no financial relationship is assumed.*
 
-*Legalese does not make private promises or representations with anyone. If someone in our team promises you anything on behalf of Legalese, please know that the action is invalid and unenforceable. It is against our company principles.*
+*Legalese does not make private promises or representations with anyone. So, if someone in our team promises you anything on behalf of Legalese, you should know that that action is invalid and unenforceable.*
 
 
 If you are new to any of:
@@ -131,8 +131,6 @@ On the product side, before an contributor can work on certain parts of the code
 
 On the company side, before a contributor can work on certain parts of the company, they must first read books like /Holacracy/, /the Five Dysfunctions of a Team/, and /the Art of the Start/. But these are just badges, and at the end of the day anyone can level up into any role based on capability and inclination -- as with any opensource project, in theory.
 
-This document describes Legalese the company and the software -- the processes -- that its developers produce.
-
 * 2. Roadmap and where we are now (as of: 20 Aug 2016) :golf:
 
 *Who the current Compensation Committee consists of*:
@@ -202,11 +200,12 @@ This document describes Legalese the company and the software -- the processes -
       Some opensource infrastructure projects are embarrassingly underfunded. [[http://www.technologyreview.com/view/526386/the-underfunded-project-keeping-the-web-secure/][OpenSSL]] and [[http://www.propublica.org/article/the-worlds-email-encryption-software-relies-on-one-guy-who-is-going-broke][GPG]] recently put out calls for donations. Legalese must be more sustainable than just relying on donations. That means incorporating as a business, maybe getting venture funding. There are many precedents for opensource businesses, including [[http://en.wikipedia.org/wiki/MariaDB][MySQL and MariaDB]].
 
 *"Teal" Organizations*
-Self-managing organizations are better suited to Internet-era post-industrial conditions. See also
+Self-managing organizations are better suited to Internet-era post-industrial conditions. We take guidance and inspiration from:
       - http://www.reinventingorganizations.com/
       - http://www.holacracy.org/how-it-works/
       - http://venturebeat.com/2015/08/01/our-startup-got-rid-of-email-meetings-and-managers-and-thrived/
       - http://www.ubuntu.com/about/about-ubuntu/conduct
+      - https://playbook.cio.gov/
 
 Many opensource efforts have much in common with Teal organizations.
           #+BEGIN_QUOTE
