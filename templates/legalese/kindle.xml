@@ -1,7 +1,7 @@
 <?!= data.xml_declaration ?>
 <?!= data.xmlRoot(['templateSpec="kindle.indt"', 'addnewline="false"']) ?>
 <CoverTop><cover_company_name><?= data.new_participant.name ?></cover_company_name></CoverTop>
-<CoverBottom_Logotype><cover_corporate_logotype>legalese.io</cover_corporate_logotype></CoverBottom_Logotype>
+<CoverBottom_Logotype><cover_corporate_logotype>legalese.com</cover_corporate_logotype></CoverBottom_Logotype>
 <CoverBottom_series><noindent_centered><span_smallcaps>Project Participant Introduction</span_smallcaps>
 <textvar name="Output Date" />&#8195;<span_smallcaps><textvar name="output time" /></span_smallcaps>
 version <?= data.document_version || "1.0.0" ?></noindent_centered>
@@ -9,7 +9,7 @@ version <?= data.document_version || "1.0.0" ?></noindent_centered>
 <Story_Main>
 <chapter_header>Your Kindle, compliments of Legalese</chapter_header>
 <para_1>Hi there!
-If you're reading this, you've been invited to participate in Legalese.io.
+If you're reading this, you've been invited to participate in Legalese.com.
 Welcome to the project!
 This Kindle has been pre-loaded with a handful of important books.
 Each full member of the Legalese project has read each of those books.
