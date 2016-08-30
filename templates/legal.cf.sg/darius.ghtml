@@ -126,7 +126,7 @@
 <p>This Clause shall survive the termination of this Agreement for any reason whatsoever.</p>
 
 <?!= newclause(1, "Attribution") ?>
-      <p>The text of this Agreement was based on a template by Darius Cheung (<a href="http://twitter.com/Rius">@rius</a>), licensed under Creative Commons Attribution 3.0 Singapore (CC BY 3.0 SG), original source available at http://legal.cf.sg. Document assembly was performed by legalese.io.</p>
+      <p>The text of this Agreement was based on a template by Darius Cheung (<a href="http://twitter.com/Rius">@rius</a>), licensed under Creative Commons Attribution 3.0 Singapore (CC BY 3.0 SG), original source available at http://legal.cf.sg. Document assembly was performed by legalese.com.</p>
 
 <h1>Signature</h1>
 <p>This Agreement has been signed by or on behalf of each of the Parties hereto the day and year first before written.</p>
