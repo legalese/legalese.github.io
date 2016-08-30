@@ -51,7 +51,7 @@ This Agreement shall be governed by and interpreted in accordance with the laws 
 <para_2_hanging><b>"Class F Shares Issued and Outstanding"</b> means <?= digitCommas_(activeRound.by_security_type["Class F Shares"].TOTAL) ?> shares.</para_2_hanging>
 <para_2_hanging><b>"Total Post-Money Shares Reserved for Option Pool"</b> means <?= digitCommas_(data.capTable.getRound("TOTAL").ESOP.reserved()) ?> shares.</para_2_hanging>
 <para_2_hanging>"Number of Issued And Outstanding Options" means <?= data.issued_and_outstanding_options ?>.</para_2_hanging>
-<? // TODO: this needs to be fixed -- we need more sophistication in tracking the allocation and issue of ESOP shares. see https://github.com/legalese-io/legalese-io.github.io/issues/77 ?>
+<? // TODO: this needs to be fixed -- we need more sophistication in tracking the allocation and issue of ESOP shares. see https://github.com/legalese/legalese.github.io/issues/77 ?>
 <para_2_hanging><b>"Unallocated Post-Money Option Pool Shares"</b> means <?= digitCommas_(data.capTable.getRound("TOTAL").ESOP.reserved()) ?> shares.</para_2_hanging>
 <para_1>
 </para_1>
