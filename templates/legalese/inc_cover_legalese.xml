@@ -1,8 +1,8 @@
 <CoverBottom_Logotype>
-<cover_corporate_logotype override="appliedFont='Alegreya'  fontStyle='Bold'">LEGALESE.IO</cover_corporate_logotype>
+<cover_corporate_logotype override="appliedFont='Alegreya'  fontStyle='Bold'">LEGALESE.COM</cover_corporate_logotype>
 </CoverBottom_Logotype>
 <CoverBottom_Address>
-<cover_address_block>Legalese.io's smart opensource templates save startups thousands in legal fees.</cover_address_block>
+<cover_address_block>Legalese.com's smart opensource templates save startups thousands in legal fees.</cover_address_block>
 </CoverBottom_Address>
 <CoverBottom_series>
 <? if (! (data._config.omit_date && data._config.omit_date.value)) { ?>
