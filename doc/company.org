@@ -5,7 +5,7 @@
 - What expectations can every project participant have about other participants?
 - In particular, what common vocabulary and knowledge should participants possess?
 
-Discussion of this document is welcome on the *#mgmt-organisation* and *#startup* chats.
+Discussion of this document is welcome on the *#mgmt-organisation* and *#general* chats.
 
 * Welcome, New Contributor!:confetti_ball:
 
@@ -17,13 +17,11 @@ Onboarding consists of two parts:
 
         This is the initial onboarding process that everyone has to go through. Unless otherwise specifically and publicly approved by the compensation committee, the completion of Initial Onboarding is a prerequisite for compensation and/or a stake in the organisation.
 
-If you're just here to ask a question on Slack, go right ahead.
-
 But if you want committer access to the repository, or to get paid, you will need to walk the path.
 
         The tasks to be fulfilled for initial onboarding are:-   
 
-        1. finish reading this document (a.k.a. company.org)
+        1. finish reading this document (a.k.a. company.org), and accept the terms of engagement 
 
         2. finish reading the Welcome Booklet (and the readings set out therein)  
             + The [[https://drive.google.com/open?id=0B-lTLNYJdzgKRnpKTTBQQjFVSHM][Welcome Booklet PDF]] explains why we exist. It also sets out a reading list which will help you come up to speed with the state of the art in legal informatics. Read it, and the readings in it. (At some point we will move the text of that PDF into this file.)
@@ -39,18 +37,15 @@ But if you want committer access to the repository, or to get paid, you will nee
 
         Legalese is a big project, on the scale of a database language (like SQL) plus a database engine (like InnoDB). While it is possible to make useful contributions quickly, the more challenging parts of the project require you to come up to speed on some of the underlying ideas and technologies.
 
-        Before working on any issue, please follow these steps:-  
-        - check our existing issues on Github to see if anyone is already working on it
-        - go to the relevant circles and nominate yourself (if you don't know which circles might be involved, ask on Slack)
-        - get positive public confirmation on Slack that you can proceed with the issue from at least the lead link  
+        Before working on any *existing* issue, please follow these steps:-  
+        - check our existing issues on Github to see if anyone is already working on it --> these people will be part of the relevant roles that you will need blessing from
+        - ensure that you have satisfied the pre-requisites to undertake the issue (if you're unsure what these are, check with the team on Slack)
+        - go to *all* relevant circles and nominate yourself (if you don't know which circles might be involved, ask on Slack) 
+        - get positive public confirmation from the relevant circles, roles, and current assignees on Slack that you can proceed with the issue 
 
-        *If the issue has already been filed*, please ensure that you have satisfied the pre-requisites to undertake the issue (if you're unsure what these are, check with the team on Slack). You need to also check-in with the existing circles and assignees on whether you can take it over / work on it too -- we don't want any unnecessary duplication of effort - that's just a waste! 
-
-
-*PLEASE REMEMBER THAT unless you have the compensation committee's written and public approval (i.e. on Slack) on this, no financial relationship is assumed.*
+*PLEASE REMEMBER THAT unless you have the compensation committee's written and public approval (i.e. on Slack or collective email) on compensation, no financial relationship can be assumed.*
 
 *Legalese does not make private promises or representations with anyone. So, if someone in our team promises you anything on behalf of Legalese, you should know that that action is invalid and unenforceable.*
-
 
 If you are new to any of:
 - opensource projects
@@ -274,8 +269,19 @@ A Teal or Holacratic architecture doesn't mean anarchy. It doesn't mean absence 
 - Legalese offers a number of products and services. Some of those products and services are free. Some are paid.
 
 ** 3B. Communication Channels
-  - realtime chat :: Slack
-  - email :: Google Groups -- collective@legalese.com is the primary address. You can [[https://groups.google.com/a/legalese.io/forum/#!forum/active-team][browse the archives]]. The default is that all communications are CC-ed to the team.
+
+Our default mode of communication is *public*.
+So, unless you tell us that you wish to be taken off any of the below channels, we will not entertain any requests to remove you from it. 
+Likewise, if anyone wants to expel or limit a person from being on any of Legalese's public channels, a public engagement with said person and the team has to be initiated before a final decision is made by the relevant circles and/or roles.
+
+*Legalese does not entertain any closed-door, arbitrary, or top-down expulsions / exclusions.*
+
+  - realtime chat :: Slack 
+  - At the moment, this is invite only. But this is due to Slack fees that we may incur, rather than a desire to keep our Slack channels private. As far as the project is concerned, we treat this as a public forum (unless a channel is expressly designated as confidential or private). 
+  - email :: Google Groups (collective@legalese.com is the primary address)
+  - You can [[https://groups.google.com/a/legalese.io/forum/#!forum/active-team][browse the archives]]. 
+  - The default is that unless all communications are CC-ed to the team, else it never happened and is not representative of Legalese. 
+  - This is also the team mailing list (even though not everyone on the list is formally a part of the team), because it's simply where we house everyone who has expressed a desire to join the team, fly-on-the-wall with the team, or just desired to be privy to Legalese's engagement with the outside world
   - source code, legal templates, and some documents :: Github
   - other documents :: Google Drive: [[https://drive.google.com/drive/folders/0B-lTLNYJdzgKfldRU290T3d2LVA3Yk01UG4xM2tlOWU5dU1JaVh4d3h6cmo3Ny1wRWZBeFU][Legalese Shared]].
   - project management and task tracking :: Github Issues. We used to use Asana and Basecamp before.
