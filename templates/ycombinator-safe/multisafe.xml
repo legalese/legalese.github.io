@@ -125,7 +125,7 @@ the Discount Price,</numbered_3_para>
 
 <numbered_2_para>"Dissolution Event" means a voluntary termination of operations, a general assignment for the benefit of the Company's creditors or any other liquidation, dissolution or winding up of the Company (excluding a Liquidity Event), whether voluntary or involuntary.</numbered_2_para>
 
-<numbered_2_para>"Equity Financing" means a bona fide transaction or series of transactions with the principal purpose of raising capital, pursuant to which the Company issues and sells Preferred Stock at a fixed pre-money valuation.</numbered_2_para>
+<numbered_2_para>"Equity Financing" means a bona fide transaction or series of transactions with the principal purpose of raising capital, pursuant to which the Company issues and sells<? if (data.qualified_financing_proceeds) { ?> at least <?= data.qualified_financing_proceeds ?> worth of<?}?> Preferred Stock at a fixed pre-money valuation<? if (data.qualified_financing_valuation) { ?> at least <?= data.qualified_financing_valuation ?><?}?>.</numbered_2_para>
 
 <numbered_2_para>"Initial Public Offering" means the closing of the Company's first firm commitment underwritten initial public offering of Common Stock pursuant to a registration statement filed under the Securities Act.</numbered_2_para>
 
