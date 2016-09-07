@@ -442,7 +442,6 @@ in accordance with this Clause, dispose of the Offered Shares to any other third
 </Table>
 </para_1>
 
-<b_left_sidehead>Post-investment capitalization</b_left_sidehead>
 
 <b_left_sidehead xname="exp_post_investment_capitalization_with_esop">Post-investment capitalization (with Share Option of <?= data.parties.ESOP[%s] ?>)</b_left_sidehead>
 
