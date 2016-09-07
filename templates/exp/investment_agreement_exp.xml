@@ -1,0 +1,390 @@
+<?!= data.xml_declaration ?>
+<?!= data.xmlRoot() ?>
+<?!= include("inc_cover_standard_parties", data, {cover_title:"Investment Agreement", rcpts_to:rcpts_to}) ?>
+<Story_Main>
+<chapter_header>Investment Agreement</chapter_header>
+
+<chapter_header>INDEX</chapter_header>
+
+<numbered_1_para>Definitions</numbered_1_para>
+<numbered_1_para>Third Party Rights</numbered_1_para>
+<numbered_1_para>The Company's Obligations</numbered_1_para>
+<numbered_1_para>Conditions Precedent</numbered_1_para>
+<numbered_1_para>Subscription and Closing</numbered_1_para>
+<numbered_1_para>Representations and Warranties</numbered_1_para>
+<numbered_1_para>Miscellaneous</numbered_1_para>
+
+<para_1>Schedule 1: SHAREHOLDING STRUCTURE</para_1>
+<para_1>Schedule 2: CLOSING RESOLUTIONS</para_1>
+
+<para_1>THIS INVESTMENT AGREEMENT (the “Agreement”) is today entered into by and BETWEEN:</para_1>
+
+<?!= include("inc_enumerate_parties", data, rcpts_to, { term:{"new_investor": "investor"} }) ?>
+
+<b_left_sidehead_nonum>Recitals</b_left_sidehead_nonum>
+The Series Seed Investors desire to subscribe for preference shares of the Company, and the Company desires to issue and allot to these shares, pursuant to the terms of this Agreement.
+
+<numbered_1_firstbold>Definitions</numbered_1_firstbold>
+
+<definition>Agreement Date means the date of this Agreement;</definition>
+
+<definition>Closing means the closing of the subscription and purchase of the Shares, in accordance with Schedule <xref to="exp_schedule_1"/> of this Agreement;</definition>
+
+<definition>Closing Resolutions means the Company's resolutions substantially in the form attached in Schedule <xref to="exp_schedule_2"/> with the heading Closing Resolutions;</definition>
+
+<definition>M&A means the Company's memorandum and articles of association for time being;</definition>
+
+<definition>Pre-Money Valuation means S$<?= data.pre_money ?>;</definition> 
+
+<definition>Series Seed Investors’ Aggregate Investment Amount means S$<?= data.amount_raising ?>;</definition>
+
+<definition>Series Seed Investors’ Subscription Price means S$<?= data.price_per_share ?> per share;</definition>
+
+<definition>Series Seed Preference Shares means the Series Seed convertible preference shares of the Company, carrying the rights stated in the M&A and Shareholder Agreement;</definition>
+
+<definition>Shares means shares of the Company of any class or type, and includes Preference Shares;</definition>
+ 
+<definition>Shareholders’ Agreement means the Shareholders Agreement signed between <?= data.parties.key_holders && data.parties.existing_investors && data.parties.new_investors ?> and Expara Ventures Fund III Pte Ltd.</definition>
+
+<numbered_1_firstbold>Third Party Rights</numbered_1_firstbold>
+<para_1>A person who is not a party to this Agreement has no right under the Singapore Contracts (Rights of Third Parties) Act (Chapter 53B) for time being in force to enforce or enjoy the benefit of any term of this Agreement.</para_1>
+
+<numbered_1_firstbold>The Company's Obligations</numbered_1_firstbold>
+<para_1>Where this Agreement provides that the Company shall perform an act or is subject to an obligation, each Founder agrees to take all reasonable action to use all its rights as a shareholder of the Company or as a Director to procure that the Company performs that act or complies with that obligation,including:</para_1>
+
+<numbered_2_para>calling (if necessary) and attending all shareholders meetings and passing the necessary resolutions to cause the Company to perform that act or comply with that obligation;</numbered_2_para> 
+
+<numbered_2_para>as a Director taking all necessary action to procure that the Company performs that act or complies with that obligation; and</numbered_2_para>
+
+<numbered_2_para>instructing or otherwise causing its nominated directors (if any) to take all necessary action to procure that the Company performs that act or complies with that obligation.</numbered_2_para>
+
+<numbered_1_firstbold>Conditions Precedent</numbered_1_firstbold>
+
+<para_1>Each of the following describes a Condition Precedent:</para_1>
+
+<numbered_2_para>The Representations and Warranties are true on the date of Closing as specified in Schedule <xref to="exp_schedule_1"/>, with the same effect as though the representations and warranties were made on that date;</numbered_2_para>
+
+<numbered_2_para>the Company and the Founders have performed all acts and complied with all obligations contained in this Agreement that are required to be performed or complied with on or before Closing;</numbered_2_para>
+
+<numbered_2_para>all requirements under applicable law in connection with the issuance and sale of the Series Seed Preference Shares pursuant to this Agreement are obtained and are in full force and effect on the date of Closing;</numbered_2_para>
+
+<numbered_2_para>all corporate approvals and resolutions in connection with the transactions contemplated at Closing are obtained and all related documents are in form and substance reasonably satisfactory to the Series Seed Investors;</numbered_2_para>
+
+<numbered_2_para>the new M&A is adopted and is in full force and effect;</numbered_2_para>
+
+<numbered_2_para>the Company and each party to the Shareholders Agreement have executed and delivered the agreement;</numbered_2_para> 
+
+<numbered_2_para>the Series Seed Investors has completed a due diligence review of the Company and the results of the review are reasonably satisfactory to the Series Seed Investors;</numbered_2_para>
+
+<numbered_2_para>no adverse material change to the Company has arisen and is continuing; and</numbered_2_para>
+	
+<numbered_2_para>all documents which Series Seed Investors reasonably considers necessary or desirable to consummate the transactions contemplated in this Agreement are executed and delivered.</numbered_2_para>
+
+<para_1>The obligations of the Series Seed Investors to subscribe and purchase Shares at Closing are subject to the fulfilment or the Series Seed Investors’ waiver of each of the Conditions Precedent.</para_1>
+
+<para_1>This Agreement shall immediately terminate upon the Series Seed Investor’s notice if the relevant conditions precedent are not satisfied or waived on.</para_1>
+
+
+<numbered_1_firstbold>Subscription and Closing</numbered_1_firstbold>
+
+<para_1>Subject to and upon the terms of this Agreement, the Series Seed Investors agree to subscribe for and purchase at the Series Seed Investors’ Subscription Price, and the Company agrees to sell and issue to the Series Seed Investors the Series Seed Preference Shares according to Schedule <xref to="exp_schedule_1"/> of this agreement.</para_1>
+
+<para_1>At closing the Company shall issue the Series Seed Investors the shares and deliver to the Series Seed Investors all agreements and documents necessary for the satisfaction of or contemplated in the Conditions Precedent, in form and substance reasonably acceptable to the Series Seed Investors.</para_1>
+
+<para_1>Subject to the satisfaction or waiver of the Conditions Precedent, Closing shall take place on the first business day immediately after Conditions Precedent are satisfied or waived, at a time and place agreed upon by the parties. At Closing the Company shall make the deliveries described above against payment of the purchase price therefore by cheque payable to the Company or by wire transfer to a bank account designated by the Company.</para_1>
+
+<para_1>Use of Proceeds:  In accordance with the directions of the Company’s Board of Directors, the Company will use the proceeds from the investment for working capital.</para_1>
+
+<numbered_1_firstbold>Representations and Warranties</numbered_1_firstbold>
+
+<para_1>Each of the Company and the Founder represents and warrants to the Series Seed Investors that:</para_1>
+
+<numbered_2_para>Organization, Good Standing and Qualification</numbered_2_para>  
+
+<para_2>The Company:</para_2>
+
+<numbered_3_para>is duly organized, validly existing and in good standing under the laws of Singapore;</numbered_3_para>
+
+<numbered_3_para>has all requisite corporate power and authority to carry on its business as now conducted and as proposed to be conducted;</numbered_3_para>
+
+<numbered_3_para>has all consents, approvals and licences under all applicable laws to carry on its business as now conducted and as proposed to be conducted, and to own all properties and assets as now owned and as proposed to be acquired; and</numbered_3_para> 
+
+<numbered_3_para>is duly qualified to transact business and is in good standing in each jurisdiction in which the failure to so qualify would or is likely to constitute or cause a material adverse change to the Company's business;</numbered_3_para>
+
+<numbered_2_para>Capitalization and Voting Rights.  Immediately prior to Closing, the paid-up capital of the Company of ordinary shares are duly and validly issued and held by the Founders.</numbered_2_para> 
+
+<para_2>Immediately after Closing, the issued capital of the Company’s shares shall be increased as per Schedule <xref to="exp_schedule_1"/>.</para_2>
+
+<numbered_2_para>No options and other rights. Except:</numbered_2_para>
+
+<numbered_3_para>the conversion rights of the Preference Shares;</numbered_3_para>
+
+<numbered_3_para>as provided under the M&A;</numbered_3_para>
+
+<numbered_3_para>as provided under this Agreement or the Shareholders’ Agreement; there are, in respect and relating to the Company’s shares and other securities;</numbered_3_para>
+
+<numbered_3_para>no options, warrants, rights, conversion rights, pre-emptive rights or rights of first refusal;</numbered_3_para>
+
+<numbered_3_para>no agreements of any kind for the purchase or acquisition; and</numbered_3_para>
+
+<numbered_3_para>no liens, claims, or encumbrances;</numbered_3_para>
+
+<numbered_2_para>Capacity.   In the case of a Shareholder who is an individual, he has the capacity to enter into and perform and comply with his obligations under this Agreement and his obligations under this Agreement constitute valid obligations, legally binding on him and enforceable in accordance with its terms;</numbered_2_para>
+
+<numbered_2_para>Corporate Powers, M&A and Other Agreements.  The Company's execution and delivery of this Agreement and the performance of its obligations under or contemplated by this Agreement will not violate or exceed its corporate powers, or contravene any provision of its M&A or any agreement to which it is a party or which is binding upon all or any of its assets;</numbered_2_para>
+
+<numbered_2_para>Applicable laws.  All licences, approvals, consents and other requirements under applicable law for the Company's and each Founder's execution and delivery of this Agreement and the performance of all the obligations under or contemplated by this Agreement have been duly obtained or granted and are in full force and effect;</numbered_2_para>
+
+<numbered_2_para>No Encumbrances.  Each Founder:</numbered_2_para>
+
+<numbered_3_para>legally and beneficially owns the full right, title and power to its Shares, free and clear of all encumbrances; and</numbered_3_para>
+
+<numbered_3_para>has not granted any options, warrants or any other rights whatsoever in respect of his shares;</numbered_3_para>
+
+<numbered_2_para>M&A.  The M&A are in full force and effect;</numbered_2_para>
+
+<numbered_2_para>Title to Properties.  The Company has good and marketable title to all its properties and assets, in each case free of all encumbrances;</numbered_2_para>
+
+<numbered_2_para>Litigation.</numbered_2_para> 
+<para_2>In respect of the Company and each Founder, and each of their properties and assets:</para_2>
+
+<numbered_3_para>no litigation, arbitration, administrative and any other legal proceedings of any nature (including  bankruptcy proceedings, or proceedings for the appointment of a receiver, liquidator, trustee in bankruptcy or similar officer) has been started or is pending before any court, administrative body, agency or arbitration or other tribunal;</numbered_3_para> 
+
+<numbered_3_para>no notices, orders, judgment or decree of any kind by any court administrative body, agency or arbitration or other tribunal has been issued or made, whether or not satisfied or discharged; and</numbered_3_para>
+
+<numbered_3_para>to the Company's and Founder's knowledge, after due and diligent investigations and enquiries, none of the events described in the previous two paragraphs are threatened;</numbered_3_para> 
+
+<numbered_2_para>Compliance with Laws.</numbered_2_para> 
+<para_2>The Company, in respect of the issuance, sale and trading of its Shares:</para_2>
+
+<numbered_3_para>has complied and is complying with all applicable laws;</numbered_3_para>
+
+<numbered_3_para>is not subject to any applicable laws which require extraordinary actions or expenditures which other similar companies or business are not also subject to; and</numbered_3_para> 
+
+<numbered_3_para>has made and maintained in effect all filings, licences, permits, approvals, applications and authorizations required under applicable laws.</numbered_3_para>
+
+<numbered_2_para>Agreements.  No contract, agreement or commitment has been entered into or incurred by the Company which is outside its ordinary and proper course of business;</numbered_2_para>
+
+<numbered_2_para>Accuracy of Financial Records and Accounts. The financial records and accounts of the Company are complete and correct in all material respects and accurately reflect in all material respects the nature, extent and purpose of the assets, liabilities, receipts, disbursements and transactions recorded;</numbered_2_para>
+
+<numbered_2_para>Accuracy of Information. All information, whether oral, written, electronic or in any other form, provided to the Series Seed Investors for the purpose and in contemplation of the investments under this Agreement are true, accurate and complete.</numbered_2_para>
+
+<numbered_2_para>No Material Adverse Change.</numbered_2_para> 
+<para_2>Since the date of incorporation of the Company:</para_2>
+
+<numbered_3_para>there has been no material adverse change in the business, financial condition, operations or affairs of the Company; and</numbered_3_para> 
+
+<numbered_3_para>there has been no declaration or payment of any dividend or other distribution by the Company in respect of or any direct or indirect retirement, redemption purchase or other acquisition of, any Shares.</numbered_3_para>
+
+<numbered_2_para>Debt.</numbered_2_para>
+<para_2>The Company has no debts or other liabilities.</para_2>
+
+<numbered_2_para>Intellectual Property.</numbered_2_para>
+<numbered_3_para>All rights in all intellectual property and business information owned, used by or otherwise required for the Company's business are vested in or validly granted to the Company and are not subject to any limit as to time or any other limitation, right of termination or restriction and all renewal fees and steps required for their maintenance or protection have been paid and taken.</numbered_3_para>
+
+<numbered_3_para>All business information owned, used by or otherwise required for the Company's business is in the possession of the Company and the Company is not a party to any confidentiality or other agreement or subject to any duty which restricts the free use or disclosure of any business information.</numbered_3_para>
+
+<numbered_3_para>The Company has not granted or is obliged to grant any licence, sub-licence or assignment in respect of any intellectual property owned, used by or otherwise required for its business, or has disclosed or is obliged to disclose any confidential information required for its business to any person, other than to its employees for the purposes of carrying on its business.</numbered_3_para>
+
+<numbered_3_para>The Company is not in breach of any licence, sub-licence or assignment granted to it in respect of any intellectual property or business information owned, used by or otherwise required for its business.</numbered_3_para>
+
+<numbered_3_para>There is no, and there has been at any time, any unauthorized use or infringement by any person of any of the intellectual property or business information owned, used by or otherwise required for the Company's business.</numbered_3_para>
+
+<numbered_3_para>No moral rights have been asserted or are likely to be asserted which would affect the use of any of the intellectual property or business information in the Company's business.</numbered_3_para>
+
+
+<numbered_1_firstbold>Miscellaneous</numbered_1_firstbold>
+
+<numbered_2_para>Confidentiality and Publicity</numbered_2_para>
+
+<numbered_3_para>Each party agrees to keep the terms of this Agreement confidential.</numbered_3_para>
+
+<numbered_3_para>No publicity material, press releases or other announcements incorporating any reference to a party shall be made without the prior written approval of that party (which shall not be unreasonably withheld), except that the Series Seed Investors may for the purposes of its ordinary course of business publicise, make press releases or other announcements relating to any party.</numbered_3_para>
+
+<numbered_3_para>No publicity material, press releases or other announcements relating to the existence of or terms of the transactions contemplated in this Agreement shall be made without the prior written approval of each party (which shall not be unreasonably withheld), except that the Series Seed Investors may for the purposes of its ordinary course of business publicise, make press releases or other announcements relating to the transactions contemplated in this Agreement.</numbered_3_para>
+
+<numbered_3_para>No publicity material, press releases or other announcements relating to this Investment Agreement, including but not limited to the use of the names of the Series Seed Investors for publicity purposes shall be made without the prior written approval of each party (which shall not be unreasonably withheld).</numbered_3_para>
+
+<numbered_2_para>Notices</numbered_2_para>  
+
+<para_2>All notices, requests, demands and other communications given by any of the parties shall be in writing and shall be given only by personal delivery, registered mail or courier service and shall be deemed to have been duly given when received at the addresses specified in <xref to="exp_exhibit_a"/> of this Agreement.</para_2>
+
+
+<numbered_2_para>Extensions and Waivers</numbered_2_para> 
+
+<numbered_3_para>Series Seed Investors may extend the time for or otherwise waive performance of any of the obligations or other acts of the Company or Founders.</numbered_3_para>
+
+<numbered_3_para>No failure or delay on the part of any party in exercising any of its rights under this Agreement shall operate as a waiver of those rights.</numbered_3_para>  
+
+<numbered_3_para>A party's single or partial exercise of any of its rights under this Agreement does not preclude any other or further exercise of those rights or the exercise of any other rights under this Agreement.</numbered_3_para>
+
+<numbered_2_para>Amendments</numbered_2_para>
+
+<para_2>No amendment or variation to this Agreement shall take effect unless it is in writing and agreed by each party.</para_2>
+
+<numbered_2_para>Successors and Assigns</numbered_2_para>
+
+<para_2>No party shall have the right to assign all or any part of its interest in this Agreement without the prior written consent of the other parties.  This Agreement shall be binding upon and shall inure to the benefit of the parties and their respective successors and permitted assigns.</para_2> 
+
+<numbered_2_para>Entire Agreement</numbered_2_para>  
+
+<numbered_3_para>This Agreement constitutes the entire agreement between the parties with respect to the subject matter and transaction contemplated, and supersedes all prior oral and written agreements, memoranda or correspondences between the parties relating to these subject matter or transactions.</numbered_3_para>
+
+<numbered_3_para>Nothing in this Clause affects or limits a representation or warranty (whether oral or written) given by the Company or a Founder arising out of or in connection with this Agreement, or the due diligence, negotiations and discussions related to this Agreement.</numbered_3_para>
+
+<numbered_2_para>Governing Law and Jurisdiction</numbered_2_para>  
+
+<para_2>This Agreement shall be governed by and construed in accordance with Singapore law.  Each party submits to the non-exclusive jurisdiction of the courts of Singapore.</para_2> 
+
+<numbered_2_para>Severability</numbered_2_para>
+
+<para_2>In the event that any one or more of the provisions contained in this Agreement shall be invalid, illegal, or unenforceable in any respect for any reason, the validity, legality, and enforceability of any such provision in every other respect and of the remaining provisions of this Agreement shall not in any way be affected or impaired.</para_2>
+
+<numbered_2_para>Costs and Expenses</numbered_2_para>
+
+<para_2>Each party is responsible for their own expenses in connection with the drafting, negotiation, preparation and closing of this Agreement, the Shareholders Agreement and all other ancillary agreements and documents.</para_2>  
+
+<numbered_2_para>Further Assurances</numbered_2_para>
+
+<para_2>Each party shall execute, acknowledge and deliver further instruments, and do other acts and things, as may be necessary or desirable to carry out the full intent and purposes of this Agreement.</para_2>
+
+<numbered_2_para>Counterparts</numbered_2_para>  
+
+<para_2>This Agreement may be executed in one or more counterparts, each of which shall be deemed an original, but all of which together shall constitute one and the same instrument.</para_2>
+
+<numbered_2_para>Arbitration</numbered_2_para>
+
+<para_2>Any dispute arising out of or in connection with this Agreement, including any question regarding its existence, validity or termination, that cannot be resolved on an amicable basis, shall be conducted under the provisions of the applicable arbitration laws of the Republic of Singapore. This Agreement drafted in the English language shall be the only binding version.</para_2>
+
+<para_2>In witness the parties have caused this Agreement to be duly executed and delivered as of the date first above written.</para_2>
+
+
+<chapter_header xname="exp_schedule_1">Schedule 1: SHAREHOLDING STRUCTURE</chapter_header>
+
+<b_left_sidehead_nonum>Pre-investment capitalization</b_left_sidehead_nonum>
+  <? Logger.log("shareholders_agreement/existing_investors: calling data.capTable.getActiveRound()"); ?>
+  <? var oldInvestors  = data.capTable.getActiveRound().getOldInvestors(); ?>
+  <? var previousRound = data.capTable.getActiveRound().getPreviousRound(); ?>
+<? if (previousRound != undefined && oldInvestors != undefined) { ?>
+
+<para_1><Table aid:table="table" aid:tcols="4" aid:trows="<?= Object.keys(oldInvestors.holders).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>No. of Shares</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Percentage</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Share Class</cell_c></Cell>
+
+<? for (var hh in oldInvestors.holders) { with(data._entitiesByName[hh]) { ?>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= hh ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!=   data.capTable.investorHoldingsInRound(hh, previousRound) ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!=   data.capTable.investorHoldingsInRound(hh, previousRound) ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!=   data.capTable.investorHoldingsInRound(hh, previousRound) ?></cell_c></Cell>
+<? } } ?>
+</Table></para_1>
+<? } ?>
+
+<b_left_sidehead_nonum>Post-investment capitalization (with Share Option of)</b_left_sidehead_nonum>
+<? var activeRound = data.capTable.getActiveRound(); ?>
+<? for (var bstk in activeRound.by_security_type) { var bstv = activeRound.by_security_type[bstk]; ?>
+<?   Logger.log("keyHolders: round=%s, by_security_type:%s has keys keys %s", activeRound.name, bstk, bstv); ?>
+<? } ?>
+<? var keyHolders = data.parties.key_holder ?>
+<? var previousRound = data.capTable.getActiveRound().getPreviousRound(); ?>
+
+<para_1><Table aid:table="table" aid:tcols="8" aid:trows="<?= Object.keys(keyHolders).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>No. of Shares</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Percentage (%)</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="50" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Share Class</cell_c></Cell>
+
+<? for (var hh in keyHolders) {
+  Logger.log("keyHolders: outputting based on data.parties.key_holder[%s] = %s", hh, keyHolders[hh].name);
+  with(keyHolders[hh]) { ?>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= name ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!= data.capTable.investorHoldingsInRound(name, previousRound) ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= f_commencement ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="50" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c>Class F Shares</cell_c></Cell>
+
+
+<chapter_header xname="exp_schedule_2">Schedule 2: CLOSING RESOLUTIONS</chapter_header>
+
+<b_left_sidehead_nonum>Directors' resolution:</b_left_sidehead_nonum>
+<para_1>Resolutions of the directors of the company passed by way of circulation made pursuant to Article ________ of the company's articles of association:</para_1>
+
+<numbered_1_para>Issue of Preference Shares</numbered_1_para> 
+
+<para_1>Resolved to issue Series Seed Preference Shares in accordance to Schedule <xref to="exp_schedule_1"/> of the Investment Agreement dated DATE.</para_1>
+
+<para_1>
+<Table aid:table="table" aid:tcols="3" aid:trows="<?= Object.keys(newIssues.holders).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+<Cell aid:ccols="1" aid:ccolwidth="150" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="56" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Number of Preference Shares</cell_c></Cell>
+
+<Cell aid:ccols="1" aid:ccolwidth="150" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c>Expara Ventures Fund III Pte Ltd</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="56" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c></cell_c></Cell>
+</Table>
+</para_1>
+
+<numbered_1_para>Directors</numbered_1_para>
+
+<para_1>Resolved that with immediate effect, the following person be appointed as a director of the company: Douglas keith Abrams</para_1>
+
+<para_1>[Signatures of directors]</para_1>
+
+<b_left_sidehead_nonum>Shareholders' resolutions:</b_left_sidehead_nonum>
+
+<para_1>Minutes of a meeting of the Shareholders held on DATE at Singapore</para_1>
+
+<para_1>Present:</para_1>
+<para_1>*</para_1>
+
+<numbered_1_para>Preliminaries</numbered_1_para>
+
+<para_1>All shareholders consent to short notice of the meeting.  •  was appointed as chairperson of the meeting.</para_1>
+
+<numbered_1_para>There being no other business the meeting was concluded.</numbered_1_para>
+
+<? data.signature_comment = "Chairperson" ?>
+<para_1>•</para_1>
+<para_>[End of Schedule]</para_1> 
+
+<chapter_header xname="exp_exhibit_a">EXHIBIT A: CONTACT DETAILS</chapter_header>
+
+Shareholder 1- (1)
+Co-Founder of Neighborhood Distribution Pte Ltd
+Address: 
+Email:		
+Phone:
+
+Shareholder 2- (2)
+Co-Founder of Neighborhood Distribution Pte Ltd
+Address: 
+Email: 
+Phone: 
+
+Shareholder 3- (3)
+Co-Founder of Neighborhood Distribution Pte Ltd
+Address: 
+Email: 
+Phone: 
+
+Shareholder 4- (4)
+Co-Founder of Neighborhood Distribution Pte Ltd
+Address: 
+Email: 
+Phone: 
+
+Douglas Keith Abrams – (5)
+Managing Partner of Expara Ventures Pte Ltd
+Expara Ventures Fund III Pte Ltd
+Address: Blk 71, Ayer Rajah Cresent, #02-10/11, 139951 Singapore
+Email:  dka@expara.com	
+Phone:  +65 6323 3084
+
+ 
+<chapter_header>Signatures</chapter_header>
+
+   <?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: { term: { new_investor: "purchaser" } } }
+) ?>
+
+ </Story_Main>
+</Root>
