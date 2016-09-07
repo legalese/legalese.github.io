@@ -32,7 +32,7 @@ The Series Seed Investors desire to subscribe for preference shares of the Compa
 
 <definition>Closing Resolutions means the Company's resolutions substantially in the form attached in Schedule <xref to="exp_schedule_2"/> with the heading Closing Resolutions;</definition>
 
-<definition>M&A means the Company's memorandum and articles of association for time being;</definition>
+<definition>The Constitution means the Company's Constitution for time being;</definition>
 
 <definition>Pre-Money Valuation means S$<?= data.pre_money_valuation ?>;</definition> 
 
@@ -40,7 +40,7 @@ The Series Seed Investors desire to subscribe for preference shares of the Compa
 
 <definition>Series Seed Investors’ Subscription Price means S$<?= data.new_investor.price_per_share ?> per share;</definition>
 
-<definition>Series Seed Preference Shares means the Series Seed convertible preference shares of the Company, carrying the rights stated in the M&A and Shareholder Agreement;</definition>
+<definition>Series Seed Preference Shares means the Series Seed convertible preference shares of the Company, carrying the rights stated in the Constitution and Shareholder Agreement;</definition>
 
 <definition>Shares means shares of the Company of any class or type, and includes Preference Shares;</definition>
  
@@ -70,7 +70,7 @@ The Series Seed Investors desire to subscribe for preference shares of the Compa
 
 <numbered_2_para>all corporate approvals and resolutions in connection with the transactions contemplated at Closing are obtained and all related documents are in form and substance reasonably satisfactory to the Series Seed Investors;</numbered_2_para>
 
-<numbered_2_para>the new M&A is adopted and is in full force and effect;</numbered_2_para>
+<numbered_2_para>the new Constitution is adopted and is in full force and effect;</numbered_2_para>
 
 <numbered_2_para>the Company and each party to the Shareholders Agreement have executed and delivered the agreement;</numbered_2_para> 
 
@@ -119,7 +119,7 @@ The Series Seed Investors desire to subscribe for preference shares of the Compa
 
 <numbered_3_para>the conversion rights of the Preference Shares;</numbered_3_para>
 
-<numbered_3_para>as provided under the M&A;</numbered_3_para>
+<numbered_3_para>as provided under the Constitution;</numbered_3_para>
 
 <numbered_3_para>as provided under this Agreement or the Shareholders’ Agreement; there are, in respect and relating to the Company’s shares and other securities;</numbered_3_para>
 
@@ -131,7 +131,7 @@ The Series Seed Investors desire to subscribe for preference shares of the Compa
 
 <numbered_2_para>Capacity.   In the case of a Shareholder who is an individual, he has the capacity to enter into and perform and comply with his obligations under this Agreement and his obligations under this Agreement constitute valid obligations, legally binding on him and enforceable in accordance with its terms;</numbered_2_para>
 
-<numbered_2_para>Corporate Powers, M&A and Other Agreements.  The Company's execution and delivery of this Agreement and the performance of its obligations under or contemplated by this Agreement will not violate or exceed its corporate powers, or contravene any provision of its M&A or any agreement to which it is a party or which is binding upon all or any of its assets;</numbered_2_para>
+<numbered_2_para>Corporate Powers, the Constitution and Other Agreements.  The Company's execution and delivery of this Agreement and the performance of its obligations under or contemplated by this Agreement will not violate or exceed its corporate powers, or contravene any provision of its Constitution or any agreement to which it is a party or which is binding upon all or any of its assets;</numbered_2_para>
 
 <numbered_2_para>Applicable laws.  All licences, approvals, consents and other requirements under applicable law for the Company's and each Founder's execution and delivery of this Agreement and the performance of all the obligations under or contemplated by this Agreement have been duly obtained or granted and are in full force and effect;</numbered_2_para>
 
@@ -141,7 +141,7 @@ The Series Seed Investors desire to subscribe for preference shares of the Compa
 
 <numbered_3_para>has not granted any options, warrants or any other rights whatsoever in respect of his shares;</numbered_3_para>
 
-<numbered_2_para>M&A.  The M&A are in full force and effect;</numbered_2_para>
+<numbered_2_para>the Constitution.  The Constitution are in full force and effect;</numbered_2_para>
 
 <numbered_2_para>Title to Properties.  The Company has good and marketable title to all its properties and assets, in each case free of all encumbrances;</numbered_2_para>
 
