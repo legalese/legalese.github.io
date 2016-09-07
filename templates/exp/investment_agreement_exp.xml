@@ -34,11 +34,11 @@ The Series Seed Investors desire to subscribe for preference shares of the Compa
 
 <definition>M&A means the Company's memorandum and articles of association for time being;</definition>
 
-<definition>Pre-Money Valuation means S$<?= data.pre_money ?>;</definition> 
+<definition>Pre-Money Valuation means S$<?= data.pre_money_valuation ?>;</definition> 
 
 <definition>Series Seed Investors’ Aggregate Investment Amount means S$<?= data.amount_raising ?>;</definition>
 
-<definition>Series Seed Investors’ Subscription Price means S$<?= data.price_per_share ?> per share;</definition>
+<definition>Series Seed Investors’ Subscription Price means S$<?= data.new_investor.price_per_share ?> per share;</definition>
 
 <definition>Series Seed Preference Shares means the Series Seed convertible preference shares of the Company, carrying the rights stated in the M&A and Shareholder Agreement;</definition>
 
