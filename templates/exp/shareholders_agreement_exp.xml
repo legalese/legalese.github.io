@@ -41,9 +41,9 @@
 
 <para_1>The Company has its registered address at <?= data.company.address ?> with registered share capital of <span_smallcaps>S$</span_smallcaps><?= data.amount_raised.TOTAL ?>.</para_1>
 
-<numbered_2_para>The Company is a rental platform.</numbered_2_para>
+<numbered_2_para xname="core_business">The Company is a rental platform.</numbered_2_para>
 
-<numbered_2_para xname="core_business">This Agreement was made to cater for close and good cooperation between the Shareholders and to contribute to the development of the business of the Company, with the aim to build a strong market position.</numbered_2_para>
+<numbered_2_para>This Agreement was made to cater for close and good cooperation between the Shareholders and to contribute to the development of the business of the Company, with the aim to build a strong market position.</numbered_2_para>
 
 <numbered_1_firstbold>Interpretation</numbered_1_firstbold>
 
