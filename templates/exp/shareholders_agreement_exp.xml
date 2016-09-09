@@ -33,7 +33,7 @@
 
 <para_1><span_smallcaps>THIS SHAREHOLDERS’ AGREEMENT</span_smallcaps> (the “Agreement”) is today entered into by and <span_smallcaps>BETWEEN:</span_smallcaps></para_1>
 
-<?!= include("inc_enumerate_parties", data, rcpts_to, { term:{"new_investor": "purchaser"} }) ?>
+<?!= include("inc_enumerate_parties", data, rcpts_to, { term:{"new_investor": "Series Seed Investor"} }) ?>
 
 <para_1><span_smallcaps>NOW IT IS AGREED</span_smallcaps> as follows:</para_1>
 
@@ -520,7 +520,7 @@ in accordance with this Clause, dispose of the Offered Shares to any other third
 
 <chapter_header>Signatures</chapter_header>
 
-   <?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: { term: { new_investor: "purchaser" } } }
+   <?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: { term: { new_investor: "Series Seed Investor" } } }
 ) ?>
 
 </Story_Main>
