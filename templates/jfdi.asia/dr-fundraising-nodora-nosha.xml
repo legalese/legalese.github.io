@@ -37,7 +37,4 @@ it <?if(data.previously_paid){?>was<?}else{?>is<?}?> in the interests of the Com
 the said <?= data.parties.director[data.signing_director_index||0].name ?> be authorised in <?= data.parties.director[data.signing_director_index||0].possessive_pronoun || "his" ?> absolute discretion to approve any amendment, alteration, or modification to the Agreement and that the signing and sealing thereof or of a copy thereof be conclusive evidence of such approval; and<? } ?>
 </numbered_2_para><numbered_2_para xname="signing_authority"><?= data.parties.director[data.signing_director_index||0].name ?> be authorised to do all acts or things necessary or desirable in connection with the foregoing including without limitation, signing and executing such documents or approving any modifications to such documents as <?= data.parties.director[data.signing_director_index||0].pronoun || "he" ?> may deem necessary or expedient for the foregoing purpose and that the signing thereof by such director be conclusive of such approval.</numbered_2_para>
 
-<b_left_sidehead_nonum>It is hence resolved:---</b_left_sidehead_nonum>
-<numbered_2_para>that, pursuant to the authority granted in the aforementioned Resolution <xref to="signing_authority" />, the hand of the now thrice-above-named <?= data.parties.director[data.signing_director_index||0].name ?> be the instrument of the Company's abovementioned ratification of the abovementioned Instrument.</numbered_2_para>
-
 <?!= include("inc_dr_end", data, { member_or_director: "Director" } ) ?>
