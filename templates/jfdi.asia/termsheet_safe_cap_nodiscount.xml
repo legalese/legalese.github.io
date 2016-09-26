@@ -1,0 +1,83 @@
+<?!= data.xml_declaration ?>
+<?!= data.xmlRoot() ?>
+<?!= include("inc_cover_standard_parties", data, {cover_title:"Term Sheet for "+ (data.investment_stage ? data.investment_stage+ " " : "") + data.security_type+" Investment", disclaimer:true}) ?>
+<?!= include("inc_cover_jfdi", data, { }) ?>
+<Firstpage_Sidebar>
+</Firstpage_Sidebar>
+
+<Story_Main><chapter_header><?= data.investment_stage ? data.investment_stage+ " " : "" ?> Investment Terms &#8211; <?= data.security_type ?></chapter_header>
+
+<para_1 addnewline="true">The following is a summary of the basic terms and conditions of a proposed <?= data.security_type ?> <?= data.investment_stage ? data.investment_stage+ " " : "" ?>financing of <?!= include("inc_party", data, data.parties.company[0]) ?> (the "Company"). This term sheet is for discussion purposes only and is not binding on the Company or any prospective Investors.
+</para_1>
+
+<? var cell_l = '<Cell aid:ccols="1" aid:ccolwidth="114" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>';
+   var cell_r = '<Cell aid:ccols="1" aid:ccolwidth="240" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_fl>';
+   var cell_r_addnewline = '<Cell aid:ccols="1" aid:ccolwidth="240" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_fl addnewline="true">';
+?>
+
+<table_enclosing_para override="keepLinesTogether=false">
+<Table aid:table="table" aid:tcols="2" aid:trows="<?= 14 + (data.security_essential=="debt" ? 3 : 0) + (data.has_term ? 1 : 0) ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+<?!= cell_l ?>Issuer</cell></Cell>
+<?!= cell_r ?><?= data.company.name ?> (the "Company")</cell_fl></Cell>
+<?!= cell_l ?>Total Financing Amount</cell></Cell>
+<?!= cell_r ?>Up to <?= data.amount_raising ?> worth of <?= data.security_type_plural ?> (the "<?= data.security_type_short_plural ?>")</cell_fl></Cell>
+<?!= cell_l ?>Closings</cell></Cell>
+<?!= cell_r ?>The Company may close the sale of the <?= data.security_type_short_plural ?> in one or more closings with one or more purchasers of the <?= data.security_type_short_plural ?> acceptable to the Company (the "Investors") with identical terms and on the same form as set forth herein<?
+  if (data.high_resolution == true) { ?> (except that the Investor, Investment Amount<?= data.variable_terms ? data.variable_terms : "," ?> and Closing Date may differ in each case.)<?
+ } else { ?>.<? } ?></cell_fl></Cell>
+<?!= cell_l ?>Investment Amount</cell></Cell>
+<?!= cell_r ?>The amount invested by an Investor for the purchase of such Investor's <?= data.security_type_plural ?> (the "Investment Amount")</cell_fl></Cell>
+<?!= cell_l ?>Definitive Agreement</cell></Cell>
+<?!= cell_r ?>The <?= data.security_type_short_plural ?> will be issued and sold pursuant to a subscription or purchase agreement prepared by the Company (the "<?= data.security_type_short_singular ?> Agreement").</cell_fl></Cell>
+<? var and_interest_on = "of" ?>
+<? if (data.security_essential == "debt") { ?>
+<?!= cell_l ?>Interest</cell></Cell>
+<?!= cell_r ?><? if (data._orig_interest) { ?>
+Interest will accrue on an annual basis at the rate of <?= data.interest ?> per annum based on a 365 day year.<?
+and_interest_on = "and unpaid accrued interest on"; } else { ?>
+The <?= data.security_type_short_plural ?> shall be interest-free.<? } ?></cell_fl></Cell>
+<?!= cell_l ?>Pre-Payment</cell></Cell>
+<?!= cell_r ?>The principal <?= and_interest_on ?> the <?= data.security_type_short_plural ?> may not be prepaid unless approved in writing by Investors holding <?=data.security_type_short_plural?> whose aggregate principal amount represents a majority of the outstanding principal amount of all then-outstanding <?=data.security_type_short_plural?> (the "Requisite Holders").</cell_fl></Cell>
+<? } ?>
+<? if (data.has_term) { ?>
+<?!= cell_l ?>Maturity Date</cell></Cell>
+<?   if (data.security_essential == "debt") { ?>
+<?!= cell_r ?>Principal <?= and_interest_on ?> the <?=data.security_type_short_plural?> will be due and payable <?= data.term ?> from the date of the <?= data.security_type_short_singular ?> Agreement (the "Maturity Date").</cell_fl></Cell>
+<?   } else { ?>
+<?!= cell_r ?><?= data.term ?> after the date of the <?= data.security_type_short_singular ?> Agreement (the "Maturity Date"), the Investor may opt for <?= data.security_type_operation ?><? if (data._orig_maturity_conversion_discount && parseFloat(data._orig_maturity_conversion_discount) > 0) { ?> at a <?= data.maturity_conversion_discount ?> discount<? } ?>.</cell_fl></Cell>
+<?   } ?>
+<? } ?>
+<?!= cell_l ?>Qualified Financing</cell></Cell>
+<?!= cell_r ?>The issuing of equity securities, or securities convertible to equity<?if(data.qualified_financing_proceeds){?>,in a transaction or series of related transactions resulting in aggregate gross proceeds to the Company of at least <?= data.qualified_financing_proceeds ?>, excluding conversion of the <?=data.security_type_short_plural?> and any other indebtedness<?}?>.</cell_fl></Cell>
+<?!= cell_l ?>Conversion Price</cell></Cell>
+<?!= cell_r ?>The "Conversion Price" is 
+<b>&#8230; if pre-money valuation of qualified financing is less than the valuation cap.</b> The <?=data.security_type_short_plural?> divided by price per share of qualified financing.
+<b>&#8230; if pre-money valuation of qualified financing is greater than the valuation cap.</b> The price per share equal to <?= data.pre_money_valuation ?> divided by the aggregate number of outstanding shares of the Company's Common Stock as of immediately before the initial closing of the Qualified Financing (assuming full conversion or exercise of all convertible and exercisable securities then outstanding other than the <?=data.security_type_short_plural?>) (the "Valuation Cap").</cell_fl></Cell>
+<?!= cell_l ?>Automatic Conversion</cell></Cell>
+<?!= cell_r ?><b>&#8230; in a Qualified Financing.</b> If the Company issues Equity Securities in a Qualified Financing, then the <?=data.security_type_short_plural?><?= data._orig_interest > 0 ? ", and any accrued but unpaid interest thereon," :""?> will automatically convert into <?
+if (data.converts_to.match(/Ordinary Shares|Common Stock/i)) { ?>ordinary voting shares<? } else {
+  if (! data.converts_to.match(/Next Round Security/i)) {  Logger.log("ERROR: unhandled \"converts_to\" in termsheet.xml template: %s", data.converts_to); }
+?>the equity securities issued pursuant to the Qualified Financing <? } ?> at the Conversion Price.
+<b>&#8230; at the Maturity Date.</b> If the <?=data.security_type_short_plural?> have not been previously converted pursuant to a Qualified Financing, then, effective upon the Maturity Date, the <?=data.security_type_short_plural?><?= data._orig_interest > 0 ? ", and any accrued but unpaid interest thereon," :""?> will automatically convert into Equity Securities at the Valuation Cap<? if (data._orig_maturity_conversion_discount) { ?> less <?= data.maturity_conversion_discount ?><?}?>.</cell_fl></Cell>
+<?!= cell_l ?>Optional Conversion</cell></Cell>
+<?!= cell_r ?>At any time<? if (data.has_term) { ?> prior to the Maturity Date<? } ?>, if a Qualified Financing has not occurred, the Investor may elect to convert the entire Investment Amount into Equity Securities at the Valuation Cap.</cell_fl></Cell>
+<?!= cell_l ?>Sale of the Company</cell></Cell>
+<?!= cell_r_addnewline ?>If a Qualified Financing has not occurred and the Company elects to consummate a sale of the Company prior to the Maturity Date, then at the election of the Investor, either</cell_fl>
+<cell_numbered_1 restart="true">the Investor shall receive a payment equal to <?= data.acquisition_preference ?> times the <?=data.security_type_short_plural?>, or
+the entire Investment Amount shall convert into Equity Securities at the Valuation Cap.</cell_numbered_1></Cell>
+<?!= cell_l ?>Pro-Rata Right</cell></Cell>
+<?!= cell_r ?>Investor shall hold pre-emptive rights to participate in any future issue of equity securities (or securities convertible to equity), including the Qualified Financing.</cell_fl></Cell>
+<?!= cell_l ?>Amendment and Waiver</cell></Cell>
+<?!= cell_r ?>The <?= data.security_type_short_singular ?> Agreement may be amended, or any term thereof waived, upon the written consent of the Company and the Requisite Holders.</cell_fl></Cell>
+<? if (data.security_essential == "debt") { ?>
+<?!= cell_l ?>No Security Interest</cell></Cell>
+<?!= cell_r ?>The <?= data.security_type_short_singular ?> will be a general unsecured obligation of the Company.</cell_fl></Cell>
+<? } ?>
+<?!= cell_l ?>Investor Rights</cell></Cell>
+<?!= cell_r ?>The Investor will have customary information and inspection rights, including receiving an annual budget, annual unaudited financial statements, quarterly unaudited financial statements, and any other information reports prepared for shareholders while the <?=data.security_type_short_plural?> remains outstanding.</cell_fl></Cell>
+<?!= cell_l ?>Fees and Expenses</cell></Cell>
+<?!= cell_r ?>Each Investor will bear its own fees and expenses incurred in the transaction.</cell_fl></Cell>
+</Table></table_enclosing_para>
+
+</Story_Main>
+</Root>
