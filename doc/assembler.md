@@ -16,7 +16,7 @@ In the future it would be nice to offer more template formats than just XML. Bec
 
 In the future it would be nice to offer more output formats than just INDD and PDF. Because InDesign's PDFs look really good, but aren't editable.
 
-For additional output formats, the obvious candidates are [Word](https://github.com/legalese-io/legalese-io.github.io/issues/28) and [Google Docs](https://github.com/legalese-io/legalese-io.github.io/issues/29).
+For additional output formats, the obvious candidates are [Word](https://github.com/legalese/legalese.com/issues/28) and [Google Docs](https://github.com/legalese/legalese.com/issues/29).
 
 ## Future Input Formats
 

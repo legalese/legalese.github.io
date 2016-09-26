@@ -392,7 +392,7 @@ Alexis to canonicalize the books and communicate the full set and have her be in
 Everybody needs to be on
 1. Google Drive
 2. Slack
-3. active-team@legalese.io
+3. collective@legalese.com
 4. Github
 
 Who will be in charge of onboarding and reboarding everyone? Alexis.

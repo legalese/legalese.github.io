@@ -15,7 +15,7 @@ There are even startups which try to take spreadsheets to the next level: http:/
 In our case, we layer a bunch of intelligence on top of the google spreadsheets.
 
 * Our Modules Provide Interfaces
-some of that intelligence lives inside https://github.com/legalese-io/legalese-google-app
+some of that intelligence lives inside https://github.com/legalese/legalese-google-app
 
 captable.js parses https://docs.google.com/spreadsheets/d/1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw/edit#gid=827871932
 
@@ -52,7 +52,7 @@ The Frog Vesting PDF introduces vesting: https://dl.dropboxusercontent.com/u/954
 It doesn't talk about details like single trigger vs double trigger acceleration.
 
 * Specific Cases
-if you look at line 81 of https://github.com/legalese-io/legalese-io.github.io/blob/master/templates/seriesseed.com/seriesseed_investment_agreement_sg.xml you will see that the document requires all kinds of details of the vesting schedule. in particular, one detail is the number of shares vested as of the date of the agreement.
+if you look at line 81 of https://github.com/legalese/legalese.com/blob/master/templates/seriesseed.com/seriesseed_investment_agreement_sg.xml you will see that the document requires all kinds of details of the vesting schedule. in particular, one detail is the number of shares vested as of the date of the agreement.
 
 that needs to be computed.
 
@@ -65,7 +65,7 @@ It could be computed in a module that knows vesting.
 Or it could be computed in a spreadsheet that knows vesting.
 
 * Current Work and Future Directions
-For now we have put it into a spreadsheet: https://github.com/legalese-io/legalese-io.github.io/issues/64
+For now we have put it into a spreadsheet: https://github.com/legalese/legalese.com/issues/64
 
-In the future we might want to expand the rough sketch currently available in https://github.com/legalese-io/legalese-compiler/blob/master/bin/demo-vesting
+In the future we might want to expand the rough sketch currently available in https://github.com/legalese/legalese-compiler/blob/master/bin/demo-vesting
 

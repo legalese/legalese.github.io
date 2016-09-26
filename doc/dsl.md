@@ -10,7 +10,7 @@ Whitehead said: *By relieving the brain of all unnecessary work, a good notation
 
 We propose L4, a superior notation for expressing legal agreements, so as to increase the mental power of the race.
 
-Previous efforts include FormaLex and CLAN, as well as papers by Szabo and by Hvitved. See the [modeling.org](modeling.org) document for a reading list and the [Turing page](http://legalese.io/turing.html) for prior art.
+Previous efforts include FormaLex and CLAN, as well as papers by Szabo and by Hvitved. See the [modeling.org](https://github.com/legalese/legalese.com/blob/master/doc/modeling.org) document for a reading list and the [Future  page](https://legalese.com/v1.0/page/future) for prior art.
 
 ## This is a Multi-Paradigm, Multi-Level Challenge ##
 

@@ -526,7 +526,7 @@ Each columnset has a corresponding tab in the spreadsheet which fills in the res
 - Subsection 161(4):
 
 * Templates
-Public templates live inside the legalese-io.github.io repository, under templates.
+Public templates live inside the legalese.com repository, under templates.
 
 They are served via the web.
 
