@@ -1,4 +1,4 @@
-#+TITLE: Legalese, the Company :octopus:
+#+TITLE: Legalese, the Company
 
 - What organizational structure, governance model, and communication processes does Legalese use?
 - How does Legalese deal with contributions, cash, equity and other expressions of finance?
