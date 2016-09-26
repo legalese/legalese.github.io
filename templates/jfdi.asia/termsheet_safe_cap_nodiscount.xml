@@ -59,7 +59,7 @@ if (data.converts_to.match(/Ordinary Shares|Common Stock/i)) { ?>ordinary voting
   if (! data.converts_to.match(/Next Round Security/i)) {  Logger.log("ERROR: unhandled \"converts_to\" in termsheet.xml template: %s", data.converts_to); }
 ?>the equity securities issued pursuant to the Qualified Financing <? } ?> at the Conversion Price.</cell_fl></Cell>
 <?!= cell_l ?>Sale of the Company</cell></Cell>
-<?!= cell_r ?>If a Qualified Financing has not occurred and the Company elects to consummate a sale of the Company prior to termination, then at the election of the Investor, either</cell_fl></Cell>
+<?!= cell_r ?>If a Qualified Financing has not occurred and the Company elects to consummate a sale of the Company prior to termination, then at the election of the Investor, either</cell_fl>
 <cell_numbered_1 restart="true">the Investor shall receive a payment equal to <?= data.acquisition_preference ?> times the <?=data.security_type_short_plural?>, or
 the entire Investment Amount shall convert into Equity Securities at the Valuation Cap.</cell_numbered_1></Cell>
 <?!= cell_l ?>Pro-Rata Right</cell></Cell>
