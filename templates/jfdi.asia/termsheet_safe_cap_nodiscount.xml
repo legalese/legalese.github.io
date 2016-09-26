@@ -57,7 +57,7 @@ The <?= data.security_type_short_plural ?> shall be interest-free.<? } ?></cell_
 <?!= cell_r ?><b>&#8230; in a Qualified Financing.</b> If the Company issues Equity Securities in a Qualified Financing, then the <?=data.security_type_short_plural?><?= data._orig_interest > 0 ? ", and any accrued but unpaid interest thereon," :""?> will automatically convert into <?
 if (data.converts_to.match(/Ordinary Shares|Common Stock/i)) { ?>ordinary voting shares<? } else {
   if (! data.converts_to.match(/Next Round Security/i)) {  Logger.log("ERROR: unhandled \"converts_to\" in termsheet.xml template: %s", data.converts_to); }
-?>the equity securities issued pursuant to the Qualified Financing <? } ?> at the Conversion Price.
+?>the equity securities issued pursuant to the Qualified Financing <? } ?> at the Conversion Price.</cell_fl></Cell>
 <?!= cell_l ?>Sale of the Company</cell></Cell>
 <?!= cell_r_addnewline ?>If a Qualified Financing has not occurred and the Company elects to consummate a sale of the Company prior to termination, then at the election of the Investor, either</cell_fl>
 <cell_numbered_1 restart="true">the Investor shall receive a payment equal to <?= data.acquisition_preference ?> times the <?=data.security_type_short_plural?>, or
