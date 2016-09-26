@@ -5,7 +5,7 @@
   r_num: 3 }) ?>
 <? var activeRound = data.capTable.getActiveRound(); ?>
 <? var newIssues = data.capTable.getActiveRound().getNewIssues(); ?>
-<? Logger.log("dr-allotment: newIssues(%s) = %s", activeRound.name, newIssues); ?>
+<? xmLog("dr-allotment: newIssues(%s) = %s", activeRound.name, newIssues); ?>
 <? if (newIssues && newIssues.TOTAL._orig_shares != 0) { ?>
 <a_left_sidehead>Shares to be Issued</a_left_sidehead>
 <? if (data.share_issue_specialcase_text) { ?><para_1><?!= data.share_issue_specialcase_text ?></para_1><? } else { ?>

@@ -57,7 +57,7 @@ the price per share equal to <?= data.pre_money_valuation ?> divided by the aggr
 <?!= cell_l ?>Automatic Conversion</cell></Cell>
 <?!= cell_r ?><b>&#8230; in a Qualified Financing.</b> If the Company issues Equity Securities in a Qualified Financing, then the <?=data.security_type_short_plural?><?= data._orig_interest > 0 ? ", and any accrued but unpaid interest thereon," :""?> will automatically convert into <?
 if (data.converts_to.match(/Ordinary Shares|Common Stock/i)) { ?>ordinary voting shares<? } else {
-  if (! data.converts_to.match(/Next Round Security/i)) {  Logger.log("ERROR: unhandled \"converts_to\" in termsheet.xml template: %s", data.converts_to); }
+  if (! data.converts_to.match(/Next Round Security/i)) {  xmLog("ERROR: unhandled \"converts_to\" in termsheet.xml template: %s", data.converts_to); }
 ?>the equity securities issued pursuant to the Qualified Financing <? } ?> at the Conversion Price.
 <b>&#8230; at the Maturity Date.</b> If the <?=data.security_type_short_plural?> have not been previously converted pursuant to a Qualified Financing, then, effective upon the Maturity Date, the <?=data.security_type_short_plural?><?= data._orig_interest > 0 ? ", and any accrued but unpaid interest thereon," :""?> will automatically convert into Equity Securities at the Valuation Cap<? if (data._orig_maturity_conversion_discount) { ?> less <?= data.maturity_conversion_discount ?><?}?>.</cell_fl></Cell>
 <?!= cell_l ?>Optional Conversion</cell></Cell>

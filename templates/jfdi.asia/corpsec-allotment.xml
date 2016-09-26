@@ -7,9 +7,9 @@
 <sidebar><?= data.company.address ?></sidebar>
 </Firstpage_Sidebar>
 <? data._total_new_shares = data.capTable.getActiveRound().amount_raised.shares; ?>
-<? Logger.log("corpsec-allotment INFO: data._total_new_shares = %s",data._total_new_shares); ?>
+<? xmLog("corpsec-allotment INFO: data._total_new_shares = %s",data._total_new_shares); ?>
 <? data._total_commitments = data.capTable.getActiveRound().amount_raised.money; ?>
-<? Logger.log("corpsec-allotment INFO: data._total_commitments = %s",data._total_commitments); ?>
+<? xmLog("corpsec-allotment INFO: data._total_commitments = %s",data._total_commitments); ?>
 <Story_Main>
 <resolution_title>Instruction to Corporate Secretary</resolution_title>
 <? if (data.parties.corporate_secretary && data.parties.corporate_secretary.length) { ?>
@@ -46,15 +46,15 @@ and we confirm that all is in order. </numbered_2_para>
 <Cell aid:ccols="1" aid:ccolwidth="76" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>ID</cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Address</cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="90" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Number of Shares Held</cell_c></Cell>
-<? Logger.log("corpsec-allotment: newIssues.holders = %s", newIssues.holders); ?>
+<? xmLog("corpsec-allotment: newIssues.holders = %s", newIssues.holders); ?>
 <? for (var hh in newIssues.holders) { with(newIssues.holders[hh]) { ?>
 <? var new_investors = data.parties.new_investor.filter(function(ni){return (ni.name == hh)});
   var new_investor;
   if (new_investors.length) {
     new_investor = new_investors[0];
-    Logger.log("corpsec-allotment: newIssues.holders :: new_investor = %s (%s %s)", new_investor.name, new_investor.idtype, new_investor.id);
+    xmLog("corpsec-allotment: newIssues.holders :: new_investor = %s (%s %s)", new_investor.name, new_investor.idtype, new_investor.id);
   } else {
-	Logger.log("corpsec-allotment: unable to find party new_investor named %s", hh);
+	xmLog("corpsec-allotment: unable to find party new_investor named %s", hh);
 	continue;
   }
 ?>

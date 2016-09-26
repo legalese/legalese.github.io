@@ -11,7 +11,7 @@
   if (ar_match) {
     var parts = ar_match[1].split(/,/);
     for (var part_i = 0; part_i < parts.length; part_i++) {
-      Logger.log("will run include(%s)", parts[part_i]); ?><?!= include(parts[part_i], data, data._include, data._include2) ?><?
+      xmLog("will run include(%s)", parts[part_i]); ?><?!= include(parts[part_i], data, data._include, data._include2) ?><?
     }  
   } else { ?>
 <?!= data[prefix+"_"+ar_i] ?>

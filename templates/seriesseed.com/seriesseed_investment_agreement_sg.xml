@@ -85,7 +85,7 @@ This Agreement shall be governed by and interpreted in accordance with the laws 
 <b_left_sidehead_nonum>Key Holders and Vesting Schedules</b_left_sidehead_nonum>
 <? var activeRound = data.capTable.getActiveRound(); ?>
 <? for (var bstk in activeRound.by_security_type) { var bstv = activeRound.by_security_type[bstk]; ?>
-<?   Logger.log("keyHolders: round=%s, by_security_type:%s has keys keys %s", activeRound.name, bstk, bstv); ?>
+<?   xmLog("keyHolders: round=%s, by_security_type:%s has keys keys %s", activeRound.name, bstk, bstv); ?>
 <? } ?>
 <? var keyHolders  = data.parties.key_holder ?>
 <? var previousRound = data.capTable.getActiveRound().getPreviousRound(); ?>
@@ -101,7 +101,7 @@ This Agreement shall be governed by and interpreted in accordance with the laws 
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Acceleration</cell_c></Cell>
 
 <? for (var hh in keyHolders) {
-  Logger.log("keyHolders: outputting based on data.parties.key_holder[%s] = %s", hh, keyHolders[hh].name);
+  xmLog("keyHolders: outputting based on data.parties.key_holder[%s] = %s", hh, keyHolders[hh].name);
   with(keyHolders[hh]) { ?>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= name ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!= data.capTable.investorHoldingsInRound(name, previousRound) ?></cell_c></Cell>

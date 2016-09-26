@@ -33,7 +33,7 @@
   <schedule_header>Table of Investors</schedule_header>
 
   <schedule_parts>Current Investors</schedule_parts>
-  <? Logger.log("dora-signatures/existing_investors: calling data.capTable.getActiveRound()"); ?>
+  <? xmLog("dora-signatures/existing_investors: calling data.capTable.getActiveRound()"); ?>
   <? var oldInvestors  = data.capTable.getActiveRound().getOldInvestors(); ?>
   <? var previousRound = data.capTable.getActiveRound().getPreviousRound(); ?>
 

@@ -1,6 +1,6 @@
 <?!= data.xml_declaration ?>
 <?!= data.xmlRoot() ?>
-<? var iHaveCap = data._orig_pre_money_valuation ? true : false; Logger.log("multisafe: data.pre_money_valuation = %s (%s)", data.pre_money_valuation, iHaveCap); ?>
+<? var iHaveCap = data._orig_pre_money_valuation ? true : false; xmLog("multisafe: data.pre_money_valuation = %s (%s)", data.pre_money_valuation, iHaveCap); ?>
 <? var subTitle; ?>
 <?    if (  iHaveCap && ! data._orig_discount) { subTitle = "Cap Only, No Discount" }
  else if (  iHaveCap &&   data._orig_discount) { subTitle = "Cap and Discount" }
@@ -18,8 +18,8 @@
 , <?= data.company.name ?>, a <?= data.company.state ?> corporation (the "Company"), hereby issues to the Investor the right to certain shares of the Company's capital stock, subject to the terms set forth below.
 <? if (iHaveCap) { ?>The <b>"Valuation Cap"</b> is <?= data.pre_money_valuation?>.
 <? }
-  Logger.log("data.discount=%s",data.discount);
-  Logger.log("data._orig_discount=%s",data._orig_discount);
+  xmLog("data.discount=%s",data.discount);
+  xmLog("data._orig_discount=%s",data._orig_discount);
 
   if (data._orig_discount) {
     if (data.hundred_minus_discount == undefined) {

@@ -262,7 +262,7 @@ The Series Seed Investors desire to subscribe for preference shares of the Compa
 <chapter_header xname="exp_schedule_1">Schedule 1: SHAREHOLDING STRUCTURE</chapter_header>
 
 <b_left_sidehead_nonum>Pre-investment capitalization</b_left_sidehead_nonum>
-  <? Logger.log("shareholders_agreement/existing_investors: calling data.capTable.getActiveRound()"); ?>
+  <? xmLog("shareholders_agreement/existing_investors: calling data.capTable.getActiveRound()"); ?>
   <? var oldInvestors  = data.capTable.getActiveRound().getOldInvestors(); ?>
   <? var previousRound = data.capTable.getActiveRound().getPreviousRound(); ?>
 <? if (previousRound != undefined && oldInvestors != undefined) { ?>
@@ -285,7 +285,7 @@ The Series Seed Investors desire to subscribe for preference shares of the Compa
 <b_left_sidehead_nonum>Post-investment capitalization (with Share Option of)</b_left_sidehead_nonum>
 <? var activeRound = data.capTable.getActiveRound(); ?>
 <? for (var bstk in activeRound.by_security_type) { var bstv = activeRound.by_security_type[bstk]; ?>
-<?   Logger.log("keyHolders: round=%s, by_security_type:%s has keys keys %s", activeRound.name, bstk, bstv); ?>
+<?   xmLog("keyHolders: round=%s, by_security_type:%s has keys keys %s", activeRound.name, bstk, bstv); ?>
 <? } ?>
 <? var keyHolders = data.parties.key_holder ?>
 <? var previousRound = data.capTable.getActiveRound().getPreviousRound(); ?>
@@ -297,7 +297,7 @@ The Series Seed Investors desire to subscribe for preference shares of the Compa
 <Cell aid:ccols="1" aid:ccolwidth="50" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Share Class</cell_c></Cell>
 
 <? for (var hh in keyHolders) {
-  Logger.log("keyHolders: outputting based on data.parties.key_holder[%s] = %s", hh, keyHolders[hh].name);
+  xmLog("keyHolders: outputting based on data.parties.key_holder[%s] = %s", hh, keyHolders[hh].name);
   with(keyHolders[hh]) { ?>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= name ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!= data.capTable.investorHoldingsInRound(name, previousRound) ?></cell_c></Cell>
