@@ -16,7 +16,7 @@
 ?>
 
 <table_enclosing_para override="keepLinesTogether=false">
-<Table aid:table="table" aid:tcols="2" aid:trows="<?= 14 + (data.security_essential=="debt" ? 3 : 0) + (data.has_term ? 1 : 0) ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+<Table aid:table="table" aid:tcols="2" aid:trows="<?= 13 + (data.security_essential=="debt" ? 3 : 0) + (data.has_term ? 1 : 0) ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
 <?!= cell_l ?>Issuer</cell></Cell>
 <?!= cell_r ?><?= data.company.name ?> (the "Company")</cell_fl></Cell>
 <?!= cell_l ?>Total Financing Amount</cell></Cell>
