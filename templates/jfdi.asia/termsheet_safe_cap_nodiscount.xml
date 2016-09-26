@@ -58,8 +58,6 @@ The <?= data.security_type_short_plural ?> shall be interest-free.<? } ?></cell_
 if (data.converts_to.match(/Ordinary Shares|Common Stock/i)) { ?>ordinary voting shares<? } else {
   if (! data.converts_to.match(/Next Round Security/i)) {  Logger.log("ERROR: unhandled \"converts_to\" in termsheet.xml template: %s", data.converts_to); }
 ?>the equity securities issued pursuant to the Qualified Financing <? } ?> at the Conversion Price.
-<?!= cell_l ?>Optional Conversion</cell></Cell>
-<?!= cell_r ?>At any time<? if (data.has_term) { ?> prior to the Maturity Date<? } ?>, if a Qualified Financing has not occurred, the Investor may elect to convert the entire Investment Amount into Equity Securities at the Valuation Cap.</cell_fl></Cell>
 <?!= cell_l ?>Sale of the Company</cell></Cell>
 <?!= cell_r_addnewline ?>If a Qualified Financing has not occurred and the Company elects to consummate a sale of the Company prior to the Maturity Date, then at the election of the Investor, either</cell_fl>
 <cell_numbered_1 restart="true">the Investor shall receive a payment equal to <?= data.acquisition_preference ?> times the <?=data.security_type_short_plural?>, or
