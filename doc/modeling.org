@@ -232,8 +232,8 @@ Video
 
 Previous Legal DSLs:
 - read Tom Hvitved's [[http://www.diku.dk/forskning/phd-studiet/phd/davidg_thesis.pdf/hvitved12phd.pdf][PhD Thesis]] which covers some of the most recent work in the field
-- read https://drive.google.com/a/legalese.io/file/d/0BxOaYa8pqqSwWk9NallEck83T2M/view -- CLAN 2009
-- read https://drive.google.com/a/legalese.io/file/d/0BxOaYa8pqqSwSjRMeGtzVGhIaWs/view -- FormaLex 2011
+- read https://drive.google.com/file/d/0BxOaYa8pqqSwWk9NallEck83T2M/view-- CLAN 2009
+- read https://drive.google.com/file/d/0BxOaYa8pqqSwSjRMeGtzVGhIaWs/view -- FormaLex 2011
 - read http://wyner.info/research/Papers/2013/OASISLegalRuleML.pdf on LegalRuleML.
 - review [[https://www.lexifi.com/product/technology/contract-description-language][LexiFi's Contract Description Language]], MLFi
 - review [[https://github.com/mpoulshock/HammurabiProject/blob/master/Code/DSL/DSL.pdf][Hammurabi's DSL]]

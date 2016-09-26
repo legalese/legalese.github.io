@@ -64,7 +64,7 @@ As a company, however, we don't have very many rules but we do have 3 commandmen
 
     *2. Do not make promises on behalf of the company or other people in the company without going through the exhaustive protocols*
 
-    *3. Conversations should be held publicly - this means either in email copying active-team@legalese.io (alias collective@legalese.com) and/or on a public channel in Slack*
+    *3. Conversations should be held publicly - this means either in email copying collective@legalese.com and/or on a public channel in Slack*
       + If there are good reasons why the conversation cannot be open, then create a private chat on Slack and invite the appropriate people to join it -- preferably more than one other person. Private chats are not logged to our public archives.
       + Good reasons for going nonpublic: you need to expose data that is confidential to an end-user; or you want to discuss a possible ethics violation of another contributor, without publicly libeling them; or you want to discuss your own compensation privately. Note that even such discussions should not be secret (1-on-1) but are semiprivate (few-on-few).
       + In the eyes of the company, secret 1-on-1 conversations never happened (and we don't care who your secret Legalese buddy is) -- if it didn't happen on Slack, on a mailing list, or at an official summit, then did it really happen? By analogy, in a seminar-style class, if you ask questions in class, you get credit for participation; if you wait until the end of the lecture for everybody else to leave before you approach the professor privately, no credit.
@@ -279,7 +279,7 @@ Likewise, if anyone wants to expel or limit a person from being on any of Legale
   - realtime chat :: Slack 
   - At the moment, this is invite only. But this is due to Slack fees that we may incur, rather than a desire to keep our Slack channels private. As far as the project is concerned, we treat this as a public forum (unless a channel is expressly designated as confidential or private). 
   - email :: Google Groups (collective@legalese.com is the primary address)
-  - You can [[https://groups.google.com/a/legalese.io/forum/#!forum/active-team][browse the archives]]. 
+  - You can [[https://groups.google.com/a/legalese.com/forum/#!forum/collective][browse the archives]]. 
   - The default is that unless all communications are CC-ed to the team, else it never happened and is not representative of Legalese. 
   - This is also the team mailing list (even though not everyone on the list is formally a part of the team), because it's simply where we house everyone who has expressed a desire to join the team, fly-on-the-wall with the team, or just desired to be privy to Legalese's engagement with the outside world
   - source code, legal templates, and some documents :: Github

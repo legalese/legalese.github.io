@@ -125,7 +125,7 @@ skip_esop(true).
 
 ** Publicly available instruments have proliferated
 
-The most common types of investments are shown at http://www.legalese.io/blog/term-canvas-20150709.png
+The most common [types of investments](https://files.readme.io/zNeMfjKKS7Coa3EdNt4W_term-canvas-20150709.png)
 
 Legalese plans to model all of the above classes of securities. Soon you will be able to go ahead and set up your cap table with its debt, preferred, Safes, and KISSes. Legalese will show how the new round interacts with old securities.
 

@@ -1,7 +1,7 @@
 #+TITLE: Legalese 2.0
 #+OPTIONS: toc:nil
 
-Legalese.io is what happens when software eats law -- starting with contracts -- starting with term sheets.
+Legalese.com is what happens when software eats law -- starting with contracts -- starting with term sheets.
 
 * Customer Problem
 
@@ -84,7 +84,7 @@ ExtendScript code that tells InDesign to convert the XML files into PDFs.
 ** Compiler
 A research project to compile a formal language to a natural language.
 
-See the [[http://www.legalese.io/#academic][academic R&D]] part of the main webpage for links to research into computable contracts.
+See the [[https://legalese.com/v1.0/page/present][contract formalization]] for links to research into computable contracts.
 
 
 * Branding
