@@ -197,7 +197,10 @@ convertible securities issued or issuable in connection with sponsored research,
 
 <para_1><span_smallcaps>In witness whereof,</span_smallcaps> the undersigned have caused this instrument to be duly executed and delivered.</para_1>
 
+<para_1><i>For the Investor:</i></para_1>
 <?!= include("inc_signature", data, data.new_investor) ?>
+
+<para_1><i>For and on behalf of the Company:</i></para_1>
 <?!= include("inc_signature", data, data.company) ?>
 
 </Story_Main>
