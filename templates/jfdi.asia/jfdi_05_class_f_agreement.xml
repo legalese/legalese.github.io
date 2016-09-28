@@ -18,7 +18,7 @@
 <? if (data.previous_f_agreement_date) { ?>
   <recitals>This agreement amends and restates a previous agreement dated <?= data.previous_f_agreement_date ?> with new numbers for restricted, unrestricted, cliff, and monthly vesting shares<? if (data.new_investor.recitals_text) { ?>, to <?= data.new_investor.recitals_text ?><?}?>.</recitals>
 <? } ?>
-  <recitals>The Company's Constitution defines <?=data.security_type?> Preference Shares. </recitals>
+  <recitals>The Company's Constitution defines <?=data.security_type?> Redeemable Preference Shares. </recitals>
 <? if (data.capTable.getActiveRound()[data.new_investor.name] && data.capTable.getActiveRound()[data.new_investor.name]._orig_shares > 0) { ?>
 <recitals>The Company proposes to issue <?= data.capTable.getActiveRound().new_investors[data.new_investor.name].shares ?> <?=data.security_type_plural?> to the <?=holder_alias?> and the <?=holder_alias?> has agreed to subscribe for the <?=data.security_type_plural?> on the terms and conditions below. </recitals>
 <? } ?>
