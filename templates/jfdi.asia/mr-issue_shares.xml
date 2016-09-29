@@ -22,6 +22,8 @@
 <chapter_header>Signatures</chapter_header>
 
 <para_1>before inc_dr_end</para_1>
+<? Logger.log("mr-issue_shares: rcpts_to = %s", rcpts_to); ?>
+<para_1>(rcpts_to = <?= JSON.stringify(rcpts_to) ?>)</para_1>
 <?!= include("inc_dr_end", data, { director_or_member:"Member", butWaitTheresMore:true, rcpts_to:rcpts_to}) ?>
 <para_1>before inc_additional_resolutions for members_annex</para_1>
 
