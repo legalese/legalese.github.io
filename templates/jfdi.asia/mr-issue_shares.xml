@@ -21,7 +21,7 @@
 
 <chapter_header>Signatures</chapter_header>
 
-<?!= include("inc_dr_end", "inc_enumerate_signatures", data, { director_or_member:"Member", butWaitTheresMore:true}) ?>
+<?!= include("inc_dr_end", data, { director_or_member:"Member", butWaitTheresMore:true}) ?>
 
 <?!= include("inc_additional_resolutions", data, {
   prefix:"members_annex" } ) ?>
