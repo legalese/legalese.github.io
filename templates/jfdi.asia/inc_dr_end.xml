@@ -17,6 +17,8 @@
 
 <para_1>instead, we're going to use rcpts_to. let's see how that looks.</para_1>
 
+<? Logger.log("mr-issue_shares: rcpts_to = %s", rcpts_to); ?>
+
 <?!= include("inc_enumerate_signatures", data, {rcpts_to:data._include.rcpts_to,
   _include2: { term:{brand_new_investor: "new investor", shareholder:"current shareholder"} } }) ?>
 
