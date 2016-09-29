@@ -17,7 +17,8 @@
 
 <para_1>instead, we're going to use rcpts_to. let's see how that looks.</para_1>
 
-<?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: { term:{brand_new_investor: "new investor", shareholder:"current shareholder"} } }) ?>
+<?!= include("inc_enumerate_signatures", data, {rcpts_to:data._include.rcpts_to,
+  _include2: { term:{brand_new_investor: "new investor", shareholder:"current shareholder"} } }) ?>
 
 <? Logger.log("_include = %s", data._include); ?>
 <? Logger.log("butWaitTheresMore = %s", data._include.butWaitTheresMore); ?>
