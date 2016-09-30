@@ -2,14 +2,14 @@
 var attrs = data._include.attrs;
 var partynames = data._include.partynames;
 
-Logger.log("mod_party_sum(): we shall sum across %s parties, looking for the first available attribute of %s", partynames, attrs);
+xmLog("mod_party_sum(): we shall sum across %s parties, looking for the first available attribute of %s", partynames, attrs);
 if (partynames.constructor.name == "String") { partynames = [ partynames ] }
 if (  attrs.constructor.name == "String") {   attrs = [ attrs   ] }
 
 var myFormat;
 var asNum = partynames.map(function(pname){
   if (data.parties[pname] == undefined) { return }
-//  Logger.log("mod_party_sum: looping through %s %s elements", data.parties[pname].length, pname);
+//  xmLog("mod_party_sum: looping through %s %s elements", data.parties[pname].length, pname);
   
   return data.parties[pname].map(function(p){
 	var chosen;
@@ -18,20 +18,20 @@ var asNum = partynames.map(function(pname){
 	  if (p["_orig_"+attr]!=undefined) {
 		if (myFormat == undefined && p["_format_"+attr] != undefined) {
 		  myFormat = p["_format_"+attr];
-//		  Logger.log("mod_party_sum: learning format %s", myFormat);
+//		  xmLog("mod_party_sum: learning format %s", myFormat);
 		}
 		var chosen = a_i;
 		break;
 	  }
 	}
 
-//	Logger.log("mod_party_sum: will add data.parties(%s).%s.%s = %s",
+//	xmLog("mod_party_sum: will add data.parties(%s).%s.%s = %s",
 //			   pname, p.name, attrs[chosen], p["_orig_"+attrs[a_i]]);
 	return p["_orig_"+attrs[a_i]];
   }).reduce(function(a,b){ return a+b; }, 0);
 }).reduce(function(a,b){ return a+b; }, 0);
 
 var toReturn = formatify_(myFormat, asNum, data.sheet);
-//Logger.log("mod_party_sum: returning %s (orig=%s)", toReturn, asNum);
+//xmLog("mod_party_sum: returning %s (orig=%s)", toReturn, asNum);
 ?>
 <?= toReturn ?>

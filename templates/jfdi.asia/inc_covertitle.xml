@@ -1,4 +1,4 @@
-<? var style = data._config.templates.tree[data._templateName] ? data._config.templates.tree[data._templateName].style : null; Logger.log("style = %s", style); Logger.log("templates tree = %s", data._config.templates.tree);  ?>
+<? var style = data._config.templates.tree[data._templateName] ? data._config.templates.tree[data._templateName].style : null; xmLog("style = %s", style); xmLog("templates tree = %s", data._config.templates.tree);  ?>
 <? if      (style == "sketchRockwell"){ ?>
 <cover_title override="appliedFont='Sketch Rockwell'  alignToBaseline=false  pointSize=42  leading=37  tracking=0"><?!= data._include.cover_title ?></cover_title>
 <? //                                               syntax: observe that the paragraph attributes are separated by a double space. ?>

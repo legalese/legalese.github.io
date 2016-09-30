@@ -29,14 +29,14 @@ test_a_var_7 is automatic: <?= data.test_a_var_7 ?>
 <a_left_sidehead>Module Tests</a_left_sidehead>
 <para_1>Modules allow multiple templates to share the same code. Modules don't produce any XML output; they just perform computations and save the results back into data.*.</para_1>
 <b_left_sidehead>mod_test1_modules</b_left_sidehead>
-<? Logger.log("running include(mod_test1_modules)"); ?>
+<? xmLog("running include(mod_test1_modules)"); ?>
 <? include("mod_test1_modules", data); ?>
 <para_1>The total number of shares across all shareholders is <?= data._total_shareholder_num_shares ?>.</para_1>
 <b_left_sidehead>mod_party_sum</b_left_sidehead>
 <? data._total_new_shares = include("mod_party_sum", data, { partynames: "founder", attrs: [ "num_new_shares", "num_shares" ]}); ?>
-<? Logger.log("INFO: data._total_new_shares = %s",data._total_new_shares); ?>
+<? xmLog("INFO: data._total_new_shares = %s",data._total_new_shares); ?>
 <? data._total_commitments = include("mod_party_sum", data, { partynames: "founder", attrs: [ "new_commitment", "commitment" ] }); ?>
-<? Logger.log("INFO: data._total_commitments = %s",data._total_commitments); ?>
+<? xmLog("INFO: data._total_commitments = %s",data._total_commitments); ?>
 <para_1>total new shares = <?= data._total_new_shares ?></para_1>
 <para_1>total new commitments = <?= data._total_commitments ?></para_1>
 <?!= include("inc_signature", data, data.company) ?>

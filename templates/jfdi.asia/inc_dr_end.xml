@@ -11,8 +11,8 @@
 <? } else { ?>
 <? for (var i=0;i<data.parties.director.length;i++) { ?><?!= include("inc_signature", data, data.parties.director[i]) ?><? } ?>
 <? } ?>
-<? Logger.log("_include = %s", data._include); ?>
-<? Logger.log("butWaitTheresMore = %s", data._include.butWaitTheresMore); ?>
+<? xmLog("_include = %s", data._include); ?>
+<? xmLog("butWaitTheresMore = %s", data._include.butWaitTheresMore); ?>
 <? if (! (data._include.butWaitTheresMore)) { ?>
 </Story_Main>
 <Bottom_Box delete_if_empty="true" />
