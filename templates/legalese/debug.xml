@@ -25,27 +25,31 @@
 
 <para_1><?= Object.keys(data[k]).filter(function(kk){return ! kk.match(/^_/)}).join(", ") ?></para_1>
 
-<?   if (k == "parties") {
+<?   
        var kk;
        for (kk in data[k]) { // company
 	     var kkk;
+	     if (typeof(data[k][kk]) != "object" && typeof(data[k][kk]) != "array") continue;
          for (kkk in data[k][kk]) { // 0
            var kkkk;
 		   for (kkkk in data[k][kk][kkk]) { // attribute keys
-		     if (kk == "company" && kkkk == "roles") { ?>
+	         if (typeof(data[k][kk][kkk]) != "object" && typeof(data[k][kk][kkk]) != "array") continue;
+		     if (k == "parties" && kk == "company" && kkkk == "roles") { ?>
 
 <numbered_2_para>data.<?=k?>.<?=kk?>[<?=kkk?>].<?=kkkk?> has keys <?= (data[k][kk][kkk][kkkk] != undefined) ? Object.keys(data[k][kk][kkk][kkkk]).join(", ") : "(undefined)" ?></numbered_2_para>
 
-<?           } else if (kkkk == "_role") { ?>
+<?           } else if (k == "parties" && kkkk == "_role") { ?>
 
 <numbered_2_para>data.<?=k?>.<?=kk?>[<?=kkk?>].<?=kkkk?> is</numbered_2_para>
 <basic_para><?= jsonify(data[k][kk][kkk][kkkk]) ?></basic_para>
 
+<?           } else if (k == "_config" && kk == "templates" && kkk == "tree") { ?>
+<?   xmLog(["data.%s: JSON: %s", k, JSON.stringify(data[k])],7); ?>
 <?           }
            }
          }
        }
-     }
+     
 ?>
 
 <b_left_sidehead_nonum>data.<?=k?> as a JSON dump</b_left_sidehead_nonum>
