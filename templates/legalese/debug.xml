@@ -14,13 +14,25 @@
 
 <?!= include("inc_enumerate_parties", data, rcpts_to) ?>
 
-<? var specials = ["parties", "_config", "capTable", "roles"]; ?>
+<? var specials = ["parties", "_config", "capTable"]; ?>
 
 <? xmLog(["showing specials."],7); ?>
 
 <? specials.map(function(k){ ?>
 
 <a_left_sidehead>data.<?=k?></a_left_sidehead>
+
+<para_1><?= Object.keys(data[k]).filter(function(kk){return ! kk.match(/^_/)}) ?></para_1>
+
+<?   if (k == "parties") {
+       var kk;
+       for (kk in data[k]) { ?>
+
+<numbered_2_para>data.<?=k?>.<?=kk?>.roles has keys <?=Object.keys(data[k][kk].roles).join(", ")?></numbered_2_para>
+<?     }
+     } ?>
+
+<b_left_sidehead_nonum>data.<?=k?> as a JSON dump</b_left_sidehead_nonum>
 
 <?   xmLog(["data.%s: JSON: %s", k, jsonify(data[k])],7); ?>
 <basic_para><?= jsonify(data[k]); ?></basic_para>
