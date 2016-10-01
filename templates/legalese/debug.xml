@@ -31,7 +31,11 @@
 	     var kkk;
 	     if (typeof(data[k][kk]) != "object" && typeof(data[k][kk]) != "array") continue;
          for (kkk in data[k][kk]) { // 0
-           var kkkk;
+           if (k == "_config" && kk == "templates" && kkk == "tree") {
+             xmLog(["data.%s.%s: JSON: %s", k, kk, JSON.stringify(data[k][kk])],7);
+		     ?> <basic_para><?= JSON.stringify(data[k][kk]) ?></basic_para> <?
+		   }
+		   var kkkk;
 		   for (kkkk in data[k][kk][kkk]) { // attribute keys
 	         if (typeof(data[k][kk][kkk]) != "object" && typeof(data[k][kk][kkk]) != "array") continue;
 		     if (k == "parties" && kk == "company" && kkkk == "roles") { ?>
@@ -43,8 +47,6 @@
 <numbered_2_para>data.<?=k?>.<?=kk?>[<?=kkk?>].<?=kkkk?> is</numbered_2_para>
 <basic_para><?= jsonify(data[k][kk][kkk][kkkk]) ?></basic_para>
 
-<?           } else if (k == "_config" && kk == "templates" && kkk == "tree") { ?>
-<?   xmLog(["data.%s: JSON: %s", k, JSON.stringify(data[k])],7); ?>
 <?           }
            }
          }
