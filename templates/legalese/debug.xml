@@ -14,7 +14,7 @@
 
 <?!= include("inc_enumerate_parties", data, rcpts_to) ?>
 
-<? var specials = ["parties", "_config", "capTable"]; ?>
+<? var specials = ["parties", "_config", "capTable", "roles"]; ?>
 
 <? specials.map(function(k){ ?>
 
@@ -27,12 +27,17 @@
 
 <a_left_sidehead>Everything Else in Data</a_left_sidehead>
 
-<? for (var dk in data) {
-     if (specials.indexOf(dk) != -1) { continue }
-     xmLog(["data.%s: JSON: %s", dk, jsonify(data[dk])],7); ?>
-<b_left_sidehead><?= dk ?></b_left_sidehead>
-<basic_para><?= jsonify(data[dk]); ?></basic_para>
+<? var ignorables = specials.concat(["_availableTemplates","company","_entitiesByName","_origparties"]); ?>
 
+<? for (var dk in data) {
+  <b_left_sidehead><?= dk ?></b_left_sidehead>
+<?   if (ignorables.indexOf(dk) != -1) {
+       xmLog(["data.%s: (skipping value)", dk],7); ?>
+<basic_para>(skipping value))</basic_para>
+<?   } else { ?>
+     xmLog(["data.%s: JSON: %s", dk, jsonify(data[dk])],7); ?>
+<basic_para><?= jsonify(data[dk]); ?></basic_para>
+<?   } ?>
 <? } ?>
 
 <b_left_sidehead_nonum>Signatures</b_left_sidehead_nonum>
