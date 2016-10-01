@@ -23,18 +23,30 @@
 <a_left_sidehead>data.<?=k?></a_left_sidehead>
 <? if (data[k] == undefined) { return } ?>
 
-<para_1><?= Object.keys(data[k]).filter(function(kk){return ! kk.match(/^_/)}) ?></para_1>
+<para_1><?= Object.keys(data[k]).filter(function(kk){return ! kk.match(/^_/)}).join(", ") ?></para_1>
 
 <?   if (k == "parties") {
        var kk;
-       for (kk in data[k]) { // company
+       for (kk in data[k]) {
 	     var kkk;
-         for (kkk in data[k][kk]) { // 0 ?>
+         for (kkk in data[k][kk]) { // 0
+           var kkkk;
+		   for (kkkk in data[k][kk][kkk]) {
+		     if (kk == "company" && kkkk == "roles")) { ?>
 
-<numbered_2_para>data.<?=k?>.<?=kk?>[<?=kkk?>].roles has keys <?= (data[k][kk][kkk].roles != undefined) ? Object.keys(data[k][kk][kkk].roles).join(", ") : "(undefined)" ?></numbered_2_para>
-<?       }
+<numbered_2_para>data.<?=k?>.<?=kk?>[<?=kkk?>].<?=kkkk?> has keys <?= (data[k][kk][kkk][kkkk] != undefined) ? Object.keys(data[k][kk][kkk][kkkk]).join(", ") : "(undefined)" ?></numbered_2_para>
+
+<?           } else if (kkkk == "_role") { ?>
+
+<numbered_2_para>data.<?=k?>.<?=kk?>[<?=kkk?>].<?=kkkk?> is</numbered_2_para>
+<basic_para><?= jsonify(data[k][kk][kkk][kkkk] ?></basic_para>
+
+<?           }
+           }
+         }
        }
-     } ?>
+     }
+?>
 
 <b_left_sidehead_nonum>data.<?=k?> as a JSON dump</b_left_sidehead_nonum>
 
