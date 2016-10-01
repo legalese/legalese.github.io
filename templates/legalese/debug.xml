@@ -31,7 +31,7 @@
 
 <? var ignorables = specials.concat(["_availableTemplates","company","_entitiesByName","_origparties"]); ?>
 
-<? for (var dk in data) { ?>
+<? var dk; for (dk in data) { ?>
   <b_left_sidehead><?= dk ?></b_left_sidehead>
 <?   if (ignorables.indexOf(dk) != -1) {
        xmLog(["data.%s: (skipping value)", dk],7); ?>
