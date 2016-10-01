@@ -39,7 +39,7 @@
 <?           } else if (kkkk == "_role") { ?>
 
 <numbered_2_para>data.<?=k?>.<?=kk?>[<?=kkk?>].<?=kkkk?> is</numbered_2_para>
-<basic_para><?= jsonify(data[k][kk][kkk][kkkk] ?></basic_para>
+<basic_para><?= jsonify(data[k][kk][kkk][kkkk]) ?></basic_para>
 
 <?           }
            }
