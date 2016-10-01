@@ -31,7 +31,7 @@
 	     var kkk;
          for (kkk in data[k][kk]) { // 0 ?>
 
-<numbered_2_para>data.<?=k?>.<?=kk?>[<?=kkk?>.roles has keys <?= (data[k][kk][kkk].roles != undefined) ? Object.keys(data[k][kk][kkk].roles).join(", ") : "(undefined)" ?></numbered_2_para>
+<numbered_2_para>data.<?=k?>.<?=kk?>[<?=kkk?>].roles has keys <?= (data[k][kk][kkk].roles != undefined) ? Object.keys(data[k][kk][kkk].roles).join(", ") : "(undefined)" ?></numbered_2_para>
 <?       }
        }
      } ?>
