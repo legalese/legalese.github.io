@@ -27,12 +27,12 @@
 
 <?   if (k == "parties") {
        var kk;
-       for (kk in data[k]) {
+       for (kk in data[k]) { // company
 	     var kkk;
          for (kkk in data[k][kk]) { // 0
            var kkkk;
-		   for (kkkk in data[k][kk][kkk]) {
-		     if (kk == "company" && kkkk == "roles")) { ?>
+		   for (kkkk in data[k][kk][kkk]) { // attribute keys
+		     if (kk == "company" && kkkk == "roles") { ?>
 
 <numbered_2_para>data.<?=k?>.<?=kk?>[<?=kkk?>].<?=kkkk?> has keys <?= (data[k][kk][kkk][kkkk] != undefined) ? Object.keys(data[k][kk][kkk][kkkk]).join(", ") : "(undefined)" ?></numbered_2_para>
 
