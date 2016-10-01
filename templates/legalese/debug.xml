@@ -31,7 +31,7 @@
 <? for (var dk in data) {
      if (specials.indexOf(dk) != -1) { continue }
      xmLog(["data.%s: %s", dk, jsonify(data[dk])],7);
-     xmLog(["data.%s: JSON: %s", jsonify(data[dk])],7); ?>
+     xmLog(["data.%s: JSON: %s", dk, jsonify(data[dk])],7); ?>
 <b_left_sidehead><?= dk ?></b_left_sidehead>
 <basic_para><?= jsonify(data[dk]); ?></basic_para>
 
