@@ -29,7 +29,7 @@
        var kk;
        for (kk in data[k]) { // company
 	     var kkk;
-         for (kkk in data[k][kk]) { // 0
+         for (kkk in data[k][kk]) { // 0 ?>
 
 <numbered_2_para>data.<?=k?>.<?=kk?>[<?=kkk?>.roles has keys <?= (data[k][kk][kkk].roles != undefined) ? Object.keys(data[k][kk][kkk].roles).join(", ") : "(undefined)" ?></numbered_2_para>
 <?       }
