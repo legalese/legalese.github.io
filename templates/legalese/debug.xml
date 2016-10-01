@@ -28,7 +28,7 @@
        var kk;
        for (kk in data[k]) { ?>
 
-<numbered_2_para>data.<?=k?>.<?=kk?>.roles has keys <?=Object.keys(data[k][kk].roles).join(", ")?></numbered_2_para>
+<numbered_2_para>data.<?=k?>.<?=kk?>.roles has keys <?=data[k][kk] == undefined ? "()" : Object.keys(data[k][kk].roles).join(", ")?></numbered_2_para>
 <?     }
      } ?>
 
