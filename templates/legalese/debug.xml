@@ -20,9 +20,9 @@
 
 <a_left_sidehead>data.<?=k?></a_left_sidehead>
 
-<?   for (var dp in data[k]) { xmLog(["data.%s]: %s", k, JSON.stringify(data[k])],7); } ?>
-<?   xmLog(["data.%s: JSON: %s", k, JSON.stringify(data[k])],7); ?>
-<basic_para><?= JSON.stringify(data[k]); ?></basic_para>
+<?   for (var dp in data[k]) { xmLog(["data.%s]: %s", k, stringifyOnce(data[k])],7); } ?>
+<?   xmLog(["data.%s: JSON: %s", k, stringifyOnce(data[k])],7); ?>
+<basic_para><?= stringifyOnce(data[k]); ?></basic_para>
 
 <? }); ?>
 
@@ -30,10 +30,10 @@
 
 <? for (var dk in data) {
      if (specials.includes(dk)) { continue }
-     xmLog(["data.%s: %s", dk, JSON.stringify(data[dk])],7);
-     xmLog(["data.%s: JSON: %s", JSON.stringify(data[dk])],7); ?>
+     xmLog(["data.%s: %s", dk, stringifyOnce(data[dk])],7);
+     xmLog(["data.%s: JSON: %s", stringifyOnce(data[dk])],7); ?>
 <b_left_sidehead><?= dk ?></b_left_sidehead>
-<basic_para><?= JSON.stringify(data[dk]); ?></basic_para>
+<basic_para><?= stringifyOnce(data[dk]); ?></basic_para>
 
 <? } ?>
 
