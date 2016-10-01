@@ -24,7 +24,7 @@
 <? xmLog(["data.%s: JSON: %s", k, JSON.stringify(data[k])]); ?>
 <basic_para><?= JSON.stringify(data[k]); ?></basic_para>
 
-<? }) ?>
+<? }); ?>
 
 <a_left_sidehead>Everything Else in Data</a_left_sidehead>
 
@@ -34,6 +34,8 @@
      xmLog(["data.%s: JSON: %s", JSON.stringify(data[dk])]); ?>
 <b_left_sidehead><?= dk ?></b_left_sidehead>
 <basic_para><?= JSON.stringify(data[dk]); ?></basic_para>
+
+<? } ?>
 
 <b_left_sidehead_nonum>Signatures</b_left_sidehead_nonum>
 
