@@ -56,8 +56,13 @@
 
 <b_left_sidehead_nonum>data.<?=k?> as a JSON dump</b_left_sidehead_nonum>
 
-<?   xmLog(["data.%s: JSON: %s", k, jsonify(data[k])],7); ?>
-<basic_para><?= jsonify(data[k]); ?></basic_para>
+<?   if (k == "_config") { // no cycles, so should be safe to dump normally
+       xmLog(["data.%s: JSON: %s", k, JSON.stringify(data[k])],7);
+       ?> <basic_para><?= JSON.stringify(data[k]); ?></basic_para> <?
+     } else {
+       xmLog(["data.%s: JSON: %s", k, jsonify(data[k])],7);
+       ?> <basic_para><?= jsonify(data[k]); ?></basic_para> <?
+     } ?>
 
 <? }); ?>
 
