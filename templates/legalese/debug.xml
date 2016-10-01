@@ -1,0 +1,44 @@
+<?!= data.xml_declaration ?>
+<?!= data.xmlRoot(['templateSpec="singlepage.indt"']) ?>
+<letterhead><?= data.company.name ?></letterhead>
+<Firstpage_Sidebar>
+<sidebar><?= data.company.name ?></sidebar>
+<sidebar><?= data.company.idtype ?> <span_ucnum><?= data.company.id ?></span_ucnum></sidebar>
+<sidebar><?= data.company.address ?></sidebar>
+</Firstpage_Sidebar>
+<Story_Main>
+<resolution_title override="appliedFont='Bickham Script Pro'  fontStyle='Bold'  pointSize=36">Debugging Internals</resolution_title>
+<chapter_header override="startParagraph=StartParagraph.ANYWHERE">Data Structures Available in an XML Template</chapter_header>
+
+<para_1><span_smallcaps>This agreement is made</span_smallcaps> on <? if (data.agreement_date) { ?><?= data.agreement_date ?><?} else {?><textvar name="Output Date" /><?}?> between:---</para_1>
+
+<?!= include("inc_enumerate_parties", data, rcpts_to) ?>
+
+<? var specials = ["parties", "_config", "capTable"]; ?>
+
+<? specials.map(function(k){ ?>
+
+<a_left_sidehead>data.<?=k?></a_left_sidehead>
+
+<? for (var dp in data[k]) { xmLog(["data.%s]: %s", k, JSON.stringify(data[k])],7); ?>
+<? xmLog(["data.%s: JSON: %s", k, JSON.stringify(data[k])]); ?>
+<basic_para><?= JSON.stringify(data[k]); ?></basic_para>
+
+<? }) ?>
+
+<a_left_sidehead>Everything Else in Data</a_left_sidehead>
+
+<? for (var dk in data) {
+     if (specials.includes(dk)) { continue }
+     xmLog(["data.%s: %s", dk, JSON.stringify(data[dk])],7);
+     xmLog(["data.%s: JSON: %s", JSON.stringify(data[dk])]); ?>
+<b_left_sidehead><?= dk ?></b_left_sidehead>
+<basic_para><?= JSON.stringify(data[dk]); ?></basic_para>
+
+<b_left_sidehead_nonum>Signatures</b_left_sidehead_nonum>
+
+<?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: {} }) ?>
+
+</Story_Main>
+<Bottom_Box delete_if_empty="true" />
+</Root>
