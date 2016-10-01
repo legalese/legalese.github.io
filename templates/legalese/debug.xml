@@ -20,7 +20,6 @@
 
 <a_left_sidehead>data.<?=k?></a_left_sidehead>
 
-<?   for (var dp in data[k]) { xmLog(["data.%s]: %s", k, jsonify(data[k])],7); } ?>
 <?   xmLog(["data.%s: JSON: %s", k, jsonify(data[k])],7); ?>
 <basic_para><?= jsonify(data[k]); ?></basic_para>
 
@@ -30,7 +29,6 @@
 
 <? for (var dk in data) {
      if (specials.indexOf(dk) != -1) { continue }
-     xmLog(["data.%s: %s", dk, jsonify(data[dk])],7);
      xmLog(["data.%s: JSON: %s", dk, jsonify(data[dk])],7); ?>
 <b_left_sidehead><?= dk ?></b_left_sidehead>
 <basic_para><?= jsonify(data[dk]); ?></basic_para>
