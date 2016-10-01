@@ -29,7 +29,7 @@
 <a_left_sidehead>Everything Else in Data</a_left_sidehead>
 
 <? for (var dk in data) {
-     if (specials.includes(dk)) { continue }
+     if (specials.indexOf(dk) != -1) { continue }
      xmLog(["data.%s: %s", dk, jsonify(data[dk])],7);
      xmLog(["data.%s: JSON: %s", jsonify(data[dk])],7); ?>
 <b_left_sidehead><?= dk ?></b_left_sidehead>
