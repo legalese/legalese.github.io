@@ -21,6 +21,7 @@
 <? specials.map(function(k){ ?>
 
 <a_left_sidehead>data.<?=k?></a_left_sidehead>
+<? if (data[k] == undefined) { return } ?>
 
 <para_1><?= Object.keys(data[k]).filter(function(kk){return ! kk.match(/^_/)}) ?></para_1>
 
