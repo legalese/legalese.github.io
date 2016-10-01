@@ -16,6 +16,8 @@
 
 <? var specials = ["parties", "_config", "capTable", "roles"]; ?>
 
+<? xmLog(["showing specials."],7); ?>
+
 <? specials.map(function(k){ ?>
 
 <a_left_sidehead>data.<?=k?></a_left_sidehead>
