@@ -6,19 +6,6 @@
 <para_1><span_smallcaps>Dated this:</span_smallcaps> <?= data.resolution_date || data._include.date || data._todays_date ?></para_1>
 <? } ?>
 
-<para_1>This is a development branch, refactoring to use inc_enumerate_signatures instead of hardcoding the parties as "shareholder" and "director".</para_1>
-
-
-<? if (data._include.director_or_member == "Member") { ?>
-<para_1>previously we would have used data.parties.shareholder, which gives <?= data.parties.shareholder.map(function(p) { return p.name }).join(", ") ?></para_1>
-<? } else { ?>
-<para_1>previously we would have used data.parties.director, which gives <?= data.parties.director.map(function(p) { return p.name }).join(", ") ?></para_1>
-<? } ?>
-
-<para_1>instead, we're going to use rcpts_to. let's see how that looks.</para_1>
-
-<? Logger.log("mr-issue_shares: rcpts_to = %s", data._include.rcpts_to); ?>
-
 <?!= include("inc_enumerate_signatures", data, {rcpts_to:data._include.rcpts_to,
   _include2: { term:{brand_new_investor: "new investor", shareholder:"current shareholder"} } }) ?>
 
