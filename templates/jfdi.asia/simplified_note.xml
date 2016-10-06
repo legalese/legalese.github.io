@@ -51,14 +51,14 @@ The Notes shall bear no interest. <? } ?>
 <a_left_sidehead>Conversion Price</a_left_sidehead>
 
 <? if (iHaveCap && ! data._orig_discount) { ?>
-<numbered_2_para>The "Conversion Price" shall be fixed at the price per share equal to <?= data.pre_money_valuation ?> divided by the aggregate number of outstanding shares of the Company&#8217;s common stock as of immediately after the initial closing of the Qualified Financing (assuming full conversion or exercise of all convertible and exercisable securities then outstanding other than the Notes) (the &#8220;<b>Valuation Cap</b>&#8221;).</numbered_2_para>
+<numbered_2_para>The "Conversion Price" shall be fixed at the price per share equal to <?= data.pre_money_valuation ?> divided by the aggregate number of outstanding shares of the Company&#8217;s common stock as of <?= data.conversion_mechanism || "immediately after" ?> the initial closing of the Qualified Financing (assuming full conversion or exercise of all convertible and exercisable securities then outstanding other than the Notes) (the &#8220;<b>Valuation Cap</b>&#8221;).</numbered_2_para>
 
 
 <? } else if (iHaveCap && data._orig_discount) { ?>
 
   <numbered_2_para>The &#8220;Conversion Price&#8221; is the lesser of</numbered_2_para>
   <numbered_3_para><?= data.hundred_minus_discount ?>% of the per share price paid by the purchasers of such Equity Securities in the Qualified Financing (the &#8220;<b>Discounted Conversion Price</b>&#8221;), or</numbered_3_para>
-  <numbered_3_para>the price per share equal to <?= data.pre_money_valuation ?> divided by the aggregate number of outstanding shares of the Company&#8217;s common stock as of immediately after the initial closing of the Qualified Financing (assuming full conversion or exercise of all convertible and exercisable securities then outstanding other than the Notes) (the &#8220;<b>Valuation Cap</b>&#8221;).</numbered_3_para>
+  <numbered_3_para>the price per share equal to <?= data.pre_money_valuation ?> divided by the aggregate number of outstanding shares of the Company&#8217;s common stock as of <?= data.conversion_mechanism || "immediately after" ?> the initial closing of the Qualified Financing (assuming full conversion or exercise of all convertible and exercisable securities then outstanding other than the Notes) (the &#8220;<b>Valuation Cap</b>&#8221;).</numbered_3_para>
 
 
 <? } else if (data._orig_discount) { ?>
