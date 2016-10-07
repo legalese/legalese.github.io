@@ -9,6 +9,7 @@
 <?!= include("inc_enumerate_signatures", data, {rcpts_to:data._include.rcpts_to,
   _include2: { term:{brand_new_investor: "new investor", shareholder:"current shareholder"} } }) ?>
 
+<? Logger.log("inc_dr_end rcpts_to = %s", data._include.rcpts_to); ?>
 <? Logger.log("_include = %s", data._include); ?>
 <? Logger.log("butWaitTheresMore = %s", data._include.butWaitTheresMore); ?>
 <? if (! (data._include.butWaitTheresMore)) { ?>

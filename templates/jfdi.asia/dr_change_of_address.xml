@@ -2,4 +2,4 @@
 <a_left_sidehead>Registered Office</a_left_sidehead>
 <para_1>That the registered office of the Company be changed to situate at <?= newlinesToCommas(data.parties.corporate_secretary[0].address) ?> with immediate effect.</para_1>
 <?!= include("inc_authority_to_bizfile", data, {what:"Change of Address"}) ?>
-<?!= include("inc_dr_end", data, { date: data.shutdown_process_begin_date }) ?>
+<?!= include("inc_dr_end", data, { date: data.shutdown_process_begin_date, rcpts_to:rcpts_to }) ?>
