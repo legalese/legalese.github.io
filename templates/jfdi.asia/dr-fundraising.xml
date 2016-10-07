@@ -67,4 +67,4 @@ that, pursuant to the authority granted in the aforementioned Resolution <xref t
 
 <?} //omit_dora?>
 
-<?!= include("inc_dr_end", data, { member_or_director: "Director" } ) ?>
+<?!= include("inc_dr_end", data, { member_or_director: "Director", rcpts_to:rcpts_to } ) ?>

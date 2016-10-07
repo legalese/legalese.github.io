@@ -18,7 +18,7 @@
 
 <?!= include("inc_authority_to_bizfile", data) ?>
 
-<?!= include("inc_dr_end", data, { member_or_director: "Director", butWaitTheresMore:true } ) ?>
+<?!= include("inc_dr_end", data, { member_or_director: "Director", butWaitTheresMore:true, rcpts_to:rcpts_to } ) ?>
 
 <?!= include("inc_additional_resolutions", data, {
   prefix:"members_annex" } ) ?>

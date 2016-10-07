@@ -21,4 +21,5 @@
 
 <?!= include("inc_authority_to_bizfile", data) ?>
 
-<?!= include("inc_dr_end", data, { member_or_director: "Director" } ) ?>
+<? xmLog([dr-egm_notice-issue_shares: rctps_to is %s", rcpts_to], 5); ?>
+<?!= include("inc_dr_end", data, { member_or_director: "Director", rcpts_to:rcpts_to } ) ?>

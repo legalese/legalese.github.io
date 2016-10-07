@@ -1,0 +1,90 @@
+<?!= data.xml_declaration ?>
+<?!= data.xmlRoot(['templateSpec="singlepage.indt"']) ?>
+<letterhead><?= data.company.name ?></letterhead>
+<Firstpage_Sidebar>
+<sidebar><?= data.company.name ?></sidebar>
+<sidebar><?= data.company.idtype ?> <span_ucnum><?= data.company.id ?></span_ucnum></sidebar>
+<sidebar><?= data.company.address ?></sidebar>
+</Firstpage_Sidebar>
+<Story_Main>
+<resolution_title override="appliedFont='Bickham Script Pro'  fontStyle='Bold'  pointSize=36">Debugging Internals</resolution_title>
+<chapter_header override="startParagraph=StartParagraph.ANYWHERE">Data Structures Available in an XML Template</chapter_header>
+
+<para_1><span_smallcaps>This agreement is made</span_smallcaps> on <? if (data.agreement_date) { ?><?= data.agreement_date ?><? } else {?><textvar name="Output Date" /><? }?> between:---</para_1>
+
+<?!= include("inc_enumerate_parties", data, rcpts_to) ?>
+
+<? var specials = ["parties", "_config", "capTable"]; ?>
+
+<? xmLog(["showing specials."],7); ?>
+
+<? specials.map(function(k){ ?>
+
+<a_left_sidehead>data.<?=k?></a_left_sidehead>
+<? if (data[k] == undefined) { return } ?>
+
+<para_1><?= Object.keys(data[k]).filter(function(kk){return ! kk.match(/^_/)}).join(", ") ?></para_1>
+
+<?   
+       var kk;
+       for (kk in data[k]) { // company
+	     var kkk;
+	     if (typeof(data[k][kk]) != "object" && typeof(data[k][kk]) != "array") continue;
+         for (kkk in data[k][kk]) { // 0
+           if (k == "_config" && kk == "templates" && kkk == "tree") {
+             xmLog(["data.%s.%s: JSON: %s", k, kk, JSON.stringify(data[k][kk])],7);
+		     ?> <basic_para><?= JSON.stringify(data[k][kk]) ?></basic_para> <?
+		   }
+		   var kkkk;
+		   for (kkkk in data[k][kk][kkk]) { // attribute keys
+	         if (typeof(data[k][kk][kkk]) != "object" && typeof(data[k][kk][kkk]) != "array") continue;
+		     if (k == "parties" && kk == "company" && kkkk == "roles") { ?>
+
+<numbered_2_para>data.<?=k?>.<?=kk?>[<?=kkk?>].<?=kkkk?> has keys <?= (data[k][kk][kkk][kkkk] != undefined) ? Object.keys(data[k][kk][kkk][kkkk]).join(", ") : "(undefined)" ?></numbered_2_para>
+
+<?           } else if (k == "parties" && kkkk == "_role") { ?>
+
+<numbered_2_para>data.<?=k?>.<?=kk?>[<?=kkk?>].<?=kkkk?> is</numbered_2_para>
+<basic_para><?= jsonify(data[k][kk][kkk][kkkk]) ?></basic_para>
+
+<?           }
+           }
+         }
+       }
+     
+?>
+
+<b_left_sidehead_nonum>data.<?=k?> as a JSON dump</b_left_sidehead_nonum>
+
+<?   if (k == "_config") { // no cycles, so should be safe to dump normally
+       xmLog(["data.%s: JSON: %s", k, JSON.stringify(data[k])],7);
+       ?> <basic_para><?= JSON.stringify(data[k]); ?></basic_para> <?
+     } else {
+       xmLog(["data.%s: JSON: %s", k, jsonify(data[k])],7);
+       ?> <basic_para><?= jsonify(data[k]); ?></basic_para> <?
+     } ?>
+
+<? }); ?>
+
+<a_left_sidehead>Everything Else in Data</a_left_sidehead>
+
+<? var ignorables = specials.concat(["_availableTemplates","company","_entitiesByName","_origparties"]); ?>
+
+<? var dk; for (dk in data) { ?>
+  <b_left_sidehead><?= dk ?></b_left_sidehead>
+<?   if (ignorables.indexOf(dk) != -1) {
+       xmLog(["data.%s: (skipping value)", dk],7); ?>
+<basic_para>(skipping value))</basic_para>
+<?   } else {
+     xmLog(["data.%s: JSON: %s", dk, jsonify(data[dk])],7); ?>
+<basic_para><?= jsonify(data[dk]); ?></basic_para>
+<?   } ?>
+<? } ?>
+
+<b_left_sidehead_nonum>Signatures</b_left_sidehead_nonum>
+
+<?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: {} }) ?>
+
+</Story_Main>
+<Bottom_Box delete_if_empty="true" />
+</Root>

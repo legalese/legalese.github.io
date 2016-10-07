@@ -6,13 +6,12 @@
 <para_1><span_smallcaps>Dated this:</span_smallcaps> <?= data.resolution_date || data._include.date || data._todays_date ?></para_1>
 <? } ?>
 
-<? if (data._include.director_or_member == "Member") { ?>
-<? for (var i=0;i<data.parties.shareholder.length;i++) { ?><?!= include("inc_signature", data, data.parties.shareholder[i]) ?><? } ?>
-<? } else { ?>
-<? for (var i=0;i<data.parties.director.length;i++) { ?><?!= include("inc_signature", data, data.parties.director[i]) ?><? } ?>
-<? } ?>
-<? xmLog("_include = %s", data._include); ?>
-<? xmLog("butWaitTheresMore = %s", data._include.butWaitTheresMore); ?>
+<?!= include("inc_enumerate_signatures", data, {rcpts_to:data._include.rcpts_to,
+  _include2: { term:{brand_new_investor: "new investor", shareholder:"current shareholder"} } }) ?>
+
+<? Logger.log("inc_dr_end rcpts_to = %s", data._include.rcpts_to); ?>
+<? Logger.log("_include = %s", data._include); ?>
+<? Logger.log("butWaitTheresMore = %s", data._include.butWaitTheresMore); ?>
 <? if (! (data._include.butWaitTheresMore)) { ?>
 </Story_Main>
 <Bottom_Box delete_if_empty="true" />

@@ -58,5 +58,5 @@ data.parties.new_investor.map(function(p){return p.name})))) ?>,</para_2>
 
 <?!= include("inc_authority_to_bizfile", data, {what:"Return of Allotment of Shares"}) ?>
 
-<?!= include("inc_dr_end", data, { date: data.agreement_date } ) ?>
+<?!= include("inc_dr_end", data, { date: data.agreement_date, rcpts_to:rcpts_to } ) ?>
 
