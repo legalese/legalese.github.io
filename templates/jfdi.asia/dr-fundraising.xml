@@ -1,10 +1,10 @@
 <?!= include("inc_dr_start", data, { director_or_member:"Director", article_pursuant:data.article_for_directors_resolution_in_writing, r_num: 3, skip_resolved:true }) ?>
-<? Logger.log("INFO: dr_fundraising: about to call data.capTable.getActiveRound()."); ?>
-<? if (data.capTable == undefined) Logger.log("WARNING: dr_fundraising: but data.capTable is undefined!"); ?>
+<? xmLog("INFO: dr_fundraising: about to call data.capTable.getActiveRound()."); ?>
+<? if (data.capTable == undefined) xmLog("WARNING: dr_fundraising: but data.capTable is undefined!"); ?>
 <? data._total_new_shares = data.capTable.getActiveRound().amount_raised.shares; ?>
-<? Logger.log("INFO: dr_fundraising: data._total_new_shares = %s",data._total_new_shares); ?>
+<? xmLog("INFO: dr_fundraising: data._total_new_shares = %s",data._total_new_shares); ?>
 <? data._total_commitments = data.capTable.getActiveRound().amount_raised.money; ?>
-<? Logger.log("INFO: dr_fundraising: data._total_commitments = %s",data._total_commitments); ?>
+<? xmLog("INFO: dr_fundraising: data._total_commitments = %s",data._total_commitments); ?>
 
 <a_left_sidehead>Issue of <?= data.security_type_plural ?></a_left_sidehead>
 

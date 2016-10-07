@@ -3,9 +3,9 @@
 <?!= include("inc_cover_2_parties", data, {cover_title:data.security_type + " Subscription Agreement", party1:data.company, party2:data.new_investor}) ?>
 <?!= include("inc_cover_jfdi", data) ?>
 <? data._total_new_shares = include("mod_party_sum", data, { partynames: "new_investor", attrs:"num_new_shares" }); ?>
-<? Logger.log("ordinary INFO: data._total_new_shares = %s",data._total_new_shares); ?>
+<? xmLog("ordinary INFO: data._total_new_shares = %s",data._total_new_shares); ?>
 <? data._total_commitments = include("mod_party_sum", data, { partynames: "new_investor", attrs: "new_commitment" }); ?>
-<? Logger.log("ordinary INFO: data._total_commitments = %s",data._total_commitments); ?>
+<? xmLog("ordinary INFO: data._total_commitments = %s",data._total_commitments); ?>
 <Firstpage_Sidebar><sidebar>This document records the purchase of shares by an investor.</sidebar></Firstpage_Sidebar>
 <Story_Main>
 <chapter_header>Subscription for <?= data.security_type_plural ?></chapter_header>

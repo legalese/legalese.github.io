@@ -19,7 +19,7 @@
 
 <? // --------------- DEAL WITH RESIGNATION OF PERSON WITH F SHARES -------------- ?>
 
-<? Logger.log("dr-resignation_acceptace: the parties.resigner object is: %s", data.parties.resigner); ?>
+<? xmLog("dr-resignation_acceptace: the parties.resigner object is: %s", data.parties.resigner); ?>
 <? var redeemedShareholders = data.parties.resigner.filter(function(p){return p._orig_f_redeemed}); ?>
 <? if (redeemedShareholders.length) { ?>
 

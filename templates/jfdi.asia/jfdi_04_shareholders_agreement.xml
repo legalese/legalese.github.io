@@ -155,7 +155,7 @@ any distribution of profits of the Company.</numbered_3_para>
   <?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: {} }) ?>
 
   <schedule_header>Table of Investors</schedule_header>
-  <? Logger.log("shareholders_agreement/existing_investors: calling data.capTable.getActiveRound()"); ?>
+  <? xmLog("shareholders_agreement/existing_investors: calling data.capTable.getActiveRound()"); ?>
   <? var oldInvestors  = data.capTable.getActiveRound().getOldInvestors(); ?>
   <? var previousRound = data.capTable.getActiveRound().getPreviousRound(); ?>
 <? if (previousRound != undefined && oldInvestors != undefined) { ?>

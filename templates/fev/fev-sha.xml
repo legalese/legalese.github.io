@@ -66,13 +66,13 @@ in the spirit of mutual confidence and co-operation, the Parties have agreed to 
 
 <numbered_2_para>The Shareholders acknowledge that Class F redeemable preference shares have been issued to the following Shareholders, on the terms of Class F Agreements which have been entered into between the Company and each such Shareholder. Each Class F Agreement, together with the Constitution, sets out the respective rights and obligations attached to the Class F Shares held by such holder of Class F Shares, including the Company’s rights of redemption over the Class F Shares and the timing and conditions on which such rights of redemption shall be waived.  Each holder of Class F Shares and the Company hereby agrees that the terms of the Class F Agreements shall be deemed incorporated into this Agreement by reference, and undertakes that it shall not waive, vary or terminate the Class F Agreements without the prior written consent of the holders of at least a majority of the Series Seed Preferred Shares.</numbered_2_para>
 
-  <? Logger.log("shareholders_agreement/class_f_shares: calling data.capTable.getActiveRound()"); ?>
+  <? xmLog("shareholders_agreement/class_f_shares: calling data.capTable.getActiveRound()"); ?>
   <? var classFholders  = data.capTable.getActiveRound().getPreviousRound().by_security_type["Class F Shares"]; ?>
   <? if (classFholders) {
 	delete classFholders.TOTAL;
 	delete classFholders.ESOP;
   ?>
-  <? Logger.log("shareholders_agreement/class_f_holders: found class F holders = %s", classFholders); ?>
+  <? xmLog("shareholders_agreement/class_f_holders: found class F holders = %s", classFholders); ?>
 
 <para_1><Table aid:table="table" aid:tcols="2" aid:trows="<?= Object.keys(classFholders).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
 <Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
@@ -244,7 +244,7 @@ any distribution of profits of the Company.</numbered_3_para>
   <?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: {} }) ?>
 
   <schedule_header>Table of Investors</schedule_header>
-  <? Logger.log("shareholders_agreement/existing_investors: calling data.capTable.getActiveRound()"); ?>
+  <? xmLog("shareholders_agreement/existing_investors: calling data.capTable.getActiveRound()"); ?>
   <? var oldInvestors  = data.capTable.getActiveRound().getOldInvestors(); ?>
   <? var previousRound = data.capTable.getActiveRound().getPreviousRound(); ?>
 <? if (previousRound != undefined && oldInvestors != undefined) { ?>

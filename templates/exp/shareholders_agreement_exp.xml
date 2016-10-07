@@ -422,15 +422,15 @@ in accordance with this Clause, dispose of the Offered Shares to any other third
 <Cell aid:ccols="1" aid:ccolwidth="76" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>ID</cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Address</cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="90" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Number of Shares Held</cell_c></Cell>
-<? Logger.log("corpsec-allotment: newIssues.holders = %s", newIssues.holders); ?>
+<? xmLog("corpsec-allotment: newIssues.holders = %s", newIssues.holders); ?>
 <? for (var hh in newIssues.holders) { with(newIssues.holders[hh]) { ?>
 <? var new_investors = data.parties.new_investor.filter(function(ni){return (ni.name == hh)});
   var new_investor;
   if (new_investors.length) {
     new_investor = new_investors[0];
-    Logger.log("corpsec-allotment: newIssues.holders :: new_investor = %s (%s %s)", new_investor.name, new_investor.idtype, new_investor.id);
+    xmLog("corpsec-allotment: newIssues.holders :: new_investor = %s (%s %s)", new_investor.name, new_investor.idtype, new_investor.id);
   } else {
-	Logger.log("corpsec-allotment: unable to find party new_investor named %s", hh);
+	xmLog("corpsec-allotment: unable to find party new_investor named %s", hh);
 	continue;
   }
 ?>
@@ -451,7 +451,7 @@ in accordance with this Clause, dispose of the Offered Shares to any other third
 
 <? var activeRound = data.capTable.getActiveRound(); ?>
 <? for (var bstk in activeRound.by_security_type) { var bstv = activeRound.by_security_type[bstk]; ?>
-<?   Logger.log("keyHolders: round=%s, by_security_type:%s has keys keys %s", activeRound.name, bstk, bstv); ?>
+<?   xmLog("keyHolders: round=%s, by_security_type:%s has keys keys %s", activeRound.name, bstk, bstv); ?>
 <? } ?>
 <? var keyHolders  = data.parties.key_holder ?>
 <? var previousRound = data.capTable.getActiveRound().getPreviousRound(); ?>
@@ -467,7 +467,7 @@ in accordance with this Clause, dispose of the Offered Shares to any other third
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Acceleration</cell_c></Cell>
 
 <? for (var hh in keyHolders) {
-  Logger.log("keyHolders: outputting based on data.parties.key_holder[%s] = %s", hh, keyHolders[hh].name);
+  xmLog("keyHolders: outputting based on data.parties.key_holder[%s] = %s", hh, keyHolders[hh].name);
   with(keyHolders[hh]) { ?>
 <Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= name ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!= data.capTable.investorHoldingsInRound(name, previousRound) ?></cell_c></Cell>
