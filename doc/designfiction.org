@@ -85,7 +85,7 @@ Once the events are triggered, the controller should rent output access to a nea
 Release the subscriptions to all IoT assets and terminate the corporation.
 #+END_QUOTE
 
-Alisha smiled. This was a fun kata. She had done it before in Javascript, years ago. It had taken her most of a day, then: she remembered hours spent trying one face recognition library after another before finding one that wasn't confused by the Muslim hijab. She'd written something like five hundred lines of code, wiring event loops to analytics engines and running into format incompatibilities.
+Alisha smiled. This was a fun kata. She had done it before in Javascript, years ago. It had taken her most of a day, then: she remembered hours spent trying one face recognition library after another before finding one that wasn't confused by her hijab. She'd written something like five hundred lines of code, wiring event loops to analytics engines and running into format incompatibilities.
 
 Prolix's approach to frameworks and libraries was Spartan compared to Javascript's: there tended to be only one library for anything. Alisha looked forward to doing the kata the Prolix way.
 
@@ -313,7 +313,7 @@ Malavika placed her fingers on the keyboard carefully, and typed a few words. Th
 
 "It sounds like you have a solution in mind." Malavika smiled with the patience of a VC who's heard thousands of pitches.
 
-"So, imagine, what Classpass does for gyms, somebody should do for toilets. In fact, go one step further to the WeWork model, and operate a federated network of toilets, open to anyone in the network. Where the physical establishment -- let's call it the host -- where the host is concerned, it exposes a managed-services vendor API. It's a bit like what the New Black do for coffee bars inside big corporate offices. Have you heard about that model?"
+"So, imagine, what Classpass does for gyms, somebody should do for toilets. In fact, go one step further to the WeWork model, and operate a federated network of toilets, open to anyone in the network. Where the physical establishment -- let's call it the host -- where the host is concerned, it exposes a managed-services vendor API. It's a bit like what the New Black does for coffee bars inside big corporate offices. Have you heard about that model?"
 
 "No, tell me."
 
@@ -387,7 +387,7 @@ Malavika nodded. "You know, most coders don't have your grasp of business," she 
 
 "Then why do most founders still go to lawyers?"
 
-"Most founders aren't technical enough. At this level of risk, there are some corporate secretarie who would do the work on spec. They'll take 20% of the company, up front, in return for setting it up. An incubator would take 10%, and maybe give you $100,000 of seed capital in return."
+"Most founders aren't technical enough. At this level of risk, there are some corporate secretaries who would do the work on spec. They'll take 20% of the company, up front, in return for setting it up. An incubator would take 10%, and maybe give you $100,000 of seed capital in return."
 
 "All that sounds like a lot of overhead."
 
@@ -413,7 +413,7 @@ Already Alisha's fingers were moving on the keyboard. Documentation ... gallery 
 
 "I didn't know that. I mean, I guess I must have signed something like that in the past, but I never really paid attention to what I was signing."
 
-"Pretty much every time you want to alter the state of the company, any kind of CRUD operation requires uploading a PDF to the government website."
+"Pretty much every time you want to alter the state of the company, any kind of [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operation requires uploading a PDF to the government website."
 
 "Wow."
 
