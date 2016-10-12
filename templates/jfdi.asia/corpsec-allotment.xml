@@ -31,7 +31,7 @@
 
 <numbered_2_para>the Company's <?= plural(Object.keys(newIssues.holders), "allotment") ?>
  of <?= newIssues.TOTAL.shares ?> <?= data.security_type_short_plural ?> <?= plural_verb(Object.keys(newIssues.holders), "is") ?>
-<? if (data.share_grant) { ?> for no consideration;
+<? if (data.share_conversion) { ?> for no consideration;
 <? } else { ?> for cash consideration;
 subscription monies amounting to <?= newIssues.TOTAL.money ?> have been received by the Company in respect of the allotment of <?= newIssues.TOTAL.shares ?> <?= data.security_type_short_plural ?>;
 <? } ?>
