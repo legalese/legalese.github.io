@@ -32,8 +32,6 @@
 <numbered_2_para>the Company's <?= plural(Object.keys(newIssues.holders), "allotment") ?>
  of <?= newIssues.TOTAL.shares ?> <?= data.security_type_short_plural ?> <?= plural_verb(Object.keys(newIssues.holders), "is") ?>
 <? if (data.share_grant) { ?> for no consideration;
-<? } then (data.conversion_allotment) { ?> in relation to the conversion of Unrestricted Class F Shares; 
-as provided for in the Class F Agreements dated <?= data.class_f_agreement_date ?> clause <?= data.conversion_of_unrestricted_shares_clause_number ?>;
 <? } else { ?> for cash consideration;
 subscription monies amounting to <?= newIssues.TOTAL.money ?> have been received by the Company in respect of the allotment of <?= newIssues.TOTAL.shares ?> <?= data.security_type_short_plural ?>;
 <? } ?>
