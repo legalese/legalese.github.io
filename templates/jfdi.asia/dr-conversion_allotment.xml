@@ -1,0 +1,62 @@
+<?!= include("inc_dr_start", data, {
+  director_or_member:"Director",
+  article_pursuant:data.article_for_directors_resolution_in_writing,
+  chapter_header:"Allotment of " + data.security_type_plural,
+  r_num: 3 }) ?>
+<? var activeRound = data.capTable.getActiveRound(); ?>
+<? var newIssues = data.capTable.getActiveRound().getNewIssues(); ?>
+<? xmLog("dr-allotment: newIssues(%s) = %s", activeRound.name, newIssues); ?>
+<? if (newIssues && newIssues.TOTAL._orig_shares != 0) { ?>
+<a_left_sidehead>Shares to be Issued</a_left_sidehead>
+<? if (data.share_issue_specialcase_text) { ?><para_1><?!= data.share_issue_specialcase_text ?></para_1><? } else { ?>
+<para_1>That pursuant to the authority given to the Directors <?
+  if (data.egm_or_written_means == "EGM") { ?>at the Extraordinary General Meeting of <?= data.company.name ?> (the "Company") held on <?= data.gm_date ?>
+  if (data.egm_or_written_means == "AGM") { ?>at the Annual General Meeting of <?= data.company.name ?> (the "Company") held on <?= data.gm_date ?>
+<? } else { ?>by the <?!= plural(data.parties.shareholder, "Member", "Members") ?> of the Company in a resolution passed by written means<? } ?>, under Section 161 of the Companies Act (Cap. 50)</para_1>
+<? if (! data.share_grant) { ?>
+<para_2>and pursuant to the <?= data.primary_agreement ?> dated <?= data.primary_agreement_date ?><?= plural(data.parties.new_investor, "Agreement") ?> signed among <?=
+commaAnd(["the Company"].concat((data.parties.promoter ? [data.parties.promoter[0].name] : []).concat(
+data.parties.new_investor.map(function(p){return p.name})))) ?>,</para_2>
+<? } ?>
+<? } ?>
+<para_2>the Company do hereby approve the allotment of <?= newIssues.TOTAL.shares ?> <?= data.security_type_plural ?> ("<?= data.security_type_short_plural ?>") in the share capital of the Company <? if (data.sgd_price_per_share || data.price_per_share) { ?>at <?= (data.sgd_price_per_share || data.price_per_share) ?> each for cash consideration <?}?>as follows:</para_2>
+<para_1>
+<Table aid:table="table" aid:tcols="3" aid:trows="<?= Object.keys(newIssues.holders).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+<Cell aid:ccols="1" aid:ccolwidth="150" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
+ <Cell aid:ccols="1" aid:ccolwidth="56" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Number of <?= data.security_type_short_plural ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="80" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Consideration</cell_c></Cell>
+<? for (var hh in newIssues.holders) { with(newIssues.holders[hh]) { ?>
+<Cell aid:ccols="1" aid:ccolwidth="150" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= hh ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="56" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= shares ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="80" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= newIssues.holders[hh].money || "none" ?></cell_c></Cell>
+<? } } ?>
+</Table>
+</para_1>
+<a_left_sidehead>Share Certificates to be Issued</a_left_sidehead>
+<para_1>That the Common Seal of the Company be affixed in accordance with the Company's Constitution to the share certificate to be issued to the aforesaid <?= plural(Object.keys(newIssues.holders), "investor") ?>.</para_1>
+<? } ?>
+
+<? var redemptions = data.capTable.getActiveRound().getRedemptions(); ?>
+<? if (redemptions && redemptions.TOTAL._orig_money != 0) { ?>
+<a_left_sidehead>Shares to be Redeemed</a_left_sidehead>
+<para_1>That the Company do hereby approve the redemption <? if (data.redemption_out_of == "profits") { ?>out of profits<?}else{?>out of capital<?}?> and cancellation of <?= redemptions.TOTAL.shares ?> <?= data.security_type_plural ?> as follows:</para_1>
+<para_1>
+<Table aid:table="table" aid:tcols="3" aid:trows="<?= Object.keys(redemptions.holders).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+<Cell aid:ccols="1" aid:ccolwidth="150" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="56" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Number of <?= data.security_type_short_plural ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="80" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Consideration</cell_c></Cell>
+<? for (var hh in redemptions.holders) { with(redemptions.holders[hh]) { ?>
+<Cell aid:ccols="1" aid:ccolwidth="150" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= hh ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="56" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= shares.replace(/^-/,"") ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="80" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= money.replace(/-/,"") ?></cell_c></Cell>
+<? } } ?>
+</Table>
+</para_1>
+<a_left_sidehead>Share Certificates to be Reissued</a_left_sidehead>
+<para_1>That the Common Seal of the Company be affixed in accordance with the Company's Constitution to any share certificates that may be reissued pursuant to the above redemption.</para_1>
+<? } ?>
+
+<?!= include("inc_authority_to_bizfile", data, {what:"Return of Allotment of Shares"}) ?>
+
+<?!= include("inc_dr_end", data, { date: data.agreement_date, rcpts_to:rcpts_to } ) ?>
+
