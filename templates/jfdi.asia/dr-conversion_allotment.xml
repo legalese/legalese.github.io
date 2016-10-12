@@ -13,11 +13,11 @@
   if (data.egm_or_written_means == "EGM") { ?>at the Extraordinary General Meeting of <?= data.company.name ?> (the "Company") held on <?= data.gm_date ?>
   if (data.egm_or_written_means == "AGM") { ?>at the Annual General Meeting of <?= data.company.name ?> (the "Company") held on <?= data.gm_date ?>
 <? } else { ?>by the <?!= plural(data.parties.shareholder, "Member", "Members") ?> of the Company in a resolution passed by written means<? } ?>, under Section 161 of the Companies Act (Cap. 50)</para_1>
-<? if (! data.share_grant) { ?>
+<? if (data.share_grant) { ?>
 <para_2>and pursuant to the <?= data.primary_agreement ?> dated <?= data.primary_agreement_date ?><?= plural(data.parties.new_investor, "Agreement") ?> signed among <?=
 commaAnd(["the Company"].concat((data.parties.promoter ? [data.parties.promoter[0].name] : []).concat(
 data.parties.new_investor.map(function(p){return p.name})))) ?>,</para_2>
-<? } ?>
+<? } ?>downloads
 <? } ?>
 <para_2>the Company do hereby approve the allotment of <?= newIssues.TOTAL.shares ?> <?= data.security_type_plural ?> ("<?= data.security_type_short_plural ?>") in the share capital of the Company <? if (data.sgd_price_per_share || data.price_per_share) { ?>at <?= (data.sgd_price_per_share || data.price_per_share) ?> each for cash consideration <?}?>as follows:</para_2>
 <para_1>
