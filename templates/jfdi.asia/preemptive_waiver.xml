@@ -36,7 +36,7 @@
   while (pro_rata == 0) { pr_tf++; pro_rata = (100*percentage).toFixed(pr_tf); }
 ?>
 <? xmLog("preemptive_waiver: percentage=%s; pro_rata=%s",percentage, pro_rata); ?>
-Given that you presently hold <?= data.sitout_shareholder.f_unrestricted || data.capTable.getActiveRound().sitout_shareholders[data.sitout_shareholder.name].shares ?> out of <?= data.capTable.getActiveRound().pre_money.shares ?> existing shares, you have the right to subscribe for up to <?= pro_rata ?>% of this new issue: <?
+Given that you presently hold <?= data.capTable.getActiveRound().sitout_shareholders[data.sitout_shareholder.name].shares ?> out of <?= data.capTable.getActiveRound().pre_money.shares ?> existing shares, you have the right to subscribe for up to <?= pro_rata ?>% of this new issue: <?
 if (data.security_essential == "equity") {
   var num_securities = percentage * newIssues.TOTAL._orig_shares;
 ?>
