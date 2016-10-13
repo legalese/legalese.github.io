@@ -32,7 +32,7 @@
 <numbered_2_para>the Company's <?= plural(Object.keys(newIssues.holders), "allotment") ?>
  of <?= newIssues.TOTAL.shares ?> <?= data.security_type_short_plural ?> <?= plural_verb(Object.keys(newIssues.holders), "is") ?>
 <? if (data.share_grant) { ?> for no consideration;
-in relation to the conversion of <?= data.security_type_to_be_converted ?> as provided for in the <?= data.primary_agreement ?> dated <?= data.class_f_agreement_date ?>;
+in relation to the conversion of <?= data.security_type_to_be_converted ?> as provided for in the <?= data.primary_agreement ?> dated <?= data.primary_agreement_date ?>;
 <? } else { ?> for cash consideration;
 subscription monies amounting to <?= newIssues.TOTAL.money ?> have been received by the Company in respect of the allotment of <?= newIssues.TOTAL.shares ?> <?= data.security_type_short_plural ?>;
 <? } ?>
