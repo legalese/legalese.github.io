@@ -19,7 +19,9 @@
 
 </basic_para>
 <? var activeRound = data.capTable.getActiveRound(); ?>
-<? var newIssues = data.capTable.getActiveRound().getNewIssues(); ?>
+<? var newIssues = data.capTable.getActiveRound().getNewIssues();
+  xmLog(["in preemptive_waiver, data.company is %s",data.company],6);
+?>
 <para_1><b>Issuance of New Shares in <?= data.company.name ?> (the "Company")</b></para_1>
 <? var totalCommitments = data.amount_raising || newIssues.TOTAL.money; ?>
 <? var totalShares = newIssues.TOTAL._orig_shares ? newIssues.TOTAL.shares : null; ?>
