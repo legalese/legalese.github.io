@@ -35,7 +35,12 @@
   var denominator = (data.capTable.getActiveRound().preemptivelyEligibleSecurities("TOTAL")
                      +
                      data.capTable.getActiveRound().pre_money_unrestricted_f._orig_shares);
-
+  
+  xmLog(["denominator = %s + %s = %s",
+  data.capTable.getActiveRound().preemptivelyEligibleSecurities("TOTAL"),
+  data.capTable.getActiveRound().pre_money_unrestricted_f._orig_shares,
+  denominator],7);
+  
   var percentage = numerator / denominator;
   var pr_tf = 2;
   var pro_rata = (100*percentage).toFixed(pr_tf);
@@ -43,8 +48,8 @@
 ?>
 <? xmLog("preemptive_waiver: percentage=%s; pro_rata=%s",percentage, pro_rata); ?>
 
-Given that you presently hold <?= digitCommas_(numerator,0) ?> out of <?= digitCommas_(denominator) ?> shares eligible for pro-rata calculations (which is to say, fully-diluted, as-if-converted shares, excluding issued but unvested ESOP shares, and excluding the ESOP pool previously authorized and reserved, but not yet issued), you have the right to subscribe for up to <?= pro_rata ?>% of this new issue: <?
-if (data.security_essential == "equity") {
+Given that you presently hold <?= digitCommas_(numerator,0) ?> out of <?= digitCommas_(denominator,0) ?> shares eligible for pro-rata calculations (which is to say, fully-diluted, as-if-converted shares, excluding issued but unvested ESOP shares, and excluding the ESOP pool previously authorized and reserved, but not yet issued), you have the right to subscribe for up to <?= pro_rata ?>% of this new issue: <?
+if (data.security_essential != "debt") { // handle the countables better
   var num_securities = percentage * newIssues.TOTAL._orig_shares;
 ?>
 <?= digitCommas_(num_securities, 0) ?> <?= plural(num_securities.toFixed(0), data.security_type_short_singular, data.security_type_short_plural) ?><?
