@@ -32,7 +32,7 @@
 <? xmLog("attempting to calculate percentage for sitout_shareholder %s", data.sitout_shareholder.name); ?>
 <?
   var numerator = data.capTable.getActiveRound().sitout_shareholders[data.sitout_shareholder.name].preemptiveShares();
-  var denominator = (data.capTable.getActiveRound().by_security_type["Ordinary Shares"].TOTAL
+  var denominator = (data.capTable.getActiveRound().preemptivelyEligibleSecurities("TOTAL")
                      +
                      data.capTable.getActiveRound().pre_money_unrestricted_f._orig_shares);
 
