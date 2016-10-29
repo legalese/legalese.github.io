@@ -39,7 +39,7 @@
   xmLog(["denominator = %s + %s = %s",
   data.capTable.getActiveRound().preemptivelyEligibleSecurities("TOTAL"),
   data.capTable.getActiveRound().pre_money_unrestricted_f._orig_shares,
-  denominator],7);
+  denominator],5);
   
   var percentage = numerator / denominator;
   var pr_tf = 2;
