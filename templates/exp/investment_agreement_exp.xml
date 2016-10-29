@@ -44,7 +44,7 @@ The Series Seed Investors desire to subscribe for preference shares of the Compa
 
 <definition>Shares means shares of the Company of any class or type, and includes Preference Shares;</definition>
  
-<definition>Shareholders’ Agreement means the Shareholders Agreement signed between <?= data.parties.key_holders && data.parties.existing_investors && data.parties.new_investors ?> and Expara Ventures Fund III Pte Ltd.</definition>
+<definition>Shareholders’ Agreement means the Shareholders Agreement signed <?= data.shareholders_agreement_date ?>.</definition>
 
 <numbered_1_firstbold>Third Party Rights</numbered_1_firstbold>
 <para_1>A person who is not a party to this Agreement has no right under the Singapore Contracts (Rights of Third Parties) Act (Chapter 53B) for time being in force to enforce or enjoy the benefit of any term of this Agreement.</para_1>
