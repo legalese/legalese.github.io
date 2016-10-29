@@ -262,27 +262,22 @@ The Series Seed Investors desire to subscribe for preference shares of the Compa
 <chapter_header xname="exp_schedule_1">Schedule 1: SHAREHOLDING STRUCTURE</chapter_header>
 
 <b_left_sidehead_nonum>Pre-investment capitalization</b_left_sidehead_nonum>
-  <? xmLog("shareholders_agreement/existing_investors: calling data.capTable.getActiveRound()"); ?>
-  <? var oldInvestors  = data.capTable.getActiveRound().getOldInvestors(); ?>
-  <? var previousRound = data.capTable.getActiveRound().getPreviousRound(); ?>
-<? if (previousRound != undefined && oldInvestors != undefined) { ?>
 
-<para_1><Table aid:table="table" aid:tcols="4" aid:trows="<?= Object.keys(oldInvestors.holders).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+Current investors:
+<? var oldInvestors  = data.capTable.getActiveRound().getOldInvestors(); ?>
+<? var previousRound = data.capTable.getActiveRound().getPreviousRound(); ?>
+<para_1><Table aid:table="table" aid:tcols="3" aid:trows="<?= Object.keys(oldInvestors.holders).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
 <Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>No. of Shares</cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Percentage</cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Share Class</cell_c></Cell>
-
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Address</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Holdings</cell_c></Cell>
 <? for (var hh in oldInvestors.holders) { with(data._entitiesByName[hh]) { ?>
 <Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= hh ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= address ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!=   data.capTable.investorHoldingsInRound(hh, previousRound) ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!=   data.capTable.investorHoldingsInRound(hh, previousRound) ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!=   data.capTable.investorHoldingsInRound(hh, previousRound) ?></cell_c></Cell>
 <? } } ?>
 </Table></para_1>
-<? } ?>
 
-<b_left_sidehead_nonum>Post-investment capitalization (with Share Option of)</b_left_sidehead_nonum>
+<b_left_sidehead_nonum>Post-investment capitalization (with Share Option of <?= data.esop_reservation ?>)</b_left_sidehead_nonum>
 <? var activeRound = data.capTable.getActiveRound(); ?>
 <? for (var bstk in activeRound.by_security_type) { var bstv = activeRound.by_security_type[bstk]; ?>
 <?   xmLog("keyHolders: round=%s, by_security_type:%s has keys keys %s", activeRound.name, bstk, bstv); ?>
