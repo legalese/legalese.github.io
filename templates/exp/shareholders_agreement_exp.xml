@@ -33,13 +33,13 @@
 
 <para_1><span_smallcaps>THIS SHAREHOLDERS’ AGREEMENT</span_smallcaps> (the “Agreement”) is today entered into by and <span_smallcaps>BETWEEN:</span_smallcaps></para_1>
 
-<?!= include("inc_enumerate_parties", data, rcpts_to, { term:{"new_investor": "Series Seed Investor"} }) ?>
+<?!= include("inc_enumerate_parties", data, rcpts_to, { term:{brand_new_investor: "Series Seed Investor"} }) ?>
 
 <para_1><span_smallcaps>NOW IT IS AGREED</span_smallcaps> as follows:</para_1>
 
 <numbered_1_firstbold>Preamble</numbered_1_firstbold>
 
-<para_1>The Company has its registered address at <?= data.company.address ?> with registered share capital of <span_smallcaps>S$</span_smallcaps><?= data.amount_raised.TOTAL ?>.</para_1>
+<para_1>The Company has its registered address at <?= data.company.address ?> with registered share capital of <span_smallcaps>S$</span_smallcaps><?= data.share_capital ?>.</para_1>
 
 <numbered_2_para xname="core_business">The Company is a rental platform.</numbered_2_para>
 
@@ -88,7 +88,7 @@
 <numbered_2_para>Vesting of Founders’ Shares</numbered_2_para>
 <para_2>Each Founder Shareholder shall have three years vesting beginning upon the signing of the Shareholders’ Agreement:</para_2>
 
-<para_2><?= f_unrestricted_current ?> vesting immediately, with remaining vesting monthly over the next <? f_term_months ?> months as shown in Schedule <xref to="exp_vesting_schedule"/>. In the event of an acquisition or other change of control of the Company, Founders’ Shares will vest fully.</para_2>
+<para_2><?= data.f_unrestricted_current ?> vesting immediately, with remaining vesting monthly over the next <? data.f_term_months ?> months as shown in Schedule <xref to="exp_vesting_schedule"/>. In the event of an acquisition or other change of control of the Company, Founders’ Shares will vest fully.</para_2>
 
 <para_2>This Repurchase Option shall provide that upon the resignation or termination of the employment of or engagement with a Founder (“Outgoing Founder”), with or without cause, the remaining Founders first, and then the Company second or its assignee (to the extent permissible under applicable securities law qualification) retains the option to repurchase at the lower of cost or the current fair market value any unvested shares held by the Outgoing Founder.</para_2>   
 
@@ -129,7 +129,7 @@
 <para_3>(i) securities issuable upon conversion of any of the Series Seed Preference, or as a dividend or distribution on the Series Seed Preference; (ii) securities issued upon the conversion of any debenture, warrant, option, or other convertible security; and (iii) Ordinary Shares issuable upon a stock split, stock dividend, or any subdivision of shares of Ordinary Shares</para_3>
 
 <numbered_2_para>Employee Share Options (ESOP) Scheme</numbered_2_para> 
-<para_2>The Shareholders agree that the board shall implement a share option program that will allow a committee (“the Option Committee”) to expand the current share capital with up to <?= data.parties.ESOP[%s] ?> and allocate the new shares to employees, advisors and board members.</para_2>
+<para_2>The Shareholders agree that the board shall implement a share option program that will allow a committee (“the Option Committee”) to expand the current share capital with up to <?= data.esop_reservation ?> and allocate the new shares to employees, advisors and board members.</para_2>
 
 <para_2>The Option Committee shall be formed within six months after the date of this Agreement. The Option Committee shall have two members. One member appointed by the Series Seed Investors and one by the Founders.</para_2>
 
@@ -152,7 +152,7 @@
 <numbered_1_para>Board of Directors</numbered_1_para>
 
 <numbered_2_para>Members</numbered_2_para>
-<para_2>The Board will consist of <?= data.number_directors_TOTAL ?> members. <?= data.number_directors_common ?> directors elected by holders of a majority of Ordinary Shares, <?= data.number_directors_seriesseed ?> elected by holders of a majority of Series Seed Preference Shares (the “Series Seed Director”).</para_2>
+<para_2>The Board will consist of <?= data.total_number_directors ?> members. <?= data.number_directors_common ?> directors elected by holders of a majority of Ordinary Shares, <?= data.number_directors_seriesseed ?> elected by holders of a majority of Series Seed Preference Shares (the “Series Seed Director”).</para_2>
 
 <para_2>The board members are elected at the general meeting for one year at the time. The board members will elect the chairman. All ordinary matters will be decided by a majority vote of the board. Consent Matters as specified in Schedule <xref to="exp_consent_matters"/> shall additionally require the affirmative vote of the Series Seed Director.</para_2>
 
@@ -416,107 +416,91 @@ in accordance with this Clause, dispose of the Offered Shares to any other third
 
 <b_left_sidehead xname="exp_pre_investment_capitalization">Pre-investment capitalization</b_left_sidehead>
 
-<para_1>
-<Table aid:table="table" aid:tcols="4" aid:trows="<?= Object.keys(newIssues.holders).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
-<Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="76" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>ID</cell_c></Cell>
+<? var oldInvestors  = data.capTable.getActiveRound().getOldInvestors(); ?>
+<? var previousRound = data.capTable.getActiveRound().getPreviousRound(); ?>
+<para_1><Table aid:table="table" aid:tcols="3" aid:trows="<?= Object.keys(oldInvestors.holders).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Address</cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="90" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Number of Shares Held</cell_c></Cell>
-<? xmLog("corpsec-allotment: newIssues.holders = %s", newIssues.holders); ?>
-<? for (var hh in newIssues.holders) { with(newIssues.holders[hh]) { ?>
-<? var new_investors = data.parties.new_investor.filter(function(ni){return (ni.name == hh)});
-  var new_investor;
-  if (new_investors.length) {
-    new_investor = new_investors[0];
-    xmLog("corpsec-allotment: newIssues.holders :: new_investor = %s (%s %s)", new_investor.name, new_investor.idtype, new_investor.id);
-  } else {
-	xmLog("corpsec-allotment: unable to find party new_investor named %s", hh);
-	continue;
-  }
-?>
-<Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= hh ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="76" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= new_investor.idtype ?> <span_ucnum><?= new_investor.id ?></span_ucnum></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= new_investor.address ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="90" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= shares ?> <?= new_investor.share_type ||data.security_type_short_plural ?> for <?= newIssues.holders[hh]._orig_money ? money : "no consideration" ?><?= new_investor.commitment_comment ? new_investor.commitment_comment : "" ?></cell_c></Cell>
-<? } } ?>
-</Table>
-</para_1>
+<Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Holdings</cell_c></Cell>
+<? for (var hh in oldInvestors.holders) { with(data._entitiesByName[hh]) { ?>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= hh ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= address ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!=   data.capTable.investorHoldingsInRound(hh, previousRound) ?></cell_c></Cell>
+<? } }  ?>
+</Table></para_1>
 
+<b_left_sidehead xname="exp_post_investment_capitalization_with_esop">Post-investment capitalization (with Share Option of <?= data.esop_reservation ?>)</b_left_sidehead>
 
-<b_left_sidehead xname="exp_post_investment_capitalization_with_esop">Post-investment capitalization (with Share Option of <?= data.parties.ESOP[%s] ?>)</b_left_sidehead>
+<? var oldInvestors  = data.capTable.getActiveRound().getOldInvestors(); ?>
+<? var previousRound = data.capTable.getActiveRound().getPreviousRound(); ?>
+<? var newIssues = data.capTable.getActiveRound().getNewIssues(); ?>
+<para_1><Table aid:table="table" aid:tcols="4" aid:trows="<?= Object.keys(oldInvestors.holders).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Address</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Holdings</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c> New Issues</cell_c></Cell>
 
+<? for (var hh in oldInvestors.holders) { with(data._entitiesByName[hh]) && (var hh in newIssues.holders) { with(data._entitiesByName[hh]) { ?>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= hh ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= address ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!=   data.capTable.investorHoldingsInRound(hh, previousRound) ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!= data.capTable.getActiveRound().new_investors[hh]._inWords ?></cell_c></Cell>
 
+<? } } } ?>
+</Table></para_1>
 
 <chapter_header xname="exp_vesting_schedule">Schedule 6: VESTING SCHEDULE</chapter_header>
 
-<? var activeRound = data.capTable.getActiveRound(); ?>
-<? for (var bstk in activeRound.by_security_type) { var bstv = activeRound.by_security_type[bstk]; ?>
-<?   xmLog("keyHolders: round=%s, by_security_type:%s has keys keys %s", activeRound.name, bstk, bstv); ?>
+<? var tcols = 6; if (data.new_investor.f_cliff_2) { tcols = tcols + 1 } ?>
+  <table_enclosing_para>
+	<Table aid:table="table" aid:tcols="<?=tcols?>" aid:trows="2" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+<Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_fl>Name</cell_fl></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="50" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell><?=data.converts_to || "Ordinary"?></cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Unrestricted</cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Restricted</cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="40" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Cliff</cell></Cell>
+<? if (data.new_investor.f_cliff_2) { ?>
+<Cell aid:ccols="1" aid:ccolwidth="40" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell>Cliff 2</cell></Cell>
 <? } ?>
-<? var keyHolders  = data.parties.key_holder ?>
-<? var previousRound = data.capTable.getActiveRound().getPreviousRound(); ?>
+<Cell aid:ccols="1" aid:ccolwidth="40" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell><?=data.new_investor.f_period || "Monthly"?></cell></Cell>
 
-<para_1><Table aid:table="table" aid:tcols="8" aid:trows="<?= Object.keys(keyHolders).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Shares</cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Vesting Commencement</cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="50" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Vesting Class</cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="50" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Currently Vested</cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="50" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Currently Restricted</cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="50" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Cliff Date</cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Acceleration</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_fl><?= data.new_investor.name ?></cell_fl></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="50" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= digitCommas_(data.capTable.getActiveRound().by_security_type["Ordinary Shares"][data.new_investor.name]||"0") ?></cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_unrestricted ?></cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_restricted ?></cell></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="40" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_cliff ?></cell></Cell>
+<? if (data.new_investor.f_cliff_2) { ?>
+<Cell aid:ccols="1" aid:ccolwidth="40" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_cliff_2 ?></cell></Cell>
+<? } ?>
+<Cell aid:ccols="1" aid:ccolwidth="40" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell><?= data.new_investor.f_periodic || data.new_investor.f_monthly ?></cell></Cell>
 
-<? for (var hh in keyHolders) {
-  xmLog("keyHolders: outputting based on data.parties.key_holder[%s] = %s", hh, keyHolders[hh].name);
-  with(keyHolders[hh]) { ?>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= name ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!= data.capTable.investorHoldingsInRound(name, previousRound) ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= f_commencement ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="50" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c>Class F Shares</cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="50" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= f_unrestricted_current ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="50" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= f_restricted_current ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="50" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= f_cliff_end_date ?></cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= acceleration ?></cell_c></Cell>
-
-<? } } ?>
-</Table></para_1>
+</Table>
+  </table_enclosing_para>
 
 <chapter_header xname="exp_contact_details">Exhibit A: Contact Details</chapter_header>
 
-<para_1>
-<Table aid:table="table" aid:tcols="2" aid:trows="7" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
-<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>Company Address</cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="274" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.company.address ?></cell_fl></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>Email</cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="274" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.company.email ?></cell_fl></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>Attention</cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="274" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.company.signatory_name || data.company.name ?></cell_fl></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="274" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>New Investor Address</cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="274" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.new_investor.address ?></cell_fl></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>Email</cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="274" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.new_investor.email ?></cell_fl></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>Attention</cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="274" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.new_investor.signatory_name || data.new_investor.name ?></cell_fl></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="274" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>Existing Investor Address</cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="274" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.existing_investor.address ?></cell_fl></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>Email</cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="274" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.existing_investor.email ?></cell_fl></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>Attention</cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="274" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.existing_investor.signatory_name || data.existing_investor.name ?></cell_fl></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="274" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>Founders Address</cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="274" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.parties.founders.address ?></cell_fl></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>Email</cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="274" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.parties.founders.email ?></cell_fl></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>Attention</cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="274" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.parties.founders.signatory_name || data.parties.founders.name ?></cell_fl></Cell>
-</Table>
-</para_1>
+<? var activeRound = data.captable.getActiveRound(); ?>
+<? var newIssues = data.capTable.getActiveRound().getNewIssues(); ?>
+<? var oldInvestors  = data.capTable.getActiveRound().getOldInvestors(); ?>
+<? var previousRound = data.capTable.getActiveRound().getPreviousRound(); ?>
+<? if (previousRound != undefined && oldInvestors != undefined) { ?>
+
+<para_1><Table aid:table="table" aid:tcols="4" aid:trows="<?= Object.keys(newIssues && oldInvestors).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+<Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="120" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Address</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="120" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Email</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="40" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Phone</cell_c></Cell>
+
+<? for (var hh in newIssues.holders && oldInvestors.holders) { with(data._entitiesByName[hh]) { ?>
+
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= hh ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= Address ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= Email ?></cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="50" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= Phone ?></cell_c></Cell>
+
+<? } ?>
+</Table></para_1>
+<? } ?>
 
 <chapter_header>Signatures</chapter_header>
 
