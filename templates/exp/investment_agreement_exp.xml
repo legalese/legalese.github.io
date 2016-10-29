@@ -38,7 +38,7 @@ The Series Seed Investors desire to subscribe for preference shares of the Compa
 
 <definition>Series Seed Investors’ Aggregate Investment Amount means S$<?= data.amount_raising ?>;</definition>
 
-<definition>Series Seed Investors’ Subscription Price means S$<?= data.new_investor.price_per_share ?> per share;</definition>
+<definition>Series Seed Investors’ Subscription Price means S$<?= data.price_per_share ?> per share;</definition>
 
 <definition>Series Seed Preference Shares means the Series Seed convertible preference shares of the Company, carrying the rights stated in the Constitution and Shareholder Agreement;</definition>
 
