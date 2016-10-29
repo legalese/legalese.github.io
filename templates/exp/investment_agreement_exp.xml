@@ -19,7 +19,7 @@
 
 <para_1>THIS INVESTMENT AGREEMENT (the “Agreement”) is today entered into by and BETWEEN:</para_1>
 
-<?!= include("inc_enumerate_parties", data, rcpts_to, { term:{"new_investor": "investor"} }) ?>
+<?!= include("inc_enumerate_parties", data, rcpts_to, { term:{brand_new_investor: "Series Seed investor"} }) ?>
 
 <b_left_sidehead_nonum>Recitals</b_left_sidehead_nonum>
 The Series Seed Investors desire to subscribe for preference shares of the Company, and the Company desires to issue and allot to these shares, pursuant to the terms of this Agreement.
