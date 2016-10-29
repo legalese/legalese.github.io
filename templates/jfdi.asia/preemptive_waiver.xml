@@ -34,7 +34,7 @@
   var numerator = data.capTable.getActiveRound().sitout_shareholders[data.sitout_shareholder.name].preemptiveShares();
   var denominator = (data.capTable.getActiveRound().by_security_type["Ordinary Shares"].TOTAL
                      +
-                     data.capTable.getActiveRound().pre_money_unrestricted_f.shares);
+                     data.capTable.getActiveRound().pre_money_unrestricted_f._orig_shares);
 
   var percentage = numerator / denominator;
   var pr_tf = 2;
@@ -43,7 +43,7 @@
 ?>
 <? xmLog("preemptive_waiver: percentage=%s; pro_rata=%s",percentage, pro_rata); ?>
 
-Given that you presently hold <?= numerator ?> out of <?= denominator ?> existing shares (for the purposes of pro-rata eligibility), you have the right to subscribe for up to <?= pro_rata ?>% of this new issue: <?
+Given that you presently hold <?= digitCommas_(numerator,0) ?> out of <?= digitCommas_(denominator) ?> existing shares (for the purposes of pro-rata eligibility), you have the right to subscribe for up to <?= pro_rata ?>% of this new issue: <?
 if (data.security_essential == "equity") {
   var num_securities = percentage * newIssues.TOTAL._orig_shares;
 ?>
