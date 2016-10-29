@@ -306,19 +306,13 @@ The Series Seed Investors desire to subscribe for preference shares of the Compa
 
 <para_1>Resolved to issue Series Seed Preference Shares in accordance to Schedule <xref to="exp_schedule_1"/> of the Investment Agreement dated DATE.</para_1>
 
-<para_1>
-<Table aid:table="table" aid:tcols="3" aid:trows="<?= Object.keys(newIssues.holders).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
-<Cell aid:ccols="1" aid:ccolwidth="150" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="56" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Number of Preference Shares</cell_c></Cell>
-
-<Cell aid:ccols="1" aid:ccolwidth="150" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c>Expara Ventures Fund III Pte Ltd</cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="56" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c></cell_c></Cell>
-</Table>
-</para_1>
+<para_1>Name:</para_1>
+<para_1>Number of Preference Shares:</para_1>
+<para_1>Series Seed investors:</para_1>
 
 <numbered_1_para>Directors</numbered_1_para>
 
-<para_1>Resolved that with immediate effect, the following person be appointed as a director of the company: Douglas keith Abrams</para_1>
+<para_1>Resolved that with immediate effect, the following person be appointed as a director of the company:</para_1>
 
 <para_1>[Signatures of directors]</para_1>
 
@@ -335,35 +329,35 @@ The Series Seed Investors desire to subscribe for preference shares of the Compa
 
 <numbered_1_para>There being no other business the meeting was concluded.</numbered_1_para>
 
-<? data.signature_comment = "Chairperson" ?>
+<para_1>Chairperson</para_1>
 <para_1>•</para_1>
-<para_>[End of Schedule]</para_1> 
+<para_1>[End of Schedule]</para_1> 
 
 <chapter_header xname="exp_exhibit_a">EXHIBIT A: CONTACT DETAILS</chapter_header>
 
 <para_1>
-<Table aid:table="table" aid:tcols="2" aid:trows="7" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
+Company:
+<Table aid:table="table" aid:tcols="3" aid:trows="7" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
 <Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>Company Address</cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="274" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.company.address ?></cell_fl></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>Email</cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="274" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.company.email ?></cell_fl></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>Attention</cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="274" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.company.signatory_name || data.company.name ?></cell_fl></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="274" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="274" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.company.signatory_name ?></cell_fl></Cell>
+
+Series Seed Investors:
 <Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>New Investor Address</cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="274" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.new_investor.address ?></cell_fl></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>Email</cell></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="274" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.new_investor.email ?></cell_fl></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="122" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell>Attention</cell></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="274" aid:crows="1" aid:table="cell" aid5:cellstyle="border_l"><cell_fl><?= data.new_investor.signatory_name || data.new_investor.name ?></cell_fl></Cell>
+
 </Table>
 </para_1>
 
  
 <chapter_header>Signatures</chapter_header>
 
-   <?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: { term: { new_investor: "purchaser" } } }
+   <?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: { term: { brand_new_investor: "Series Seed investor" } } }
 ) ?>
 
  </Story_Main>
