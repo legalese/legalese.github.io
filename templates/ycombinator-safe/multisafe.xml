@@ -128,11 +128,15 @@ the Discount Price,</numbered_3_para>
 
 <numbered_2_para>"Initial Public Offering" means the closing of the Company's first firm commitment underwritten initial public offering of Common Stock pursuant to a registration statement filed under the Securities Act.</numbered_2_para>
 
+<? if (! data.mfn) { ?>
 <numbered_2_para>"Liquidity Capitalization" means the number, as of immediately prior to the Liquidity Event, of shares of Capital Stock (on an as-converted basis) outstanding, assuming exercise or conversion of all outstanding vested and unvested options, warrants and other convertible securities, but excluding: shares of Common Stock reserved and available for future grant under any equity incentive or similar plan; this instrument; other Safes; and convertible promissory notes.</numbered_2_para>
+<? } ?>
 
 <numbered_2_para>"Liquidity Event" means a Change of Control or an Initial Public Offering.</numbered_2_para>
 
+<? if (! data.mfn) { ?>
 <numbered_2_para>"Liquidity Price" means the price per share equal to the Valuation Cap divided by the Liquidity Capitalization.	</numbered_2_para>
+<? } ?>
 
 <numbered_2_para>"Pro Rata Rights Agreement" means a written agreement between the Company and the Investor (and holders of other Safes, as appropriate) giving the Investor a right to purchase its pro rata share of private placements of securities by the Company occurring after the Equity Financing, subject to customary exceptions. Pro rata for purposes of the Pro Rata Rights Agreement will be calculated based on the ratio of (1) the number of shares of Capital Stock owned by the Investor immediately prior to the issuance of the securities to (2) the total number of shares of outstanding Capital Stock on a fully diluted basis, calculated as of immediately prior to the issuance of the securities.</numbered_2_para>
 
