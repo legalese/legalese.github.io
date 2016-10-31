@@ -2,6 +2,7 @@
 <?!= data.xmlRoot() ?>
 <? var holder_alias = data.new_investor.f_holder_alias ||  "Holder"; ?>
 <? xmLog(["data.new_investor has keys %s", Object.keys(data.new_investor)],6); ?>
+<? xmLog(["data.new_investor.previous_f_agreement_date = %s", data.new_investor.previous_f_agreement_date],6); ?>
 <? var previous_f_agreement_date = data.new_investor.previous_f_agreement_date || data.previous_f_agreement_date; ?>
 <? var documentTitle = (previous_f_agreement_date ? "Amended and Restated " : "") + data.security_type + " Agreement"; ?>
 <?!= include("inc_cover_2_parties", data, {cover_title:documentTitle, party1:data.company, party2:data.new_investor}) ?>
