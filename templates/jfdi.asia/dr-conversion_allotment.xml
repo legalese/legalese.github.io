@@ -22,7 +22,7 @@ signed among <?=
 commaAnd(["the Company"]
 .concat((data.parties.promoter ? [data.parties.promoter[0].name] : [])
 .concat(data.parties.new_investor.map(function(p){
-  return (p.name + ((data.parties.new_investor.length > 1) && p.class_f_agreement_date ? " (dated " + p.class_f_agreement_date + ")") : ""))
+  return (p.name + ((data.parties.new_investor.length > 1) && p.class_f_agreement_date ? " (dated " + p.class_f_agreement_date + ")" : ""))
 })))) ?>,</para_2>
 <? } ?>
 <? } ?>
