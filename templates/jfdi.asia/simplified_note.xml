@@ -50,15 +50,23 @@ The Notes shall bear no interest. <? } ?>
 
 <a_left_sidehead>Conversion Price</a_left_sidehead>
 
+<? var conversion_pre_or_post = "default";
+  if (data.conversion_mechanism) {
+    if      (data.conversion_mechanism.match(/before|prior/)) { conversion_pre_or_post = "pre" }
+    else if (data.conversion_mechanism.match(/after|post/))   { conversion_pre_or_post = "post" }
+  }
+  var immediately_before_after = conversion_pre_or_post == "pre" ? "immediately before" : "immediately after";
+?>
+
 <? if (iHaveCap && ! data._orig_discount) { ?>
-<numbered_2_para>The "Conversion Price" shall be fixed at the price per share equal to <?= data.pre_money_valuation ?> divided by the aggregate number of outstanding shares of the Company&#8217;s common stock as of <?= data.conversion_mechanism || "immediately after" ?> the initial closing of the Qualified Financing (assuming full conversion or exercise of all convertible and exercisable securities then outstanding other than the Notes) (the &#8220;<b>Valuation Cap</b>&#8221;).</numbered_2_para>
+<numbered_2_para>The "Conversion Price" shall be fixed at the price per share equal to <?= data.pre_money_valuation ?> divided by the aggregate number of outstanding shares of the Company&#8217;s common stock as of <?= immediately_before_after ?> the initial closing of the Qualified Financing (assuming full conversion or exercise of all convertible and exercisable securities then outstanding other than the Notes) (the &#8220;<b>Valuation Cap</b>&#8221;).</numbered_2_para>
 
 
 <? } else if (iHaveCap && data._orig_discount) { ?>
 
   <numbered_2_para>The &#8220;Conversion Price&#8221; is the lesser of</numbered_2_para>
   <numbered_3_para><?= data.hundred_minus_discount ?>% of the per share price paid by the purchasers of such Equity Securities in the Qualified Financing (the &#8220;<b>Discounted Conversion Price</b>&#8221;), or</numbered_3_para>
-  <numbered_3_para>the price per share equal to <?= data.pre_money_valuation ?> divided by the aggregate number of outstanding shares of the Company&#8217;s common stock as of <?= data.conversion_mechanism || "immediately after" ?> the initial closing of the Qualified Financing (assuming full conversion or exercise of all convertible and exercisable securities then outstanding other than the Notes) (the &#8220;<b>Valuation Cap</b>&#8221;).</numbered_3_para>
+  <numbered_3_para>the price per share equal to <?= data.pre_money_valuation ?> divided by the aggregate number of outstanding shares of the Company&#8217;s common stock as of <?= immediately_before_after ?> the initial closing of the Qualified Financing (assuming full conversion or exercise of all convertible and exercisable securities then outstanding other than the Notes) (the &#8220;<b>Valuation Cap</b>&#8221;).</numbered_3_para>
 
 
 <? } else if (data._orig_discount) { ?>
@@ -105,12 +113,12 @@ shares with respect to which the holders of a majority of the outstanding Notes 
   <a_left_sidehead>Pre-Payment</a_left_sidehead>
   <numbered_2_para>The Note may not be prepaid unless approved in writing by Investors holding Notes whose aggregate principal amount represents a majority of the outstanding principal amount of all then-outstanding Notes (the &#8220;<b>Requisite Holders</b>&#8221;).</numbered_2_para>
 
-
-
   <a_left_sidehead>Participation Right</a_left_sidehead>
-  <numbered_2_para>The Investor will have the right to participate in future financing rounds of the Company in order to maintain their percentage shareholding in the Company, calculated on fully-diluted basis.
-When a Qualified Financing triggers conversion of the Note to Equity Securities, the Investor will have the right to participate in that Qualified Financing.
-Should the Company issue equity securities or securities convertible to equity, subsequent to the current Series, but prior to the Qualified Financing, the Company shall give the Investor notice of the terms of that financing, and the Investor shall possess the right to participate in that financing on a pro rata basis.</numbered_2_para>
+  <numbered_2_para>Upon conversion, the Investor will have the right to participate in future financing rounds of the Company in order to maintain their percentage shareholding in the Company, calculated on fully-diluted basis.</numbered_2_para>
+
+<? if (conversion_pre_or_post == "pre") { ?>
+<numbered_2_para>When a Qualified Financing triggers conversion of the Note to Equity Securities, the Investor will have the right to participate in that Qualified Financing.</numbered_2_para>
+<? } ?>
 
   <a_left_sidehead>Amendment and Waiver</a_left_sidehead>
   <numbered_2_para>The terms of this Agreement and the Notes may be amended, or any term thereof waived, upon the written consent of the Company and the Requisite Holders.</numbered_2_para>
