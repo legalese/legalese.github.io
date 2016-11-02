@@ -27,10 +27,11 @@
 <para_1>Notice is hereby given to all members of the Company that the Directors intend to issue up to <?= totalShares ? totalShares : totalCommitments+" of" ?> <?= data.security_type_plural ?> ("<?= data.security_type_short_plural ?>")<?
  if(data.price_per_share){?>, at a price of <?= data.price_per_share ?> per share<?}?><? if (totalShares) { ?>, for a total of <?= totalCommitments ?><? } ?>.</para_1>
 <para_2><? if (data.explanation) { ?><?= data.explanation ?>
+
 <? } else { ?>
 As a member of the Company, you possess the right under the Company's Constitution to participate in this issue.
 <? } ?>
-<?   if (data.sitout_shareholder.preemptive_formality || data.preemptive_formality) {?><para_2>We request that you waive this right, as your waiver is a necessary formality required for the Company to issue securities to <?=commaAnd(data.parties.new_investor,"name")?>.<?
+<?   if (data.sitout_shareholder.preemptive_formality || data.preemptive_formality) {?>We request that you waive this right, as your waiver is a necessary formality required for the Company to issue securities to <?=commaAnd(data.parties.new_investor,"name")?>.<?
      } else { ?>
 <?
   xmLog("attempting to calculate percentage for sitout_shareholder %s", data.sitout_shareholder.name);
