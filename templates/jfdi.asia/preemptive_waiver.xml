@@ -37,7 +37,7 @@
   var numerator;
   var denominator;
 
-  if (data.preemptive_override && data.preemptive_override != "override") {
+  if (data.preemptive_override == undefined || data.preemptive_override != "override") {
   // ====================================================================== NORMAL EXECUTION PATH
   // calculation is based on holder equity and instruments directly convertible to equity
   // which includes Class F Unrestricted
