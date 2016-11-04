@@ -14,13 +14,22 @@
   if (data.egm_or_written_means == "AGM") { ?>at the Annual General Meeting of <?= data.company.name ?> (the "Company") held on <?= data.gm_date ?>
 <? } else { ?>by the <?!= plural(data.parties.shareholder, "Member", "Members") ?> of the Company in a resolution passed by written means<? } ?>, under Section 161 of the Companies Act (Cap. 50)</para_1>
 <? if (data.share_grant) { ?>
-<para_2>and pursuant to the <?= data.primary_agreement + (data.primary_agreement.match(/Class F/, "i") ? "" : " Agreement") ?> dated <?= data.primary_agreement_date ?> signed among <?=
-commaAnd(["the Company"].concat((data.parties.promoter ? [data.parties.promoter[0].name] : []).concat(
-data.parties.new_investor.map(function(p){return p.name})))) ?>,</para_2>
+<para_2>and pursuant to the <?= data.primary_agreement + (data.primary_agreement.match(/Class F/, "i") ? "" : " Agreement") ?>
+<? if (data.parties.new_investor.length == 1 && (data.class_f_agreement_date || data.parties.new_investor[0].class_f_agreement_date)) { ?>
+ dated <?= (data.class_f_agreement_date || data.parties.new_investor[0].class_f_agreement_date) ?> and
+<? } ?>
+ signed among <?=
+commaAnd(["the Company"]
+.concat((data.parties.promoter ? [data.parties.promoter[0].name] : [])
+.concat(data.parties.new_investor.map(function(p){
+  return (p.name + ((data.parties.new_investor.length > 1) && p.class_f_agreement_date ? " (dated " + p.class_f_agreement_date + ")" : ""))
+})))) ?>,</para_2>
 <? } ?>
 <? } ?>
-<para_2>the Company do hereby approve the allotment of <?= newIssues.TOTAL.shares ?> <?= data.security_type_plural ?> ("<?= data.security_type_short_plural ?>") in the share capital of the Company <? if (data.share_grant) { ?> for no consideration in relation to the conversion of <?= data.security_type_to_be_converted ?>
-<? } else { ?> for cash consideration at <?= (data.sgd_price_per_share || data.price_per_share) ?> <?}?> as follows:</para_2>
+<para_2>the Company do hereby approve the allotment of <?= newIssues.TOTAL.shares ?> <?= data.security_type_plural ?> ("<?= data.security_type_short_plural ?>") in the share capital of the Company <? if (data.share_grant) { ?>
+for no consideration, as conversion of <?= data.security_type_to_be_converted ?>
+<? } else { ?>
+for cash consideration at <?= (data.sgd_price_per_share || data.price_per_share) ?> <?}?> as follows:</para_2>
 
 <para_1>
 <Table aid:table="table" aid:tcols="3" aid:trows="<?= Object.keys(newIssues.holders).length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">

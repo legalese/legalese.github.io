@@ -1,7 +1,8 @@
 <?!= data.xml_declaration ?>
 <?!= data.xmlRoot() ?>
 <? var holder_alias = data.new_investor.f_holder_alias ||  "Holder"; ?>
-<? var documentTitle = (data.previous_f_agreement_date ? "Amended and Restated " : "") + data.security_type + " Agreement"; ?>
+<? var previous_f_agreement_date = data.new_investor.previous_f_agreement_date || data.previous_f_agreement_date; ?>
+<? var documentTitle = (previous_f_agreement_date ? "Amended and Restated " : "") + data.security_type + " Agreement"; ?>
 <?!= include("inc_cover_2_parties", data, {cover_title:documentTitle, party1:data.company, party2:data.new_investor}) ?>
 <?!= include("inc_cover_jfdi", data, { in_series:"05" }) ?>
 <Firstpage_Sidebar>
@@ -15,15 +16,15 @@
   <parties><?!= include("inc_party", data, data.company) ?> (the "Company").</parties>
 
   <para_1><span_smallcaps>Whereas:</span_smallcaps></para_1>
-<? if (data.previous_f_agreement_date) { ?>
-  <recitals>This agreement amends and restates a previous agreement dated <?= data.previous_f_agreement_date ?> with new numbers for restricted, unrestricted, cliff, and monthly vesting shares<? if (data.new_investor.recitals_text) { ?>, to <?= data.new_investor.recitals_text ?><?}?>.</recitals>
+<? if (previous_f_agreement_date) { ?>
+  <recitals>This agreement amends and restates a previous agreement dated <?= previous_f_agreement_date ?> with new dates and/or new numbers for restricted, unrestricted, cliff, and monthly vesting shares<? if (data.new_investor.recitals_text) { ?>, to <?= data.new_investor.recitals_text ?><?}?>.</recitals>
 <? } ?>
   <recitals>The Company's Constitution defines <?=data.security_type?> Redeemable Preference Shares. </recitals>
 <? if (data.capTable.getActiveRound()[data.new_investor.name] && data.capTable.getActiveRound()[data.new_investor.name]._orig_shares > 0) { ?>
 <recitals>The Company proposes to issue <?= data.capTable.getActiveRound().new_investors[data.new_investor.name].shares ?> <?=data.security_type_plural?> to the <?=holder_alias?> and the <?=holder_alias?> has agreed to subscribe for the <?=data.security_type_plural?> on the terms and conditions below. </recitals>
 <? } ?>
   <recitals>This Agreement describes the properties of the <?=holder_alias?>'s <?=data.security_type_plural?>.</recitals>
-<? if (data.previous_f_agreement_date) {?>
+<? if (previous_f_agreement_date) {?>
 <para_1><span_smallcaps>The parties therefore</span_smallcaps> amend and restate the <?=data.security_type?> Agreement to read in its entirety as follows:</para_1>
 <? } else { ?>
 <para_1><span_smallcaps>Now this agreement witnesseth</span_smallcaps> as follows:</para_1>

@@ -7,12 +7,12 @@
  else if (! iHaveCap &&   data._orig_discount) { subTitle = "Discount, no Cap" }
  else if (! iHaveCap && ! data._orig_discount) { subTitle = "No Cap, No Discount" } // MFN
 ?>
-<?!= include("inc_cover_2_parties", data, {cover_title:"Simple Agreement for Future Equity &#8232;"+subTitle, party1:data.company, party2:data.new_investor, disclaimer:true}) ?>
+<?!= include("inc_cover_2_parties", data, {cover_title:"SAFE &#8232;"+subTitle, party1:data.company, party2:data.new_investor, disclaimer:true}) ?>
 <?!= include("inc_cover_jfdi", data) ?>
 <Firstpage_Sidebar delete_if_empty="true">
 </Firstpage_Sidebar>
 <Story_Main>
-<para_1><span_smallcaps>This certifies that</span_smallcaps> in exchange for the payment by <?= data.new_investor.name ?>
+<para_1>This <span_smallcaps>Simple Agreement for Future Equity</span_smallcaps> certifies that in exchange for the payment by <?= data.new_investor.name ?>
  (the "Investor") of <?= data.new_investor.new_commitment ?>
  (the "Purchase Amount") on or about <?= data.investment_agreement_date ?>
 , <?= data.company.name ?>, a <?= data.company.state ?> corporation (the "Company"), hereby issues to the Investor the right to certain shares of the Company's capital stock, subject to the terms set forth below.
@@ -128,11 +128,15 @@ the Discount Price,</numbered_3_para>
 
 <numbered_2_para>"Initial Public Offering" means the closing of the Company's first firm commitment underwritten initial public offering of Common Stock pursuant to a registration statement filed under the Securities Act.</numbered_2_para>
 
+<? if (! data.mfn) { ?>
 <numbered_2_para>"Liquidity Capitalization" means the number, as of immediately prior to the Liquidity Event, of shares of Capital Stock (on an as-converted basis) outstanding, assuming exercise or conversion of all outstanding vested and unvested options, warrants and other convertible securities, but excluding: shares of Common Stock reserved and available for future grant under any equity incentive or similar plan; this instrument; other Safes; and convertible promissory notes.</numbered_2_para>
+<? } ?>
 
 <numbered_2_para>"Liquidity Event" means a Change of Control or an Initial Public Offering.</numbered_2_para>
 
-<numbered_2_para>"Liquidity Price" means the price per share equal to the Valuation Cap divided by the Liquidity Capitalization.	</numbered_2_para>
+<? if (! data.mfn) { ?>
+<numbered_2_para>"Liquidity Price" means the price per share equal to the Valuation Cap divided by the Liquidity Capitalization.</numbered_2_para>
+<? } ?>
 
 <numbered_2_para>"Pro Rata Rights Agreement" means a written agreement between the Company and the Investor (and holders of other Safes, as appropriate) giving the Investor a right to purchase its pro rata share of private placements of securities by the Company occurring after the Equity Financing, subject to customary exceptions. Pro rata for purposes of the Pro Rata Rights Agreement will be calculated based on the ratio of (1) the number of shares of Capital Stock owned by the Investor immediately prior to the issuance of the securities to (2) the total number of shares of outstanding Capital Stock on a fully diluted basis, calculated as of immediately prior to the issuance of the securities.</numbered_2_para>
 
