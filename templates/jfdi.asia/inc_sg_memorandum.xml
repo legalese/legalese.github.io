@@ -4,13 +4,13 @@
   <numbered_1_para restart="true">The name of the company is <?= data.company.name ?></numbered_1_para>
   <numbered_1_para>The Registered Office of the Company will be situated in Singapore.</numbered_1_para>
   <numbered_1_para>The liability of the members is limited. </numbered_1_para>
-  <numbered_1_para><? if (founding_investors.length > 1) { ?>We, the several persons whose names, citizenship, and addresses are hereunto subscribed are<?} else {?>
-I, the sole shareholder whose name, citizenship, and address are hereunto subscribed am<? } ?>
+  <numbered_1_para><? if (founding_investors.length > 1) { ?>We, the several persons whose names, country of issuance, ID and addresses are hereunto subscribed are<?} else {?>
+I, the sole shareholder whose name, country of issuance, ID and address are hereunto subscribed am<? } ?>
  desirous of incorporating a company in pursuance of this Constitution and <?= plural(founding_investors.length, "I hereby", "we respectively") ?> agree to take the number of shares in the capital of the Company set opposite <?= plural(founding_investors.length, "my name", "our respective names") ?>. </numbered_1_para>
   <table_enclosing_para>
 	<Table aid:table="table" aid:tcols="5" aid:trows="<?= founding_investors.length+1 ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
 <Cell aid:ccols="1" aid:ccolwidth="110" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
-<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Citizenship</cell_c></Cell>
+<Cell aid:ccols="1" aid:ccolwidth="60" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Country of issuance</cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="76" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>ID</cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="120" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Address</cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="70" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Number of Shares Held</cell_c></Cell>
