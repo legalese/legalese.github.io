@@ -349,7 +349,7 @@ Likewise, if anyone wants to expel or limit a person from being on any of Legale
 *** Requirements
 This section records requirements expressed by people on the team. It aims to anticipate the expected requirements of future participants.
 
-~Component: Survival   ([[https://en.wikipedia.org/wiki/Kiasi][Kiasiïsm]])~
+~Component: Survival   [[https://en.wikipedia.org/wiki/Kiasi][(Kiasiïsm)]]~
 + Staff need to have enough money to survive and focus on the job, without having to take outside jobs.
 + It's a bad idea for founders to pay themselves so little they can't work full time on the startup.
 
@@ -363,7 +363,7 @@ This section records requirements expressed by people on the team. It aims to an
      4. If the specific number is not known, then the compensation committee can make a [[https://open.buffer.com/introducing-open-salaries-at-buffer-including-our-transparent-formula-and-all-individual-salaries/][suggestion]]. And if the negotiations fail, then there is no deal.
 
 ~Component: Replacement Value (Kiasuism on the part of the Company)~
-+ Nobody is irreplaceable, so if somebody wants to get paid more than their work costs to the Company, maybe the [[BATNA][https://en.wikipedia.org/wiki/Best_alternative_to_a_negotiated_agreement]] is: no deal.
++ Nobody is irreplaceable, so if somebody wants to get paid more than their work costs to the Company, maybe the [[https://en.wikipedia.org/wiki/Best_alternative_to_a_negotiated_agreement][BATNA]] is: no deal.
 + The company should ask: what would it cost to contract out that piece of work? This is "core competency" theory.
 https://open.buffer.com/introducing-open-salaries-at-buffer-including-our-transparent-formula-and-all-individual-salaries/
 (we should add a lawyer grade.)
@@ -623,5 +623,5 @@ https://docs.google.com/spreadsheets/d/1zPwx-0S6AwAyYtxtE0X64TkEXQywz99m56xZZWOv
 ~Can I just work for equity then, since you have no money?~
 /Bingo. Read Compensation in further details above or ask on slack.  Anyway, we want to structure it such that equity and compensation eventually becomes interchangeable.  Now that we know how to structure it though, we just need to actually, uh, structure it. This involves long and extended conversations with everyone on the team. And architectural planning to ensure that it doesn't freak out the investors. This will probably take awhile. So yes, you probably can work for equity (subject to holacracy rules and compensation committee's rules), but what that means exactly, how much that is, will probably take us at least 3 months to get back to you on./
 
-~Can i get something in writing?~
+~Can I get something in writing?~
 /We can probably generate an employment agreement in writing once the procedures are followed through with. We can also probably generate a bunch of other documents. But if you want equity in writing, we have nothing to carve from now. And you should probably also realise that, that is essentially asking if you can have a piece of paper from us to tell you that we have no money, but when we do have money, we may splice some of that off for you and everyone else based on a yet to be defined metric......./
