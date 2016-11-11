@@ -1,6 +1,6 @@
 <para_1>That pursuant to Section 161 of the Companies Act (Cap. 50), the <?= plural(data.parties.director, "Director") ?> of the Company be and <?= plural_verb(data.parties.director, "is") ?> hereby authorised to allot and to issue <? if (data.share_issuance_total_shares) { ?><?= data.share_issuance_total_shares ?><? } ?><?= data.security_type_plural || "" ?>
-<?= data.security_type_plural ? " " : "shares " ?>
-<? if (data.security_essential && data.security_essential.match(/equity/)) { ?>in the capital of the Company<? } ?>
+<?= data.security_type_plural ? "" : "shares" ?>
+<? if (data.security_essential && data.security_essential.match(/equity/)) { ?> in the capital of the Company<? } ?>
 <?= data.share_issuance_to_persons || " to such persons" ?>
 <?= data.share_issuance_terms || " on such terms and conditions" ?>
 <?= data.share_issuance_rights || " and with such rights and restrictions as they may think fit to impose" ?>
