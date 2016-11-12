@@ -12,9 +12,9 @@
 <Firstpage_Sidebar delete_if_empty="true">
 </Firstpage_Sidebar>
 <Story_Main>
-<para_1>This <span_smallcaps>Simple Agreement for Future Equity</span_smallcaps> certifies that in exchange for the payment by <?= data.new_investor.name ?>
+<para_1>This <span_smallcaps>Simple Agreement for Future Equity</span_smallcaps> ("Agreement") dated <?= data.investment_agreement_date ?> certifies that in exchange for the payment by <?= data.new_investor.name ?>
  (the "Investor") of <?= data.new_investor.new_commitment ?>
- (the "Purchase Amount") on or about <?= data.investment_agreement_date ?>
+ (the "Purchase Amount")
 , <?= data.company.name ?>, a <?= data.company.state ?> corporation (the "Company"), hereby issues to the Investor the right to certain shares of the Company's capital stock, subject to the terms set forth below.
 <? if (iHaveCap) { ?>The <b>"Valuation Cap"</b> is <?= data.pre_money_valuation?>.
 <? }
@@ -32,6 +32,20 @@ The <b>"Discount Rate"</b> is <?= data.hundred_minus_discount ?>.
 See Section <xref to="definitions" /> for certain additional defined terms.
 <? } ?>
 </para_1>
+
+<? if (data.conditions_precedent) { ?>
+<a_left_sidehead xname="cp">Conditions Precedent</a_left_sidehead>
+
+<numbered_2_firstbold>The completion of this Agreement shall be contingent upon the satisfactory performance of the following<? if (data.cp_oracle) { ?>, as determined by <?= data.cp_oracle ?><? } ?>:</numbered_2_firstbold>
+
+<numbered_3_firstbold><?= data.conditions_precedent ?></numbered_3_firstbold>
+
+<numbered_2>Until the above conditions are satisfied there is no obligation on Investor to transfer the Purchase Amount.</numbered_2>
+
+<numbered_2>If these conditions are not met within <?= data.tranche_expiry_deadline ?> of the date of this Agreement, the Investor shall be released from the obligation to transfer the Purchase Amount.</numbered_2>
+
+
+<? } // conditions_precedent ?>
 
 <a_left_sidehead xname="events">Events</a_left_sidehead>
 <? /*
@@ -136,6 +150,10 @@ the Discount Price,</numbered_3_para>
 
 <? if (! data.mfn) { ?>
 <numbered_2_para>"Liquidity Price" means the price per share equal to the Valuation Cap divided by the Liquidity Capitalization.</numbered_2_para>
+<? } ?>
+
+<? if (data.parties.lead_investor && data.parties.lead_investor.length == 1) { ?>
+<numbered_2_para>"Lead Investor" refers to <?!= inc_party(data, data.parties.lead_investor[0]) ?>.</numbered_2_para>
 <? } ?>
 
 <numbered_2_para>"Pro Rata Rights Agreement" means a written agreement between the Company and the Investor (and holders of other Safes, as appropriate) giving the Investor a right to purchase its pro rata share of private placements of securities by the Company occurring after the Equity Financing, subject to customary exceptions. Pro rata for purposes of the Pro Rata Rights Agreement will be calculated based on the ratio of (1) the number of shares of Capital Stock owned by the Investor immediately prior to the issuance of the securities to (2) the total number of shares of outstanding Capital Stock on a fully diluted basis, calculated as of immediately prior to the issuance of the securities.</numbered_2_para>
