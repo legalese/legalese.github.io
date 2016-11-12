@@ -153,7 +153,7 @@ the Discount Price,</numbered_3_para>
 <? } ?>
 
 <? if (data.parties.lead_investor && data.parties.lead_investor.length == 1) { ?>
-<numbered_2_para>"Lead Investor" refers to <?!= inc_party(data, data.parties.lead_investor[0]) ?>.</numbered_2_para>
+<numbered_2_para>"Lead Investor" refers to <?!= include("inc_party", data, data.parties.lead_investor[0]) ?>.</numbered_2_para>
 <? } ?>
 
 <numbered_2_para>"Pro Rata Rights Agreement" means a written agreement between the Company and the Investor (and holders of other Safes, as appropriate) giving the Investor a right to purchase its pro rata share of private placements of securities by the Company occurring after the Equity Financing, subject to customary exceptions. Pro rata for purposes of the Pro Rata Rights Agreement will be calculated based on the ratio of (1) the number of shares of Capital Stock owned by the Investor immediately prior to the issuance of the securities to (2) the total number of shares of outstanding Capital Stock on a fully diluted basis, calculated as of immediately prior to the issuance of the securities.</numbered_2_para>
