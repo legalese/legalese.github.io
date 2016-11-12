@@ -41,7 +41,7 @@ See Section <xref to="definitions" /> for certain additional defined terms.
 
 <numbered_2_para>Until the above conditions are satisfied there is no obligation on Investor to transfer the Purchase Amount.</numbered_2_para>
 
-<numbered_2_para>If these conditions are not met within <?= data.tranche_expiry_deadline ?> of the date of this Agreement, the Investor shall be released from the obligation to transfer the Purchase Amount.</numbered_2_para>
+<numbered_2_para>If these conditions are not met within <?= data.tranche_expiry_deadline ?> of the date of this Agreement, the Investor shall be released from the obligation to transfer the Purchase Amount, and this Agreement shall determine.</numbered_2_para>
 
 
 <? } // conditions_precedent ?>
