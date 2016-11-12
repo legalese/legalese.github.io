@@ -14,8 +14,7 @@
 <Story_Main>
 <para_1>This <span_smallcaps>Simple Agreement for Future Equity</span_smallcaps> ("Agreement") dated <?= data.investment_agreement_date ?> certifies that in exchange for the payment by <?= data.new_investor.name ?>
  (the "Investor") of <?= data.new_investor.new_commitment ?>
- (the "Purchase Amount")
-, <?= data.company.name ?>, a <?= data.company.state ?> corporation (the "Company"), hereby issues to the Investor the right to certain shares of the Company's capital stock, subject to the terms set forth below.
+ (the "Purchase Amount"), <?= data.company.name ?>, a <?= data.company.state ?> corporation (the "Company"), hereby issues to the Investor the right to certain shares of the Company's capital stock, subject to the terms set forth below.
 <? if (iHaveCap) { ?>The <b>"Valuation Cap"</b> is <?= data.pre_money_valuation?>.
 <? }
   xmLog("data.discount=%s",data.discount);
@@ -36,13 +35,13 @@ See Section <xref to="definitions" /> for certain additional defined terms.
 <? if (data.conditions_precedent) { ?>
 <a_left_sidehead xname="cp">Conditions Precedent</a_left_sidehead>
 
-<numbered_2_firstbold>The completion of this Agreement shall be contingent upon the satisfactory performance of the following<? if (data.cp_oracle) { ?>, as determined by <?= data.cp_oracle ?><? } ?>:</numbered_2_firstbold>
+<numbered_2_para>The completion of this Agreement shall be contingent upon the satisfactory performance of the following<? if (data.cp_oracle) { ?>, as determined by <?= data.cp_oracle ?><? } ?>:</numbered_2_para>
 
 <numbered_3_firstbold><?= data.conditions_precedent ?></numbered_3_firstbold>
 
-<numbered_2>Until the above conditions are satisfied there is no obligation on Investor to transfer the Purchase Amount.</numbered_2>
+<numbered_2_para>Until the above conditions are satisfied there is no obligation on Investor to transfer the Purchase Amount.</numbered_2_para>
 
-<numbered_2>If these conditions are not met within <?= data.tranche_expiry_deadline ?> of the date of this Agreement, the Investor shall be released from the obligation to transfer the Purchase Amount.</numbered_2>
+<numbered_2_para>If these conditions are not met within <?= data.tranche_expiry_deadline ?> of the date of this Agreement, the Investor shall be released from the obligation to transfer the Purchase Amount.</numbered_2_para>
 
 
 <? } // conditions_precedent ?>
