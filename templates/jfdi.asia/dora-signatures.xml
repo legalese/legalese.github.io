@@ -2,7 +2,7 @@
 <?!= data.xmlRoot() ?>
 <?!= include("inc_cover_standard_parties", data, {cover_title:"Deed of &#8232;Ratification and &#8232;Accession", rcpts_to:rcpts_to}) ?>
 <?!= include("inc_cover_jfdi", data) ?>
-<Firstpage_Sidebar><sidebar>Every time a new shareholder joins the company, it is unfortunately necessary for all existing shareholders to sign this deed. If they didn't, then there would be no agreement between the old parties and the new.</sidebar>
+<Firstpage_Sidebar><sidebar>Every time a new shareholder joins the company (e.g. a new employee participates in the ESOP), it is necessary for all shareholders to sign this deed. If they didn't, then there would be no agreement between the old parties and the new.</sidebar>
 </Firstpage_Sidebar>
 
 <Story_Main>
