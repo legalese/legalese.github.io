@@ -3,6 +3,7 @@
 <? var holder_alias = data.new_investor.f_holder_alias ||  "Holder"; ?>
 <? var previous_f_agreement_date = data.new_investor.previous_f_agreement_date || data.previous_f_agreement_date; ?>
 <? var documentTitle = (previous_f_agreement_date ? "Amended and Restated " : "") + data.security_type + " Agreement"; ?>
+<? var my_cliff_end_date = data.new_investor.f_cliff_date || data.new_investor.f_cliff_end_date || data.f_cliff_end_date; ?>
 <?!= include("inc_cover_2_parties", data, {cover_title:documentTitle, party1:data.company, party2:data.new_investor}) ?>
 <?!= include("inc_cover_jfdi", data, { in_series:"05" }) ?>
 <Firstpage_Sidebar>
@@ -82,7 +83,7 @@
   <numbered_3_para>the Company shall have the right (the "Redemption Right") to redeem from the <?=holder_alias?>, at a price per share equal to the Issue Price (the "Redemption Price"), up to the total number of Restricted Shares held by the <?=holder_alias?> as at the date of the redemption notice.</numbered_3_para>
   <numbered_3_para>The number of shares in the Restricted column of the above table shall initially be subject to the Redemption Right. </numbered_3_para>
   <numbered_3_para>The number of shares in the Unrestricted column of the above table shall not be subject to the Redemption Right; they shall be deemed vested upon issue and are convertible to <?=data.converts_to_security_type || "Ordinary Shares"?>. </numbered_3_para>
-  <numbered_3_para>The number of shares in the Cliff column of the above table shall vest on <?= data.f_cliff_end_date ?>. </numbered_3_para>
+  <numbered_3_para>The number of shares in the Cliff column of the above table shall vest on <?= my_cliff_end_date ?>. </numbered_3_para>
 <? if (data.new_investor.f_cliff_2 && data.new_investor.f_cliff_end_date_2) { ?>
   <numbered_3_para>The number of shares in the Cliff 2 column of the above table shall vest on <?= data.new_investor.f_cliff_end_date_2 ?>. </numbered_3_para>
 <? } ?>
@@ -167,7 +168,7 @@
   <para_1>For the avoidance of doubt, we calculate the following shareholding as of that date: </para_1>
   <para_2>N	<?=data.converts_to_security_type || "Ordinary Shares"?> existed at time of the agreement; </para_2>
   <para_2>M	Unrestricted Shares were granted upon initial signing of agreement; </para_2>
-  <para_2>O	"Cliff" Unrestricted Shares vested on <?= data.f_cliff_end_date ?>; </para_2>
+  <para_2>O	"Cliff" Unrestricted Shares vested on <?= my_cliff_end_date ?>; </para_2>
   <para_2>P	"<?=data.new_investor.f_period || "Monthly"?>" Unrestricted Shares subsequently vested up to X date; </para_2>
   <para_2>Q	Restricted Shares remain. </para_2>
   <para_1>Pursuant to the <?=data.security_type?> Agreement we hereby give notice that we intend to redeem the Q remaining Restricted Shares. </para_1>
