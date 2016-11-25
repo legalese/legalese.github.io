@@ -296,11 +296,15 @@ shall be fully-paid by the Investor at the time of issue by the Company in accor
 <schedule_header xname="schedule_shareholding">Shareholding Structure</schedule_header>
 
 <schedule_parts>Existing Shareholders</schedule_parts>
-<? for (var i = 0; i < data.parties.shareholder.length; i++) { var myShareholder = data.parties.shareholder[i]; ?>
-<?   if (! data.capTable.investorHoldingsInRound(myShareholder.name)) { continue } ?>
-<?   xmLog(["showing investorHoldingsInRound for %s", myShareholder.name],6); ?>
-<bullets><?= newlinesToCommas(myShareholder.name) ?> holds <?!= data.capTable.investorHoldingsInRound(myShareholder.name) ?>.</bullets>
-<? } ?>
+<? var oldInvestors  = data.capTable.getActiveRound().getOldInvestors();
+   var previousRound = data.capTable.getActiveRound().getPreviousRound();
+   for (var hh in oldInvestors.holders) {
+	with(data._entitiesByName[hh]) { ?>
+<bullets><?= newlinesToCommas(name) ?> holds <?!= data.capTable.investorHoldingsInRound(name, previousRound) ?>.</bullets>
+<?
+	}
+   }
+?>
 
 <schedule_parts xname="new_investors">New Investors</schedule_parts>
 
