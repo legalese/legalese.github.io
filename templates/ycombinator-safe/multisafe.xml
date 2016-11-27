@@ -109,7 +109,6 @@ See Section <xref to="definitions" /> for certain additional defined terms.
     if (iHaveCap) { ?> if the Company fails to repay the Investor in full by the Repayment Date, the Investor may then opt to receive from the Company shares of Common Stock equal to the Purchase Amount divided by the "Maturity Price Per Share", that being the Valuation Cap <?
       if (data._orig_discount) { ?>multiplied <?= data.hundred_minus_discount ?>%, <? } ?>
 divided by the Company Capitalization.<?
-      }
     }
   }  
 ?></numbered_2_firstbold>
