@@ -9,7 +9,7 @@
 
  if (data.tranche) { subTitle = subTitle + " &#8232;" + data.tranche }
 ?>
-<?!= include("inc_cover_2_parties", data, {cover_title:"SAFE &#8232;"+subTitle, party1:data.new_investor, disclaimer:true}) ?>
+<?!= include("inc_cover_2_parties", data, {cover_title:"SAFE &#8232;"+subTitle, party1:data.new_investor, party2:data.company, disclaimer:true}) ?>
 <?!= include("inc_cover_jfdi", data) ?>
 <Firstpage_Sidebar delete_if_empty="true">
 </Firstpage_Sidebar>
