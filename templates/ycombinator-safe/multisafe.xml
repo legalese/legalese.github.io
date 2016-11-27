@@ -106,7 +106,7 @@ See Section <xref to="definitions" /> for certain additional defined terms.
 <?
   if (data.maturity_date) { ?>
 <numbered_2_firstbold xname="maturity">Maturity. If, by <?= data.maturity_date ?> (the "Maturity Date"), this instrument has not otherwise terminated, then it will become repayable in full by <?= data.repayment_date ?> (the "Repayment Date").<?
-    if (iHaveCap) { ?> if the Company fails to repay the Investor in full by the Repayment Date, the Investor may then opt to receive from the Company shares of Common Stock equal to the Purchase Amount divided by the "Maturity Price Per Share", that being the Valuation Cap <?
+    if (iHaveCap) { ?> If the Company fails to repay the Investor in full by the Repayment Date, the Investor may then opt to receive from the Company shares of Common Stock equal to the Purchase Amount divided by the "Maturity Price Per Share", that being the Valuation Cap <?
       if (data._orig_discount) { ?>multiplied <?= data.hundred_minus_discount ?>%, <? } ?>
 divided by the Company Capitalization.<?
     }
@@ -117,7 +117,7 @@ divided by the Company Capitalization.<?
 <numbered_2_firstbold>Termination. This instrument will expire and terminate (without relieving the Company of any obligations arising from a prior breach of or non-compliance with this instrument) upon either:</numbered_2_firstbold>
 <numbered_3_para>the issuance of stock to the Investor pursuant to Section <xref to="equity_financing" /> or Section <xref to="specie_payment" />; or
 the payment, or setting aside for payment, of amounts due the Investor pursuant to Section <xref to="cash_payment" /> or Section <xref to="dissolution_event" />; or
-the payment of amounts due the Investor pursuant to Section <xref to="maturity_payment" /> or the issuance of shares pursuant to Section <xref to="maturity_conversion" />.</numbered_3_para>
+the payment of amounts due to the Investor<? if (iHaveCap) { ?>, or the issuance of shares to the Investor,<? } ?> pursuant to Section <xref to="maturity" />.</numbered_3_para>
 
 
 <a_left_sidehead xname="definitions">Definitions</a_left_sidehead>
