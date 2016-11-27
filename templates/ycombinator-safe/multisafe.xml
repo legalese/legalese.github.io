@@ -103,8 +103,22 @@ See Section <xref to="definitions" /> for certain additional defined terms.
 <numbered_2_firstbold xname="dissolution_event">Dissolution Event. If there is a Dissolution Event before this instrument expires or terminates, the Company will pay an amount equal to the Purchase Amount, due and payable to the Investor immediately prior to, or concurrent with, the consummation of the Dissolution Event. The Purchase Amount will be paid prior and in preference to any Distribution of any of the assets of the Company to holders of outstanding Capital Stock by reason of their ownership thereof. If immediately prior to the consummation of the Dissolution Event, the assets of the Company legally available for distribution to the Investor and all holders of all other Safes (the "Dissolving Investors"), as determined in good faith by the Company's board of directors, are insufficient to permit the payment to the Dissolving Investors of their respective Purchase Amounts, then the entire assets of the Company legally available for distribution will be distributed with equal priority and pro rata among the Dissolving Investors in proportion to the Purchase Amounts they would otherwise be entitled to receive pursuant to this Section <xref to="dissolution_event" />.</numbered_2_firstbold>
 
 
-<numbered_2_firstbold>Termination. This instrument will expire and terminate (without relieving the Company of any obligations arising from a prior breach of or non-compliance with this instrument) upon either the issuance of stock to the Investor pursuant to Section <xref to="equity_financing" /> or Section <xref to="specie_payment" />; or the payment, or setting aside for payment, of amounts due the Investor pursuant to Section <xref to="cash_payment" /> or Section <xref to="dissolution_event" />.</numbered_2_firstbold>
+<?
+  if (data.maturity_date) { ?>
+<numbered_2_firstbold xname="maturity">Maturity. If, by <?= data.maturity_date ?> (the "Maturity Date"), this instrument has not otherwise terminated, then it will become repayable in full by <?= data.repayment_date ?> (the "Repayment Date").<?
+    if (iHaveCap) ?> if the Company fails to repay the Investor in full by the Repayment Date, the Investor may then opt to receive from the Company shares of Common Stock equal to the Purchase Amount divided by the "Maturity Price Per Share", that being the Valuation Cap <?
+      if (data._orig_discount) { ?>multiplied <?= data.hundred_minus_discount ?>%, <? } ?>
+divided by the Company Capitalization.<?
+      }
+    }
+  }  
+?></numbered_2_firstbold>
 
+
+<numbered_2_firstbold>Termination. This instrument will expire and terminate (without relieving the Company of any obligations arising from a prior breach of or non-compliance with this instrument) upon either:</numbered_2_firstbold>
+<numbered_3_para>the issuance of stock to the Investor pursuant to Section <xref to="equity_financing" /> or Section <xref to="specie_payment" />; or
+the payment, or setting aside for payment, of amounts due the Investor pursuant to Section <xref to="cash_payment" /> or Section <xref to="dissolution_event" />; or
+the payment of amounts due the Investor pursuant to Section <xref to="maturity_payment" /> or the issuance of shares pursuant to Section <xref to="maturity_conversion" />.</numbered_3_para>
 
 
 <a_left_sidehead xname="definitions">Definitions</a_left_sidehead>
@@ -197,7 +211,18 @@ convertible securities issued or issuable in connection with sponsored research,
 
 <numbered_2_para>The Investor has full legal capacity, power and authority to execute and deliver this instrument and to perform its obligations hereunder. This instrument constitutes valid and binding obligation of the Investor, enforceable in accordance with its terms, except as limited by bankruptcy, insolvency or other laws of general application relating to or affecting the enforcement of creditors' rights generally and general principles of equity.</numbered_2_para>
 
-<numbered_2_para>The Investor is an accredited investor as such term is defined in Section 4(A) of the Securities and Futures Act (Cap 289, Singapore Rev. Ed. 2006). The Investor has been advised that this instrument and the underlying securities have not been registered under the Act and therefore cannot be resold unless they are registered under the Act or unless an exemption from such registration requirements is available. The Investor is purchasing this instrument and the securities to be acquired by the Investor hereunder for its own account for investment, not as a nominee or agent, and not with a view to, or for resale in connection with, the distribution thereof, and the Investor has no present intention of selling, granting any participation in, or otherwise distributing the same. The Investor has such knowledge and experience in financial and business matters that the Investor is capable of evaluating the merits and risks of such investment, is able to incur a complete loss of such investment without impairing the Investor's financial condition and is able to bear the economic risk of such investment for an indefinite period of time.</numbered_2_para>
+<numbered_2_para>The Investor has been advised that this instrument and the underlying securities have not been registered under the Securities and Futures Act (Cap 289, Singapore) ("SFA") and therefore cannot be resold unless they are registered under the Act or unless an exemption from such registration requirements is available. The Investor understands that this security is offered in reliance on one or more of the exemptions under sections 272a(1), 272b(1), 274, and 275(1) of the SFA. The Investor is purchasing this instrument and the securities to be acquired by the Investor hereunder for its own account for investment, not as a nominee or agent, and not with a view to, or for resale in connection with, the distribution thereof, and the Investor has no present intention of selling, granting any participation in, or otherwise distributing the same. <? if (data.new_investor.is_accredited) { ?>The Investor is an accredited investor as such term is defined in Section 4(A) of the SFA. <? } ?>The Investor has such knowledge and experience in financial and business matters that the Investor is capable of evaluating the merits and risks of such investment, is able to incur a complete loss of such investment without impairing the Investor's financial condition and is able to bear the economic risk of such investment for an indefinite period of time.</numbered_2_para>
+
+<? if (data.information_rights || false) { // any company obligations? list here the disjunction of all bool parameters below ?>
+
+<a_left_sidehead>Company Obligations</a_left_sidehead>
+
+<?      if (data.information_rights) { ?>
+
+<numbered_2_firstbold xname="information_rights">Information Rights. The Company shall (at its discretion) deliver to the Investor, or electronically give the Investor sufficient access to extract and view, periodic financial statements within thirty (30) days after the end of each of the first three (3) quarters of each fiscal year of the Company and within ninety (90) days after the end of each fiscal year of the Company<? if (data.information_rights_first_quarter_end) { ?>, starting with the quarter ending <?= data.information_rights_first_quarter_end ?><? } ?>. The Company shall not be obligated under this Section <xref to="information_rights"/> to provide information that (a) it deems in good faith to be a trade secret or highly confidential information or (b) the disclosure of which would adversely affect the attorney-client privilege between the Company and its counsel or (c) violates the Company's privacy policies or agreements with end-users; and the Investor agrees to maintain the confidentiality of all of the information provided to the Investor under this Section <xref to="information_rights"/> and agrees not to use such information other than for a purpose reasonably related to the Investor's investment in the Company.</numbered_2_firstbold>
+
+<?      } ?>
+<? } ?>
 
 <a_left_sidehead>Miscellaneous</a_left_sidehead>
 
