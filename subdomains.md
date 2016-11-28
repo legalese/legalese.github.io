@@ -15,9 +15,10 @@ A comprehensive list of the various subdomains @virgil has created for legalese.
 * github.legalese.com	 -> https://github.com/legalese	
 * glassfrog.legalese.com	 -> https://app.glassfrog.com/organizations/4050	
 * issues.legalese.com	 -> https://github.com/legalese/legalese.com/issues	
-* linkedin.legalese.com	 -> https://www.linkedin.com/company/10860801	
+* linkedin.legalese.com	 -> https://www.linkedin.com/company/legalese.com
 * medium.legalese.com -> 	https://medium.com/@legalese
 * onboarding.legalese.com -> https://github.com/legalese/legalese.com/blob/master/doc/company.org	
+* orgchart.legalese.com -> https://app.glassfrog.com/organizations/4050
 * slack.legalese.com	 -> https://legalese.slack.com/	
 * twitter.legalese.com	 -> https://twitter.com/legalese
 * talk.lists.legalese.com	 -> https://groups.google.com/a/lists.legalese.com/forum/#!forum/talk	
