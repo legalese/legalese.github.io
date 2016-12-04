@@ -121,8 +121,10 @@
   <b_left_sidehead xname="acc_other">No Other Acceleration. </b_left_sidehead>
   <para_1>Any other Change of Control event will have no effect on the <?= data.security_type ?> shares. </para_1>
 
+<? if (! data.compensation_adjustment == false) { ?>
   <a_left_sidehead xname="comp_adj">Compensation Adjustment</a_left_sidehead>
   <para_1>The Directors intend to permit a <?=holder_alias?> who is also an employee or consultant to balance his compensation from time to time in favour of cash or equity according to preference and circumstance. Accordingly, the <?=holder_alias?> may in any given month, with the approval of the Directors, elect to subscribe for additional Unrestricted F Shares at the Discretionary Subscription Price (defined in the Constitution) up to the maximum amount of his monthly pay. </para_1>
+<? } ?>
   <a_left_sidehead>Restrictions on Transfer</a_left_sidehead>
   <numbered_2_para>Subsequent to an External Financing, the provisions of the Constitution and of the Shareholders' Agreement relating to the registration, transfer, transmission, certificates and replacement thereof applicable to <?=data.converts_to_security_type || "Ordinary Shares"?> shall apply mutatis mutandis to <?=data.security_type_short_plural?>. </numbered_2_para>
   <numbered_2_para>Prior to an External Financing, notwithstanding anything contained in this Constitution or the Shareholders' Agreement, <?=holder_alias?>s of <?=data.security_type_short_plural?> shall be allowed to transfer the <?=data.security_type_short_plural?> among themselves at mutually agreed valuations. The Company shall, and shall ensure that all Directors and Bondholders in the company shall not prevent the transfer of <?=data.security_type_short_plural?> among the <?=holder_alias?>s prior to an External Financing. Any Restricted Shares that are transferred pursuant to this clause shall be added to the number of Restricted Shares then held by the transferee. There shall be no change to the number of Restricted Shares per month which are converted to Unrestricted Shares.</numbered_2_para>
