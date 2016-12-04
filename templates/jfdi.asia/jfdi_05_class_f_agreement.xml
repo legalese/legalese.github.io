@@ -121,7 +121,7 @@
   <b_left_sidehead xname="acc_other">No Other Acceleration. </b_left_sidehead>
   <para_1>Any other Change of Control event will have no effect on the <?= data.security_type ?> shares. </para_1>
 
-<? if (! data.compensation_adjustment == false) { ?>
+<? if (! data.compensation_adjustment == true) { ?>
   <a_left_sidehead xname="comp_adj">Compensation Adjustment</a_left_sidehead>
   <para_1>The Directors intend to permit a <?=holder_alias?> who is also an employee or consultant to balance his compensation from time to time in favour of cash or equity according to preference and circumstance. Accordingly, the <?=holder_alias?> may in any given month, with the approval of the Directors, elect to subscribe for additional Unrestricted F Shares at the Discretionary Subscription Price (defined in the Constitution) up to the maximum amount of his monthly pay. </para_1>
 <? } ?>
