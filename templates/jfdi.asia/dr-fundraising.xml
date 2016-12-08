@@ -23,7 +23,7 @@ who <?= plural_verb(data.parties.new_investor, "has") ?> <? if(data.previously_p
 if (data.security_essential == "equity" && data.price_per_share) { ?> at a subscription price of <?= data.price_per_share ?> per share<?}?>
 <?}?>
 .</numbered_2_para>
-<? if (! data.share_grant) { ?><numbered_2_para>The abovenamed parties have <?if(data.previously_paid){?>previously entered<?}else{?>agreed to enter<?}?> into a subscription agreement (annexed) to memorialise the above intents and purposes.</numbered_2_para><? } ?>
+<? if (! data.share_grant) { ?><numbered_2_para>The abovenamed parties have <?if(data.previously_paid){?>previously entered<?}else{?>agreed to enter<?}?> into one or more subscription agreements ("the Agreement") to memorialise the above intents and purposes.</numbered_2_para><? } ?>
 
 <b_left_sidehead_nonum>It is hence resolved that:---</b_left_sidehead_nonum>
 
