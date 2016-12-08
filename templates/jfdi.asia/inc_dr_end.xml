@@ -1,5 +1,5 @@
 <? if (data._include.director_or_member == "Member") { ?>
-<para_1><?!= plural(data.parties.shareholder, "I", "We") ?>, the undersigned, being the <?!= plural(data.parties.shareholder, "sole member", "Shareholders") ?> of the Company, do hereby pass the foregoing Resolution<?= data.members_resolution_2 ? "s" : "" ?> by written means:---</para_1>
+<para_1><?!= plural(data.parties.voting_shareholder, "I", "We") ?>, the undersigned, being the <?!= plural(data.parties.voting_shareholdery, "sole voting member", "voting Shareholders") ?> of the Company, do hereby pass the foregoing Resolution<?= data.members_resolution_2 ? "s" : "" ?> by written means:---</para_1>
 <? } ?>
 
 <? if (! (data._config.omit_date && data._config.omit_date.value)) { ?>
@@ -7,7 +7,7 @@
 <? } ?>
 
 <?!= include("inc_enumerate_signatures", data, {rcpts_to:data._include.rcpts_to,
-  _include2: { term:{brand_new_investor: "new investor", shareholder:"current shareholder"} } }) ?>
+  _include2: { term:{brand_new_investor: "new investor", voting_shareholder:"current shareholder"} } }) ?>
 
 <? Logger.log("inc_dr_end rcpts_to = %s", data._include.rcpts_to); ?>
 <? Logger.log("_include = %s", data._include); ?>
