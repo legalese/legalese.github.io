@@ -34,7 +34,7 @@
   <numbered_2_para>In this Agreement, except to the extent that the context otherwise requires, the following terms shall have the meanings set forth below:</numbered_2_para>
   <definition>Articles	means the Regulations in the Constitution of the Company.</definition>
   <definition>Payment to Third-Party	The payment of <?=data.third_party_payment_amount?> to a person named <?= data.third_party_name?> (the "Third Party").</definition>
-  <definition>Principal	means <?=data.new_investor.new_commitment?>, that being agreed as the Singapore Dollar equivalent of the Payment to Third Party.</definition>
+  <definition>Principal	means <?=data.new_investor.new_commitment?>, that being agreed as the Singapore Dollar equivalent of the Payment to Third Party, less any repayments that may be made from time to time.</definition>
 
   <a_left_sidehead>Condition Precedent</a_left_sidehead>
   <numbered_2_para>This Agreement shall be effective when the Investor delivers to the Company evidence of the transfer of either</numbered_2_para>
