@@ -1,14 +1,20 @@
 <?!= data.xml_declaration ?>
 <?!= data.xmlRoot() ?>
-<!--Drafter comments: I am not a lawyer with a current practising cert / license because (in no particular order), I am no longer attached to a law firm, don't want to set up my own law firm, think . I am called to the bar (i.e. )
+<!--Original drafter's disclaimer:
+  Tl;dr IANAL
 
+      Whilst I am an advocate and solicitor of the supreme court of Singapore (aka called to the bar) but I am not a lawyer with a current practising cert / license.  This is because (in no particular order), I am no longer attached to a law firm, don't want to set up my own law firm, and think it's about time we replace contract drafting lawyers with contract drafting software.
 
-<!--This contract covers a short-term engagement (no longer than 3 months) with a contractor (and by contractor, we mean someone who is not an employee. As much as we don't want to restrict people from working for other people, studying, doing whatever the fuck they want during their engagement with us, we also don't have the resources to manages the admin and overheads resulting from any employment legislation or rules that bind employees)
+      But this contract is pre-DSL / smart software. This means that I am still, as lawyers do, using computers to help with the manual work but not with the thinking -- i.e. there will be mistakes, oversight, unclear language (whether intended or not). It kinda sucks. But we are working on it, and hopefully soon, someone will get to draft a level-up version of this in L4 (or whatever we end up calling our DSL).-->
 
-Other features:
-- fixed term, with  option for renewal (gives us flexibility to renew, pull out, vary etc)
-- full-time basis, but non-exclusive (full-time in the sense that we want to cover robust commitment and responsibilities; does not mean 9-5 hours)
-- emphasis on independence, self-direction, control on the part of the contractor (i.e. items that make it clear that it is not an employment agreement) -->
+<!--Who this contract is for:
+    Contractor (i.e. not an employee)
+        (and by contractor, we mean someone who is not an employee. As much as we don't want to restrict people from working for other people, studying, doing whatever the fuck they want during their engagement with us, we also don't want to / have the resources to manages the admin and overheads resulting from any employment legislation or rules that bind employees)-->
+
+<!-- Other features of this contract:
+    - fixed term, with  option for extension (gives us flexibility to renew, pull out, vary etc)
+    - full-time basis, but non-exclusive (full-time in the sense that we want to cover robust commitment and responsibilities; does not mean 9-5 hours)
+    - emphasis on independence, self-direction, control on the part of the contractor (i.e. items that make it clear that it is not an employment agreement) -->
 
 <CoverTop>
 <cover_title>Contract for Service</cover_title>
@@ -38,133 +44,146 @@ Other features:
 
 <Story_Main><chapter_header>Contract for Service</chapter_header>
 
-<!-- First, we set out the parties to the contract
-Details you generally need to identify wtf the parties are (recall: privity of contract means you generally can't bind a party to terms/conditions in a contract unless they are a party (i.e. signatory) to it)
-  > for individuals
+<!-- First, we set out the parties to the contract. Gotta know wtf the people are to bind them (a.k.a. privity of contract)!
+
+  Details you generally need to identify the parties with
+  > individuals
     (1) full name on official document (such as passport);
     (2) ID number of official document (such as passport or identity card); and
     (3) country of issue for such document
-  > for companies
+  > companies / corporate entities / other kinds of legal persons
     (1) full registered name of the company;
     (2) country of incorporation;
     (3) incorporation number that will identify such party within that country which it is incorporated-->
-<!-- In some cases, people do a quick search on the relevant database to get these details as part of due diligence on the other party prior to entering into an agreement with them-->
+
+<!-- Brownie points before you enter into the contract:
+      It's been observed that very diligent and responsible people tend to do quick searches on the relevant country database / ask for certified true copies of documents referred to, to get these details prior to signing the contract. Lawyers and boring people call it due diligence; others get it when you tell them it's akin to an exchanging of STD test results prior to closing the deal... consummation of the prior discussions... entering into a relationship. Wow, I'm not even trying to be obviously glib here - these are actually phrases that serious people use to describe contracts.-->
 
 <para_1>This contract for service is generated on <textvar name="Output Date"/> ("<b>Contract</b>")</textvar></para_1>
-<!-- For greater flexibility, the output date should be different from the Effective Date. Why? Mainly because we execute it via Echosign and we don't actually know at the outset the exact date (which can affect how we word certain obligations and assumptions). Sometimes people want to capture arrangements that's already ongoing - ie. backdate the agreement. IANAL (with a current practising certificate/license), but as far as I am aware, under SG law, -->
+<!-- For greater flexibility, the output date should be different from the Effective Date.
+  Why?
+    Mainly because Legalese gets the parties to execute it via Echosign -- this means that parties and Legalese don't actually know at the outset the exact date of when the contract is to take effect. Like overeating at work lunches, it's not wrong per se; it just could potentially get hairy, confusing, and/or complicating.
+
+  Setting the Output Date as distinct from the Effective Date also allows for backdating - a rather common but unrecommended practice. IANAL (with a current practising certificate/license), but as far as I am aware, under SG law it's not illegal per se (unless done with the intention to defraud). It just makes managing the document-dependencies and timelines hairier for humans; no problem for computers though. -->
 
 <para_1><span_smallcaps>between</span_smallcaps>:-</para_1>
 <parties><?!= include("inc_party", data, data.parties.contractor[0]) ?> (the "<b>Contractor</b>"), and</parties>
 <parties><?!= include("inc_party", data, data.company) ?> (the "<b>Company</b>")</parties>
 <para_1>(each a "<b>Party</b>" and collectively, the "<b>Parties</b>")</para_1>
 <!--
-Recitals (generally persuasive only if the contract is unclear)
--->
-<para_1><span_smallcaps>Whereas:-</span_smallcaps></para_1>
-<recitals>The Company and Contractor has been in negotiations on the compensation amount Contractor desires for her performance and/or provision of the Services.</recitals>
-<recitals>The Company is desirous of engaging the Contractor and the Contractor agrees to be engaged for her provision and/or performance of the Services in the capacity of a <?= data.role ?> according to the terms and subject to the conditions set out in this Contract.</recitals>
+Recitals (generally persuasive only if the contract is unclear). My view is that if you want recitals, you should be particularising it for the contract -- else what's the point?
 
-<!--Start of contract and legend for guiding interpretation and definitions. Nothing that is undefined should be capitalised unless it is a proper noun-->
+Described by more cerebral beings:
+    "My marginalia agrees; I’m inclined to treat them as never having any operational semantics, for the same reasons we’ve put aside defeasible reasoning. Unclear whether we need a representation for NLG."
+    - @vi, 20161215, Legalese slack
+    "i think the NLG will be satisfied by an opaque _inline_ type construct
+    they basically serve the same function as comments in code: they lack operational semantics at the level of program execution, but can be fairly structured (e.g. Haddock), and are intended for human consumption, when humans want to understand the context, style, or intended use cases of the contract."
+    - @mengwong, 20161215, Legalese slack-->
+
+<para_1><span_smallcaps>Whereas:-</span_smallcaps></para_1>
+  <recitals>The Company and Contractor has been in negotiations on the compensation amount Contractor desires for her performance and/or provision of the Services.</recitals>
+  <recitals>The Company is desirous of engaging the Contractor and the Contractor agrees to be engaged for her provision and/or performance of the Services in the capacity of a <?= data.role ?> according to the terms and subject to the conditions set out in this Contract.</recitals>
+
+<!--Start of the prima facie legally binding contents of the contract-->
+
 <para_1><span_smallcaps>Now it is hereby agreed</span_smallcaps>:-</para_1>
+
+<!-- Definitions and Interpretation section = contract legend. Nothing that is undefined should be capitalised unless it is a proper noun-->
 <a_left_sidehead>Definitions &amp; Interpretation</a_left_sidehead>
-<numbered_para_1>In this Contract, unless the subject or context otherwise requires:-</numbered_para_1>
-<definition>Applicable Law	means with any applicable statute, statutory instrument, by-law, order, regulatory requirement, directive, regulation, or law (including common or civil law, judgment, demand, order or decision of a court or competent tribunal);
-<definition>Business	means any of the proprietary business, undertakings, services, assets, and activities which the Company may now or hereafter engage in, including those relating to and/or arising from <?= data.company.business_activity ?> and all (actual or demonstrably anticipated) research and development relating thereto;</definition>
-<definition>Company	 includes any of its affiliates, subsidiaries, successors, and assigns;</definition>
-<definition>Company Account	means the Company's corporate bank account or bitcoin account</b>;</definition>
-<definition>Contractor Account	means the Contractor's bank and/or Bitcoin account specified by the Contractor</b>;</definition>
-<definition>Competitor	means any third party engaged in and/or carrying on business activities which are similar to and/or competitive with the Business;</definition>
-<definition>Confidential Information	means all Information, which is confidential to the Company, is treated as confidential by the Company, or which a reasonably prudent person under the circumstances should expect to be treated as confidential, as well as all (i) Information relating to all or any part of the Business or the Company, including the organisation, operations, dealings, property, assets, technology, activities, services, personnel, know-how, trade secrets, past or present customers or users, financial affairs, management, administration, technical information, Rights, or other proprietary business designations used or owned by the Company; and (ii) any ouput, analyses, compilations, studies, documents, or materials that contain or otherwise reflect Information described in this definition;</definition>
-<definition>Effective Date	means the earliest date on which all Parties have executed this Contract;</definition>
-<definition>Engagement Term	means the fixed-term of <?= data.engagement_term?>, commencing on the Effective Date, unless terminated and/or renewed in accordance with this Contract;</definition>
-<definition>Fees	means the fees payable by Company to Contractor as set out under Clause <xref to="Fees"/>, for the provision of Services;</definition>
-<definition>GitHub	means the Company's GitHub repository at <u><?=data.company.github_url?> and such other (i) Github repositories, (ii) derivative repositories, or (iii) associated repositories which the Company uses or directs<u>;</definition>
-<definition>Information	 means information and data (whether recorded or not, and if recorded, in whatever form on whatever media);
-<definition>Rights	means (i) trade marks, service marks, registered designs, trade and business names (including domain names and email address names), unregistered trade marks and service marks, copyrights, database rights, know-how, rights in designs, and patents, (ii) applications of and for any of each of the rights described under (i) in whatever form on whatever media (including computer output, computer program, web application and web service); (iii) rights under licenses, consents, orders, statutes, or otherwise in relation to a right under (i) and (ii); and (iv) rights of the same or similar effect or nature as, or to those rights described in this definition;</definition>
-<definition>Services	means the services to be provided by Contractor to the Company during the Engagement Term as set out under Clause <xref to="Services"/>;</definition>
-<definition>Slack	means the Company's <span_smallcaps>slack</span_smallcaps> application at legalese.slack.com; and </definition>
-<definition>Work	means all Rights, notes, memoranda, records, correspondence, inventions, discoveries, designs, processes, formulæ, innovations, developments, improvements, copyright works (including without limitation, files, computer software, computer programs, articles, reports, drawings, technical drawings, blueprints, advertisements, sales materials, plans, and logos), and the like of whatsoever nature - including all copies thereof - made, compiled, acquired, discovered, conceived, developed, reduced to practice, and/or expressed in tangible form by the Contractor (whether solely or jointly with other persons, and whether directly or indirectly) during the Engagement Term, (i) arising out of, relating to, or in pursuance of this Contract, or (ii) relating to the Business, finances, or affairs of the Company, or any member of the Company, or (iii) which constitutes works for hire based (whether directly or indirectly) on any item of the Confidential Information (whether or not patentable, registrable, and/ or copyrightable), and in each case, shall include any applications for and/or of any of those rights that is assigned or that may be assigned to the Company under this Contract or otherwise.</definition>
+  <numbered_para_1>In this Contract, unless the subject or context otherwise requires:-</numbered_para_1>
+    <definition>Applicable Law	means any applicable statute, statutory instrument, by-law, order, regulatory requirement, directive, regulation, or law (including common or civil law, judgment, demand, order or decision of a court or competent tribunal);
+    <definition>Business	means any of the proprietary business, undertakings, services, assets, and activities which the Company may now or hereafter engage in, including those relating to and/or arising from <?= data.company.business_activity ?> and all (actual or demonstrably anticipated) research and development relating thereto;</definition>
+    <definition>Company	 includes any of its affiliates, subsidiaries, successors, and assigns;</definition>
+    <definition>Company Account	means the Company's corporate bank account or bitcoin account, as may be elected by the Company from time to time</b>;</definition>
+    <definition>Contractor Account	means the Contractor's bank and/or Bitcoin account specified by the Contractor for its receipt of Fees under this Contract</b>;</definition>
+    <definition>Competitor	means any third party engaged in and/or carrying on business activities which are similar to and/or competitive with the Business;</definition>
+    <definition>Confidential Information	means all Information, which is confidential to the Company, is treated as confidential by the Company, or which a reasonably prudent person under the circumstances should expect to be treated as confidential, as well as all (i) non-public and/or proprietary Information relating to all or any part of the Business or the Company, including the organisation, operations, dealings, property, assets, technology, activities, services, personnel, know-how, trade secrets, past or present customers or users, financial affairs, management, administration, technical information, Rights, or other proprietary business designations used or owned by the Company; and (ii) any output, analyses, compilations, studies, documents, or materials that contain or otherwise reflect Information described under (i) of this definition;</definition>
+    <definition>Effective Date	means the earlier of (i) the date on which all Parties have executed this Contract, and (ii) <?= data.alternative_effective_date?> ;</definition>
+    <definition>Engagement Term	means the fixed-term of <?= data.engagement_term?> commencing on the Effective Date and where applicable, such term as extended in accordance with Clause <xref to="Extension"/> below, and shall terminate upon the expiration of such period unless otherwise earlier terminated under this Contract;</definition>
+    <definition>Fees	means the fees payable by Company to Contractor as set out under Clause <xref to="Fees"/>, for the provision of Services;</definition>
+    <definition>GitHub	means the Company's GitHub repository at <u><?=data.company.github_url?></u> and such other (i) Github repositories, (ii) derivative repositories, and/or (iii) associated repositories which the Company uses or directs Contractor to;</definition>
+    <definition>Information	 means information and data (whether recorded or not, and if recorded, in whatever form on whatever media);</definition>
+    <definition>Rights	means (i) trade marks, service marks, registered designs, trade and business names (including domain names and email address names), unregistered trade marks and service marks, copyrights, database rights, know-how, rights in designs, and patents, (ii) applications of and for any of each of the rights described under (i) in whatever form on whatever media (including computer output, computer program, web application and web service); (iii) rights under licenses, consents, orders, statutes, or otherwise in relation to a right under (i) and (ii) of this definition; and (iv) rights of the same or similar effect or nature as, or to those rights described in this definition;</definition>
+    <definition>Services	means the services to be provided by Contractor to the Company during the Engagement Term as set out under Clause <xref to="Services"/>;</definition>
+    <definition>Slack	means the Company's <span_smallcaps>slack</span_smallcaps> application at legalese.slack.com; and </definition>
+    <definition>Work	means all Rights, notes, memoranda, records, correspondence, inventions, discoveries, designs, processes, formulæ, innovations, developments, improvements, copyright works (including without limitation, files, computer software, computer programs, articles, reports, drawings, technical drawings, blueprints, advertisements, sales materials, plans, and logos), and the like of whatsoever nature - including all copies thereof - made, compiled, acquired, discovered, conceived, developed, reduced to practice, and/or expressed in tangible form by the Contractor (whether solely or jointly with other persons, and whether directly or indirectly) during the Engagement Term, (i) arising out of, relating to, or in pursuance of this Contract, or (ii) relating to the Business, finances, or affairs of the Company, or any member of the Company, or (iii) which constitutes works for hire based (whether directly or indirectly) on any item of the Confidential Information (whether or not patentable, registrable, and/ or copyrightable), and in each case, shall include any applications for and/or of any of those rights that is assigned or that may be assigned to the Company under this Contract or otherwise.</definition>
+
+<!--I've noticed that non-lawyers tend to capitalise words that have a very specific meaning in their heads, but this usually means nothing they intend it to mean unless said-meaning-in-their-head is expressed or defined in the contract-->
 <para_1>Capitalised terms not otherwise defined under this Contract, shall bear the same meaning as that ascribed to them under the Company's Constitution (as may be amended from time to time and accordingly accessible by Contractor via the Company's shared Google drive account).</para_1>
 
-<!--Interpretation-->
 <a_left_sidehead>Interpretation</a_left_sidehead>
-<para_1>Unless otherwise stated, where the context otherwise requires, or where expressly stated by Company to Contractor as being to the contrary, in this Contract:-</para_1>
-<numbered_para_2>words importing the singular include the plural and vice versa;</numbered_para_2>
-<numbered_para_2>words importing a gender include every gender;</numbered_para_2>
-<numbered_para_2>references to persons include bodies corporate or unincorporated, any state or any agency thereof, and any other entity, and vice versa;</numbered_para_2>
-<numbered_para_2>headings, marginal sidenotes, and graphic art are for ease of reference only and have no legal effect;</numbered_para_2>
-<numbered_para_2>reference to Clauses are to clauses of this Contract, and references to this Contract include any schedules, amendments, and supplementals thereto;</numbered_para_2>
-<numbered_para_2>references to any person include its successors and permitted assigns;</numbered_para_2>
-<numbered_para_2>the words and phrases "other", "including" and "in particular" do not limit the generality of any preceding words and the words which follow them will not be construed as being limited in scope to the same class as the preceding words where a wider construction is possible;</numbered_para_2>
-<numbered_para_2>references to a time of day are to Singapore time, and '<b>$</b>' or '<b>dollars</b>' denotes Singapore dollars; and</numbered_para_2>
-<numbered_para_2>references to a statutory provision include such provision and any regulations made in pursuance thereof as from time to time modified and/or re-enacted whether before or after the Effective Date so far as such modification or re-enactment applies or is capable of applying to and/or in connection with this Contract.</numbered_para_2>
+  <para_1>Unless the context otherwise requires or expressly stated by Company to Contractor as being to the contrary, in this Contract:-</para_1>
+    <numbered_para_2>words importing the singular include the plural and vice versa;</numbered_para_2>
+      <numbered_para_2>words importing a gender include every gender;</numbered_para_2>
+      <numbered_para_2>references to persons include bodies corporate or unincorporated, any state or any agency thereof, and any other entity, and vice versa;</numbered_para_2>
+      <numbered_para_2>headings, marginal sidenotes, and graphic art are for ease of reference only and have no legal effect;</numbered_para_2>
+      <numbered_para_2>reference to Clauses are to clauses of this Contract, and references to this Contract include any schedules, amendments, and supplementals thereto;</numbered_para_2>
+      <numbered_para_2>references to any person include its successors and permitted assigns;</numbered_para_2>
+      <numbered_para_2>the words and phrases "other", "including" and "in particular" do not limit the generality of any preceding words, and the words which follow them will not be construed as being limited in scope to the same class as the preceding words where a wider construction is possible;</numbered_para_2>
+      <numbered_para_2>references to a time of day are to Singapore time, and '<b>$</b>' or '<b>dollars</b>' denotes Singapore dollars; and</numbered_para_2>
+      <numbered_para_2>references to a statutory provision include such provision and any regulations made in pursuance thereof, from time to time modified and/or re-enacted, whether before or after the Effective Date so far as such modification or re-enactment applies or is capable of applying to and/or in connection with this Contract.</numbered_para_2>
 
-<!--Service to be provided-->
+<!--Consideration tells you what is being exchanged between the parties-->
 <a_left_sidehead>Consideration &amp; payment terms</a_left_sidehead>
 <numbered_2_para><b>Consideration</b></numbered_2_para>
-<numered_3_para>During the Engagement Term, in consideration of the fees at a <b>monthly</b> rate of <b><?= data.total_service_fees ?></b> ("<b>Fees</b>") to be paid by the Company to Contractor, Contractor agrees to provide the Services as an independent contractor to the Company in accordance with this Contract.</numbered_3_para>
-<numbered_3_para>Fees paid by Company to Contractor shall constitute the full and only payment Contractor is entitled to in respect of Services.</numbered_3_para>
+  <numbered_3_para>During the Engagement Term, in consideration of the fees at a <b>monthly</b> rate of <b><?= data.monthly_fees ?></b> ("<b>Fees</b>") to be paid by the Company to Contractor, Contractor agrees to provide to the Company, the Services, as an independent contractor, in accordance with this Contract.</numbered_3_para>
+  <numbered_3_para>Fees paid by Company to Contractor shall constitute the full and only payment Contractor is entitled to in respect of the Services.</numbered_3_para>
 
 <numbered_2_para><b>Timing of payment</b></numbered_2_para>
-<numbered_3_para>During the Engagement Term, Fees shall be paid by Company to Contractor by the last day of each month, provided that where applicable, Fees shall be pro-rated for any partial month resulting from the termination of this Contract prior to its expiration or otherwise.</numbered_3_para>
+  <numbered_3_para>During the Engagement Term, Fees shall be paid by Company to Contractor by the last day of each month, provided that where applicable, Fees shall be pro-rated for any partial month resulting from the termination of this Contract prior to its expiration or otherwise.</numbered_3_para>
 
 <numbered_2_para><b>Method of payment</b></numbered_2_para>
-<numbered_3_para>Company's payment of Fees to Contractor shall be via</numbered_2_para>
-<numbered_4_para>a transfer from Company's Account to Contractor's Account, and in respect of Bitcoin payments, the amount of Bitcoin shall be calculated based on the prevailing BTC/SGD rate, as quoted at https://www.google.com/finance?q=btcsgd at any time on either the day of or the day before before the transfer; or</numbered_4_para>
-<numbered_4_para>such other means as Parties may agree upon prior notice and acceptance in writing.</numbered_4_para>
+  <numbered_3_para>Company's payment of Fees to Contractor shall be via</numbered_3_para>
+    <numbered_4_para>a transfer from Company's Account to Contractor's Account, and in respect of Bitcoin payments, the amount of Bitcoin shall be calculated based on the prevailing BTC/SGD rate, as quoted at https://www.google.com/finance?q=btcsgd at any time on either the day of or the day before before the transfer; or</numbered_4_para>
+    <numbered_4_para>such other means as Parties may agree upon prior notice and acceptance in writing.</numbered_4_para>
 
 <a_left_sidehead>Term</a_left_sidehead>
-<numbered_2_para xname="Engagement Term"> <b>Engagement Term</b></numbered_2_para>
-<numbered_3_para>This Contract shall become effective upon the Effective Date and determine <b><?= data.engagement_term ?></b> therefrom, unless terminated under this Contract or otherwise.</numbered_3_para>
+  <numbered_2_para xname="Engagement Term"> <b>Initial Term</b></numbered_2_para>
+    <numbered_3_para>This Contract shall become effective upon the Effective Date and determine <b><?= data.engagement_term ?></b> therefrom, unless earlier terminated under this Contract or otherwise.</numbered_3_para>
 
-<numbered_2_para xname="Renewal"><b>Renewal</b></numbered_2_para>
-<numbered_3_para>This Contract may be extended on identical terms for a maximum of <?= data.engagement_term ?> upon written agreement between Contractor and two (2) directors of the Company. In such event, Engagement Term shall be extended accordingly.</numbered_3_para>
+<numbered_2_para xname="Extension"><b>Extension</b></numbered_2_para>
+  <numbered_3_para>This Contract may be extended on identical terms for a maximum of <?= data.engagement_term ?> upon written agreement between Contractor and two (2) directors of the Company. In such event, the initial Engagement Term shall be extended accordingly.</numbered_3_para>
 
-<!--clarifying the relationship between the parties so that the contractor shall be in no way be interpreted as being an employee of the company-->
-
+<!--A little longwinded, I know. But these are the kinda things that we can set out from the outset based on what we know courts / regulators interpret as distinguishing factors between contractors and employees. Of course when push comes to shove, what actually happens between the parties and how they actually conduct the relationship has more bearings-->
 <a_left_sidehead>Relationship between the Parties</a_left_sidehead>
-<numbered_2_para>The Parties hereby accept to the fullest extent permissible under Applicable Law, that under this Contract:-</numbered_2_para>
-<numbered_3_para>Contractor shall provide Services to the Company on her own account as a self-employed independent contractor and nothing in this Contract shall be construed as (i) creating a joint venture, partnership, franchise relationship, employer/employee relationship, or such other similar relationship between the Parties, or (ii) authorising either Party to act as the agent of the other;</numbered_3_para>
-<numbered_3_para>save where Company in its absolute discretion agrees to provide (on an ad-hoc basis) otherwise, Contractor shall independently acquire and control, at her own expense, such tools, equipment, means, supplies, details, manner, methods, working place, and such other factors of production (including any means required to support such factors of production) as she may require to provide the Services and fulfill her obligations under this Contract; and</numbered_3_para>
-<numbered_3_para>Contractor has the right to perform and/or provide the Services and fulfil her obligations under this Contract from any place and at such times as the Contractor shall determine in her own discretion;</numbered_3_para>
-<numbered_3_para>Contractor shall bear all taxes on her earnings as required by law, and shall be solely responsible for the calculation and prompt payment of any applicable taxes to the home and host tax authorities as determined by her local taxation legislation, and the Company bears no tax liabilities for Contractor nor shall Company pay any taxes (including any withholding taxes) for Contractor; and</numbered_3_para>
-<numbered_3_para>Contractor has no entitlements to any overtime pay, vacation pay, sick leave, retirement benefits, social security, employee compensation, health or disability benefits, unemployment insurance benefits, or employee benefits of any kind.</numbered_3_para>
+  <numbered_2_para>The Parties hereby accept to the fullest extent permissible under Applicable Law, that under this Contract:-</numbered_2_para>
+    <numbered_3_para>Contractor shall provide Services to the Company on her own account as a self-employed independent contractor and nothing in this Contract shall be construed as (i) creating a joint venture, partnership, franchise relationship, employer/employee relationship, or such other similar relationship between the Parties, or (ii) authorising either Party to act as the agent of the other;</numbered_3_para>
+    <numbered_3_para>save where Company in its absolute discretion agrees to provide otherwise on an <i>ad-hoc</i> basis, Contractor shall independently acquire and control, at her own expense, the tools, equipment, software, means, supplies, details, manner, methods, working place, and such other factors of production (including any means required to support such factors of production) as she may require to provide the Services and fulfill her obligations under this Contract; and</numbered_3_para>
+    <numbered_3_para>Contractor has the right to perform and/or provide the Services and fulfil her obligations under this Contract from any place and at such times as the Contractor shall determine in her own discretion;</numbered_3_para>
+    <numbered_3_para>Contractor shall bear all taxes on her earnings as required by law, and shall be solely and fully responsible for the calculation and prompt payment of any applicable taxes to the home and host tax authorities as determined by her local taxation legislation, and the Company bears no tax liabilities for Contractor nor shall Company pay any taxes (including any withholding taxes) for Contractor; and</numbered_3_para>
+    <numbered_3_para>Contractor has no entitlements to any overtime pay, vacation pay, sick leave, retirement benefits, social security, employee compensation, health or disability benefits, unemployment insurance benefits, or employee benefits of any kind.</numbered_3_para>
 
 <!--Services-->
 <a_left_sidehead xname="Services">Services</a_left_sidehead>
 <!--TODO: at some point we should automate these into the form so that they can be easily replaced for different roles-->
-<numbered_2_para>During the Engagement Term, Contractor shall on a full-time non-exclusive, specifically in the role of <b><?= data.role ?></b> for the purposes of <b><?= data.purpose ?></b>, devote her time, energy, abilities and resources as may be necessary, expedient, and efficient, to resolve the issues and/or milestones set out at GitHub and such other means and systems suggested by the Company for requirements management, issue tracking, document management, source control, and other support or development functions, within any timeframes specified therein. Company may from time to time, suggest (but not compel or direct) priorities for such issues and/or milestones via Slack, GitHub, or emails. ("<b>Services</b>").</numbered_2_para>
-<!--
-Reps and warranties
--->
-<a_left_sidehead>Representations &amp; Warranties</a_left_sidehead>
-<!--Company reps and warranties-->
-<numbered_2_para>Company hereby represents and warrants that:-</numbered_2_para>
-<numbered_3_para>it has the power and capacity to enter into this Contract;</numbered_3_para>
-<numbered_3_para>it will make timely payment of the Fees when such Fees are due;</numbered_3_para>
-<numbered_3_para>it shall use reasonable endeavours to notify Contractor of any changes to its procedures affecting Contractor's obligations under this Contract; </numbered_3_para>
-<numbered_3_para>in view of Company possessing critical knowledge of the operations and the Business, it shall respond and cooperate with Contractor in making such knowledge available to Contractor in a timely fashion; and </numbered_3_para>
-<numbered_3_para>it shall provide such other assistance to the Contractor as the Company (at its sole and absolute discretion) may deem reasonable and/or appropriate.</numbered_3_para>
+<numbered_2_para>During the Engagement Term, Contractor shall on a full-time non-exclusive basis, specifically in the role of <b><?= data.role ?></b> for the purposes of <b><?= data.purpose ?></b>, devote her time, energy, abilities and resources as may be necessary, expedient, and efficient, to resolve the issues and/or milestones set out at GitHub and such other means and systems suggested by the Company for requirements management, issue tracking, document management, source control, and other support or development functions, within any timeframes specified therein. Company may from time to time, suggest (but not compel or direct) priorities for such issues and/or milestones via Slack, GitHub, or emails. ("<b>Services</b>").</numbered_2_para>
 
-<!--Contractor reps and warranties-->
+<a_left_sidehead>Representations</a_left_sidehead>
 
-<numbered_2_para>Contractor hereby represents and warrants to the Company that:-</numbered_2_para>
-<numbered_3_para>she has the power, capacity, competence, ability, and experience to enter into this Contract, perform the Services, and fulfill her obligations under this Contract;</numbered_3_para>
-<numbered_3_para>her performance of the Services and fulfillment of her obligations under this Contract does not and will not breach any other agreement to which she is a party;</numbered_3_para>
-<numbered_3_para>she has not entered and will not during the Engagement Term enter into any oral or written agreement in conflict with any of the provisions under this Contract;</numbered_3_para>
-<numbered_3_para>she will in her provision and/or performance of the Services, including any undertakings, commencement, or progress made thereto, promptly communicate the same to the Company (at least within 2 days of occurrence) to the Company via Slack and/or within GitHub;</numbered_3_para>
-<numbered_3_para>save where (i) relating to Confidential Information and communicated to Contractor via the Company's director(s) on behalf of the Company, or (ii) directly communicated by the Company's director(s) on behalf of the Company, she acknowledges and accepts that all other communications (including instructions, direction, suggestions, promises, assurances, confirmations) in respect of this Contract or outside the scope of Services, shall be invalid and unenforceable against the Company;</numbered_3_para>
-<numbered_3_para>the Services shall be performed in accordance with and shall not violate any Applicable Law (and where applcabile, Contractor has obtained all permits and/or permissions and done all such acts as may be required to comply with such Applicable Law) or any of the Company's policies and directives as communicated via or set out in Github, Slack, and the Company's Google Drive;</numbered_3_para>
-<numbered_3_para>the Company shall not be required to supervise (but may at its own discretion mentor or guide) the Contractor in her performance of the Services and/or her obligations under this Contract;</numbered_3_para>
-<numbered_3_para>the Company shall not be required to hire, supervise, or pay any assistants or additional persons to help Contractor perform the Services and her obligations under this Contract; and</numbered_3_para>
-<numbered_3_para>she will use reasonable efforts to seek timely review and comments on deliverables and/or her performance and/or provision of the Services, and fulfillment of her obligations under this Contract;</numbered_3_para>
-<numbered_3_para>she will notify Company immediately of any change in her representations under this Contract or ability to fulfill any of her obligations under this Contract;<numbered_3_para>
-<numbered_3_para>she will promptly communicate to Company any gaps in knowledge of the operations or the Business, or knowledge required for her provision and/or performance of the Services or her obligations under this Contract, and where applicable, collaborate with Company in resolving any such gaps;</numbered_3_para>
-<numbered_3_para>she will write, create, and update where necessary (whether or not such documentation was created by her), any documentation in respect of her provision and/or performance of the Services so as to enable other independent contractors of the Company, employees of the Company, and/or community members of the Company to take over Contractor's role under this Contract and/or collaborate with Contractor; and</numbered_3_para>
-<numbered_3_para>she will pay for all ordinary, extraordinary, or necessary expenses (whether for herself or otherwise) arising out of or relating to this Contract, her provision and/or performance of the Services, and/or her obligations under this Contract.</numbered_3_para>
-<!--
-Clarification about works for hire
--->
+<!--Factual representations from the Company-->
+<numbered_2_para>Company hereby represents that:-</numbered_2_para>
+  <numbered_3_para>it has the power and capacity to enter into this Contract;</numbered_3_para>
+  <numbered_3_para>it will make timely payment of the Fees when such Fees are due;</numbered_3_para>
+  <numbered_3_para>it shall use reasonable endeavours to notify Contractor of any changes to its procedures affecting Contractor's obligations under this Contract; </numbered_3_para>
+  <numbered_3_para>in view of Company possessing critical knowledge of the operations and the Business, it shall respond and cooperate with Contractor in making such knowledge available to Contractor in a timely fashion; and </numbered_3_para>
+  <numbered_3_para>it shall provide such other assistance to the Contractor as the Company (at its sole and absolute discretion) may deem reasonable and/or appropriate.</numbered_3_para>
+
+<!--from the Contractor now-->
+<numbered_2_para>Contractor hereby represents that:-</numbered_2_para>
+  <numbered_3_para>she has the power, capacity, competence, ability, and experience to enter into this Contract, perform the Services, and fulfill her obligations under this Contract;</numbered_3_para>
+  <numbered_3_para>her performance of the Services and fulfillment of her obligations under this Contract does not and will not breach any other agreement to which she is a party;</numbered_3_para>
+  <numbered_3_para>she has not entered and will not during the Engagement Term enter into any oral or written agreement in conflict with any provisions under this Contract;</numbered_3_para>
+  <numbered_3_para>she will in her provision and/or performance of the Services, including any undertakings, commencement, or progress made thereto, promptly communicate the same to the Company (at least within 2 days of occurrence) to the Company via Slack and/or within GitHub;</numbered_3_para>
+  <numbered_3_para>save where (i) relating to Confidential Information and communicated to Contractor via the Company's director(s) on behalf of the Company, or (ii) directly communicated by the Company's director(s) on behalf of the Company, she acknowledges and accepts that all other communications (including instructions, direction, suggestions, promises, assurances, confirmations) in respect of this Contract or outside the scope of Services, shall be invalid and unenforceable against the Company;</numbered_3_para>
+  <numbered_3_para>the Services shall be performed in accordance with and shall not violate any Applicable Law (and where applicable, she has obtained all permits and/or permissions and done all such acts as may be required to comply with such Applicable Law) or any of the Company's policies and directives as communicated via and/or set out by the Company in Github, Slack, and the Company's Google Drive;</numbered_3_para>
+  <numbered_3_para>the Company shall not be required or expected to supervise (but may at its own discretion mentor or guide) the Contractor in her performance of the Services and/or her obligations under this Contract;</numbered_3_para>
+  <numbered_3_para>the Company shall not be required to hire or pay any assistants or additional persons to help Contractor perform the Services and her obligations under this Contract; and</numbered_3_para>
+  <numbered_3_para>she will seek timely review and comments on her deliverables and/or performance and/or provision of the Services, and fulfillment of her obligations under this Contract;</numbered_3_para>
+  <numbered_3_para>she will notify Company immediately of any change in her representations under this Contract or change in her abilities to fulfill any of her obligations under this Contract;<numbered_3_para>
+  <numbered_3_para>she will promptly communicate to Company any gaps in knowledge of the operations or the Business, or knowledge required for her provision and/or performance of the Services or her obligations under this Contract, and where applicable, collaborate with Company in resolving any such gaps;</numbered_3_para>
+  <numbered_3_para>she will write, create, and update where necessary (whether or not such documentation was created by her), any documentation in respect of her provision and/or performance of the Services so as to enable other independent contractors of the Company, employees of the Company, and/or community members of the Company to take over Contractor's role under this Contract and/or collaborate with Contractor; and</numbered_3_para>
+  TODO I WANT TO ADD A COOPERATION CLAUSE<numbered_3_para>she will pay for all ordinary, extraordinary, or necessary expenses (whether for herself or otherwise) arising out of or relating to this Contract, her provision and/or performance of the Services, and/or her obligations under this Contract.</numbered_3_para>
+<!-- Clarification about works for hire -->
 <a_left_sidehead>Work</a_left_sidehead>
 <numbered_2_para>Contractor acknowledges and accepts that, to the fullest extent permissible under applicable laws, rules, and regulations, and save where otherwise agreed to by the Company, during the Engagement Term and after, Work, including any and all materials prepared by Contractor under this Contract shall be considered proprietary to the Company.</numbered_2_para>
 <numbered_2_para>Where any Work or Rights are not deemed proprietary to the Company under Applicable Law, Contractor hereby assigns to the Company all of its right, title, interest in and to Work and/or Rights. Contractor shall also without compensation and forthwith upon demand, whether during the Engagement Term or otherwise, execute and deliver to the Company any instruments of transfer or take such other action as may be requested by Company, as may be required to secure and ensure protection of such of the Company's rights and interest, and/or effect such transfer to the Company.</numbered_2_para>
