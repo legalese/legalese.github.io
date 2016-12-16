@@ -1,8 +1,8 @@
 <?!= data.xml_declaration ?>
 <?!= data.xmlRoot() ?>
-<!--Original drafter's disclaimer: Tl;dr IANAL
+<!--Original drafter's disclaimer
+Tl;dr IANAL
   Whilst I am an advocate and solicitor of the supreme court of Singapore (aka called to the bar) but I am not a lawyer with a current practising cert / license.  This is because (in no particular order), I am no longer attached to a law firm, don't want to set up my own law firm, and think it's about time we replace contract drafting lawyers with contract drafting software.
-
   But this contract is pre-DSL / smart software. This means that I am still, as lawyers do, using computers to help with the manual work but not with the thinking -- i.e. there will be mistakes, oversight, unclear language (whether intended or not). It kinda sucks. But we are working on it, and hopefully soon, someone will get to draft a level-up version of this in L4 (or whatever we end up calling our DSL).-->
 
 <!--Who this contract is for: Contractor (i.e. not an employee)
