@@ -3,19 +3,15 @@
 <!--Original drafter's disclaimer: Tl;dr IANAL
 Whilst I am an advocate and solicitor of the supreme court of Singapore (aka called to the bar) but I am not a lawyer with a current practising cert / license.  This is because (in no particular order), I am no longer attached to a law firm, don't want to set up my own law firm, and think it's about time we replace contract drafting lawyers with contract drafting software.
 But this contract is pre-DSL / smart software. This means that I am still, as lawyers do, using computers to help with the manual work but not with the thinking -- i.e. there will be mistakes, oversight, unclear language (whether intended or not). It kinda sucks. But we are working on it, and hopefully soon, someone will get to draft a level-up version of this in L4 (or whatever we end up calling our DSL).-->
-
 <!--Who this contract is for: Contractor (i.e. not an employee)
 (and by contractor, we mean someone who is not an employee. As much as we don't want to restrict people from working for other people, studying, doing whatever the fuck they want during their engagement with us, we also don't want to / have the resources to manages the admin and overheads resulting from any employment legislation or rules that bind employees)-->
-
 <!-- Other features of this contract:
     - fixed term, with  option for extension (gives us flexibility to renew, pull out, vary etc)
     - full-time basis, but non-exclusive (full-time in the sense that we want to cover robust commitment and responsibilities; does not mean 9-5 hours)
     - emphasis on independence, self-direction, control on the part of the contractor (i.e. items that make it clear that it is not an employment agreement) -->
-
 <CoverTop>
 <cover_title>Contract for Service</cover_title>
 <cover_company_name>
-
 <?= data.parties.company[0].name ?></cover_company_name>
 <cover_company_id><?= data.parties.company[0].idtype ?> <?= data.parties.company[0].id ?></cover_company_id>
 <cover_company_name>
@@ -24,24 +20,17 @@ But this contract is pre-DSL / smart software. This means that I am still, as la
 </CoverTop>
 <CoverMid>
 </CoverMid>
-
 <CoverBottom_Logotype>
 </CoverBottom_Logotype>
-
 <CoverBottom_Address>
 </CoverBottom_Address>
-
 <CoverBottom_series>
 <centered>Legalese version 1.0.0</centered>
 </CoverBottom_series>
-
 <Firstpage_Sidebar>
 </Firstpage_Sidebar>
-
 <Story_Main><chapter_header>Contract for Service</chapter_header>
-
 <!-- First, we set out the parties to the contract. Gotta know wtf the people are to bind them (a.k.a. privity of contract)!
-
   Details you generally need to identify the parties with
   > individuals
     (1) full name on official document (such as passport);
