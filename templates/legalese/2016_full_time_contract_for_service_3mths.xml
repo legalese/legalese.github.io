@@ -36,7 +36,7 @@
 </CoverBottom_Address>
 
 <CoverBottom_series>
-<centered>version 1.0.0</centered>
+<centered>Legalese version 1.0.0</centered>
 </CoverBottom_series>
 
 <Firstpage_Sidebar>
@@ -300,7 +300,7 @@ Described by more cerebral beings:
 <b_left_sidehead_nonum>Counterparts</b_left_sidehead_nonum>
   <numbered_2_para>This Contract may be executed in one or more counterparts, and such counterparts may be exchanged by electronic transmission (including by email), each of which will be deemed an original but all of which together constitute one and the same agreement. In the case of execution by way of counterparts, this Contract shall not be deemed as concluded until the last of such counterparts is duly signed and delivered to the other Party.</numbered_2_para>
 
-<!-- Signing block -->
+<!-- Signing block (a.k.a. execution page / section)-->
 <chapter_header>Signatures</chapter_header>
 <para_1>Intending to be bound by this Contract for Service, the Parties hereby set their hands:</para_1>
 <b_left_sidehead_nonum>The Contractor<?= data.parties.contractor.length == 1 ? "" : "s" ?></b_left_sidehead_nonum>
@@ -308,6 +308,7 @@ Described by more cerebral beings:
 <?!= include("inc_signature", data, data.parties.contractor[i]) ?>
 <? } ?>
 <b_left_sidehead_nonum>For and on behalf of the Company <?= data.company.name ?></b_left_sidehead_nonum>
+<?!= include("inc_signature", data, data.company) ?>
 <?!= include("inc_signature", data, data.company) ?>
 </Story_Main>
 </Root>
