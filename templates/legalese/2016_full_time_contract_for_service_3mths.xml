@@ -40,8 +40,7 @@ TL;DR IANAL
 
   Setting the Output Date as distinct from the Effective Date also allows for backdating - a rather common but unrecommended practice. IANAL (with a current practising certificate/license), but as far as I am aware, under SG law it's not illegal per se (unless done with the intention to defraud). It just makes managing the document-dependencies and timelines hairier for humans; no problem for computers though. -->
 <para_1><span_smallcaps>between</span_smallcaps>:-</para_1>
-<parties><?!= include("inc_party", data, data.parties.contractor[0]) ?> (the "<b>Contractor</b>"), and</parties><parties><?!= include("inc_party", data, data.company) ?> (the "<b>Company</b>")</parties>
-<!-- First, we set out the parties to the contract. Gotta know wtf the people are to bind them (a.k.a. privity of contract)!
+<parties><?!= include("inc_party", data, data.parties.contractor[0]) ?> (the "<b>Contractor</b>"), and</parties><parties><?!= include("inc_party", data, data.company) ?> (the "<b>Company</b>")</parties><!-- First, we set out the parties to the contract. Gotta know wtf the people are to bind them (a.k.a. privity of contract)!
   Details you generally need to identify the parties with
   > individuals
     (1) full name on official document (such as passport);
@@ -51,8 +50,7 @@ TL;DR IANAL
     (1) full registered name of the company;
     (2) country of incorporation;
     (3) incorporation number that will identify such party within that country which it is incorporated-->
-<!-- Aside:  It's been observed that very diligent and responsible people tend to do quick searches on the relevant country database / ask for certified true copies of documents referred to, to get these details prior to signing the contract. Lawyers and boring people call it due diligence; others get it when you tell them it's akin to an exchanging of STD test results prior to closing the deal... consummation of the prior discussions... entering into a relationship. Wow, I'm not even trying to be obviously glib here - these are actually phrases which serious people when taking themselves and their work seriously, use to describe contracts.-->
-<para_1>(each a "<b>Party</b>" and collectively, the "<b>Parties</b>")</para_1>
+<!-- Aside:  It's been observed that very diligent and responsible people tend to do quick searches on the relevant country database / ask for certified true copies of documents referred to, to get these details prior to signing the contract. Lawyers and boring people call it due diligence; others get it when you tell them it's akin to an exchanging of STD test results prior to closing the deal... consummation of the prior discussions... entering into a relationship. Wow, I'm not even trying to be obviously glib here - these are actually phrases which serious people when taking themselves and their work seriously, use to describe contracts.--><para_1>(each a "<b>Party</b>" and collectively, the "<b>Parties</b>")</para_1>
 <!--
 Recitals (generally persuasive only if the contract is unclear). My view is that if you want recitals, you should be particularising it for the contract; else what's the point?
 
@@ -62,15 +60,10 @@ Recitals (generally persuasive only if the contract is unclear). My view is that
 
     "i think the NLG will be satisfied by an opaque _inline_ type construct they basically serve the same function as comments in code: they lack operational semantics at the level of program execution, but can be fairly structured (e.g. Haddock), and are intended for human consumption, when humans want to understand the context, style, or intended use cases of the contract."
   - @mengwong, 20161215, Legalese slack-->
-
 <para_1><span_smallcaps>Whereas:-</span_smallcaps></para_1>
-  <recitals>The Company and Contractor has been in negotiations on the compensation amount Contractor desires for her performance and/or provision of the Services.</recitals>
-  <recitals>The Company is desirous of engaging the Contractor and the Contractor agrees to be engaged for her provision and/or performance of the Services in the capacity of a <?= data.role ?> according to the terms and subject to the conditions set out in this Contract.</recitals>
-
+  <recitals>The Company and Contractor has been in negotiations on the compensation amount Contractor desires for her performance and/or provision of the Services.</recitals><recitals>The Company is desirous of engaging the Contractor and the Contractor agrees to be engaged for her provision and/or performance of the Services in the capacity of a <?= data.role ?> according to the terms and subject to the conditions set out in this Contract.</recitals>
 <!--Start of the prima facie legally binding contents of the contract-->
-
 <para_1><span_smallcaps>Now it is hereby agreed</span_smallcaps>:-</para_1>
-
 <!-- Definitions and Interpretation section = contract legend. Nothing that is undefined should be capitalised unless it is a proper noun-->
 <a_left_sidehead>Definitions &amp; Interpretation</a_left_sidehead>
   <numbered_para_1>In this Contract, unless the subject or context otherwise requires:-</numbered_para_1>
