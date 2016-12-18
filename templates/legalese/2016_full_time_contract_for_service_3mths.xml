@@ -61,11 +61,11 @@ TL;DR IANAL
 <!--
 Recitals (generally persuasive only if the contract is unclear). My view is that if you want recitals, you should be particularising it for the contract; else what's the point?
 
-Described by more cerebral beings:
-"My marginalia agrees; I’m inclined to treat them as never having any operational semantics, for the same reasons we’ve put aside defeasible reasoning. Unclear whether we need a representation for NLG."
+  Described by more cerebral beings:
+    "My marginalia agrees; I’m inclined to treat them as never having any operational semantics, for the same reasons we’ve put aside defeasible reasoning. Unclear whether we need a representation for NLG."
   - @vi, 20161215, Legalese slack
 
-"i think the NLG will be satisfied by an opaque _inline_ type construct they basically serve the same function as comments in code: they lack operational semantics at the level of program execution, but can be fairly structured (e.g. Haddock), and are intended for human consumption, when humans want to understand the context, style, or intended use cases of the contract."
+    "i think the NLG will be satisfied by an opaque _inline_ type construct they basically serve the same function as comments in code: they lack operational semantics at the level of program execution, but can be fairly structured (e.g. Haddock), and are intended for human consumption, when humans want to understand the context, style, or intended use cases of the contract."
   - @mengwong, 20161215, Legalese slack-->
 
 <para_1><span_smallcaps>Whereas:-</span_smallcaps></para_1>
@@ -141,9 +141,8 @@ Described by more cerebral beings:
     <numbered_3_para>Contractor shall bear all taxes on her earnings as required by law, and shall be solely and fully responsible for the calculation and prompt payment of any applicable taxes to the home and host tax authorities as determined by her local taxation legislation, and the Company bears no tax liabilities for Contractor nor shall Company pay any taxes (including any withholding taxes) for Contractor; and</numbered_3_para>
     <numbered_3_para>Contractor has no entitlements to any overtime pay, vacation pay, sick leave, retirement benefits, social security, employee compensation, health or disability benefits, unemployment insurance benefits, or employee benefits of any kind.</numbered_3_para>
 
-<!--Services-->
 <a_left_sidehead xname="Services">Services</a_left_sidehead>
-<!--TODO: at some point we should automate these into the form so that they can be easily replaced for different roles-->
+<!--TODO: at some point we should automate these into the form so that they can be easily replaced for different roles. The input should bear in mind the context in which the services will be described-->
 <numbered_2_para>During the Engagement Term, Contractor shall on a full-time non-exclusive basis, specifically in the role of <b><?= data.role ?></b> for the purposes of <b><?= data.purpose ?></b>, devote her time, energy, abilities and resources as may be necessary, expedient, and efficient, to resolve the issues and/or milestones set out at GitHub and such other means and systems suggested by the Company for requirements management, issue tracking, document management, source control, and other support or development functions, within any timeframes specified therein. Company may from time to time, suggest (but not compel or direct) priorities for such issues and/or milestones via Slack, GitHub, or emails. ("<b>Services</b>").</numbered_2_para>
 
 <a_left_sidehead>Representations</a_left_sidehead>
@@ -173,7 +172,7 @@ Described by more cerebral beings:
   <numbered_3_para>where there is an overlap or interaction in work scopes and services rendered, as the case may be, she shall actively work with and communicate with the Company's personnel (including its employees, directors, contractors, external vendors, service provider, etc.); and </numbered_3_para>
   <numbered_3_para>she will pay for all ordinary, extraordinary, or necessary expenses (whether for herself or otherwise) arising out of or relating to this Contract, her provision and/or performance of the Services, and/or her obligations under this Contract.</numbered_3_para>
 
-<!-- Clarification about works done during the Engagement Term -->
+<!-- Clarification about ownership of work done during the Engagement Term -->
 <a_left_sidehead>Ownership of Work</a_left_sidehead>
   <numbered_2_para>Contractor acknowledges and accepts that, to the fullest extent permissible under Applicable Law, and save where otherwise agreed to by the Company, during the Engagement Term and after, Work, including any and all materials prepared by Contractor under this Contract shall be considered proprietary to the Company.</numbered_2_para>
   <numbered_2_para xname="Take Action">Where any Work or Rights are not deemed proprietary to the Company under Applicable Law, Contractor hereby assigns to the Company all of its right, title, interest in and to Work (and any Rights relating thereto). Contractor shall also without compensation and forthwith upon demand, whether during the Engagement Term or otherwise, execute and deliver to the Company any instruments of transfer and/or take such action as may be requested by Company, which may be required to secure and ensure protection of such of the Company's rights and interest and to effect the transfer of such rights and interests to the Company.</numbered_2_para>
@@ -185,7 +184,6 @@ Described by more cerebral beings:
   <numbered_2_para>Contractor further agrees not to exercise any rights and/or interests in Rights and/or Works that under Applicable Law cannot be assigned or licensed to the Company pursuant to the foregoing, including but not limited to right to claim authorship and the right not to suffer false attribution of authorship, except with the prior written consent of the Company.</numbered_2_para>
   <numbered_2_para>At any time (whether during the Engagement Term or after), where Contractor intends to integrate and/or incorporate any of her proprietary rights and/or previous work in furtherance of her performance of the Services and/or her obligations under this Contract, such proposal shall be communicated to the Company prior to any such intended integration and/or incorporation. Where Company, in its sole and absolute discretion consents to such integration and/or incorporation, Contractor shall hereby grant Company an exclusive, worldwide, royalty-free, perpetual, irrevocable license to use, distribute, modify, publish, sub-license, and/or otherwise exploit such integration and/or incorporation in connection with the Business of the Company.</numbered_2_para>
 
-<!-- Non-compete / conflicts of interest-->
 <a_left_sidehead>Conflicts of Interest</a_left_sidehead>
 <numbered_2_para>Contractor acknowledges that as an independent contractor, she is free to engage in other activities, including any activities in the role of <b><?= data.role ?></b> for any other persons during the Engagement Term <i><b>PROVIDED</b></i> that: </numbered_2_para>
   <numbered_3_para>Contractor is able to continue and/or fulfill her  obligations under this Contract; </numbered_3_para>
@@ -213,7 +211,6 @@ Described by more cerebral beings:
 
   <numbered_2_para>To the extent not prohibited under Applicable Law, where Contractor is compelled to disclose Confidential Information as contemplated under this clause, she shall prior making any such disclosure, promptly inform Company and take Company's instructions as to the form, nature and/or purpose of any proposed disclosure.</numbered_2_para>
 
-<!-- Termination -->
 <a_left_sidehead>Termination of Contract</a_left_sidehead>
 
 <b_left_sidehead_nonum>Termination without cause</b_left_sidehead_nonum>
@@ -233,7 +230,6 @@ Described by more cerebral beings:
 
 <numbered_2_para>The termination of this Contract howsoever arising shall not affect such of the terms hereof as are expressed to operate or have effect thereafter, and shall be strictly without prejudice to any right of action or remedy already accrued to the Company in respect of any breach or default by them.</numbered_2_para>
 
-<!--Effects of Termination-->
 <a_left_sidehead>Effects of Termination or Determination</a_left_sidehead>
   <numbered_2_para>Upon determination and/or termination of this Contract for whatever reason, Contractor shall:-</numbered_2_para>
     <numbered_3_para>immediately relinquish all access and/or rights given to her specifically for her provision and/or performance of the Services or fulfilment of her obligations under this Contract;</numbered_3_para>
@@ -241,7 +237,6 @@ Described by more cerebral beings:
     <numbered_3_para>where Company requires, promptly return to the Company all forms of Confidential Information and Work, including any and all copies and extracts thereof, and delete any such items in the Contractor's personal possession and prohibit the Contractor's subsequent personal access; and</numbered_3_para>
     <numbered_3_para>where Company requires, not make or retain any copies or extracts of any Confidential Information or Work, and agree to provide written confirmation and supporting evidence to the Company of such undertaking.</numbered_3_para>
 
-<!--boilerplates-->
 <a_left_sidehead>General Provisions</a_left_sidehead>
 
 <!--electronic signatures & communications - in SG does not extend to deeds, POAs, instruments-->
