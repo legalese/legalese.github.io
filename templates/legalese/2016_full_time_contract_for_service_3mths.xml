@@ -13,7 +13,6 @@ TL;DR IANAL
     - fixed term, with  option for extension (gives us flexibility to renew, pull out, vary etc)
     - full-time basis, but non-exclusive (full-time in the sense that we want to cover robust commitment and responsibilities; does not mean 9-5 hours)
     - emphasis on independence, self-direction, control on the part of the contractor (i.e. items that make it clear that it is not an employment agreement) -->
-
 <CoverTop>
 <cover_title>Contract for Service</cover_title>
 <cover_company_name>
@@ -32,8 +31,7 @@ TL;DR IANAL
 <CoverBottom_series>
 <centered>Legalese version 1.0.0</centered>
 </CoverBottom_series>
-<Firstpage_Sidebar>
-</Firstpage_Sidebar>
+<Firstpage_Sidebar></Firstpage_Sidebar>
 <Story_Main><chapter_header>Contract for Service</chapter_header>
 <para_1>This contract for service is generated on <textvar name="Output Date"/> ("<b>Contract</b>")</textvar></para_1>
 <!-- For greater flexibility, the output date should be different from the Effective Date.
@@ -58,14 +56,14 @@ TL;DR IANAL
 <!-- Aside:  It's been observed that very diligent and responsible people tend to do quick searches on the relevant country database / ask for certified true copies of documents referred to, to get these details prior to signing the contract. Lawyers and boring people call it due diligence; others get it when you tell them it's akin to an exchanging of STD test results prior to closing the deal... consummation of the prior discussions... entering into a relationship. Wow, I'm not even trying to be obviously glib here - these are actually phrases which serious people when taking themselves and their work seriously, use to describe contracts.-->
 <para_1>(each a "<b>Party</b>" and collectively, the "<b>Parties</b>")</para_1>
 <!--
-Recitals (generally persuasive only if the contract is unclear). My view is that if you want recitals, you should be particularising it for the contract -- else what's the point?
+Recitals (generally persuasive only if the contract is unclear). My view is that if you want recitals, you should be particularising it for the contract; else what's the point?
 
 Described by more cerebral beings:
-    "My marginalia agrees; I’m inclined to treat them as never having any operational semantics, for the same reasons we’ve put aside defeasible reasoning. Unclear whether we need a representation for NLG."
-    - @vi, 20161215, Legalese slack
-    "i think the NLG will be satisfied by an opaque _inline_ type construct
-    they basically serve the same function as comments in code: they lack operational semantics at the level of program execution, but can be fairly structured (e.g. Haddock), and are intended for human consumption, when humans want to understand the context, style, or intended use cases of the contract."
-    - @mengwong, 20161215, Legalese slack-->
+"My marginalia agrees; I’m inclined to treat them as never having any operational semantics, for the same reasons we’ve put aside defeasible reasoning. Unclear whether we need a representation for NLG."
+  - @vi, 20161215, Legalese slack
+
+"i think the NLG will be satisfied by an opaque _inline_ type construct they basically serve the same function as comments in code: they lack operational semantics at the level of program execution, but can be fairly structured (e.g. Haddock), and are intended for human consumption, when humans want to understand the context, style, or intended use cases of the contract."
+  - @mengwong, 20161215, Legalese slack-->
 
 <para_1><span_smallcaps>Whereas:-</span_smallcaps></para_1>
   <recitals>The Company and Contractor has been in negotiations on the compensation amount Contractor desires for her performance and/or provision of the Services.</recitals>
@@ -131,7 +129,7 @@ Described by more cerebral beings:
 <numbered_2_para xname="Extension"><b>Extension</b></numbered_2_para>
   <numbered_3_para>This Contract may be extended on identical terms for a maximum of <?= data.engagement_term ?> upon written agreement between Contractor and two (2) directors of the Company. In such event, the initial Engagement Term shall be extended accordingly.</numbered_3_para>
 
-<!--A little longwinded, I know. But these are the kinda things that we can set out from the outset based on what we know courts / regulators interpret as distinguishing factors between contractors and employees. Of course when push comes to shove, what actually happens between the parties and how they actually conduct the relationship has more bearings-->
+<!--A little longwinded, I know. But these are the kinda things that we can set out from the outset based on what we know courts / regulators interpret as distinguishing factors between contractors and employees. Of course when push comes to shove, what actually happens between the parties and how they actually conduct the relationship has more bearing-->
 <a_left_sidehead>Relationship between the Parties</a_left_sidehead>
   <numbered_2_para>The Parties hereby accept to the fullest extent permissible under Applicable Law, that under this Contract:-</numbered_2_para>
     <numbered_3_para>Contractor shall provide Services to the Company on her own account as a self-employed independent contractor and nothing in this Contract shall be construed as (i) creating a joint venture, partnership, franchise relationship, employer/employee relationship, or such other similar relationship between the Parties, or (ii) authorising either Party to act as the agent of the other;</numbered_3_para>
