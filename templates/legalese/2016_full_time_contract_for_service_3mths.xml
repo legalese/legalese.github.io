@@ -31,6 +31,10 @@ TL;DR IANAL
 <CoverBottom_series>
 <centered>Legalese version 1.0.0</centered>
 </CoverBottom_series>
+
+<Firstpage_Sidebar>
+</Firstpage_Sidebar>
+
 <Story_Main>
 <chapter_header>Contract for Service</chapter_header>
 <para_1>This contract for service is generated on <textvar name="Output Date"> ("<b>Contract</b>")</textvar></para_1>
@@ -61,7 +65,8 @@ Recitals (generally persuasive only if the contract is unclear). My view is that
     "i think the NLG will be satisfied by an opaque _inline_ type construct they basically serve the same function as comments in code: they lack operational semantics at the level of program execution, but can be fairly structured (e.g. Haddock), and are intended for human consumption, when humans want to understand the context, style, or intended use cases of the contract."
   - @mengwong, 20161215, Legalese slack-->
 <para_1><span_smallcaps>Whereas:-</span_smallcaps></para_1>
-  <recitals>The Company and Contractor has been in negotiations on the compensation amount Contractor desires for her performance and/or provision of the Services.</recitals><recitals>The Company is desirous of engaging the Contractor and the Contractor agrees to be engaged for her provision and/or performance of the Services in the capacity of a <?= data.role ?> according to the terms and subject to the conditions set out in this Contract.</recitals>
+<recitals>The Company and Contractor has been in negotiations on the compensation amount Contractor desires for her performance and/or provision of the Services.</recitals>
+<recitals>The Company is desirous of engaging the Contractor and the Contractor agrees to be engaged for her provision and/or performance of the Services in the capacity of a <?= data.role ?> according to the terms and subject to the conditions set out in this Contract.</recitals>
 <!--Start of the prima facie legally binding contents of the contract-->
 <para_1><span_smallcaps>Now it is hereby agreed</span_smallcaps>:-</para_1>
 <!-- Definitions and Interpretation section = contract legend. Nothing that is undefined should be capitalised unless it is a proper noun-->
