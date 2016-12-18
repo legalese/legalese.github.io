@@ -31,21 +31,16 @@ TL;DR IANAL
 <CoverBottom_series>
 <centered>Legalese version 1.0.0</centered>
 </CoverBottom_series>
-
-<Firstpage_Sidebar>
-</Firstpage_Sidebar>
-
-<Story_Main><chapter_header>Contract for Service</chapter_header>
+<Story_Main>
+<chapter_header>Contract for Service</chapter_header>
 <para_1>This contract for service is generated on <textvar name="Output Date"> ("<b>Contract</b>")</textvar></para_1>
 <!-- For greater flexibility, the output date should be different from the Effective Date.
   Why?
     Mainly because Legalese gets the parties to execute it via Echosign - this means that parties and Legalese don't actually know at the outset the exact date of when the contract is to take effect. Like overeating at work lunches, it's not wrong per se; it just could potentially get hairy, confusing, and/or complicating.
 
   Setting the Output Date as distinct from the Effective Date also allows for backdating - a rather common but unrecommended practice. IANAL (with a current practising certificate/license), but as far as I am aware, under SG law it's not illegal per se (unless done with the intention to defraud). It just makes managing the document-dependencies and timelines hairier for humans; no problem for computers though. -->
-
 <para_1><span_smallcaps>between</span_smallcaps>:-</para_1>
-<parties><?!= include("inc_party", data, data.parties.contractor[0]) ?> (the "<b>Contractor</b>"), and</parties>
-<parties><?!= include("inc_party", data, data.company) ?> (the "<b>Company</b>")</parties>
+<parties><?!= include("inc_party", data, data.parties.contractor[0]) ?> (the "<b>Contractor</b>"), and</parties><parties><?!= include("inc_party", data, data.company) ?> (the "<b>Company</b>")</parties>
 <!-- First, we set out the parties to the contract. Gotta know wtf the people are to bind them (a.k.a. privity of contract)!
   Details you generally need to identify the parties with
   > individuals
