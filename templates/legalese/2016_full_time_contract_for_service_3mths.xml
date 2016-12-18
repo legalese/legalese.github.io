@@ -46,8 +46,7 @@ TL;DR IANAL
     (2) country of incorporation;
     (3) incorporation number that will identify such party within that country which it is incorporated-->
 
-<!-- Brownie points before you enter into the contract:
-      It's been observed that very diligent and responsible people tend to do quick searches on the relevant country database / ask for certified true copies of documents referred to, to get these details prior to signing the contract. Lawyers and boring people call it due diligence; others get it when you tell them it's akin to an exchanging of STD test results prior to closing the deal... consummation of the prior discussions... entering into a relationship. Wow, I'm not even trying to be obviously glib here - these are actually phrases that serious people use to describe contracts.-->
+<!-- Brownie points before you enter into contracts:  It's been observed that very diligent and responsible people tend to do quick searches on the relevant country database / ask for certified true copies of documents referred to, to get these details prior to signing the contract. Lawyers and boring people call it due diligence; others get it when you tell them it's akin to an exchanging of STD test results prior to closing the deal... consummation of the prior discussions... entering into a relationship. Wow, I'm not even trying to be obviously glib here - these are actually phrases which serious people when taking themselves and their work seriously, use to describe contracts.-->
 
 <para_1>This contract for service is generated on <textvar name="Output Date"/> ("<b>Contract</b>")</textvar></para_1>
 <!-- For greater flexibility, the output date should be different from the Effective Date.
