@@ -36,7 +36,7 @@ TL;DR IANAL
 </Firstpage_Sidebar>
 
 <Story_Main><chapter_header>Contract for Service</chapter_header>
-<para_1>This contract for service is generated on <textvar name="Output Date"/> ("<b>Contract</b>")</textvar></para_1>
+<para_1>This contract for service is generated on <textvar name="Output Date"> ("<b>Contract</b>")</textvar></para_1>
 <!-- For greater flexibility, the output date should be different from the Effective Date.
   Why?
     Mainly because Legalese gets the parties to execute it via Echosign - this means that parties and Legalese don't actually know at the outset the exact date of when the contract is to take effect. Like overeating at work lunches, it's not wrong per se; it just could potentially get hairy, confusing, and/or complicating.
