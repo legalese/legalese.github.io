@@ -21,20 +21,21 @@ TL;DR IANAL
 <cover_company_name>
 <?= data.parties.contractor[0].name ?></cover_company_name>
 <cover_company_id><?= data.parties.contractor[0].idtype ?> <?= data.parties.contractor[0].id ?></cover_company_id>
-</CoverTop>
+<</CoverTop>
 <CoverMid>
 </CoverMid>
+
 <CoverBottom_Logotype>
 </CoverBottom_Logotype>
-<CoverBottom_Address>
-</CoverBottom_Address>
+
 <CoverBottom_series>
 <centered>Legalese version 1.0.0</centered>
 </CoverBottom_series>
+
 <Firstpage_Sidebar>
 </Firstpage_Sidebar>
-<Story_Main>
-<chapter_header>Contract for Service</chapter_header>
+
+<Story_Main><chapter_header>Contract for Service</chapter_header>
 <para_1>This contract for service is generated on <textvar name="Output Date"/> ("<b>Contract</b>")</textvar></para_1>
 <!-- For greater flexibility, the output date should be different from the Effective Date.
   Why?
