@@ -21,7 +21,7 @@ TL;DR IANAL
 <cover_company_name>
 <?= data.parties.contractor[0].name ?></cover_company_name>
 <cover_company_id><?= data.parties.contractor[0].idtype ?> <?= data.parties.contractor[0].id ?></cover_company_id>
-<</CoverTop>
+</CoverTop>
 <CoverMid>
 </CoverMid>
 
