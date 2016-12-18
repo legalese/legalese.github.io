@@ -3,12 +3,9 @@
 <!--Original drafter's disclaimer
 TL;DR IANAL
   Whilst I am an advocate and solicitor of the supreme court of Singapore (a.k.a being called to the bar) but I am not a lawyer with a current practising cert / license.  This is because (in no particular order), I am no longer attached to a law firm, don't want to set up my own law firm, and think it's about time we replace contract drafting lawyers with contract drafting software.
-
   But this contract is pre-DSL / smart software. This means that I am still, as lawyers do, using computers to help with the manual work but not with the thinking -  so there will be mistakes, oversight, unclear language (whether intended or not). It kinda sucks. But we are working on it, and hopefully soon, someone will get to draft a level-up version of this in L4 (or whatever we end up calling our DSL).-->
-
 <!--Who this contract is for: Contractor (i.e. not an employee)
 (and by contractor, we mean someone who is not an employee. As much as we don't want to restrict people from working for other people, studying, doing whatever the fuck they want during their engagement with us, we also don't want to / have the resources to manages the admin and overheads resulting from any employment legislation or rules that bind employees)-->
-
 <!-- Other features of this contract:
     - fixed term, with  option for extension (gives us flexibility to renew, pull out, vary etc)
     - full-time basis, but non-exclusive (full-time in the sense that we want to cover robust commitment and responsibilities; does not mean 9-5 hours)
@@ -73,16 +70,16 @@ Recitals (generally persuasive only if the contract is unclear). My view is that
 <para_1><span_smallcaps>Now it is hereby agreed</span_smallcaps>:-</para_1>
 <!-- Definitions and Interpretation section = contract legend. Nothing that is undefined should be capitalised unless it is a proper noun-->
 <a_left_sidehead>Definitions &amp; Interpretation</a_left_sidehead>
-  <numbered_para_1>In this Contract, unless the subject or context otherwise requires:-</numbered_para_1>
-    <definition>Applicable Law	means any applicable statute, statutory instrument, by-law, order, regulatory requirement, directive, regulation, or law (including common or civil law, judgment, demand, order or decision of a court or competent tribunal);</definition>
-    <definition>Business	means any of the proprietary business, undertakings, services, assets, and activities which the Company may now or hereafter engage in, including those relating to and/or arising from <?= data.company.business_activity ?> and all (actual or demonstrably anticipated) research and development relating thereto;</definition>
-    <definition>Company	 includes any of its affiliates, subsidiaries, successors, and assigns;</definition>
-    <definition>Company Account	 means the Company's corporate bank account or bitcoin account, as may be elected by the Company from time to time;</definition>
-    <definition>Contractor Account	means the Contractor's bank and/or Bitcoin account specified by the Contractor for its receipt of Fees under this Contract;</definition>
-    <definition>Competitor	means any third party engaged in and/or carrying on business activities which are similar to and/or competitive with the Business;</definition>
-    <definition>Confidential Information	means all Information, which is confidential to the Company, is treated as confidential by the Company, or which a reasonably prudent person under the circumstances should expect to be treated as confidential, as well as all (i) non-public and/or proprietary Information relating to all or any part of the Business or the Company, including the organisation, operations, dealings, property, assets, technology, activities, services, personnel, know-how, trade secrets, past or present customers or users, financial affairs, management, administration, technical information, Rights, or other proprietary business designations used or owned by the Company; and (ii) any output, analyses, compilations, studies, documents, or materials that contain or otherwise reflect Information described under (i) of this definition;</definition>
-    <definition>Effective Date	means the earlier of (i) the date on which all Parties have executed this Contract, and (ii) <?= data.alternative_effective_date?>;</definition>
-    <definition>Engagement Term	means the fixed-term of <?= data.engagement_term?> commencing on the Effective Date and where applicable, such term as extended in accordance with Clause <xref to="Extension"/> below, and shall terminate upon the expiration of such period unless otherwise earlier terminated under this Contract;</definition>
+<numbered_para_1>In this Contract, unless the subject or context otherwise requires:-</numbered_para_1>
+<definition>Applicable Law	means any applicable statute, statutory instrument, by-law, order, regulatory requirement, directive, regulation, or law (including common or civil law, judgment, demand, order or decision of a court or competent tribunal);</definition>
+<definition>Business	means any of the proprietary business, undertakings, services, assets, and activities which the Company may now or hereafter engage in, including those relating to and/or arising from <?= data.company.business_activity ?> and all (actual or demonstrably anticipated) research and development relating thereto;</definition>
+<definition>Company	 includes any of its affiliates, subsidiaries, successors, and assigns;</definition>
+<definition>Company Account	 means the Company's corporate bank account or bitcoin account, as may be elected by the Company from time to time;</definition>
+<definition>Contractor Account	means the Contractor's bank and/or Bitcoin account specified by the Contractor for its receipt of Fees under this Contract;</definition>
+<definition>Competitor	means any third party engaged in and/or carrying on business activities which are similar to and/or competitive with the Business;</definition>
+<definition>Confidential Information	means all Information, which is confidential to the Company, is treated as confidential by the Company, or which a reasonably prudent person under the circumstances should expect to be treated as confidential, as well as all (i) non-public and/or proprietary Information relating to all or any part of the Business or the Company, including the organisation, operations, dealings, property, assets, technology, activities, services, personnel, know-how, trade secrets, past or present customers or users, financial affairs, management, administration, technical information, Rights, or other proprietary business designations used or owned by the Company; and (ii) any output, analyses, compilations, studies, documents, or materials that contain or otherwise reflect Information described under (i) of this definition;</definition>
+<definition>Effective Date	means the earlier of (i) the date on which all Parties have executed this Contract, and (ii) <?= data.alternative_effective_date?>;</definition>
+<definition>Engagement Term	means the fixed-term of <?= data.engagement_term?> commencing on the Effective Date and where applicable, such term as extended in accordance with Clause <xref to="Extension"/> below, and shall terminate upon the expiration of such period unless otherwise earlier terminated under this Contract;</definition>
     <definition>Fees	means the fees payable by Company to Contractor as set out under Clause <xref to="Fees"/>, for the provision of Services;</definition>
     <definition>GitHub	means the Company's GitHub repository at <u><?=data.company.github_url?></u> and such other (i) Github repositories, (ii) derivative repositories, and/or (iii) associated repositories which the Company uses or directs Contractor to;</definition>
     <definition>Information	 means information and data (whether recorded or not, and if recorded, in whatever form on whatever media);</definition>
