@@ -182,7 +182,7 @@ Recitals (generally persuasive only if the contract is unclear). My view is that
 <a_left_sidehead>Conflicts of Interest</a_left_sidehead>
 <numbered_2_para>Contractor acknowledges that as an independent contractor, she is free to engage in other activities, including any activities in the role of <b><?= data.role ?></b> for any other persons during the Engagement Term <i><b>PROVIDED</b></i> that: </numbered_2_para>
   <numbered_3_para>Contractor is able to continue and/or fulfill her  obligations under this Contract; </numbered_3_para>
-<numbered_3_para>Contractor's participation in and/or pursuance of such other activity does not conflict, or is otherwise incompatible with Contractor's obligations, performance and/or provision of Services under this Contract; and</numbered_3_para>>
+<numbered_3_para>Contractor's participation in and/or pursuance of such other activity does not conflict, or is otherwise incompatible with Contractor's obligations, performance and/or provision of Services under this Contract; and</numbered_3_para>
 <numbered_3_para>Contractor has given notice to the Company of her participation in and/or pursuance of such activities.</numbered_3_para>
 
 <a_left_sidehead>Dealing with Confidential Information and Work</a_left_sidehead>
