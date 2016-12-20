@@ -10,7 +10,7 @@ TL;DR IANAL
 (and by contractor, we mean someone who is not an employee. As much as we don't want to restrict people from working for other people, studying, doing whatever the fuck they want during their engagement with us, we also don't want to / have the resources to manages the admin and overheads resulting from any employment legislation or rules)-->
 
 <!-- Other features of this contract:
-    - fixed term, with  option for extension (gives us flexibility to renew, pull out, vary etc)
+    - fixed term, with option for extension (gives us flexibility to renew, pull out, vary etc)
     - full-time basis, but non-exclusive (full-time in the sense that we want to cover robust commitment and responsibilities; does not mean 9-5 hours)
     - emphasis on independence, self-direction, control on the part of the contractor (i.e. items that make it clear that it is not an employment agreement) -->
 <CoverTop>
@@ -182,7 +182,7 @@ TL;DR IANAL
 
 <a_left_sidehead>Conflicts of Interest</a_left_sidehead>
 <numbered_2_para>Contractor acknowledges that as an independent contractor, she is free to engage in other activities, including any activities in the role of <b><?= data.role ?></b> for any other persons during the Engagement Term <i><b>PROVIDED</b></i> that: </numbered_2_para>
-  <numbered_3_para>Contractor is able to continue and fulfill her  obligations as set out under this Contract; </numbered_3_para>
+  <numbered_3_para>Contractor is able to continue and fulfill her obligations as set out under this Contract; </numbered_3_para>
 <numbered_3_para>Contractor's participation in or pursuance of such other activity, does not conflict or is not otherwise incompatible with Contractor's obligations or her performance and/or provision of Services under this Contract; and</numbered_3_para>
 <numbered_3_para>Contractor has given notice to the Company of her participation in and/or pursuance of such activities.</numbered_3_para>
 
