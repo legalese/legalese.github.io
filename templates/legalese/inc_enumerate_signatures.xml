@@ -17,7 +17,7 @@
 <? } ?>
 <?   if (data["signature_lead_" + pp]) { ?><para_1><?= data["signature_lead_" + pp] ?></para_1><? } ?>
 <?   for (var pi in rcpts_to[pp]) { ?>
-<?  xmLog(["inc_enumerate_signatures: rcpts_to[%s][%s] = %s", pp, pi, rcpts_to[pp][pi]], 6; ?>
+<?  xmLog(["inc_enumerate_signatures: rcpts_to[%s][%s] = %s", pp, pi, rcpts_to[pp][pi]], 6); ?>
 <?!= include("inc_signature", data, rcpts_to[pp][pi], _include2) ?>
 <?   } ?>
 <? } ?>
