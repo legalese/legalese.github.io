@@ -3,8 +3,9 @@
   var _include2= data._include._include2;
   xmLog(["inc_enumerate_signatures: rcpts_to has keys %s", typeof(rcpts_to)=="object" ? Object.keys(rcpts_to) : "(undefined)"],6);
   if (typeof(rcpts_to)=="object") {
-  for (rcpts_to_key in rcpts_to) {
-  xmLog(["inc_enumerate_signatures: rcpts_to[%s] = %s", rcpts_to_key, Object.keys(rcpts_to[rcpts_to_key])], 6);
+    for (rcpts_to_key in rcpts_to) {
+      xmLog(["inc_enumerate_signatures: rcpts_to[%s] = %s", rcpts_to_key, Object.keys(rcpts_to[rcpts_to_key])], 6);
+    }
   }
 ?>
 <? for (var pp in rcpts_to) { var term = _include2.term && _include2.term[pp] ? _include2.term[pp] : pp;
@@ -16,7 +17,7 @@
 <? } ?>
 <?   if (data["signature_lead_" + pp]) { ?><para_1><?= data["signature_lead_" + pp] ?></para_1><? } ?>
 <?   for (var pi in rcpts_to[pp]) { ?>
-<?  xmLog(["inc_enumerate_signatures: rcpts_to[%s][%s] = %s", pp, pi, rcpts_to[pp][pi]], 6); ?>
+<?  xmLog(["inc_enumerate_signatures: rcpts_to[%s][%s] = %s", pp, pi, rcpts_to[pp][pi]], 6; ?>
 <?!= include("inc_signature", data, rcpts_to[pp][pi], _include2) ?>
 <?   } ?>
 <? } ?>
