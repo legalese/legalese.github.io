@@ -3,7 +3,7 @@
   var _include2= data._include._include2;
   xmLog(["inc_enumerate_signatures: rcpts_to has keys %s", typeof(rcpts_to)=="object" ? Object.keys(rcpts_to) : "(undefined)"],6);
   if (typeof(rcpts_to)=="object") {
-    for (rcpts_to_key in rcpts_to) {
+    for (var rcpts_to_key in rcpts_to) {
       xmLog(["inc_enumerate_signatures: rcpts_to[%s] = %s", rcpts_to_key, Object.keys(rcpts_to[rcpts_to_key])], 6);
     }
   }
