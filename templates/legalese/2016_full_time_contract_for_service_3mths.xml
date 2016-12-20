@@ -281,15 +281,7 @@ Recitals (generally persuasive only if the contract is unclear). My view is that
 <!-- Signing block (a.k.a. execution page / section)-->
 <chapter_header>Signatures</chapter_header>
 <para_1>Intending to be bound by this Contract for Service, the Parties hereby set their hands:</para_1>
-<b_left_sidehead_nonum>The Contractor<?= data.parties.contractor.length == 1 ? "" : "s" ?></b_left_sidehead_nonum>
-<? for (var i = 0; i < data.parties.contractor.length; i++) { ?>
-<?!= include("inc_signature", data, data.parties.contractor[i]) ?>
-<? } ?>
-<b_left_sidehead_nonum>For and on behalf of the Company <?= data.company.name ?></b_left_sidehead_nonum>
-<?!= include("inc_signature", data, data.parties.director[0]) ?>
-<?!= include("inc_signature", data, data.parties.director[1]) ?>
 
-<b_left_sidehead_nonum>using inc_enumerate_signatures</b_left_sidehead_nonum>
 <?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: {} }) ?>
 
 
