@@ -288,5 +288,10 @@ Recitals (generally persuasive only if the contract is unclear). My view is that
 <b_left_sidehead_nonum>For and on behalf of the Company <?= data.company.name ?></b_left_sidehead_nonum>
 <?!= include("inc_signature", data, data.parties.director[0]) ?>
 <?!= include("inc_signature", data, data.parties.director[1]) ?>
+
+<b_left_sidehead_nonum>using inc_enumerate_signatures</b_left_sidehead_nonum>
+<?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: {} }) ?>
+
+
 </Story_Main>
 </Root>
