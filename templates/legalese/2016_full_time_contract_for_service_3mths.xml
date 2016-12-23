@@ -284,6 +284,6 @@ TL;DR IANAL
 <chapter_header>Signatures</chapter_header>
 <para_1>Intending to be bound by this Contract for Service, the Parties hereby set their hands:</para_1>
 
-<?!= include(“inc_enumerate_signatures”, data, {rcpts_to:rcpts_to, _include2: { term: { Director: “On Behalf of the Company” } } }) ?>
+<?!= include(“inc_enumerate_signatures”, data, {rcpts_to:rcpts_to, _include2: { term: { Directors: “On Behalf of the Company” } } }) ?>
 </Story_Main>
 </Root>
