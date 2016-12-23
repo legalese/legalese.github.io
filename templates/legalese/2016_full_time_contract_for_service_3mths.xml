@@ -158,7 +158,7 @@ TL;DR IANAL
   <numbered_3_para>she has not entered and will not during the Engagement Term enter into any oral or written agreement in conflict with any provisions under this Contract;</numbered_3_para>
   <numbered_3_para>she will in her provision and/or performance of the Services, including any undertakings, commencement, or progress made thereto, promptly communicate the same to the Company (at least within 2 days of occurrence) to the Company via Slack, GitHub, and/or such other means of communication that Company uses for similar purposes;</numbered_3_para>
   <numbered_3_para>save where communicated to Contractor via the Company's director(s) on behalf of the Company, she acknowledges and accepts that all other communications (including instructions, direction, suggestions, promises, assurances, confirmations) in respect of this Contract or outside the scope of Services, shall be invalid and unenforceable against the Company;</numbered_3_para>
-  <numbered_3_para>the Services will be performed in accordance with and will not violate any Applicable Law (and where applicable, she has obtained all permits and/or permissions and done all such acts as may be required to comply with such Applicable Law) or any of the Company's policies and directives as may be communicated via (or set out by the Company in) Github, Slack, or Company's shared Google Drive;</numbered_3_para>
+  <numbered_3_para>the Services will be provided and/or performed in accordance with and will not violate any Applicable Law (and where applicable, she has obtained all permits and/or permissions and done all such acts as may be required to comply with such Applicable Law) or any of the Company's policies and directives as may be communicated via (or set out by the Company in) Github, Slack, or Company's shared Google Drive;</numbered_3_para>
   <numbered_3_para>the Company shall not be required or expected to supervise (but may at its own discretion mentor or guide) the Contractor in her performance of the Services and/or her obligations under this Contract;</numbered_3_para>
   <numbered_3_para>the Company shall not be required to hire or pay any assistants or additional persons to help Contractor perform the Services and her obligations under this Contract; and</numbered_3_para>
   <numbered_3_para>she will seek timely review and comments on her deliverables, performance and/or provision of the Services, and her fulfillment of obligations under this Contract;</numbered_3_para>
@@ -284,6 +284,12 @@ TL;DR IANAL
 <chapter_header>Signatures</chapter_header>
 <para_1>Intending to be bound by this Contract for Service, the Parties hereby set their hands:</para_1>
 
+<b_left_sidehead_nonum>Company</b_left_sidehead_nonum>
+<?!= include(“inc_enumerate_signatures”, data, {rcpts_to:rcpts_to, _include2: { term: { director: “On Behalf of the Company” } } }) ?>
+
+<?!= include(“inc_enumerate_signatures”, data, {rcpts_to:rcpts_to, _include2: { term: { director: “On Behalf of the Company” } } }) ?>
+
+<b_left_sidehead_nonum>Contractor</b_left_sidehead_nonum>
 <?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, _include2: {} }) ?>
 
 </Story_Main>
