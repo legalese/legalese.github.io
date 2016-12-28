@@ -14,7 +14,7 @@
 <b_left_sidehead_nonum><?if (rcpts_to[pp].length == 1 || rcpts_to[pp].length > 1) { ?><?=lingua({locale:"en", term:term, context:"party type", form:"singular", xform:"titleCase"})?><?}?>
 </b_left_sidehead_nonum>
 <? } ?>
-<? else if (! data._include.no_section_header) { ?>
+<? else if (! data._include.no_section_header && ! data._include.override_section_header) { ?>
 <b_left_sidehead_nonum><?if (rcpts_to[pp].length == 1) { ?><?=lingua({locale:"en", term:term, context:"party type", form:"singular", xform:"titleCase"})?><?}?>
 <?                       if (rcpts_to[pp].length >  1) { ?><?=lingua({locale:"en", term:term, context:"party type", form:"plural",   xform:"titleCase"})?><?}?>
 </b_left_sidehead_nonum>
