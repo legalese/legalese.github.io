@@ -11,7 +11,7 @@
 <? for (var pp in rcpts_to) { var term = _include2.term && _include2.term[pp] ? _include2.term[pp] : pp;
       if (rcpts_to[pp].length == 0) { continue } ?>
 <? if (data._include.override_section_header) { ?>
-<b_left_sidehead_nonum>Hello</b_left_sidehead_nonum>
+<b_left_sidehead_nonum><?if (rcpts_to[pp]) { ?><?=lingua({locale:"en", term:term, context:"party type", form:"singular", xform:"titleCase"})?><?}?></b_left_sidehead_nonum>
 <? } else if (! data._include.no_section_header && ! data._include.override_section_header) { ?>
 <b_left_sidehead_nonum><?if (rcpts_to[pp].length == 1) { ?><?=lingua({locale:"en", term:term, context:"party type", form:"singular", xform:"titleCase"})?><?}?>
 <?                       if (rcpts_to[pp].length >  1) { ?><?=lingua({locale:"en", term:term, context:"party type", form:"plural",   xform:"titleCase"})?><?}?>
