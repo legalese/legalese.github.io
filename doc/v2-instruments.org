@@ -22,23 +22,24 @@ there are no signed investment documents.
 
 * templates and prerequisites
 
-~==>~ is a binary operator meaning prerequisite. This allows us to backward-chain from the goal state.
+~==>~ is a binary operator meaning prerequisite. This allows us to backward-chain from the goal state. It is overloaded to handle multiple types.
 
 The goal state is a workflow.
 
 The arguments to ~==>~ are typed as follows:
 
-(signatory S, template T) => ~S ==> T~
-(template T, template T) => ~T ==> T~
-(template T, workflow W) => ~T ==> W~
+#+BEGIN_SRC
+(signatory S, template T) => S ==> T
+(template T, template T) => T ==> T
+(template T, workflow W) => T ==> W
+(state V) => _ ==> V, V ==> _
+#+END_SRC
 
 ~T1 ==> T2~ means that template T1 must be fully signed before T2 is ready to run. In other words, all the signatories S belonging to template T1 must have signed. Meaning all the possible S for ~S ==> T1~.
 
 ~T ==> W~ means that all the templates specified for W must be signed before a workflow can be considered complete.
 
 Some templates have zero S, for example ~termsheet~ and ~cap_table~.
-
-In the following some of the arguments to ~==>~ represent state. I know that doesn't fit into the above type declarations but bear with me.
 
 ** esop_workflow
 
