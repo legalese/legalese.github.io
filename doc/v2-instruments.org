@@ -48,6 +48,7 @@ dr_egm_notice_issue_shares ==> mr_issue_shares
 mr_issue_shares            ==> jfdi_class_f_agreement
 jfdi_class_f_agreement     ==> dr_allotment
 dr_allotment               ==> corpsec_allotment
+                               ==> esop_workflow
 #+END_SRC
 
 ** esop_exists
@@ -55,6 +56,8 @@ dr_allotment               ==> corpsec_allotment
 #+BEGIN_SRC
 esop_workflow ==> esop_exists
 #+END_SRC
+
+After running the ESOP workflow once, esop_exists is set to true, and remains true.
 
 ** investment_workflow
 
@@ -81,7 +84,7 @@ main_contract ::= multisafe | series_aa
 
 main_contract
 ==> ( shareholders_agreement_exists ? dora
-                                   : jfdi_shareholders_agreement )
+                                    : jfdi_shareholders_agreement )
 
 if (main_contract == series_aa) {
     main_contract
