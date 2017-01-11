@@ -6,7 +6,7 @@
 
 ** the company has been incorporated already
 
-** end-user's company has the ACRA standard default template.
+** end-user's company has the ACRA standard default-from-template M&A / Constitution.
 
 *** IN FUTURE it is possible to auto-download this from ACRA and OCR it lol and parse it for semantics by at least matching the text word for word
 
