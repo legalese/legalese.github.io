@@ -13,14 +13,15 @@ use strict;
 use Getopt::Long;
 my %o;
 GetOptions(\%o,
-		   "equals",
-		   "question",
-		   "ignorexmldeclarations",
+		   , "equals"
+		   , "question"
+		   , "ignorexmldeclarations"
+           , "dataschema"
 	);
 
 # at some point all this should just turn into a proper lexer.
 
-my (%xnames, %xrefs);
+my (%xnames, %xrefs, %schema);
 
 my $input = join("",<>);
 warn "input has ", length($input), " chars\n";
@@ -55,6 +56,11 @@ while (length $input) {
 	if    ($js =~ s/^(!?)=\s*//) { if ($o{equals}) { my $func = $1 ? "noescape" : "  escape"; print "$func( ",$js," ); // line $linenum\n" } }
 	elsif ($o{question} )   {                   print $js," // line $linenum\n" }
 	if ($js=~tr/(/(/ != $js=~tr/)/)/) { print "// WARNING: the above line may have unbalanced parentheses.\n"; }
+
+    if ($o{dataschema}) {
+      for ($js =~ /\bdata\.(\w+)/g) { push @{$schema{$1}}, $linenum }
+    }
+    
 	next;
   }
 
@@ -80,3 +86,8 @@ foreach my $xname (keys %xnames) {
   }	
 }
 
+if ($o{dataschema}) {
+  for my $datavar (sort keys %schema) {
+    print "data.$datavar\n";
+  }
+}
