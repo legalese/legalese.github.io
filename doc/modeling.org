@@ -1764,3 +1764,189 @@ ifEvent (Company.raises( equityFinancing )
 
 
 #+End_SRC
+
+* Technology Application Cases, Problem/Solution Pairs
+
+** Observations
+
+*** Informal, Natural Language Contracts are a mess
+
+**** Commas
+
+https://secure.globeadvisor.com/servlet/ArticleNews/story/RTGAM/20060806/wr-rogers07
+
+http://www.adamsdrafting.com/downloads/g-and-m-082807.pdf
+
+"We can not solve our problems with the same level of thinking that created them."
+
+The sign that we have something to offer is the fact that Ken Adams and other lawyers find the question fascinating, while computer scientists find it gross.
+
+Once we have a new level of thinking, the reaction to considering the problems at the same level of thinking is exactly: "gross".
+
+**** Darmstadter, Precision's Counterfeit
+
+Contracts and other transaction documents are frequently
+said to be complex and difficult to read in order to avoid
+ambiguity and mistakes. I argue that such complexity has not
+solved these problems, and may have exacerbated them.
+Moreover, the problems are likely more widespread than
+generally appreciated. I examine some typical provisions of
+a revolving credit agreement that seem secure but that on
+closer examination (as might be given in litigation) contain
+potentially serious ambiguities and mistakes. These problems
+are not isolated instances of bad drafting but symptoms of a
+systemic problem. I suggest some partial remedies, some
+simple to implement but others requiring a more radical
+rethinking as to how a document should work.
+
+[...]
+
+it seems silly to have the legal documents ignore that the
+processes described are often those of a computer program.
+Just as the word description may act as a corrective for a
+programming error, so the program can act as a corrective
+for a legal drafting error. The rational thing would seem to
+be to have a document with multiple levels of description
+--- statements of objectives, examples, flowcharts,
+spreadsheets, or computer code --- and when something goes
+haywire, reach an acceptable answer through a process of
+triangulation.
+
+**** Ken Adams
+https://twitter.com/KonciseD/status/816827816125677568
+Am I restoring order to contract drafting? No, there never was a golden age of drafting, it's always been a mess.
+
+*** Allocation of Decision Rights Considered Superior to Complete Contracts
+
+Scientific Background on the Sveriges Riksbank Prize in Economic Sciences in Memory of Alfred Nobel 2016
+Oliver Hart and Bengt Holmström: Contract Theory
+
+*** Agile Iterations Considered Superior to Complete Contracts
+
+because parties more frequently get to decide whether to renew the contract, and therefore are more bound by game theory and reputational consequences, than by an obsolete, partial agreement.
+
+http://idei.fr/sites/default/files/medias/doc/by/rey/building.pdf
+
+*** There is a manual we can follow
+
+for purposes of NLG
+https://www.amazon.com/Manual-Style-Contract-Drafting/dp/1614388032/
+
+** Legislative Constraints
+
+161.—(1) Notwithstanding anything in a company’s constitution, the directors shall not, without the prior approval of the company in general meeting, exercise any power of the company to issue shares.
+
+(2) Approval for the purposes of this section may be confined to a particular exercise of that power or may apply to the exercise of that power generally; and any such approval may be unconditional or subject to conditions.
+
+(3) Any approval for the purposes of this section shall continue in force until —
+
+(a) the conclusion of the annual general meeting commencing next after the date on which the approval was given; or
+
+(b) the expiration of the period within which the next annual general meeting after that date is required by law to be held,
+whichever is the earlier; but any approval may be previously revoked or varied by the company in general meeting.
+
+(4) The directors may issue shares notwithstanding that an approval for the purposes of this section has ceased to be in force if the shares are issued in pursuance of an offer, agreement or option made or granted by them while the approval was in force and they were authorised by the approval to make or grant an offer, agreement or option which would or might require shares to be issued after the
+expiration of the approval.
+
+(5) Section 186 shall apply to any resolution whereby an approval is given for the purposes of this section.
+
+(6) Any issue of shares made by a company in contravention of this section shall be void and consideration given for the shares shall be recoverable accordingly.
+
+(7) Any director who knowingly contravenes, or permits or authorises the contravention of, this section with respect to any issue of shares shall be liable to compensate the company and the person to whom the shares were issued for any loss, damages or costs which the company or that person may have sustained or incurred thereby; but no proceedings to recover any such loss, damages or costs shall be commenced after the expiration of 2 years from the date of the issue.
+
+** Content Expression
+
+
+
+** Rule Systems
+
+** Temporal Logic
+
+https://secure.globeadvisor.com/servlet/ArticleNews/story/RTGAM/20060806/wr-rogers07
+
+ http://www.lawnow.org/comma-law/
+   http://www.crtc.gc.ca/eng/archive/2007/dt2007-75.htm
+
+original English: (39 words)
+
+The agreement shall continue in force for a period of five years from the date it is made,
+and thereafter for successive five year terms,
+               unless and until terminated by one year prior notice in writing by either party.
+
+alternative interpretations, indentations showing different bindings
+
+  The agreement
+    shall continue in force
+       for a period of five years from the date it is made,
+          and thereafter for successive five year terms,
+    unless and until terminated by one year prior notice
+       in writing by either party.
+
+  The agreement
+    shall continue in force
+       for a period of five years from the date it is made,
+       and thereafter for successive five year terms,
+                      unless and until terminated by one year prior notice
+                         in writing by either party.
+
+
+original french: (68 words)
+
+Sous réserve des dispositions relatives à la résiliation du présent contrat, ce dernier prend effet à la date de signature. Il demeure en vigueur pour une periode de cinq (5) ans, à partir de la date de la signature et il est subséquemment renouvelé pour des périodes successives de cinq (5) années, à moins d’un préavis écrit de résiliation à l’autre  partie un an avant l’expiration du contrat.
+
+english disambiguated by KonciseD: (78 words)
+
+The initial term of this agreement ends at midnight at the beginning of the fifth anniversary of the date of this agreement. The term of this agreement (consisting of the initial term and any extensions in accordance with this section 12) will automatically be extended by consecutive five-year terms unless no later than one year before the beginning of any such extension either party notifies the other in writing that it does not wish to extend this agreement.
+
+L4 temporal, semantics a side-effect of state: (19 words)
+
+endDate = startDate + 5y
+upon(endDate - 1y) {
+  unless (notices.filter(title == "termination")) {
+    endDate += 5y
+  }
+}
+
+L4 temporal, semantics explicitly described: (23 words)
+endDate = startDate + 5y
+upon(endDate) {
+  unless (notices.filter(title == "termination" and date <= endDate - 1y)) {
+    endDate += 5y
+  }
+}
+
+L4 temporal, where after the initial term parties are allowed to terminate with 1 year's notice:
+agreement { endDate = startDate + 5y }
+agreement.upon(endDate - 1y) {
+  unless (notices.match(title == "termination")) {
+    endDate = Never
+  }
+  agreement.upon(notice.match(title == "termination")) {
+    endDate = laterOf( notice.date + 1y, notice.body.requestedTerminationDate )
+  }
+}
+
+
+
+∀ ⋄ ( termNotice )
+∀ □ ( operate U ( meet termNotice fiveYearPeriodic + 1y ) )
+
+meet noticeEvent periodic
+
+** Model Checking
+
+Model_Checking_Contracts_-_A_Case_Study.pdf
+file:///Users/mengwong/Downloads/Model_Checking_Contracts_-_A_Case_Study.pdf
+slide 11 onwards
+
+NuSMV the model checker
+http://nusmv.fbk.eu/
+
+https://arxiv.org/abs/1009.2793 A Monadic Formalization of ML5
+
+** Dependent Types
+
+It is possible to define, study, automate, and use domain-specific logics within a dependently typed programming language.
+
+It is possible to implement, within a dependently typed programming language, a logical framework that allows derivability and admissibility to be mixed in novel and interesting ways.
+
