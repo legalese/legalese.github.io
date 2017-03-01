@@ -23,3 +23,4 @@ A comprehensive list of the various subdomains @virgil has created for legalese.
 * twitter.legalese.com	 -> https://twitter.com/legalese
 * talk.lists.legalese.com	 -> https://groups.google.com/a/lists.legalese.com/forum/#!forum/talk	
 * wellwishers.lists.legalese.com	-> https://groups.google.com/a/lists.legalese.com/forum/#!forum/wellwishers	
+* v1.legalese.com -> https://docs.google.com/spreadsheets/d/1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw/copy?id=1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw&copyCollaborators=false&copyComments=false&title=My%20Legalese%20Tutorial%202&usp=sheets_web
