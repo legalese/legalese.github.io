@@ -2,8 +2,8 @@ A comprehensive list of the various subdomains @virgil has created for legalese.
 
 * 2016.infographic.legalese.com -> http://2016.infographic.computationallegal.com
 * blog.legalese.com	 -> https://legalese.com/blog/	
-* cal.legalese.com	 -> https://calendar.google.com/calendar/embed?src=legalese.io_2ggupkds04dhae8nbpac0gp120%40group.calendar.google.com
-* calendar.legalese.com	 -> https://calendar.google.com/calendar/embed?src=legalese.io_2ggupkds04dhae8nbpac0gp120%40group.calendar.google.com
+* cal.legalese.com	 -> https://calendar.google.com/calendar/embed?src=clause%40legalese.com
+* calendar.legalese.com	 -> https://calendar.google.com/calendar/embed?src=clause%40legalese.com
 * cb.legalese.com	-> https://www.crunchbase.com/organization/legalese	
 * crunchbase.legalese.com	 -> https://www.crunchbase.com/organization/legalese	
 * deck.legalese.com	 -> https://github.com/legalese/legalese.com/blob/master/deck.legalese.com.zip?raw=true	
