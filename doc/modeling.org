@@ -1133,7 +1133,46 @@ Except as specified in paragraph c, you, an establishment that collects blood, m
 (3) Human T-lymphotropic virus, type II.
 #+END_QUOTE
 
-*** Develop a formalism to represent the above text.
+We observe that the rule is phrased in an imperative style, but the intent of the rule may be equally interpreted as an invariant assertion.
+
+The imperative style is: for each newly instantiated d :: D, if p d, for each t in T, you must run f d t, where f d t :: d -> t -> TestResult t.
+
+The invariant is: for all d in D, filtering for p d, for all t in T, it must be true that a test result exists for d*t.
+
+Taking the time dimension into account, we accept that a test is not instantaneous: a unit may be either tested, or pending testing. Obviously it would violate the intent of the rule to allow a backlog of pending tests. The good-faith implication is that the time in which a donation spends in "pending" state should be minimized.
+
+The rule is presumably meant to be interpreted in a larger context: the TestResult is presumably consumed by some other element of a workflow; it would make no sense to test everything and then never look at the result of the test. If the TestResult is not known, presumably the donation would not be used.
+
+Consider an establishment E1 which has 1% of donations in "pending testing" state, and all of those donations are < 48h old.
+
+Consider an establshment E2 which has 70% of donations in "pending testing" state, and most of those donations are > 7d old.
+
+E2 is in violation of the spirit of the rule, while E1 is not.
+
+
+#+BEGIN_SRC haskell
+
+-- express a rule in an imperative style, easily reducible to an operational refinement
+newImperativeRule party
+
+
+-- express a CTL* style assertion over the state space of possible futures
+-- requires that we define a Kripke structure to represent the state space.
+newCTLrule party
+
+
+-- express the rule as an invariant
+
+-- express the rule as an invariant with a temporal deadline
+
+#+END_SRC
+
+
+** Standard ML** Exercise
+*** Develop a formalism to represent the natural language text.
+**** what does the fully expressed language look like?
+**** what is the underlying language grammar?
+**** what libraries are required to make the thing work in full?
 
 *** Compile the formalism to the original English.
 
