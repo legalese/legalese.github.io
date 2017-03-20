@@ -177,7 +177,11 @@ Successors and Assigns.  This Agreement, and any and all rights, duties and obli
 <Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Name</cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Address</cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="border_none"><cell_c>Holdings</cell_c></Cell>
-<? for (var hh in activeRound.ordered_investors) { with(data._entitiesByName[hh]) { ?>
+<? for (var hh in activeRound.ordered_investors) {
+  xmLog(["after completion, ordered_investors has key %s", hh], 8);
+  if (data._entitiesByName[hh] == undefined) { xmLog(["ordered_investors key %s is not defined in _entitiesByName!", hh], 4); }
+  else { xmLog(["after completion, ordered_investors key %s has _entitiesByName with %s elements", Object.keys(data._entitiesByName[hh]).length], 8); }
+with(data._entitiesByName[hh]) { ?>
 <Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= hh ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="140" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?= address ?></cell_c></Cell>
 <Cell aid:ccols="1" aid:ccolwidth="100" aid:crows="1" aid:table="cell" aid5:cellstyle="horizontal_hairline"><cell_c><?!= data.capTable.investorHoldingsInRound(hh) ?></cell_c></Cell>
