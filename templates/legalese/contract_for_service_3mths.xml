@@ -26,6 +26,7 @@
 
 <CoverBottom_series>
 <centered>version 1.0.0</centered>
+<cover_address_block><?= data.sheet_id ?></cover_address_block>
 </CoverBottom_series>
 
 <Firstpage_Sidebar>

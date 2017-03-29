@@ -24,6 +24,7 @@
 <centered><textvar name="Output Date" />&#8195;<span_smallcaps><textvar name="output time" /></span_smallcaps>
 </centered>
 <centered>version 1.0.0</centered>
+<cover_address_block><?= data.sheet_id ?></cover_address_block>
 </CoverBottom_series>
 
 <Firstpage_Sidebar delete_if_empty="true"></Firstpage_Sidebar>

@@ -12,5 +12,6 @@
 <centered><textvar name="Output Date" />&#8195;<span_smallcaps><textvar name="output time" /></span_smallcaps></centered>
 <? } ?>
 <centered>version <?= data.document_version || "1.2.2" ?></centered>
+<cover_address_block><?= data.sheet_id ?></cover_address_block>
 </CoverBottom_series>
 <?}else{?><?!= include("inc_cover_legalese", data) ?><?}?>
