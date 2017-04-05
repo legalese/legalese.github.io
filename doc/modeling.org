@@ -1304,6 +1304,11 @@ temporal ::= ( at | upon | when | while | before | after | from ) datetime
 CE ::= case ( ifpredicate TE+ )* default ( TE | null )
 ifpredicate ::= condition_monad
 
+** reducing a complicated impossible contract to a simple bottom
+
+it is possible to formulate a contract which seems "all right" but is upon inspection impossible for at least one party to execute: they are set up to fail. It should be possible for our contract checker to prove that the game is unwinnable.
+
+we can imagine a function that simplifies a complicated contract to bottom.
 
 ** Securities Notice.
 
@@ -1340,6 +1345,34 @@ The offer shall be made via the Directors or the Corporate Secretary by notice s
 
 
 Each Major Shareholder will have (10) days from the date of notice, to agree in writing to purchase such Major Shareholder's Pro Rata Share of such New Securities for the price and upon the general terms specified in the Notice by giving written notice to the Company and stating therein the quantity of New Securities to be purchased (not to exceed such Major Shareholder's Pro Rata Share).
+
+** A Bestiary of Bugs
+
+*** Type Error
+- debt shouldn't be able to have preemptive rights
+
+*** State Conflict
+- at maturity, a convertible note can automatically redeem or automatically convert, but it can't automatically do both.
+
+*** privilege reduction
+- (liveness) prior to (maturity || qualifying round), an investor always has the right to convert. at (maturity || qualifying round), an investor has the right to redeem. if the company can opt to redeem, the liveness property is violated.
+
+*** unwinnable games
+- if there is at least one path in which at least one party will always lose/breach no matter what action they take.
+
+http://tvtropes.org/pmwiki/pmwiki.php/UnwinnableByMistake/OtherVideoGames
+
+*** unreachable clause
+- there is no path in which the clause will have effect
+
+*** conflict with previous contract
+- a previous contract specifies that future contracts must / must not be written in a certain way
+- a previous contract specifies that future contracts must / must not specify a certain obligation
+
+*** conflict with legislation / regulation
+- legislation specifies that contracts must / must not be written in a certain way
+- legislation specifies that contracts must / must not specify a certain obligation
+- by common law, a certain syntactic construct is understood to be unenforceable or even harmful to the proposing party
 
 * Full Cases
 
