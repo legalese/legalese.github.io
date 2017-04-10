@@ -3,8 +3,7 @@
 
 We have numerous things you'd probably enjoy reading.
 
-To start, try this lovely YouTube from the beautiful @mengwong.  This gives you the vision
-* [Representing Legal Contracts as Code](https://www.youtube.com/watch?v=RNm1aY-Umew) (YouTube)
+To start, try this lovely YouTube from the beautiful @mengwong.  This gives you the vision: [Representing Legal Contracts as Code](https://www.youtube.com/watch?v=RNm1aY-Umew) (YouTube)
 
 ## Time-sensitive
 * [Summer School on Law and Logic](https://lawandlogic.org/) on 10-15 July 2017 in Florence, Italy.
