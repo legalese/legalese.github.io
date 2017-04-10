@@ -7,8 +7,8 @@ To start, try this lovely YouTube from the beautiful @mengwong.  This gives you 
 * [Representing Legal Contracts as Code](https://www.youtube.com/watch?v=RNm1aY-Umew) [YouTube]
 
 ## Time-sensitive
-* [Summer School on Law and Logic](https://lawandlogic.org/) from 10 to 15 July 2017 at European University Institute (Florence, Italy).
-* [GrammaticalFramework SummerSchool](http://school.grammaticalframework.org/2017/) on 14th–25th August 2017
+* [Summer School on Law and Logic](https://lawandlogic.org/) on 10-15 July 2017 in Florence, Italy.
+* [GrammaticalFramework SummerSchool](http://school.grammaticalframework.org/2017/) on 14–25 August 2017 in Rīga, Latvia.
 
 
 ## Why current contract drafting is terrible
