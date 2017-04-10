@@ -8,7 +8,7 @@ To start, try this lovely YouTube from the beautiful @mengwong.  This gives you 
 
 ## Time-sensitive
 * [Summer School on Law and Logic](https://lawandlogic.org/) from 10 to 15 July 2017 at European University Institute (Florence, Italy).
-* [http://school.grammaticalframework.org/2017/](GrammaticalFramework SummerSchool) on 14th–25th August 2017
+* [GrammaticalFramework SummerSchool](http://school.grammaticalframework.org/2017/) on 14th–25th August 2017
 
 
 ## Why current contract drafting is terrible
