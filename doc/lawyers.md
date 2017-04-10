@@ -21,6 +21,6 @@ To start, try this lovely YouTube from the beautiful @mengwong.  This gives you 
 * [Contract as Automaton The Computational Representation of Financial Agreements](https://dl.dropboxusercontent.com/u/3308162/Logic%20in%20the%20Theory%20and%20Practice%20of%20Lawmaking.pdf)
 
 ## Generating English from Formal Grammars (GrammaticalFramework)
-* [https://www.youtube.com/watch?v=x1LFbDQhbso](Google Tech Talk)
-* [http://school.grammaticalframework.org/2017/](GrammaticalFramework SummerSchool) on 14th–25th August 2017
+* [Google Tech Talk](https://www.youtube.com/watch?v=x1LFbDQhbso)
+* [GrammaticalFramework SummerSchool](http://school.grammaticalframework.org/2017/) on 14th–25th August 2017
 
