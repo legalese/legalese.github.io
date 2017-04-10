@@ -17,8 +17,8 @@ To start, try this lovely YouTube from the beautiful @mengwong.  This gives you 
 * [Darmstadter precision's counterfeit](https://dl.dropboxusercontent.com/u/3308162/darmstadter%20precision's%20counterfeit%2025758526.pdf)
 
 ## Logic: The way forward
-* [Logic in the Theory and Practice of Lawmaking](https://dl.dropboxusercontent.com/u/3308162/Logic in the Theory and Practice of Lawmaking.pdf)
-* [Contract as Automaton The Computational Representation of Financial Agreements](https://dl.dropboxusercontent.com/u/3308162/Logic%20in%20the%20Theory%20and%20Practice%20of%20Lawmaking.pdf)
+* [Logic in the Theory and Practice of Lawmaking](https://dl.dropboxusercontent.com/u/3308162/Logic%20in%20the%20Theory%20and%20Practice%20of%20Lawmaking.pdf)
+* [Contract as Automaton The Computational Representation of Financial Agreements](https://financialresearch.gov/working-papers/files/OFRwp-2015-04_Contract-as-Automaton-The-Computational-Representation-of-Financial-Agreements.pdf)
 
 ## Generating English from Formal Grammars (GrammaticalFramework)
 * [Google Tech Talk](https://www.youtube.com/watch?v=x1LFbDQhbso)
