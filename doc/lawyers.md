@@ -3,7 +3,10 @@
 
 We have numerous things you'd probably enjoy reading.
 
-To start, try this lovely YouTube from the beautiful @mengwong.  This gives you the vision: [Representing Legal Contracts as Code](https://www.youtube.com/watch?v=RNm1aY-Umew) (YouTube)
+Before you do anything else:
+* Sign-up for Legalese's [wellwishers mailing list](http://wellwishers.lists.legalese.com). [at most one email per month].  You'll also enjoy the [wellwishers archives](https://groups.google.com/a/lists.legalese.com/forum/#%21forum/wellwishers).
+* See this lovely YouTube from the beautiful @mengwong.  This gives you the vision: [Representing Legal Contracts as Code](https://www.youtube.com/watch?v=RNm1aY-Umew) (YouTube).
+
 
 ## Time-sensitive
 * [Summer School on Law and Logic](https://lawandlogic.org/) on 10-15 July 2017 in Florence, Italy.
