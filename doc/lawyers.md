@@ -1,10 +1,10 @@
 # Hello those who have received legal training
 
 Before you do anything else:
-* Sign-up for Legalese's [wellwishers mailing list](http://wellwishers.lists.legalese.com) (at most one email per month).  You'll also enjoy the [wellwishers archives](https://groups.google.com/a/lists.legalese.com/forum/#%21forum/wellwishers).
-* If you're into the Twitter, you can follow us at [@legalese](http://twitter.com/legalese).
-* See this lovely YouTube from the beautiful @mengwong.  This gives you the vision: [Representing Legal Contracts as Code](https://www.youtube.com/watch?v=RNm1aY-Umew) (YouTube).
-* If you're already a little technical, you may enjoy this discussion of [why a programming language](https://medium.com/@Legalese/code-is-law-is-code-4492c864f33f) instead of plain JSON. 
+1. Sign-up for Legalese's [wellwishers mailing list](http://wellwishers.lists.legalese.com) (at most one email per month).  You'll also enjoy the [wellwishers archives](https://groups.google.com/a/lists.legalese.com/forum/#%21forum/wellwishers).
+2. If you're into the Twitter, you can follow us at [@legalese](http://twitter.com/legalese).
+3. See this lovely YouTube from the beautiful @mengwong.  This gives you the vision: [Representing Legal Contracts as Code](https://www.youtube.com/watch?v=RNm1aY-Umew) (YouTube).
+4. If you're already a little technical, you may enjoy this discussion of [why a programming language](https://medium.com/@Legalese/code-is-law-is-code-4492c864f33f) instead of plain JSON. 
 
 
 ## Time-sensitive
