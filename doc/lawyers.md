@@ -1,6 +1,7 @@
-# Hello those who have received legal training
+# Hello those of legal training
 
-Before you do anything else:
+Rumor is that you are interested in Legalese.  Before you do anything else:
+
 1. Sign-up for Legalese's [wellwishers mailing list](http://wellwishers.lists.legalese.com) (at most one email per month).  You'll also enjoy the [wellwishers archives](https://groups.google.com/a/lists.legalese.com/forum/#%21forum/wellwishers).
 2. If you're into the Twitter, you can follow us at [@legalese](http://twitter.com/legalese).
 3. See this lovely YouTube from the beautiful @mengwong.  This gives you the vision: [Representing Legal Contracts as Code](https://www.youtube.com/watch?v=RNm1aY-Umew) (YouTube).
