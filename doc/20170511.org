@@ -1,0 +1,119 @@
+#+TITLE: yet another effort at the language
+
+* traditional imperative language
+
+  IF (predicate) THEN { block } ELSE { block }
+  FOR (variable ; predicate ; change) { block }
+  FOR (v IN list) { block }
+  WHILE (predicate) { do-block }
+  DO { block } WHILE (predicate)
+  FUNCTION functionName (arguments) { block }
+  GLOBAL variablename TYPE whatever
+  LOCAL  variablename TYPE whatever
+
+* traditional object oriented language
+
+  Class extends OtherClass
+  Class attributename TYPE whatever
+  Class methodname    TYPE function
+
+  object = new Class
+  object.attribute = ...
+  object.method()
+
+  object.setAttr() // idiomatic
+  object.getAttr() // idiomatic
+
+* typed functional language
+
+class ...
+instance ...
+type ...
+data Type = Constructor1 Product Product | Constructor2 Sum
+function fName :: Type -> Type -> Type
+fName arg1 arg2 = ...
+... map ... fold ... do ... let ... (lambda a b -> a * b) ...
+
+* SQL
+
+   SELECT *
+     FROM table1 [ JOIN table2 ]
+    WHERE predicate
+    GROUP BY ... HAVING ...
+    ORDER BY ...
+    LIMIT ...
+
+* Modifying CSL
+
+We remain faithful to CSL's semantics but alter the language syntax to make it look a little more like SQL, because the 1980s gave us Knight Rider, Bladerunner, and SQL.
+
+* L4 OpSpec (Operational Specification)
+
+** Clause Definition
+
+#+BEGIN_SRC
+
+clause-spec ::= must-clause
+              | upon-clause
+              | elect-clause
+
+must-clause ::=
+
+?            LABEL   labelName:
+?       SUBJECT TO   clause-combo
+?  NOTWITHSTANDING   clause-combo
+?             WHEN   predicate
+?            PARTY   p MUST [NOT]
+      |     [UPON]
+!                    action-combo
+?         PROVIDED   rule(params)
+!           BEFORE   (deadline) REMAINING Z
+!            HENCE   clause-spec (args including Z) | FULFILLED
+!             LEST   label2 | party BREACH
+
+clause-spec ::= labelName [when]
+
+deadline ::= absolute | relative
+
+action-combo ::= action-spec AND action-combo
+               | action-spec OR  action-combo
+               | action-spec
+
+action-spec ::= action(params) [ SUCHTHAT predicate(params) ]
+
+#+END_SRC
+
+** Clause Elaboration 
+
+#+BEGIN_SRC
+
+ELABORATE labelName WITH labelName:
+
+#+END_SRC
+
+
+** Ternary Logic
+
+type Bool3 = Maybe Bool
+
+** Ontology
+
+import LKIF (...)
+
+class | instance | type | data = ...
+function fName :: Type -> Type -> Type
+fName arg1 arg2 = ...
+
+Action actionName :: { ... } -> Bool3
+
+
+* L4 PoSpec (Policy Specification)
+
+(rule syntax shared with OpSpec)
+
+#+BEGIN_SRC
+
+rule ::=
+
+#+END_SRC
+
