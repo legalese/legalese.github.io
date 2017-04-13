@@ -32,7 +32,7 @@ Rumor is that you are interested in Legalese.  Before you do anything else:
 ## The future of legal education and the legal profession
 * [The MIT School of Law?](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2513397) 24 Oct 2014
 * [Artificial Intelligence and Law](https://computationallegalstudies.com/2017/03/18/artificial-intelligence-law-%E2%80%A8a-six-part-primer-professor-daniel-martin-katz-updated-version-03-17-17/) a six part primer, by Professor Daniel Martin Katz
-* [Tomorrow's Lawyers](https://www.amazon.com/Tomorrows-Lawyers-Introduction-Your-Future/dp/0198796633/), by Richard Susskind, 2013
+* [Tomorrow's Lawyers](https://www.amazon.com/Tomorrows-Lawyers-Introduction-Your-Future/dp/0198796633/), by Richard Susskind, 2013 (1st ed.) and 2017 (2nd ed.)
 * [Developing an E-Curriculum](http://scholarship.kentlaw.iit.edu/cgi/viewcontent.cgi?article=3980&context=cklawreview) by Oliver Goodenough, June 2013
 
 
@@ -40,5 +40,5 @@ Rumor is that you are interested in Legalese.  Before you do anything else:
 There exists a lovely framework for generating multi-lingual natural language from formal grammars.  It's called GrammaticalFramework.  As a lawyer, you'll probably be good at generating the appropriate natural language. The plan is to build a dictionary of translation of the smallest "atomic" units of logic to legal, then compose these fragments into larger texts.
 * [Google Tech Talk](https://www.youtube.com/watch?v=x1LFbDQhbso)
 * [GrammaticalFramework SummerSchool](http://school.grammaticalframework.org/2017/) on 14th–25th August 2017
-* [LegaRuleML](https://www.oasis-open.org/committees/legalruleml/) is an open standard for expressing legal rules (legislation) in XML.
+* [LegalRuleML](https://www.oasis-open.org/committees/legalruleml/) is an open standard for expressing legal rules (such as legislation) in XML.
 
