@@ -2,6 +2,7 @@
 
 * traditional imperative language
 
+#+BEGIN_SRC
   IF (predicate) THEN { block } ELSE { block }
   FOR (variable ; predicate ; change) { block }
   FOR (v IN list) { block }
@@ -10,9 +11,11 @@
   FUNCTION functionName (arguments) { block }
   GLOBAL variablename TYPE whatever
   LOCAL  variablename TYPE whatever
+#+END_SRC
 
 * traditional object oriented language
 
+#+BEGIN_SRC
   Class extends OtherClass
   Class attributename TYPE whatever
   Class methodname    TYPE function
@@ -23,9 +26,11 @@
 
   object.setAttr() // idiomatic
   object.getAttr() // idiomatic
+#+END_SRC
 
 * typed functional language
 
+#+BEGIN_SRC
 class ...
 instance ...
 type ...
@@ -33,15 +38,18 @@ data Type = Constructor1 Product Product | Constructor2 Sum
 function fName :: Type -> Type -> Type
 fName arg1 arg2 = ...
 ... map ... fold ... do ... let ... (lambda a b -> a * b) ...
+#+END_SRC
 
 * SQL
 
+#+BEGIN_SRC
    SELECT *
      FROM table1 [ JOIN table2 ]
     WHERE predicate
     GROUP BY ... HAVING ...
     ORDER BY ...
     LIMIT ...
+#+END_SRC
 
 * Modifying CSL
 
@@ -120,6 +128,7 @@ type Bool3 = Maybe Bool
 
 ** Ontology
 
+#+BEGIN_SRC
 import LKIF (...)
 
 class | instance | type | data = ...
@@ -127,6 +136,7 @@ function fName :: Type -> Type -> Type
 fName arg1 arg2 = ...
 
 Action actionName :: { ... } -> Bool3
+#+END_SRC
 
 
 * L4 PoSpec (Policy Specification)
@@ -136,6 +146,8 @@ Action actionName :: { ... } -> Bool3
 #+BEGIN_SRC
 
 rule ::=
+
+UNDER CONSTRUCTION LOLOL
 
 #+END_SRC
 
