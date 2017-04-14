@@ -57,19 +57,41 @@ clause-spec ::= must-clause
               | upon-clause
               | elect-clause
 
-must-clause ::=
+-- CSL obligation
 
+must-clause ::=
 ?            LABEL   labelName:
 ?       SUBJECT TO   clause-combo
 ?  NOTWITHSTANDING   clause-combo
 ?             WHEN   predicate
 ?            PARTY   p MUST [NOT]
-      |     [UPON]
 !                    action-combo
 ?         PROVIDED   rule(params)
 !           BEFORE   (deadline) REMAINING Z
 !            HENCE   clause-spec (args including Z) | FULFILLED
-!             LEST   label2 | party BREACH
+!      ELSE | LEST   label2 | party BREACH
+
+-- CSL external choice
+
+upon-clause ::=
+?            LABEL   labelName:
+?       SUBJECT TO   clause-combo
+?  NOTWITHSTANDING   clause-combo
+?             WHEN   predicate
+!             UPON   action-combo
+?         PROVIDED   rule(params)
+!           BEFORE   (deadline) REMAINING Z
+!            HENCE   clause-spec (args including Z) | FULFILLED
+!      ELSE | LEST   label2
+
+-- CSL internal choice
+?            LABEL   labelName:
+?       SUBJECT TO   clause-combo
+?  NOTWITHSTANDING   clause-combo
+?             WHEN   predicate(params)
+!             THEN   clause-spec (args including Z) | FULFILLED
+!             ELSE   label2
+
 
 clause-spec ::= labelName [when]
 
