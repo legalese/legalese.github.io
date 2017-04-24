@@ -9,10 +9,6 @@ Rumor is that you are interested in Legalese.  Before you do anything else:
 5. [Email us](mailto:collective@legalese.com) for an invite to the [Slack chat](http://slack.legalese.com), and join us on the #dsl channel.
 
 
-![the vision](https://dl.dropboxusercontent.com/u/3308162/legalese-vision.png "The Vision")
-
-
-
 ## Time-sensitive
 * [International Conference on AI and Law](https://nms.kcl.ac.uk/icail2017/) on June 12--16 in London, UK.
 
@@ -43,4 +39,7 @@ There exists a lovely framework for generating multi-lingual natural language fr
 * [Google Tech Talk](https://www.youtube.com/watch?v=x1LFbDQhbso)
 * [GrammaticalFramework SummerSchool](http://school.grammaticalframework.org/2017/) on 14th–25th August 2017
 * [LegalRuleML](https://www.oasis-open.org/committees/legalruleml/) is an open standard for expressing legal rules (such as legislation) in XML.
+
+
+![the vision](https://dl.dropboxusercontent.com/u/3308162/legalese-vision.png "The Vision")
 
