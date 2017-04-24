@@ -19,6 +19,8 @@ Rumor is that you are interested in Legalese.  Before you do anything else:
 * [Darmstadter precision's counterfeit](https://dl.dropboxusercontent.com/u/3308162/darmstadter%20precision's%20counterfeit%2025758526.pdf)
 * [Ken Adams on Contract Drafting](https://twitter.com/KonciseD/status/816827816125677568): "Am I restoring order to contract drafting? No, there never was a golden age of drafting, it's always been a mess." -- 4 Jan 2017
 
+## There is a better way
+* The British Nationality Act was [http://opim.wharton.upenn.edu/~sok/papers/s/p370-sergot.pdf](rewritten in Prolog) all the way back in 1986!
 
 ## The closest material thus far
 * [Contract as Automaton: The Computational Representation of Financial Agreements](https://financialresearch.gov/working-papers/files/OFRwp-2015-04_Contract-as-Automaton-The-Computational-Representation-of-Financial-Agreements.pdf)
@@ -27,6 +29,7 @@ Rumor is that you are interested in Legalese.  Before you do anything else:
 * [Contracts in Structured English and Back](https://heim.ifi.uio.no/gerardo/flacos11-GFCL.pdf)
 
 ## Sketching the way forward
+
 * [Model Checking Contracts -- a Case Study](http://lara.epfl.ch/w/_media/contractlanguage.pdf)
 * [Logic in the Theory and Practice of Lawmaking](https://dl.dropboxusercontent.com/u/3308162/Logic%20in%20the%20Theory%20and%20Practice%20of%20Lawmaking.pdf)
 
