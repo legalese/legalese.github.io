@@ -41,5 +41,6 @@ There exists a lovely framework for generating multi-lingual natural language fr
 * [LegalRuleML](https://www.oasis-open.org/committees/legalruleml/) is an open standard for expressing legal rules (such as legislation) in XML.
 
 
+# The Vision
 ![the vision](https://dl.dropboxusercontent.com/u/3308162/legalese-vision.png "The Vision")
 
