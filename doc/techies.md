@@ -13,7 +13,7 @@ Rumor is that you are interested in Legalese.  Before you do anything else:
 * [International Conference on AI and Law](https://nms.kcl.ac.uk/icail2017/) on June 12--16 in London, UK.
 
 
-## Why current contract drafting is terrible
+## Why programming in english is terrible
 * [The 1M dollar comma](http://www.nytimes.com/2006/10/25/business/worldbusiness/25comma.html)
 * [The 10M dollar serial comma](http://www.newyorker.com/culture/culture-desk/a-few-words-about-that-ten-million-dollar-serial-comma)
 * [Darmstadter precision's counterfeit](https://dl.dropboxusercontent.com/u/3308162/darmstadter%20precision's%20counterfeit%2025758526.pdf)
