@@ -9,6 +9,10 @@ Rumor is that you are interested in Legalese.  Before you do anything else:
 5. [Email us](mailto:collective@legalese.com) for an invite to the [Slack chat](http://slack.legalese.com), and join us on the #dsl channel.
 
 
+![the vision](https://dl.dropboxusercontent.com/u/3308162/legalese-vision.png "The Vision")
+
+
+
 ## Time-sensitive
 * [International Conference on AI and Law](https://nms.kcl.ac.uk/icail2017/) on June 12--16 in London, UK.
 
