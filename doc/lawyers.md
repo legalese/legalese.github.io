@@ -1,4 +1,4 @@
-# Hello those of legal training
+# Hello those of legal training!
 
 Rumor is that you are interested in Legalese.  Before you do anything else:
 
