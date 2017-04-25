@@ -26,8 +26,12 @@ Rumor is that you are interested in Legalese.  Before you do anything else:
 * [Contract as Automaton: The Computational Representation of Financial Agreements](https://financialresearch.gov/working-papers/files/OFRwp-2015-04_Contract-as-Automaton-The-Computational-Representation-of-Financial-Agreements.pdf)
 * [Contract Formalization by Tom Hvitved](https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU)
 * [Model Checking Contracts -- a Case Study](http://lara.epfl.ch/w/_media/contractlanguage.pdf)
+* [Towards a Formal Language for Electronic Contracts](http://www.cse.chalmers.se/~gersch/slides-talks/slides-CL-ModelChecking.pdf)
 
 
+## Ontologies
+* [Estrella Project](http://www.estrellaproject.org/)
+* [LKIF core](https://github.com/RinkeHoekstra/lkif-core)
 
 ## The future of legal education and the legal profession
 * [The MIT School of Law?](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2513397) 24 Oct 2014
