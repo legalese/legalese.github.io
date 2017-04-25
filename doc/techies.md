@@ -27,7 +27,7 @@ Rumor is that you are interested in Legalese.  Before you do anything else:
 * [Contract Formalization by Tom Hvitved](https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU)
 * The [Anacon framework](http://www.cse.chalmers.se/~gersch/anacon/)
 * [Contracts in Structured English and Back](https://heim.ifi.uio.no/gerardo/flacos11-GFCL.pdf)
-
+* [Analysing normative contracts: On the semantic gap between natural and formal languages](https://gupea.ub.gu.se/bitstream/2077/40725/1/gupea_2077_40725_1.pdf)
 ## Sketching the way forward
 
 * [Model Checking Contracts -- a Case Study](http://lara.epfl.ch/w/_media/contractlanguage.pdf)
