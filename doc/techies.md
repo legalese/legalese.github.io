@@ -32,7 +32,7 @@ Rumor is that you are interested in Legalese.  Before you do anything else:
 
 * [Model Checking Contracts -- a Case Study](http://lara.epfl.ch/w/_media/contractlanguage.pdf)
 * [Logic in the Theory and Practice of Lawmaking](https://dl.dropboxusercontent.com/u/3308162/Logic%20in%20the%20Theory%20and%20Practice%20of%20Lawmaking.pdf)
-
+* HOWTO: [DSL for the Uninitiated](https://cacm.acm.org/magazines/2011/7/109910-dsl-for-the-uninitiated/fulltext)
 
 ## Generating English from Formal Grammars (Isomorphism)
 There exists a lovely framework for generating multi-lingual natural language from formal grammars.  It's called GrammaticalFramework.  As a lawyer, you'll probably be good at generating the appropriate natural language. The plan is to build a dictionary of translation of the smallest "atomic" units of logic to legal, then compose these fragments into larger texts.
