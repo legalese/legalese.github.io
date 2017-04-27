@@ -1,4 +1,4 @@
-# Hello those of technical research training!
+# Hello those of technical training!
 
 Rumor is that you are interested in Legalese.  Before you do anything else:
 
