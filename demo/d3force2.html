@@ -55,6 +55,34 @@ d3.json(
   // "https://raw.githubusercontent.com/jobchong/newlegalesetemplates/master/d3force.json"
   "http://localhost/d3/stages.json"
 
+// stages.json contains
+// Stages :: [Stage]
+// Stage :: { id :: Int
+//          , links :: [ Link ]
+//          , nodes :: [ Node ]
+//          }
+// Link :: { source :: Int
+//         , target :: Int
+//         }
+// Node :: { title :: String
+//         , type :: String // "subsection" | "pdf" | "party"
+//         } 
+
+// at this point I am super tempted to just do all this in ghcjs lol
+
+// so what we want to do is chuck everything on the canvas and let it all draw
+// but everything will start out invisible.
+// our proxy for invisible will be GREEN
+// and when we go production we will turn GREEN to WHITE or maybe INVISIBLE if that's a thing.
+// then we start the world clock
+// we identify the nodes and edges, grouped by stage, that we want to colorize
+// we turn one stage red
+// we turn another stage green
+// or whatever
+// at first, we will just APPARATE them into visibility.
+// once we are more confident we will can fade them in with an animation.
+
+
   , function(error, json) {
     if (error) throw error;
 
