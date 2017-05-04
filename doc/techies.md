@@ -15,7 +15,7 @@ Rumor is that you are interested in Legalese.  Before you do anything else:
 
 ## Why programming in english is terrible
 * [The 1M dollar comma](http://www.nytimes.com/2006/10/25/business/worldbusiness/25comma.html)
-* [The 10M dollar serial comma](http://www.newyorker.com/culture/culture-desk/a-few-words-about-that-ten-million-dollar-serial-comma)
+* [The 10M dollar comma](http://www.newyorker.com/culture/culture-desk/a-few-words-about-that-ten-million-dollar-serial-comma)
 * [Darmstadter precision's counterfeit](https://dl.dropboxusercontent.com/u/3308162/darmstadter%20precision's%20counterfeit%2025758526.pdf)
 * [Ken Adams on Contract Drafting](https://twitter.com/KonciseD/status/816827816125677568): "Am I restoring order to contract drafting? No, there never was a golden age of drafting, it's always been a mess." -- 4 Jan 2017
 
@@ -32,6 +32,7 @@ Rumor is that you are interested in Legalese.  Before you do anything else:
 
 * [Model Checking Contracts -- a Case Study](http://lara.epfl.ch/w/_media/contractlanguage.pdf)
 * [Logic in the Theory and Practice of Lawmaking](https://dl.dropboxusercontent.com/u/3308162/Logic%20in%20the%20Theory%20and%20Practice%20of%20Lawmaking.pdf)
+* [Data61's Digital Legislation Vision](http://digital-legislation.net/)
 * HOWTO: [DSL for the Uninitiated](https://cacm.acm.org/magazines/2011/7/109910-dsl-for-the-uninitiated/fulltext)
 
 ## Generating English from Formal Grammars (Isomorphism)
