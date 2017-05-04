@@ -72,12 +72,27 @@ must-clause ::=
 ?       SUBJECT TO   clause-combo
 ?  NOTWITHSTANDING   clause-combo
 ?             WHEN   predicate
-?            PARTY   p MUST [NOT]
-!                    action-combo
+?            PARTY   p 
+!            SHALL   [NOT] action-combo
+!            WHERE   action-expression
 ?         PROVIDED   rule(params)
 !           BEFORE   (deadline) REMAINING Z
 !            HENCE   clause-spec (args including Z) | FULFILLED
 !      ELSE | LEST   label2 | party BREACH
+
+
+            LABEL   labelName:
+       SUBJECT TO   clause-combo
+  NOTWITHSTANDING   clause-combo
+             WHEN   predicate
+            PARTY   p 
+            SHALL   [NOT] action-combo
+            WHERE   action-expression
+         PROVIDED   rule(params)
+           BEFORE   (deadline) REMAINING Z
+            HENCE   clause-spec (args including Z) | FULFILLED
+      ELSE | LEST   label2 | party BREACH
+
 
 -- CSL external choice
 
@@ -87,6 +102,7 @@ upon-clause ::=
 ?  NOTWITHSTANDING   clause-combo
 ?             WHEN   predicate
 !             UPON   action-combo
+!            WHERE   action-expression
 ?         PROVIDED   rule(params)
 !           BEFORE   (deadline) REMAINING Z
 !            HENCE   clause-spec (args including Z) | FULFILLED
