@@ -16,7 +16,7 @@ Rumor is that you are interested in Legalese.  Before you do anything else:
 
 ## Why current contract drafting is terrible
 * [The 1M dollar comma](http://www.nytimes.com/2006/10/25/business/worldbusiness/25comma.html)
-* [The 10M dollar serial comma](http://www.newyorker.com/culture/culture-desk/a-few-words-about-that-ten-million-dollar-serial-comma)
+* [The 10M dollar comma](http://www.newyorker.com/culture/culture-desk/a-few-words-about-that-ten-million-dollar-serial-comma)
 * [Darmstadter precision's counterfeit](https://dl.dropboxusercontent.com/u/3308162/darmstadter%20precision's%20counterfeit%2025758526.pdf)
 * [Ken Adams on Contract Drafting](https://twitter.com/KonciseD/status/816827816125677568): "Am I restoring order to contract drafting? No, there never was a golden age of drafting, it's always been a mess." -- 4 Jan 2017
 
