@@ -239,11 +239,10 @@ When you attend academic conferences about law and logic, you will be able to fo
 
 - How to be a Genius (vs a Consultant), with thanks to ed kmett.
 
-** Prior Art: Computational Law
+** Prior Art: Computational Law Projects
 
 - LegalRuleML: Palmirani.
 - ESTRELLA, LKIF.
-- OCLR.
 - Digital-Legislation.net
 
 ** Prior Art: Rule languages. Declarative Programming.
@@ -256,6 +255,7 @@ When you attend academic conferences about law and logic, you will be able to fo
 - Drools. Jess. The Rete algorithm. SAT.
 - Introduction to Logic Programming with Prolog.
 - DataLog. Textual Rulelog. Coherent Knowledge.
+- Governatori: [[https://www.researchgate.net/publication/37617796_Representing_Business_Contracts_in_RuleML][Representing Business Contracts in RuleML]]
 
 ** Use Case: terms of service, privacy policies
 
@@ -269,37 +269,42 @@ When you attend academic conferences about law and logic, you will be able to fo
 
 - Template Approaches: CommonAccord, CommonForm, DocAssemble.
 - Commercial efforts: ContractExpress, HotDocs, Exari.
+
 ** Prior Art: Computational Contracts
 
-- Previous Contract Languages. FormaLex, CL, CSL. See above.
+- Previous Contract Languages. FormaLex, CL, CSL. See [[*A High-Level Survey of Prior Art in Contracts][above]].
 
-** Computational Linguistics
+** Introduction to Computational Linguistics
 
 - The A.I. Dichotomy: Symbolic vs Statistical, Logic vs Emotion, Apollo vs Dionysus
+- Natural Language Processing. NLTK.
 - Natural Language Generation.
 - Text Planning.
-- Grammatical Framework.
+- Introduction to Grammatical Framework.
 
 ** Introduction to Mathematical Logic
 
-- Modal logics. Kripke structures. Predicate, Epistemic, Deontic, Temporal, Dynamic Logics.
-- Other logics. Defeasible Logic: Governatori. Finite Automata.
+- [[http://repository.cmu.edu/cgi/viewcontent.cgi?article=1923&context=compsci][On the Unusual Effectiveness of Logic in Computer Science]]
+- Predicate Logic.
+- Modal logics. Kripke structures. Deontic, Epistemic, Temporal, Dynamic Logics.
+- Defeasible Logic: Governatori. Finite Automata.
 
-** Introduction to Functional Programming and Programming Language Theory.
+** Introduction to Functional Programming.
 
 - Introduction to Functional Programming. haskellbook.com.
-- Programming Paradigms. Aspects.
 
 ** Programming Language Theory
 
+- Programming Paradigms.
 - Types and Programming Languages.
-- Agda, Idris and CoQ
 - Automated Theorem Proving
+- Agda, Idris and CoQ
+- Dependent Types in Haskell
 - Dependent Types in GF
 
 ** Model Checking
 
-- Model Checking. CTL* and LCTL. Uppaal. Alloy. [[https://yurichev.com/writings/SAT_SMT_draft-EN.pdf][SAT/SMT]]. SMTLIB. Z3.
+- Model Checking. CTL* and LCTL. Uppaal. Alloy. [[https://yurichev.com/writings/SAT_SMT_draft-EN.pdf][SAT/SMT]]. [[http://smtlib.cs.uiowa.edu/language.shtml][SMTLIB2]]. Z3.
 
 ** Our Contribution
 
@@ -314,6 +319,6 @@ When you attend academic conferences about law and logic, you will be able to fo
 After mastering the above subjects, pick an advanced topic and dive in. You may spend several years [[http://matt.might.net/articles/phd-school-in-pictures/][advancing the state of the art]]. For extra credit, move to Northern Europe and attach yourself to one of the professors in the field. You will probably come away with a Ph.D.
 
 - Temporal Issues in Legislative Versioning. Computing legality over time. Introduction to bitemporal databases. Applications to legal scenarios.
-- [[http://www.springer.com/gp/book/9783319195742][Logic and Lawmaking]]: textbook. Pre-CS legal scholarship. Legal formalism vs legal realism. Types of rules. Complete vs Incomplete Contracts. Allocation of decision rights under uncertainty: I cut, you choose.
+- [[http://www.springer.com/gp/book/9783319195742][Logic in the Theory and Practice of Lawmaking]]: textbook. Pre-CS legal scholarship. Legal formalism vs legal realism. Types of rules. Complete vs Incomplete Contracts. Allocation of decision rights under uncertainty: I cut, you choose.
 - NLG: Contract drafting. Ken Adams. Tina Stark. Quill. Text planning. [[https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2932333][Interpretive caveats]].
 
