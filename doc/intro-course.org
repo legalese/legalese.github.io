@@ -52,6 +52,7 @@ Where links take you to working software demos, try the demos.
 1. The earliest work dates back to 1988: skim Ronald Lee's [[https://www.researchgate.net/publication/228185635_A_Logic_Model_for_Electronic_Contracting][A Logic Model for Electronic Contracting]].
 2. In the late 1990s and early 2000s, Nick Szabo put forward [[http://nakamotoinstitute.org/contract-language/][a formal language for contracts]].
 3. More recently, Flood & Goodenough published [[https://www.financialresearch.gov/working-papers/files/OFRwp-2015-04_Contract-as-Automaton-The-Computational-Representation-of-Financial-Agreements.pdf][Contract as Automaton]] (2015, 2017).
+4. In 2017, Shrutarshi Basu, Ph.D. candidate at Cornell, wrote a conveyancing reasoner: http://basus.me/conveyor/
 
 *** European Work
 
@@ -62,7 +63,6 @@ Where links take you to working software demos, try the demos.
 5. Chapter 1 of Camilleri's 2015 [[https://gupea.ub.gu.se/bitstream/2077/40725/1/gupea_2077_40725_1.pdf][Analysing Normative Contracts]] briefly surveys the field of computable contracts. The rest of the thesis demonstrates applications of CL: [[http://remu.grammaticalframework.org/contracts/diagrams/][contract-oriented diagrams]] (web), a [[http://remu.grammaticalframework.org/contracts/cnl/][CNL editor]] (web), and [[http://www.cs.um.edu.mt/~svrg/Tools/CLTool/][CLan]] (Java), a contract language analyzer, produced under [[http://remu.grammaticalframework.org/contracts/][the REMU project]].
 6. Chapter 1 of Hvitved's 2012 [[https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU][Contract Formalization]] comprehensively surveys the prior art in contract languages.
 7. Chapter 2 introduces his language, [[https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU][CSL]]. CSL was developed as part of [[http://www.sciencedirect.com/science/article/pii/S156783260800074X][POETS]] under the Danish Advanced Technology Foundation's [[http://web.archive.org/web/20141216182613/http://3gerp.org/][3gERP]] project. The implementation is in Haskell.
-8. Shrutarshi Basu, Ph.D. candidate at Cornell, wrote a conveyancing reasoner: http://basus.me/conveyor/
 
 *** Australian Work
 
