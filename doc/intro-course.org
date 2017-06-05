@@ -1,0 +1,169 @@
+#+TITLE: An Introductory Course in Computable Contracts
+
+* Introduction
+
+This course was designed in mid-2017 to survey the field of computational contracts, which is just now emerging from academia toward industrial practice.
+
+** Audiences
+
+The course is intended for two audiences.
+
+One, the non-technical reader who has some experience with the legal profession, who is considering a career in legal engineering, and is unafraid to wade into the shallows, at least, of computer science and mathematical logic. Perhaps a law student seeking alternatives to the conventional law-firm future, of junior associate, senior associate, partner, corpse.
+
+Two, the technical reader, perhaps a self-taught or classically educated programmer, who is interested in approaching contract law as a special case of applied computer science. Perhaps a contrarian uninterested in the current fads of big-data deep learning statistical A.I., web / mobile app development, or instant cryptocurrency riches.
+
+This is not a bloodless sport. You might have parents or friends who are lawyers. As a computer geek at heart, you might feel a certain competitive urge to show that your magic is as strong as theirs. Nurture this flame. It is an authentic motivation.
+
+There is a third type of audience. Maybe you grew up coding, but now find yourself working in law. Perhaps you are entertaining thoughts about defecting to the other camp where your first love waits. We can neither confirm nor deny that any such attempts will succeed. Blink twice if you understand.
+
+** By the end of this course
+
+You will be acquainted with the foundational technologies, past and current efforts, and leading figures in the field of computational law in general, and computable contracts in particular.
+
+This course will not make you an expert. It merely equips you for a journey on the road of legal engineering. Mastery of the larger field of software engineering takes years.
+
+The content is organized into three volumes, the way Ursula K. Le Guin's [[https://www.amazon.co.uk/Earthsea-Wizard-Farthest-Tehanu-Puffin/dp/0140348034/][Earthsea Trilogy]], has four books and more.
+
+* Volume 1 (two days) -- Introduction
+
+After two days you will be aware of the possibilities, the major researchers, major projects, and existing contract language efforts.
+
+** Contents
+
+- A smattering of websites which survey the prior art.
+- A video demo of three legal development environments: ANaCon, Basus, CSL/POETS.
+
+
+** Motivation and Examples
+
+** A High-Level Survey of Prior Art
+
+1. Chapter 1 of Camilleri's /Analysing Normative Contracts/.
+2. Chapter 1 of Hvitved's /Contract Formalization/.
+3. http://digital-legislation.net
+4. 
+
+** A Quick Demo of Existing Systems
+
+- Basus's estate reasoner
+- 
+
+
+* Volume 2 (one semester) -- Intermediate
+
+It will take a few months for practitioners to get productive.
+
+As a newly fledged legal developer, you will be ready to use the language and its tools to read and write contracts-as-code and legislation-as-code.
+
+You will be able to generate visualizations and operate the verification engine.
+
+You can start contributing to opensource libraries of contract code. Share your work on Github.
+
+** Contents
+
+*** Motivation
+
+- Darmstadter
+
+*** Getting Your Feet Wet With Existing Contract Language Environments
+
+- Visit AnaCon, CL, Clang.
+- Visit the Basus environment.
+- Visit CSL and POETS.
+- Introduction to L4.
+- Contract development in L4. Write your first contract. Review the contract library.
+- Legislation development. Write your first bill. Review the statute library.
+- Translation to natural language via GF. Multilingual generation.
+- Introduction to CTL*. Property verification via model checking. Bug-finding within contracts.
+- Conflict detection via model checking. Bug-finding across contracts.
+- Sanity checking through types. Debt vs Equity operations.
+- Visualization. Scenario explorers.
+
+
+* Volume 3 (one to two years) -- Advanced
+
+There is enough material in here for a Master's degree. If you go fast, you could cover it all in a year. If you go deep, it might take two.
+
+You will understand the technical lingo and architectural decisions that inform the design of the L4 language.
+
+be ready to start developing and extending the core language itself, the way Guido van Rossum develops Python, the way Mats develops Ruby, the way DHH developed Rails.
+
+When you attend academic conferences about law and logic, you will be able to follow arguments of wizards about the fine points of action logics vs state logics, about whether Hvitved loses anything by defining permission in terms of counterparty obligations, about whether Schneider's CL correctly avoids the paradoxes of Standard Deontic Logic, about whether Governatori's defeasible logics map elegantly to SBVR and LegalRuleML.
+
+** Motivation and Problems
+
+- How to be a Genius (vs a Consultant)
+
+** Prior Art: Computational Law
+
+- LegalRuleML: Palmirani.
+- ESTRELLA, LKIF.
+- OCLR.
+- Digital-Legislation.net
+
+** Prior Art: Rule languages. Declarative Programming.
+
+- ODRL
+- OCL and OCLR
+- Business Rule engines. SBVR.
+- Oracle Policy Automation. iLog.
+- Drools. Jess. The Rete algorithm. SAT.
+- Introduction to Logic Programming with Prolog.
+- DataLog. Textual Rulelog. Coherent Knowledge.
+
+** Use Case: terms of service, privacy policies
+
+- PP's work, openminted.eu, CCEL.
+
+** Prior Art: Computational Contracts
+
+- Template Approaches: CommonAccord, CommonForm, DocAssemble.
+- Commercial efforts: ContractExpress, HotDocs, Exari.
+- CoSoDIS papers: Schneider, Camilleri, et alia.
+- POETS
+- Previous Contract Languages. FormaLex, CL, CSL.
+
+** Computational Linguistics
+
+- The A.I. Dichotomy: Symbolic vs Statistical, Logic vs Emotion, Apollo vs Dionysus
+- Natural Language Generation.
+- Text Planning.
+- Grammatical Framework.
+
+** Introduction to Mathematical Logic
+
+- Modal logics. Kripke structures. Predicate, Epistemic, Deontic, Temporal, Dynamic Logics.
+- Other logics. Defeasible Logic: Governatori. Finite Automata.
+
+** Introduction to Functional Programming and Programming Language Theory.
+
+- Introduction to Functional Programming. haskellbook.com.
+- Programming Paradigms. Aspects.
+
+** Programming Language Theory
+
+- Types and Programming Languages.
+- Agda, Idris and CoQ
+- Automated Theorem Proving
+- Dependent Types in GF
+
+** Model Checking
+
+- Model Checking. CTL* and LCTL. Uppaal. Alloy. SAT and SMTLIB. Z3.
+
+** Our Contribution
+
+- Introduction to Contract Law.
+- The Clause Construct.
+- The Interpretation Combinator.
+- Extending the core language with subdomain expression languages.
+
+
+* Volume 4 (three to six years) -- Research Directions
+
+After mastering the above subjects, pick an advanced topic and dive in. You may spend several years [[http://matt.might.net/articles/phd-school-in-pictures/][advancing the state of the art]]. For extra credit, move to Northern Europe and attach yourself to one of the professors in the field. You will probably come away with a Ph.D.
+
+- Temporal Issues in Legislative Versioning. Computing legality over time. Introduction to bitemporal databases. Applications to legal scenarios.
+- [[http://www.springer.com/gp/book/9783319195742][Logic and Lawmaking]]: textbook. Pre-CS legal scholarship. Legal formalism vs legal realism. Types of rules. Complete vs Incomplete Contracts. Allocation of decision rights under uncertainty: I cut, you choose.
+- NLG: Contract drafting. Ken Adams. Tina Stark. Quill. Text planning. [[https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2932333][Interpretive caveats]].
+
