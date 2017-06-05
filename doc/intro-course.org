@@ -51,8 +51,9 @@ Where links take you to working software demos, try the demos.
 
 1. The earliest work dates back to 1988: skim Ronald Lee's [[https://www.researchgate.net/publication/228185635_A_Logic_Model_for_Electronic_Contracting][A Logic Model for Electronic Contracting]].
 2. In the late 1990s and early 2000s, Nick Szabo put forward [[http://nakamotoinstitute.org/contract-language/][a formal language for contracts]].
-3. More recently, Flood & Goodenough published [[https://www.financialresearch.gov/working-papers/files/OFRwp-2015-04_Contract-as-Automaton-The-Computational-Representation-of-Financial-Agreements.pdf][Contract as Automaton]] (2015, 2017).
-4. In 2017, Shrutarshi Basu, Ph.D. candidate at Cornell, wrote a conveyancing reasoner: http://basus.me/conveyor/
+3. In 2011 some Argentinians published [[http://publicaciones.dc.uba.ar/Publications/2011/GMS11/gms_flacos-2011-tr.pdf][FormaLex]].
+4. More recently, Flood & Goodenough published [[https://www.financialresearch.gov/working-papers/files/OFRwp-2015-04_Contract-as-Automaton-The-Computational-Representation-of-Financial-Agreements.pdf][Contract as Automaton]] (2015, 2017).
+5. In 2017, Shrutarshi Basu, Ph.D. candidate at Cornell, wrote a conveyancing reasoner: http://basus.me/conveyor/
 
 *** European Work
 
@@ -60,8 +61,8 @@ Where links take you to working software demos, try the demos.
 2. In 2002, [[https://www.computer.org/csdl/proceedings/hicss/2002/1435/07/14350170b.pdf][Using Event Semantics for Modeling Contracts]] came out of the Netherlands.
 3. In 2005, Adrian Paschke at TUM.de (et al) described [[http://rbsla.ruleml.org/docs/37910209.pdf][ContractLog]] to cover SLAs.
 4. From 2007 to 2010, [[http://cosodis.project.ifi.uio.no/][the CoSoDIS project]] begat the contract language CL, under [[http://www.cse.chalmers.se/~gersch/][Schneider]]. Browse [[http://cosodis.project.ifi.uio.no/publications.shtml][publications]].
-5. Chapter 1 of Camilleri's 2015 [[https://gupea.ub.gu.se/bitstream/2077/40725/1/gupea_2077_40725_1.pdf][Analysing Normative Contracts]] briefly surveys the field of computable contracts. The rest of the thesis demonstrates applications of CL: [[http://remu.grammaticalframework.org/contracts/diagrams/][contract-oriented diagrams]] (web), a [[http://remu.grammaticalframework.org/contracts/cnl/][CNL editor]] (web), and [[http://www.cs.um.edu.mt/~svrg/Tools/CLTool/][CLan]] (Java), a contract language analyzer, produced under [[http://remu.grammaticalframework.org/contracts/][the REMU project]].
-6. Chapter 1 of Hvitved's 2012 [[https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU][Contract Formalization]] comprehensively surveys the prior art in contract languages.
+5. Chapter 1 of Camilleri's 2015 [[https://gupea.ub.gu.se/bitstream/2077/40725/1/gupea_2077_40725_1.pdf][Analysing Normative Contracts]] briefly surveys the field of computable contracts. The rest of the thesis demonstrates applications of CL: [[http://remu.grammaticalframework.org/contracts/diagrams/][contract-oriented diagrams]] (web), a [[http://remu.grammaticalframework.org/contracts/cnl/][CNL editor]] (web), and [[http://www.cs.um.edu.mt/~svrg/Tools/CLTool/][CLan]] (Java), a contract language analyzer, produced under [[http://remu.grammaticalframework.org/contracts/][the REMU project]], funded by the Swedish Research Council.
+6. Chapter 1 of Hvitved's 2012 [[https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU][Contract Formalization]] comprehensively surveys the prior art in contract languages. That chapter describes many efforts not listed here.
 7. Chapter 2 introduces his language, [[https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU][CSL]]. CSL was developed as part of [[http://www.sciencedirect.com/science/article/pii/S156783260800074X][POETS]] under the Danish Advanced Technology Foundation's [[http://web.archive.org/web/20141216182613/http://3gerp.org/][3gERP]] project. The implementation is in Haskell.
 
 *** Australian Work
@@ -100,7 +101,7 @@ Skim the proceedings of past conferences.
 
 * Volume 2 (one semester) -- Intermediate
 
-It will take a few months for practitioners to get productive.
+This volume teaches L4. It will take a few months to get productive.
 
 As a newly fledged legal developer, you will be ready to use the language and its tools to read and write contracts-as-code and legislation-as-code.
 
@@ -113,20 +114,41 @@ You can start contributing to opensource libraries of contract code. Share your 
 *** Motivation
 
 - Darmstadter, Precision's Counterfeit
+- https://papers.ssrn.com/sol3/papers.cfm?abstract_id=332941
 
-*** Trying Out Some Existing Contract Language Environments
+*** Warm-Ups: Trying Out Some Existing Contract Language Environments
 
 - Visit AnaCon, CL, Clang. Observe C-OD.
 - Visit the Basus environment.
 - Visit [[https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU][CSL]] and POETS.
+- You should at least learn SQL.
 
 *** The Be-All and End-All of Contract Languages
 
 **** Introduction to L4.
+L4 is basically CL's extensions bolted on top of a CSL core.
+
 **** Using L4 to develop contracts.
 Write your first contract.
-**** Syntax: Control Flow
+**** Syntax: Control Flow and Clause Composition
 **** Syntax: Rules
+**** Syntax: Genre Extensions
+financial agreements
+
+startup investments
+
+corporate law
+
+employment agreements
+
+NDAs
+
+ESOPs
+
+conveyancing
+
+maritime agreements
+
 **** Review the contract library.
 Jurisdiction customization.
 **** Using L4 to develop legislation.
@@ -134,22 +156,7 @@ Write your first bill.
 Rule defeasibility.
 **** Review the statute library.
 
-*** A Bestiary of Standard Bugs
-
-**** Type Errors.
-Debt vs Equity.
-**** Action Conflicts.
-**** Rule Conflicts.
-**** Loopholes.
-**** Dangling References.
-**** Undefined Terms.
-**** Inconsistency with Legislation.
-
 *** Secondary Weapon Enhancements
-
-**** Multilingual Natural Language Generation.
-
-Introduction to GF.
 
 **** Automated Bug-Finding.
 
@@ -160,6 +167,33 @@ Review of Model Checking with CL.
 Property verification via model checking.
 
 Conflict detection via model checking.
+***** A Bestiary of Standard Bugs
+
+****** Type Errors.
+Debt vs Equity.
+****** Action Conflicts.
+****** Rule Conflicts.
+****** Loopholes.
+****** Dangling References.
+****** Undefined Terms.
+****** Inconsistency with Legislation.
+****** Model Checking Property Violations.
+****** Incompleteness.
+
+
+**** Multilingual Natural Language Generation.
+
+Introduction to GF.
+
+***** English Output
+
+***** Italian Output
+
+***** Indonesian Output
+
+***** German Output
+
+https://papers.ssrn.com/sol3/papers.cfm?abstract_id=596668
 
 **** Type Checking.
 
@@ -172,6 +206,16 @@ PCSL.
 Debt vs Equity example.
 
 **** Visualization. Scenario explorers.
+
+**** Ambiguity.
+
+https://papers.ssrn.com/sol3/papers.cfm?abstract_id=332984
+
+https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1288689
+
+**** Call-Outs to Oracles.
+
+
 
 *** Advanced L4
 
@@ -187,7 +231,7 @@ There is enough material in here for a Master's degree. If you go fast, you coul
 
 You will understand the technical lingo and architectural decisions that inform the design of the L4 language.
 
-be ready to start developing and extending the core language itself, the way Guido van Rossum develops Python, the way Mats develops Ruby, the way DHH developed Rails.
+You'll be ready to start developing and extending the core language itself, the way Guido van Rossum develops Python, the way Mats develops Ruby, the way DHH developed Rails.
 
 When you attend academic conferences about law and logic, you will be able to follow the arguments of wizards about the fine points of action logics vs state logics; about whether Hvitved loses anything by defining permission in terms of counterparty obligations; about whether CSL or CL better sidesteps the paradoxes of Standard Deontic Logic; about whether Governatori's defeasible logics map elegantly to SBVR and LegalRuleML.
 
@@ -221,13 +265,13 @@ When you attend academic conferences about law and logic, you will be able to fo
 - http://openminted.eu/
 - http://remu.grammaticalframework.org/contracts/converter/
 
-** Prior Art: Computational Contracts
+** Prior Art: Non-Computational Contracts
 
 - Template Approaches: CommonAccord, CommonForm, DocAssemble.
 - Commercial efforts: ContractExpress, HotDocs, Exari.
-- CoSoDIS papers: Schneider, Camilleri, et alia.
-- POETS and CSL. See [[https://books.google.co.uk/books?id=uKygBAAAQBAJ&pg=PA87&lpg=PA87&dq=hvitved+csl&source=bl&ots=L7Km5c3m2u&sig=FCa_1vqQnNRotxNd5IQBFRVOB1A&hl=en&sa=X&ved=0ahUKEwjTnLb8rKfUAhWlDcAKHXGfCgsQ6AEIJjAA#v=onepage&q=hvitved%2520csl&f=false][PCSL case study]] from 2014, also chapter 6 of Hvitved.
-- Previous Contract Languages. FormaLex, CL, CSL.
+** Prior Art: Computational Contracts
+
+- Previous Contract Languages. FormaLex, CL, CSL. See above.
 
 ** Computational Linguistics
 
