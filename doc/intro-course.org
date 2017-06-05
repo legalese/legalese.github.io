@@ -8,46 +8,95 @@ This course was designed in mid-2017 to survey the field of computational contra
 
 The course is intended for two audiences.
 
-One, the non-technical reader who has some experience with the legal profession, who is considering a career in legal engineering, and is unafraid to wade into the shallows, at least, of computer science and mathematical logic. Perhaps a law student seeking alternatives to the conventional law-firm future, of junior associate, senior associate, partner, corpse.
+One, the non-technical reader with some experience with the legal profession, considering a career in legal engineering, unafraid to dip a toe into computer science. A law student, perhaps, seeking alternatives to the conventional law-firm future, of junior associate, senior associate, partner, corpse.
 
 Two, the technical reader, perhaps a self-taught or classically educated programmer, who is interested in approaching contract law as a special case of applied computer science. Perhaps a contrarian uninterested in the current fads of big-data deep learning statistical A.I., web / mobile app development, or instant cryptocurrency riches.
 
 This is not a bloodless sport. You might have parents or friends who are lawyers. As a computer geek at heart, you might feel a certain competitive urge to show that your magic is as strong as theirs. Nurture this flame. It is an authentic motivation.
 
-There is a third type of audience. Maybe you grew up coding, but now find yourself working in law. Perhaps you are entertaining thoughts about defecting to the other camp where your first love waits. We can neither confirm nor deny that any such attempts will succeed. Blink twice if you understand.
+There is a third type of audience. Maybe you grew up coding, but now find yourself working in law. Perhaps you are entertaining thoughts about defecting to the other camp where your first love awaits. We can neither confirm nor deny that any such attempts will succeed. Say nothing, but blink twice if you understand.
 
 ** By the end of this course
 
-You will be acquainted with the foundational technologies, past and current efforts, and leading figures in the field of computational law in general, and computable contracts in particular.
+You will gain passing acquaintance with the foundational technologies, past and current efforts, and leading figures in the field of computational law in general, and computable contracts in particular.
 
 This course will not make you an expert. It merely equips you for a journey on the road of legal engineering. Mastery of the larger field of software engineering takes years.
 
-The content is organized into three volumes, the way Ursula K. Le Guin's [[https://www.amazon.co.uk/Earthsea-Wizard-Farthest-Tehanu-Puffin/dp/0140348034/][Earthsea Trilogy]], has four books and more.
+** Course Structure
+
+This is a self-study course. It's mostly readings, web pages, and some videos.
+
+If you get stuck, ask for help on the Legalese slack chat.
 
 * Volume 1 (two days) -- Introduction
 
-After two days you will be aware of the possibilities, the major researchers, major projects, and existing contract language efforts.
+In two days, you will be aware of the possibilities, the major researchers, past projects, prior contract language efforts, and conferences in the field.
 
-** Contents
+** Motivation and Explication
 
-- A smattering of websites which survey the prior art.
-- A video demo of three legal development environments: ANaCon, Basus, CSL/POETS.
+1. http://compk.stanford.edu/ articulates a vision.
+2. Harry Surden (2014) explained computable contracts on his blog ([[http://www.harrysurden.com/wordpress/archives/203][part 1]], [[http://www.harrysurden.com/wordpress/archives/230][part 2]]).
 
+** A High-Level Survey of Prior Art in Contracts
 
-** Motivation and Examples
+Are your browser tabs warmed up? Remember, command-click to open in a new tab.
 
-** A High-Level Survey of Prior Art
+Read the abstracts of papers cited.
 
-1. Chapter 1 of Camilleri's /Analysing Normative Contracts/.
-2. Chapter 1 of Hvitved's /Contract Formalization/.
-3. http://digital-legislation.net
-4. 
+Where chapters are explicitly numbered, read or skim the chapter.
 
-** A Quick Demo of Existing Systems
+Where links take you to working software demos, try the demos.
 
-- Basus's estate reasoner
-- 
+*** American Work
 
+1. The earliest work dates back to 1988: skim Ronald Lee's [[https://www.researchgate.net/publication/228185635_A_Logic_Model_for_Electronic_Contracting][A Logic Model for Electronic Contracting]].
+2. In the late 1990s and early 2000s, Nick Szabo put forward [[http://nakamotoinstitute.org/contract-language/][a formal language for contracts]].
+3. More recently, Flood & Goodenough published [[https://www.financialresearch.gov/working-papers/files/OFRwp-2015-04_Contract-as-Automaton-The-Computational-Representation-of-Financial-Agreements.pdf][Contract as Automaton]] (2015, 2017).
+
+*** European Work
+
+1. In the 2000s, Jean-Marc Eber wrote [[https://www.lexifi.com/files/resources/MLFiPaper.pdf][Composing Contracts: an adventure in financial engineering]]. That paper begat [[https://www.lexifi.com/product/technology/contract-description-language][MLFi]], a domain-specific language for financial contracts. Eber's company, [[https://www.lexifi.com/company][LexiFi]], sells to financial institutions.
+2. In 2002, [[https://www.computer.org/csdl/proceedings/hicss/2002/1435/07/14350170b.pdf][Using Event Semantics for Modeling Contracts]] came out of the Netherlands.
+3. In 2005, Adrian Paschke at TUM.de (et al) described [[http://rbsla.ruleml.org/docs/37910209.pdf][ContractLog]] to cover SLAs.
+4. From 2007 to 2010, [[http://cosodis.project.ifi.uio.no/][the CoSoDIS project]] begat the contract language CL, under [[http://www.cse.chalmers.se/~gersch/][Schneider]]. Browse [[http://cosodis.project.ifi.uio.no/publications.shtml][publications]].
+5. Chapter 1 of Camilleri's 2015 [[https://gupea.ub.gu.se/bitstream/2077/40725/1/gupea_2077_40725_1.pdf][Analysing Normative Contracts]] briefly surveys the field of computable contracts. The rest of the thesis demonstrates applications of CL: [[http://remu.grammaticalframework.org/contracts/diagrams/][contract-oriented diagrams]] (web), a [[http://remu.grammaticalframework.org/contracts/cnl/][CNL editor]] (web), and [[http://www.cs.um.edu.mt/~svrg/Tools/CLTool/][CLan]] (Java), a contract language analyzer, produced under [[http://remu.grammaticalframework.org/contracts/][the REMU project]].
+6. Chapter 1 of Hvitved's 2012 [[https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU][Contract Formalization]] comprehensively surveys the prior art in contract languages.
+7. Chapter 2 introduces his language, [[https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU][CSL]]. CSL was developed as part of [[http://www.sciencedirect.com/science/article/pii/S156783260800074X][POETS]] under the Danish Advanced Technology Foundation's [[http://web.archive.org/web/20141216182613/http://3gerp.org/][3gERP]] project. The implementation is in Haskell.
+8. Shrutarshi Basu, Ph.D. candidate at Cornell, wrote a conveyancing reasoner: http://basus.me/conveyor/
+
+*** Australian Work
+
+1. Contracts are private law; legislation and regulation are public law. In Australia, [[http://www.governatori.net/research/pubs/index.html][Guido Governatori]] has been doing for legislation what the above efforts do for contracts. http://digital-legislation.net describes computable legislation and regulations; see the [[https://digital-legislation.net/img/concept-map.pdf][marketecture PDF]].
+
+** Conferences
+
+Skim the proceedings of past conferences.
+
+- FLACOS, the workshop on Formal Languages And Contract-Oriented Software, ran from 2007 to 2012. [[http://flacos07.project.ifi.uio.no/][2007]] ([[http://folk.uio.no/gerardo/report-UiO-366.pdf][proceedings]]), [[http://flacos08.project.ifi.uio.no/][2008]] ([[http://www.cs.um.edu.mt/gordon.pace/Workshops/FLACOS2008/Proceedings.pdf][proceedings]]), [[http://web.archive.org/web/20130118003725/http://www.dsi.uclm.es/retics/flacos09/][2009]] ([[http://www.cs.um.edu.mt/gordon.pace/Research/Papers/flacos2009proceedings.pdf][proceedings]]), [[http://www.sefm2010.isti.cnr.it/workshops_flacos.php][2010]] ([[https://pdfs.semanticscholar.org/a6b8/1666650c9635f52c212a4fb2d481bbc1f02c.pdf][proceedings]]), [[http://flacos11.lcc.uma.es/][2011]] ([[https://arxiv.org/html/1109.2399][proceedings]]), [[http://www.um.edu.mt/ict/flacos2012/][2012]] ([[http://eptcs.web.cse.unsw.edu.au/content.cgi?FLACOS2012][proceedings]]).
+- [[https://nms.kcl.ac.uk/icail2017/][ICAIL]] is in its 16th year.
+- [[http://jurix.nl/][Jurix]] is in its 30th year, run by the Dutch [[https://en.wikipedia.org/wiki/JURIX][Foundation for Legal Knowledge and Information Systems]].
+- summer school: [[https://lawandlogic.org/][Law and Logic]]
+- summer school: [[http://2017.ruleml-rr.org/][RuleML / Rules and Reasoning]]
+- summer school: [[http://deepspec.org/events/ss17detail.html][DeepSpec]]
+
+** CS Researchers and Law Professors
+
+*** Europe
+
+- [[http://www.cse.chalmers.se/~gersch/][Gerardo Schneider]], CS Professor at the University of Gothenburg, Sweden.
+- [[http://www.cs.um.edu.mt/gordon.pace/projects.html][Gordon Pace]], Associate CS/ICT Professor at the University of Malta
+- [[http://www.cse.chalmers.se/~cajohn/][John J. Camilleri]], Ph.D. student at Chalmers University of Technology and the University of Gothenburg, Sweden.
+- [[http://www.governatori.net/research/][Guido Governatori]], Senior Principal Researcher at NICTA Queensland, Australia.
+- [[http://www.eui.eu/DepartmentsAndCentres/Law/People/Professors/Sartor.aspx][Giovanni Sartor]], Professor, Legal Informatics, European University Institute of Florence.
+
+*** USA! USA! USA!
+
+- [[http://www.harrysurden.com/][Harry Surden]], Colorado Law School. [[http://lawreview.law.ucdavis.edu/issues/46/2/articles/46-2_surden.pdf][Computable Contracts]], 2012
+- [[http://www.danielmartinkatz.com/][Daniel Martin Katz]], Illinois Tech - Chicago Kent College of Law. [[https://computationallegalstudies.com/][Computational Legal Studies]], co-founder [[https://lexpredict.com/][LexPredict]].
+- [[https://en.wikipedia.org/wiki/John_Henry_Clippinger,_Jr.][John Henry Clippinger]], MIT Media Lab, previously the [[https://cyber.harvard.edu/people/jclippinger][Law Lab]] at Berkman with
+- [[http://www.vermontlaw.edu/directory/person?name=Goodenough,Oliver][Oliver Goodenough]], Vermont Law School, co-founder [[https://www.skoposlabs.com/][Skopos Labs]]; co-authored with
+- [[http://www.flood-dalton.org/mark/][Mark Flood]], [[http://www.treasury.gov/initiatives/Pages/ofr.aspx][OFR]].
+- [[http://www.nyls.edu/faculty/faculty-profiles/faculty_profiles/houman_shadab/][Houman Shadab]], New York Law School, co-founder [[http://clause.io/][clause.io]].
 
 * Volume 2 (one semester) -- Intermediate
 
@@ -63,22 +112,74 @@ You can start contributing to opensource libraries of contract code. Share your 
 
 *** Motivation
 
-- Darmstadter
+- Darmstadter, Precision's Counterfeit
 
-*** Getting Your Feet Wet With Existing Contract Language Environments
+*** Trying Out Some Existing Contract Language Environments
 
-- Visit AnaCon, CL, Clang.
+- Visit AnaCon, CL, Clang. Observe C-OD.
 - Visit the Basus environment.
-- Visit CSL and POETS.
-- Introduction to L4.
-- Contract development in L4. Write your first contract. Review the contract library.
-- Legislation development. Write your first bill. Review the statute library.
-- Translation to natural language via GF. Multilingual generation.
-- Introduction to CTL*. Property verification via model checking. Bug-finding within contracts.
-- Conflict detection via model checking. Bug-finding across contracts.
-- Sanity checking through types. Debt vs Equity operations.
-- Visualization. Scenario explorers.
+- Visit [[https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU][CSL]] and POETS.
 
+*** The Be-All and End-All of Contract Languages
+
+**** Introduction to L4.
+**** Using L4 to develop contracts.
+Write your first contract.
+**** Syntax: Control Flow
+**** Syntax: Rules
+**** Review the contract library.
+Jurisdiction customization.
+**** Using L4 to develop legislation.
+Write your first bill.
+Rule defeasibility.
+**** Review the statute library.
+
+*** A Bestiary of Standard Bugs
+
+**** Type Errors.
+Debt vs Equity.
+**** Action Conflicts.
+**** Rule Conflicts.
+**** Loopholes.
+**** Dangling References.
+**** Undefined Terms.
+**** Inconsistency with Legislation.
+
+*** Secondary Weapon Enhancements
+
+**** Multilingual Natural Language Generation.
+
+Introduction to GF.
+
+**** Automated Bug-Finding.
+
+Introduction to CTL*.
+
+Review of Model Checking with CL.
+
+Property verification via model checking.
+
+Conflict detection via model checking.
+
+**** Type Checking.
+
+Sanity checking.
+
+Domain Expressions.
+
+PCSL.
+
+Debt vs Equity example.
+
+**** Visualization. Scenario explorers.
+
+*** Advanced L4
+
+**** The Interpretation Combinator: "It Depends"
+
+**** Ternary Logic: Yes, No, Maybe
+
+**** Building an Expert System in L4
 
 * Volume 3 (one to two years) -- Advanced
 
@@ -88,11 +189,11 @@ You will understand the technical lingo and architectural decisions that inform 
 
 be ready to start developing and extending the core language itself, the way Guido van Rossum develops Python, the way Mats develops Ruby, the way DHH developed Rails.
 
-When you attend academic conferences about law and logic, you will be able to follow arguments of wizards about the fine points of action logics vs state logics, about whether Hvitved loses anything by defining permission in terms of counterparty obligations, about whether Schneider's CL correctly avoids the paradoxes of Standard Deontic Logic, about whether Governatori's defeasible logics map elegantly to SBVR and LegalRuleML.
+When you attend academic conferences about law and logic, you will be able to follow the arguments of wizards about the fine points of action logics vs state logics; about whether Hvitved loses anything by defining permission in terms of counterparty obligations; about whether CSL or CL better sidesteps the paradoxes of Standard Deontic Logic; about whether Governatori's defeasible logics map elegantly to SBVR and LegalRuleML.
 
 ** Motivation and Problems
 
-- How to be a Genius (vs a Consultant)
+- How to be a Genius (vs a Consultant), with thanks to ed kmett.
 
 ** Prior Art: Computational Law
 
@@ -103,6 +204,7 @@ When you attend academic conferences about law and logic, you will be able to fo
 
 ** Prior Art: Rule languages. Declarative Programming.
 
+- https://en.wikipedia.org/wiki/Business_rules_engine
 - ODRL
 - OCL and OCLR
 - Business Rule engines. SBVR.
@@ -113,14 +215,18 @@ When you attend academic conferences about law and logic, you will be able to fo
 
 ** Use Case: terms of service, privacy policies
 
-- PP's work, openminted.eu, CCEL.
+- [[https://en.wikipedia.org/wiki/Creative_Commons_Rights_Expression_Language][ccREL]] ([[https://www.w3.org/Submission/ccREL/][w3c]])
+- [[https://www.w3.org/community/odrl/][ODRL]]
+- http://uterms.software/
+- http://openminted.eu/
+- http://remu.grammaticalframework.org/contracts/converter/
 
 ** Prior Art: Computational Contracts
 
 - Template Approaches: CommonAccord, CommonForm, DocAssemble.
 - Commercial efforts: ContractExpress, HotDocs, Exari.
 - CoSoDIS papers: Schneider, Camilleri, et alia.
-- POETS
+- POETS and CSL. See [[https://books.google.co.uk/books?id=uKygBAAAQBAJ&pg=PA87&lpg=PA87&dq=hvitved+csl&source=bl&ots=L7Km5c3m2u&sig=FCa_1vqQnNRotxNd5IQBFRVOB1A&hl=en&sa=X&ved=0ahUKEwjTnLb8rKfUAhWlDcAKHXGfCgsQ6AEIJjAA#v=onepage&q=hvitved%2520csl&f=false][PCSL case study]] from 2014, also chapter 6 of Hvitved.
 - Previous Contract Languages. FormaLex, CL, CSL.
 
 ** Computational Linguistics
@@ -149,7 +255,7 @@ When you attend academic conferences about law and logic, you will be able to fo
 
 ** Model Checking
 
-- Model Checking. CTL* and LCTL. Uppaal. Alloy. SAT and SMTLIB. Z3.
+- Model Checking. CTL* and LCTL. Uppaal. Alloy. [[https://yurichev.com/writings/SAT_SMT_draft-EN.pdf][SAT/SMT]]. SMTLIB. Z3.
 
 ** Our Contribution
 
