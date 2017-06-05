@@ -78,20 +78,24 @@ must-clause ::=
 ?         PROVIDED   rule(params)
 !           BEFORE   (deadline) REMAINING Z
 !            HENCE   clause-spec (args including Z) | FULFILLED
-!      ELSE | LEST   label2 | party BREACH
+!             LEST   label2 | party BREACH
 
 
             LABEL   labelName:
+
        SUBJECT TO   clause-combo
   NOTWITHSTANDING   clause-combo
+
              WHEN   predicate
             PARTY   p 
             SHALL   [NOT] action-combo
             WHERE   action-expression
+
          PROVIDED   rule(params)
+
            BEFORE   (deadline) REMAINING Z
             HENCE   clause-spec (args including Z) | FULFILLED
-      ELSE | LEST   label2 | party BREACH
+             LEST   clause-spec | party BREACH
 
 
 -- CSL external choice
