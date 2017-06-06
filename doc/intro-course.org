@@ -28,7 +28,7 @@ This is a self-study course. It's mostly readings, web pages, and some videos.
 
 If you get stuck, ask for help on the Legalese slack chat.
 
-* Volume 1 (two days) -- Survey
+* Volume 1 (two days) -- Background Survey
 
 ** Motivation and Explication
 
@@ -122,14 +122,20 @@ US researchers tend to be law professors with an interest in software.
 - [[http://www.flood-dalton.org/mark/][Mark Flood]], [[http://www.treasury.gov/initiatives/Pages/ofr.aspx][OFR]].
 - [[http://www.nyls.edu/faculty/faculty-profiles/faculty_profiles/houman_shadab/][Houman Shadab]], New York Law School, co-founder [[http://clause.io/][clause.io]].
 
-** Orgs with related interests
+** Orgs and Projects with related interests
 
 Mostly in the blockchain / smart contracts space.
 
-*** http://coalalex.org/
-*** https://www.hyperledger.org/
-*** http://www.r3.com/
+- The [[http://www.estrellaproject.org/][Estrella Project]] ran from 2006 to 2008 and produced [[https://github.com/RinkeHoekstra/lkif-core][LKIF]], a legal ontology.
+- Primavera's http://coalalex.org/ is interested in relating blockchain smart contracts to the incumbent legal system.
+- https://www.hyperledger.org/ comes off the Linux Foundation.
+- http://www.r3.com/ has raised a lot of money. They work with banks, because that's where the money is.
 
+** Other Resources
+
+Legalese's "[[https://legalese.com/v1.0/page/past][Past]]" page attempts to survey the research.
+
+Legalese's "[[https://legalese.com/v1.0/page/present][Present]] page shows the subset of today's LegalTech industry landscape related to contracts.
 
 * Volume 2 (one semester) -- Introduction to L4
 
