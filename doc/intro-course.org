@@ -8,19 +8,17 @@ This course was designed in mid-2017 to survey the field of computational contra
 
 The course is intended for two audiences.
 
-One, the non-technical reader with some experience with the legal profession, considering a career in legal engineering, unafraid to dip a toe into computer science. A law student, perhaps, seeking alternatives to the conventional law-firm future, of junior associate, senior associate, partner, corpse.
+One, the non-technical reader with some experience with the legal profession, considering a career in legal engineering, unafraid to dip a toe into computer science. A law student seeking alternatives to the conventional law-firm future: junior associate, senior associate, partner, corpse.
 
 Two, the technical reader, perhaps a self-taught or classically educated programmer, who is interested in approaching contract law as a special case of applied computer science. Perhaps a contrarian uninterested in the current fads of big-data deep learning statistical A.I., web / mobile app development, or instant cryptocurrency riches.
 
 This is not a bloodless sport. You might have parents or friends who are lawyers. As a computer geek at heart, you might feel a certain competitive urge to show that your magic is as strong as theirs. Nurture this flame. It is an authentic motivation.
 
-There is a third type of audience. Maybe you grew up coding, but now find yourself working in law. Perhaps you are entertaining thoughts about defecting to the other camp where your first love awaits. We can neither confirm nor deny that any such attempts will succeed. Say nothing, but blink twice if you understand.
+There is a third type of audience. Maybe you grew up coding, but now find yourself working in law. Perhaps you are entertaining thoughts about defecting to the other camp where your first love still waits. We can neither confirm nor deny that any such attempts will succeed. Say nothing, but blink twice if you understand.
 
 ** By the end of this course
 
 You will gain passing acquaintance with the foundational technologies, past and current efforts, and leading figures in the field of computational law in general, and computable contracts in particular.
-
-This course will not make you an expert. It merely equips you for a journey on the road of legal engineering. Mastery of the larger field of software engineering takes years.
 
 ** Course Structure
 
@@ -39,7 +37,7 @@ If you get stuck, ask for help on the Legalese slack chat.
 
 Ready to add some tabs to your browser?
 
-The two most important readings are marked *Important* below. If you print anything, print those two chapters. Skim everything else, but read those.
+The two most important readings are marked *IMPORTANT* below. If you print anything, print those two chapters. Skim everything else, but read those.
 
 *** American Work
 
@@ -57,8 +55,8 @@ The two most important readings are marked *Important* below. If you print anyth
 3. The [[http://www.estrellaproject.org/][Estrella Project]] ran from 2006 to 2008, [[http://www.leibnizcenter.org/][out of Amsterdam]], and produced [[https://github.com/RinkeHoekstra/lkif-core][LKIF]], a legal ontology.
 4. In 2005, Adrian Paschke at TUM.de (et al) described [[http://rbsla.ruleml.org/docs/37910209.pdf][ContractLog]] to cover SLAs.
 5. From 2007 to 2010, in Norway, [[http://cosodis.project.ifi.uio.no/][the CoSoDIS project]] begat the contract language CL, under [[http://www.cse.chalmers.se/~gersch/][Schneider]] (in Sweden). Browse [[http://cosodis.project.ifi.uio.no/publications.shtml][publications]].
-6. *important* Chapter 1 of Camilleri's 2015 [[https://gupea.ub.gu.se/bitstream/2077/40725/1/gupea_2077_40725_1.pdf][Analysing Normative Contracts]] briefly surveys the field of computable contracts. The rest of the thesis demonstrates applications of CL: [[http://remu.grammaticalframework.org/contracts/diagrams/][contract-oriented diagrams]] (web), a [[http://remu.grammaticalframework.org/contracts/cnl/][CNL editor]] (web), and [[http://www.cs.um.edu.mt/~svrg/Tools/CLTool/][CLan]] (Java), a contract language analyzer, produced under [[http://remu.grammaticalframework.org/contracts/][the REMU project]], funded by the Swedish Research Council.
-7. *important* Chapter 1 of Hvitved's 2012 [[https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU][Contract Formalization]] comprehensively surveys the prior art in contract languages. That chapter describes many efforts not listed here.
+6. *IMPORTANT* -- Chapter 1 of Camilleri's 2015 [[https://gupea.ub.gu.se/bitstream/2077/40725/1/gupea_2077_40725_1.pdf][Analysing Normative Contracts]] briefly surveys the field of computable contracts. The rest of the thesis demonstrates applications of CL: [[http://remu.grammaticalframework.org/contracts/diagrams/][contract-oriented diagrams]] (web), a [[http://remu.grammaticalframework.org/contracts/cnl/][CNL editor]] (web), and [[http://www.cs.um.edu.mt/~svrg/Tools/CLTool/][CLan]] (Java), a contract language analyzer, produced under [[http://remu.grammaticalframework.org/contracts/][the REMU project]], funded by the Swedish Research Council.
+7. *IMPORTANT* -- Chapter 1 of Hvitved's 2012 [[https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU][Contract Formalization]] comprehensively surveys the prior art in contract languages. That chapter describes many efforts not listed here.
 8. Chapter 2 introduces his language, [[https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU][CSL]]. CSL was developed as part of [[http://www.sciencedirect.com/science/article/pii/S156783260800074X][POETS]] under the Danish Advanced Technology Foundation's [[http://web.archive.org/web/20141216182613/http://3gerp.org/][3gERP]] project. The implementation is in Haskell.
 
 ** Prior Art in Regulations, Compliance, and Rules
