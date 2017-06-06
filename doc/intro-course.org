@@ -28,24 +28,18 @@ This is a self-study course. It's mostly readings, web pages, and some videos.
 
 If you get stuck, ask for help on the Legalese slack chat.
 
-* Volume 1 (two days) -- Introduction
-
-In two days, you will be aware of the possibilities, the major researchers, past projects, prior contract language efforts, and conferences in the field.
+* Volume 1 (two days) -- Survey
 
 ** Motivation and Explication
 
 1. http://compk.stanford.edu/ articulates a vision.
 2. Harry Surden (2014) explained computable contracts on his blog ([[http://www.harrysurden.com/wordpress/archives/203][part 1]], [[http://www.harrysurden.com/wordpress/archives/230][part 2]]).
 
-** A High-Level Survey of Prior Art in Contracts
+** A Quick Survey of Prior Art in Computable Contracts
 
-Are your browser tabs warmed up? Remember, command-click to open in a new tab.
+Ready to add some tabs to your browser?
 
-Read the abstracts of papers cited.
-
-Where chapters are explicitly numbered, read or skim the chapter.
-
-Where links take you to working software demos, try the demos.
+The two most important readings are marked *Important* below. If you print anything, print those two chapters. Skim everything else, but read those.
 
 *** American Work
 
@@ -61,13 +55,37 @@ Where links take you to working software demos, try the demos.
 2. In 2002, [[https://www.computer.org/csdl/proceedings/hicss/2002/1435/07/14350170b.pdf][Using Event Semantics for Modeling Contracts]] came out of the Netherlands.
 3. In 2005, Adrian Paschke at TUM.de (et al) described [[http://rbsla.ruleml.org/docs/37910209.pdf][ContractLog]] to cover SLAs.
 4. From 2007 to 2010, [[http://cosodis.project.ifi.uio.no/][the CoSoDIS project]] begat the contract language CL, under [[http://www.cse.chalmers.se/~gersch/][Schneider]]. Browse [[http://cosodis.project.ifi.uio.no/publications.shtml][publications]].
-5. Chapter 1 of Camilleri's 2015 [[https://gupea.ub.gu.se/bitstream/2077/40725/1/gupea_2077_40725_1.pdf][Analysing Normative Contracts]] briefly surveys the field of computable contracts. The rest of the thesis demonstrates applications of CL: [[http://remu.grammaticalframework.org/contracts/diagrams/][contract-oriented diagrams]] (web), a [[http://remu.grammaticalframework.org/contracts/cnl/][CNL editor]] (web), and [[http://www.cs.um.edu.mt/~svrg/Tools/CLTool/][CLan]] (Java), a contract language analyzer, produced under [[http://remu.grammaticalframework.org/contracts/][the REMU project]], funded by the Swedish Research Council.
-6. Chapter 1 of Hvitved's 2012 [[https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU][Contract Formalization]] comprehensively surveys the prior art in contract languages. That chapter describes many efforts not listed here.
+5. *important* Chapter 1 of Camilleri's 2015 [[https://gupea.ub.gu.se/bitstream/2077/40725/1/gupea_2077_40725_1.pdf][Analysing Normative Contracts]] briefly surveys the field of computable contracts. The rest of the thesis demonstrates applications of CL: [[http://remu.grammaticalframework.org/contracts/diagrams/][contract-oriented diagrams]] (web), a [[http://remu.grammaticalframework.org/contracts/cnl/][CNL editor]] (web), and [[http://www.cs.um.edu.mt/~svrg/Tools/CLTool/][CLan]] (Java), a contract language analyzer, produced under [[http://remu.grammaticalframework.org/contracts/][the REMU project]], funded by the Swedish Research Council.
+6. *important* Chapter 1 of Hvitved's 2012 [[https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU][Contract Formalization]] comprehensively surveys the prior art in contract languages. That chapter describes many efforts not listed here.
 7. Chapter 2 introduces his language, [[https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU][CSL]]. CSL was developed as part of [[http://www.sciencedirect.com/science/article/pii/S156783260800074X][POETS]] under the Danish Advanced Technology Foundation's [[http://web.archive.org/web/20141216182613/http://3gerp.org/][3gERP]] project. The implementation is in Haskell.
 
-*** Australian Work
+** Prior Art in Regulations, Compliance, and Rules
 
-1. Contracts are private law; legislation and regulation are public law. In Australia, [[http://www.governatori.net/research/pubs/index.html][Guido Governatori]] has been doing for legislation what the above efforts do for contracts. http://digital-legislation.net describes computable legislation and regulations; see the [[https://digital-legislation.net/img/concept-map.pdf][marketecture PDF]].
+Contracts are private law; legislation and regulation are public law. Enterprises have internal laws, called Business Rules.
+
+1. In Australia, [[http://www.governatori.net/research/pubs/index.html][Guido Governatori]] has been doing for legislation what the above efforts do for contracts. http://digital-legislation.net describes computable legislation and regulations; see the [[https://digital-legislation.net/img/concept-map.pdf][marketecture PDF]].
+2. [[http://benjamingrosof.com/][Ben Grosof]]'s company [[http://www.coherentknowledge.com/][Coherent Knowledge]] commercializes Textual RuleLog (a Prolog variant) as Ergo, to reason through regulatory compliance. See 2016 [[variant of Textual R][YouTube demo]] (15m), 2015 [[https://www.slideshare.net/ruleml2012/ruleml2015-tutorial-powerful-practical-semantic-rules-in-rulelog-fundamentals-and-recent-progress][RuleML slides]].
+3. [[https://en.wikipedia.org/wiki/Business_rules_engine][Business Rules Engines]] have been around forever: [[https://en.wikipedia.org/wiki/Oracle_Policy_Automation][Oracle Policy Automation]] dates back to 2008. [[https://www.neotalogic.com/][Neota Logic]] is a recent entrant. See also [[https://en.wikipedia.org/wiki/Drools][Drools]], [[https://en.wikipedia.org/wiki/Jess_(programming_language)][Jess]], [[https://www-01.ibm.com/software/info/ilog/][iLog]].
+
+** Prior Art: Non-Computational Contracts
+
+We call this the "document assembly" or "document automation" industry.
+
+*** Commercial efforts
+
+- [[http://www.contractexpress.com/][ContractExpress]] (first website 2002)
+- [[http://www.hotdocs.com/][HotDocs]] (first website 1996, software v4.0)
+- [[http://www.exari.com/][Exari]] (first website 2006)
+
+*** Opensource Template and Expert Systems
+
+- [[http://commonaccord.org/][CommonAccord]] (started 2001)
+- [[http://commonform.github.io][CommonForm]] (started Feb 2015)
+- [[http://docassemble.org/][DocAssemble]] (started Jan 2016)
+
+*** Why aren't template approaches good enough?
+
+- [[https://medium.com/@Legalese/code-is-law-is-code-4492c864f33f][Because you need first-class functions.]]
 
 ** Conferences
 
@@ -80,15 +98,20 @@ Skim the proceedings of past conferences.
 - summer school: [[http://2017.ruleml-rr.org/][RuleML / Rules and Reasoning]]
 - summer school: [[http://deepspec.org/events/ss17detail.html][DeepSpec]]
 
-** CS Researchers and Law Professors
+** Researchers
 
-*** Europe
+European researchers tend to be CS professors with an interest in law.
 
-- [[http://www.cse.chalmers.se/~gersch/][Gerardo Schneider]], CS Professor at the University of Gothenburg, Sweden.
+US researchers tend to be law professors with an interest in software.
+
+*** European researchers
+
+- [[http://www.cse.chalmers.se/~gersch/][Gerardo Schneider]], CS Professor at the University of Gothenburg, Sweden. (Connected with CL)
 - [[http://www.cs.um.edu.mt/gordon.pace/projects.html][Gordon Pace]], Associate CS/ICT Professor at the University of Malta
 - [[http://www.cse.chalmers.se/~cajohn/][John J. Camilleri]], Ph.D. student at Chalmers University of Technology and the University of Gothenburg, Sweden.
-- [[http://www.governatori.net/research/][Guido Governatori]], Senior Principal Researcher at NICTA Queensland, Australia.
+- [[http://www.governatori.net/research/][Guido Governatori]], Senior Principal Researcher at NICTA Queensland, Australia. (Connected with digital-legislation.net)
 - [[http://www.eui.eu/DepartmentsAndCentres/Law/People/Professors/Sartor.aspx][Giovanni Sartor]], Professor, Legal Informatics, European University Institute of Florence.
+- [[https://www.abdn.ac.uk/ncs/people/profiles/azwyner][Adam Wyner]], Lecturer, University of Aberdeen, focuses on modeling argumentation and legal reasoning.
 
 *** USA! USA! USA!
 
@@ -99,7 +122,16 @@ Skim the proceedings of past conferences.
 - [[http://www.flood-dalton.org/mark/][Mark Flood]], [[http://www.treasury.gov/initiatives/Pages/ofr.aspx][OFR]].
 - [[http://www.nyls.edu/faculty/faculty-profiles/faculty_profiles/houman_shadab/][Houman Shadab]], New York Law School, co-founder [[http://clause.io/][clause.io]].
 
-* Volume 2 (one semester) -- Intermediate
+** Orgs with related interests
+
+Mostly in the blockchain / smart contracts space.
+
+*** http://coalalex.org/
+*** https://www.hyperledger.org/
+*** http://www.r3.com/
+
+
+* Volume 2 (one semester) -- Introduction to L4
 
 This volume teaches L4. It will take a few months to get productive.
 
@@ -225,11 +257,11 @@ https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1288689
 
 **** Building an Expert System in L4
 
-* Volume 3 (one to two years) -- Advanced
+* Volume 3 (one to two years) -- Advanced Background
 
 There is enough material in here for a Master's degree. If you go fast, you could cover it all in a year. If you go deep, it might take two.
 
-You will understand the technical lingo and architectural decisions that inform the design of the L4 language.
+You will understand the mathematical logic and architectural decisions that inform the design of the L4 language.
 
 You'll be ready to start developing and extending the core language itself, the way Guido van Rossum develops Python, the way Mats develops Ruby, the way DHH developed Rails.
 
@@ -265,11 +297,6 @@ When you attend academic conferences about law and logic, you will be able to fo
 - http://openminted.eu/
 - http://remu.grammaticalframework.org/contracts/converter/
 
-** Prior Art: Non-Computational Contracts
-
-- Template Approaches: CommonAccord, CommonForm, DocAssemble.
-- Commercial efforts: ContractExpress, HotDocs, Exari.
-
 ** Prior Art: Computational Contracts
 
 - Previous Contract Languages. FormaLex, CL, CSL. See [[*A High-Level Survey of Prior Art in Contracts][above]].
@@ -287,6 +314,7 @@ When you attend academic conferences about law and logic, you will be able to fo
 - [[http://repository.cmu.edu/cgi/viewcontent.cgi?article=1923&context=compsci][On the Unusual Effectiveness of Logic in Computer Science]]
 - Predicate Logic.
 - Modal logics. Kripke structures. Deontic, Epistemic, Temporal, Dynamic Logics.
+- Standard Deontic Logic and its paradoxes.
 - Defeasible Logic: Governatori. Finite Automata.
 
 ** Introduction to Functional Programming.
