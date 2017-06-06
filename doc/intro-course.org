@@ -47,17 +47,19 @@ The two most important readings are marked *Important* below. If you print anyth
 2. In the late 1990s and early 2000s, Nick Szabo put forward [[http://nakamotoinstitute.org/contract-language/][a formal language for contracts]].
 3. In 2011 some Argentinians published [[http://publicaciones.dc.uba.ar/Publications/2011/GMS11/gms_flacos-2011-tr.pdf][FormaLex]].
 4. More recently, Flood & Goodenough published [[https://www.financialresearch.gov/working-papers/files/OFRwp-2015-04_Contract-as-Automaton-The-Computational-Representation-of-Financial-Agreements.pdf][Contract as Automaton]] (2015, 2017).
-5. In 2017, Shrutarshi Basu, Ph.D. candidate at Cornell, wrote a conveyancing reasoner: http://basus.me/conveyor/
+5. In 2016, [[https://www.hklaw.com/Josias-Dewey/][Josias Dewey]] of [[http://contractcode.io/][contractcode.io]] wrote a [[https://docs.google.com/document/d/1Cun8B6V_CbedxrhW26j0ZfAfcuVKtrVOdg9tY7XR8Lw/edit][white paper]].
+6. In 2017, Shrutarshi Basu, Ph.D. candidate at Cornell, wrote a conveyancing reasoner: http://basus.me/conveyor/
 
 *** European Work
 
 1. In the 2000s, Jean-Marc Eber wrote [[https://www.lexifi.com/files/resources/MLFiPaper.pdf][Composing Contracts: an adventure in financial engineering]]. That paper begat [[https://www.lexifi.com/product/technology/contract-description-language][MLFi]], a domain-specific language for financial contracts. Eber's company, [[https://www.lexifi.com/company][LexiFi]], sells to financial institutions.
 2. In 2002, [[https://www.computer.org/csdl/proceedings/hicss/2002/1435/07/14350170b.pdf][Using Event Semantics for Modeling Contracts]] came out of the Netherlands.
-3. In 2005, Adrian Paschke at TUM.de (et al) described [[http://rbsla.ruleml.org/docs/37910209.pdf][ContractLog]] to cover SLAs.
-4. From 2007 to 2010, [[http://cosodis.project.ifi.uio.no/][the CoSoDIS project]] begat the contract language CL, under [[http://www.cse.chalmers.se/~gersch/][Schneider]]. Browse [[http://cosodis.project.ifi.uio.no/publications.shtml][publications]].
-5. *important* Chapter 1 of Camilleri's 2015 [[https://gupea.ub.gu.se/bitstream/2077/40725/1/gupea_2077_40725_1.pdf][Analysing Normative Contracts]] briefly surveys the field of computable contracts. The rest of the thesis demonstrates applications of CL: [[http://remu.grammaticalframework.org/contracts/diagrams/][contract-oriented diagrams]] (web), a [[http://remu.grammaticalframework.org/contracts/cnl/][CNL editor]] (web), and [[http://www.cs.um.edu.mt/~svrg/Tools/CLTool/][CLan]] (Java), a contract language analyzer, produced under [[http://remu.grammaticalframework.org/contracts/][the REMU project]], funded by the Swedish Research Council.
-6. *important* Chapter 1 of Hvitved's 2012 [[https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU][Contract Formalization]] comprehensively surveys the prior art in contract languages. That chapter describes many efforts not listed here.
-7. Chapter 2 introduces his language, [[https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU][CSL]]. CSL was developed as part of [[http://www.sciencedirect.com/science/article/pii/S156783260800074X][POETS]] under the Danish Advanced Technology Foundation's [[http://web.archive.org/web/20141216182613/http://3gerp.org/][3gERP]] project. The implementation is in Haskell.
+3. The [[http://www.estrellaproject.org/][Estrella Project]] ran from 2006 to 2008, [[http://www.leibnizcenter.org/][out of Amsterdam]], and produced [[https://github.com/RinkeHoekstra/lkif-core][LKIF]], a legal ontology.
+4. In 2005, Adrian Paschke at TUM.de (et al) described [[http://rbsla.ruleml.org/docs/37910209.pdf][ContractLog]] to cover SLAs.
+5. From 2007 to 2010, in Norway, [[http://cosodis.project.ifi.uio.no/][the CoSoDIS project]] begat the contract language CL, under [[http://www.cse.chalmers.se/~gersch/][Schneider]] (in Sweden). Browse [[http://cosodis.project.ifi.uio.no/publications.shtml][publications]].
+6. *important* Chapter 1 of Camilleri's 2015 [[https://gupea.ub.gu.se/bitstream/2077/40725/1/gupea_2077_40725_1.pdf][Analysing Normative Contracts]] briefly surveys the field of computable contracts. The rest of the thesis demonstrates applications of CL: [[http://remu.grammaticalframework.org/contracts/diagrams/][contract-oriented diagrams]] (web), a [[http://remu.grammaticalframework.org/contracts/cnl/][CNL editor]] (web), and [[http://www.cs.um.edu.mt/~svrg/Tools/CLTool/][CLan]] (Java), a contract language analyzer, produced under [[http://remu.grammaticalframework.org/contracts/][the REMU project]], funded by the Swedish Research Council.
+7. *important* Chapter 1 of Hvitved's 2012 [[https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU][Contract Formalization]] comprehensively surveys the prior art in contract languages. That chapter describes many efforts not listed here.
+8. Chapter 2 introduces his language, [[https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU][CSL]]. CSL was developed as part of [[http://www.sciencedirect.com/science/article/pii/S156783260800074X][POETS]] under the Danish Advanced Technology Foundation's [[http://web.archive.org/web/20141216182613/http://3gerp.org/][3gERP]] project. The implementation is in Haskell.
 
 ** Prior Art in Regulations, Compliance, and Rules
 
@@ -124,13 +126,12 @@ US researchers tend to be law professors with an interest in software.
 - [[http://www.flood-dalton.org/mark/][Mark Flood]], [[http://www.treasury.gov/initiatives/Pages/ofr.aspx][OFR]].
 - [[http://www.nyls.edu/faculty/faculty-profiles/faculty_profiles/houman_shadab/][Houman Shadab]], New York Law School, co-founder [[http://clause.io/][clause.io]].
 
-** Orgs and Projects with related interests
+** Orgs with related interests
 
 Mostly in the blockchain / smart contracts space.
 
-- The [[http://www.estrellaproject.org/][Estrella Project]] ran from 2006 to 2008 and produced [[https://github.com/RinkeHoekstra/lkif-core][LKIF]], a legal ontology.
-- Primavera's http://coalalex.org/ is interested in relating blockchain smart contracts to the incumbent legal system.
-- https://www.hyperledger.org/ comes off the Linux Foundation.
+- Primavera's [[http://coalalex.org/][Coala Lex]] is interested in relating blockchain smart contracts to the incumbent legal system.
+- [[https://www.hyperledger.org/][Hyperledger]] comes off the Linux Foundation.
 - [[http://www.r3.com/][R3]] has raised a lot of money. They work with banks, because that's where the money is. They run [[https://www.eventsforce.net/r3/frontend/reg/tAgendaWebsite.csp?pageID=1976&ef_sel_menu=44&eventID=9&mode=&eventID=9][summits on smart contracts]] and have published on [[https://arxiv.org/abs/1608.00771][smart contract templates]].
 
 ** Other Resources
