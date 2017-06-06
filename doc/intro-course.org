@@ -67,6 +67,8 @@ Contracts are private law; legislation and regulation are public law. Enterprise
 2. [[http://benjamingrosof.com/][Ben Grosof]]'s company [[http://www.coherentknowledge.com/][Coherent Knowledge]] commercializes Textual RuleLog (a Prolog variant) as Ergo, to reason through regulatory compliance. See 2016 [[variant of Textual R][YouTube demo]] (15m), 2015 [[https://www.slideshare.net/ruleml2012/ruleml2015-tutorial-powerful-practical-semantic-rules-in-rulelog-fundamentals-and-recent-progress][RuleML slides]].
 3. [[https://en.wikipedia.org/wiki/Business_rules_engine][Business Rules Engines]] have been around forever: [[https://en.wikipedia.org/wiki/Oracle_Policy_Automation][Oracle Policy Automation]] dates back to 2008. [[https://www.neotalogic.com/][Neota Logic]] is a recent entrant. See also [[https://en.wikipedia.org/wiki/Drools][Drools]], [[https://en.wikipedia.org/wiki/Jess_(programming_language)][Jess]], [[https://www-01.ibm.com/software/info/ilog/][iLog]].
 
+The keyword for this field is "RegTech".
+
 ** Prior Art: Non-Computational Contracts
 
 We call this the "document assembly" or "document automation" industry.
