@@ -129,7 +129,7 @@ Mostly in the blockchain / smart contracts space.
 - The [[http://www.estrellaproject.org/][Estrella Project]] ran from 2006 to 2008 and produced [[https://github.com/RinkeHoekstra/lkif-core][LKIF]], a legal ontology.
 - Primavera's http://coalalex.org/ is interested in relating blockchain smart contracts to the incumbent legal system.
 - https://www.hyperledger.org/ comes off the Linux Foundation.
-- http://www.r3.com/ has raised a lot of money. They work with banks, because that's where the money is.
+- [[http://www.r3.com/][R3]] has raised a lot of money. They work with banks, because that's where the money is. They run [[https://www.eventsforce.net/r3/frontend/reg/tAgendaWebsite.csp?pageID=1976&ef_sel_menu=44&eventID=9&mode=&eventID=9][summits on smart contracts]] and have published on [[https://arxiv.org/abs/1608.00771][smart contract templates]].
 
 ** Other Resources
 
