@@ -10,7 +10,7 @@ The course is intended for two audiences.
 
 One, the non-technical reader with some experience with the legal profession, considering a career in legal engineering, unafraid to dip a toe into computer science. A law student seeking alternatives to the conventional law-firm future: junior associate, senior associate, partner, corpse.
 
-Two, the technical reader, perhaps a self-taught or classically educated programmer, who is interested in approaching contract law as a special case of applied computer science. Perhaps a contrarian uninterested in the current fads of big-data deep learning statistical A.I., web / mobile app development, or instant cryptocurrency riches.
+Two, the technical reader, perhaps a self-taught or [[http://matt.might.net/articles/what-cs-majors-should-know/][classically educated programmer]], who is interested in approaching contract law as a special case of applied computer science. Perhaps a contrarian uninterested in the current fads of big-data deep learning statistical A.I., web / mobile app development, or instant cryptocurrency riches.
 
 This is not a bloodless sport. You might have parents or friends who are lawyers. As a computer geek at heart, you might feel a certain competitive urge to show that your magic is as strong as theirs. Nurture this flame. It is an authentic motivation.
 
@@ -137,7 +137,7 @@ Mostly in the blockchain / smart contracts space.
 
 Legalese's "[[https://legalese.com/v1.0/page/past][Past]]" page attempts to survey the research.
 
-Legalese's "[[https://legalese.com/v1.0/page/present][Present]] page shows the subset of today's LegalTech industry landscape related to contracts.
+Legalese's "[[https://legalese.com/v1.0/page/present][Present]]" page shows the subset of today's LegalTech industry landscape related to contracts.
 
 * Volume 2 (one semester) -- Introduction to L4
 
@@ -224,6 +224,12 @@ Debt vs Equity.
 **** Multilingual Natural Language Generation.
 
 Introduction to GF.
+
+https://www.youtube.com/watch?v=x1LFbDQhbso
+
+http://www.grammaticalframework.org/~aarne/ud-gf-malta-2017.pdf
+
+
 
 ***** English Output
 

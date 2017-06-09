@@ -27,11 +27,12 @@ There are two possible paths for you.  They are:
 * The British Nationality Act was [rewritten in Prolog](http://opim.wharton.upenn.edu/~sok/papers/s/p370-sergot.pdf]) all the way back in 1986!
 
 ## The closest material thus far
-* [Contract as Automaton: The Computational Representation of Financial Agreements](https://financialresearch.gov/working-papers/files/OFRwp-2015-04_Contract-as-Automaton-The-Computational-Representation-of-Financial-Agreements.pdf)
-* [Contract Formalization by Tom Hvitved](https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU)
-* The [Anacon framework](http://www.cse.chalmers.se/~gersch/anacon/)
-* [Contracts in Structured English and Back](https://heim.ifi.uio.no/gerardo/flacos11-GFCL.pdf)
+
+These texts both start with good survey chapters. They demonstrate application possibilities and underlying formalisms for computational contracts.
+
 * [Analysing normative contracts: On the semantic gap between natural and formal languages](https://gupea.ub.gu.se/bitstream/2077/40725/1/gupea_2077_40725_1.pdf)
+* [Contract Formalization by Tom Hvitved](https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU)
+
 ## Sketching the way forward
 
 * [Model Checking Contracts -- a Case Study](http://lara.epfl.ch/w/_media/contractlanguage.pdf)
