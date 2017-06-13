@@ -139,6 +139,7 @@ Mostly in the blockchain / smart contracts space.
 
 - Primavera's [[http://coalalex.org/][Coala Lex]] is interested in relating blockchain smart contracts to the incumbent legal system.
 - [[https://www.hyperledger.org/][Hyperledger]] comes off the Linux Foundation.
+- [[http://www.r3.com/][R3]] was described above.
 
 ** Other Resources
 
