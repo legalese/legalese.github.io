@@ -90,7 +90,7 @@ We call this the "document assembly" or "document automation" industry.
 
 *** Opensource Template and Expert Systems
 
-- [[http://commonaccord.org/][CommonAccord]] (started 2001)
+- [[http://commonaccord.org/][CommonAccord]] (started 2001). Compare [[https://en.wikipedia.org/wiki/JavaScript_templating][text templating systems]] like [[http://handlebarsjs.com/][Handlebars]], and the ur-macro language [[https://en.wikipedia.org/wiki/M4_(computer_language)][m4]].
 - [[http://commonform.github.io][CommonForm]] (started Feb 2015)
 - [[http://docassemble.org/][DocAssemble]] (started Jan 2016)
 
