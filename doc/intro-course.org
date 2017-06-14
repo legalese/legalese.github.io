@@ -1,5 +1,7 @@
 #+TITLE: An Introductory Course in Computable Contracts
 
+This document lives at https://github.com/legalese/legalese.com/blob/master/doc/intro-course.org
+
 * Introduction
 
 This course was designed in mid-2017 to survey the field of computational contracts, which is just now emerging from academia toward industrial practice.
@@ -37,7 +39,7 @@ If you get stuck, ask for help on the Legalese slack chat.
 
 Ready to add some tabs to your browser?
 
-The two most important readings are marked *IMPORTANT* below. If you print anything, print those two chapters. Skim everything else, but read those.
+The three most important readings are marked *IMPORTANT* below. If you print anything, print those. Skim everything else, but read those.
 
 Computable contracts is a narrow segment of computational law, which goes back over 30 years. For a sense of the larger field, see [[https://www.researchgate.net/publication/259872879_The_TAXMAN_Project_Towards_a_Cognitive_Theory_of_Legal_Argument][the contents page of Computer Science and Law]] (1979), [[https://drive.google.com/open?id=0BxOaYa8pqqSwNWg4d1lsSGJnSVE][the ICAIL retrospective]] (2012), and [[https://drive.google.com/open?id=0BxOaYa8pqqSwNFlaNEUzd1d3RGc][slides from the intro to AI & Law workshop at ICAIL 2017]].
 
@@ -45,7 +47,7 @@ Computable contracts is a narrow segment of computational law, which goes back o
 
 1. The earliest work dates back to 1988: skim Ronald Lee's [[https://www.researchgate.net/publication/228185635_A_Logic_Model_for_Electronic_Contracting][A Logic Model for Electronic Contracting]].
 2. In the late 1990s and early 2000s, Nick Szabo put forward [[http://nakamotoinstitute.org/contract-language/][a formal language for contracts]].
-3. In 2011 some Argentinians published [[http://publicaciones.dc.uba.ar/Publications/2011/GMS11/gms_flacos-2011-tr.pdf][FormaLex]].
+3. *IMPORTANT* In 2011 some Argentinians published [[http://publicaciones.dc.uba.ar/Publications/2011/GMS11/gms_flacos-2011-tr.pdf][FormaLex]]. They [[https://drive.google.com/open?id=0BxOaYa8pqqSwT01LUGdDMjdMRXc][followed up in 2017]].
 4. More recently, Flood & Goodenough published [[https://www.financialresearch.gov/working-papers/files/OFRwp-2015-04_Contract-as-Automaton-The-Computational-Representation-of-Financial-Agreements.pdf][Contract as Automaton]] (2015, 2017).
 5. In 2016, [[https://www.hklaw.com/Josias-Dewey/][Josias Dewey]] of [[http://contractcode.io/][contractcode.io]] wrote a [[https://docs.google.com/document/d/1Cun8B6V_CbedxrhW26j0ZfAfcuVKtrVOdg9tY7XR8Lw/edit][white paper]].
 6. In 2017, Shrutarshi Basu, Ph.D. candidate at Cornell, wrote a conveyancing reasoner: http://basus.me/conveyor/
@@ -287,7 +289,7 @@ You will understand the mathematical logic and architectural decisions that info
 
 You'll be ready to start developing and extending the core language itself, the way Guido van Rossum develops Python, the way Mats develops Ruby, the way DHH developed Rails.
 
-When you attend academic conferences about law and logic, you will be able to follow the arguments of wizards about the fine points of action logics vs state logics; about whether Hvitved loses anything by defining permission in terms of counterparty obligations; about whether CSL or CL better sidesteps the paradoxes of Standard Deontic Logic; about whether Governatori's defeasible logics map elegantly to SBVR and LegalRuleML.
+When you attend academic conferences about law and logic, you will be able to follow the arguments of wizards about the fine points of action logics vs state logics; about whether Hvitved loses anything by defining permission in terms of counterparty obligations; about whether CSL, CL, or FL better sidesteps the paradoxes of Standard Deontic Logic; about whether Governatori's defeasible logics map elegantly to SBVR and LegalRuleML.
 
 ** Motivation and Problems
 
@@ -353,6 +355,7 @@ We review the above projects in more detail.
 ** Model Checking
 
 - Model Checking. CTL* and LCTL. Uppaal. Alloy. [[https://yurichev.com/writings/SAT_SMT_draft-EN.pdf][SAT/SMT]]. [[http://smtlib.cs.uiowa.edu/language.shtml][SMTLIB2]]. Z3.
+- FormaLex
 
 ** Our Contribution
 
