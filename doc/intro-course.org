@@ -1,4 +1,4 @@
-#+TITLE: An Introductory Course in Computable Contracts
+#+TITLE: An Introductory Course in Languages and Protocols in Computational Law
 
 This document lives at https://github.com/legalese/legalese.com/blob/master/doc/intro-course.org
 
