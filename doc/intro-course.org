@@ -161,6 +161,8 @@ Legalese's "[[https://legalese.com/v1.0/page/present][Present]]" page shows the 
 
 * Volume 2 (one semester) -- Introduction to L4
 
+/This section is under construction./
+
 This volume teaches L4. It will take a few months to get productive.
 
 As a newly fledged legal developer, you will be ready to use the language and its tools to read and write contracts-as-code and legislation-as-code.
@@ -292,6 +294,8 @@ https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1288689
 **** Building an Expert System in L4
 
 * Volume 3 (one to two years) -- Advanced Background
+
+/This section is under construction./
 
 There is enough material in here for a Master's degree. If you go fast, you could cover it all in a year. If you go deep, it might take two.
 
