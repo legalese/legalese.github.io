@@ -64,6 +64,7 @@ Computable contracts is a narrow segment of computational law, which goes back o
 8. Chapter 2 introduces his language, [[https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU][CSL]]. CSL was developed as part of [[http://www.sciencedirect.com/science/article/pii/S156783260800074X][POETS]] under the Danish Advanced Technology Foundation's [[http://web.archive.org/web/20141216182613/http://3gerp.org/][3gERP]] project. The implementation is in Haskell.
 9. [[http://hdl.handle.net/10443/1814][Abdelsadiq at Newcastle]] worked on model checking also.
 10. [[http://www.cs.bath.ac.uk/smartlaw2017/papers/SmartLaw2017_paper_1.pdf][Eric Tjong Tjin Tai]] from Tilburg, NL, published a short paper, "Formalizing Contrac Law for Smart Contracts".
+11. Most contract law concerns itself primarily with deontic logic; but parties must give notice to one another, and that is epistemic logic. Some people in Amsterdam have been working on [[https://link.springer.com/chapter/10.1007/978-3-662-48561-3_30][model checking of epistemic logic]].
 
 ** Prior Art in Regulations, Compliance, and Rules
 
