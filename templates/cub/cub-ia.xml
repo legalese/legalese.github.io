@@ -7,7 +7,7 @@
 </Firstpage_Sidebar>
 <Story_Main>
   <chapter_header><?= data.security_type ?> Agreement</chapter_header>
-    <para_1><b>THIS AGREEMENT</b> is made on <?=data.investment_agreement_date || '<textvar name="Output Date" ?></para_1>
+    <para_1><b>THIS AGREEMENT</b> is made on <?=data.investment_agreement_date || "Output Date" ?></para_1>
     <para_1><b>BETWEEN:-</b></para_1>
     <?!=include("inc_enumerate_parties",data) ?>
     <para_1><b>WHEREAS:-</b></para_1>
