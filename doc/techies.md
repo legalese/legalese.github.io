@@ -13,8 +13,8 @@ There are two possible paths for you.  They are:
 (a) **Language Designing** -- doing the programming language theory to actually _build_ a domain-specific-language for contracts.
 (b) **Power User** -- you don't want to design the DSL, but you do want to use it.
 
-## Time-sensitive
-* [International Conference on AI and Law](https://nms.kcl.ac.uk/icail2017/) on June 12--16 in London, UK.
+## The Language thus far
+* [L4 compiler](https://github.com/legalese/legalese-compiler/) on github
 
 
 ## Why programming in english is terrible
