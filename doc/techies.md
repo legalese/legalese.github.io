@@ -15,7 +15,7 @@ There are two possible paths for you.  They are:
 
 (b) **Power User** -- you don't want to design the DSL, but you do want to use it.
 
-## The Language thus far
+## The language thus far
 * [L4 compiler](https://github.com/legalese/legalese-compiler/) on github
 
 
