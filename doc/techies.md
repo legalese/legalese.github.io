@@ -11,8 +11,9 @@ Rumor is that you are interested in Legalese.  Before you do anything else:
 
 There are two possible paths for you.  They are:
 
-* **Language Designing** -- doing the programming language theory to actually _build_ a domain-specific-language for contracts.
-* **Power User** -- you don't want to design the DSL, but you do want to use it.
+(a) **Language Designing** -- doing the programming language theory to actually _build_ a domain-specific-language for contracts.
+
+(b) **Power User** -- you don't want to design the DSL, but you do want to use it.
 
 ## The Language thus far
 * [L4 compiler](https://github.com/legalese/legalese-compiler/) on github
