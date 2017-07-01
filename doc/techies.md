@@ -28,7 +28,7 @@ There are two possible paths for you.  They are:
 * [Ken Adams on Contract Drafting](https://twitter.com/KonciseD/status/816827816125677568): "Am I restoring order to contract drafting? No, there never was a golden age of drafting, it's always been a mess." -- 4 Jan 2017
 
 ## There is a better way
-* The British Nationality Act was [rewritten in Prolog](http://opim.wharton.upenn.edu/~sok/papers/s/p370-sergot.pdf]) all the way back in 1986!
+* The British Nationality Act was [rewritten in Prolog](http://opim.wharton.upenn.edu/~sok/papers/s/p370-sergot.pdf) all the way back in 1986!
 
 ## The closest material thus far
 
