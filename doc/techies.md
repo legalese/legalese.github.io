@@ -19,6 +19,8 @@ There are two possible paths for you.  They are:
 * [L4 compiler](https://github.com/legalese/legalese-compiler/) on github
 * Monster burger food eating contract in [English](https://github.com/legalese/legalese-compiler/blob/master/sandbox6/monsterburger/README.org#gauntlets-version), [CSL](https://github.com/legalese/legalese-compiler/blob/master/sandbox6/monsterburger/burger1.csl), and now [L4](https://github.com/legalese/legalese-compiler/blob/master/sandbox6/monsterburger/burger1.l4)!
 
+![prototype grammar](https://dl.dropboxusercontent.com/u/3308162/legalese--L4spec.png "the spec")
+
 ## Why programming in english is terrible
 * [The 1M dollar comma](http://www.nytimes.com/2006/10/25/business/worldbusiness/25comma.html)
 * [The 10M dollar comma](http://www.newyorker.com/culture/culture-desk/a-few-words-about-that-ten-million-dollar-serial-comma)
@@ -51,4 +53,5 @@ There exists a lovely framework for generating multi-lingual natural language fr
 
 # The Vision
 ![the vision](https://dl.dropboxusercontent.com/u/3308162/legalese-vision.png "The Vision")
+
 
