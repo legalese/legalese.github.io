@@ -17,7 +17,7 @@ There are two possible paths for you.  They are:
 
 ## The language thus far
 * [L4 compiler](https://github.com/legalese/legalese-compiler/) on github
-
+* Monster burger food eating contract in [English](https://github.com/legalese/legalese-compiler/blob/master/sandbox6/monsterburger/README.org#gauntlets-version), [CSL](https://github.com/legalese/legalese-compiler/blob/master/sandbox6/monsterburger/burger1.csl), and now [L4](https://github.com/legalese/legalese-compiler/blob/master/sandbox6/monsterburger/burger1.l4)!
 
 ## Why programming in english is terrible
 * [The 1M dollar comma](http://www.nytimes.com/2006/10/25/business/worldbusiness/25comma.html)
