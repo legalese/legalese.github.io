@@ -1,4 +1,4 @@
-# Hello potential Legalese PLT collaborator!
+# Hello potential PLT collaborator!
 
 Rumour has it that _you_, a PLT researcher/developer, are interested in _joint research_ with [Legalese](https://legalese.com) in developing a _programming language_ for specifying legal contracts.  This can be thought of as "Verilog/VHDL for Contracts".  Possible outputs from research collaborations are: peer-reviewed academic papers, technical reports, and/or prototype implementations.
 
