@@ -56,9 +56,9 @@ When designing a DSL, there's always a question of what capabilities to make fro
 
 
 ## What we have thus far
-We tentatively call our prospective language, "L4", but we don't yet have a lot to show.  The people currently leading the design of L4 are [Vikram Verma](https://github.com/fmap) and [Meng Wong](https://www.linkedin.com/in/mengwong/), they are easily reached at [collective@legalese.com](mailto:collective@legalese.com).
+We tentatively call our prospective language, "L4", but we don't yet have a lot to show.  [Meng Wong](https://www.linkedin.com/in/mengwong/) is currently leading the design of L4, he is easily reached at [collective@legalese.com](mailto:collective@legalese.com).
 
-So far their work is:
+So far his work is:
 * [L4 compiler](https://github.com/legalese/legalese-compiler/) on github
 * Monster burger food eating contract in [English](https://github.com/legalese/legalese-compiler/blob/master/sandbox6/monsterburger/README.org#gauntlets-version), [CSL](https://github.com/legalese/legalese-compiler/blob/master/sandbox6/monsterburger/burger1.csl), and now [L4](https://github.com/legalese/legalese-compiler/blob/master/sandbox6/monsterburger/burger1.l4)!
 
