@@ -100,3 +100,7 @@ There exists a lovely framework for generating multi-lingual natural language fr
 * [Google Tech Talk](https://www.youtube.com/watch?v=x1LFbDQhbso)
 * [GrammaticalFramework SummerSchool](http://school.grammaticalframework.org/2017/) on 14th–25th August 2017
 
+---
+
+![pompous notice](https://raw.githubusercontent.com/legalese/legalese.com/master/images/pompous%20investor%20notice/know-all-men-by-these-presents-1000.png "the letter")
+
