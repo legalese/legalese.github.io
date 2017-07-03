@@ -102,5 +102,5 @@ There exists a lovely framework for generating multi-lingual natural language fr
 
 ---
 
-![quote](https://dl.dropboxusercontent.com/u/3308162/legalese-quote.png "the quote")
+![quote](https://files.readme.io/rTnk3TbHTD2SgvbgRKUj_horiz-quote-black-11.png "the quote")
 
