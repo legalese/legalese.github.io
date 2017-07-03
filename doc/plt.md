@@ -102,5 +102,5 @@ There exists a lovely framework for generating multi-lingual natural language fr
 
 ---
 
-![pompous notice](https://raw.githubusercontent.com/legalese/legalese.com/master/images/pompous%20investor%20notice/know-all-men-by-these-presents-1000.png "the letter")
+![quote](https://dl.dropboxusercontent.com/u/3308162/legalese-quote.png "the quote")
 
