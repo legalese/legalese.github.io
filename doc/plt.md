@@ -102,6 +102,7 @@ We don't need to worry about common bugs just yet.  For now just having *any* gr
 There exists a lovely framework for generating multi-lingual natural language from formal grammars.  It's called [GrammaticalFramework](http://grammaticalframework.org).  The plan is to build a dictionary of translation of the smallest "atomic" units of logic to legal, then compose these fragments into larger texts.  This is on hold until we have a suitable DSL.
 * [Google Tech Talk](https://www.youtube.com/watch?v=x1LFbDQhbso)
 * [GrammaticalFramework SummerSchool](http://school.grammaticalframework.org/2017/) on 14th–25th August 2017
+* Book: [Programming with Multilingual Grammars](http://www.grammaticalframework.org/gf-book/)
 
 ---
 
