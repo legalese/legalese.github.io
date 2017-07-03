@@ -75,12 +75,12 @@ We don't need to worry about common bugs just yet.  For now just having *any* gr
 * [Trace Based Contract Model](https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU) (see Chapter 2)
 * [Logic in the Theory and Practice of Lawmaking](https://dl.dropboxusercontent.com/u/3308162/Logic%20in%20the%20Theory%20and%20Practice%20of%20Lawmaking.pdf)
 
-## Current High-level-languages (HLLs) for Contrats
+## Current High-level-languages (HLLs) for Contracts
 * **CSL/CSL+** from [Contract Formalization and Modular Implementation of Domain-Specific Languages](https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU)
 * **C-O diagrams** from [Analysing normative contracts: On the semantic gap between natural and formal languages](https://gupea.ub.gu.se/bitstream/2077/40725/1/gupea_2077_40725_1.pdf)
 * **[Contract Description Language](https://www.lexifi.com/product/technology/contract-description-language)** from Lexify.
 * [LegalRuleML](https://www.oasis-open.org/committees/legalruleml/) is an open standard for expressing legal rules (such as legislation) in XML.
-* [Contract as Automaton The Computational Representation of Financial Agreements](financialresearch.gov/working-papers/files/OFRwp-2015-04_Contract-as-Automaton-The-Computational-Representation-of-Financial-Agreements.pdf)
+* [Contract as Automaton The Computational Representation of Financial Agreements](http://financialresearch.gov/working-papers/files/OFRwp-2015-04_Contract-as-Automaton-The-Computational-Representation-of-Financial-Agreements.pdf)
 
 ## On formal verification of contracts
 * [Model Checking Contracts -- a Case Study](http://lara.epfl.ch/w/_media/contractlanguage.pdf) also with [slides](http://www.cse.chalmers.se/~gersch/slides-talks/slides-ATVA-07.pdf).
