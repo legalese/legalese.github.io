@@ -87,7 +87,7 @@ We don't need to worry about common bugs just yet.  For now just having *any* gr
 
 ## On formal verification of contracts
 * [Model Checking Contracts -- a Case Study](http://lara.epfl.ch/w/_media/contractlanguage.pdf) also with [slides](http://www.cse.chalmers.se/~gersch/slides-talks/slides-ATVA-07.pdf).
-* ```Seeking more of these!  Do you have any?```
+* [FormaLex](http://publicaciones.dc.uba.ar/Publications/2011/GMS11/gms_flacos-2011-tr.pdf), [followup 2017](https://drive.google.com/open?id=0BxOaYa8pqqSwT01LUGdDMjdMRXc).
 
 
 # Appendix
