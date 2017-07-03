@@ -15,15 +15,14 @@ The legal industry is a suitable domain for implementing a domain-specific progr
 
 
 
-
 ## Why would we want to do this?
-The most natural answer is, "[Because it's awesome](https://www.smbc-comics.com/?id=2088)."  But there's also several business/social reasons why this is a great idea.  Most notably:
+The most scientific answer is, "[Because it's awesome](https://www.smbc-comics.com/?id=2088)."  But there's also several business/social reasons why this is a great idea.  Most notably:
 
 * It provides an entrance ramp to the fancy smart-contract future.
 * Amazing things become possible like [Globalization 2.0](http://internetofagreements.com/files/WorldGovernmentSummit-Dubai2017.pdf) or regulatory oracles.
 * Access to justice for the majority of the population that simply have trouble affording a lawyer.
 * Robots will be able to make contracts with other robots.
-* Immanentizing STEM-culture nerd hegemony over legal culture.
+* Immanentizing STEM-culture hegemony over legal culture.
 
 
 
