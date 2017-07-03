@@ -1,4 +1,4 @@
-# Hello those of technical training!
+# Hello those of technical developer training!
 
 Rumor is that you are interested in Legalese.  Before you do anything else:
 
@@ -9,17 +9,7 @@ Rumor is that you are interested in Legalese.  Before you do anything else:
 5. [Email us](mailto:collective@legalese.com) for an invite to the [Slack chat](http://slack.legalese.com), and join us on the #dsl channel.
 
 
-There are two possible paths for you.  They are:
-
-(a) **Language Designing** -- doing the programming language theory to actually _build_ a domain-specific-language for contracts.
-
-(b) **Power User** -- you don't want to design the DSL, but you do want to use it.
-
-## The language thus far
-* [L4 compiler](https://github.com/legalese/legalese-compiler/) on github
-* Monster burger food eating contract in [English](https://github.com/legalese/legalese-compiler/blob/master/sandbox6/monsterburger/README.org#gauntlets-version), [CSL](https://github.com/legalese/legalese-compiler/blob/master/sandbox6/monsterburger/burger1.csl), and now [L4](https://github.com/legalese/legalese-compiler/blob/master/sandbox6/monsterburger/burger1.l4)!
-
-![prototype grammar](https://dl.dropboxusercontent.com/u/3308162/legalese--L4spec.png "the spec")
+This document is for people who want to _use_ the DSL.  If you are versed in PLT, you should see our onboarding document for those who wise to _[design the DSL](http://plt.legalese.com)._
 
 ## Why programming in english is terrible
 * [The 1M dollar comma](http://www.nytimes.com/2006/10/25/business/worldbusiness/25comma.html)
