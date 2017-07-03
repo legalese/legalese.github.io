@@ -9,7 +9,7 @@ Rumor is that you are interested in Legalese.  Before you do anything else:
 5. [Email us](mailto:collective@legalese.com) for an invite to the [Slack chat](http://slack.legalese.com), and join us on the #dsl channel.
 
 
-This document is for people who want to _use_ the DSL.  If you are versed in PLT, you should see our onboarding document for those who wise to _[design the DSL](http://plt.legalese.com)._
+This document is for people who want to _use_ the DSL.  If you are versed in PLT, you should see our onboarding document for those who wish to _[design the DSL](http://plt.legalese.com)._
 
 ## Why programming in english is terrible
 * [The 1M dollar comma](http://www.nytimes.com/2006/10/25/business/worldbusiness/25comma.html)
