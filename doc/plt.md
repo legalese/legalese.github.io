@@ -1,6 +1,6 @@
 # Hello potential PLT collaborator!
 
-Rumour has it that _you_, a PLT researcher/developer, are interested in _joint research_ with [Legalese](https://legalese.com) in developing a _programming language_ for specifying legal contracts.  This can be thought of as "Verilog/VHDL for Contracts".  Possible outputs from research collaborations are: peer-reviewed academic papers, technical reports, and/or prototype implementations.
+Rumour has it that _you_, a PL researcher/developer, are interested in _joint research_ with [Legalese](https://legalese.com) in developing a _programming language_ for specifying legal contracts.  This can be thought of as "Verilog/VHDL for Contracts".  Possible outputs from research collaborations are: peer-reviewed academic papers, technical reports, and/or prototype implementations.
 
 How does it involve PLT?  Well, there's already several [logical grammars](#logics-for-contracts) for contracts.  And PLT is needed to unify these grammars into something that could be used for real world contracts---starting with financial and investment agreements.  This can result in popular papers in AI/logic/legal/PLT journals.
 
@@ -13,7 +13,8 @@ The legal industry is a suitable domain for implementing a domain-specific progr
 * The existing standards are so low---lawyers currently write assembly (legal english) by hand, without any compiler/checker at all!
 * [Even lawyers think engineers do it better](https://dl.dropboxusercontent.com/u/3308162/darmstadter%20precision's%20counterfeit%2025758526.pdf)
 
-
+### What makes this PLT *research* over mere engineering?
+* ```>Vi/meng: your assistance is requested here.```
 
 ## Why would we want to do this?
 The most scientific answer is, "[Because it's awesome](https://www.smbc-comics.com/?id=2088)."  But there's also several business/social reasons why this is a great idea.  Most notably:
@@ -46,7 +47,7 @@ Then at some undetermined day in the future...
 * Eager-evaluation / "call-by-value" (simpler mental model for devs)
 * Dependent Types.
 
-## What do we want the DSL to do that [prior DSLs](#) cannot?
+## What do we want the DSL to do that [prior DSLs](#current-high-level-languages-hlls-for-contracts) cannot?
 * ```Vi/meng: fill me in!```
 
 ## What should the DSL make easy to do?
