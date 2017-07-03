@@ -93,8 +93,8 @@ We don't need to worry about common bugs just yet.  For now just having *any* gr
 # Appendix
 
 ## Likely partners
-* Stanford's [Computable Contracts](http://compk.stanford.edu) group.
-* [Stephen Chong](http://people.seas.harvard.edu/~chong/) at Hahvahd.
+* Stanford's [Computable Contracts](http://compk.stanford.edu) group
+* [Stephen Chong](http://people.seas.harvard.edu/~chong/) at Hahvahd
 * [Data61's Digital Legislation Vision](http://digital-legislation.net/)
 
 ## This is cool and all, but how are we going to "compile" to legal English?
