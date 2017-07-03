@@ -46,6 +46,8 @@ Then at some undetermined day in the future...
 * Eager-evaluation / "call-by-value" (simpler mental model for devs)
 * Dependent Types.
 
+## What do we want the DSL to do that [prior DSLs](#) cannot?
+* ```Vi/meng: fill me in!```
 
 ## What should the DSL make easy to do?
 When designing a DSL, there's always a question of what capabilities to make front and center---i.e., what are the [common design patterns](https://en.wikipedia.org/wiki/Pattern_Languages_of_Programs) in financial contracts?  In short, we don't know yet.  But we suspect their answers can be gotten from distilling [this tome](https://www.amazon.com/gp/product/1614388032?ie=UTF8).
