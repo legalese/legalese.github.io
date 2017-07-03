@@ -1,4 +1,4 @@
-#+TITLE: An Introductory Course in Languages and Protocols in Computational Law
+#+TITLE: An Introductory Course in Formal Languages and Protocols in Computational Law
 
 This document lives at https://github.com/legalese/legalese.com/blob/master/doc/intro-course.org
 
@@ -32,8 +32,11 @@ If you get stuck, ask for help on the Legalese slack chat.
 
 ** Motivation and Explication
 
-1. http://compk.stanford.edu/ articulates a vision.
-2. Harry Surden (2014) explained computable contracts on his blog ([[http://www.harrysurden.com/wordpress/archives/203][part 1]], [[http://www.harrysurden.com/wordpress/archives/230][part 2]]).
+1. What if we could write contracts (and statutes) the way we do programs? (Not to mention compile, test, debug, and verify ... or even share and sell.)
+2. http://compk.stanford.edu/ articulates the vision.
+3. Harry Surden (2014) explains computable contracts on his blog ([[http://www.harrysurden.com/wordpress/archives/203][part 1]], [[http://www.harrysurden.com/wordpress/archives/230][part 2]]).
+4. Eventually, professional services will be provided around contract drafting. Wait -- law firms already do that! Except, by and large, without technology and tools. Automation is just the first step.
+5. One premise of the approach in this course is that the CS field of [[https://en.wikipedia.org/wiki/Formal_verification][Formal Verification]] has much to offer.
 
 ** A Quick Survey of Prior Art in Computable Contracts
 
@@ -47,7 +50,7 @@ Computable contracts is a narrow segment of computational law, which goes back o
 
 1. The earliest work dates back to 1988: skim Ronald Lee's [[https://www.researchgate.net/publication/228185635_A_Logic_Model_for_Electronic_Contracting][A Logic Model for Electronic Contracting]].
 2. In the late 1990s and early 2000s, Nick Szabo put forward [[http://nakamotoinstitute.org/contract-language/][a formal language for contracts]].
-3. *IMPORTANT* In 2011 some Argentinians published [[http://publicaciones.dc.uba.ar/Publications/2011/GMS11/gms_flacos-2011-tr.pdf][FormaLex]]. They [[https://drive.google.com/open?id=0BxOaYa8pqqSwT01LUGdDMjdMRXc][followed up in 2017]].
+3. *IMPORTANT* -- In 2011 some Argentinians published [[http://publicaciones.dc.uba.ar/Publications/2011/GMS11/gms_flacos-2011-tr.pdf][FormaLex]]. They [[https://drive.google.com/open?id=0BxOaYa8pqqSwT01LUGdDMjdMRXc][followed up in 2017]].
 4. More recently, Flood & Goodenough published [[https://www.financialresearch.gov/working-papers/files/OFRwp-2015-04_Contract-as-Automaton-The-Computational-Representation-of-Financial-Agreements.pdf][Contract as Automaton]] (2015, 2017).
 5. In 2016, [[https://www.hklaw.com/Josias-Dewey/][Josias Dewey]] of [[http://contractcode.io/][contractcode.io]] wrote a [[https://docs.google.com/document/d/1Cun8B6V_CbedxrhW26j0ZfAfcuVKtrVOdg9tY7XR8Lw/edit][white paper]].
 6. In 2017, Shrutarshi Basu, Ph.D. candidate at Cornell, wrote a conveyancing reasoner: http://basus.me/conveyor/
@@ -63,19 +66,20 @@ Computable contracts is a narrow segment of computational law, which goes back o
 7. *IMPORTANT* -- Chapter 1 of Hvitved's 2012 [[https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU][Contract Formalization]] comprehensively surveys the prior art in contract languages. That chapter describes many efforts not listed here.
 8. Chapter 2 introduces his language, [[https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU][CSL]]. CSL was developed as part of [[http://www.sciencedirect.com/science/article/pii/S156783260800074X][POETS]] under the Danish Advanced Technology Foundation's [[http://web.archive.org/web/20141216182613/http://3gerp.org/][3gERP]] project. The implementation is in Haskell.
 9. [[http://hdl.handle.net/10443/1814][Abdelsadiq at Newcastle]] worked on model checking also.
-10. [[http://www.cs.bath.ac.uk/smartlaw2017/papers/SmartLaw2017_paper_1.pdf][Eric Tjong Tjin Tai]] from Tilburg, NL, published a short paper, "Formalizing Contrac Law for Smart Contracts".
+10. [[http://www.cs.bath.ac.uk/smartlaw2017/papers/SmartLaw2017_paper_1.pdf][Eric Tjong Tjin Tai]] from Tilburg, NL, published a short paper, "Formalizing Contract Law for Smart Contracts".
 11. Most contract law concerns itself primarily with deontic logic; but parties must give notice to one another, and that is epistemic logic. Some people in Amsterdam have been working on [[https://link.springer.com/chapter/10.1007/978-3-662-48561-3_30][model checking of epistemic logic]].
 
 ** Prior Art in Regulations, Compliance, and Rules
 
 Contracts are private law; legislation and regulation are public law. Enterprises have internal laws, called Business Rules.
 
-1. In Australia, [[http://www.governatori.net/research/pubs/index.html][Guido Governatori]] has been doing for legislation what the above efforts do for contracts. http://digital-legislation.net describes computable legislation and regulations; see the [[https://digital-legislation.net/img/concept-map.pdf][marketecture PDF]].
-2. [[https://www.unibo.it/sitoweb/monica.palmirani/en][Monica Palmirani]] chairs the [[https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=legalruleml][OASIS committee]] for [[http://www.governatori.net/papers/2013/ruleml2013tutorial.pdf][LegalRuleML]] (2013 tutorial). See the [[https://lists.oasis-open.org/archives/legalruleml/][mailing list archives]].
-3. The [[http://web.archive.org/web/20080422234946/http://www.normeinrete.it/][NormeinRete]] project ran from 1999 to 2007, and has produced work such as [[https://www.researchgate.net/publication/260387643_xmLegesEditor_an_OpenSource_Visual_XML_Editor_for_supporting_Legal_National_Standards][xmLegesEditor]], part of the [[http://www.xmleges.org/eng/index.php?option=com_frontpage&Itemid=1][XMLeges]] suite.
-4. In Pittsburgh (with Matthias Grabmair), the [[http://dl.acm.org/citation.cfm?id=2746096&dl=ACM&coll=DL&CFID=937658292&CFTOKEN=67801372][LUIMA project]] attempts to extract semantics from regulations. See also [[https://www.researchgate.net/publication/266177190_On_Rule_Extraction_from_Regulations][Adam Wyner]]; and [[http://works.bepress.com/hyun_lee/2/][Applying Software Development Techniques to Statutory Drafting]].
-5. [[http://www.akomantoso.org/][Akoma Ntoso]] is a markup XML for legislation.
-6. [[https://en.wikipedia.org/wiki/GJXDM][The Global Justice XML Data Model]] is a data reference model for the exchange of information within the justice and public safety communities.
+1. Vinay Gupta (2017) motivated computable legislation in his manifesto [[http://internetofagreements.com/][The Internet of Agreements]]: smart contracts need smart law.
+2. In Australia, [[http://www.governatori.net/research/pubs/index.html][Guido Governatori]] has been doing for legislation what the above efforts do for contracts. http://digital-legislation.net describes computable legislation and regulations; see the [[https://digital-legislation.net/img/concept-map.pdf][marketecture PDF]]. His previous efforts include Regorous and DrContract.
+3. [[https://www.unibo.it/sitoweb/monica.palmirani/en][Monica Palmirani]] chairs the [[https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=legalruleml][OASIS committee]] for [[http://www.governatori.net/papers/2013/ruleml2013tutorial.pdf][LegalRuleML]] (2013 tutorial). See the [[https://lists.oasis-open.org/archives/legalruleml/][mailing list archives]].
+4. The [[http://web.archive.org/web/20080422234946/http://www.normeinrete.it/][NormeinRete]] project ran from 1999 to 2007, and has produced work such as [[https://www.researchgate.net/publication/260387643_xmLegesEditor_an_OpenSource_Visual_XML_Editor_for_supporting_Legal_National_Standards][xmLegesEditor]], part of the [[http://www.xmleges.org/eng/index.php?option=com_frontpage&Itemid=1][XMLeges]] suite.
+5. In Pittsburgh (with Matthias Grabmair), the [[http://dl.acm.org/citation.cfm?id=2746096&dl=ACM&coll=DL&CFID=937658292&CFTOKEN=67801372][LUIMA project]] attempts to extract semantics from regulations. See also [[https://www.researchgate.net/publication/266177190_On_Rule_Extraction_from_Regulations][Adam Wyner]]; and [[http://works.bepress.com/hyun_lee/2/][Applying Software Development Techniques to Statutory Drafting]].
+6. [[http://www.akomantoso.org/][Akoma Ntoso]] is a markup XML for legislation.
+7. [[https://en.wikipedia.org/wiki/GJXDM][The Global Justice XML Data Model]] is a data reference model for the exchange of information within the justice and public safety communities.
 
 The name for this field is "RegTech".
 
@@ -144,6 +148,7 @@ US researchers tend to be law professors with an interest in software.
 - [[http://www.vermontlaw.edu/directory/person?name=Goodenough,Oliver][Oliver Goodenough]], Vermont Law School, co-founder [[https://www.skoposlabs.com/][Skopos Labs]]; co-authored with
 - [[http://www.flood-dalton.org/mark/][Mark Flood]], [[http://www.treasury.gov/initiatives/Pages/ofr.aspx][OFR]].
 - [[http://www.nyls.edu/faculty/faculty-profiles/faculty_profiles/houman_shadab/][Houman Shadab]], New York Law School, co-founder [[http://clause.io/][clause.io]].
+- Thorne McCarty: [[http://digitalcommons.law.msu.edu/lr/vol2016/iss2/5][one]], [[https://www.researchgate.net/publication/316523910_Probability_Geometry_Logic_A_Triptych_for_a_Learnable_Knowledge_Representation_Language][two]], three
 
 ** Organizations with related interests
 
@@ -153,6 +158,8 @@ Mostly in the blockchain / smart contracts space.
 - [[https://www.hyperledger.org/][Hyperledger]] comes off the Linux Foundation.
 - [[http://www.r3.com/][R3]] was described above.
 - [[http://iaail.org/][IAAIL]] is the International Association for Artificial Intelligence and Law. They run the ICAIL conference.
+- Vinay Gupta and Rob Knight at [[http://hexayurt.capital/][Hexayurt Capital]] are plotting to realize the vision described at http://www.internetofagreements.com/
+- John Armour, Sarah Green, and perhaps others at Oxford are working on something that Meng will learn more about soon.
 
 ** Other Resources
 
@@ -318,7 +325,7 @@ We review the above projects in more detail.
 
 - https://en.wikipedia.org/wiki/Business_rules_engine
 - ODRL
-- OCL and OCLR
+- [[https://en.wikipedia.org/wiki/Object_Constraint_Language][OCL]] is part of [[https://en.wikipedia.org/wiki/Unified_Modeling_Language][UML]]; see [[https://orbilu.uni.lu/bitstream/10993/15339/1/oclr-report.pdf][OCLR]] for temporals
 - Business Rule engines. SBVR.
 - Oracle Policy Automation. iLog.
 - Drools. Jess. The Rete algorithm. SAT.
@@ -333,6 +340,7 @@ We review the above projects in more detail.
 - http://uterms.software/
 - http://openminted.eu/
 - http://remu.grammaticalframework.org/contracts/converter/
+- http://remu.grammaticalframework.org/retreat/2016/ workplan for june 2016 to 2017
 
 ** Prior Art: Computational Contracts
 
@@ -357,6 +365,14 @@ We review the above projects in more detail.
 ** Introduction to Functional Programming.
 
 - Introduction to Functional Programming. haskellbook.com.
+
+** Applications in AI
+
+*** Apollo vs Dionysus
+
+*** explainability
+- http://clasp.gu.se/news-events/conference-on-logic-and-machine-learning-in-natural-language--laml-/invited-abstracts/aarne-ranta
+- http://www.law.nyu.edu/centers/ili/events/algorithms-and-explanations
 
 ** Programming Language Theory
 
