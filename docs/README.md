@@ -15,3 +15,7 @@ Run `bundle exec jekyll serve`.
 Port over the rest of the blogposts.
 
 Disable redirect to legalese.com.
+
+Add the formatted warning/tip blocks back into some of the tutorial posts.
+
+Get Google Analytics going.
