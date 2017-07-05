@@ -9,7 +9,7 @@ How does it involve PLT?  Well, there's already several [logical grammars](#logi
 The legal industry is a suitable domain for implementing a domain-specific programming language because:
 * [JSON is not enough](https://medium.com/@Legalese/code-is-law-is-code-4492c864f33f)
 * [Read a contract](http://legalese.com/v1.0/page/future#section-original-motivation)---it reads like a program.  Because it is one.
-* Programmers/lawyers with a high-level language will be vastly more productive than those writing assembly.
+* Programmers/lawyers with a high-level language will [be vastly more productive](https://www.technologyreview.com/s/536356/toolkits-for-the-mind/) than those writing assembly.
 * The existing standards are so low---lawyers currently write assembly (legal english) by hand, without any compiler/checker at all!
 * [Even lawyers think engineers do it better](https://dl.dropboxusercontent.com/u/3308162/darmstadter%20precision's%20counterfeit%2025758526.pdf)
 
