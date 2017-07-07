@@ -88,7 +88,7 @@ The name for this field is "RegTech".
 1. [[https://www.kentlaw.iit.edu/institutes-centers/center-for-access-to-justice-and-technology/a2j-author][A2JAuthor]] is a software tool that delivers greater access to justice for self-represented litigants by enabling non-technical authors from the courts, clerk's offices, legal services programs, and website editors to rapidly build and implement customer friendly web-based interfaces for document assembly.
 2. [[https://en.wikipedia.org/wiki/Business_rules_engine][Business Rules Engines]] have been around forever: [[https://en.wikipedia.org/wiki/Oracle_Policy_Automation][Oracle Policy Automation]] dates back to 2008. [[https://www.neotalogic.com/][Neota Logic]] is a recent entrant. See also [[https://en.wikipedia.org/wiki/Drools][Drools]], [[https://en.wikipedia.org/wiki/Jess_(programming_language)][Jess]], [[https://www-01.ibm.com/software/info/ilog/][iLog]]. IBM Watson's [[http://io9.gizmodo.com/ibms-watson-can-now-debate-its-opponents-1571837847][Debater does a bit of this]].
 3. [[http://benjamingrosof.com/][Ben Grosof]]'s company [[http://www.coherentknowledge.com/][Coherent Knowledge]] commercializes Textual RuleLog (a Prolog variant) as Ergo, to reason through regulatory compliance. See 2016 [[variant of Textual R][YouTube demo]] (15m), 2015 [[https://www.slideshare.net/ruleml2012/ruleml2015-tutorial-powerful-practical-semantic-rules-in-rulelog-fundamentals-and-recent-progress][RuleML slides]].
-4. [[http://www.r3.com/][R3]] has raised a lot of money. They work with banks, because that's where the money is. They run [[https://www.eventsforce.net/r3/frontend/reg/tAgendaWebsite.csp?pageID=1976&ef_sel_menu=44&eventID=9&mode=&eventID=9][summits on smart contracts]] and have published on smart contract templates: [[https://arxiv.org/abs/1608.00771][foundations]] and [[https://arxiv.org/pdf/1612.04496][requirements]] (2016). See [[https://drive.google.com/file/d/0BxOaYa8pqqSwWTAzS3hjZUlVWUk/view?usp=sharing][slides from June 2016]]. Their demo runs ISDA master templates through an end-to-end proof of concept prototype against a DLT/blockchain.
+4. [[http://www.r3.com/][R3]] has raised a lot of money. They work with banks, because that's where the money is. They run [[https://www.eventsforce.net/r3/frontend/reg/tAgendaWebsite.csp?pageID=1976&ef_sel_menu=44&eventID=9&mode=&eventID=9][summits on smart contracts]] and have published on smart contract templates: [[https://arxiv.org/abs/1608.00771][foundations]] and [[https://arxiv.org/pdf/1612.04496][requirements]] (2016). See [[https://drive.google.com/file/d/0BxOaYa8pqqSwWTAzS3hjZUlVWUk/view?usp=sharing][slides from June 2016]] and [[https://www.r3.com/slides/third-smart-contract-templates-summit-slides.pdf][June 2017]]. Their demo runs ISDA master templates through an end-to-end proof of concept prototype against a DLT/blockchain.
 5. ISDA, the trade association, encourages the use of [[https://www2.isda.org/functional-areas/technology-infrastructure/fpml/][FpML]].
 
 ** Prior Art: Non-Computational Contracts
@@ -348,11 +348,11 @@ We review the above projects in more detail.
 
 ** Introduction to Computational Linguistics
 
-- The A.I. Dichotomy: Symbolic vs Statistical, Logic vs Emotion, Apollo vs Dionysus
 - Natural Language Processing. NLTK.
 - Natural Language Generation.
 - Text Planning.
 - Introduction to Grammatical Framework.
+- https://amr.isi.edu/index.html
 
 ** Introduction to Mathematical Logic
 
@@ -369,6 +369,7 @@ We review the above projects in more detail.
 ** Applications in AI
 
 *** Apollo vs Dionysus
+- The [[https://docs.google.com/presentation/d/1xrQebPOlxgnRumPN77fa72wxzvK1m4FOKDOs_03UHP4/pub?start=false&loop=false&delayms=3000][A.I. Dichotomy]]: Symbolic vs Statistical, Logic vs Emotion, Apollo vs Dionysus
 
 *** explainability
 - http://clasp.gu.se/news-events/conference-on-logic-and-machine-learning-in-natural-language--laml-/invited-abstracts/aarne-ranta
