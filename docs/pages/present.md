@@ -592,6 +592,9 @@ Legalese is importing all of these agreements. After you configure your deal in 
 		<a href="http://beagle.ai/">Beagle.ai</a> reads contracts
 	</li>
 	<li>
+		<a href="http://www.clausematch.com/">ClauseMatch</a> reads contracts
+	</li>
+	<li>
 		<a href="https://www.luminance.com/">Luminance</a> reads contracts (and other documents in dataroooms)
 	</li>
 	<li>
