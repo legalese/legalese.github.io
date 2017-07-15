@@ -709,6 +709,7 @@ Legalese is importing all of these agreements. After you configure your deal in 
 	</li>
 	<li>
 		<a href="https://www.thoughtriver.com">Thoughtriver</a> Risk assessment for contracts
+	</li>
 </ul>
 
 ## Legal Research
