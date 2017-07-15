@@ -31,7 +31,7 @@ The most scientific answer is, "[Because it's awesome](https://www.smbc-comics.c
 Goal: **We wish to create a DSL that allows programmers specify simple contracts**.  Proposed properties for a contract DSL are:
 1. Amenable to Formal Verification techniques.
    Particularly, these three properties for faciliating formal verification:
-   * [Strongly typed](https://en.wikipedia.org/wiki/Strong_and_weak_typing)
+   * [Statically typed](https://www.sitepoint.com/typing-versus-dynamic-typing/), and [Strongly typed](https://en.wikipedia.org/wiki/Strong_and_weak_typing)
    * A Turing-incomplete [decidable language](https://en.wikipedia.org/wiki/Recursive_language)
    * Probably a [total functional language](https://en.m.wikipedia.org/wiki/Total_functional_programming)
    * Incorporating some aspects of [CTL*](https://en.wikipedia.org/wiki/CTL*)
