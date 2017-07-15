@@ -327,6 +327,7 @@ Papers include:
 * [Safer smart contracts through type-driven development](http://publications.lib.chalmers.se/records/fulltext/234939/234939.pdf)
 * [Evaluation of Logic-Based Smart Contracts for Blockchain Systems](https://www.researchgate.net/publication/303679677_Evaluation_of_Logic-Based_Smart_Contracts_for_Blockchain_Systems)
 * Validation and Verification of Smart Contracts: a Research Agenda. Daniele Magazzeni, Peter McBurney, William Nash. IEEE Computer Journal, Special Issue on Blockchain Technology for Finance. September 2017
+* [Formal Verification of Smart Contracts: Short Paper](http://dl.acm.org/citation.cfm?id=2993611)
 
 Startups include:
 * [Adjoint.io](http://www.adjoint.io/)
