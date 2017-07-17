@@ -707,9 +707,6 @@ Legalese is importing all of these agreements. After you configure your deal in 
 	<li>
 		<a href="http://www.lawhackers.co/">Law Hackers</a> for a curated list of legal startups
 	</li>
-	<li>
-		<a href="https://www.thoughtriver.com">Thoughtriver</a> Risk assessment for contracts
-	</li>
 </ul>
 
 ## Legal Research
