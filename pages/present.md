@@ -133,6 +133,9 @@ Legalese is importing all of these agreements. After you configure your deal in 
 	<li>
 		<a href="https://techcrunch.com/2017/04/05/seedlegals-automation-aims-to-replace-lawyers-in-startup-funding-rounds/">SeedLegals</a> does it in the UK
 	</li>
+	<li>
+		<a href="https://simmondsstewart.com/blogs/automated-southeast-asia-kiss-note-its-magic/">Automated KISS generation by Simmonds Stewart</a> for South-East Asia
+	</li>
 </ul>
 
 ## Workflow Apps for Specific Verticals
