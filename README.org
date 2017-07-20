@@ -65,9 +65,54 @@ More on this later, but as we get into the weeds of document assembly let's not 
 The project is split up across multiple repositories.
 
 ** WWW
-The website and the XML templates.
 
-Also most of the project documentation that doesn't fit anywhere else.
+The website is hosted on GitHub Pages as an Organisation Page, at www.legalese.github.io.
+
+The website is built in [[https://jekyllrb.com/][Jekyll]].
+
+What is contained where? For reference, view Jekyll's [[https://jekyllrb.com/docs/structure/][Directory Structure]].
+
+*** Specific Jekyll Files
+
+~_config.yml~ is Jekyll's config file.
+~Gemfile~ contains the gems necessary to run a Jekyll deployment, much like a ~package.json~.
+~Gemfile.lock~ is the expanded version of Gemfile and apparently [[https://stackoverflow.com/questions/4151495/should-gemfile-lock-be-included-in-gitignore][should not be in .gitignore]].
+
+*** docs
+
+This is where the v1 tutorial resides, based on the [[https://docs.google.com/spreadsheets/d/1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw/edit#gid=981127052][Demo Master]]. This will also be the location of actual documentation on how v1 actually works.
+
+*** pages
+
+This is where the loose pages on the website reside, for example [[legalese.github.io][Past]], or the Contact or About pages.
+
+*** _layouts
+
+This is where the layouts for the website HTML reside.
+
+~landing.html~ includes the TechCrunch SVG quote
+~default.html~ is for most of the website (with the navbar etc.)
+~docsidebar.html~ includes the sidebar for the v1 tutorial.
+
+*** _includes
+
+This is where reusable components reside.
+
+~inlinecss.html~ includes our custom CSS ported to and from [[readme.io][Readme]].
+~top.html~ includes all the usual headers, links to stylesheets and the navbar.
+~svg.html~ is the TechCrunch SVG quote.
+~topheading.html~ is the landing page version of ~top.html~, with the TechCrunch SVG quote included.
+
+*** assets
+
+This is all our static assets, with some of Readme's CSS and a few pictures.
+
+*** Building a local copy of the website
+
+Run ~bundle exec jekyll serve~ from the root folder of this repository, and navigate to localhost:4000.
+
+If you would like to view the built site, ~/_site~ will include all the compiled HTML, assets etc.
+
 
 ** Google-Apps
 The code that runs in Google Apps as an Add-On.
