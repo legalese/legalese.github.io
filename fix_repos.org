@@ -27,6 +27,7 @@
 ** dev-templates/legalese/ -> dev/
 ** templates/ -> /
 * Unsure ("legalese 2.0" files)
+** blog2/
 ** demo/
 ** images/
 ** stylesheets/
