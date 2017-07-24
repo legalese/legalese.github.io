@@ -16,3 +16,7 @@ v1 is a working prototype for founders of Singapore startups to produce all the 
 
 ## For Developers
 * [Joining Legalese](https://legalese.com/v1.0/page/contact#section-i-want-to-join-the-team)
+
+# Video
+
+<iframe width="854" height="400" src="https://www.youtube.com/embed/PRiICM-nBIs" frameborder="0" allowfullscreen="1"> </iframe>
