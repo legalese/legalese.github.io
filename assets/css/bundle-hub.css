@@ -2896,6 +2896,9 @@ div.disabled {
 .theme-solid .docs-header {
   color: #999;
   overflow: hidden;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eeeeee;
 }
 .theme-line .docs-header h1,
 .theme-solid .docs-header h1 {
