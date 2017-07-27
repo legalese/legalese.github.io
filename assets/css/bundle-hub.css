@@ -3731,6 +3731,7 @@ body {
   width: auto;
   max-width: 1100px;
 }
+/*
 code {
   padding: 0;
   padding-top: 0.2em;
@@ -3743,6 +3744,7 @@ code {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   white-space: normal;
 }
+*/
 .docs-right code {
   color: #ddd;
 }
