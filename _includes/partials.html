@@ -1,0 +1,85 @@
+<!-- Include partials--><div><script type="text/ng-template" id="content"><div class="block-content"><div class="blocks-parent"><div ng-repeat="(k, section) in sections" data-pos="{{ k }}" ng-if="is_sidebar === undefined || is_sidebar == !!section.sidebar" class="block section"><div ng-switch="section.type"><div ng-switch-when="textarea"><div marked="section.text"></div></div><!-- TODO: Make this generic using 'default' --><div ng-switch-when="api-header"><div type="section.type" ng-model="section.data" class="block-api-header"></div></div><div ng-switch-when="code"><div type="section.type" ng-model="section.data" class="block-code"></div></div><div ng-switch-when="image"><div type="section.type" ng-model="section.data" class="block-image"></div></div><div ng-switch-when="embed"><div type="section.type" ng-model="section.data" class="block-embed"></div></div><div ng-switch-when="callout"><div type="section.type" ng-model="section.data" class="block-callout"></div></div><div ng-switch-when="parameters"><div type="section.type" ng-model="section.data" class="block-parameters"></div></div><div ng-switch-when="html"><div type="section.type" ng-model="section.data" class="block-html"></div></div></div></div></div></div></script></div><div><script type="text/ng-template" id="blocks/api-header/show"><div class="block-display-api-header">
+  <!--
+  <div class="picker-offset">
+    <input type-picker ng-cloak ng-model="doc.type">
+  </div>
+  -->
+  <h2 id="{{ slugify(data.title) }}">
+    <span ng-show="data.type && data.type != 'basic'" class="pg-type-big pg-type type-{{data.type}}">{{data.type}}</span>
+    {{ data.title }}
+    <a class="fa fa-anchor fa-left" href="#{{ slugify(data.title) }}"></a>
+  </h2>
+  <hr>
+</div>
+</script><script type="text/ng-template" id="blocks/callout/show"><div class="block-show-callout {{ !data.title? 'no-title' : ''}} type-{{data.type}}">
+  <h3>
+    <i class="fa fa-info-circle {{data.type == 'info' ? 'on' : ''}}" title="Info"></i>
+    <i class="fa fa-exclamation-circle {{data.type == 'warning' ? 'on' : ''}}" title="Warning"></i>
+    <i class="fa fa-exclamation-triangle {{data.type == 'danger' ? 'on' : ''}}" title="Danger"></i>
+    <i class="fa fa-check-square {{data.type == 'success' ? 'on' : ''}}" title="Success"></i>
+
+    <span>{{ data.title }}</span>
+  </h3>
+
+  <div marked="data.body"></div>
+</div>
+</script><script type="text/ng-template" id="blocks/code/show"><div class="block-show-code">
+  <div class="code-tabs">
+    <div ng-class="{tab: true, on:$index==current, off:$index!=current}" ng-repeat="tab in data.codes track by $id($index)">
+      <a href="" ng-click="choose($index)">
+        <span ng-if="tab.status">
+          <span ng-if="tab.status" class="status-icon status-icon-{{ getStatusCode(tab.status)[2] }}"></span>
+          <em ng-if="!getStatusCode(tab.status)[3]">{{getStatusCode(tab.status)[0]}}</em>
+          {{ tab.name ? tab.name : getStatusCode(tab.status)[1] }}
+        </span>
+        <span ng-if="!tab.status">
+          {{ tab.name ? tab.name : code_types_obj[tab.language] }}
+        </span>
+      </a><span ng-hide="$last">&middot;</span>
+    </div>
+  </div>
+
+  <div ng-repeat="tab in data.codes track by $id($index)" ng-show="$index==current">
+  <pre ng-if='data.codes[$index].code == ""' class="{{theme}}" data-mode='text'><div class='text-muted'>No Content</div></pre>
+  <pre ng-if='data.codes[$index].code != ""' class="{{theme}}" data-mode="{{ data.codes[$index].language }}">{{ data.codes[$index].code }}</pre>
+</div>
+</div>
+</script><script type="text/ng-template" id="blocks/image/show"><div class="block-display-image" ng-show="data.images.length > 0">
+  <figure ng-show="data.images[0].image.length">
+    <a href="{{ data.images[0].image[0] }}" class="block-display-image-parent block-display-image-size-{{data.images[0].sizing || 'smart'}} {{data.images[0].border ? 'block-display-image-border' : ''}}">
+      <img ng-src="{{ data.images[0].image[0] }}">
+    </a>
+    <figcaption>{{ data.images[0].caption }}</figcaption>
+  </figure>
+</div>
+</script><script type="text/ng-template" id="blocks/parameters/show"><div class="block-display-parameters">
+  <table>
+    <tr ng-if="data.data['h-0'] || data.data['h-1']"> <!-- Rough check -->
+      <th ng-repeat="(c, col) in getNumber(data.cols) track by $index">
+        {{ data.data['h-' + c] }}
+      </th>
+    </tr>
+    <tr ng-repeat="(r, row) in getNumber(data.rows) track by $index">
+      <td ng-repeat="(c, col) in getNumber(data.cols) track by $index">
+        <div marked="data.data[r + '-' + c]"></div>
+      </th>
+    </tr>
+  </table>
+</div>
+
+</script><script type="text/ng-template" id="blocks/html/show"><div class="block-display-html"></div>
+
+</script><script type="text/ng-template" id="blocks/embed/show"><div class="block-display-embed">
+  <div class="html-replace" ng-if="data.html"></div>
+  <div ng-if="!data.html">
+    <div ng-if="data.iframe" class="iframe-replace"></div>
+    <div ng-if="!data.iframe">
+      <strong>
+        <img ng-src="{{data.favicon}}" class="favicon" ng-if="data.favicon">
+        <a href="{{ data.url }}" target="_new">{{ data.title || data.url }}</a>
+      </strong>
+    </div>
+  </div>
+</div>
+
+</script></div>
