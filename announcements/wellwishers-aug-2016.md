@@ -1,3 +1,8 @@
+---
+title: "Wellwishers' Newsletter, August 2016"
+layout: "blogsidebar"
+excerpt: ""
+---
 Dear [wellwishers](http://wellwishers.lists.legalese.com),
 
 In last month’s letter, we said: in July
@@ -15,7 +20,7 @@ In July, we forecast our funding rounds from angel to IPO, outlining valuation g
 
 The fundraising plan now looks like this.
 
-<img src="../assets/img/fundraising-forecast.png">
+<img src="../assets/img/fundraising-forecast.png" width="100%">
 
 Do we really plan to get to a $5B IPO in 10 years? Is that even possible? Well, yes; we wouldn’t be taking external funding if we didn’t think we could do it. The legal industry as a whole is worth $400B annually. Corporate contracts are about $80B. So why not a $5B IPO?
 

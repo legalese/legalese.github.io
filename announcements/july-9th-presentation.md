@@ -1,3 +1,8 @@
+---
+title: "July 9th Presentation"
+layout: "blogsidebar"
+excerpt: ""
+---
 These resources were shared at a joint BANSEA/TIE event on 9 July 2015.
 
 * [Venture Deals](http://www.amazon.com/Venture-Deals-Smarter-Lawyer-Capitalist/dp/1118443616/)

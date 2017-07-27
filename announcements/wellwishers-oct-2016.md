@@ -1,3 +1,8 @@
+---
+title: "Wellwishers' Newsletter, October 2016"
+layout: "blogsidebar"
+excerpt: ""
+---
 Dear [wellwishers](http://wellwishers.lists.legalese.com),
 
 This is a double issue of our monthly newsletter, covering both August and September 2016. Why was there no September issue? Because this time last month your faithful correspondent was in the middle of a desert, extremely off-grid, 125 miles away from wifi, electricity, and running water; his laptop stayed sealed in a ziploc bag for an entire week, for fear of toxic alkali dust. Of course, aside from that, Burning Man was great!

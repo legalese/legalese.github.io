@@ -1,3 +1,8 @@
+---
+title: "Wellwishers' Newsletter, December 2016"
+layout: "blogsidebar"
+excerpt: ""
+---
 Progress!
 
 Since our October newsletter, version 1 of the Legalese system completed three more deals: two for users … and one for ourselves! That’s right, Legalese just used Legalese to engross over S$600,000 in hard commitments from angels and VCs. Eating your own dog food: delicious.

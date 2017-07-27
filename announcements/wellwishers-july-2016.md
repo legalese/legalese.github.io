@@ -1,3 +1,8 @@
+---
+title: "Wellwishers' Newsletter, July 2016"
+layout: "blogsidebar"
+excerpt: ""
+---
 Dear [wellwishers](http://wellwishers.lists.legalese.com),
 
 This mailing list is growing! Several investors have joined in anticipation of our next round.

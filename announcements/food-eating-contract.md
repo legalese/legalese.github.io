@@ -1,3 +1,8 @@
+---
+title: "A Food-Eating Contract"
+layout: "blogsidebar"
+excerpt: ""
+---
 We recently made a lovely food eating contract.
 
 Terms of the Food Challenge
@@ -13,7 +18,7 @@ Terms of the Food Challenge
 
 ------------------------------------
 
-Note: This is a [https://en.wikipedia.org/wiki/Carlill_v_Carbolic_Smoke_Ball_Co]("Carbolic Smoke Ball offer").
+Note: This is a [Carbolic Smoke Ball offer](https://en.wikipedia.org/wiki/Carlill_v_Carbolic_Smoke_Ball_Co).
 
 Python
 
