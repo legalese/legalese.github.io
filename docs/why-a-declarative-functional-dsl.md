@@ -17,6 +17,37 @@ In computer science, languages are foundational. If you want differentiated appl
 
 To be pedantic, languages are not quite at the bottom of the stack. There is a sub-basement: mathematics. They call this the [Curry–Howard correspondence](https://en.wikipedia.org/wiki/Curry%E2%80%93Howard_correspondence).
 
+<table>
+<tr>
+<th>Domain</th>
+<th>Printing</th>
+<th>Databases</th>
+<th>Functional Programming</th>
+<th>Legal</th>
+</tr>
+<tr>
+<td>Mathematics</td>
+<td>Bernstein polynomial (1912) Bézier spline (1962, Renault) De Casteljau’s algorithm (1959, Citroën)</td>
+<td>Relational algebra and tuple relational calculus (E.F. Codd, 1970)</td>
+<td>Lambda calculus (Alonzo Church, 1930–1940)</td>
+<td>Modal μ-calculus (Kripke, 1959)</td>
+</tr>
+<tr>
+<td>Languages</td>
+<td>PostScript (1984–1997), PDF (1993), outline fonts (1985)</td>
+<td>SQL</td>
+<td>ML, Lisp, Haskell, Erlang</td>
+<td>CDL, CSL, L4</td>
+</tr>
+<tr>
+<td>Businesses</td>
+<td>Adobe, Quark</td>
+<td>Oracle, PostgresQL, MySQL, MariaDB</td>
+<td>Ericsson, Whatsapp, Lexifi, AWS SimpleDB</td>
+<td><em>Legalese.com</em></td>
+</tr>
+</table>
+
 So it is fair to say: if software is eating the world, where does its appetite come from? From math.
 
 
