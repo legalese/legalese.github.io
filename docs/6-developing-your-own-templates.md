@@ -32,3 +32,31 @@ Easy. These instructions assume you have created an XML template of your own dev
 9. You can see an example at the bottom of the **Dev Hello World** tab.
 
 10. Run `Generate PDFs` to see your template in action!
+
+<div class="block-callout block-show-callout  type-warning block-show-callout  type-warning ng-valid" type="section.type" ng-model="section.data">
+  <h3>
+      <i class="fa fa-info-circle " title="Info"></i>
+          <i class="fa fa-exclamation-circle on" title="Warning"></i>
+	      <i class="fa fa-exclamation-triangle " title="Danger"></i>
+	          <i class="fa fa-check-square " title="Success"></i>
+
+    <span class="ng-binding">If there's a problem, you will need to debug</span>
+      </h3>
+
+  <div marked="data.body" class="ng-isolate-scope"><p>Go into <code>Tools / Script Editor</code>. An IDE tab will open. <code>View / Execution Transcript</code> and <code>View / Logs</code> will help you trace the problem.</p>
+  </div>
+  </div>
+
+<div class="block-callout block-show-callout  type-info block-show-callout  type-info ng-valid" type="section.type" ng-model="section.data">
+  <h3>
+      <i class="fa fa-info-circle on" title="Info"></i>
+          <i class="fa fa-exclamation-circle " title="Warning"></i>
+	      <i class="fa fa-exclamation-triangle " title="Danger"></i>
+	          <i class="fa fa-check-square " title="Success"></i>
+
+    <span class="ng-binding">What if I want to publish my template privately?</span>
+      </h3>
+
+  <div marked="data.body" class="ng-isolate-scope"><p>You should be able to do <a href="https://en.wikipedia.org/wiki/Basic_access_authentication">Basic HTTP Authentication</a> and embed a username and password into the URL. You should of course use HTTPS. We haven't tried this yet, but it should work.</p>
+  </div>
+  </div>

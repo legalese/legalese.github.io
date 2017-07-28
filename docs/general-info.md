@@ -5,6 +5,22 @@ excerpt: "end-user-facing documentation for the v1 prototype, producing term she
 ---
 Legalese helps non-lawyers discover and execute the appropriate legal paperwork, by filling in spreadsheets, generating PDFs, and sending them out for signature.
 
+<div class="block-callout block-show-callout  type-danger block-show-callout  type-danger ng-valid" type="section.type" ng-model="section.data">
+  <h3>
+      <i class="fa fa-info-circle " title="Info"></i>
+          <i class="fa fa-exclamation-circle " title="Warning"></i>
+	      <i class="fa fa-exclamation-triangle on" title="Danger"></i>
+	          <i class="fa fa-check-square " title="Success"></i>
+
+    <span class="ng-binding">THIS IS ALPHA!</span>
+      </h3>
+
+  <div marked="data.body" class="ng-isolate-scope"><p>This version of the product was developed in-house for internal use, and released in 2016 as an experiment in problem/solution fit. It is usable by very determined external end-users, but should be considered alpha.</p>
+  <p>We are working on a more user-friendly beta version, to be available in mid 2017. Proceed at your own risk! Unfortunately we are unable to offer user support for this v1 prototype, as all resources are devoted to v2 product development.</p>
+  <p>If you need paperwork urgently please check out the <a href="/v1.0/page/present">competition</a>. In Southeast Asia, try <a href="http://dragonlaw.asia/">DragonLaw</a> or <a href="https://www.lawcanvas.com/">LawCanvas</a>. In the US, try <a href="http://www.clerky.com/">Clerky</a> and <a href="https://www.startupdocuments.com/">StartupDocuments</a>.</p>
+  </div>
+  </div>
+  
 You will need a Google Apps account. If you use Gmail, Google Docs, or Google Drive, you already have one.
 
 If you want to send papers out for e-signature, you will need an [Adobe EchoSign account](https://www.echosign.adobe.com/). You can start with a trial. If you don't want to use EchoSign, you can just circulate the PDFs by email, and remind your recipients that [Preview can create e-signatures](http://9to5mac.com/2014/02/15/how-to-use-preview-to-put-signatures-on-pdfs-pages-documents-and-mail-messages/). In future we may add support for [other signing services](http://fitsmallbusiness.com/best-electronic-signature-software/).

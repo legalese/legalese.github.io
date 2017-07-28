@@ -36,3 +36,18 @@ A glorious comparison of related products
 <td>Yes!</td>
 <td>Yes!</td>
 </tr>
+</table>
+
+<div class="block-callout block-show-callout  type-info block-show-callout  type-info ng-valid" type="section.type" ng-model="section.data">
+  <h3>
+      <i class="fa fa-info-circle on" title="Info"></i>
+          <i class="fa fa-exclamation-circle " title="Warning"></i>
+	      <i class="fa fa-exclamation-triangle " title="Danger"></i>
+	          <i class="fa fa-check-square " title="Success"></i>
+
+    <span class="ng-binding">Did you know?</span>
+      </h3>
+
+  <div marked="data.body" class="ng-isolate-scope"><p>Legalese v1 is a glorified templating system.<br>Legalese v2 includes the beautiful domain specific language, L4.</p>
+  </div>
+  </div>	

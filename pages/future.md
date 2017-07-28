@@ -62,6 +62,24 @@ Explorations into other correspondences will prove equally fruitful.
 
 BigLawKM has an essay touching on some of these points: [Smart Contracts and the Role of Lawyers](http://biglawkm.com/2016/10/25/smart-contracts-and-the-role-of-lawyers-part-3-about-lawyering-transactions-on-blockchains/). More practically, thelawlab sketches the future study of law in [The MIT School of Law? A Perspective on Legal Education in the 21st Century](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2513397).
 
+<div class="block-callout block-show-callout  type-info block-show-callout  type-info ng-valid" type="section.type" ng-model="section.data">
+  <h3>
+    <i class="fa fa-info-circle on" title="Info"></i>
+    <i class="fa fa-exclamation-circle " title="Warning"></i>
+    <i class="fa fa-exclamation-triangle " title="Danger"></i>
+    <i class="fa fa-check-square " title="Success"></i>
+
+    <span class="ng-binding">Premises and Postulates</span>
+  </h3>
+
+  <div marked="data.body" class="ng-isolate-scope"><ol>
+<li value="1">Consider what programmers do when they write programs.  Consider what lawyers do when they write contracts.</li>
+<li value="2">Each world is rich with its own body of practice and disciplines of thought.  And the similarities are striking!</li>
+<li value="3">What would it take to wrestle these worlds into conjunction?</li>
+</ol>
+</div>
+</div>
+
 # How is this useful?
 
 ## Example: conversion of debt
