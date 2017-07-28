@@ -210,6 +210,20 @@ With the advent of electronic and digital signatures, the execution of such pape
 * [Stash](http://stashcrypto.com/smart-contracts-info) has self-executing smart contracts
 * [Ethereum](https://ethereum.org/) is obviously all over this.
 
+<div class="block-callout block-show-callout  type-warning block-show-callout  type-warning ng-valid" type="section.type" ng-model="section.data">
+  <h3>
+      <i class="fa fa-info-circle " title="Info"></i>
+          <i class="fa fa-exclamation-circle on" title="Warning"></i>
+	      <i class="fa fa-exclamation-triangle " title="Danger"></i>
+	          <i class="fa fa-check-square " title="Success"></i>
+
+    <span class="ng-binding">Of course law firms think clarity and end-user empowerment are terrible ideas</span>
+      </h3>
+
+  <div marked="data.body" class="ng-isolate-scope"><p>You would too, if you had a busy contract drafting practice on the one hand, and an even busier dispute resolution practice on the other, both billed by the hour!</p>
+  </div>
+  </div>
+  
 ## Modeling Contracts: Drafting
 While execution is concerned with the relations between contracts, and does not look into the body of a contract beyond the parties and the **signatures**, drafting is concerned with the content of contracts.
 
