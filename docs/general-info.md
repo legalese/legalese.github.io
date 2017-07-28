@@ -51,15 +51,19 @@ Legalese aims to provide end-to-end support for getting a startup through every 
 Alongside the main investment agreement, you'll need a bunch of other paperwork: *Shareholder Agreement. Investor Rights Agreement. Directors' Resolutions Proposing Issue of New Securities. Members' Resolutions Authorising Issue of New Securities. Pre-Emptive Rights Notice to Shareholders.* [How binding are term sheets, anyway?](https://vcexperts.com/buzz_articles/1384)
 
 **Employment**
+<br>
 *Volunteer Agreement. Employment Agreement. Vesting Agreement. ESOP Agreement. Termination.*
 
 **Doing Business**
+<br>
 *Nondisclosure Agreement (NDA). Product Contract. Service Contract.*
 
 **Termination**
+<br>
 *Striking Off. Winding Up.*
 
 **Other Guides**
+<br>
 In the future we may add support for other workflows. If you can't wait, see the developer guide below and add your own
 
 # Products & Services
