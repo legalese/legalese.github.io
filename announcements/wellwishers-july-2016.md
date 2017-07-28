@@ -25,6 +25,7 @@ On the last day of his trip, Meng was invited to a daylong ecosystem tour as par
 
 # Long-Term Vision: Computational Legal
 [Play Bigger](https://www.amazon.com/Play-Bigger-Dreamers-Innovators-Dominate-ebook/dp/B015MOJ80G) stands on the shoulders of Geoffrey Moore and Clayton Christensen. It’s about category thinking – the ultimate expression of company/market fit. Intel and CPUs; Cisco and networks; Amazon and e-commerce; Nike and sneakers.
+<br>
 Following the Play Bigger playbook, we have named our category “Computational Legal” with the launch of a [playbill-style poster](https://raw.githubusercontent.com/legalese/legalese.com/master/images/pompous%20investor%20notice/know-all-men-by-these-presents-1000.png). It has already served us well in investor outreach and social media PR.
 
 What other category kings inspire us? Adobe (design); Intuit (accounting); Autodesk (engineering). In legal, someone should be able to build an organization of similar scale in six to ten years.
@@ -53,11 +54,13 @@ What’s the price tag?
 # Financial Projections
 
 Our simplified projections exclude product revenues and look only at fixed costs.
+<br>
 Variable CAC like AdWords we aren’t going to worry about just yet. Revenues will cover those costs.
 
 We assume each project participant is willing to work for subsistence level cash and accrue the rest of their compensation in equity.
 
 We should have a team of 15–30 people by the end of our 24 month seed stage.
+<br>
 If these assumptions hold, it will cost between $1m and $2m to run for 24 months and get to Series A.
 
 # Fundraising plans
@@ -77,6 +80,7 @@ In September, we will talk to investors in Cambridge and Boston.
 
 # Product Development
 The v1 product is mature and usable by determined early adopters, with some concierge assistance.
+<br>
 Revenue to date: $0.
 
 We have started specifying and roadmapping the v2 product. We are working with developers who have previously helped to build Redmart, Mig33, and Practo. To reduce delivery risk we are planning on a blended model of in-house plus outsourced, from a vendor we have known for many years.
@@ -101,6 +105,7 @@ He’ll be helping us with the DSL and formal methods.
 That’s all for this update – stay tuned for next month’s update!
 
 cheers
+<br>
 Meng
 
 written on SQ319 LHR–SIN and at teochewrestaurant.com

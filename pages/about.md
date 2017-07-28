@@ -26,28 +26,37 @@ Being an opensource project, Legalese welcomes contributions from developers, do
 ## About the Team
 
 * Meng Weng Wong - Product Manager
+<br>
     v1.0 developer, 3 prior startups, 1 prior OSS project, Angel Investor, CompSci upenn.edu
 
 * Virgil Griffith - Evangelist
+<br>
     Previous work: Wikiscanner, Tor2web, OnionLink, Ph.D. Caltech
 
 * Alexis Chun - Lawyer
+<br>
    Legal developer, self-taught JavaScript, Team Manager, LL.B Queen Mary University of London
 
 * Ong Chiah Li - Researcher
+<br>
     Application domain expert. 6 years experience as associate & funding manager at VC firms.
 
 * Colin Charles - Opensource Big Deal.
+<br>
     Previous with MySQL from Series B -> $1B exit.  Advises on commercial strategy.
 
 * Johanan Ottensooser - Lawyer, Evangelist
+<br>
     Fintech & regulatory innovation specialist.  L.B. & Economics University of Technology Sydney
 
 * Job Chong - Web+Legal Developer
+<br>
     Javascript, D3, Node, JavaScript, Legalese XML, Hearthstone.  LL.B NUS
 
 * Anuj Gupta - Web Developer
+<br>
    DevOps specialist.  Javascript, Linux, opensource.
 
 * Vikram Verma - DSL R&D
+<br>
     Mathematics, formal logics, functional programming, static analysis, Coq, Agda, Idris, Haskell.

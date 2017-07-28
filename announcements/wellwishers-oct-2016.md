@@ -99,15 +99,19 @@ How do I unpack this? “I visited the Valley and got some exposure to 2014-vint
 From Han’s LinkedIn page:
 
 > V2.0 OF THE LIMITED COMPANY
+<br>
 > Otonomos is offering on a new operating system for the limited company: a company with digital shares, held in a cryptographic wallet, transferable peer-to-peer, programmable like software, and powered by the decentralized blockchain.
 
 > A CRYPTOGRAPHIC SHARE WALLET FOR EVERY SHAREHOLDER IN YOUR COMPANY
+<br>
 Think of Otonomos as the online portal to form, fund and govern your company in a number of leading jurisdictions around the world. Go to otonomos.com to form your company by simply creating a digital share wallet. We then make sure a real-world private limited company is incorporated and that all is compliant. 
 
 > POWERED BY BLOCKCHAIN
+<br>
 > Once your company is formed, we represent your shares on the blockchain, the distributed ledger that allows you to track who your shareholders are at all times, and send shares peer-to-peer, e.g. when you raise funds. 
 
 > COMPANY SHARES AS SOFTWARE
+<br>
 In addition, we make your shares programmable so routine governance actions can be administered with the press of a button from within your dashboard.
 
 Speaking as a technologist at heart, this all sounds genuinely exciting; it feels like *The Right Thing And Why Not*?

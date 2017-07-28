@@ -50,4 +50,5 @@ Between now and the next newsletter, we will:
 * sort out Legalese’s ESOP structure in a way that can generalize to other startups hire our first few staff members under our hybrid cash/equity plan
 
 Happy Holidays!
+<br>
 meng

@@ -145,7 +145,9 @@ In January, we hosted a dinner with researchers from academia and from industry,
 ## Internationally
 
 At Harvard, Meng recruited a couple of SEAS CS faculty to advise us on L4 R&D.
+<br>
 Meng had a long chat with [Vinay Gupta](https://www.vice.com/en_dk/article/global-resilience-guru), whose recent [Internet of Agreements](http://www.the-blockchain.com/2017/02/13/hexayurt-capital-presents-internet-agreements-world-government-summit/) talk at the World Government Summit features heavily in our IMDA proposal. If our Smart Statutes line of work goes anywhere with a government body, we may involve Vinay in some capacity.
+<br>
 Besides hacking.law in Berlin, Meng attended a variety of workshops, meetings, and conferences in Copenhagen (Robo-ethics), Salzburg ([IRIS2017](https://www.univie.ac.at/RI/IRIS17/)), Munich ([legal formalization](https://wwwmatthes.in.tum.de/pages/1jfv92lb1sq8q/Bernhard-Waltl)), and New Haven at Yale (Robo-lawyers). Meng also worked through textbooks on Haskell, GF, Alloy, and model checking. Vi is working on programming language theory in Agda.
 
 ## Snapshot
