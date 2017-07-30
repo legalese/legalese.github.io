@@ -183,7 +183,7 @@ TL;DR IANAL
   <numbered_2_para>The Contractor further agrees not to exercise any rights or interests in Rights and/or Works that under Applicable Law cannot be assigned or licensed to the Company pursuant to the foregoing, including but not limited to right to claim authorship and the right not to suffer false attribution of authorship, except with the prior written consent of the Company.</numbered_2_para>
   <numbered_2_para>At any time (whether during the Engagement Term or after), where the Contractor intends to integrate and/or incorporate any of zir proprietary rights and/or previous work in furtherance of zir provision and/or performance of the Services and fulfillment zir obligations under this Contract, such intention shall be communicated in writing to the Company prior to any such intended integration and/or incorporation. Where the Company, at its sole and absolute discretion consents to such integration and/or incorporation, the Contractor hereby grants to the Company an exclusive, worldwide, royalty-free, perpetual, irrevocable license to use, distribute, modify, publish, sub-license, and/or otherwise exploit such integration and/or incorporation in connection with the Business of the Company.</numbered_2_para>
 
-<a_left_sidehead>Conflicts of Interest</a_left_sidehead>
+  <a_left_sidehead>Conflicts of Interest</a_left_sidehead>
 <numbered_2_para>The Contractor acknowledges that as an independent contractor, ze is free to engage in other activities, including any activities in the role of <?= data.role ?> for any other persons during the Engagement Term  that, so long as:-</numbered_2_para>
   <numbered_3_para>the Contractor is able to continue and fulfill zir obligations as set out under this Contract; and</numbered_3_para>
   <numbered_3_para>the Contractor's participation in or pursuance of such other activity, does not conflict or is not otherwise incompatible with the Contractor's obligations or zir performance and/or provision of Services under this Contract.</numbered_3_para>
@@ -232,7 +232,7 @@ TL;DR IANAL
     <numbered_3_para>where the Company requires, promptly return to the Company all forms of Confidential Information and Work, including any and all copies and extracts thereof, and delete any such items in the Contractor's personal possession and prohibit the Contractor's subsequent personal access; and</numbered_3_para>
     <numbered_3_para>where the Company requires, not make or retain any copies or extracts of any Confidential Information or Work, and agree to provide written confirmation and supporting evidence to the Company of such undertaking.</numbered_3_para>
 
-<a_left_sidehead>General Provisions</a_left_sidehead>
+    <a_left_sidehead>General Provisions</a_left_sidehead>
 <!--electronic signatures & communications - in SG does not extend to deeds, POAs, instruments-->
 <b_left_sidehead_nonum>Electronic signatures &amp; communications</b_left_sidehead_nonum>
   <numbered_2_para>The Parties agree that this Contract may be electronically signed, and electronic signatures appearing on this Contract shall be taken as the same as handwritten signatures for the purposes of validity, enforceability, and admissibility. The Parties also hereby consent to transact and conduct their affairs under this Contract using electronic communications, to receive notices, and disclosures electronically, and to utilise electronic signatures in lieu of paper documents.</numbered_2_para>
@@ -250,7 +250,7 @@ TL;DR IANAL
   <para_2>the <b>Company</b> at <u><?= data.company_email ?></u></para_2>
   <numbered_2_para>Any notices given in accordance with this Contract shall be deemed to have been served on the day on which such notice was successfully delivered via email.</numbered_2_para>
 
-<b_left_sidehead_nonum>Entire agreement</b_left_sidehead_nonum>
+  <b_left_sidehead_nonum>Entire agreement</b_left_sidehead_nonum>
   <numbered_2_para>This Contract shall supersede all terms and agreements previously in force between the Parties, and shall constitute the entire agreement and understanding between the Parties as to its subject matter. The Contractor further acknowledges that this Contract has not been entered into in reliance on any representation, warranty, or undertaking not expressly set out in this Contract, or referred to in this Contract as forming part of the Contract, and there are no representations, understandings or agreements relating hereto which are not fully expressed herein.</numbered_2_para>
 
 <b_left_sidehead_nonum>Severance</b_left_sidehead_nonum>
