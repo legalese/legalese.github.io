@@ -316,6 +316,7 @@ When you attend academic conferences about law and logic, you will be able to fo
 ** Motivation and Problems
 
 - How to be a Genius (vs a Consultant), with thanks to ed kmett.
+- three generations of document assembly
 
 ** Prior Art: Computational Law Projects
 
@@ -324,13 +325,6 @@ We review the above projects in more detail.
 ** Prior Art: Rule languages. Declarative Programming.
 
 - https://en.wikipedia.org/wiki/Business_rules_engine
-- ODRL
-- [[https://en.wikipedia.org/wiki/Object_Constraint_Language][OCL]] is part of [[https://en.wikipedia.org/wiki/Unified_Modeling_Language][UML]]; see [[https://orbilu.uni.lu/bitstream/10993/15339/1/oclr-report.pdf][OCLR]] for temporals
-- Business Rule engines. SBVR.
-- Oracle Policy Automation. iLog.
-- Drools. Jess. The Rete algorithm. SAT.
-- Introduction to Logic Programming with Prolog.
-- DataLog. Textual Rulelog. Coherent Knowledge.
 - Governatori: [[https://www.researchgate.net/publication/37617796_Representing_Business_Contracts_in_RuleML][Representing Business Contracts in RuleML]]
 
 ** Use Case: terms of service, privacy policies
@@ -342,6 +336,35 @@ We review the above projects in more detail.
 - http://remu.grammaticalframework.org/contracts/converter/
 - http://remu.grammaticalframework.org/retreat/2016/ workplan for june 2016 to 2017
 
+** Introduction to Business Modeling
+
+- http://www.omg.org/spec/SBVR/index.htm
+- http://www.omg.org/spec/BPMN/index.htm
+- http://www.omg.org/spec/CMMN/index.htm
+- http://www.omg.org/spec/DMN/
+- https://www.slideshare.net/dgagne/bpmncmmndmn-an-intro-to-the-triple-crown-of-process-improvement-standards-denis-gagne
+- [[https://en.wikipedia.org/wiki/Object_Constraint_Language][OCL]] is part of [[https://en.wikipedia.org/wiki/Unified_Modeling_Language][UML]]; see [[https://orbilu.uni.lu/bitstream/10993/15339/1/oclr-report.pdf][OCLR]] for temporals
+- conversion of BPMN to natural language: see [[http://www.henrikleopold.com/publications/][Henrik Leopold]]'s [[http://www.henrikleopold.com/downloads/][software]].
+
+** Introduction to Semantic Web
+- https://www.w3.org/Submission/SWRL/
+- OWL
+- CommonRules
+
+** Introduction to Business Rules
+- OPA
+- Drools / Jess
+- iLog
+- DataLog / RuleLog / [[http://flora.sourceforge.net/tutorial.html][Flora-2]] / CoherentKnowledge
+
+** Introduction to KRR
+
+Knowledge representation and reasoning
+
+http://www.mirelproject.eu/publications/D1.1.pdf
+
+e.g. the representation of time: http://ceur-ws.org/Vol-1875/paper2.pdf
+
 ** Prior Art: Computational Contracts
 
 - Previous Contract Languages. FormaLex, CL, CSL. See [[*A High-Level Survey of Prior Art in Contracts][above]].
@@ -349,10 +372,17 @@ We review the above projects in more detail.
 ** Introduction to Computational Linguistics
 
 - Natural Language Processing. NLTK.
+  - spacy.io
+  - https://bitbucket.org/coherentknowledge/ergonlp
+  - https://www.lexpredict.com/2017/07/03/open-sourcing-contract-analytics-platform/
+  - prolog.
 - Natural Language Generation.
 - Text Planning.
 - Introduction to Grammatical Framework.
 - https://amr.isi.edu/index.html
+- framenet, wordnet, etc.
+  - https://framenet2.icsi.berkeley.edu/fnReports/data/frameIndex.xml?frame=Required_event
+  - https://framenet2.icsi.berkeley.edu/fnReports/data/frameIndex.xml?frame=Desirable_event
 
 ** Introduction to Mathematical Logic
 
@@ -387,6 +417,8 @@ We review the above projects in more detail.
 ** Model Checking
 
 - Model Checking. CTL* and LCTL. Uppaal. Alloy. [[https://yurichev.com/writings/SAT_SMT_draft-EN.pdf][SAT/SMT]]. [[http://smtlib.cs.uiowa.edu/language.shtml][SMTLIB2]]. Z3.
+- VTSA summer school: http://resources.mpi-inf.mpg.de/departments/rg1/conferences/vtsa17/index.html
+- SAT/SMT summer school: http://www.sc-square.org/CSA/school/programme.html
 - FormaLex
 
 ** Our Contribution

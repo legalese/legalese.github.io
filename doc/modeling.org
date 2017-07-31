@@ -1049,6 +1049,44 @@ To pass, a resolution must meet certain voting or signature requirements.
 
 The requirements may differ by subject matter.
 
+* Modeling Rules
+
+The L4 language has a term ~rule-spec~.
+
+around 2002 Gert Wagner said:
+https://pdfs.semanticscholar.org/81e7/034af84458290d7885cb257f92fef00cb739.pdf
+#+BEGIN_QUOTE
+Three basic types of business rules have been identified in the literature (see [TW01]): integrity rules (also called ‘integrity constraints’), derivation rules (also called ‘deduction rules’ or ‘Horn clauses’), and reaction rules (also called ‘stimulus response rules’, ‘action rules’ or ‘event-condition-action (ECA) rules’). A fourth type, deontic assignments, has only been marginally discussed (in a proposal of considering ‘authorizations’ as business rules).
+#+END_QUOTE
+
+(I'm writing this without having read Constraint Handling Rules which claims to be More Powerful.)
+
+
+** diff-oriented rules
+
+given two states of a company, compute the delta, expressed as a sequence of operations required to transition from one state to another.
+
+the specific operations are given by rules governing the finer-grained state deltas.
+
+** addition of a new class of shares
+
+requires amendment of constitution to describe the new class
+
+** amendment of constitution
+
+requires members' resolutions approving the change; the resolutions may be ordinary or special.
+
+** members' resolutions approving
+
+requires directors' resolutions
+- proposing the change
+- circulating the proposed resolutions with the goal of holding an AGM by written means
+
+** directors' resolutions
+
+concatenate all pending directors' resolutions
+
+
 * Further Research
 
 ** Toulmin
