@@ -1,0 +1,1348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2017-07-31 Mon 18:50 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Computable Contracts: from Academia to Industry</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="mengwong@legalese.com" />
+<link rel="stylesheet" type="text/css" href="https://dl.dropboxusercontent.com/u/9544489/org-style-img100.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Computable Contracts: from Academia to Industry</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org98d6651">1. Introduction</a></li>
+<li><a href="#orgc22bc58">2. Two Traditions</a></li>
+<li><a href="#org971b5ac">3. Contract Templates</a></li>
+<li><a href="#org02cb445">4. Smart Contracts</a></li>
+<li><a href="#orga61b36e">5. Smart-Contract Templates meet Smart Contract-Templates</a></li>
+<li><a href="#org4b1137e">6. An Industry Snapshot of SCT2.5 Bridges</a></li>
+<li><a href="#org40ba7bb">7. Strengths of 1st and 2nd generation systems</a></li>
+<li><a href="#orgf3273ee">8. Weaknesses of 1st and 2nd generation systems</a></li>
+<li><a href="#orgd013a68">9. 3rd generation smart contract templates</a></li>
+<li><a href="#org1b6feba">10. Connecting SC-Ts with S-CTs</a></li>
+<li><a href="#org24940ed">11. Why a DSL?</a></li>
+<li><a href="#org42f0bd0">12. Legalese As Object Code</a></li>
+<li><a href="#orgefb9fe5">13. Example: SCT2 versus SCT3</a></li>
+<li><a href="#orgf386d0a">14. Smart Statutes</a></li>
+<li><a href="#org7c70f26">15. The Science Fiction of Computational Law</a></li>
+</ul>
+</div>
+</div>
+<p>
+pre-publication, not for redistribution (<span class="timestamp-wrapper"><span class="timestamp">[2017-07-28 Fri]</span></span>)
+</p>
+
+<div id="outline-container-org98d6651" class="outline-2">
+<h2 id="org98d6651"><span class="section-number-2">1</span>Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Ever since Ethereum was conceived in 2013, critics have quipped: "Smart contracts are neither smart nor contracts".
+</p>
+
+<p>
+Four years later, computer scientists are responding: "Challenge accepted."
+</p>
+
+<p>
+For context, this paper surveys the past and present of computational law. The history of software suggests a future for law: legacy formats and traditional jurisprudence are on a collision course with trustless blockchains and opensource legal engineering.
+</p>
+
+<p>
+What industry initiatives are afoot in the world of blockchain smart contracts? From what wells of academia do they draw inspiration? What insights from computer science could transfer to the world of legal reasoning and drafting? If tomorrow's consumers of legal services turn first to self-help apps and chatbots, before resorting to human "tech support", will the practices of tomorrow's lawyers look more like those of software engineers?
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc22bc58" class="outline-2">
+<h2 id="orgc22bc58"><span class="section-number-2">2</span>Two Traditions</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+This paper was written at the end of July 2017. It was an exciting month: in the span of three short weeks, five separate initiatives were announced, all with the same stated goal: to bridge the brave new world of blockchain "smart contracts" with the ancient traditions of law.
+</p>
+
+<p>
+What does that mean? It means surrounding the automated execution of on-chain Ethereum bytecode with the exception-handling mechanisms of real-world dispute resolution. It means translating written rituals of offer and agreement, employing stylized phrases dating back centuries, into the cold, clean semantics of formal logic.
+</p>
+
+<p>
+This paper labels this family of initiatives "smart contract templates", or SCTs.
+</p>
+
+<p>
+SCTs represent a marriage between two noble families, each proud with history, but rooted in different cultures.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org971b5ac" class="outline-2">
+<h2 id="org971b5ac"><span class="section-number-2">3</span>Contract Templates</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+The first, and older, tradition is that of the lawyer: the legal draftsman, the scribe, the notary. This is the tradition also of the handbook of model forms, of the clause bank of contract templates, of copy-and-paste and fill-in-the-blanks.
+</p>
+
+<p>
+Model templates reflect the mundane fact that commercial relationships run to a finite set of genres: the rental or sale of assets; the borrowing and lending of money; equity investment and divestment; a fee for services, as contractor or employee. Just as brides and grooms around the world recite the words "in sickness and in health, for richer or for poorer, till death do us part", business everywhere happily reuse the same sets of stock phrases to memorialize their relationships. In 2016 a contract carved in stone was unearthed in a Dionysian temple on the Anatolian coast: it was a student rental, in which tenants would be penalized for damages and were required to provide guarantors. It was 2,200 years old.<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
+</p>
+
+<p>
+Most contract templates are coarse-grained: they fill in the blanks at the level of the document. If customizations need to be made then different document templates need to be constructed. There is often significant textual overlap between such templates. Y Combinator, for example, provides a template for an investment agreement called a SAFE. SAFEs can be configured with or without a valuation cap, and with or without a discount rate: two configurables, hence four variants. Accordingly, Y Combinator's web site offers four Word documents for download. If it had three configurables, there would be eight variants; four configurables, sixteen.
+</p>
+</div>
+
+<div id="outline-container-orgd2cf605" class="outline-3">
+<h3 id="orgd2cf605"><span class="section-number-3">3.1</span>First-Generation Document Assembly</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+This exponential increase presents an obvious opportunity for software smarts: composable clause libraries and conditional logic. In the 1980s and 1990s, the advent of desktop publishing led to the first wave of document assembly, or document automation, systems &#x2013; DAs for short. DAs helped automate business processes: salespeople could quickly generate their own agreements from templates previously blessed by legal.
+</p>
+
+<p>
+DAs had much in common with the venerable mail merge: the key operation was "fill in the blanks", the key object the template, and the key logic "how do we compose templates together?" The key output: a natural language document typically intended for signature by both parties. DA systems offer an attractive combination of business-user-friendliness and software flexibility. In the 1980s, early A.I. &#x2013; expert systems and decision trees &#x2013; organized templates and guided end-users through the process of filling in the blanks.
+</p>
+
+<p>
+In the legal domain, first-generation DA systems include HotDocs, ContractExpress, and Exari. Most of these systems were developed in the 1990s and 2000s as proprietary enterprise software, serving law firms and big companies.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd4507cc" class="outline-3">
+<h3 id="orgd4507cc"><span class="section-number-3">3.2</span>Not Legal Markup</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Note that we are <i>not</i> talking about legal <i>markup</i> languages: the idea of adding logical, rather than physical, structure to a document (heading levels 1, 2, 3 as opposed to font sizes 24, 18, 15) <a href="https://arxiv.org/pdf/1507.05081.pdf">regularly occurs to individuals</a>, and initiatives such as <a href="https://en.wikipedia.org/wiki/Legal_XML">Legal XML</a> and <a href="http://www.akomantoso.org/">Akoma Ntoso</a> serve this need. But they do not attempt to capture the semantics of the document.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga8d7cf3" class="outline-3">
+<h3 id="orga8d7cf3"><span class="section-number-3">3.3</span>Ricardian Contracts</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+"Fill in the blanks" leads to the idea of recording data values in a database, separate from their templates. Digitization leads to the idea that a contract could enjoy a purely paperless existence from start to finish. These ideas were connected by Ian Grigg in the form of the "Ricardian contract": a template paired with a data structure to fill it, but kept separate until the last possible moment, like an epoxy superglue. The data structure follows some standard format, what an XML purist would call a DTD schema. The template matching a schema could be a natural-language document intended for humans &#x2013; or a program intended for computers. Finally the document would be given legal effect by some kind of digital signature, linked cryptographically to the identities of the parties.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc03f2ee" class="outline-3">
+<h3 id="orgc03f2ee"><span class="section-number-3">3.4</span>Second-Generation Smart Contract Template systems</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+Second-generation DA systems, which this paper will call SCT2 systems, continue this tradition into the 2010s. They tend toward opensource and Web technologies like Javascript. CommonAccord and CommonForm are examples of the opensource generation of smart contract templates). Many of these SCT2 systems also look toward blockchain-level operations.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org977cd7c" class="outline-3">
+<h3 id="org977cd7c"><span class="section-number-3">3.5</span>(Smart) (Contract Templates)</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+The above tradition, descending for law and spanning two generations of software, interprets the term "Smart Contract Templates" as contract templates that are, in some sense, smart.
+</p>
+
+<p>
+But that is not the only tradition, and not the only interpretation. There is another tradition with a different interpretation.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org02cb445" class="outline-2">
+<h2 id="org02cb445"><span class="section-number-2">4</span>Smart Contracts</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+In the early 1990s, Nick Szabo proposed "smart contracts"<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>: agreements that were not just digital and machine-readable, but also formalized and machine-executable. Not mere PDFs or XMLs, but <i>programs</i>, describing the obligations of the parties and the rules of their interaction in code that a computer could interpret and reason over.
+</p>
+
+<p>
+Such a contract would be suitable for automated execution. One example: a vending machine<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>, simple enough to be described as a deterministic finite automaton, or DFA. Another example: a financial futures contract<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>, also simple enough to be described as a DFA<sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup>. DFAs, and their cousin the Petri net<sup><a id="fnr.6" class="footref" href="#fn.6">6</a></sup>, have an interesting and useful property: they are amenable to a powerful formal verification technique called model checking, which employs a special engine called a SAT solver.
+</p>
+</div>
+
+<div id="outline-container-orgd0fd76d" class="outline-3">
+<h3 id="orgd0fd76d"><span class="section-number-3">4.1</span>Formal Verification with Model Checking</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Think of a SAT solver as a black box with two inputs. On one hand, like Paul Muad'dib swallowing Water of Life to enter a clairvoyant trance<sup><a id="fnr.7" class="footref" href="#fn.7">7</a></sup>, a SAT solver swallows a program and prepares to contemplate every possible future envisaged by the code.
+</p>
+
+<p>
+On the other hand, a SAT solver accepts a specification, in which you assert certain safety or liveness properties that you believe the contract should respect &#x2013; in other words, a specific prophecy. Specialized logics called LTL and CTL<sup><a id="fnr.8" class="footref" href="#fn.8">8</a></sup> are used to incant these prophecies.
+</p>
+
+<p>
+Given these inputs, the SAT solver looks across all possible futures in search of a <i>counterexample</i>, in which &#x2013; depending on how you asked the question &#x2013; either the prophecy is fulfilled, or the prophecy fails. Computer scientists call this "model checking". It is akin to what computers do when they play checkers or chess: they peer into the future in search of a specific scenario.
+</p>
+
+<p>
+In 1994, the FDIV bug<sup><a id="fnr.9" class="footref" href="#fn.9">9</a></sup> cost Intel over $400 million in recalls, and galvanized the field of model checking. Ever since, hardware engineers &#x2013; microchip designers &#x2013; have employed model checking to prove that their designs will work correctly when fabbed to silicon. In the immensely competitive, billion-dollar business of CPU manufacturing, errors are simply unacceptable.
+</p>
+
+<p>
+Since 1994, multiple mature software packages<sup><a id="fnr.10" class="footref" href="#fn.10">10</a></sup> have been developed to be capable of this work.
+</p>
+
+<p>
+What does this have to do with contracts? Business contracts can be worth billions of dollars. Mistakes in contracts can also cost millions, as lawsuits over the Oxford comma have demonstrated (in Canada in 2006<sup><a id="fnr.11" class="footref" href="#fn.11">11</a></sup>, and in the US in 2017<sup><a id="fnr.12" class="footref" href="#fn.12">12</a></sup>).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc15dff7" class="outline-3">
+<h3 id="orgc15dff7"><span class="section-number-3">4.2</span>Model Checking Contracts</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Yet the legal field has nothing like the testing tools that programmers enjoy. Programmers have developed an extensive arsenal in their war on bugs. Formal verification is just one tool; others include unit testing, linting, fuzzing, and static type checking.
+</p>
+
+<p>
+In 1978, Layman Allen wrote in <a href="http://repository.law.umich.edu/cgi/viewcontent.cgi?article=1028&amp;context=articles">Normalized Legal Drafting and the Query Method</a>:
+</p>
+
+<blockquote>
+<p>
+Although there is no disagreement about the fundamental importance of language in law, there is little satisfaction expressed (and much dissatisfaction does appear in print) about the written performances of lawyers. In the eyes of some critics the profession's use of language is so inept as to give rise to suspicions about motives and competency.
+</p>
+</blockquote>
+
+<p>
+Thirty years later, the situation had not improved. Darmstadter 2010<sup><a id="fnr.13" class="footref" href="#fn.13">13</a></sup> compared contract drafting with software engineering:
+</p>
+
+<blockquote>
+<p>
+But compared to the testing engineers and programmers do, the testing of legal documents is hopelessly backward. Essentially, someone drafts the document and other people read it. If they notice problems, they alert the draftsman, who makes some changes. That's it. 
+</p>
+</blockquote>
+
+<p>
+Given the similarities between the fields, it was only a matter of time before somebody tried to formalize contracts, and to formally verify . Model checking of contracts was first demonstrated in 2006 by Pace, Prisacariu, and Schneider.<sup><a id="fnr.14" class="footref" href="#fn.14">14</a></sup> (See also <a href="https://theses.ncl.ac.uk/dspace/handle/10443/1814">Abdelsadiq</a> 2013.) Model checking of legislation was demonstrated by Fernando Schapachnik et al in 2011<sup><a id="fnr.15" class="footref" href="#fn.15">15</a></sup>.
+</p>
+
+<p>
+As the term suggests, formal verification requires a contract to first be formalized: translated into a logical notation for which an explicit, unambiguous formal semantics has been defined.<sup><a id="fnr.16" class="footref" href="#fn.16">16</a></sup> In other words, into a program, written in some programming language specialized for law.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org52fb8d6" class="outline-3">
+<h3 id="org52fb8d6"><span class="section-number-3">4.3</span>Formal Languages for Law</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+Financial contracts were the first to be formalized. Special-purpose contract languages have been developed, along Ricardian lines, within the limited domain of financial agreements: examples include <a href="https://en.wikipedia.org/wiki/FpML">FpML</a> (1999) and Lexifi's <a href="https://www.lexifi.com/product/technology/contract-description-language">MLFi</a> (2000).
+</p>
+
+<p>
+Subsequently, more general-purpose languages for contract formalization have been developed in academia. The most relevant:
+</p>
+
+<ul class="org-ul">
+<li>CL (Contract Language) by Pace and Schneider was the subject of John Camilleri's 2016 thesis work<sup><a id="fnr.17" class="footref" href="#fn.17">17</a></sup>;</li>
+<li>CSL (Contract Specification Language) was the subject of Tom Hvitved's 2013 PhD thesis<sup><a id="fnr.18" class="footref" href="#fn.18">18</a></sup>;</li>
+<li>FormaLex by Schapachnik has been ongoing from 2011 to 2017.</li>
+</ul>
+
+<p>
+These languages typically borrow from modal logic:
+</p>
+<ul class="org-ul">
+<li>deontics define the obligations and prohibitions of parties;</li>
+<li>temporal logics describe events and <a href="http://dl.acm.org/citation.cfm?id=940106">fluents</a> in time;</li>
+<li>epistemic logics (approximately, CCS, CSP, and process calculi) formalize the sending and receiving of notices among parties.</li>
+</ul>
+
+<p>
+Contract languages also borrow from rule logics, of which more later.
+</p>
+
+<p>
+Rules may conflict. Defeasible logics<sup><a id="fnr.19" class="footref" href="#fn.19">19</a></sup> help resolve these conflicts using exceptions, priorities, and meta-rules.
+</p>
+
+<p>
+This tradition of academic research evolved slowly and steadily, elaborating Szabo's original vision for "smart contracts". The term seemed apt to describe a born-digital contract which took shape first as a program in a text editor. That program might later compile to a Word document or a PDF, but such projections were only shadows cast upon a cave wall by the Platonic ideal of the smart contract code.
+</p>
+
+<p>
+Then, in the 2010s, a handful of billionaire anarchists co-opted the term "smart contract" and gave it a new meaning.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org721af24" class="outline-3">
+<h3 id="org721af24"><span class="section-number-3">4.4</span>Enter Blockchain</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+While one corner of academia toiled away at contract formalization and verification, another obscure corner of cypherpunk crypto-anarchists were fomenting a revolution that would change the world. In their hands, cryptography 1.0 (which concerned itself with message encryption and endpoint authentication) was reborn as cryptography 2.0, which repurposed hashes for proof-of-work, and repurposed public keys to sign irrevocable ledgers.
+</p>
+
+<p>
+Bitcoin launched in 2011. Ethereum launched in 2015. Since then the market cap of those and other cryptocurrencies has risen, collectively, to over $80B.
+</p>
+
+<p>
+These blockchain technologies provided the missing element of Szabo's original vision: a tamper-proof, globally accessible cryptographic ledger on which the "world computer" &#x2013; the Ethereum virtual machine &#x2013; could be built; and on that EVM, contracts could be run.
+</p>
+
+<p>
+These programs, amenable to automated, trustless execution, were labeled "smart contracts". And, sure as night follows the day, smart contracts turned out to be just as fallible any other program: they had bugs.<sup><a id="fnr.20" class="footref" href="#fn.20">20</a></sup>
+</p>
+
+<p>
+In fintech, bugs are security vulnerabilities; attackers are highly motivated; and exploits cost money. Entire wallets can be drained. Millions can be lost.
+</p>
+
+<p>
+The first major attack on an Ethereum smart contract happened in June 2016, when TheDAO began draining due to a bug in the Ethereum smart contract. In its wake came calls for better security.
+</p>
+
+<p>
+Security is a multi-pronged challenge with no silver bullet. Techniques include audits<sup><a id="fnr.21" class="footref" href="#fn.21">21</a></sup>; language-based security<sup><a id="fnr.22" class="footref" href="#fn.22">22</a></sup>; and formal verification<sup><a id="fnr.23" class="footref" href="#fn.23">23</a></sup>. But security is always easier said than done: in July 2017 the Parity multisig bug hit.<sup><a id="fnr.24" class="footref" href="#fn.24">24</a></sup>
+</p>
+
+<p>
+Whereas traditional law represents centuries of accumulated experience with disputes of all kinds, the first generation of cryptocurrencies deliberately excluded dispute resolution as being inconsistent with the decentralization ethos. As a consequence, you can't have a lawsuit in Ethereum; you can only have a constitutional crisis.
+</p>
+
+<p>
+The hard-fork which followed the TheDAO incident amounted to a central intervention in an obstensibly decentralized cryptocurrency. This event highlighted the need for a more robust governance model.<sup><a id="fnr.25" class="footref" href="#fn.25">25</a></sup>
+</p>
+
+<p>
+Partly in response to Ethereum's perceived security failings<sup><a id="fnr.20.100" class="footref" href="#fn.20">20</a></sup>, and partly in response to Ethereum's perceived governance failings, Tezos launched. Tezos containd two innovations. First, a new smart contract blockchain and language (called Michelson) based on a stack-based virtual machine, suitable for formal verification. Second, a promise of more democratic distributd governance: essentially, a "by the people, for the people, of the people" for the blockchain generation. They raised the largest ICO in history: over $200M.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge5ac79c" class="outline-3">
+<h3 id="orge5ac79c"><span class="section-number-3">4.5</span>(Smart Contract) (Templates)</h3>
+<div class="outline-text-3" id="text-4-5">
+<p>
+All of these smart contract initiatives have one thing in common.
+</p>
+
+<p>
+Most commercial agreements fall into a small number of known genres. Most software programs can be classified into a small number of categories. It stands to reason that smart contracts &#x2013; which are both commercial agreements and software artefacts &#x2013; will also end up organized by genre.
+</p>
+
+<p>
+Two software dynamics will then drive the evolution of smart contract software.
+</p>
+
+<p>
+First, mature software engineers prefer not to write software, if at all possible; rather than reinvent the wheel, they would much rather reuse a tried-and-tested library. A library and a template have much in common: they are reusable, customizable, standard components.
+</p>
+
+<p>
+Second, the technical difficulty of developing secure software libraries will drive down the number of widely-respected, generally accepted alternatives.
+</p>
+
+<p>
+So the result will be a relatively small number of smart contract libraries which have both passed rigorous formal verification, and been widely adopted. These libraries will be the smart-contract world's answer to the idea of a model form contract template.
+</p>
+
+<p>
+From this perspective, SCTs are templates for smart contracts: (smart contract) (templates).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga61b36e" class="outline-2">
+<h2 id="orga61b36e"><span class="section-number-2">5</span>Smart-Contract Templates meet Smart Contract-Templates</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+In the legal tradition, where computerization has brought smarts to contract templates, SCT means (smart) (contract templates).
+</p>
+
+<p>
+In the software tradition, research into contract formalization and the crypto 2.0 rise of blockchain smart contracts mean that SCT stands for (smart contract) (templates).
+</p>
+
+<p>
+In July 2017, these traditions finally met, like Montagues and Capulets colliding.
+</p>
+
+<p>
+In yet another example of multiple discovery, five matchmakers came almost simultaneously to the conclusion that it was time for Romeo to kiss Juliet.
+</p>
+
+<p>
+This paper follows the lead set by R3, in which the term "Smart Contract Templates" is meant to invoke a sense of integrating across both traditions, both interpretations.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4b1137e" class="outline-2">
+<h2 id="org4b1137e"><span class="section-number-2">6</span>An Industry Snapshot of SCT2.5 Bridges</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+The matchmakers envision a bridge between smart contracts and natural language contracts. Libraries of contract templates will emerge, with a foot in both worlds. Once the blanks are filled in, the contracts will take shape both as Ethereum smart contracts and as PDF or docx paperwork suitable for parties to sign.
+</p>
+
+<p>
+This paper calls such dual-use smart contract templates "Generation 2.5 SCT" systems, or SCT2.5 for short.
+</p>
+
+<p>
+In July 2017 alone, five new SCT2.5 systems were announced &#x2013; two on the same day. All are in development and none are widely used at time of writing.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Initiative</th>
+<th scope="col" class="org-left">Announced</th>
+<th scope="col" class="org-left">(S)(CT)</th>
+<th scope="col" class="org-left">(SC)(T)</th>
+<th scope="col" class="org-left">Backed by</th>
+<th scope="col" class="org-left">Opensource</th>
+<th scope="col" class="org-left">Funds Raised</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><a href="http://www.commonaccord.org/">CommonAccord</a></td>
+<td class="org-left">2001</td>
+<td class="org-left">(S)(CT)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">James Hazard</td>
+<td class="org-left">github</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><a href="https://commonform.org/">CommonForm</a></td>
+<td class="org-left">2015</td>
+<td class="org-left">(S)(CT)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Ironclad</td>
+<td class="org-left">github</td>
+<td class="org-left">$120k</td>
+</tr>
+
+<tr>
+<td class="org-left"><a href="https://www.r3.com/press/SCT3-press-release.pdf">R3</a></td>
+<td class="org-left">2016</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">(SC)(T)</td>
+<td class="org-left">Barclays</td>
+<td class="org-left">?</td>
+<td class="org-left">$107M</td>
+</tr>
+
+<tr>
+<td class="org-left"><a href="http://internetofagreements.com/">Mattereum</a></td>
+<td class="org-left"><a href="https://www.reddit.com/r/ethereum/comments/6lvfuu/mattereum_legally_enforceable_smart_contracts/?st=j4uhqi6b&amp;sh=fb6aaa85">7 July 2017</a></td>
+<td class="org-left">(S)(CT)</td>
+<td class="org-left">(SC)(T)</td>
+<td class="org-left">Hexayurt</td>
+<td class="org-left">?</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><a href="https://www.agrello.org/">Agrello</a></td>
+<td class="org-left"><a href="https://blog.agrello.org/the-agrello-token-sale-has-begun-bd10a2ea71b9">16 July 2017</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">(SC)(T)</td>
+<td class="org-left">Estonians</td>
+<td class="org-left">?</td>
+<td class="org-left">$15M ICO</td>
+</tr>
+
+<tr>
+<td class="org-left"><a href="https://etherparty.io/">EtherParty</a></td>
+<td class="org-left"><a href="https://medium.com/@etherparty/etherparty-makes-smart-contracts-accessible-to-all-99ab3610d9d8">25 July 2017</a></td>
+<td class="org-left">(S)(CT)</td>
+<td class="org-left">(SC)(T)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><a href="http://openlaw.io/">OpenLaw.io</a></td>
+<td class="org-left"><a href="https://media.consensys.net/introducing-openlaw-7a2ea410138b">25 July 2017</a></td>
+<td class="org-left">(S)(CT)</td>
+<td class="org-left">(SC)(T)</td>
+<td class="org-left">Consensys</td>
+<td class="org-left">claimed</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><a href="http://accordproject.org/">AccordProject</a></td>
+<td class="org-left"><a href="https://medium.com/@accordhq/the-accord-project-launches-industry-first-tools-and-standards-for-smart-legal-contracts-with-2e67b2b6f2fd">26 July 2017</a></td>
+<td class="org-left">(S)(CT)</td>
+<td class="org-left">(SC)(T)</td>
+<td class="org-left">Hyperledger</td>
+<td class="org-left">claimed</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><a href="https://blog.zeppelin.solutions/introducing-zeppelinos-the-operating-system-for-smart-contract-applications-82b042514aa8">ZeppelinOS</a></td>
+<td class="org-left"><a href="https://blog.zeppelin.solutions/introducing-zeppelinos-the-operating-system-for-smart-contract-applications-82b042514aa8">27 July 2017</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">(SC)(T)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org40ba7bb" class="outline-2">
+<h2 id="org40ba7bb"><span class="section-number-2">7</span>Strengths of 1st and 2nd generation systems</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+DA and SCT2 systems are sufficient to solve several classes of problems.
+</p>
+
+<p>
+To get multilingual contracts, simply extend the singular template into a list of concrete languages: the same values can fill multiple blanks.
+</p>
+
+<p>
+When circumstances demand customization, refactor the templates at the appropriate level of granularity and extend the logic to compose accordingly, based on decision variables in the code.
+</p>
+
+<p>
+Customization is a function of expressiveness: the more expressive the system, the easier it is to customize.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf3273ee" class="outline-2">
+<h2 id="orgf3273ee"><span class="section-number-2">8</span>Weaknesses of 1st and 2nd generation systems</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+DA and SCT2 approaches face two major limitations.
+</p>
+</div>
+
+<div id="outline-container-orgcec987e" class="outline-3">
+<h3 id="orgcec987e"><span class="section-number-3">8.1</span>Syntax versus Semantics</h3>
+<div class="outline-text-3" id="text-8-1">
+<p>
+The semantics of a contract reside in natural language. The advent of cryptocurrencies brings an increasing demand for integration between natural language and blockchain-native smart contracts. However, DA systems are limited to filling static values into static blanks. They can fill names and numbers and strings, and they may be able to switch sub-templates based on Booleans and case expressions, but they do not offer a way to express the logical semantics of the contract itself.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2c13e15" class="outline-3">
+<h3 id="org2c13e15"><span class="section-number-3">8.2</span>Expressiveness</h3>
+<div class="outline-text-3" id="text-8-2">
+<p>
+What if an end-user legal developer wants to customize a contract template?
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Before</th>
+<th scope="col" class="org-left">After</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">The Buyer will pay the Seller a fixed fee of $1000.</td>
+<td class="org-left">The Buyer will pay the Seller a fee of:</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- if the moon is full: $1200</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- else, if the tide is high: $1400</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- otherwise: $800</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Most programming environments offer a standard set of conveniences: mathematical expressions, if/then/else logic, lambda functions, and function calls. None of these are expressible in the original design of the Ricardian contract.
+</p>
+
+<p>
+A computer scientist would say that, at best, the notion of a Ricardian contract, which has its roots in templates and database tables, lacks a rich expression language; at worst, it lacks first-class functions.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd528a4c" class="outline-3">
+<h3 id="orgd528a4c"><span class="section-number-3">8.3</span>Specialized Knowledge</h3>
+<div class="outline-text-3" id="text-8-3">
+<p>
+Just as database design and administration tends to end up the specialty of the DBA, customization of contract templates requires specialized knowledge which tends to accumulate in the department of the "contract template admin". It would be better for this capability to be distributed throughout the organization, along the lines of the computer literacy movement that says everyone should be able to code.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org58242d9" class="outline-3">
+<h3 id="org58242d9"><span class="section-number-3">8.4</span>Internationalization</h3>
+<div class="outline-text-3" id="text-8-4">
+<p>
+In Model-View-Controller lingo, 1st and 2nd generation DA/SCT systems tend to intermingle the presentation view with the business logic of the data model. There are no clean boundary layer separations: a single template may contain chunks of hardcoded text, output formatting instructions, data blanks, and logical directives to show/hide.
+</p>
+
+<p>
+Such a structure is unclean. What if you want not just one language but a multilingual family of templates? If all the functionality initially lives in a single template file, copying the template file to a different language means duplicating the logic. Changing the logic means visiting all the templates. Extending a new blank field to the template family means editing all the templates. This is not i18n/L10n best practice, nor is it MVC best practice.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd013a68" class="outline-2">
+<h2 id="orgd013a68"><span class="section-number-2">9</span>3rd generation smart contract templates</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+To overcome these limitations, some have proposed to take the Ricardian contract to the next level: to encode not just the data values but the full logical semantics of a contract.
+</p>
+
+<p>
+3rd generation SCT systems (SCT3), as described by <a href="http://contractcode.io/">contractcode.io</a> and <a href="http://compk.stanford.edu/">compk.stanford.edu</a>, solve many of these problems. Harry Surden has written extensively on <a href="http://lawreview.law.ucdavis.edu/issues/46/2/articles/46-2_surden.pdf">Computable Contracts</a>, describing the possibilities of 3rd generation systems and anticipating the challenges of deeply integrating expressive code with the legacy legal system.
+</p>
+
+<p>
+In an SCT3 system, a domain-specific programming language (DSL) is provided to express the logical semantics of a contract. The DSL goes beyond key/value Ricardian template filling, and begins to resemble a Turing-complete programming language. (For esoteric reasons, it is likely that an SCT3 system will stop short of Turing-completeness, trading off expressive power for decidability and provability.)
+</p>
+
+<p>
+The toolchain for that DSL operates in multiple stages.
+</p>
+</div>
+
+<div id="outline-container-org26b13fd" class="outline-3">
+<h3 id="org26b13fd"><span class="section-number-3">9.1</span>Opensource Templates</h3>
+<div class="outline-text-3" id="text-9-1">
+<p>
+We assume that, as with a 2nd gen SCT, a library of 3rd gen templates are available in some opensource repository, easily imported by a program, the way NPM has made Node modules easy to import. As with Node modules, SCT3 templates could be sized at any level of functionality, from a sentence fragment (for Oxford commas) to a standard exemption clause to an entire contract workflow (such as a SAFE plus its sides).
+</p>
+
+<p>
+We preserve the Ricardian notion of separating data from template, but the data itself can contain code: rich expressions that the toolchain knows how to reduce to natural language and smart contract primitives.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcafb12c" class="outline-3">
+<h3 id="orgcafb12c"><span class="section-number-3">9.2</span>Compiler Toolchain</h3>
+<div class="outline-text-3" id="text-9-2">
+<p>
+Stage 1 (the lexer/parser) compiles programs written in that DSL into an intermediate form representing the contract in the abstract &#x2013; what one might recognize as being akin to a Gen 2 smart contract template, but highly structured and with semantics fully available for inspection and evaluation.
+</p>
+
+<p>
+Stage 2 (the template filler) takes the output of Stage 1, adds the particulars of a contract instance (parties, configured terms and conditions, etc), and produces an abstract grammar, losslessly preserving all the semantics of the source template and data/expression values.
+</p>
+
+<p>
+Stage 3 (natural language generator) is a computational linguistics system responsible for concretizing the abstract grammar from Stage 2 into one or more natural languages, at the highest possible degree of granularity: individual words and parts-of-speech, where possible, and with canned blocks of text otherwise.
+</p>
+
+<p>
+Other stages may be connected up in parallel to this primary pipeline. For example, the compiler may delegate to an offboard static analyzer which performs compile-time bug-finding.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1b6feba" class="outline-2">
+<h2 id="org1b6feba"><span class="section-number-2">10</span>Connecting SC-Ts with S-CTs</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+Unification between blockchain smart contracts and legacy paper is the goal of several SCT2.5 systems. Their template orientation means that Gen 2.5 SCT systems will be able to bridge the gap, albeit crudely.
+</p>
+
+<p>
+Gen 3 SCT systems, having been designed for the purpose from the ground up, will be able to bridge the gap elegantly, and offer the features listed above, which SCT2.5 systems will not.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org24940ed" class="outline-2">
+<h2 id="org24940ed"><span class="section-number-2">11</span>Why a DSL?</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+Is there a direction, a teleology to the evolution of SCT systems? We have already heard an argument from the history of computer science about the move to increasingly abstract high-level languages. The history of the Web offers another argument.
+</p>
+
+<p>
+One of the first technologies to make the Web interactive was the Server-Side Include<sup><a id="fnr.26" class="footref" href="#fn.26">26</a></sup>: a crude templating system capable of stitching together individual HTML files.
+</p>
+
+<p>
+Then came PHP, originally named "Personal Home Page / Forms Interpreter". The "Forms" element is a strong clue that analogy with key/value-driven Gen 1 DA and Gen 2 SCT systems is appropriate. The PHP-era web could be described as being made of "Ricardian web pages", where templates are personalized by filling in the blanks to suit each user, in a structured document containing both text and data extracted from SQL databases by a server back-end and piped statically to the client's browser.
+</p>
+
+<p>
+PHP author Rasmus Lerdorf said: "there was never any intent to write a programming language […] I have absolutely no idea how to write a programming language, I just kept adding the next logical step on the way." This is the organic evolutionary process that takes us to Gen 2.5 SCT today: feature after feature accreting in response to demand for stitching together online databases with real-world transactions; e-commerce is the obvious example.
+</p>
+
+<p>
+In 2017, the dominant paradigm on today's web is the web app powered by client-side Javascript. Web apps are enabled by the ability to run Turing-complete code in a sandbox, in the user's browser, communicating with servers using JSON. These apps are supported by an ecosystem of Javascript libraries easily remixed and reused by developers. The analogy is again clear: the kingdom comes; it will be done, in legal as it is in browsers. That is where the third generation of SCT systems is headed.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org42f0bd0" class="outline-2">
+<h2 id="org42f0bd0"><span class="section-number-2">12</span>Legalese As Object Code</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+(a version of the following text was originally published on Medium, on Jan 21 2017)
+</p>
+
+<p>
+Every few years, the idea of a “Github for law” turns up on Hacker News.
+</p>
+
+<p>
+<a href="https://news.ycombinator.com/item?id=13447059">https://news.ycombinator.com/item?id=13447059</a>
+</p>
+
+<p>
+It’s natural to think “contracts are just chunks of text; we should be able to throw them together easily. Skinny jeans, strappy sandals, a sweater: voilà, an outfit!”
+</p>
+
+<p>
+A JSON-style key/value approach may make sense for a standalone lawyer producing first-cut documents, but those documents better be in Word format, because the other side will want to edit them, and you’re back to the original problem again.
+</p>
+
+<p>
+And that problem stands in the way of building a Github for Law.
+</p>
+
+<p>
+Legal documents that have been heavily edited often have the nature of a compiled object. Look at this example from Missouri:
+</p>
+
+<blockquote>
+<p>
+233.285.  Law not to affect road districts incorporated prior to effective date. — The repealing of the sections and law repealed by this law shall not have the effect of abating, nullifying, suspending or vitiating any public road district incorporated, or established by preliminary order, prior to the taking effect of this law or any proceedings by any such public road district; but any public road district finally incorporated, or established only by preliminary order, prior to the taking effect of this law, except districts established only by preliminary order in which there has been held a meeting of landowners of the district, in compliance with laws repealed by this law, at which owners of a majority of the acres of land in the district failed to vote in favor of the improvement of any road or roads proposed to be improved, shall, from and after the taking effect of this law, by the name mentioned in the preliminary order of the county commission establishing it, be a political subdivision of the state for governmental purposes with all the powers mentioned in sections 233.170 to 233.315 and such others as may from time to time be given by law, and shall, after the taking effect of sections 233.170 to 233.315, proceed, and shall have and exercise, and the commissioners and landowners and voters thereof shall have and exercise, the same privileges, powers and duties as if such district was incorporated after the taking effect of sections 233.170 to 233.315 and under and in accordance with sections 233.170 to 233.315; except that valid contracts made or entered into before the taking effect of sections 233.170 to 233.315, under laws hereby repealed, shall be complied with the same as if such laws were still in force; and except that any such district in which there has been a meeting of landowners of the district, in compliance with laws repealed by sections 233.170 to 233.315, at which owners of a majority of the acres of land in the district voted that any road or roads therein be improved and the cost thereof charged against the lands in the district, may proceed, and the commissioners thereof may proceed in making such improvement, and tax bills, or bonds may be issued and collected on account of such improvement, in the same manner as if the laws repealed by sections 233.170 to 233.315 were still in force and effect and sections 233.170 to 233.315 not yet in effect; but in case no contract for such improvement has been entered into, or tax bills or bonds issued by reason of such vote for such improvement, such district, and the commissioners and landowners thereof may, in making such improvement or issuing tax bills or bonds on account thereof, proceed as if such district had not been incorporated until after the taking effect of sections 233.170 to 233.315, and was incorporated under and in compliance with sections 233.170 to 233.315; or said special road district commissioners may file with the clerk of the county commission the tabulated statement or statements of the lands in the district as prepared previous to such meeting, and, if they have not done so already, make out and file with the clerk of the county commission a report of the action of the landowners at such meeting, signed and acknowledged by them, and the clerk of the county commission, after such report and tabulated statement are so filed, shall give notice, by at least two publications in some weekly newspaper published in the county, that said special road district commissioners have filed with him a report of an election in such district, and a tabulated statement of the lands in the district, showing the valuations fixed by them on each tract thereof for the purposes of an assessment for road improvement voted upon at such meeting, and such notice shall state a day not less than two weeks later than the date of the first publication of such notice, upon which the county commission will be in session and will hear and consider exceptions and objections to such report and tabulated statement and to the valuations so fixed on any or all tracts of land in the district, and the county commission shall, upon said day or as soon thereafter as the business of the county commission will permit, hear and consider any objections or exceptions that may be made to such report, and at such hearing such report shall be prima facie evidence of the statements therein made, and the county commission, if no objections or exceptions are made to such report, or if it find, after considering and hearing any objections that may be so made, and any evidence that may be offered, that such special road district commissioners prior to such meeting, and at such meeting, proceeded in compliance with the law then in force, and called such meeting and gave notice thereof in compliance with the law then in force, and that the action of the landowners at such meeting was as stated in such report, the county commission shall hear and consider such objections and exceptions as may be made to such tabulated statement or to valuations fixed on lands in the district as in such tabulated statement indicated, and, after hearing and considering such objections and exceptions, and such evidence as may be offered, shall make any alterations and corrections of said tabulated statement, and of the valuations so fixed and indicated, or fix such valuations on any of such lands, as it may deem proper, and shall thereupon approve such tabulated statement, and the valuations indicated therein, and order the clerk of the county commission to annex to said tabulated statement a certificate of such approval, and thereafter such district, and the special road district commissioners thereof, and the clerk of the county commission, in making such improvement and contracting for the same, or in issuing tax bills to pay for the same, or issuing bonds or tax bills to pay such bonds, may proceed as if this law had not taken effect, and the laws hereby repealed still in effect, except that the special road district commissioners need not make out and certify to the county clerk a description of the lands in the district as required by laws hereby repealed, and the county clerk in apportioning against each tract of land in the district its share of the cost of the improvement or its share of the principal and interest on the bonds, shall use, for the purpose of making such apportionment, such tabulated statement as so approved by the commission.
+</p>
+</blockquote>
+
+<p>
+Does that remind you of something? The last time I felt this way was when I opened a binary executable in a hex editor. And that was a long, long time ago. Remember the 1980s? The era of proprietary software, before the Internet, when people shared programs on floppy disks. Not as source code, but as binaries. I remember turning on cheat codes by opening up .EXE files and twiddling specific address locations.
+</p>
+
+
+<div class="figure">
+<p><img src="https://sites.google.com/site/kmbrandt/hexeditor.jpg" alt="hexeditor.jpg" />
+</p>
+</div>
+
+<p>
+Binary code consists of machine instructions intended for CPUs. Editing raw binary is a dangerous thing; a single change in one spot often implies a cascade of changes throughout the rest of the file.
+</p>
+
+<p>
+No wonder one of the very first inventions in computer science was the compiler. A programmer writes source code in a high level language to work out the solution to a software problem, function by function, module by module, the way a screenwriter writes a script to work out the plot of their story, line by line, scene by scene. Then the screenplay enters production and turns into a few gigabyte of MPEG data; the source code enters a compiler and turns into a few megabytes of machine code. Every time the source code changes, the compiler rebuilds the binary.
+</p>
+
+<p>
+In that sense, a contract template &#x2013; say, a Word document with yellow blanks &#x2013; is a special kind of machine binary. If you're an end-user you may fill in the assigned blanks, but don't touch anything else! Because you haven't been ordained &#x2013; you're not in the priesthood.
+</p>
+
+<p>
+But the life cycle of many business contracts involves some degree of negotiation. Yes, some contracts are take-it-or-leave-it<sup><a id="fnr.27" class="footref" href="#fn.27">27</a></sup>. But most B2B contracts ping-pong back and forth several times before the parties commit to signature. That means lots of editing.
+</p>
+
+<p>
+Today, that editing happens at the level of the compiled binary. It should happen at the level of source code.
+</p>
+
+<p>
+What happens when your counterparty wants to add a new clause in the middle of your template blocks? You have to “recompile” &#x2013; update all the cross-references and adjust the clauses to match the change. And that's just at the surface level. What about deeper changes to the semantics? That is, after all, the point of negotiation. One change to the deal could entail half a dozen changes in the contract.
+</p>
+
+<p>
+Where, then, is the source code for a business contract, for a piece of legislation? Largely in the heads of lawyers, it turns out. The closest thing to a high-level language version of a contract is a term sheet: a one-page version summarizing the configuration of the deal, which "definitive documentation" subsequently details.
+</p>
+
+<p>
+Today, lawyers are human compilers, just as there used to be human computers. But we’ve seen this show before; we know what comes next. High-level languages. Reusable, modular libraries. Open source.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgefb9fe5" class="outline-2">
+<h2 id="orgefb9fe5"><span class="section-number-2">13</span>Example: SCT2 versus SCT3</h2>
+<div class="outline-text-2" id="text-13">
+<p>
+Let's look at an example of how SCT2 and SCT3 systems handle a common contract situation differently.
+</p>
+
+<p>
+Suppose a startup investment agreement, such as a SAFE or a KISS, contemplates conversion to equity in some future round. To avoid premature conversion and dilution, the triggering round must be of a certain minimum size. So the language in a contract might be:
+</p>
+
+<blockquote>
+<p>
+Next Equity Financing means the next sale (or series of related sales) by the Company of its Preferred Stock following the Date of Issuance from which the Company receives gross proceeds of not less than MIN_PROCEEDS (excluding the aggregate amount of securities converted into Common or Preferred Stock in connection with such sale (or series of related sales)).
+</p>
+</blockquote>
+
+<p>
+A 2nd generation SCT system might organize this template as follows:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-json">{ "template": "Next Equity Financing means the next sale (or series of related sales) by the Company of its Preferred Stock following the Date of Issuance from which the Company receives gross proceeds of not less than {{MIN_PROCEEDS}} (excluding the aggregate amount of securities converted into Common or Preferred Stock in connection with such sale (or series of related sales)).",
+  "vars": {
+	"MIN_PROCEEDS": "US$2,000,000",
+  }
+}
+</pre>
+</div>
+
+<p>
+This is consistent with the original vision of the Ricardian Contract: a text template with an accompanying dictionary of key-value pairs.
+</p>
+
+<p>
+Suppose, after negotiation, the parties agree to measure the size of the round in two ways instead of one. They revise the template:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-json">{ "template": "Next Equity Financing means the next sale (or series of related sales) by the Company of its Preferred Stock following the Date of Issuance from which the Company:--
+- receives gross proceeds of not less than {{MIN_PROCEEDS}} (excluding the aggregate amount of securities converted into Common or Preferred Stock in connection with such sale (or series of related sales)); or
+- is valued (prior to the sale (or series of related sales)) at no less than {{MIN_VALUATION}} (excluding the conversion of this instrument and other instruments of this type, and of convertible promissory notes).",
+  "vars": {
+	"MIN_PROCEEDS":   "US$2,000,000",
+	"MIN_VALUATION": "US$10,000,000"
+  }
+}
+</pre>
+</div>
+
+<p>
+This is good 2nd-generation work. How would this look in a 3rd-generation SCT?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">nef :: Definition FinancingRound = (en "Next Equity Financing")
+	first [ round | round &lt;- company.financingRounds
+		  , round.date after my.dateOfIssuance
+		  , round.instrument instanceof PreferredStock
+		  , ( round.proceeds &gt; min_proceeds ||
+			  round.preMoneyValuation &gt; min_valuation )
+		  ] where min_proceeds  = USD 2000000
+				  min_valuation = USD 10000000
+</pre>
+</div>
+
+<p>
+The template has become a program! The semantics have been formalized. The parties can now negotiate unambiguously about the meaning of the contract, trusting to the compiler to faithfully turn the program into natural language.
+</p>
+
+<p>
+To do this, the compiler must know how to convert a wide range of possible expressions to natural language. This is a tractable problem and solutions have been demonstrated in the literature.
+</p>
+
+<p>
+If further negotiation results in more changes to the program, no problem: changes to the text will follow automatically.
+</p>
+
+<p>
+This approach is not possible in a 2nd-generation SCT system. It is only possible in a 3rd-generation system.
+</p>
+
+<p>
+3rd gen systems enjoy a number of advantages over 1st and 2nd gen SCTs.
+</p>
+</div>
+
+<div id="outline-container-org2bfcd01" class="outline-3">
+<h3 id="org2bfcd01"><span class="section-number-3">13.1</span>Multiple Languages, Multiple Jurisdictions</h3>
+<div class="outline-text-3" id="text-13-1">
+<p>
+Localizing a contract for a different jurisdiction, a different language, should be as simple as changing a single line in the file.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org87869aa" class="outline-3">
+<h3 id="org87869aa"><span class="section-number-3">13.2</span>What-If Scenario Exploration</h3>
+<div class="outline-text-3" id="text-13-2">
+<p>
+An interactive interface could help the end-user game out scenarios they are concerned about, to see what the outcomes will be, without needing an expensive lawyer to talk them through the possibilities.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaffbd70" class="outline-3">
+<h3 id="orgaffbd70"><span class="section-number-3">13.3</span>Formal Verification</h3>
+<div class="outline-text-3" id="text-13-3">
+<p>
+As discussed above, compatibility with formal verification means that contract developers can automatically verify safety and liveness properties over contract scenarios, thereby increasing confidence that there are no mistakes or loopholes.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org868998d" class="outline-3">
+<h3 id="org868998d"><span class="section-number-3">13.4</span>Multilingual Generation</h3>
+<div class="outline-text-3" id="text-13-4">
+<p>
+With the right infrastructure, producing English, French, Spanish, Chinese contracts should be just a matter of checking a few boxes.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgec7edaf" class="outline-3">
+<h3 id="orgec7edaf"><span class="section-number-3">13.5</span>Controlled Natural Language Generation</h3>
+<div class="outline-text-3" id="text-13-5">
+<p>
+We can develop separate modules to <a href="https://en.wikipedia.org/wiki/Natural_language_generation">produce the natural language version</a> of contracts, using tools such as <a href="http://www.grammaticalframework.org/">GF</a>. Some work has been done in this domain already by Henrik Leopold.<sup><a id="fnr.28" class="footref" href="#fn.28">28</a></sup>
+</p>
+
+<p>
+The bulk of wordsmithing energy in the legal industry today is spent on specific contracts. Moving this effort to contract templates improves reusability. Increasing the granularity and shifting the focus of text generation to the level of a paragraph or sentence would be even more beneficial: continuing refinements to the NLG component would be analytically separated from the heat of any particular deal or transaction structure.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org46542eb" class="outline-3">
+<h3 id="org46542eb"><span class="section-number-3">13.6</span>Isomorphism with Diagrams</h3>
+<div class="outline-text-3" id="text-13-6">
+<p>
+Produce visual flowcharts in a way that would make <a href="https://legalinformatics.wordpress.com/2014/02/23/passera-haapio-and-curtotti-making-the-meaning-of-contracts-visible-automating-contract-visualization/">Helena Haapio and Stefania Passera</a> happy. <a href="https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation">BPMN</a> is a leading candidate for visual notation.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org62ec4bc" class="outline-3">
+<h3 id="org62ec4bc"><span class="section-number-3">13.7</span>Isomorphism with Blockchain Smart Contracts</h3>
+<div class="outline-text-3" id="text-13-7">
+<p>
+In the Ethereum domain, Gen-3 contracts could transpile to Solidity / Viper or compile to EVM.
+</p>
+
+<p>
+Going beyond Ethereum, <a href="http://www.tezos.community/t/michelson-101/23">Tezos's Michelson language</a> is another compilation target.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfd7cf79" class="outline-3">
+<h3 id="orgfd7cf79"><span class="section-number-3">13.8</span>Runtime Automated Execution</h3>
+<div class="outline-text-3" id="text-13-8">
+<p>
+A convertible note, once signed, goes to sleep until the next funding round. It wakes up, reads the next-round contract (which is, naturally, also expressed as a 3rd gen program), and automatically produces all the paperwork needed for the conversion.
+</p>
+
+<p>
+This is akin to the sort of automated execution promised by blockchain smart contracts, but could run equally well off the chain. Smart contracts can still be smart without blockchain.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge00f921" class="outline-3">
+<h3 id="orge00f921"><span class="section-number-3">13.9</span>Github for Law</h3>
+<div class="outline-text-3" id="text-13-9">
+<p>
+The idea of "Github for Law" belongs more to the world of 3rd-generation SCT than 2nd-generation.
+</p>
+
+<p>
+In the absence of SCT3 source code, a "Github for Law" is really a warez site, full of suspect, immutable binaries. PDFs and Word docs are not source code. They are executables.
+</p>
+
+<p>
+Going from SCT2 to SCT3 is a fundamental transition, which even the ancients would recognize as a giant step forward. The linguistic distinction between syntax, semantics, and pragmatics in law can be found in the words of Publius Juventius Celsus two thousand years ago:
+</p>
+
+<blockquote>
+<p>
+<i>Scire leges non hoc est verba earum tenere sed vim ac potestatem</i>: "To know the law is not merely to understand the words, but as well their force and effect." (Justinian, Digest, Book 1, Title 3, 17)
+</p>
+</blockquote>
+
+<p>
+For the first time in history we can move into a machine not just the words, but the understanding of the words, and the understanding of their force and effect.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf386d0a" class="outline-2">
+<h2 id="orgf386d0a"><span class="section-number-2">14</span>Smart Statutes</h2>
+<div class="outline-text-2" id="text-14">
+<p>
+So far we have dealt mostly with contracts. Contracts are private law. What about public law &#x2013; legislation and regulation?
+</p>
+
+<p>
+While the idea of computable law is strongly aligned with the age-old school of legal formalism<sup><a id="fnr.29" class="footref" href="#fn.29">29</a></sup>, the most recent motivation for computable law comes from the world of smart contracts: in his <a href="http://internetofagreements.com/">InternetOfAgreements.com</a> paper, Vinay Gupta argued that smart contracts attempting to engage with the real world need to know the real world's rules, if they are to obey them. Hence the need for a "Regulatory Oracle".
+</p>
+
+<p>
+The earliest work in this space dates back to 1986: researchers translated the British Nationality Act into Prolog.<sup><a id="fnr.30" class="footref" href="#fn.30">30</a></sup> Since then, several initiatives have attempted to provide frameworks for converting law into code upon which a machine can reason.<sup><a id="fnr.31" class="footref" href="#fn.31">31</a></sup> The current bottleneck is formalization: translation takes time and is fraught with interpretive issues.<sup><a id="fnr.32" class="footref" href="#fn.32">32</a></sup> This work has been done by companies such as Intuit and commercialized in the form of products like TurboTax, which represent a user-friendly formalization of the tax code.
+</p>
+
+<p>
+Other verticals will follow. Sooner or later some country will muster the political will to fund the translation of their law into a formal structure; the first country to do this may enjoy economic benefits as smart contracts flow toward that jurisdiction. The Swiss canton of Zug is vying for this title.<sup><a id="fnr.33" class="footref" href="#fn.33">33</a></sup> So is Singapore.<sup><a id="fnr.34" class="footref" href="#fn.34">34</a></sup>
+</p>
+
+<p>
+Laws are rules for society. Rules are their own subject of research in computer science; approaches to the topic include logic programming, recently updated by Kowalski and Sadri's LPS<sup><a id="fnr.35" class="footref" href="#fn.35">35</a></sup>; RuleLog<sup><a id="fnr.36" class="footref" href="#fn.36">36</a></sup>; and RuleML<sup><a id="fnr.37" class="footref" href="#fn.37">37</a></sup>. Reaction rules (the if/then constructs that are the mainstay of imperative programming languages) forward-chain from facts to conclusions. Deliberation, or deduction, rules (typically structured as Horn clauses in logic programming languages) backward-chain from consequent to antecedent. The RuleML standard emerged from work on the Semantic Web, and is being specialized for law in the form of LegalRuleML<sup><a id="fnr.38" class="footref" href="#fn.38">38</a></sup>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7c70f26" class="outline-2">
+<h2 id="org7c70f26"><span class="section-number-2">15</span>The Science Fiction of Computational Law</h2>
+<div class="outline-text-2" id="text-15">
+<p>
+Two quotes from science fiction offer a vision of where computational law could lead.
+</p>
+
+<blockquote>
+<p>
+Amber fast-forwards through the dynamic chunks of the README—boring legal UML diagrams, mostly—soaking up the gist of the plan. Yemen is one of the few countries to implement traditional Sunni shari'a law and a limited liability company scam at the same time. Owning slaves is legal—the fiction is that the owner has an option hedged on the indentured laborer's future output, with interest payments that grow faster than the unfortunate victim can pay them off—and companies are legal entities. If Amber sells herself into slavery to this company, she will become a slave and the company will be legally liable for her actions and upkeep. The rest of the legal instrument—about ninety percent of it, in fact—is a set of self-modifying corporate mechanisms coded in a variety of jurisdictions that permit Turing-complete company constitutions, and which act as an ownership shell for the slavery contract. At the far end of the corporate shell game is a trust fund of which Amber is the prime beneficiary and shareholder. When she reaches the age of majority, she'll acquire total control over all the companies in the network and can dissolve her slave contract; until then, the trust fund (which she essentially owns) oversees the company that owns her (and keeps it safe from hostile takeover bids). Oh, and the company network is primed by an extraordinary general meeting that instructed it to move the trust's assets to Paris immediately. A one-way airline ticket is enclosed.
+</p>
+</blockquote>
+<p>
+Accelerando, by Charlie Stross<sup><a id="fnr.39" class="footref" href="#fn.39">39</a></sup>
+</p>
+
+<hr  />
+
+<blockquote>
+<p>
+He now nodded at Phaethon, and said, “Well, gentlemen! Shall we go in?” and he opened the tall antechamber doors with a gesture of his baton.
+</p>
+
+<p>
+The Chamber of the Curia was austere. As Phaethon had guessed, it was done in the spartan style of the Objective Aesthetic.
+</p>
+
+<p>
+Unadorned square silver pillars held up a black dome. In the center of the dome, at the highest point of the ceiling, a wide lens of crystal supported the pool overhead. Light from the world above fell through the water to form trembling nets and webs across the floor. The floor itself was inscribed with a mosaic in the data-pattern mode, representing the entire body of the Curia case law. At the center, small icons representing constitutional principles sent out lines to each case in which they were quoted; bright lines for controlling precedent, dim lines for dissenting opinions or dicta. Each case quoted in a later case sent out additional lines, till the concentric circles of floor-icons were meshed in a complex network.
+</p>
+
+<p>
+The jest of the architect was clear to Phaethon. The floor mosaic was meant to represent the fixed immutability of the law; but the play of light from the pool above made it seem to ripple and sway and change with each little breeze.
+</p>
+
+<p>
+Above the floor, not touching it, without sound or motion, hovered three massive cubes of black material.
+</p>
+
+<p>
+These cubes were the manifestations of the Judges. The cube shape symbolized the solidity and implacable majesty of the law. Their high position showed they were above emotionalism or earthly appeals. The crown of each cube bore a thick-armed double helix of heavy gold.
+</p>
+
+<p>
+The gold spirals atop the black cubes were symbols of life, motion, and energy. Perhaps they represented the active intellects of the Curia. Or perhaps they represented that life and civilization rested on the solid foundations of the law. If so, this was another jest of the architect. The law, it seemed, rested on nothing. Phaethon remembered that Ao Nisibus had been a Warlock, after all.
+</p>
+
+<p>
+“Oyez, oyez!” cried Atkins, rapping the heel of his baton against the floor with a crack of noise. “All persons having business with the Honorable Appellate Court of the Foederal Oecumenical Commonwealth in the matter of the estate of Helion Prime Rhadamanthus draw nigh! Order is established, Your Lordships, the seals are placed, the recordings proceed.”
+</p>
+
+<p>
+A sense of impalpable pressure, a tension in the air, an undefined sensation of being scrutinized: these were the only clues to Phaethon that the cubes were now occupied by the intelligence of the Curia.
+</p>
+
+<p>
+Once, long ago, these had been men. Now, recorded into an electrophotonic matrix, they were without passion or favoritism, and their most secret thoughts were open to review and scrutiny should any charge of unfairness or prejudice ever be brought against them.
+</p>
+
+<p>
+The Never-First Schools always urged that the Judges should change from election to election and poll to poll, as did the members of the Parliament. The more traditional schools, however, always argued that, in order for law to be fair, reasonable men must be able to predict how it will be enforced, so as to be able to know what is and is not legal. Having sat on the bench for 7,400 years, the minds of the Curia were, like the approach of glaciers, like the ponderous motions of the outer planets, very predictable indeed.
+</p>
+
+<p>
+[&#x2026;]
+</p>
+
+<p>
+"My lawyer is Monomarchos of the Westmind Law-division.”
+</p>
+
+<p>
+“Ah, yes. Wait a moment while we open more channels and make arrangements: Monomarchos has a very high intellectual capacity, and we must reconfigure to permit that much active thought-space to enter this area.
+</p>
+
+<p>
+Part of the wall behind Phaethon shimmered with heat. Nanomachines were constructing something with blinding speed. A silver cube, less than a yard across, slid out from the wall, glowing white hot. Phaethon’s armor protected him; Gannis had to step backward, his elbow up before his face.
+</p>
+
+<p>
+A new voice spoke: “I am here.”
+</p>
+
+<p>
+The white-hot cube spoke: “Phaethon, you may be unaware that you have already spent all ten thousand hours of computer time which you paid into my account. The accumulated interest on the time account has produced another forty-five seconds of thought time, which I am obligated to devote to your affairs; thereafter I shall be a free agent, and will take no further contracts from you. I have already deduced a method of allowing you to prevail, but I will use a different method, and achieve a different result, depending on whether you wish merely to prevail on this case, or to achieve those goals which the older version of you, the version whom you forget, the version who actually made me, preferred. Choose. You have thirty seconds left.”
+</p>
+</blockquote>
+<p>
+Golden Age, John C. Wright<sup><a id="fnr.40" class="footref" href="#fn.40">40</a></sup>
+</p>
+</div>
+</div>
+<div id="footnotes" class="outline-2">
+<h2>Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://www.haaretz.com/jewish/archaeology/1.746064">http://www.haaretz.com/jewish/archaeology/1.746064</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://web.archive.org/web/20021016104429/http://www.firstmonday.dk:80/issues/issue2_9/szabo/index.html">http://web.archive.org/web/20021016104429/http://www.firstmonday.dk:80/issues/issue2_9/szabo/index.html</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/idea.html">http://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/idea.html</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://web.archive.org/web/20020806154414/http://szabo.best.vwh.net:80/contractlanguage.html">http://web.archive.org/web/20020806154414/http://szabo.best.vwh.net:80/contractlanguage.html</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://www.financialresearch.gov/working-papers/files/OFRwp-2015-04_Contract-as-Automaton-The-Computational-Representation-of-Financial-Agreements.pdf">https://www.financialresearch.gov/working-papers/files/OFRwp-2015-04_Contract-as-Automaton-The-Computational-Representation-of-Financial-Agreements.pdf</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://www.researchgate.net/publication/228185635_A_Logic_Model_for_Electronic_Contracting">https://www.researchgate.net/publication/228185635_A_Logic_Model_for_Electronic_Contracting</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.7" class="footnum" href="#fnr.7">7</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://en.wikipedia.org/wiki/Dune_(novel)">https://en.wikipedia.org/wiki/Dune_(novel)</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.8" class="footnum" href="#fnr.8">8</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://en.wikipedia.org/wiki/CTL">https://en.wikipedia.org/wiki/CTL</a>*
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.9" class="footnum" href="#fnr.9">9</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://www.csl.sri.com/papers/computer96/computer96.html">http://www.csl.sri.com/papers/computer96/computer96.html</a> <a href="https://en.wikipedia.org/wiki/Pentium_FDIV_bug">https://en.wikipedia.org/wiki/Pentium_FDIV_bug</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.10" class="footnum" href="#fnr.10">10</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://smtlib.cs.uiowa.edu/solvers.shtml">http://smtlib.cs.uiowa.edu/solvers.shtml</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.11" class="footnum" href="#fnr.11">11</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://www.theglobeandmail.com/report-on-business/comma-quirk-irks-rogers/article1101686/">https://www.theglobeandmail.com/report-on-business/comma-quirk-irks-rogers/article1101686/</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.12" class="footnum" href="#fnr.12">12</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://www.newyorker.com/culture/culture-desk/a-few-words-about-that-ten-million-dollar-serial-comma">http://www.newyorker.com/culture/culture-desk/a-few-words-about-that-ten-million-dollar-serial-comma</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.13" class="footnum" href="#fnr.13">13</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://www.jstor.org/stable/25758526">http://www.jstor.org/stable/25758526</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.14" class="footnum" href="#fnr.14">14</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://www.researchgate.net/publication/221027131_Model_Checking_Contracts_-_A_Case_Study">https://www.researchgate.net/publication/221027131_Model_Checking_Contracts_-_A_Case_Study</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.15" class="footnum" href="#fnr.15">15</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://publicaciones.dc.uba.ar/Publications/2011/GMS11/gms_flacos-2011-tr.pdf">http://publicaciones.dc.uba.ar/Publications/2011/GMS11/gms_flacos-2011-tr.pdf</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.16" class="footnum" href="#fnr.16">16</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://classes.soe.ucsc.edu/cmps290g/Fall09/Papers/AssigningMeanings1967.pdf">https://classes.soe.ucsc.edu/cmps290g/Fall09/Papers/AssigningMeanings1967.pdf</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.17" class="footnum" href="#fnr.17">17</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://gupea.ub.gu.se/bitstream/2077/40725/1/gupea_2077_40725_1.pdf">https://gupea.ub.gu.se/bitstream/2077/40725/1/gupea_2077_40725_1.pdf</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.18" class="footnum" href="#fnr.18">18</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU">https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.19" class="footnum" href="#fnr.19">19</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://www.governatori.net/research/pubs/index.html">http://www.governatori.net/research/pubs/index.html</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.20" class="footnum" href="#fnr.20">20</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://eprint.iacr.org/2016/1007.pdf">https://eprint.iacr.org/2016/1007.pdf</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.21" class="footnum" href="#fnr.21">21</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://openzeppelin.org/">https://openzeppelin.org/</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.22" class="footnum" href="#fnr.22">22</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://en.wikipedia.org/wiki/Language-based_security">https://en.wikipedia.org/wiki/Language-based_security</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.23" class="footnum" href="#fnr.23">23</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://dl.acm.org/citation.cfm?id=2993611">http://dl.acm.org/citation.cfm?id=2993611</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.24" class="footnum" href="#fnr.24">24</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://hackingdistributed.com/2017/07/22/deep-dive-parity-bug/">http://hackingdistributed.com/2017/07/22/deep-dive-parity-bug/</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.25" class="footnum" href="#fnr.25">25</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://policyreview.info/articles/analysis/invisible-politics-bitcoin-governance-crisis-decentralised-infrastructure">https://policyreview.info/articles/analysis/invisible-politics-bitcoin-governance-crisis-decentralised-infrastructure</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.26" class="footnum" href="#fnr.26">26</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://en.wikipedia.org/wiki/Server_Side_Includes">https://en.wikipedia.org/wiki/Server_Side_Includes</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.27" class="footnum" href="#fnr.27">27</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://en.wikipedia.org/wiki/Standard_form_contract#Contracts_of_adhesion">https://en.wikipedia.org/wiki/Standard_form_contract#Contracts_of_adhesion</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.28" class="footnum" href="#fnr.28">28</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://link.springer.com/chapter/10.1007/978-3-642-31095-9_5">https://link.springer.com/chapter/10.1007/978-3-642-31095-9_5</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.29" class="footnum" href="#fnr.29">29</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://chicagounbound.uchicago.edu/cgi/viewcontent.cgi?article=1178&amp;context=public_law_and_legal_theory">http://chicagounbound.uchicago.edu/cgi/viewcontent.cgi?article=1178&amp;context=public_law_and_legal_theory</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.30" class="footnum" href="#fnr.30">30</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://dl.acm.org/citation.cfm?id=5920">http://dl.acm.org/citation.cfm?id=5920</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.31" class="footnum" href="#fnr.31">31</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://link.springer.com/chapter/10.1007/978-3-319-42019-6_16">https://link.springer.com/chapter/10.1007/978-3-319-42019-6_16</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.32" class="footnum" href="#fnr.32">32</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2932333">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2932333</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.33" class="footnum" href="#fnr.33">33</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://cryptovalley.swiss/">https://cryptovalley.swiss/</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.34" class="footnum" href="#fnr.34">34</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://www.mas.gov.sg/~/media/ProjectUbin/Project%20Ubin%20%20SGD%20on%20Distributed%20Ledger.pdf">http://www.mas.gov.sg/~/media/ProjectUbin/Project Ubin  SGD on Distributed Ledger.pdf</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.35" class="footnum" href="#fnr.35">35</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://lps.doc.ic.ac.uk/">http://lps.doc.ic.ac.uk/</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.36" class="footnum" href="#fnr.36">36</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://coherentknowledge.com/ergo-suite-platform-architecture-and-technical-approach/">http://coherentknowledge.com/ergo-suite-platform-architecture-and-technical-approach/</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.37" class="footnum" href="#fnr.37">37</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://ruleml.org/">http://ruleml.org/</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.38" class="footnum" href="#fnr.38">38</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://link.springer.com/chapter/10.1007/978-3-319-21768-0_6">https://link.springer.com/chapter/10.1007/978-3-319-21768-0_6</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.39" class="footnum" href="#fnr.39">39</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://www.antipope.org/charlie/blog-static/fiction/accelerando/accelerando.html">http://www.antipope.org/charlie/blog-static/fiction/accelerando/accelerando.html</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.40" class="footnum" href="#fnr.40">40</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://www.amazon.com/Golden-Age-John-C-Wright-ebook/dp/B000FA5QJK/">https://www.amazon.com/Golden-Age-John-C-Wright-ebook/dp/B000FA5QJK/</a>
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="author">Author: mengwong@legalese.com</p>
+<p class="date">Created: 2017-07-31 Mon 18:50</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
