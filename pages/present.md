@@ -710,6 +710,9 @@ Legalese is importing all of these agreements. After you configure your deal in 
 	<li>
 		<a href="http://www.lawhackers.co/">Law Hackers</a> for a curated list of legal startups
 	</li>
+	<li>
+		<a href="https://www.imandra.ai/">Imandra</a>: Online ecosystem for sharing and analysing internal and client-facing trading system specifications
+	</li>
 </ul>
 
 ## Legal Research

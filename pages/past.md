@@ -335,6 +335,7 @@ The need for formal systems is dawning on r/ethereum:
 * [Can we please never again put 100m in a contract without formal correctness proofs?](https://www.reddit.com/r/ethereum/comments/4oimok/can_we_please_never_again_put_100m_in_a_contract/)
 * [The bug which the "DAO hacker" exploited was *not* "merely in the DAO itself"](https://www.reddit.com/r/ethereum/comments/4opjov/the_bug_which_the_dao_hacker_exploited_was_not/)
 * Ethereum's Solidity [is also experimenting with formal verification](https://gist.github.com/chriseth/c4a53f201cd17fc3dd5f8ddea2aa3ff9).
+* [This list of languages with compile into the EVM](https://github.com/pirapira/awesome-ethereum-virtual-machine#programming-languages-that-compile-into-evm)
 
 Papers include:
 * [Certified Symbolic Management of Financial Multi-party Contracts](http://www.diku.dk/~paba/pubs/entries/bahr15icfp.html)
