@@ -107,7 +107,7 @@ In November 2016, Data61, a research flagship out of Australia’s CSIRO + NICTA
 
 In early April, Meng and Alexis attended Stanford’s FutureLaw conference. On display was some of the state of the art in LegalTech, and we were encouraged by what we saw: we continue to believe that Legalese will enter the market neither too early nor too late.
 
-<img src="../assets/img/IMG_9512-1.jpg" width="100%">
+![Stanford](/assets/img/IMG_9512-1.jpg){: .center-image }
 
 FutureLaw: at left, the Geschäftsführender Direktor of Bucerius Law School has invited us to visit and teach his students.
 
@@ -115,15 +115,15 @@ At a private, invite-only workshop ahead of the FutureLaw conference, Meng did a
 
 Following FutureLaw, we attended a startup-weekend type hackathon organized by the Stanford Law School, hosted at the legendary d.school. We were impressed by the entrepreneurial energy on display, even amongst the law students: we read it as a sign that they are taking Susskind seriously. It was interesting to see that in a room of about 50 people there were at least 2 Singaporeans not counting the Legalese team.
 
-<img src="../assets/img/IMG_9546.jpg" width="100%">
+![Baklava](/assets/img/IMG_9546.jpg){: .center-image }
 
 We brought $100 worth of baklava to the hackathon. It was a hit.
 
 Later in April, following on from the workshop, Meng, Chiah Li, and Alexis road-tripped up to Vermont Law School to meet with Prof. Oliver Goodenough and brief him on Legalese’s research in contract language development.
 
-<img src="../assets/img/IMG_9668.jpg" width="100%">
+![Vermont](/assets/img/IMG_9668.jpg){: .center-image }
 
-<img src="../assets/img/IMG_9674.jpg" width="100%">
+![Vermont 2](/assets/img/IMG_9674.jpg){: .center-image }
 
 Shortly after these photos were taken, Chiah Li was stung by a wasp on her pinkie :-(
 

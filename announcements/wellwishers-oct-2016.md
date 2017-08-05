@@ -13,7 +13,7 @@ Well, we’ve done some of that. Our angel round is oversubscribed. We have almo
 
 A few days ago, this tweet appeared: 
 
-<img src="../assets/img/lemkin-tweet.png">
+![Lemkin Tweet](/assets/img/lemkin-tweet.png.png){: .center-image }
 
 To build the v2 system and de-risk our product/market fit, we originally budgeted $1M. Right now it’s looking closer to $250k, and that’s an amount that I can basically cover myself – especially if we get approved for the TECS POC grant, which promises to reimburse up to $250k. For that money we should be able to double our valuation and hit the milestones for seed funding. So it’s a possibility – not a sure thing, but maybe – we might skip the angel round, or go for a single, bigger, later, angel tranche.
 
