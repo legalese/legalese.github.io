@@ -16,96 +16,16 @@ Legalese is pioneering computational law. Legalese's L4 programming language mak
 
 The following assets are available in the [Google Drive](https://drive.google.com/folderview?id=0BxOaYa8pqqSwaE05Tjljdloxa1U&usp=sharing) containing variations of the below such as white-on-transparent. For high res vector, use the [PDF](https://drive.google.com/open?id=0BxOaYa8pqqSwT0lfWUNGQ2o1SGs).
 
+![Logo with site link](/assets/img/20160713-b-4x3.png){: .center-image }
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/S91XXarNR8u1UGNgSu2x_20160713-b-4x3.png",
-        "20160713-b-4x3.png",
-        "400",
-        "300",
-        "#040404",
-        ""
-      ],
-      "caption": "4x3 with text"
-    }
-  ]
-}
-[/block]
+![Logo](/assets/img/20160713-b-sq.png){: .center-image }
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/ddeVYrXXQSeB5MB7Lzfg_20160713-b-sq.png",
-        "20160713-b-sq.png",
-        "400",
-        "400",
-        "#040404",
-        ""
-      ],
-      "caption": "square no text"
-    }
-  ]
-}
-[/block]
+![Logo](/assets/img/20160713-b-sq-text.png){: .center-image }
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/O8Vx8OETkOJrJHkk7sJw_20160713-b-sq-text.png",
-        "20160713-b-sq-text.png",
-        "400",
-        "400",
-        "#040404",
-        ""
-      ],
-      "caption": "square with text"
-    }
-  ]
-}
-[/block]
+![Logo with alternative colour scheme](/assets/img/20160713-w-glow.png){: .center-image }
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/V6eUbov1QQObsk7gKpty_20160713-w-glow.png",
-        "20160713-w-glow.png",
-        "400",
-        "400",
-        "#d4d4d4",
-        ""
-      ],
-      "caption": "Glowy logos are fun for use as profile icons"
-    }
-  ]
-}
-[/block]
+![Site link](/assets/img/20160713-b-horiz.png){: .center-image }
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/02e293b-20160713-b-horiz.png",
-        "20160713-b-horiz.png",
-        2832,
-        288,
-        "#040404"
-      ],
-      "sizing": "smart",
-      "caption": "horizontal text logo"
-    }
-  ]
-}
-[/block]
 ## About the Logo
 
 "LEGALESE.COM" is set in [Alegreya](http://www.huertatipografica.com/en/fonts/alegreya-ht-pro) Bold (available on Google Fonts) all caps with some letterspacing.
