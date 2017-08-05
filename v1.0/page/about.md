@@ -20,7 +20,7 @@ Being an opensource project, Legalese welcomes contributions from developers, do
 
 * [Legalese's company structure](https://app.glassfrog.com/organizations/4050)
 * [Team members](https://app.glassfrog.com/circles/11359#_members)
-* [Media kit](https://legalese.com/v1.0/page/media-kit)
+* [Media kit]({% link v1.0/page/media-kit.md %})
 
 
 ## About the Team

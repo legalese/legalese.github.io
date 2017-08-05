@@ -1,3 +1,7 @@
+---
+title: "Media Kit"
+layout: "default"
+---
 This page contains brand assets for media organizations to use in stories about Legalese.
 
 Contact: [collective@legalese.com](mailto:collective@legalese.com)
