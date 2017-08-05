@@ -35,42 +35,13 @@ The logo is based on a [section sign](https://en.wikipedia.org/wiki/Section_sign
 
 # Sassy Quote from Techcrunch
 
-The original post is at https://techcrunch.com/2015/01/10/documents-just-want-to-be-free/
+The original post is on [Techcrunch](https://techcrunch.com/2015/01/10/documents-just-want-to-be-free/).
 
 To be clear, the article was written before Legalese was launched, and the source of the quote was not talking about Legalese in particular – they were talking about LegalTech startups generally. But we are a LegalTech startup and fit the description to a T.
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/ZsuxIDu0RHSkS4CHbx2k_horiz-quote-11.svg",
-        "horiz-quote-11.svg",
-        "0",
-        "0",
-        "#ec1c24",
-        ""
-      ]
-    }
-  ]
-}
-[/block]
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/rTnk3TbHTD2SgvbgRKUj_horiz-quote-black-11.png",
-        "horiz-quote-black-11.png",
-        "1197",
-        "271",
-        "",
-        ""
-      ]
-    }
-  ]
-}
-[/block]
+![Quote](/assets/img/horiz-quote-11.svg){: .center-image }
+
+![Black quote](/assets/img/horiz-quote-black-11.png){: .center-image }
 
 [block:api-header]
 {
@@ -78,23 +49,10 @@ To be clear, the article was written before Legalese was launched, and the sourc
   "title": "On our funding round"
 }
 [/block]
+
 We recently raised our first angel round of ~US$415,000.  The lead investor was [Walden International](https://www.crunchbase.com/organization/walden-international).
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/a43d081-legalese-team.png",
-        "legalese-team.png",
-        950,
-        529,
-        "#201b11"
-      ],
-      "caption": "Meng, Alexis, and Chiah Li with our big check from Walden!"
-    }
-  ]
-}
-[/block]
+
+![Cheque](/assets/img/legalese-team.png){: .center-image }
 
 [block:api-header]
 {
@@ -102,58 +60,19 @@ We recently raised our first angel round of ~US$415,000.  The lead investor was 
   "title": "Contributors and Advisors"
 }
 [/block]
+
 **Wong** Meng Weng is a co-founder of Legalese, a LegalTech startup that applies computer science to contracts. Meng previously designed Internet email infrastructure (RFC4408), co-founded two high-tech startups, and helped launch JFDI.Asia, Singapore’s first seed accelerator. Perl, Javascript, Haskell, Prolog, Emacs. upenn.edu ’97, fellowships at [unive.it](http://www.unive.it/) and [Harvard Berkman-Klein](https://cyber.law.harvard.edu).
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/8d3a473-egg-5183884948_47cd44f5f6_z.jpg",
-        "egg-5183884948_47cd44f5f6_z.jpg",
-        427,
-        640,
-        "#e7b392"
-      ],
-      "caption": "Wong Meng Weng"
-    }
-  ]
-}
-[/block]
+
+![Mengwong](/assets/img/egg-5183884948_47cd44f5f6_z.jpg){: .center-image }
 
 Dr. Virgil **Griffith** is an advisor and evangelist.  Virgil holds a Ph.D. in theoretical neurobiology from [Caltech](http://cns.caltech.edu).  His previous work includes [WikiScanner](https://en.wikipedia.org/wiki/WikiScanner) and [onion.link](https://onion.link/), the world’s largest search engine for the dark web.  The New York Times has dubbed him the "[Internet Man of Mystery](www.nytimes.com/2008/11/23/magazine/23wwln-medium-t.html)”.  His Erdős and Bacon numbers are both 3.  
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/795e0ea-11811326_10106041241495479_1194254070473685438_n.jpg",
-        "11811326_10106041241495479_1194254070473685438_n.jpg",
-        594,
-        594,
-        "#473c3e"
-      ],
-      "caption": "Virgil Griffith"
-    }
-  ]
-}
-[/block]
+
+![Virgil](/assets/img/11811326_10106041241495479_1194254070473685438_n.jpg){: .center-image }
+
 Alexis Natalie **Chun** is a recovering lawyer, project consultant, and self-taught programmer. An advocate and solicitor of the Supreme Court of Singapore, she received her Bachelor of Laws from Queen Mary, University of London. She has practiced litigation and corporate contract law at TSMP Law Corporation and Rajah & Tann. She was introduced to Meng by Virgil and soon thereafter became one of the co-founders of Legalese.
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/84ab2c5-IMG_8108.jpg",
-        "IMG_8108.jpg",
-        1720,
-        1486,
-        "#3c363c"
-      ],
-      "caption": "Alexis Natalie Chun Jie-Shi"
-    }
-  ]
-}
-[/block]
+
+![Alexis](/assets/img/IMG_8108.jpg){: .center-image }
+
 **Ong** Chiah Li is an expert on venture capital and private equity.  She speaks 5 languages; in order of fluency: English, Cantonese, Mandarin, French, and Japanese.  She carries around a mac and a kindle, works in emacs and a novice programmer in Haskell.  
 
 Johanan **Ottensooser** is a lawyer specialised in derivatives, financial markets and services, and asset finance and infrastructure. Johanan also codes in LISP.   Johanan has a Bachelor of Law (First Class) and Bachelor of Business (Economics) from the University of Technology, 
