@@ -30,6 +30,9 @@ There's a lot going in in the LegalTech industry, [says TechCrunch.](http://tech
 	</li>
 	<li>Number of Legal Startups <a href="http://www.lawsitesblog.com/2016/04/number-legal-startups-nearly-triples-two-years.html">Nearly Triples in Two Years</a> which attracts rebuttal <a href="http://associatesmind.com/2016/04/20/not-explosion-legaltech/">There is NOT An Explosion In LegalTech</a>
 	</li>
+	<li>
+		<a href="https://medium.com/the-algorithmic-society/welcome-to-the-algorithimic-society-855d32fa450e">Welcome to the Algorithmic Society</a>
+	</li>
 </ul>
 
 
