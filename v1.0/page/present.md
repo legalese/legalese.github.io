@@ -4,6 +4,12 @@ layout: "default"
 excerpt: ""
 ---
 
+<fancyblockquote>
+For legal services providers other than lawyers in law firms, [there] is the opportunity to build new and disruptive business models and to demonstrate their value as full-fledged members of the legal industry.
+	<div class="source"><a target="_blank" href="https://medium.com/the-algorithmic-society/welcome-to-the-algorithimic-society-855d32fa450e">Welcome to the Algorithmic Society, Ken Grady</a></div>
+</fancyblockquote>
+
+
 There's a lot going in in the LegalTech industry, [says TechCrunch.](http://techcrunch.com/2014/12/06/legal-tech-startups-have-a-short-history-and-a-bright-future)
 
 # Overview
