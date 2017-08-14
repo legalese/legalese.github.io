@@ -65,7 +65,7 @@ We recently raised our first angel round of ~US$415,000.  The lead investor was 
 
 ![Mengwong](/assets/img/egg-5183884948_47cd44f5f6_z.jpg){: .center-image }
 
-Dr. Virgil **Griffith** is an advisor and evangelist.  Virgil holds a Ph.D. in theoretical neurobiology from [Caltech](http://cns.caltech.edu).  His previous work includes [WikiScanner](https://en.wikipedia.org/wiki/WikiScanner) and [onion.link](https://onion.link/), the world’s largest search engine for the dark web.  The New York Times has dubbed him the "[Internet Man of Mystery](www.nytimes.com/2008/11/23/magazine/23wwln-medium-t.html)”.  His Erdős and Bacon numbers are both 3.  
+Dr. Virgil **Griffith** is an advisor and evangelist.  Virgil holds a Ph.D. in theoretical neurobiology from [Caltech](http://cns.caltech.edu).  His previous work includes [WikiScanner](https://en.wikipedia.org/wiki/WikiScanner) and [onion.link](https://onion.link/), the world’s largest search engine for the dark web.  The New York Times has dubbed him the "[Internet Man of Mystery](https://www.nytimes.com/2008/11/23/magazine/23wwln-medium-t.html)”.  His Erdős and Bacon numbers are both 3.  
 
 ![Virgil](/assets/img/11811326_10106041241495479_1194254070473685438_n.jpg){: .center-image }
 
