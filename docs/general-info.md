@@ -32,7 +32,7 @@ These workflows, the first few to be published, are designed to support incorpor
 
 ## The Spreadsheet
 
-1. At the heart of each step is a Google Docs spreadsheet. If you haven't already run [Tutorial 1](https://legalese.readme.io/v1.0/docs/1-hello-world), do that now.
+1. At the heart of each step is a Google Docs spreadsheet. If you haven't already run [Tutorial 1](https://legalese.com/docs/1-hello-world), do that now.
 2. A Legalese spreadsheet contains information about your company and the parties it deals with, usually under the Entities tab. That's where you inscribe the particulars about founders, investors, employees, volunteers, etc. If you're raising a round, you will also need to fill out the Cap Table spreadsheet.
 3. Each tab in the spreadsheet produces one or more documents – a docset.
 4. The templates are filled based on the information in the spreadsheet.

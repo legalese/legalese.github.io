@@ -12,7 +12,7 @@ We get about 2-3 requests like this per day.  And if we agreed to them, we would
 If you or your firm wish a relationship that goes beyond an exchange of logos, please email [collective@legalese.com](mailto:collective@legalese.com) with a proposal that describes deliverables for both parties with specific dates. If your proposal does not contain these specifics, you are unlikely to get a response.
 
 ## Tech Support needed!
-If our app isn't working, use the [support forum](https://legalese.readme.io/discuss).
+If our app isn't working, use the [support forum](https://groups.google.com/a/lists.legalese.com/forum/#!forum/talk).
 
 ## I like what you're doing, keep me posted on your progress
 * Bi-monthly announcements go out to the [wellwishers mailing list](https://groups.google.com/a/lists.legalese.com/d/forum/wellwishers).
