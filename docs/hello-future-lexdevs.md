@@ -13,7 +13,7 @@ excerpt: ""
     <span class="ng-binding">I'm a law-student or lawyer who wants to learn more about the exciting world of legal programming!  What do I do?</span>
       </h3>
 
-  <div marked="data.body" class="ng-isolate-scope"><p>Hello future power-users!  We are developing the L4 language that can handle simple contracts such as our <a href="announcements/a-food-eating-contract">A food eating contract</a>.  Once that's done, we'd love to see some of things you do with it.  Eventually we'll be asking you to learn L4, try translating common contracts into it, to see what the compiler produces.</p>
+  <div marked="data.body" class="ng-isolate-scope"><p>Hello future power-users!  We are developing the L4 language that can handle simple contracts such as our <a href="../announcements/food-eating-contract.md">A food eating contract</a>.  Once that's done, we'd love to see some of things you do with it.  Eventually we'll be asking you to learn L4, try translating common contracts into it, to see what the compiler produces.</p>
   </div>
   </div>
   
