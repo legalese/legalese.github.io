@@ -11,8 +11,8 @@ v1 is a working prototype for founders of Singapore startups to produce all the 
 
 
 ## For Founders
-* [Help, my startup needs legal agreements!](page:help-my-startup-needs-legal-agreements) 
-* [Prior Art and Alternatives](page:prior-art-and-alternatives) 
+* [Help, my startup needs legal agreements!]({{ site.baseurl }}{% link pages_extra/help-my-startup-needs-legal-agreements.md %}) 
+* [Prior Art and Alternatives]({{ site.baseurl }}{% link v1.0/page/past.md %}) 
 
 ## For Developers
 * [Joining Legalese](https://legalese.com/v1.0/page/contact#section-i-want-to-join-the-team)

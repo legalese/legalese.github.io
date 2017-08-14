@@ -61,7 +61,7 @@ We applied for a SPRING TECS POC grant. This grant may reimburse up to $250k. Th
 # Other Media Coverage and Public Appearances
 * Artificial Lawyer [interviewed](https://artificiallawyer.com/2016/07/29/al-interview-software-is-eating-law-legalese-com/) Alexis Chun.
 * Virgil presented Legalese at the Asilomar Microcomputer Workshop (back in May).
-* Meng presented at the Singapore Haskell Meetup. ([notes](https://github.com/legalese/legalese.com/blob/master/blog/20160710-haskell.org))
+* Meng presented at the Singapore Haskell Meetup. ([notes](https://github.com/legalese/legalese.com/blob/master/blog2/20160710-haskell.org))
 
 # Research into L4
 People ask: “will lawyers use L4?” Our answer: why not? Students entering law schools in 2026 will have learned to program as children; law schools then might well be teaching L4 as a core requirement.

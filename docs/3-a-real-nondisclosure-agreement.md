@@ -36,7 +36,7 @@ Let's start with a simple agreement: a nondisclosure.
 
 7. There are two kinds of NDAs: unilateral and bilateral. Change cell B9 to suit, and generate again, if necessary.
 
-8. If you actually want to send a real NDA, update the Entities in Hello Word with real particulars, then repeat the steps from [Tutorial 3](doc:tutorial-3-send-for-signature).
+8. If you actually want to send a real NDA, update the Entities in Hello Word with real particulars, then repeat the steps from [Tutorial 3]({{ site.baseurl }}{% link docs/2-send-for-signature.md %}).
 
 <div class="block-callout block-show-callout  type-info block-show-callout  type-info ng-valid" type="section.type" ng-model="section.data">
   <h3>

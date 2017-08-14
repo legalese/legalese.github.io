@@ -11,7 +11,7 @@ excerpt: ""
 
 We're building the Computational Legal tech stack. At the bottom, we're contributing languages and compilers. At the top, we're making apps.
 
-* v1 and v2 handle all paperwork needed for seed investments. v1 is ready – see [Documentation](/docs). v2 will launch early 2017.
+* v1 and v2 handle all paperwork needed for seed investments. v1 is ready – see [Documentation]({{ site.baseurl }}{% link docs/getting-started.md %}). v2 will launch early 2017.
 * v3 is in research stage. We're building L4, a Turing-complete language which satisfies the formalism requirements of [Hvitved 2012](https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU).
 
 # Background and Context

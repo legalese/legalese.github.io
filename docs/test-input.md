@@ -47,7 +47,7 @@ Some people are addicted to Emacs and can't get off it.
 
 In Ye Olde Days of mainframe computers, developers would write their code on physical paper punch cards, bring those cards to the computer center in a shoebox, and submit them to be run. The next day, they would come back, and their jobs would have run overnight, and they would be handed back the shoebox together with a large ream of paper representing the printout. Thus was born the edit-compile-run-debug loop, and it would take days or weeks to build the simplest thing.
 
-In the 1990s we got interactive terminals, desktop workstations, laptops, and locally hosted development environments. The idea of the [read-eval-print loop](https://en.wikipedia.org/wiki/Read%25E2%2580%2593eval%25E2%2580%2593print_loop) came about with interactive scripting languages. Everything got faster.
+In the 1990s we got interactive terminals, desktop workstations, laptops, and locally hosted development environments. The idea of the [read-eval-print loop](https://en.wikipedia.org/wiki/Read-eval-print_loop) came about with interactive scripting languages. Everything got faster.
 
 Unfortunately, with the Cloud, we now have regressed a little. Because the Google Apps thingy runs in the cloud, there is, alas, no way for us to run a local dev version of the Google Apps engine. So, every time we want to run something, we have to do the equivalent of bringing a shoebox to the data center, which is to say we have to copy and paste from our local editors to the Google Apps Script `code.gs` window.
 

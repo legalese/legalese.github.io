@@ -157,7 +157,7 @@ Legalese is importing all of these agreements. After you configure your deal in 
 		<a href="http://www.thedocyard.co/">The Doc Yard</a> is a polished app for lawyers to address the paint point of deal negotiation and closing.
 	</li>
 	<li>
-		<a href="legalspace.world/service/visa">Legal Space</a> is a digital immigration and visa solution for relocating to the USA.
+		<a href="http://legalspace.world/service/visa">Legal Space</a> is a digital immigration and visa solution for relocating to the USA.
 	</li>
 	<li>
 		<a href="https://www.iubenda.com/">Iubenda</a> generates T&Cs for privacy policies and cookies
@@ -1061,7 +1061,7 @@ Borrowing from social science, these apply computational data-science techniques
 			<a href="https://angel.co/legal">AngelList shows over a thousand startups in the legal category</a>, but many of these are what we call "law firms with websites", not actual LegalTech startups
 		</li>
 		<li>
-			<a href="https://artificiallawyer.com)">Artificial Lawyer</a> is a blog covering the computational legal field
+			<a href="https://artificiallawyer.com">Artificial Lawyer</a> is a blog covering the computational legal field
 		</li>
 	</ul>
 </div>
@@ -1090,7 +1090,7 @@ Reliable natural language processing is a *vastly harder* problem than domain-sp
 </ul>
 
 ## Unauthorized Practice of Law
-Wait, aren't a lot of these startups [breaking the law](href="http://www.abajournal.com/magazine/article/latest_legal_victory_has_legalzoom_poised_for_growth)? Well, maybe the law is broken.
+Wait, aren't a lot of these startups [breaking the law](http://www.abajournal.com/magazine/article/latest_legal_victory_has_legalzoom_poised_for_growth)? Well, maybe the law is broken.
 
 
 * [Robot, Robot &amp; Hwang](http://www.robotandhwang.com/)

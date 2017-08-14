@@ -9,7 +9,7 @@ Three frogs have been working on a business together. After successful customer 
 These are the documents produced by Legalese's Singapore Incorporation workflow. In the future, Legalese will offer incorporation workflows for every jurisdiction in the world, so you can form a Delaware corporation, a BVI / Cayman vehicle, etc. For now, we use the Singapore example, because that's where the frogs happen to live.
 
 ## Clone the Google Spreadsheet
-The [1: Tutorial](doc:tutorial-2-hello-world)  talks about how to do this for real. For now, just scroll through to see what happens.
+The [1: Tutorial]({{ site.baseurl }}{% link docs/1-hello-world.md %})  talks about how to do this for real. For now, just scroll through to see what happens.
 
 ## Configure The Company
 Describe the frogs in the `Entities` tab. You will need all their deets. Now would be a good time to scan the founders' passports and proof of address, and save them into Google Drive, because your corporate secretary will ask to see these documents. (Tip: before you hire a corporate secretary, first ask how comfortable they are with using Google Drive and other intimidating computer technologies.)
