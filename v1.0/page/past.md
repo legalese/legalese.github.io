@@ -8,7 +8,7 @@ The legal informatics industry is older than most web developers working today.
 
 <fancyblockquote>
 Everything &ldquo;THEDAO&rdquo; tried to be, it could have been correctly and in full compliance with the law. For this reason, what blockchain companies should be trying to do is take complex financial, business, and governance processes and turn them into machine-readable protocols that also tick all of the human requirements, legal or otherwise. A bit of code that does all those things is what a smart contract actually is.
-  <div class="source"><a target="_blank" href="https://prestonbyrne.com/2016/06/20/failing-fast-vs-failing-unnecessarily/">Failing Fast vs Failing Unnecessarily, Preston Byrne</a></div>
+  <div class="source"><a target="_blank" href="http://web.archive.org/web/20170312080506/https://prestonbyrne.com/2016/06/20/failing-fast-vs-failing-unnecessarily/">Failing Fast vs Failing Unnecessarily, Preston Byrne</a></div>
 </fancyblockquote>
 
 # Why the Status Quo causes pain
@@ -36,7 +36,7 @@ Contracts are different. Once executed, they don't change. Parties can turn host
 			<a href="http://lawreview.law.ucdavis.edu/issues/46/2/Articles/46-2_Surden.pdf">Harry Surden's Computable Contracts, 2012</a>
 		</li>
 		<li>
-			<a href="http://szabo.best.vwh.net/smart_contracts_idea.html">Nick Szabo, Smart Contracts, 1997</a>
+			<a href="http://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/idea.html">Nick Szabo, Smart Contracts, 1997</a>
 		</li>
 		<li>
 			<a href="http://compk.stanford.edu/">Stanford's Computable Contracts Initiative</a>
@@ -207,7 +207,7 @@ With the advent of electronic and digital signatures, the execution of such pape
 5. A particular document may be a collection of resolutions, or a contract.
 
 * [Knowledge-Based Systems and Legal Applications](https://play.google.com/store/books/details?id=ST2jBQAAQBAJ&rdid=book-ST2jBQAAQBAJ&rdot=1&source=gbs_vpt_read&pcampaignid=books_booksearch_viewport)
-* [Stash](http://stashcrypto.com/smart-contracts-info) has self-executing smart contracts
+* [Stash](https://stashcrypto.com/) has self-executing smart contracts
 * [Ethereum](https://ethereum.org/) is obviously all over this.
 
 <div class="block-callout block-show-callout  type-warning block-show-callout  type-warning ng-valid" type="section.type" ng-model="section.data">
@@ -338,7 +338,7 @@ The need for formal systems is dawning on r/ethereum:
 * [This list of languages with compile into the EVM](https://github.com/pirapira/awesome-ethereum-virtual-machine#programming-languages-that-compile-into-evm)
 
 Papers include:
-* [Certified Symbolic Management of Financial Multi-party Contracts](http://www.diku.dk/~paba/pubs/entries/bahr15icfp.html)
+* [Certified Symbolic Management of Financial Multi-party Contracts](http://hiperfit.dk/pdf/icfp15-contracts-final.pdf)
 * [Safer smart contracts through type-driven development](http://publications.lib.chalmers.se/records/fulltext/234939/234939.pdf)
 * [Evaluation of Logic-Based Smart Contracts for Blockchain Systems](https://www.researchgate.net/publication/303679677_Evaluation_of_Logic-Based_Smart_Contracts_for_Blockchain_Systems)
 * Validation and Verification of Smart Contracts: a Research Agenda. Daniele Magazzeni, Peter McBurney, William Nash. IEEE Computer Journal, Special Issue on Blockchain Technology for Finance. September 2017

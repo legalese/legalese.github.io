@@ -189,7 +189,7 @@ Legalese is importing all of these agreements. After you configure your deal in 
 		<a href="https://www.documents-taylorwessing.com/">Taylor Wessing's Documents</a> (UK)
 	</li>
 	<li>
-		<a href="http://www.bvca.co.uk/ResearchPublications/Publications/StandardIndustryDocuments/Modeldocumentsforearlystageinvestments.aspx">BVCA</a> (UK)
+		<a href="https://www.bvca.co.uk/Policy/Tax-Legal-and-Regulatory/Industry-guidance-standardised-documents/Model-documents-for-early-stage-investments">BVCA</a> (UK)
 	</li>
 	<li>
 		<a href="https://www.orrick.com/practices/corporate/emergingCompanies/startup/forms_index.asp">Orrick's Start-Up Forms Library</a> and <a href="https://tsc.orrick.com/">term sheets</a>
@@ -361,7 +361,7 @@ Legalese is importing all of these agreements. After you configure your deal in 
 		<a href="http://venturehacks.com/articles/cap-table">VentureHacks</a>
 	</li>
 	<li>
-		<a href="http://www.askthevc.com/wp/archives/tag/cap-table">AskTheVC</a>
+		<a href="http://www.askthevc.com/archives/tag/cap-table">AskTheVC</a>
 	</li>
 	<li>
 		<a href="http://captable.io/">Captable.io</a>
@@ -413,7 +413,7 @@ Legalese is importing all of these agreements. After you configure your deal in 
 
 <ul class="li-inline">
 	<li>
-		<a href="http://www.radiantlaw.com/how-we-work/document-automation/">RadiantLaw</a>
+		<a href="http://radiantlaw.com/blog/document-automation-is-legal-rocket-fuel">RadiantLaw</a>
 	</li>
 	<li>
 		<a href="http://www.cooleygo.com/documents/index-document-generators">CooleyGo</a>
@@ -515,7 +515,7 @@ Legalese is importing all of these agreements. After you configure your deal in 
 		<a href="http://www.exari.com/">Exari</a>
 	</li>
 	<li>
-		<a href="https://caserails.com/">CaseRails</a>
+		<a href="https://caserails.com/">CaseRails</a>, unfortunately now <a href="https://www.forbes.com/sites/maryjuetten/2016/05/11/failing-gracefully-caserails-journey/#3f35ceab6fd2">defunct</a>
 	</li>
 	<li>
 		<a href="http://xpressdox.com/">XpressDox</a>
@@ -651,9 +651,6 @@ Legalese is importing all of these agreements. After you configure your deal in 
 	<li>See also <a href="http://www.inc.com/drew-hendricks/the-4-startups-changing-the-legal-landscape.html">Inc.com on 4 Startups changing the Legal Landscape</a>
 	</li>
 	<li>
-		<a href="https://www.ramendocs.com/">RamenDocs</a>
-	</li>
-	<li>
 		<a href="http://www.allegorylaw.com/#allegory">Allegory Law</a>
 	</li>
 	<li>
@@ -699,7 +696,7 @@ Legalese is importing all of these agreements. After you configure your deal in 
 		<a href="http://www.firmzen.com/">Firmzen</a>
 	</li>
 	<li>
-		<a href="http://www.legify.com/">Legify</a>
+		<a href="http://web.archive.org/web/20160111030605/http://www.legify.com/">Legify</a>, which seems defunct
 	</li>
 	<li>
 		<a href="http://lawful.ly/">Lawful.ly</a>
@@ -752,7 +749,7 @@ Legalese is importing all of these agreements. After you configure your deal in 
 		<a href="http://www.acadmx.com/">Academx</a> helps lawyers write
 	</li>
 	<li>
-		<a href="https://www.mylegalwhiz.com/">MyLegalWhiz</a>, <a href="https://www.intelllex.com/users/sign_up">Intelllex</a> and <a href="http://www.rossintelligence.com/">Ross Intelligence</a> help lawyers do research
+		<a href="https://www.mylegalwhiz.com/">MyLegalWhiz</a>, <a href="https://www.intelllex.com/welcome">Intelllex</a> and <a href="http://www.rossintelligence.com/">Ross Intelligence</a> help lawyers do research
 	</li>
 	<li>
 		<a href="http://www.bluejlegal.com/">Blue J Legal</a> helps lawyers research tax law
@@ -804,7 +801,7 @@ Legalese is importing all of these agreements. After you configure your deal in 
 		<a href="http://lexpert.com/en/documents/Haapio-Next_Generation_Contracts.pdf">Next Generation Contracts</a> by Helena Haapio
 	</li>
 	<li>
-		<a href="http://szabo.best.vwh.net/contractlanguage.html">Nick Szabo on formal languages</a>
+		<a href="http://nakamotoinstitute.org/contract-language/">Nick Szabo on formal languages</a>
 	</li>
 	<li>
 		<a href="http://lawreview.law.ucdavis.edu/issues/46/2/Articles/46-2_Surden.pdf">Surden on Computable Contracts</a>
@@ -847,7 +844,7 @@ Borrowing from social science, these apply computational data-science techniques
 		<a href="http://www.ibtimes.co.uk/barclays-smart-contract-templates-heralds-first-ever-public-demo-r3s-corda-platform-1555329">CLACK at UCL</a>
 	</li>
 	<li>
-		<a href="https://medium.com/@ConsenSys/what-if-we-developed-legal-contracts-like-we-developed-software-applications-1b5bc8fbb915#.uoiiqx9ku">Joe Dewey's essay</a> on <a href="http://contractcode.meteor.com/">ContractCode</a>, April 6, 2016
+		<a href="https://medium.com/@ConsenSys/what-if-we-developed-legal-contracts-like-we-developed-software-applications-1b5bc8fbb915#.uoiiqx9ku">Joe Dewey's essay</a> on <a href="http://contractcode.io/">ContractCode</a>, April 6, 2016
 	</li>
 	<li>
 		<a href="http://commonform.github.io/">CommonForm</a>
@@ -904,7 +901,7 @@ Borrowing from social science, these apply computational data-science techniques
 		<a href="http://www.diku.dk/hjemmesider/ansatte/hvitved/publications/hvitved10flacosb.pdf">A Survey of Formal Languages for Contracts</a> from FLACOS 2010
 	</li>
 	<li>
-		<a href="https://digitalasset.com/press/introducing-daml.html">Digital Assest Modelling Language</a>
+		<a href="http://hub.digitalasset.com/blog/introducing-the-digital-asset-modeling-language-a-powerful-alternative-to-smart-contracts-for-financial-institutions">Digital Assest Modelling Language</a>
 	</li>
 	<li>
 		<a href="http://www.coindesk.com/chain-ivy-blockchain-smart-contract-language/">Ivy Smart Contract Language</a>
@@ -932,9 +929,6 @@ Borrowing from social science, these apply computational data-science techniques
 	</li>
 	<li>
 		<a href="https://attores.com/">Attores</a> will build your smart contracts
-	</li>
-	<li>
-		<a href="http://susa.io/">Susa</a> will build your smart contracts
 	</li>
 	<li>
 		<a href="http://www.adjoint.io/">Adjoint</a> will build and formally verify your smart contracts
@@ -1002,9 +996,6 @@ Borrowing from social science, these apply computational data-science techniques
 	</li>
 	<li>
 		<a href="https://www.silanis.com/">e-SignLive by Silanis</a>
-	</li>
-	<li>
-		<a href="http://www.elock.com/solutions.html">E-Lock</a>
 	</li>
 	<li>and <a href="http://digital-signature.softwareinsider.com/">dozens more (see the full list)</a>
 	</li>
