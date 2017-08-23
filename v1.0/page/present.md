@@ -515,7 +515,7 @@ Legalese is importing all of these agreements. After you configure your deal in 
 		<a href="http://www.exari.com/">Exari</a>
 	</li>
 	<li>
-		<a href="https://caserails.com/">CaseRails</a>, unfortunately now <a href="https://www.forbes.com/sites/maryjuetten/2016/05/11/failing-gracefully-caserails-journey/#3f35ceab6fd2">defunct</a>
+		CaseRails, unfortunately now <a href="https://www.forbes.com/sites/maryjuetten/2016/05/11/failing-gracefully-caserails-journey/#3f35ceab6fd2">defunct</a>
 	</li>
 	<li>
 		<a href="http://xpressdox.com/">XpressDox</a>
