@@ -1061,6 +1061,70 @@ Three basic types of business rules have been identified in the literature (see 
 
 (I'm writing this without having read Constraint Handling Rules which claims to be More Powerful.)
 
+** some freestyling [2017-08-26 Sat 21:10] off Kowalski
+
+Kowalski & Sadri's LPS offers a fundamental dichotomy between two paradigms which describe two kinds of and two kinds of computation.
+
+Paraphrasing from Integrating Logic Programming and Production Systems in Abductive Logic Programming Agents
+
+https://www.doc.ic.ac.uk/~rak/papers/newbook.pdf
+
+| category                   | bottom                               | top                           | constraints           | remark |
+|----------------------------+--------------------------------------+-------------------------------+-----------------------+--------|
+|                            | procedural                           | logic programming             | integrity constraints |        |
+|                            | reactive rule                        | deliberation rule             |                       |        |
+|                            | production rule                      | deduction rule                |                       |        |
+|                            | event-condition-action               |                               |                       |        |
+| conventional control arrow | ->                                   | <- aka :-                     | '=> false'            |        |
+| state operator             | ':='                                 | assert / retract              |                       |        |
+| first order logic          | implication                          | satisfaction                  |                       |        |
+|                            | synthesis                            | analysis                      |                       |        |
+|                            | bottom up                            | top down                      |                       |        |
+| if statement               | if (x) then { y }                    | x if y                        |                       |        |
+|                            | imperative programming               | declarative                   |                       |        |
+|                            | goals compiled away, appear emergent | goals are explicitly stated   |                       |        |
+|                            | programmer decides what to do        | computer decides what to do   |                       |        |
+|                            | goal                                 | belief                        |                       |        |
+| chaining                   | forward chaining / reasoning         | backward chaining / reasoning |                       |        |
+| searle                     | regulative rule                      | constitutive rule             |                       |        |
+| linguistic                 | verb                                 | noun                          |                       |        |
+|                            | must-do                              | must-be                       |                       |        |
+|                            | shall-do                             | shall-be                      |                       |        |
+| deontics                   | deontic action                       | deontic role                  |                       |        |
+| push/pull                  | push                                 | pull                          |                       |        |
+| meet/seek                  | condition is met                     | condition is sought           |                       |        |
+|                            | enqueue an action for performance    | decide action for performance |                       |        |
+|                            | detect/record an event               | evaluate a trace of events    |                       |        |
+| relations                  | do-verb                              | is-a                          |                       |        |
+| haskell purity             | impure -- IO monad                   | pure                          |                       |        |
+| operational semantics      | state transitions                    |                               |                       |        |
+
+
+also, what about
+*** integrity constraints
+*** assertion and retraction from database
+*** frame problem?
+*** proper ALP
+*** THREE kinds of condition-action rules
+**** reactive rules
+**** goal-reduction rules
+**** forward reasoning rules
+*** random notes while reading Kowalski
+
+~a -> b~
+
+converse: ~b -> a~
+
+contrapositive: ~not b -> not a~
+
+the history of the Wason selection task reads like a history of autistic people trying to make fun of neurotypicals
+
+see p.48, Stenning and van Lambalgen
+
+but it seems easiest to understand humans as interpreting "if" as "iff"
+
+
+
 
 ** diff-oriented rules
 
@@ -1388,6 +1452,15 @@ Each Major Shareholder will have (10) days from the date of notice, to agree in 
 
 *** Type Error
 - debt shouldn't be able to have preemptive rights
+
+*** dangling pointer
+
+https://en.wikipedia.org/wiki/Dangling_pointer
+https://en.wikipedia.org/wiki/Anaphora_(linguistics)
+
+"the aforementioned Potato"
+
+similar to undefined behaviour in operational semantics
 
 *** State Conflict
 - at maturity, a convertible note can automatically redeem or automatically convert, but it can't automatically do both.
