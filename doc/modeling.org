@@ -1063,7 +1063,7 @@ Three basic types of business rules have been identified in the literature (see 
 
 ** some freestyling [2017-08-26 Sat 21:10] off Kowalski
 
-Kowalski & Sadri's LPS offers a fundamental dichotomy between two paradigms which describe two kinds of and two kinds of computation.
+Kowalski & Sadri's LPS offers a fundamental dichotomy between two paradigms which describe two kinds of rules and two kinds of computation.
 
 Paraphrasing from Integrating Logic Programming and Production Systems in Abductive Logic Programming Agents
 
