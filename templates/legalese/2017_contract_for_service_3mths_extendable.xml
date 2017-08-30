@@ -129,7 +129,7 @@ TL;DR IANAL
 
 <numbered_2_para xname="Extension"><b>Extension</b></numbered_2_para>
 <!-- Made it such that the extension term will be the length of the original term-->
-  <numbered_3_para>This Contract may be extended on identical terms for a maximum of <?= data.engagement_term ?> upon agreement in writing between the Contractor and two (2) directors of the Company. In such event, the initial Engagement Term shall be extended accordingly.</numbered_3_para>
+  <numbered_3_para>This Contract may be extended on identical terms upon agreement in writing between the Contractor and any two (2) directors of the Company. In such event, the initial Engagement Term shall be extended accordingly.</numbered_3_para>
 
 <!--A little longwinded, I know. But these are the kinda things that we can set out from the outset based on what we know courts / regulators interpret as distinguishing factors between contractors and employees. Of course when push comes to shove, what actually happens between the parties and how they actually conduct the relationship has more bearing-->
 <a_left_sidehead>Relationship between the Parties</a_left_sidehead>
