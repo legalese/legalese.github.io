@@ -38,11 +38,11 @@ for (var i = 0; i < anchors.length; i++) {
 
 function indiX () {
     var navWrapper = document.body.querySelector(".ns-TabWrapperX");
-
+    
     var navLeft = navWrapper.getBoundingClientRect().left;
     
     var sectionBody = document.body.querySelector(".ns-TabBarModuleX");
-
+    
     var section = sectionBody.getAttribute("data-activesection") || "A";
     
     var activeElement = navWrapper.querySelector("[data-section='"+section+"'] span")
@@ -50,16 +50,16 @@ function indiX () {
     var textPosition = activeElement.getBoundingClientRect();
     
     var indicator = navWrapper.querySelector(".ns-IndicatorX");
-
+    
     indicator.style.transform = "translate3d("+(textPosition.left - navLeft)+"px,0,0) scaleX("+(textPosition.width*0.01)+")";
 }
 
 var clickHandlerX = function() { 
-
+    
     var thisLink = this.getAttribute("data-section");
     
     var sectionBody = document.body.querySelector(".ns-TabBarModuleX");
-
+    
     sectionBody.setAttribute("data-activesection", thisLink);
     
     indiX();
@@ -73,3 +73,4 @@ for (var i = 0; i < anchorsX.length; i++) {
     var current = anchorsX[i];
     current.addEventListener('click', clickHandlerX, false);
 }
+

@@ -53,6 +53,10 @@ body {
     text-decoration: none;
 }
 
+.nav-pills > li + li {
+    margin-left: 0px;
+}
+
 .blurb-nav {
     padding: 0px 50px 0px 50px;
     background-color: white;
@@ -63,7 +67,6 @@ body {
 
 .blurb-nav > li {
     width: 20%;
-    display: inline-block;
 }
 
 .navbar {
@@ -149,8 +152,7 @@ body {
     background-color: rgba(255, 241, 44, 1);
     display: block;
     position: absolute;
-    bottom: 0;
-    left: 0;
+    left: -15px;
     transition-property: transform, left;
     transition-duration: .1s;
     transform-origin: 0;
@@ -228,10 +230,22 @@ ul.li-inline li:not(:first-child)::before {
     margin-left: 4pt;
 }
 
+ul.li-inline.botbar li:not(:first-child)::before {
+    content: "\2219";
+    position:relative;
+    vertical-align: center;
+    margin-right: 6pt;
+    margin-left: 4pt;
+}
+
+.botlink{
+    color: #7a7a7a;
+}
+
 .svg-wrapper {
     height: 40px;
     margin: 0 auto;
-    width: 200px;  
+    width: 200px;
 }
 
 .button-shape {
@@ -244,12 +258,14 @@ ul.li-inline li:not(:first-child)::before {
     transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
 }
 
-.button-text {
+.button-text > a,
+.button-text > a:hover {
     font-family: 'Lato', sans serif;
     font-size: 18px;
     color: rgba(82,254,206, 1);
     top: -38px;
     position: relative;
+    text-decoration: none;
 }
 
 .svg-wrapper:hover .button-shape {
