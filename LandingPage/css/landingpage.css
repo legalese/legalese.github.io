@@ -3,6 +3,56 @@ body {
     font-family: "Lato", sans-serif;
 }
 
+.a-link {
+    color: rgb(40, 75, 226);
+    text-decoration: none;
+    border-bottom: 1px dashed rgb(40, 75, 226);
+    display: inline-block;
+    position: relative;
+    padding: 0 .2em;
+    -webkit-transition: all 250ms;
+    transition: all 250ms;
+    z-index: 2;
+}
+
+.a-link:before {
+    content: "";
+    z-index: -1;
+    width: 100%;
+    height: 0%;
+    background: rgba(40, 75, 226, 0.16);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    -webkit-transition: height 250ms;
+    transition: height 250ms;
+}
+
+.a-link:hover {
+    border-color: transparent;
+    color: rgb(40, 75, 226);
+    text-decoration: none;
+}
+
+.a-link:hover:before {
+    height: 100%;
+}
+
+blockquote {
+    border-left: none;
+}
+
+blockquote:before {
+    display: block;
+    padding-left: 10px;
+    content: "\2018 \2018";
+    font-size: 60px;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    color: #333333;
+}
+
 .container-fluid {
     padding: 0;
 }
@@ -127,6 +177,12 @@ a > div {
 
 .row.text-center.black-rec > h2 {
     font-weight: 300;
+    font-size: 25px;
+}
+
+h2 {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
 }
 
 .get-started {
@@ -249,7 +305,7 @@ ul.li-inline.botbar li:not(:first-child)::before {
 .button-shape {
     stroke-dasharray: 0 500;
     stroke-dashoffset: -240;
-    stroke-width: 12px;
+    stroke-width: 4px;
     fill: black;
     stroke: rgba(82,254,206, 1);
     border-bottom: 5px solid black;
