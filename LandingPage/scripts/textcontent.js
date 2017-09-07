@@ -63,11 +63,26 @@ $('#return-to-top').click(function() {      // When arrow is clicked
 
 // scroll to blurb bar on renavigate
 
-$(".ns-TabBar_LinkX").click(function() {
-    $('html, body').animate({
-        scrollTop: $(".title-blurb").offset().top - $(".legalese-nav").height()
-    }, 500);
+$("li[role=presentation]").click(function() {
+    if ($(this).scrollTop() <= $(".title-blurb").offset().top) {
+	$('html, body').animate({
+            scrollTop: $("#top-c").height() - ($(".legalese-nav").height() * 2)
+	}, 500);
+    } else {
+	$('html, body').animate({
+            scrollTop: $(".title-blurb").offset().top // can't retrieve nav height when it's fixed to top
+	}, 500);
+    }
+    $("li[role=presentation] > a > div").css("border-bottom", "0");
+    $("div", this).css({
+	"border-bottom": "0px solid",
+	"border-color": "rgba(255, 241, 44, 1)"
+    }).animate({
+	borderWidth: 3
+    }, 200);
 });
+
+// fix nav to top
 
 $('.legalese-nav').affix({
     offset: {
@@ -81,4 +96,32 @@ $(".downarrow").click(function() {
     $('html, body').animate({
         scrollTop: $("#top-c").height() - $(".legalese-nav").height()
     }, 500);
+});
+
+// underline navbar items
+
+$(".top-bar-link").click(function() {
+    $(".top-bar-link > div").css("border-bottom", "0");
+    $("div", this).css({
+	"border-bottom": "0px solid",
+	"border-color": "rgba(255, 241, 44, 1)"
+    }).animate({
+	borderWidth: 3
+    }, 200);
+});
+
+// change color of navbar on scroll, show legalese-logo
+
+$(window).scroll(function() {
+    if ($(this).scrollTop() >= $("#first-container").height()) {
+	$("#legalese-logo-nav").show();
+	$(".legalese-nav").css("background-color", "#333333");
+	$("#top-bar > li > a").css("color", "white");
+	$(".fa.fa-twitter").css("color", "white");
+    } else {
+	$("#legalese-logo-nav").hide();
+	$(".legalese-nav").css("background-color", "white");
+	$("#top-bar > li > a").css("color", "#333333");
+	$(".fa.fa-twitter").css("color", "#333333");
+    }
 });

@@ -13,8 +13,9 @@ body {
     letter-spacing: 2px;
 }
 
-.twitter-nav {
-    height: 18px;
+.fa.fa-twitter {
+    color: #333333;
+    font-size: 16px;
 }
 
 .legalese-nav {
@@ -22,6 +23,11 @@ body {
     border: none;
     box-shadow: 0 6px 3px -3px rgba(150,150,150,0.2);
     width: 100%;
+}
+
+.brand-pic {
+    height: 24px;
+    position: inline-block;
 }
 
 .legalese-nav.affix {
@@ -43,12 +49,13 @@ body {
     font-family: "Lato", sans-serif;
 }
 
-.col-md-6.col-md-offset-3 > h3 > a {
+#top-bar > li > a,
+#blurb-nav-id > li > a{
     color: #333333;
     text-decoration: none;
 }
 
-.nav.nav-pills > li > a {
+.col-md-6.col-md-offset-3 > h3 > a {
     color: #333333;
     text-decoration: none;
 }
@@ -63,16 +70,29 @@ body {
     font-family: 'Lato', sans serif;
     font-size: 16px;
     box-shadow: 0px 3px 3px rgba(150,150,150,0.2);
+    height: 67px;
 }
 
 .blurb-nav > li {
     width: 20%;
 }
 
+a > div {
+    display: inline-block;
+}
+
+#statusquo,
+#investornotice,
+#players {
+    padding-top: 8px;
+}
+
 .navbar {
     padding-top: 5px;
     margin-bottom: 0px;
     min-height: 45px;
+    border-radius: 0px;
+    height: 49px;
 }
 
 .nav > li > a.active,
@@ -132,46 +152,13 @@ body {
     margin-top: 20px;
 }
 
-.ns-Indicator {
-    width: 100px;
-    height: 3px;
-    background-color: rgba(255, 241, 44, 1);
-    display: block;
-    position: absolute;
-    bottom: 6px;
-    left: 10;
-    transition-property: transform, left;
-    transition-duration: .1s;
-    transform-origin: 0;
-    transform: translate3d(0, 0, 0) scaleX(0);
-}
-
-.ns-IndicatorX {
-    width: 100px;
-    height: 3px;
-    background-color: rgba(255, 241, 44, 1);
-    display: block;
-    position: absolute;
-    left: -15px;
-    transition-property: transform, left;
-    transition-duration: .1s;
-    transform-origin: 0;
-    transform: translate3d(0, 0, 0) scaleX(0);
-}
-
-.ns-Indicator.affix {
-    position: fixed;
-    top: 6px;
-    left: 10;
-}
-
 #return-to-top {
     position: fixed;
     bottom: 20px;
     right: 20px;
     background: #c2c2c2;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     display: block;
     text-decoration: none;
     -webkit-border-radius: 35px;
@@ -184,12 +171,23 @@ body {
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
+
+#return-to-top-text {
+    position: fixed;
+    bottom: -8px;
+    right: 31px;
+    color: #c2c2c2;
+    display: block;
+    font-size: 11px;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
 #return-to-top i {
     color: rgba(255, 241, 44, 1);
     margin: 0;
     position: relative;
-    left: 16px;
-    top: 13px;
+    left: 11px;
+    top: 10px;
     font-size: 19px;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;

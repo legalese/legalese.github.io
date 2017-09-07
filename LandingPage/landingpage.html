@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Alegreya:400,700|Open+Sans:300,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <link rel="stylesheet" href="css/landingpage.css">
 
 
@@ -22,7 +23,10 @@
   </head>
 
   <body>
-    <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
+    <a href="javascript:" id="return-to-top">
+      <i class="fa fa-chevron-up"></i>
+      <p id="return-to-top-text">TOP</p>
+    </a>
     <div id="top-c">
       <div class="container-fluid" id="first-container">
 	<div class="row">
@@ -47,16 +51,16 @@
 	      </button>
 	    </div>
 	    <div class="collapse navbar-collapse">
-	      <ul class="nav nav-pills nav-justified ns-TabBarModule ns-TabWrapper" id="top-bar">
-		<li><a href="#" data-section="OUR VISION" class="ns-TabBar_Link"><span><b>OUR VISION</b></span></a></li>
-		<li><a href="#" data-section="PRODUCT" class="ns-TabBar_Link"><span><b>PRODUCT</b></span></a></li>
-		<li><a href="#" data-section="FOR CONTRIBUTORS" class="ns-TabBar_Link"><span><b>FOR CONTRIBUTORS</b></span></a></li>
-		<li><a href="#" data-section="TEAM" class="ns-TabBar_Link"><span><b>TEAM</b></span></a></li>
-		<li><a href="#" data-section="BLOG" class="ns-TabBar_Link"><span><b>BLOG</b></span></a></li>
-		<li><a href="#" data-section="CONTACT US" class="ns-TabBar_Link"><span><b>CONTACT US</b></span></a></li>
-		<li><a href="#" data-section="LOG IN" class="ns-TabBar_Link"><span><b>LOG IN</b></span></a></li>
-		<li><a href="#" data-section="TWT" class="ns-TabBar_Link"><img src="images/twitter.svg" class="twitter-nav"></a></li>
-		<span class="ns-Indicator"></span>
+	      <ul class="nav nav-pills nav-justified" id="top-bar">
+		<li><a href="#" class="top-bar-link" id="legalese-logo-nav" style="display:none"><img src="images/legalese-section-logo-20160611-croissant-plain-white.png" class="brand-pic"></a></li>
+		<li><a href="#" class="top-bar-link"><div><b>OUR VISION</b></div></a></li>
+		<li><a href="#" class="top-bar-link"><div><b>PRODUCT</b></div></a></li>
+		<li><a href="#" class="top-bar-link"><div><b>FOR CONTRIBUTORS</b></div></a></li>
+		<li><a href="#" class="top-bar-link"><div><b>TEAM</b></div></a></li>
+		<li><a href="#" class="top-bar-link"><div><b>BLOG</b></div></a></li>
+		<li><a href="#" class="top-bar-link"><div><b>CONTACT US</b></div></a></li>
+		<li><a href="#" class="top-bar-link"><div><b>LOG IN</b></div></a></li>
+		<li><a href="#" class="top-bar-link"><i class="fa fa-twitter"></i></a></li>
 	      </ul>
 	    </div>
 	  </div>
@@ -71,7 +75,7 @@
 	  <p style="font-size: 15px;"><b>Create, automate, and execute the entire workflow &lt; 5 minutes instead</b></p>
 	  <div class="svg-wrapper">
 	    <svg height="40" width="200" xmlns="http://www.w3.org/2000/svg" 
-    xmlns:xlink="http://www.w3.org/1999/xlink">
+		 xmlns:xlink="http://www.w3.org/1999/xlink">
 	      <a href="#">
 		<rect class="button-shape" height="40" width="200" />
 		<div class="button-text"><a href="#"><b>Get Started</b></a></div>
@@ -91,13 +95,12 @@
 
     <div class="container-fluid title-blurb">
       <div class="row text-center">
-	<ul class="nav nav-pills blurb-nav ns-TabBarModuleX ns-TabWrapperX" data-activesection="Pompous Investor Notice">
-	  <li role="presentation" id="statusquo"><a href="#statusquo-content" class="ns-TabBar_LinkX" data-section="The Status Quo Sucks"><span>The Status Quo Sucks</span></a></li>
-	  <li role="presentation" id="informatics"><a href="#informatics-content" class="ns-TabBar_LinkX" data-section="Building Upon 30 Years"><span>Building Upon 30 Years <br> of Legal Informatics</span></a></li>
-	  <li role="presentation" id="investornotice"><a href="#investornotice-content" class="ns-TabBar_LinkX" data-section="Pompous Investor Notice"><span>Pompous Investor Notice</span></a></li>
-	  <li role="presentation" id="complegal"><a href="#complegal-content" class="ns-TabBar_LinkX" data-section="Computational Legal"><span>Our Solution:<br>Computational Legal</span></a></li>
-	  <li role="presentation" id="players"><a href="#players-content" class="ns-TabBar_LinkX" data-section="Other Players in the Space"><span>Other Players in the Space</span></a></li>
-	  <span class="ns-IndicatorX"></span>
+	<ul class="nav nav-pills blurb-nav" id="blurb-nav-id">
+	  <li role="presentation" id="statusquo"><a href="#statusquo-content"><div>The Status Quo Sucks</div></a></li>
+	  <li role="presentation" id="informatics"><a href="#informatics-content"><div>Building Upon 30 Years <br> of Legal Informatics</div></a></li>
+	  <li role="presentation" id="investornotice"><a href="#investornotice-content"><div>Pompous Investor Notice</div></a></li>
+	  <li role="presentation" id="complegal"><a href="#complegal-content"><div>Our Solution:<br>Computational Legal</div></a></li>
+	  <li role="presentation" id="players"><a href="#players-content"><div>Other Players in the Space</div></a></li>
 	</ul>
       </div>
     </div>
@@ -397,7 +400,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="scripts/textcontent.js"></script>
-    <script src="scripts/underline.js"></script>
 
   </body>
 </html>
