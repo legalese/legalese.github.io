@@ -76,7 +76,7 @@ $("li[role=presentation]").click(function() {
     $("li[role=presentation] > a > div").css("border-bottom", "0");
     $("div", this).css({
 	"border-bottom": "0px solid",
-	"border-color": "rgba(255, 241, 44, 1)"
+	"border-color": "rgba(82, 254, 206, 1)"
     }).animate({
 	borderWidth: 3
     }, 200);
@@ -84,9 +84,21 @@ $("li[role=presentation]").click(function() {
 
 // fix nav to top
 
+var lastScrollTop = 0;
+
+$(window).scroll(function(event){
+    var st = $(this).scrollTop();
+    if (st > lastScrollTop) {
+	$(".legalese-nav").fadeOut(500)
+    } else {
+	$(".legalese-nav").fadeIn(500)
+    };
+    lastScrollTop = st;
+});
+
 $('.legalese-nav').affix({
     offset: {
-	top: $("#second-container").offset().top
+ 	top: $("#second-container").offset().top
     }
 })
 
@@ -104,7 +116,7 @@ $(".top-bar-link").click(function() {
     $(".top-bar-link > div").css("border-bottom", "0");
     $("div", this).css({
 	"border-bottom": "0px solid",
-	"border-color": "rgba(255, 241, 44, 1)"
+	"border-color": "rgba(82, 254, 206, 1)"
     }).animate({
 	borderWidth: 3
     }, 200);
@@ -122,6 +134,7 @@ $(window).scroll(function() {
 	$("#legalese-logo-nav").hide();
 	$(".legalese-nav").css("background-color", "white");
 	$("#top-bar > li > a").css("color", "#333333");
+	$("#login").css("color", "rgb(0, 0, 255)");
 	$(".fa.fa-twitter").css("color", "#333333");
     }
 });

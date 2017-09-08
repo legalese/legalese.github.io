@@ -4,9 +4,9 @@ body {
 }
 
 .a-link {
-    color: rgb(40, 75, 226);
+    color: rgb(0, 0, 255);
     text-decoration: none;
-    border-bottom: 1px dashed rgb(40, 75, 226);
+    border-bottom: 1px dashed rgb(0, 0, 255);
     display: inline-block;
     position: relative;
     padding: 0 .2em;
@@ -20,7 +20,7 @@ body {
     z-index: -1;
     width: 100%;
     height: 0%;
-    background: rgba(40, 75, 226, 0.16);
+    background: rgba(0, 0, 255, 0.16);
     bottom: 0;
     left: 0;
     position: absolute;
@@ -30,7 +30,7 @@ body {
 
 .a-link:hover {
     border-color: transparent;
-    color: rgb(40, 75, 226);
+    color: rgb(0, 0, 255);
     text-decoration: none;
 }
 
@@ -40,17 +40,53 @@ body {
 
 blockquote {
     border-left: none;
+    position: relative;
 }
 
 blockquote:before {
     display: block;
     padding-left: 10px;
-    content: "\2018 \2018";
+    content: ",,";
     font-size: 60px;
     position: absolute;
     left: -20px;
-    top: -20px;
+    top: 0px;
     color: #333333;
+    transform: rotate(180deg);
+}
+
+blockquote:after {
+    display: block;
+    padding-left: 10px;
+    content: ",,";
+    font-size: 60px;
+    position: absolute;
+    right: -20px;
+    bottom: 30px;
+    color: #333333;
+}
+
+blockquote footer:before {
+    content: "";
+}
+
+.blockquote-footer {
+    display: inline-block;
+    position: relative;
+}
+
+.blockquote-footer:before {
+    content: "";
+    position: absolute;
+    left    : 40%;
+    bottom  : -25px;
+    height  : 2px;
+    width   : 20%;
+    border-bottom: 2px solid #c2c2c2;
+}
+
+.row-with-blockquote {
+    margin-bottom: 20px;
 }
 
 .container-fluid {
@@ -73,6 +109,10 @@ blockquote:before {
     border: none;
     box-shadow: 0 6px 3px -3px rgba(150,150,150,0.2);
     width: 100%;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 .brand-pic {
@@ -80,10 +120,10 @@ blockquote:before {
     position: inline-block;
 }
 
-.legalese-nav.affix {
+.affix {
     position: fixed;
     top: 0;
-    z-index: 3
+    z-index: 3;
 }
 
 .col-md-6.col-md-offset-3.text-center > h3 {
@@ -98,6 +138,7 @@ blockquote:before {
     font-size: 12px;
     font-family: "Lato", sans-serif;
 }
+
 
 #top-bar > li > a,
 #blurb-nav-id > li > a{
@@ -166,6 +207,8 @@ a > div {
     padding-bottom: 25px;
 }
 
+/* https://unsplash.com/photos/Oaqk7qqNh_c */
+
 .white-back {
     background-image: url('../images/paper.jpg');
     background-size: contain;
@@ -198,10 +241,6 @@ h2 {
 
 .downarrow {
     height: 8vh;
-}
-
-.title-blurb {
-    padding-top: 10px;
 }
 
 .top-container {
@@ -284,17 +323,6 @@ ul.li-inline li:not(:first-child)::before {
     margin-left: 4pt;
 }
 
-ul.li-inline.botbar li:not(:first-child)::before {
-    content: "\2219";
-    position:relative;
-    vertical-align: center;
-    margin-right: 6pt;
-    margin-left: 4pt;
-}
-
-.botlink{
-    color: #7a7a7a;
-}
 
 .svg-wrapper {
     height: 40px;
@@ -326,4 +354,38 @@ ul.li-inline.botbar li:not(:first-child)::before {
     stroke-width: 4px;
     stroke-dashoffset: 0;
     stroke-dasharray: 760;
+}
+
+.bot-container {
+}
+
+.bot-link > p,
+.bot-link > p > a,
+.bot-link > p > a:hover {
+    color: #333333;
+    font-weight: 700;
+    font-size: 10px;
+}
+
+.bot-squeeze {
+    width: 10%;
+    padding: 10px 0 0 0;
+}
+
+#bot-legalese-col {
+    width: 25%;
+    padding-right: 0px;
+}
+
+#rights-reserved,
+#rights-reserved > a{
+    font-size: 8px;
+    color: #c2c2c2;
+}
+
+#bot-legalese {
+    font-family: "Alegreya", serif;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: 4px;
 }
