@@ -11,11 +11,10 @@
 
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Alegreya:400,700|Open+Sans:300,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cardo" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Oswald:400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="css/landingpage.css">
 
 
@@ -39,7 +38,7 @@
 	<div class="row" id="scroll">
 	  <div class="col-md-6 col-md-offset-3 text-center">
 	    <h3><a href="#">LEGALESE</a></h3>
-	    <p>software is eating law</p>
+	    <p id="eating-law">software is eating law</p>
 	  </div>
 	</div>
 	<nav class="navbar navbar-default legalese-nav">
@@ -52,11 +51,11 @@
 	    <li><a href="#" class="top-bar-link"><div><b>TEAM</b></div></a></li>
 	    <li><a href="#" class="top-bar-link"><i class="fa fa-twitter"></i></a></li>
 	    <li><a href="#" class="top-bar-link" id="login" style="color: rgba(0, 0, 255, 1)"><div><b>LOG IN</b></div></a></li>
-		
+	    
 	  </ul>
 	</nav>
       </div>
-      <div class="container-fluid white-back" id="second-container">
+      <div class="container-fluid" id="second-container">
 	<div class="row text-center">
 	  <img src="images/techcrunch.svg" class="techcrunch">
 	</div>
@@ -162,206 +161,529 @@
     <div class="container-fluid top-container" id="investornotice-content">
       <div class="row text-justify">
 	<div class="col-md-8 col-md-offset-2 text-center">
-	  <img src="images/investornotice.png" class="img-responsive">
-	</div>
-      </div>
-    </div>
-
-    <div class="container-fluid top-container" id="players-content" style="display: none">
-      <div class="row text-justify">
-	<div class="col-md-8 col-md-offset-2">
-	  <p>Bye</p>
+	  <img src="images/investornotice.png" class="img-responsive center-block">
 	</div>
       </div>
     </div>
 
     <div class="container-fluid top-container" id="informatics-content" style="display: none">
       <div class="col-md-8 col-md-offset-2">
-	<div class="row text-justify">
+	<div class="row">
 	  <h2>FORMALISING CONTRACTS</h2>
-	  <ul class="li-inline">
-	    <li>
-	      <a class="a-link" href="https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU">Contract Formalisation and Modular Implementation of Domain-Specific Languages</a>, Tom Hvitved's 2012 PhD Thesis, is a key inspiration for Legalese. The first chapter offers a comprehensive survey of prior art in contract formalization.
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://lawreview.law.ucdavis.edu/issues/46/2/Articles/46-2_Surden.pdf">Harry Surden's Computable Contracts, 2012</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/idea.html">Nick Szabo, Smart Contracts, 1997</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://compk.stanford.edu/">Stanford's Computable Contracts Initiative</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://iang.org/papers/ricardian_contract.html">The Ricardian Contract</a>, 2004, relates legal language with executable code via parameterization
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://arxiv.org/abs/1608.00771">Smart Contract Templates by Christopher D. Clack, Vikram A. Bakshi, Lee Braine, 2016</a> describes goals very similar to ours
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://arxiv.org/pdf/cs/0106005.pdf">The Representation of Legal Contracts by Daskalopulu &amp; Sergot</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="https://spiral.imperial.ac.uk/bitstream/10044/1/529/1/Using%20the%20event%20calculus.pdf">Using the Event Calculus for Tracking the Normative State of Contracts</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://www.cse.chalmers.se/~gersch/icail09.pdf">Abstract Specification of Legal Contracts, Prisacariu &amp; Schneider</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://www.cse.chalmers.se/~gersch/slides-talks/slides-CL-ModelChecking.pdf">Towards a Formal Language for Electronic Contracts</a> describes CL
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://folk.uio.no/gerardo/ifm2009.pdf">Challenges in the Specification of Full Contracts</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="https://gupea.ub.gu.se/bitstream/2077/40725/1/gupea_2077_40725_1.pdf">Analysing Normative Contracts</a> by <a class="a-link" href="http://www.cse.chalmers.se/~cajohn/academic.html">John J. Camilleri</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://www.cse.chalmers.se/~gersch/my-publications.html">Many other publications by Gerardo Schneider</a> in association with the <a class="a-link" href="http://cosodis.project.ifi.uio.no/">COSoDIS</a> project, using CL for <a class="a-link" href="http://www.cs.um.edu.mt/svrg/Tools/CLTool/Papers/ictac2009.pdf">automatic conflict detection</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://remu.grammaticalframework.org/contracts/diagrams/">c-o diagrams</a>/
-	    </li>
-	    <li>
-	      <a class="a-link" href="https://www.financialresearch.gov/working-papers/files/OFRwp-2015-04_Contract-as-Automaton-The-Computational-Representation-of-Financial-Agreements.pdf">Contract as Automaton</a> by Flood and Goodenough
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://hdl.handle.net/10443/1814">Abubkr Abdelsadiq (2013) at Newcastle</a> published a toolkit for model checking contracts, using SPIN / Promela rather than Uppaal
-	    </li>
-	    <li>Regarding model checking, see also FormaLex linked elsewhere on this page. They published about formalizing the Argentinean Customer Protection Act, in 2017.
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://www.ai.rug.nl/~verheij/AI4J/papers/AI4J_paper_9_agarwal.pdf">Toward Machine-Understandable Contracts</a>, 2016, by Sudhir Agarwal1, Kevin Xu, John Moghtader at Stanford, defines CDL, Contract Definition Language (implemented in Prolog), part of work at <a class="a-link" href="http://compk.stanford.edu/">the Stanford Computable Contracts initiative</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="https://link.springer.com/chapter/10.1007%2F978-3-319-07443-6_18">These Are Your Rights</a>: A Natural Language Processing Approach to Automated RDF Licenses Generation
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://ieeexplore.ieee.org/document/7774648/">A Domain-Specific Language for Normative Texts with Timing Constraints</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="https://www.researchgate.net/publication/311651290_Reasoning_about_Partial_Contracts">Reasoning about Partial Contracts</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://rbsla.ruleml.org/docs/37910209.pdf">ContractLog</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="https://en.wikipedia.org/wiki/Attempto_Controlled_English">Attempto Controlled English</a> is an example of a formal/natural hybrid language which could be a compiler target.
-	    </li>
-	    <li>
-	      <a class="a-link" href="https://en.wikipedia.org/wiki/Semantics_of_Business_Vocabulary_and_Business_Rules">Semantics of Business Vocabulary and Business Rules</a> is a hybrid formal/natural language for business operation and compliance which could also be a compiler target.
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://richard.myweb.cs.uwindsor.ca/PUBLICATIONS/NLI_LFP_SURVEY_DRAFT.pdf">Realization of Natural Language Interfaces Using Lazy Functional Programming</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://wiki.ruleml.org/index.php/RuleML_Home">RuleML</a> e.g. <a class="a-link" href="https://pdfs.semanticscholar.org/ebca/1f32ac887a975b60552920b9b1be619a87a2.pdf">Modelling Contracts Using RuleML</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="https://www.w3.org/community/odrl/">ORDL</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://www.omg.org/spec/DMN/">DMN: Decision Model and Notation</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="https://docs.camunda.org/manual/7.4/reference/dmn11/feel/">FEEL: Friendly Enough Expression Language</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://ceur-ws.org/Vol-1417/paper8.pdf">RuleLog</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=legalruleml">LegalRuleML</a> is an OASIS Technical Committee.
-	    </li>
-	    <li>
-	      <a class="a-link" href="https://www.w3.org/community/odrl/">ODRL</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="https://www.w3.org/2016/poe/wiki/Main_Page">W3C POE WG</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="https://iptc.org/standards/rightsml/">RightsML</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://www.estrellaproject.org/">The Estrella Project</a> attempted to "develop and validate an open, standards-based platform allowing public administrations to develop and deploy comprehensive legal knowledge management solutions."
-	    </li>
-	    <li>
-	      <a class="a-link" href="https://github.com/RinkeHoekstra/lkif-core">LKIF</a>, an OWL, came out of Estrella.
-	    </li>
-	    <li>
-	      <a class="a-link" href="https://link.springer.com/chapter/10.1007/978-3-642-24690-6_2">Formal Methods as a Link between Software Code and Legal Rules</a>
-	    </li>
+	  <ul>
+	    <li><a class="a-link" href="https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU">Contract Formalisation and Modular Implementation of Domain-Specific Languages</a>, Tom Hvitved's 2012 PhD Thesis, is a key inspiration for Legalese. The first chapter offers a comprehensive survey of prior art in contract formalization.</li>
+	    <li><a class="a-link" href="http://lawreview.law.ucdavis.edu/issues/46/2/Articles/46-2_Surden.pdf">Harry Surden's Computable Contracts, 2012</a></li>
+	    <li><a class="a-link" href="http://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/idea.html">Nick Szabo, Smart Contracts, 1997</a></li>
+	    <li><a class="a-link" href="http://compk.stanford.edu/">Stanford's Computable Contracts Initiative</a></li>
+	    <li><a class="a-link" href="http://iang.org/papers/ricardian_contract.html">The Ricardian Contract</a>, 2004, relates legal language with executable code via parameterization</li>
+	    <li><a class="a-link" href="http://arxiv.org/abs/1608.00771">Smart Contract Templates by Christopher D. Clack, Vikram A. Bakshi, Lee Braine, 2016</a> describes goals very similar to ours</li>
+	    <li><a class="a-link" href="http://arxiv.org/pdf/cs/0106005.pdf">The Representation of Legal Contracts by Daskalopulu &amp; Sergot</a></li>
+	    <li><a class="a-link" href="https://spiral.imperial.ac.uk/bitstream/10044/1/529/1/Using%20the%20event%20calculus.pdf">Using the Event Calculus for Tracking the Normative State of Contracts</a></li>
+	    <li><a class="a-link" href="http://www.cse.chalmers.se/~gersch/icail09.pdf">Abstract Specification of Legal Contracts, Prisacariu &amp; Schneider</a></li>
+	    <li><a class="a-link" href="http://www.cse.chalmers.se/~gersch/slides-talks/slides-CL-ModelChecking.pdf">Towards a Formal Language for Electronic Contracts</a> describes CL</li>
+	    <li><a class="a-link" href="http://folk.uio.no/gerardo/ifm2009.pdf">Challenges in the Specification of Full Contracts</a></li>
+	    <li><a class="a-link" href="https://gupea.ub.gu.se/bitstream/2077/40725/1/gupea_2077_40725_1.pdf">Analysing Normative Contracts</a> by <a class="a-link" href="http://www.cse.chalmers.se/~cajohn/academic.html">John J. Camilleri</a></li>
+	    <li><a class="a-link" href="http://www.cse.chalmers.se/~gersch/my-publications.html">Many other publications by Gerardo Schneider</a> in association with the <a class="a-link" href="http://cosodis.project.ifi.uio.no/">COSoDIS</a> project, using CL for <a class="a-link" href="http://www.cs.um.edu.mt/svrg/Tools/CLTool/Papers/ictac2009.pdf">automatic conflict detection</a></li>
+	    <li><a class="a-link" href="http://remu.grammaticalframework.org/contracts/diagrams/">C-O diagrams</a></li>
+	    <li><a class="a-link" href="https://www.financialresearch.gov/working-papers/files/OFRwp-2015-04_Contract-as-Automaton-The-Computational-Representation-of-Financial-Agreements.pdf">Contract as Automaton</a> by Flood and Goodenough</li>
+	    <li><a class="a-link" href="http://hdl.handle.net/10443/1814">Abubkr Abdelsadiq (2013) at Newcastle</a> published a toolkit for model checking contracts, using SPIN / Promela rather than Uppaal</li>
+	    <li>Regarding model checking, see also FormaLex linked elsewhere on this page. They published about formalizing the Argentinean Customer Protection Act, in 2017.</li>
+	    <li><a class="a-link" href="http://www.ai.rug.nl/~verheij/AI4J/papers/AI4J_paper_9_agarwal.pdf">Toward Machine-Understandable Contracts</a>, 2016, by Sudhir Agarwal1, Kevin Xu, John Moghtader at Stanford, defines CDL, Contract Definition Language (implemented in Prolog), part of work at <a class="a-link" href="http://compk.stanford.edu/">the Stanford Computable Contracts initiative</a></li>
+	    <li><a class="a-link" href="https://link.springer.com/chapter/10.1007%2F978-3-319-07443-6_18">These Are Your Rights</a>: A Natural Language Processing Approach to Automated RDF Licenses Generation</li>
+	    <li><a class="a-link" href="http://ieeexplore.ieee.org/document/7774648/">A Domain-Specific Language for Normative Texts with Timing Constraints</a></li>
+	    <li><a class="a-link" href="https://www.researchgate.net/publication/311651290_Reasoning_about_Partial_Contracts">Reasoning about Partial Contracts</a></li>
+	    <li><a class="a-link" href="http://rbsla.ruleml.org/docs/37910209.pdf">ContractLog</a></li>
+	    <li><a class="a-link" href="https://en.wikipedia.org/wiki/Attempto_Controlled_English">Attempto Controlled English</a> is an example of a formal/natural hybrid language which could be a compiler target.</li>
+	    <li><a class="a-link" href="https://en.wikipedia.org/wiki/Semantics_of_Business_Vocabulary_and_Business_Rules">Semantics of Business Vocabulary and Business Rules</a> is a hybrid formal/natural language for business operation and compliance which could also be a compiler target.</li>
+	    <li><a class="a-link" href="http://richard.myweb.cs.uwindsor.ca/PUBLICATIONS/NLI_LFP_SURVEY_DRAFT.pdf">Realization of Natural Language Interfaces Using Lazy Functional Programming</a></li>
+	    <li><a class="a-link" href="http://wiki.ruleml.org/index.php/RuleML_Home">RuleML</a> e.g. <a class="a-link" href="https://pdfs.semanticscholar.org/ebca/1f32ac887a975b60552920b9b1be619a87a2.pdf">Modelling Contracts Using RuleML</a></li>
+	    <li><a class="a-link" href="https://www.w3.org/community/odrl/">ORDL</a></li>
+	    <li><a class="a-link" href="http://www.omg.org/spec/DMN/">DMN: Decision Model and Notation</a></li>
+	    <li><a class="a-link" href="https://docs.camunda.org/manual/7.4/reference/dmn11/feel/">FEEL: Friendly Enough Expression Language</a></li>
+	    <li><a class="a-link" href="http://ceur-ws.org/Vol-1417/paper8.pdf">RuleLog</a></li>
+	    <li><a class="a-link" href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=legalruleml">LegalRuleML</a> is an OASIS Technical Committee.</li>
+	    <li><a class="a-link" href="https://www.w3.org/community/odrl/">ODRL</a></li>
+	    <li><a class="a-link" href="https://www.w3.org/2016/poe/wiki/Main_Page">W3C POE WG</a></li>
+	    <li><a class="a-link" href="https://iptc.org/standards/rightsml/">RightsML</a></li>
+	    <li><a class="a-link" href="http://www.estrellaproject.org/">The Estrella Project</a> attempted to "develop and validate an open, standards-based platform allowing public administrations to develop and deploy comprehensive legal knowledge management solutions."</li>
+	    <li><a class="a-link" href="https://github.com/RinkeHoekstra/lkif-core">LKIF</a>, an OWL, came out of Estrella.</li>
+	    <li><a class="a-link" href="https://link.springer.com/chapter/10.1007/978-3-642-24690-6_2">Formal Methods as a Link between Software Code and Legal Rules</a></li>
 	  </ul>
 	</div>
-	<div class="row text-justify">
+	<div class="row">
 	  <h2>Other Efforts</h2>
-	  <ul class="li-inline">
-	    <li>
-	      <a class="a-link" href="http://www.ibtimes.co.uk/barclays-smart-contract-templates-heralds-first-ever-public-demo-r3s-corda-platform-1555329">CLACK at UCL</a> (<a class="a-link" href="http://clacklang.org/">clacklang.org</a>), which may inform <a class="a-link" href="http://www.ibtimes.co.uk/r3-extends-collaboration-smart-contract-templates-summit-1570121">R3's work</a> (see <a class="a-link" href="static1.squarespace.com/static/55f73743e4b051cfcc0b02cf/t/5784f5dbebbd1aba2d3e400e/1468331499513/R3+Smart+Contract+Templates+Summit+_FINAL.pdf">slides</a>)
-	    </li>
-	    <li>
-	      <a class="a-link" href="https://www.lexifi.com/product/technology/contract-description-language">Lexifi's MLFi was one of the earliest commercializations of financial contract formalization</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="https://medium.com/@ConsenSys/what-if-we-developed-legal-contracts-like-we-developed-software-applications-1b5bc8fbb915#.uoiiqx9ku">Joe Dewey's essay</a> on <a class="a-link" href="http://contractcode.io//">ContractCode</a>, April 6, 2016
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://commonform.github.io/">CommonForm</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="https://medium.com/@PaxDirectory/codex-a-legal-scripting-language-e3723cc76662#.neyprdp7o">Codex</a> by Pax is a scripting language for Ethereum; <a class="a-link" href="http://bitlegal.io/2016/03/03/codex-a-new-smart-contracts-language/">in concert with Pax Directory</a>
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://www.restatement.org/">Restatement</a> by Jason Boehmig, Tim Hwang, and Paul Sawaya. (<a class="a-link" href="https://blog.law.cornell.edu/voxpop/2014/06/03/rough-consensus-running-standards-the-restatement-project/">intro essay</a>; see also <a class="a-link" href="https://github.com/legalese-io/legalese-io.github.io/blob/master/doc/modeling.org#background-reading">Modeling - Background Reading</a>)
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://www.commonaccord.org/">CommonAccord</a> has some <a class="a-link" href="https://docs.google.com/document/d/1jm9t61JnqLqsV50cD9Mzwyu8cXWRmVFaI2XK-UaFggk/pub">early thinking</a> online.
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://law.mit.edu/">Law.MIT.edu</a> takes a social-science approach to examining law: see <a class="a-link" href="https://www.youtube.com/watch?v=G2_1I9aUwgs">Dazza's video</a>.
-	    </li>
-	    <li>
-	      <a class="a-link" href="http://www.governatori.net/research/pubs/defeasible.html">Guido Governatori</a> has published extensively on defeasible logic.
-	    </li>
-	    <li>There is a W3C Working Group on <a class="a-link" href="https://www.w3.org/2016/poe/wiki/Main_Page">Permissions and Obligations Expression</a> which has published an <a class="a-link" href="https://www.w3.org/TR/vocab-odrl/">ODRL Vocabulary and Expression</a> draft standard.
-	    </li>
-	    <li>This is close to <a class="a-link" href="http://wiki.ruleml.org/index.php/RuleML_Home">RuleML</a> and <a class="a-link" href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=legalruleml">LegalRuleML</a>.
-	    </li>
-	    <li></li>
-	    <li>The urge to formalize goes back at least as far as <a class="a-link" href="https://en.wikipedia.org/wiki/Alphabet_of_human_thought">Leibniz</a>.
-	    </li>
-	    <li>
-	      <a class="a-link" href="https://www.law.ox.ac.uk/business-law-blog/blog/2016/07/smart-contracts-bridging-gap-between-expectation-and-reality">Bridging the gap between expectation and reality</a> compares smart vs traditional contracts.
-	    </li>
+	  <ul>
+	    <li><a class="a-link" href="http://www.ibtimes.co.uk/barclays-smart-contract-templates-heralds-first-ever-public-demo-r3s-corda-platform-1555329">CLACK at UCL</a> (<a class="a-link" href="http://clacklang.org/">clacklang.org</a>), which may inform <a class="a-link" href="http://www.ibtimes.co.uk/r3-extends-collaboration-smart-contract-templates-summit-1570121">R3's work</a> (see <a class="a-link" href="static1.squarespace.com/static/55f73743e4b051cfcc0b02cf/t/5784f5dbebbd1aba2d3e400e/1468331499513/R3+Smart+Contract+Templates+Summit+_FINAL.pdf">slides</a>)</li>
+	    <li><a class="a-link" href="https://www.lexifi.com/product/technology/contract-description-language">Lexifi's MLFi was one of the earliest commercializations of financial contract formalization</a></li>
+	    <li><a class="a-link" href="https://medium.com/@ConsenSys/what-if-we-developed-legal-contracts-like-we-developed-software-applications-1b5bc8fbb915#.uoiiqx9ku">Joe Dewey's essay</a> on <a class="a-link" href="http://contractcode.io//">ContractCode</a>, April 6, 2016</li>
+	    <li><a class="a-link" href="http://commonform.github.io/">CommonForm</a></li>
+	    <li><a class="a-link" href="https://medium.com/@PaxDirectory/codex-a-legal-scripting-language-e3723cc76662#.neyprdp7o">Codex</a> by Pax is a scripting language for Ethereum; <a class="a-link" href="http://bitlegal.io/2016/03/03/codex-a-new-smart-contracts-language/">in concert with Pax Directory</a></li>
+	    <li><a class="a-link" href="http://www.restatement.org/">Restatement</a> by Jason Boehmig, Tim Hwang, and Paul Sawaya. (<a class="a-link" href="https://blog.law.cornell.edu/voxpop/2014/06/03/rough-consensus-running-standards-the-restatement-project/">intro essay</a>; see also <a class="a-link" href="https://github.com/legalese-io/legalese-io.github.io/blob/master/doc/modeling.org#background-reading">Modeling - Background Reading</a>)</li>
+	    <li><a class="a-link" href="http://www.commonaccord.org/">CommonAccord</a> has some <a class="a-link" href="https://docs.google.com/document/d/1jm9t61JnqLqsV50cD9Mzwyu8cXWRmVFaI2XK-UaFggk/pub">early thinking</a> online.</li>
+	    <li><a class="a-link" href="http://law.mit.edu/">Law.MIT.edu</a> takes a social-science approach to examining law: see <a class="a-link" href="https://www.youtube.com/watch?v=G2_1I9aUwgs">Dazza's video</a>.</li>
+	    <li><a class="a-link" href="http://www.governatori.net/research/pubs/defeasible.html">Guido Governatori</a> has published extensively on defeasible logic.</li>
+	    <li>There is a W3C Working Group on <a class="a-link" href="https://www.w3.org/2016/poe/wiki/Main_Page">Permissions and Obligations Expression</a> which has published an <a class="a-link" href="https://www.w3.org/TR/vocab-odrl/">ODRL Vocabulary and Expression</a> draft standard.</li>
+	    <li>This is close to <a class="a-link" href="http://wiki.ruleml.org/index.php/RuleML_Home">RuleML</a> and <a class="a-link" href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=legalruleml">LegalRuleML</a>.</li>
+	    <li>The urge to formalize goes back at least as far as <a class="a-link" href="https://en.wikipedia.org/wiki/Alphabet_of_human_thought">Leibniz</a>.</li>
+	    <li><a class="a-link" href="https://www.law.ox.ac.uk/business-law-blog/blog/2016/07/smart-contracts-bridging-gap-between-expectation-and-reality">Bridging the gap between expectation and reality</a> compares smart vs traditional contracts.</li>
 	  </ul>
 	</div>
-	<div class="row text-justify row-with-blockquote">
+	<div class="row row-with-blockquote">
 	  <h2>Original Motivation</h2>
 	  <p>How did we get the idea to represent contracts as code? Once upon a time, a programmer received an investment contract containing the following text:</p>
-	  <blockquote>
-	    If the investment for the purpose of the Series B Funding is valued at not more than $32.5 Million, then the investors in the Note shall be entitled to convert the Note into Shares at a fixed valuation of $27.5 million.
-	    <br>
-	    If the investment for the purpose of the Series B Funding is valued at less than $40 million but not below $32.5 million, investors in the Convertible Note will be entitled to convert the Note into Shares at a 15% discount over the valuation of the Series B Funding (for instance, if the series B Funding is at a valuation of $35 million, then the investors in the Note shall be entitled to convert at a valuation of 35M less 15% discount);
-	    <br>
-	    If the investment for the purpose of the Series B Funding is valued at not less than $40 million but less than $47.06 million, investors in the Convertible Note will be entitled to convert the Note into Shares at a 15% discount over the valuation of the Series B Funding (for instance, if the series B Funding is at a valuation of $47.06 million, then the investors in the Note shall be entitled to convert at a pre-money valuation of 40M i.e. $47.06 million less 15% discount);
-	    <br>
-	    If the investment for the purpose of the Series B Funding is valued at not less than $47.06 million but less than $80 million, investors in the Convertible Note will be entitled to convert the Note into Shares at a fixed pre-money valuation of $40 million;
-	    <br>
-	    If the investment for the purpose of the Series B Funding is valued at not less than $80M but less than $100M, investors in the Convertible Note will be entitled to convert the Note into Shares at a fixed pre-money valuation of $45M; and
-	    <br>
-	    If the investment for the purpose of the Series B Funding is valued at not less than $100 million, investors in the Convertible Note will be entitled to convert the Note into Shares at a fixed pre-money valuation of $50 million.
+	  <blockquote class="text-justify">
+	    <p>If the investment for the purpose of the Series B Funding is valued at not more than $32.5 Million, then the investors in the Note shall be entitled to convert the Note into Shares at a fixed valuation of $27.5 million.</p>
+	    <p>If the investment for the purpose of the Series B Funding is valued at less than $40 million but not below $32.5 million, investors in the Convertible Note will be entitled to convert the Note into Shares at a 15% discount over the valuation of the Series B Funding (for instance, if the series B Funding is at a valuation of $35 million, then the investors in the Note shall be entitled to convert at a valuation of 35M less 15% discount);</p>
+	    <p>If the investment for the purpose of the Series B Funding is valued at not less than $40 million but less than $47.06 million, investors in the Convertible Note will be entitled to convert the Note into Shares at a 15% discount over the valuation of the Series B Funding (for instance, if the series B Funding is at a valuation of $47.06 million, then the investors in the Note shall be entitled to convert at a pre-money valuation of 40M i.e. $47.06 million less 15% discount);</p>
+	    <p>If the investment for the purpose of the Series B Funding is valued at not less than $47.06 million but less than $80 million, investors in the Convertible Note will be entitled to convert the Note into Shares at a fixed pre-money valuation of $40 million;</p>
+	    <p>If the investment for the purpose of the Series B Funding is valued at not less than $80M but less than $100M, investors in the Convertible Note will be entitled to convert the Note into Shares at a fixed pre-money valuation of $45M; and</p>
+	    <p>If the investment for the purpose of the Series B Funding is valued at not less than $100 million, investors in the Convertible Note will be entitled to convert the Note into Shares at a fixed pre-money valuation of $50 million.</p>
 	  </blockquote>
 	  <p>Ten minutes and a strong cup of tea later, the notes in the margin read:</p>
 	  <pre>// why wasn't this just
-if( seriesB < 32.5 )                      { conversion = 27.5 }
-   else if( seriesB < 40 )                { conversion = seriesB * 0.85 }
-      else if( seriesB < 47.06 )          { conversion = seriesB * 0.85 } // then why the above line?
-         else if( seriesB < 80 )          { conversion = 40 }
-            else if( seriesB < 100 )      { conversion = 45 }
-               else                       { conversion = 50 }</pre>
+	    if( seriesB < 32.5 )                      { conversion = 27.5 }
+			  else if( seriesB < 40 )                { conversion = seriesB * 0.85 }
+					     else if( seriesB < 47.06 )          { conversion = seriesB * 0.85 } // then why the above line?
+								else if( seriesB < 80 )          { conversion = 40 }
+										   else if( seriesB < 100 )      { conversion = 45 }
+												      else                       { conversion = 50 }
+												      </pre>
 	  <p>What if contracts could be written in a formal language first, and then compiled to natural language? A simple but powerful idea.  Imagine contracts in English, Spanish, French, German, Chinese – each translation provably identical to the others. Contracts amenable to <a class="a-link" href="https://en.wikipedia.org/wiki/Software_testing">testing</a> and <a class="a-link" href="https://www.quantamagazine.org/20160920-formal-verification-creates-hacker-proof-code/">formal methods</a>: <a class="a-link" href="http://spinroot.com/static/">static analysis</a> can prove that a contract is internally consistent, free of contradiction, and complete. Contracts that self-execute in software, integrated with business processes, interacting with other contracts. Contracts that easily afford illustrations, use cases, and scenarios, for end-users to reason concretely over. This vision has been expressed by <a class="a-link" href="http://szabo.best.vwh.net/contractlanguage.html">Nick Szabo (2002)</a>, by <a class="a-link" href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2216866">Harry Surden (2012)</a>, by <a class="a-link" href="https://financialresearch.gov/working-papers/files/OFRwp-2015-04_Contract-as-Automaton-The-Computational-Representation-of-Financial-Agreements.pdf">Flood &amp; Goodenough (2014)</a>, by <a class="a-link" href="https://arxiv.org/abs/1406.5691">Camilleri, Paganelli, &amp; Schneider (2014)</a>, by <a class="a-link" href="https://link.springer.com/chapter/10.1007%2F978-3-540-72952-5_11">Prisacariu &amp; Schneider (2007)</a>.</p>
 	</div>
       </div>
     </div>
+
+    <div class="container-fluid top-container" id="players-content" style="display: none">
+      <div class="col-md-8 col-md-offset-2">
+	<div class="row">
+	  <h2>Early Stage Investment Templates for Startups</h2>
+	  <p>Legalese is importing all of these agreements. After you configure your deal in a spreadsheet <em>once</em>, Legalese will compile <em>all</em> the agreements you need, automatically translated for your jurisdiction.</p>
+	  <ul>
+	    <li><a class="a-link" href="http://www.ycombinator.com/documents/">Y Combinator</a> has both Series AA and SAFE instruments in four flavours</li>
+	    <li><a class="a-link" href="http://www.techstars.com/docs/">Techstars</a> has both equity and debt instruments</li>
+	    <li><a class="a-link" href="http://www.500.co/kiss">500 Startups</a> offers the KISS</li>
+	    <li><a class="a-link" href="http://www.seriesseed.com/">Series Seed</a> (also for <a class="a-link" href="http://www.seriesseed.fi/">Finland</a> and <a class="a-link" href="http://seriesseed.in/">India</a>)</li>
+	    <li><a class="a-link" href="http://seedsummit.org/legal-docs/">SeedSummit for Europe, by SeedCamp</a></li>
+	    <li><a class="a-link" href="http://shockwaveinnovations.com/2013/12/21/reviewing-the-new-safe-investment-instrument/">Comparative reviews</a>.</li>
+	    <li><a class="a-link" href="http://www.contractual.ly/">Contractual.ly</a></li>
+	  </ul>
+	</div>
+	<div class="row">
+	  <h2>Workflow Solutions for Startups</h2>
+	  <ul>
+	    <li><a class="a-link" href="https://stripe.com/atlas">Stripe Atlas</a> (Delaware)</li>
+	    <li><a class="a-link" href="https://www.flashfunders.com/">FlashFunders</a> is an equity crowdfunding platform with a ton of augmentations, <a class="a-link" href="http://techcrunch.com/2015/05/11/equity-crowdfunding-platform-flashfunders-is-automating-securities-law-for-seed-stage-rounds/#.umyjoj:J2Lt">according to Techcrunch</a></li>
+	    <li><a class="a-link" href="https://www.ironcladapp.com/">Ironclad</a> automates a range of startup-friendly legal templates, with Dropbox and HelloSign integration (for values of "startup" that mean "Delaware corporations operating in California")</li>
+	    <li><a class="a-link" href="http://valcu.co/">Valcu</a> offers document automation and some scripting</li>
+	    <li><a class="a-link" href="http://hellobonsai.com/">Bonsai</a> helps freelancers get paid</li>
+	    <li><a class="a-link" href="http://captable.io/">Captable.io</a></li>
+	    <li><a class="a-link" href="https://www.esharesinc.com/">eShares</a></li>
+	    <li><a class="a-link" href="http://termsheet.io/">Termsheet.io</a> (India &amp; US) does incorporations and fundings</li>
+	    <li><a class="a-link" href="https://www.clerky.com/">Clerky</a> (Delaware) does incorporations and fundings</li>
+	    <li><a class="a-link" href="https://www.legistify.com/">Legistify</a> does incorporations and fundings</li>
+	    <li><a class="a-link" href="https://get-paper.com/">Paper</a> does incorporations and fundings</li>
+	    <li><a class="a-link" href="http://startuplawyer.com/">StartupLawyer</a> does incorporations and fundings</li>
+	    <li><a class="a-link" href="https://www.startupdocuments.com/">StartupDocuments</a> is affiliated with <a class="a-link" href="http://bedrocksf.com/">Bedrock</a>; does incorporations and fundings</li>
+	    <li><a class="a-link" href="http://dragonlaw.com.hk/">DragonLaw</a> (Hong Kong and Singapore) has lots of templates</li>
+	    <li><a class="a-link" href="http://patentory.com/">Patentory</a></li>
+	    <li><a class="a-link" href="http://www.concordnow.com/">Concord</a> is end-to-end contract signature management</li>
+	    <li><a class="a-link" href="https://techcrunch.com/2017/04/05/seedlegals-automation-aims-to-replace-lawyers-in-startup-funding-rounds/">SeedLegals</a> does it in the UK</li>
+	    <li><a class="a-link" href="https://simmondsstewart.com/blogs/automated-southeast-asia-kiss-note-its-magic/">Automated KISS generation by Simmonds Stewart</a> for South-East Asia</li>
+	  </ul>
+	</div>
+	<div class="row">
+	  <h2>Workflow Apps for Specific Verticals</h2>
+	  <ul>
+	    <li><a class="a-link" href="http://www.cp-desk.com/">CP Desk</a> is a good example of a vertical-specific legal application &ndash; in this case for shipping.</li>
+	    <li><a class="a-link" href="http://www.thedocyard.co/">The Doc Yard</a> is a polished app for lawyers to address the paint point of deal negotiation and closing.</li>
+	    <li><a class="a-link" href="http://legalspace.world/service/visa">Legal Space</a> is a digital immigration and visa solution for relocating to the USA.</li>
+	    <li><a class="a-link" href="https://www.iubenda.com/">Iubenda</a> generates T&Cs for privacy policies and cookies</li>
+	    <li><a class="a-link" href="https://www.wevorce.com/">Wevorce</a></li>
+	    <li><a class="a-link" href="https://parleypro.com/">ParleyPro</a></li>
+	    <li><a class="a-link" href="https://greenlines.com/">GreenLines</a></li>
+	    <li><a class="a-link" href="http://www.brightleaf.com/">BrightLeaf</a></li>
+	    <li><a class="a-link" href="http://www.trademarkia.com/">Trademarkia</a></li>
+	    <li><a class="a-link" href="https://www.chinsay.com/">Chinsay</a> contract management for freight</li>
+	  </ul>
+	</div>
+	<div class="row">
+	  <h2>Template Libraries for Startups</h2>
+	  <ul>
+	    <li><a class="a-link" href="https://www.documents-taylorwessing.com/">Taylor Wessing's Documents</a> (UK)</li>
+	    <li><a class="a-link" href="https://www.bvca.co.uk/Policy/Tax-Legal-and-Regulatory/Industry-guidance-standardised-documents/Model-documents-for-early-stage-investments">BVCA</a> (UK)</li>
+	    <li><a class="a-link" href="https://www.orrick.com/practices/corporate/emergingCompanies/startup/forms_index.asp">Orrick's Start-Up Forms Library</a> and <a class="a-link" href="https://tsc.orrick.com/">term sheets</a></li>
+	    <li><a class="a-link" href="http://legal.cf.sg/">Legal.CF.SG</a></li>
+	    <li><a class="a-link" href="http://www.lawcanvas.com/">LawCanvas &ndash; Easy Legal Documents for Singapore</a></li>
+	    <li><a class="a-link" href="http://simmondsstewart.com/templates/">Simmonds Stewart</a> for New Zealand and <a class="a-link" href="https://simmondsstewart.com/guides/raising-seed-capital-in-southeast-asia/">Singapore</a></li>
+	    <li><a class="a-link" href="http://www.forbes.com/sites/chancebarnett/2014/05/30/the-entrepreneurs-guide-to-term-sheets-and-equity-crowdfunding/">The Entrepreneur's Guide to Term Sheets and Equity Crowdfunding</a></li>
+	    <li><a class="a-link" href="http://www.legalzebra.com.au/legal-forms/shareholders-agreement-template/">LegalZebra</a> (for Australia)</li>
+	    <li><a class="a-link" href="http://www.avcal.com.au/resources/open-source-seed-financing-documents">AVCAL</a> (for Australia)</li>
+	  </ul>
+	</div>
+	<div class="row">
+	  <h2>Generic Template Libraries and Legal Marketplaces</h2>
+	  <ul>
+	    <li><a class="a-link" href="https://www.legistify.com/">Legistify</a></li>
+	    <li><a class="a-link" href="http://legalzoom.com/">LegalZoom</a></li>
+	    <li><a class="a-link" href="http://nolo.com/">Nolo</a></li>
+	    <li><a class="a-link" href="http://www.rocketlawyer.com/">RocketLawyer</a></li>
+	    <li><a class="a-link" href="http://www.avvo.com/">Avvo</a></li>
+	    <li><a class="a-link" href="http://123.ai/">123.AI</a></li>
+	    <li><a class="a-link" href="https://www.asialawnetwork.com/">Asia Law Network</a> (for Singapore)</li>
+	    <li><a class="a-link" href="https://www.lawdingo.com/">LawDingo</a></li>
+	    <li><a class="a-link" href="https://www.upcounsel.com/">UpCounsel</a></li>
+	    <li><a class="a-link" href="http://www.firstcounsel.co/">FirstCounsel</a></li>
+	    <li><a class="a-link" href="https://www.bodhala.com/">Bodhala</a></li>
+	    <li><a class="a-link" href="https://www.priorilegal.com/">Priori Legal</a></li>
+	    <li><a class="a-link" href="http://lawtrades.com/">Lawtrades</a></li>
+	    <li><a class="a-link" href="https://www.lexoo.co.uk/">Lexoo</a></li>
+	    <li><a class="a-link" href="https://lawkick.com/">LawKick</a></li>
+	    <li><a class="a-link" href="http://www.docracy.com/">Docracy</a></li>
+	    <li><a class="a-link" href="http://onecle.com/">Onecle</a></li>
+	    <li><a class="a-link" href="https://www.ilrg.com/forms">ILRG Legal Forms Archive</a></li>
+	    <li><a class="a-link" href="http://www.lawdepot.com/">LawDepot</a></li>
+	    <li><a class="a-link" href="http://techcrunch.com/2015/09/03/goodbye-docstoc/">DocStoc died</a></li>
+	    <li><a class="a-link" href="http://www.lawcanvas.com/">LawCanvas</a> (for Singapore)</li>
+	    <li><a class="a-link" href="https://foundersuite.com/">FounderSuite</a></li>
+	    <li><a class="a-link" href="https://www.fairdocument.com/how-it-works/index.html">Fair Document</a></li>
+	    <li><a class="a-link" href="http://www.ndasforfree.com/">NDAs for Free</a></li>
+	    <li><a class="a-link" href="https://www.lawgives.com/">LawGives</a></li>
+	    <li><a class="a-link" href="https://angel.co/wirelawyer">WireLawyer</a></li>
+	    <li><a class="a-link" href="http://www.lawpolis.com/">Lawpolis</a></li>
+	    <li><a class="a-link" href="http://www.biztree.com/">Business-in-a-Box</a></li>
+	    <li><a class="a-link" href="http://www.adamsdrafting.com/downloads/Copyright-NYLJ-8.23.06.pdf">Adams, Kenneth. Copyright and the Contract Drafter. New York Law Journal, 2006</a> asks: are contracts copyrightable?</li>
+	  </ul>
+	</div>
+	<div class="row">
+	  <h2>Education for Startups</h2>
+	  <ul>
+	    <li><a class="a-link" href="http://quibb.com/links/how-startups-burn-money-on-lawyers/view">How Startups Burn Money on Lawyers</a></li>
+	    <li><a class="a-link" href="http://www.quora.com/When-founding-a-startup-is-it-worth-immediately-investing-in-a-lawyer-or-can-you-get-by-with-pre-made-documents-from-the-likes-of-LawBite-and-similar-for-the-first-few-months">When founding a startup is it worth immediately investing in a lawyer, or can you get by with pre-made documents?</a> on Quora.</li>
+	    <li><a class="a-link" href="http://heidiroizen.tumblr.com/post/118473647305/how-to-build-a-unicorn-from-scratch-and-walk">Walkthrough</a></li>
+	    <li><a class="a-link" href="http://www.docracy.com/topic/5snzara7ks/term-sheet-guide-book?startPdfDownload=false">Docracy's guide to Term Sheets</a></li>
+	    <li><a class="a-link" href="http://www.feld.com/archives/2005/08/term-sheet-series-wrap-up.html">Brad Feld's Term Sheet Blog Series</a>, now available as a book, <i><a class="a-link" href="http://www.amazon.com/Venture-Deals-Smarter-Lawyer-Capitalist-ebook/dp/B00AO2PWOI/">Venture Deals</a></i></li>
+	    <li><a class="a-link" href="http://www.amazon.com/Deal-Terms-Venture-Structures-Valuations/dp/1587622084/">Deal Terms, by Wilmerding</a></li>
+	    <li><a class="a-link" href="http://www.marsdd.com/mars-library/angel-or-seed-investing-angel-term-sheets-for-startups/">Angel or seed investing: Angel term sheets for startups</a>, from the MaRS Library</li>
+	    <li><a class="a-link" href="http://www.paulgraham.com/hiresfund.html">Paul Graham on High Resolution Fundraising</a></li>
+	    <li><a class="a-link" href="http://www.bothsidesofthetable.com/2012/09/05/the-truth-about-convertible-debt-at-startups-and-the-hidden-terms-you-didnt-understand/">The Truth About Convertible Debt at Startups and The Hidden Terms You Didn’t Understand</a></li>
+	    <li><a class="a-link" href="http://www.bothsidesofthetable.com/2014/09/17/bad-notes-on-venture-capital/">Mark Suster's Bad Notes on Venture Capital</a></li>
+	    <li><a class="a-link" href="http://www.startupcompanylawyer.com/">StartupCompanyLawyer</a></li>
+	    <li><a class="a-link" href="http://www.liveplan.com/">LivePlan</a> helps you with forecasts</li>
+	    <li><a class="a-link" href="https://www.wrike.com/blog/ultimate-list-legal-resources-startups/">The Ultimate List of Legal Resources for Startups</a></li>
+	  </ul>
+	</div>
+	<div class="row">
+	  <h2>Cap Tables</h2>
+	  <ul>
+	    <li><a class="a-link" href="http://www.quora.com/What-is-the-best-cap-table-template-available-online">See also Quora</a></li>
+	    <li><a class="a-link" href="http://venturehacks.com/articles/cap-table">VentureHacks</a></li>
+	    <li><a class="a-link" href="http://www.askthevc.com/archives/tag/cap-table">AskTheVC</a></li>
+	    <li><a class="a-link" href="http://captable.io/">Captable.io</a></li>
+	    <li><a class="a-link" href="http://reportally.com/">Reportally.com</a></li>
+	    <li><a class="a-link" href="https://www.capshare.com/">Capshare.com</a></li>
+	    <li><a class="a-link" href="https://www.nasdaqprivatemarket.com/exactequity/?from=ee">ExactEquity</a></li>
+	    <li><a class="a-link" href="https://esharesinc.zendesk.com/hc/en-us/articles/203979799-Pro-Forma-Round-Modeling-Spreadsheet">eShares round modeling</a> which is gaining <a class="a-link" href="https://techcrunch.com/2015/08/18/eshares-now-valued-at-77-million-looks-far-beyond-silicon-valley-2/">impressive marketshare</a></li>
+	  </ul>
+	</div>
+	<div class="row">
+	  <h2>Other Tools for Startups and Investors</h2>
+	  <ul>
+	    <li><a class="a-link" href="https://incorporations.io/">Incorporations.io</a> finds the best jurisdiction in which to incorporate your particular startup</li>
+	    <li><a class="a-link" href="http://www.valuative.com/">Valuative</a> capital structure modeling and visualization</li>
+	    <li><a class="a-link" href="http://www.handshakes.com.sg/">Handshakes</a> maps out all relationships between companies and persons</li>
+	    <li><a class="a-link" href="https://vcexperts.com/">VCExperts</a> offers due diligence and other tools</li>
+	    <li><a class="a-link" href="http://www.justinvesting.com/home/products/">JustInvesting</a> moves investing online</li>
+	    <li><a class="a-link" href="http://www.docdep.com/">DocDep</a> takes you from investment to divestment</li>
+	    <li><a class="a-link" href="http://visible.vc/">Visible.VC</a> offers a <a class="a-link" href="https://visible.vc/blog/tech-investing-software-stack/">Tech Investing Software Stack</a></li>
+	    <li><a class="a-link" href="http://www.venture360.com/">Venture360</a> is a complete deal management platform for seed funds</li>
+	  </ul>
+	</div>
+	<div class="row">
+	  <h2>Document Generators by Law Firms</h2>
+	  <ul>
+	    <li><a class="a-link" href="http://radiantlaw.com/blog/document-automation-is-legal-rocket-fuel">RadiantLaw</a></li>
+	    <li><a class="a-link" href="http://www.cooleygo.com/documents/index-document-generators">CooleyGo</a></li>
+	    <li><a class="a-link" href="https://www.wsgr.com/WSGR/Display.aspx?SectionName=practice/termsheet.htm">Wilson Sonsini's Termsheet Generator</a></li>
+	    <li><a class="a-link" href="http://launch.wilmerhale.com/build/document-generator/">Wilmerhale</a></li>
+	    <li><a class="a-link" href="http://www.foundersworkbench.com/document-driver/">Founders Workbench</a></li>
+	    <li><a class="a-link" href="https://tsc.orrick.com/">Orrick's Term Sheet Creator</a></li>
+	    <li><a class="a-link" href="http://ebrevia.com/">eBrevia</a></li>
+	    <li><a class="a-link" href="https://kirasystems.com/">DiligenceEngine</a></li>
+	    <li><a class="a-link" href="https://venturedocs.com/">VentureDocs</a></li>
+	    <li><a class="a-link" href="http://www.vanillalaw.com.sg/">Vanilla Law</a> by MG/Chambers <a class="a-link" href="http://www.straitstimes.com/business/companies-markets/software-designed-to-help-smes-with-legal-documents">(news article)</a></li>
+	    <li><a class="a-link" href="https://www.ft.com/content/5d96dd72-83eb-11e6-8897-2359a58ac7a5?1475749023115=1">TermFrame from Pinsent Masons</a> seems to be a wizard expediate lawyers choosing the ideal templates.</li>
+	    <li>Allen & Overy and Deloiite make <a class="a-link" href="http://www.allenovery.com/news/en-gb/articles/Pages/AllenOvery-and-Deloitte-tackle-OTC-derivatives-market-challenge.aspx">MarginMatrix</a> which codifies the law in various jurisdictions and automates drafting of certain kinds of multi-jurisdictional documents.</li>
+	  </ul>
+	</div>
+	<div class="row">
+	  <h2>Document Generators and More by Non-Law Firms</h2>
+	  <ul>
+	    <li><a class="a-link" href="http://www.neotalogic.com/">Neota Logic</a> has an expert system</li>
+	    <li><a class="a-link" href="http://www.oracle.com/us/products/applications/oracle-policy-automation/overview/index.html">Oracle Policy Automation</a> helps you build an expert system</li>
+	    <li><a class="a-link" href="http://www.inrule.com/">InRule</a></li>
+	    <li><a class="a-link" href="http://coherentknowledge.com/ergo-suite-platform-architecture-and-technical-approach/">Ergo</a></li>
+	    <li><a class="a-link" href="https://www.rocketlawyer.com/legal-documents-forms.rl">RocketLawyer</a></li>
+	    <li><a class="a-link" href="http://www.shakelaw.com/">Shake</a></li>
+	    <li><a class="a-link" href="http://formswift.com/">FormSwift</a></li>
+	    <li><a class="a-link" href="http://contractstandards.com/">Contract Standards</a></li>
+	    <li><a class="a-link" href="http://clausehound.com/">Clausehound</a></li>
+	    <li><a class="a-link" href="http://www.ultradox.com/">UltraDox</a> converts Google Docs to Microsoft Word</li>
+	    <li><a class="a-link" href="http://www.weagree.com/">WeAgree</a></li>
+	    <li><a class="a-link" href="http://www.legalcontract.com/">LegalContract</a> has good decent wizards covering the US</li>
+	    <li><a class="a-link" href="https://termsfeed.com/">TermsFeed</a> generates EULAs, privacy policies, and more.</li>
+	    <li><a class="a-link" href="http://kmstandards.com/">KM Standards (Kingsley Martin)</a> reads and writes contracts ― see <a class="a-link" href="https://www.youtube.com/watch?v=KBI8_tv2VDM&feature=youtu.be&t=11m15s">his 2013 FutureLaw talk</a>.</li>
+	    <li><a class="a-link" href="https://papersoftware.com/turner.html">Turner</a> is a pleasant Mac-app.</li>
+	    <li><a class="a-link" href="https://www.synergist.io">Synergist</a> is a contract negotiation platform with easily tunable knobs.</li>
+	  </ul>
+	</div>
+	<div class="row">
+	  <h2>Document Assembly for Law Firms and In-House Counsel</h2>
+	  <ul>
+	    <li><a class="a-link" href="http://www.hotdocs.com/">HotDocs</a></li>
+	    <li><a class="a-link" href="http://www.business-integrity.com/">ContractExpress by Business Integrity</a></li>
+	    <li><a class="a-link" href="http://www.exari.com/">Exari</a></li>
+	    <li>CaseRails, unfortunately now <a class="a-link" href="https://www.forbes.com/sites/maryjuetten/2016/05/11/failing-gracefully-caserails-journey/#3f35ceab6fd2">defunct</a></li>
+	    <li><a class="a-link" href="http://xpressdox.com/">XpressDox</a></li>
+	    <li><a class="a-link" href="http://docassemble.org/">DocAssemble</a> is opensource (YAML and Python) and allows domain experts to build what <a class="a-link" href="https://cgi.csc.liv.ac.uk/~tbc/publications/deepModels.pdf">TBC would call</a> a shallow-model expert system wizard.</li>
+	    <li><a class="a-link" href="http://www.qnamarkup.org/">QnA</a> is a DSL for conducting and displaying interviews.</li>
+	    <li><a class="a-link" href="http://www.autto.io/">Autto</a> is kind of IFTTT for lawyers, with workflows as an expert system</li>
+	    <li><a class="a-link" href="http://www.oxlegal.com/">OxLegal</a> was a startup</li>
+	    <li><a class="a-link" href="https://papersoftware.com/turner.html">Turner</a> is a contract-drafting IDE</li>
+	  </ul>
+	  <p>Every law firm has proprietary clause libraries. These are open</p>
+	  <ul>
+	    <li><a class="a-link" href="http://contractstandards.com/">Contract Standards</a></li>
+	    <li><a class="a-link" href="http://lawpatch.org/">LawPatch</a></li>
+	    <li><a class="a-link" href="http://www.commonaccord.org/">CommonAccord</a></li>
+	    <li><a class="a-link" href="http://www.commondraft.org/#ConfKExpress">CommonDraft</a></li>
+	  </ul>
+	</div>
+	<div class="row">
+	  <h2>Other Legal Startups</h2>
+	  <ul>
+	    <li><a class="a-link" href="http://www.asialawportal.com/2016/12/19/legal-startup-ai-law-set-to-deploy-an-army-of-robotic-lawyers-in-china/">Ai.Law</a> will eat it all, from China.</li>
+	    <li><a class="a-link" href="http://www.korumlegal.com/">Korum Legal</a> is a boutique legal consultancy for special projects at cheaper rates.</li>
+	    <li><a class="a-link" href="http://legalscience.io/">Legal Science</a> tracks current law across 50 states</li>
+	    <li><a class="a-link" href="https://www.techinasia.com/fiscalnote-legal-tech-asia-expansion">FiscalNote</a>, Tim Hwang's startup, has raised $20M</li>
+	    <li><a class="a-link" href="http://www.complyglobal.com/">ComplyGlobal</a> helps big business cover their many widely dispersed asses</li>
+	    <li><a class="a-link" href="http://www.legaltechlabs.com/portfolio/">LegalTechLabs</a> has a portfolio of startups</li>
+	    <li><a class="a-link" href="http://www.synergist.io/">Synergist</a> is a platform for online negotiation</li>
+	    <li><a class="a-link" href="https://parleypro.com/">Parley Pro</a> negotiate better contracts faster</li>
+	    <li><a class="a-link" href="http://www.businessinsider.com/joshua-browder-bot-for-parking-tickets-2016-2?IR=T&op=1&utm_content=bufferd4151&utm_medium=social&utm_source=facebook.com&utm_campaign=buffer?r=US&IR=T">Joshua Browder's bot</a> gets you out of parking tickets</li>
+	    <li><a class="a-link" href="http://www.axiomlaw.com/">Axiom</a> is positioning initially as an outsourcing option for in-house counsel See <a class="a-link" href="http://lawprofessors.typepad.com/legalwhiteboard/2013/11/is-axiom-the-bellwether-for-disruption-in-the-legal-industry-look-what-is-happening-in-houston.html">coverage</a></li>
+	    <li><a class="a-link" href="http://www.judicata.com/">Judicata</a></li>
+	    <li><a class="a-link" href="http://www.lexmachina.com/">Lex Machina</a> groks patent law</li>
+	    <li><a class="a-link" href="http://www.elementaryip.com/">elementaryIP</a> groks patent law</li>
+	    <li><a class="a-link" href="http://www.lawgeex.com/">LawGeex</a> reads contracts</li>
+	    <li><a class="a-link" href="https://kirasystems.com/">Kira</a> reads contracts</li>
+	    <li><a class="a-link" href="http://beagle.ai/">Beagle.ai</a> reads contracts</li>
+	    <li><a class="a-link" href="http://www.clausematch.com/">ClauseMatch</a> reads contracts</li>
+	    <li><a class="a-link" href="https://www.luminance.com/">Luminance</a> reads contracts (and other documents in dataroooms)</li>
+	    <li><a class="a-link" href="https://www.bloomberg.com/news/articles/2017-02-28/jpmorgan-marshals-an-army-of-developers-to-automate-high-finance">JPMorgan</a> reads contracts</li>
+	    <li><a class="a-link" href="http://techcrunch.com/2015/08/14/jeugene-detects-errors-in-legal-documents-saving-time-and-money/?ncid=rss&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+Techcrunch+%28TechCrunch%29&sr_share=twitter">jEugene</a> reads contracts</li>
+	    <li><a class="a-link" href="http://counselytics.com/">Counselytics</a> reads contracts</li>
+	    <li><a class="a-link" href="https://legalrobot.com/">LegalRobot</a> reads contracts</li>
+	    <li><a class="a-link" href="https://www.ravn.co.uk/">RAVN</a> reads contracts</li>
+	    <li><a class="a-link" href="http://metajure.com/">MetaJure</a> reads contracts</li>
+	    <li><a class="a-link" href="http://rfrnz.com/">rfrnz</a> reads contracts</li>
+	    <li><a class="a-link" href="http://litiq.com/">LitIQ drafts contracts</a></li>
+	    <li><a class="a-link" href="https://www.vizlegal.com/">VizLegal</a> for legal research</li>
+	    <li><a class="a-link" href="http://logikcull.com/">Logikcull</a> does e-discovery</li>
+	    <li><a class="a-link" href="http://everlaw.com/">Everlaw</a> also does e-discovery</li>
+	    <li><a class="a-link" href="http://hlpintegration.com/?doing_wp_cron=1455722411.7378211021423339843750">HLP Integration</a></li>
+	    <li><a class="a-link" href="https://www.rsvplaw.com/">RSVPlaw</a></li>
+	    <li>See also <a class="a-link" href="http://www.inc.com/drew-hendricks/the-4-startups-changing-the-legal-landscape.html">Inc.com on 4 Startups changing the Legal Landscape</a></li>
+	    <li><a class="a-link" href="http://www.allegorylaw.com/#allegory">Allegory Law</a></li>
+	    <li><a class="a-link" href="https://www.ravellaw.com/">Ravel Law</a></li>
+	    <li><a class="a-link" href="https://angel.co/haystackhq">Haystack HQ</a></li>
+	    <li><a class="a-link" href="https://www.cicayda.com/">Cicayda</a></li>
+	    <li><a class="a-link" href="http://www.lexbe.com/">Lexbe</a></li>
+	    <li><a class="a-link" href="http://www.modria.com/">Modria</a></li>
+	    <li><a class="a-link" href="https://www.linkedin.com/company/waytosettle">WayToSettle</a></li>
+	    <li><a class="a-link" href="https://www.linkedin.com/company/zipcourt">ZipCourt</a></li>
+	    <li><a class="a-link" href="https://juristat.com/">Juristat</a></li>
+	    <li><a class="a-link" href="http://ipstreet.com/">IPStreet</a></li>
+	    <li><a class="a-link" href="https://www.goclio.com/">Clio</a></li>
+	    <li><a class="a-link" href="http://www.mycase.com/">MyCase</a></li>
+	    <li><a class="a-link" href="https://www.cosmolex.com/">CosmoLex</a></li>
+	    <li><a class="a-link" href="http://www.lawyerfy.com/">Lawyerfy</a></li>
+	    <li><a class="a-link" href="http://www.firmzen.com/">Firmzen</a></li>
+	    <li><a class="a-link" href="http://web.archive.org/web/20160111030605/http://www.legify.com/">Legify</a>, which seems defunct</li>
+	    <li><a class="a-link" href="http://lawful.ly/">Lawful.ly</a></li>
+	    <li><a class="a-link" href="http://www.simplelegal.com/">SimpleLegal</a></li>
+	    <li><a class="a-link" href="https://www.viewabill.com/pages/home">Viewabill</a></li>
+	    <li><a class="a-link" href="https://vulcanpost.com/604420/firstcounsel-legal-support-for-singapore-businesses/">FirstCounsel</a> offers legal support</li>
+	    <li><a class="a-link" href="http://www.lexquanta.com/">Lex Quanta</a> does legal analytics for large firms.</li>
+	    <li><a class="a-link" href="http://www.lawhackers.co/">Law Hackers</a> for a curated list of legal startups</li>
+	    <li><a class="a-link" href="https://www.imandra.ai/">Imandra</a>: Online ecosystem for sharing and analysing internal and client-facing trading system specifications</li>
+	  </ul>
+	</div>
+	<div class="row">
+	  <h2>Legal Research</h2>
+
+	  <ul>
+	    <li><a class="a-link" href="http://leiterlawschool.typepad.com/leiter/2015/12/promotional-feature-makeover-for-statutory-supplements-is-long-overdue-michael-simkovic.html#">LawEdge</a></li>
+	    <li><a class="a-link" href="http://www.global-regulation.com/search.php?open">Global-Regulation</a></li>
+	    <li><a class="a-link" href="https://www.justia.com/">Justia</a></li>
+	    <li><a class="a-link" href="https://www.fastcase.com/">FastCase</a></li>
+	    <li><a class="a-link" href="https://casetext.com/">CaseText</a></li>
+	    <li><a class="a-link" href="https://pushlegal.com/">PushLegal</a></li>
+	    <li><a class="a-link" href="https://www.docketalarm.com/">Docket Alarm</a></li>
+	    <li><a class="a-link" href="http://www.acadmx.com/">Academx</a> helps lawyers write</li>
+	    <li><a class="a-link" href="https://www.mylegalwhiz.com/">MyLegalWhiz</a>, <a class="a-link" href="https://www.intelllex.com/welcome">Intelllex</a> and <a class="a-link" href="http://www.rossintelligence.com/">Ross Intelligence</a> help lawyers do research</li>
+	    <li><a class="a-link" href="http://www.bluejlegal.com/">Blue J Legal</a> helps lawyers research tax law</li>
+	  </ul>
+	</div>
+	<div class="row">
+	  <h2>Github Repositories</h2>
+	  <ul>
+	    <li><a class="a-link" href="https://jduclos.com/notes/github-for-lawyers">Github for Law!</a> surfaced <a class="a-link" href="https://news.ycombinator.com/item?id=13446275">on Hacker News</a> and attracted <a class="a-link" href="https://medium.com/@Legalese/code-is-law-is-code-4492c864f33f">a response on the Legalese blog</a>.</li>
+	    <li><a class="a-link" href="https://ironsides.github.io/">Ironsides</a> open legal operating system for start-up companies</li>
+	    <li><a class="a-link" href="https://github.com/commonform/commonform-orrick">Common Form</a> on Orrick's templates</li>
+	    <li><a class="a-link" href="https://github.com/seriesnext/seriesnext">Seriesnext</a> a community revision of the Series Seed financing documents</li>
+	  </ul>
+	</div>
+	<div class="row">
+	  <h2>Academic Research and Development</h2>
+	  <ul>
+	    <li><a class="a-link" href="http://www.cocounsel.co/">CO/COUNSEL</a></li>
+	    <li><a class="a-link" href="http://www.plainsite.org/">PlainSite</a></li>
+	    <li><a class="a-link" href="http://complaw.stanford.edu/">Stanford Computational Law</a></li>
+	    <li><a class="a-link" href="http://codex.stanford.edu/projects/">Stanford's Codex Center for Legal Informatics</a> produces <a class="a-link" href="http://www.legalproductivity.com/technology/codex-legal-tech-startups/">a crop of startups every year</a></li>
+	    <li><a class="a-link" href="http://www.effacts.com/blog/the-stanford-computable-contracts-initiative">Stanford's Computable Contracts Initiative</a></li>
+	    <li><a class="a-link" href="https://legalinformatics.wordpress.com/legal-informatics-research-network-google-group/">Legal Informatics Research Network</a></li>
+	    <li><a class="a-link" href="http://www.commonaccord.org/">CommonAccord</a></li>
+	    <li><a class="a-link" href="http://lexpert.com/en/documents/Haapio-Next_Generation_Contracts.pdf">Next Generation Contracts</a> by Helena Haapio</li>
+	    <li><a class="a-link" href="http://nakamotoinstitute.org/contract-language/">Nick Szabo on formal languages</a></li>
+	    <li><a class="a-link" href="http://lawreview.law.ucdavis.edu/issues/46/2/Articles/46-2_Surden.pdf">Surden on Computable Contracts</a></li>
+	    <li><a class="a-link" href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2538224">Floyd &amp; Goodenough, Contracts as Automata</a></li>
+	    <li><a class="a-link" href="https://twitter.com/richardsusskind">Richard Susskind</a>, author of <a class="a-link" href="http://www.amazon.com/Tomorrows-Lawyers-Introduction-Your-Future/dp/019966806X/">Tomorrow's Lawyers</a></li>
+	    <li><a class="a-link" href="https://twitter.com/StanfordLaw/lists/abafutures">ABA Futures</a> and <a class="a-link" href="http://www.abajournal.com/legalrebels/article/welcome_to_the_future_a_travel_guide_to_tomorrows_lawyer_careers?utm_source=internal&utm_medium=navigation&utm_campaign=navbar">ABA Journal</a></li>
+	    <li><a class="a-link" href="http://radicalconcepts.com/wp-content/uploads/2015/01/Legal-Technology-Informatics_-Course-Reader.1.15.15.pdf">Ron Dolin's Legal Technology and Informatics Course Reader</a></li>
+	  </ul>
+	</div>
+	<div class="row">
+	  <h2>Computational Legal Studies</h2>
+	  <p>Borrowing from social science, these apply computational data-science techniques to the legal world.</p>
+	  <ul>
+	    <li><a class="a-link" href="http://www.thelawlab.com/">The Law Lab</a> at Illinois Tech</li>
+	    <li><a class="a-link" href="https://www.santafe.edu/news-center/news/lawos-regulations-societys-operating-system">LawOS</a> at Santa Fe Institute</li>
+	    <li><a class="a-link" href="http://law.mit.edu/">law.mit.edu</a> takes a social-science approach to examining law: see <a class="a-link" href="https://www.youtube.com/watch?v=G2_1I9aUwgs">Dazza's video</a>.</li>
+	  </ul>
+	</div>
+	<div class="row">
+	  <h2>Contract Formalization and Natural Language Generation</h2>
+	  <ul>
+	    <li>The need for multilingual contracts can be seen in Indonesia, where <a class="a-link" href="http://www.lexology.com/library/detail.aspx?g=6d2d5a97-5556-49d6-b76c-cf6e8e63d62d">a court has ruled</a> that contracts must be in both Bahasa and another language</li>
+	    <li><a class="a-link" href="http://www.ibtimes.co.uk/barclays-smart-contract-templates-heralds-first-ever-public-demo-r3s-corda-platform-1555329">CLACK at UCL</a></li>
+	    <li><a class="a-link" href="https://medium.com/@ConsenSys/what-if-we-developed-legal-contracts-like-we-developed-software-applications-1b5bc8fbb915#.uoiiqx9ku">Joe Dewey's essay</a> on <a class="a-link" href="http://contractcode.io/">ContractCode</a>, April 6, 2016</li>
+	    <li><a class="a-link" href="http://commonform.github.io/">CommonForm</a></li>
+	    <li><a class="a-link" href="https://medium.com/@PaxDirectory/codex-a-legal-scripting-language-e3723cc76662#.neyprdp7o">Codex</a> by Pax is a scripting language for Ethereum; <a class="a-link" href="http://bitlegal.io/2016/03/03/codex-a-new-smart-contracts-language/">in concert with Pax Directory</a></li>
+	    <li><a class="a-link" href="https://tezos.com/pages/tech.html">Michelson, by Tezos</a>, is a scripting language for smart contracts</li>
+	    <li><a class="a-link" href="https://claryon.github.io/lexon/">Lexon, by Lexys</a>, is a scripting language for smart contracts</li>
+	    <li><a class="a-link" href="https://medium.com/@chriseth/babbage-a-mechanical-smart-contract-language-5c8329ec5a0e">Babbage</a> smart contract language for Ethereum</li>
+	    <li><a class="a-link" href="http://www.restatement.org/">Restatement</a> by Jason Boehmig, Tim Hwang, and Paul Sawaya. (<a class="a-link" href="https://blog.law.cornell.edu/voxpop/2014/06/03/rough-consensus-running-standards-the-restatement-project/">intro essay</a>; see also <a class="a-link" href="https://github.com/legalese-io/legalese-io.github.io/blob/master/doc/modeling.org#background-reading">Modeling - Background Reading</a>)</li>
+	    <li><a class="a-link" href="http://www.commonaccord.org/">CommonAccord</a> has some <a class="a-link" href="https://docs.google.com/document/d/1jm9t61JnqLqsV50cD9Mzwyu8cXWRmVFaI2XK-UaFggk/pub">early thinking</a> online.</li>
+	    <li><a class="a-link" href="https://github.com/mpoulshock/HammurabiProject">Hammurabi Project</a> hosts its DSL in Wolfram Language (Mathematica). An <a class="a-link" href="https://github.com/mpoulshock/hammurabi">earlier version</a> developed a DSL called Akkadian.</li>
+	    <li>You've heard of <a class="a-link" href="https://en.wikipedia.org/wiki/XBRL">XBRL</a>, now the SEC wants <a class="a-link" href="http://lambda-the-ultimate.org/node/3922">Python</a>.</li>
+	    <li>In the 1980s, the <a class="a-link" href="http://opim.wharton.upenn.edu/~sok/papers/s/p370-sergot.pdf">British Nationality Act was encoded in Prolog</a>.</li>
+	  </ul>
+	</div>
+	<div class="row">
+	  <h2>Smart Contract Implementations and Papers</h2>
+	  <ul>
+	    <li><a class="a-link" href="http://ethernote.herokuapp.com">Ethernote</a> appears to be a proof-of-concept implementing a promissory note as a smart contract</li>
+	    <li><a class="a-link" href="http://counterparty.io/">Counterparty</a></li>
+	    <li><a class="a-link" href="http://smartcontract.com/">SmartContract</a></li>
+	    <li><a class="a-link" href="http://www.otonomos.com/">Otonomos</a></li>
+	    <li><a class="a-link" href="http://democracy.earth/">Democracy Earth</a></li>
+	    <li><a class="a-link" href="https://eprint.iacr.org/2015/460.pdf">Step by Step Towards Creating a Safe Smart Contract: Lessons and Insights from a Cryptocurrency Lab</a> by Delmolino, Arnett, Kosba, Miller, &amp; Shi</li>
+	    <li><a class="a-link" href="http://www.diku.dk/hjemmesider/ansatte/hvitved/publications/hvitved10flacosb.pdf">A Survey of Formal Languages for Contracts</a> from FLACOS 2010</li>
+	    <li><a class="a-link" href="http://hub.digitalasset.com/blog/introducing-the-digital-asset-modeling-language-a-powerful-alternative-to-smart-contracts-for-financial-institutions">Digital Assest Modelling Language</a></li>
+	    <li><a class="a-link" href="http://www.coindesk.com/chain-ivy-blockchain-smart-contract-language/">Ivy Smart Contract Language</a></li>
+	    <li><a class="a-link" href="http://blockchain.cs.ucl.ac.uk/">UCL's blockchain group</a></li>
+	    <li><a class="a-link" href="http://www.initc3.org/">Initative for Cryptocurrencies and Contracts</a></li>
+	    <li><a class="a-link" href="http://www.diku.dk/~simonsen/papers/c2.pdf">Compositional Specification of Commercial Contracts</a></li>
+	    <li><a class="a-link" href="http://research.microsoft.com/en-us/um/people/simonpj/Papers/financial-contracts/contracts-icfp.pdf">Composing contracts: an adventure in financial engineering</a></li>
+	    <li><a class="a-link" href="http://www.diku.dk/~paba/pubs/files/bahr15icfp-paper.pdf">Certified Symbolic Management of Financial Multi-party Contracts</a></li>
+	    <li><a class="a-link" href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.36.4777&rep=rep1&type=pdf">The Representation of Legal Contracts</a> by Aspassia Daskalopulu and Marek Sergot, 1997</li>
+	    <li><a class="a-link" href="http://research.microsoft.com/en-us/um/people/nswamy/papers/solidether.pdf">Formal Verification of Smart Contracts</a></li>
+	    <li><a class="a-link" href="https://attores.com/">Attores</a> will build your smart contracts</li>
+	    <li><a class="a-link" href="http://www.adjoint.io/">Adjoint</a> will build and formally verify your smart contracts</li>
+	    <li><a class="a-link" href="http://www.clause.io/">Clause</a> will build a Ricardian smart contract</li>
+	    <li><a class="a-link" href="https://ethcore.io/">EthCore</a> will build and browse your smart contracts</li>
+	    <li><a class="a-link" href="http://www.mintchalk.com/">Mintchalk</a> is a web IDE for smart contracts</li>
+	    <li><a class="a-link" href="https://github.com/OpenZeppelin/zeppelin-solidity">OpenZeppelin</a> is an opensource library for smart contracts</li>
+	    <li><a class="a-link" href="http://fc17.ifca.ai/wtsc/Trust%20in%20Smart%20Contracts%20is%20a%20Process,%20As%20Well.pdf">Trust in Smart Contracts is a Process, As Well</a></li>
+	    <li>Kadena's haskell-based turing-incomplete <a class="a-link" href="http://kadena.io/">PACT</a> language</li>
+	  </ul>
+	</div>
+	<div class="row">
+	  <h2>Smart Statutes, Digital Legislation</h2>
+	  <ul>
+	    <li><a class="a-link" href="http://internetofagreements.com/">Internet of Agreements</a> by Vinay Gupta explains demand from blockchain</li>
+	    <li><a class="a-link" href="https://digital-legislation.net/">Digital Legislation</a> from Data61 attempts to answer the call</li>
+	    <li><a class="a-link" href="http://ceur-ws.org/Vol-1620/paper7.pdf">Making Sense of Regulations with SBVR</a></li>
+	    <li><a class="a-link" href="https://link.springer.com/chapter/10.1007%2F978-3-319-42019-6_17">SBVR to OWL 2 Mapping in the Domain of Legal Rules</a></li>
+	    <li><a class="a-link" href="https://link.springer.com/chapter/10.1007%2F978-3-662-45960-7_14">On the Road to Regulatory Ontologies: Interpreting Regulations with SBVR</a></li>
+	  </ul>
+	</div>
+	<div class="row">
+	  <h2>Electronic Signatures and Contract Management</h2>
+	  <p><a class="a-link" href="https://echosign.adobe.com">Adobe Echosign</a> is the well-respected granddaddy, modulo <a class="a-link" href="https://medium.com/@mengwong/why-after-a-year-with-adobe-echosign-i-m-taking-my-business-elsewhere-835cbd23d4a6">some grumpiness</a>.  Competitors include:</p>
+	  <ul>
+	    <li><a class="a-link" href="https://www.docusign.com/">DocuSign</a></li>
+	    <li><a class="a-link" href="https://www.hellosign.com/">HelloSign</a></li>
+	    <li><a class="a-link" href="http://getsigneasy.com/">SignEasy</a></li>
+	    <li><a class="a-link" href="http://scrive.com/">Scrive</a></li>
+	    <li><a class="a-link" href="https://digisigner.com/">DigiSigner</a></li>
+	    <li><a class="a-link" href="https://rightsignature.com/">RightSignature</a></li>
+	    <li><a class="a-link" href="https://www.silanis.com/">e-SignLive by Silanis</a></li>
+	    <li>and <a class="a-link" href="http://digital-signature.softwareinsider.com/">dozens more (see the full list)</a></li>
+	  </ul>
+	</div>
+	<div class="row">
+	  <h2>Contract Lifecycle Management</h2>
+	  <ul>
+	    <li><a class="a-link" href="http://www.contractlogix.com/">Contract Logix</a></li>
+	    <li><a class="a-link" href="http://www.concordnow.com/">Concord Now</a></li>
+	    <li><a class="a-link" href="http://www.exari.com/">Exari</a></li>
+	    <li><a class="a-link" href="http://www.icertis.com/solution/">Icertis</a></li>
+	    <li><a class="a-link" href="http://precisely.se/">Precisely</a> is doing contract management software with pleasant UX</li>
+	  </ul>
+	</div>
+	<div class="row">
+	  <h2>Lawyers and Law Firms who get it</h2>
+	  <ul>
+	    <li><a class="a-link" href="http://opencounsel.net/services.php">OpenCounsel</a> headed by <a class="a-link" href="http://aliquidnovi.org/about-2/">Andrew Rens</a></li>
+	    <li><a class="a-link" href="https://twitter.com/TheNakedLawyer">Chrissie Lightfoot on Twitter</a></li>
+	    <li><a class="a-link" href="https://github.com/KingandWoodMallesonsAU/Project-DnA">KWM's Project DnA on Github</a></li>
+	  </ul>
+	</div>
+	<div class="row">
+	  <h2>Other Interesting Things</h2>
+	  <ul>
+	    <li><a class="a-link" href="http://www.lawsitesblog.com/legal-tech-startups">Ambrogi's Legal Tech Startups list</a></li>
+	    <li><a class="a-link" href="http://tech.law.stanford.edu/">tech.law.stanford.edu</a></li>
+	    <li><a class="a-link" href="http://lawyersongithub.com/">Lawyers On Github</a></li>
+	    <li><a class="a-link" href="https://angel.co/legal">AngelList shows over a thousand startups in the legal category</a>, but many of these are what we call "law firms with websites", not actual LegalTech startups</li>
+	    <li><a class="a-link" href="https://artificiallawyer.com">Artificial Lawyer</a> is a blog covering the computational legal field</li>
+	  </ul>
+	</div>
+	<div class="row">
+	  <h2>Artificial Intelligence and Natural Language Processing</h2>
+	  <p>Reliable natural language processing is a <em>vastly harder</em> problem than domain-specific-languages, compilers, and natural language generation, but we wish them the best.  Should they be successful, drafting contracts which meet their AI's approval will be straight-forward because we can run the contracts through the AI ourselves.</p>
+	  <ul>
+	    <li><a class="a-link" href="http://www.legalcheek.com/2016/09/freshfields-joins-clifford-chance-and-dla-piper-in-embracing-artificial-intelligence-software-kira/">Kira</a> is used by a surprising number of law firms.</li>
+	    <li><a class="a-link" href="https://hirepeter.com/">Peter</a> does for legal what <a class="a-link" href="http://claralabs.com/">Clara</a> does for appointments</li>
+	    <li><a class="a-link" href="http://www.riverviewlaw.com/">Riverview Law</a> is also developing an artificial assistant.</li>
+	    <li><a class="a-link" href="https://thoughtriver.com">ThoughtRiver</a> does NLP to read contracts and reason about them</li>
+	    <li><a class="a-link" href="http://www.recommind.com/perceptiv-product-page/">Perceptiv</a> also does NLP to read and extract data from finance contracts</li>
+	  </ul>
+	</div>
+      </div>
+    </div>
+
     <div class="container-fluid bot-container">
       <div class="row">
 	<div class="col-md-2 text-center bot-link" id="bot-legalese-col">
@@ -369,7 +691,7 @@ if( seriesB < 32.5 )                      { conversion = 27.5 }
 	</div>
 	<div class="col-md-2 bot-link bot-squeeze">
 	  <p><a href="#">Terms of Use</a></p>
-	  <p><a href="#">Privacy &amp; Cookies</a></p>
+	  <p><a chref="#">Privacy &amp; Cookies</a></p>
 	  <p><a href="#">Security</a></p>
 	</div>
 	<div class="col-md-2 bot-link bot-squeeze">
@@ -385,8 +707,6 @@ if( seriesB < 32.5 )                      { conversion = 27.5 }
 
 
 
-
-    <script src="https://use.fontawesome.com/2639a4cd49.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="scripts/textcontent.js"></script>
