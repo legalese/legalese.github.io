@@ -3,6 +3,11 @@ body {
     font-family: "Lato", sans-serif;
 }
 
+h2 {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+}
+
 .a-link {
     color: rgb(0, 0, 255);
     text-decoration: none;
@@ -38,9 +43,17 @@ body {
     height: 100%;
 }
 
+a > div {
+    display: inline-block;
+}
+
 blockquote {
     border-left: none;
     position: relative;
+}
+
+blockquote > p {
+    text-indent: 50px;
 }
 
 blockquote:before {
@@ -93,10 +106,41 @@ blockquote footer:before {
     padding: 0;
 }
 
-.col-md-6.col-md-offset-3.text-center > p {
+#eating-law {
     font-family: "Alegreya", serif;
     font-size: 12px;
     letter-spacing: 2px;
+}
+
+.col-md-6.col-md-offset-3.text-center > h3 {
+    font-family: "Alegreya", serif;
+    font-size: 28px;
+    letter-spacing: 4px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.col-md-6.col-md-offset-3 > h3 > a {
+    color: #333333;
+    text-decoration: none;
+}
+
+.navbar {
+    padding-top: 5px;
+    margin-bottom: 0px;
+    min-height: 45px;
+    border-radius: 0px;
+    height: 49px;
+}
+
+.nav > li > a.active,
+.nav > li > a:hover,
+.nav > li > a:focus {
+    background-color: transparent;
+}
+
+.nav > li {
+    padding-bottom: 0px;
 }
 
 .fa.fa-twitter {
@@ -126,14 +170,6 @@ blockquote footer:before {
     z-index: 3;
 }
 
-.col-md-6.col-md-offset-3.text-center > h3 {
-    font-family: "Alegreya", serif;
-    font-size: 28px;
-    letter-spacing: 4px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
 #top-bar {
     font-size: 12px;
     font-family: "Lato", sans-serif;
@@ -142,11 +178,6 @@ blockquote footer:before {
 
 #top-bar > li > a,
 #blurb-nav-id > li > a{
-    color: #333333;
-    text-decoration: none;
-}
-
-.col-md-6.col-md-offset-3 > h3 > a {
     color: #333333;
     text-decoration: none;
 }
@@ -168,32 +199,10 @@ blockquote footer:before {
     width: 20%;
 }
 
-a > div {
-    display: inline-block;
-}
-
 #statusquo,
 #investornotice,
 #players {
     padding-top: 8px;
-}
-
-.navbar {
-    padding-top: 5px;
-    margin-bottom: 0px;
-    min-height: 45px;
-    border-radius: 0px;
-    height: 49px;
-}
-
-.nav > li > a.active,
-.nav > li > a:hover,
-.nav > li > a:focus {
-    background-color: transparent;
-}
-
-.nav > li {
-    padding-bottom: 0px;
 }
 
 .legalese-logo {
@@ -209,7 +218,7 @@ a > div {
 
 /* https://unsplash.com/photos/Oaqk7qqNh_c */
 
-.white-back {
+#second-container {
     background-image: url('../images/paper.jpg');
     background-size: contain;
 }
@@ -221,11 +230,6 @@ a > div {
 .row.text-center.black-rec > h2 {
     font-weight: 300;
     font-size: 25px;
-}
-
-h2 {
-    font-family: "Lato", sans-serif;
-    font-weight: 300;
 }
 
 .get-started {
@@ -357,6 +361,8 @@ ul.li-inline li:not(:first-child)::before {
 }
 
 .bot-container {
+    padding: 30px 0px;
+    background-color: rgba(51, 51, 51, 0.1);
 }
 
 .bot-link > p,
