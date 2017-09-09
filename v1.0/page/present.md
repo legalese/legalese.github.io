@@ -550,6 +550,9 @@ Legalese is importing all of these agreements. After you configure your deal in 
 	<li>
 		<a href="http://www.commondraft.org/#ConfKExpress">CommonDraft</a>
 	</li>
+	<li>
+		<a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=legalxml-econtracts">OASIS LegalXML eContracts TC</a></li>
+	</li>
 </ul>
 
 ## Other Legal Startups
