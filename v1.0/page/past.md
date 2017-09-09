@@ -153,7 +153,7 @@ Contracts are different. Once executed, they don't change. Parties can turn host
 			<a href="https://www.lexifi.com/product/technology/contract-description-language">Lexifi's MLFi was one of the earliest commercializations of financial contract formalization</a>
 		</li>
 		<li>
-			<a href="http://www.actusfrf.org">Algorithmic Contract Types Unified Standards (ACTUS) breaks down financial instruments into a manageable number of cash flow patterns: so-called Contract Types.</a>
+			<a href="http://www.actusfrf.org">Algorithmic Contract Types Unified Standards (ACTUS)</a> breaks down financial instruments into a manageable number of cash flow patterns: so-called Contract Types.
 		</li>
 		<li>
 			<a href="https://medium.com/@ConsenSys/what-if-we-developed-legal-contracts-like-we-developed-software-applications-1b5bc8fbb915#.uoiiqx9ku">Joe Dewey's essay</a> on <a href="http://contractcode.io//">ContractCode</a>, April 6, 2016
