@@ -1,0 +1,18 @@
+/**
+ * This stylesheet will work pretty well with a regular Org Mode HTML export.
+ * However, you do have to turn off all of the defaults:
+ *
+ * (setq org-export-html-style-include-scripts nil
+ *       org-export-html-style-include-default nil)
+ *
+ * and insert a call to the stylesheet:
+ *
+ * (setq org-export-html-style
+ *       "<link rel=\"stylesheet\" type=\"text/css\" href=\"org-style.css\" />")
+ */
+
+@import url("org-style.css");
+
+img {
+	width: 100%;
+}
