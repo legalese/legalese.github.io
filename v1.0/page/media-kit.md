@@ -61,7 +61,15 @@ We recently raised our first angel round of ~US$415,000.  The lead investor was 
 }
 [/block]
 
-**Wong** Meng Weng is a co-founder of Legalese, a LegalTech startup that applies computer science to contracts. Meng previously designed Internet email infrastructure (RFC4408), co-founded two high-tech startups, and helped launch JFDI.Asia, Singapore’s first seed accelerator. Perl, Javascript, Haskell, Prolog, Emacs. upenn.edu ’97, fellowships at [unive.it](http://www.unive.it/) and [Harvard Berkman-Klein](https://cyber.law.harvard.edu).
+Meng Weng **Wong** is a co-founder of Legalese.com. Meng previously designed a globally deployed piece of Internet email infrastructure (published by the IETF as RFC4408), worked at the Office of the CTO at EarthLink, co-founded two high-tech startups (both acquired), and helped launch JFDI.Asia, the first seed accelerator in Singapore. As an angel and via JFDI, Meng has made over 80 early-stage investments since 2010.
+
+Meng did a CS degree at the University of Pennsylvania, attended MBA school at the National University of Singapore, and has held visiting research fellowships at the University of Venice's department of computational linguistics, Harvard's [Berkman Klein Center for Internet and Society](https://cyber.harvard.edu), and most recently Stanford's [CodeX Center for Legal Informatics](http://codex.stanford.edu/), working on compk.stanford.edu.
+
+His interests include industry cluster development through entrepreneurship (reap.mit.edu) and the intersection between opensource models of community management and new systems like Holacracy and Liquid Democracy.
+
+Meng programs in Perl, Javascript, Python, Haskell, and Prolog. He first participated in Burning Man in 2001 and has since been back seven times. He has lived in Singapore, Vancouver, Philadelphia, Venice, and Palo Alto.
+
+
 
 ![Mengwong](/assets/img/egg-5183884948_47cd44f5f6_z.jpg){: .center-image }
 
