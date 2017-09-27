@@ -180,6 +180,9 @@ Legalese is importing all of these agreements. After you configure your deal in 
 	<li>
 		<a href="https://www.chinsay.com/">Chinsay</a> contract management for freight
 	</li>
+	<li>
+		<a href="https://specif.io/">Specifio</a> automates patent applications
+	</li>
 </ul>
 
 ## Template Libraries for Startups
@@ -632,6 +635,9 @@ Legalese is importing all of these agreements. After you configure your deal in 
 	</li>
 	<li>
 		<a href="http://rfrnz.com/">rfrnz</a> reads contracts
+	</li>
+	<li>
+		<a href="https://www.seal-software.com/">Seal Software</a> reads contracts
 	</li>
 	<li>
 		<a href="http://litiq.com/">LitIQ drafts contracts</a>
