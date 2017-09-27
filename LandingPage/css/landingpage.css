@@ -12,7 +12,7 @@ h2 {
     color: rgb(0, 0, 255);
     text-decoration: none;
     border-bottom: 1px dashed rgb(0, 0, 255);
-    display: inline-block;
+    display: inline;
     position: relative;
     padding: 0 .2em;
     -webkit-transition: all 250ms;
@@ -52,17 +52,13 @@ blockquote {
     position: relative;
 }
 
-blockquote > p {
-    text-indent: 50px;
-}
-
 blockquote:before {
     display: block;
     padding-left: 10px;
     content: ",,";
     font-size: 60px;
     position: absolute;
-    left: -20px;
+    left: 0px;
     top: 0px;
     color: #333333;
     transform: rotate(180deg);
@@ -74,7 +70,7 @@ blockquote:after {
     content: ",,";
     font-size: 60px;
     position: absolute;
-    right: -20px;
+    right: 0px;
     bottom: 30px;
     color: #333333;
 }
@@ -94,7 +90,7 @@ blockquote footer:before {
     left    : 40%;
     bottom  : -25px;
     height  : 2px;
-    width   : 20%;
+    width   : 60px;
     border-bottom: 2px solid #c2c2c2;
 }
 
@@ -102,8 +98,9 @@ blockquote footer:before {
     margin-bottom: 20px;
 }
 
-.container-fluid {
-    padding: 0;
+
+#first-container {
+    padding: 0px;
 }
 
 #eating-law {
@@ -126,7 +123,6 @@ blockquote footer:before {
 }
 
 .navbar {
-    padding-top: 5px;
     margin-bottom: 0px;
     min-height: 45px;
     border-radius: 0px;
@@ -148,6 +144,11 @@ blockquote footer:before {
     font-size: 16px;
 }
 
+.page-active {
+    border-bottom: 3px solid;
+    border-color: rgba(82, 254, 206, 1);
+}
+
 .legalese-nav {
     background-color: white;
     border: none;
@@ -164,10 +165,11 @@ blockquote footer:before {
     position: inline-block;
 }
 
-.affix {
+.legalese-nav.affix {
     position: fixed;
     top: 0;
     z-index: 3;
+    max-width: 100vw;
 }
 
 #top-bar {
@@ -177,9 +179,14 @@ blockquote footer:before {
 
 
 #top-bar > li > a,
-#blurb-nav-id > li > a{
+#blurb-nav-id > li > a {
     color: #333333;
     text-decoration: none;
+}
+
+.blurb-nav-highlight {
+    border-bottom: 3px solid;
+    border-color: rgba(92, 254, 206, 1);
 }
 
 .nav-pills > li + li {
@@ -187,22 +194,38 @@ blockquote footer:before {
 }
 
 .blurb-nav {
-    padding: 0px 50px 0px 50px;
     background-color: white;
     font-family: 'Lato', sans serif;
     font-size: 16px;
     box-shadow: 0px 3px 3px rgba(150,150,150,0.2);
-    height: 67px;
 }
 
 .blurb-nav > li {
     width: 20%;
 }
 
-#statusquo,
-#investornotice,
-#players {
-    padding-top: 8px;
+#player-nav {
+    margin-top: 20px;
+}
+
+#player-nav.affix {
+    position: fixed;
+    top: 40px;
+}
+
+#player-nav > p {
+    margin-bottom: 2px;
+}
+
+#player-nav > p > a,
+#player-nav > p > a:hover {
+    font-weight: 300;
+    color: #333333;
+}
+
+.player-nav-sub {
+    font-size: 10px;
+    text-indent: 5em each-line;
 }
 
 .legalese-logo {
@@ -214,6 +237,10 @@ blockquote footer:before {
     padding-top: 25px;
     width: 60vw;
     padding-bottom: 25px;
+}
+
+#pompous {
+    display: inline-block;
 }
 
 /* https://unsplash.com/photos/Oaqk7qqNh_c */
@@ -232,6 +259,10 @@ blockquote footer:before {
     font-size: 25px;
 }
 
+.row.text-center.black-rec > p {
+    font-size: 15px;
+}
+
 .get-started {
     width: 18vw;
     height: 3.5vw;
@@ -245,6 +276,7 @@ blockquote footer:before {
 
 .downarrow {
     height: 8vh;
+    cursor: pointer;
 }
 
 .top-container {
@@ -264,6 +296,7 @@ blockquote footer:before {
     -moz-border-radius: 35px;
     border-radius: 35px;
     display: none;
+    z-index: 100;
     -webkit-transition: all 0.3s linear;
     -moz-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
@@ -361,8 +394,9 @@ ul.li-inline li:not(:first-child)::before {
 }
 
 .bot-container {
-    padding: 30px 0px;
-    background-color: rgba(51, 51, 51, 0.1);
+    margin-top: 20px;
+    padding: 10px 0px;
+    box-shadow: 0 -3px 3px -3px rgba(51, 51, 51, 0.2);
 }
 
 .bot-link > p,
@@ -370,7 +404,7 @@ ul.li-inline li:not(:first-child)::before {
 .bot-link > p > a:hover {
     color: #333333;
     font-weight: 700;
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .bot-squeeze {
@@ -384,14 +418,24 @@ ul.li-inline li:not(:first-child)::before {
 }
 
 #rights-reserved,
-#rights-reserved > a{
-    font-size: 8px;
-    color: #c2c2c2;
+#rights-reserved > a {
+    font-weight: 300;
+    font-size: 10px;
+    color: #333333;
+}
+
+.bot-padding {
+    padding-top: 5px;
 }
 
 #bot-legalese {
     font-family: "Alegreya", serif;
     font-weight: 700;
-    font-size: 30px;
+    padding-top: 10px;
+    font-size: 24px;
     letter-spacing: 4px;
+}
+
+#legalese-pte-ltd > p {
+    margin-bottom: 0px;
 }
