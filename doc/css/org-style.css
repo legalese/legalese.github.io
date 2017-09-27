@@ -1,0 +1,275 @@
+/**
+ * This stylesheet will work pretty well with a regular Org Mode HTML export.
+ * However, you do have to turn off all of the defaults:
+ *
+ * (setq org-export-html-style-include-scripts nil
+ *       org-export-html-style-include-default nil)
+ *
+ * and insert a call to the stylesheet:
+ *
+ * (setq org-export-html-style
+ *       "<link rel=\"stylesheet\" type=\"text/css\" href=\"org-style.css\" />")
+ */
+
+/* @group Fonts */
+
+* {
+    font-family: "Helvetica";
+}
+
+pre {
+    font-family: Monaco, "Courier New", Courier;
+}
+
+#text-table-of-contents a {
+    font-family: "Helvetica";
+}
+
+/* @end */
+
+/* @group Baseline */
+body {
+	font-size: 14px;
+	line-height: 1.5em;
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5 {
+    text-indent: 0px;
+	padding-left: 64px;
+}
+
+#table-of-contents h1, #table-of-contents h2, #table-of-contents h3, #table-of-contents h4, #table-of-contents h5, #table-of-contents h6 {
+	padding-left: 0px;
+}
+
+h1 {
+	font-size: 1.6666666666666667em;
+	line-height: 0.9em;
+	margin-bottom: 0.9em;
+}
+h2 {
+	font-size: 1.5em;
+	line-height: 1em;
+	margin-bottom: 1em;
+}
+h3 {
+	font-size: 1.3333333333333333em;
+	line-height: 1.125em;
+	margin-bottom: 1.125em;
+}
+h4 {
+	font-size: 1.1666666666666667em;
+	line-height: 1.2857142857142858em;
+	margin-bottom: 1.2857142857142858em;
+}
+p, ul, blockquote, pre, td, th, label {
+	margin: 0;
+	font-size: 1em;
+	line-height: 1.5em;
+	margin-bottom: 1.5em;
+}
+blockquote p {
+    margin-left: 2em;
+	margin-right: 2em;
+}
+p.small, #postamble {
+	margin: 0;
+	font-size: 0.8333333333333334em;
+	line-height: 1.8em;
+	margin-bottom: 1.8em;
+}
+table {
+	border-collapse: collapse;
+	margin-bottom: 1.5em;
+}
+/* @end */
+
+/* @group Layout */
+
+#content {
+	width: 70em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#content > p, #content > ul, #content > ol {
+	width: 48em;
+	float: right;
+}
+
+/* #header {
+	height: 10em;
+}
+*/
+
+#table-of-contents {
+	width: 15em;
+	float: left;
+	overflow: auto;
+	position: fixed;
+}
+
+/* #main { */
+div.outline-2 {
+    width: 48em;
+	float: right;
+	/* The lines below are useful if the "main" div isn't available and
+	   div.outline-2 has to be used. */
+	position: relative;
+}
+
+#postamble {
+	clear: both;
+	text-align: center;
+}
+
+div.outline-2 pre {
+    width: 40em;
+    overflow: auto;
+}
+
+/* @end */
+
+/* @group Header */
+
+h1.title {
+	margin-top: 10px;
+	text-align: center;
+}
+
+h1.title {
+	font-size: 2em;
+	font-weight: bold;
+	margin-bottom: 1.2em;
+	margin-top: 1.2em;
+}
+
+/* @end */
+
+/* @group Org Keywords */
+
+h1 > .todo, h2 > .todo, h3 > .todo, h4 > .todo, h5 > .todo, h6 > .todo,
+h1 > .done, h2 > .done, h3 > .done, h4 > .done, h5 > .done, h6 > .done {
+	position: relative;
+	left: -144px;
+	width: 0px;
+}
+
+.todo {
+	color: red;
+}
+
+.done {
+	color: green;
+}
+
+.tag {
+	color: blue;
+	text-transform: lowercase;
+	/* This will be obscured by the surrounding span tag, so blank everything. */
+	background: #fff;
+	border: none;
+	/* position: relative;
+	text-align: right;
+	right: 1em; */
+}
+
+.target {
+	/* target for links */
+}
+
+/* @end */
+
+/* @group Table of Contents */
+
+#table-of-contents h2 {
+}
+
+#table-of-contents ul,
+#table-of-contents ol {
+    padding-left: 0em;
+	list-style-type: none;
+ 	margin-bottom: 0;
+}
+
+#table-of-contents li {
+	padding-left: 1.2em;
+	text-indent: -1.2em;
+}
+
+/* @end */
+
+/* @group Outline Level 2 */
+
+.outline-2 h2 {
+//    background: #ffc;
+    border-bottom: 1px solid #ccc;
+}
+
+.outline-2 h2, .outline-2 h3 {
+}
+
+.outline-2 {
+	padding: 5px;
+	/* margin-bottom: 10px; */
+	/* border-top: 1px solid #ccc; */
+}
+
+/* @end */
+
+td {
+	border: 1px solid #ccc;
+}
+
+img {
+    width: 100%;
+}
+
+h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
+//    background-color: #eee;
+//    padding: 2px;
+//    border: 1px solid #ccc;
+	display: inline-block;
+}
+
+.timestamp {
+    white-space:nowrap;
+	width: 10em;
+}
+
+.timestamp-kwd  {
+	/* keyword associated with a time stamp, like SCHEDULED */
+}
+
+.section-number-1, .section-number-2, .section-number-3, .section-number-4, .section-number-5 {
+	width: 0px;
+	position: relative;
+	left: -64px;
+}
+
+div.outline-text-1, div.outline-text-2, div.outline-text-3, div.outline-text-4, div.outline-text-5, div.outline-text-6,
+div.outline-1 > ol.org-ol, div.outline-2 > ol.org-ol, div.outline-3 > ol.org-ol,
+div.outline-4 > ol.org-ol, div.outline-5 > ol.org-ol, div.outline-6 > ol.org-ol {
+    margin-left: 64px;
+}
+
+a {
+    text-decoration: none;
+    color: #57d; /* TODO: Find a better colour for this. */
+}
+
+a:hover {
+    border-bottom: 1px dotted #57d;
+}
+
+#postamble p {
+    margin: 0px;
+}
+
+code {
+    font-family: Courier;
+	font-weight: bold;
+	background-color: lightyellow;
+}
+
