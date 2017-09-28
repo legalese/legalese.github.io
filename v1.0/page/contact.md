@@ -26,7 +26,7 @@ Please join our [community mailing list, talk@lists.legalese.com](https://groups
 We appreciate your forwardness, but if it's confidential, and we're not under NDA, then you probably shouldn't be sharing it with us.
 
 ## I have advice/questions/news that is not confidential, but I don't want to post publicly!
-Unfortunately, we lack the resources to engage over private channels, with two exceptions: media inquiries and strategic partnerships.
+Unfortunately, we lack the resources to engage over private channels, with three exceptions: media inquiries, investor relations, and strategic partnerships.
 
 
 - ## I'm from the media
