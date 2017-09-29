@@ -15,20 +15,10 @@
       -->
     {% include inlinecss.html %}
 
-<script type = 'text/javascript'>
-
-// move to https
-if (location.protocol != 'https:')
-{
- location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
-}
-
-// redirect www.legalese.com, and legalese.github.io domains
-if( window.location.hostname != "legalese.com" ) {
-	window.location.replace("https://legalese.com" + window.location.pathname );
-}
-
-</script>
+    <script type="text/javascript">
+      {% include location.js %}
+    </script>
+    
   </head>
   <div class="wrapper">
     <header id="header" class="header">
