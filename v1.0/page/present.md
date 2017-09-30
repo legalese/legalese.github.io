@@ -183,6 +183,9 @@ Legalese is importing all of these agreements. After you configure your deal in 
 	<li>
 		<a href="https://specif.io/">Specifio</a> automates patent applications
 	</li>
+	<li>
+		<a href="https://www.clydeco.com/clydecode">Clydecode</a> is a consultancy service by Clyde &amp; Co specialising in smart contract advice
+	</li>
 </ul>
 
 ## Template Libraries for Startups
