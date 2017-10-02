@@ -88,10 +88,12 @@ $("#ancillary-solutions-nav").click(function() {
 });
 
 $(window).scroll(function() {
-    if ($(this).scrollTop() >= $("#players-content").offset().top) {
-	$("#player-nav-accomp").addClass("col-md-offset-3")
-    } else {
-	$("#player-nav-accomp").removeClass("col-md-offset-3")
+    if ($("#players-content").length) {
+	if ($(this).scrollTop() >= $("#players-content").offset().top) {
+	    $("#player-nav-accomp").addClass("col-md-offset-3")
+	} else {
+	    $("#player-nav-accomp").removeClass("col-md-offset-3")
+	}
     }
 });
 

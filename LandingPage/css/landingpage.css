@@ -245,7 +245,7 @@ blockquote footer:before {
 
 /* https://unsplash.com/photos/Oaqk7qqNh_c */
 
-#second-container {
+.second-container-front {
     background-image: url('../images/paper.jpg');
     background-size: contain;
 }
