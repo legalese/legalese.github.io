@@ -78,13 +78,13 @@ $("li[role=presentation]").click(function() {
 });
 
 $("#early-stage-nav").click(function() {
-    $(".player-nav-ancillary").hide();
-    $(".player-nav-early-stage").show();
+    $(".player-nav-ancillary").toggle()
+    $(".player-nav-early-stage").toggle()
 });
 
 $("#ancillary-solutions-nav").click(function() {
-    $(".player-nav-early-stage").hide();
-    $(".player-nav-ancillary").show();
+    $(".player-nav-early-stage").toggle()
+    $(".player-nav-ancillary").toggle()
 });
 
 $(window).scroll(function() {
