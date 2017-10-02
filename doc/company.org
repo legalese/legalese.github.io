@@ -1,7 +1,7 @@
 #+TITLE: Legalese, the Company
 
-- What organizational structure, governance model, and communication processes does Legalese use?
-- How does Legalese deal with contributions, cash, equity and other expressions of finance?
+- What organisational structure, governance model, and communication processes does Legalese use?
+- How does Legalese deal with contributions, cash, equity, and other expressions of finance?
 - What expectations can every project participant have about other participants?
 - In particular, what common vocabulary and knowledge should participants possess?
 
@@ -15,9 +15,9 @@ Onboarding consists of two parts:
 
 ** Part 1: Initial Onboarding
 
-        This is the initial onboarding process that everyone has to go through. Unless otherwise specifically and publicly approved by the compensation committee, the completion of Initial Onboarding is a prerequisite for compensation and/or a stake in the organisation.
+        This is the initial onboarding process that everyone has to go through. Unless otherwise specifically and publicly approved by the compensation committee, the completion of Initial Onboarding is a prerequisite for any discussions of compensation and/or a stake in our organisation.
 
-But if you want committer access to the repository, or to get paid, you will need to walk the path.
+But if you want committer access to the repository, or to potentially get paid, you will need to walk the path.
 
         The tasks to be fulfilled for initial onboarding are:-   
 
@@ -43,11 +43,11 @@ But if you want committer access to the repository, or to get paid, you will nee
         - go to *all* relevant circles and nominate yourself (if you don't know which circles might be involved, ask on Slack) 
         - get positive public confirmation from the relevant circles, roles, and current assignees on Slack that you can proceed with the issue 
 
-*PLEASE REMEMBER THAT unless you have the compensation committee's written and public approval (i.e. on Slack or collective email) on compensation, no financial relationship can be assumed.*
+*PLEASE REMEMBER THAT unless you have the compensation committee's written and public approval (i.e. on Slack, a legalese-domained email, or in a validly executed contract) on compensation, no financial relationship can be assumed.*
 
-*Legalese does not make private promises or representations with anyone. So, if someone in our team promises you anything on behalf of Legalese, you should know that it is invalid and unenforceable.*
+*Legalese does not make *private* promises or representations with anyone. So if someone in our team promises you anything on behalf of Legalese, you should know that it is invalid and unenforceable.*
 
-If you are new to any of:
+If you are new to any of these:
 - opensource projects
 - high-tech, high-growth, innovation-driven startups
 - commercial organizations
@@ -55,27 +55,27 @@ If you are new to any of:
 you may find that the way we work is different to the way you have worked in the past, because we combine elements of all of the above.
 
 
-# Our Three commandments
+# Our three commandments
 
 As you will come to realise, we adhere to many principles, beliefs, and their associated bastards (e.g., Holacracy).
 As a company, however, we don't have many rules but we do have three commandments that operate jointly and concomitantly extend to _everything_:
 
-    *1. Do not make or expect another person to do what he/she is unwilling to do.*
-        + If you want an issue solved, you are empowered to follow the prescribe protocols to solve it. this includes persuading the relevant persons to do what you cannot or will not do. if this does not happen, be prepared to accept that it probably will not get solved. This is fine.
+    *1. Respect people -- do not make or expect another person to do what he/she is unwilling to do.*
+        + If you want an issue solved, you are empowered to follow the prescribed protocols to solve it. This includes persuading the relevant persons to do what you cannot or will not do. If this does not happen, be prepared to accept that it probably will not get solved. 
 
-    *2. Do not make promises on behalf of the company or other people in the company without going through the exhaustive protocols*
+    *2. Have integrity -- do not make promises on behalf of the company or other people in the company without going through the exhaustive protocols*
 
-    *3. Conversations should be held publicly - this means either in email copying collective@legalese.com and/or on a public channel in Slack*
+    *3. Bias for public -- by default, all company-related conversations should be held publicly. This means either in email copying collective@legalese.com and/or on a public channel on Slack*
       + If there are good reasons why the conversation cannot be open, then create a private chat on Slack and invite the appropriate people to join it -- preferably more than one other person. Private chats are not logged to our public archives.
       + Good reasons for going nonpublic include: 
            * you need to expose data that is confidential to an end-user
            * you want to discuss a possible ethics violation of another contributor, without publicly libeling them
            * you want to discuss your own compensation privately.
            
-        Note that even such discussions should not be secret (1-on-1) but are semiprivate (1-on-few/few-on-few).
+        Even such discussions are not be secret (1-on-1); they're more akin to being semi-private (1-on-few/few-on-few).
       
       + In the eyes of the company, secret 1-on-1 conversations never happened (and we don't care who your secret Legalese buddy is) -- if it didn't happen on Slack, on a mailing list, or at an official summit, then did it really happen? By analogy, in a seminar-style class, if you ask questions in class, you get credit for participation; if you wait until the end of the lecture for everybody else to leave before you approach the professor privately, no credit.
-      + In traditional organizations, managers are intended to be single-point-of-contact gateways to the rest of the organization -- they act as a filter so you can get work done. And when you talk to them, you are respecting the "chain of command": your manager is responsible for conveying your discussion to the rest of the organization, if appropriate.
+      + In traditional organisations, managers are intended to be single-point-of-contact gateways to the rest of the organisation -- they act as a filter so you can get work done. And when you talk to them, you are respecting the "chain of command": your manager is responsible for conveying your discussion to the rest of the organization, if appropriate.
       + However, Legalese doesn't have the "agricultural surplus" to support a manager class. Instead, guided by [[http://www.benkler.org/CoasesPenguin.html][Coase's Penguin]], we make everything public by default and expect you to filter it. Having a single point of contact that represents the organization is a luxury. Very well-heeled clients may be entitled to an account manager, but contributors and staff are not.
       + To sum up, if you want to engage with the organization, talk in a public channel. If you don't know where to talk, start with #general. If you try to talk privately with someone you think is in charge, you are probably wasting both your time and zers.
 
@@ -142,7 +142,8 @@ On the company side, before a contributor can work on certain parts of the compa
 - Meng
 
 ~Who is being compensated and what for~
-- Backend development: Anuj is on probation at SGD$1.4k/month
+- Job: v1 development and v2 support
+- Dustin: L4 research and development
 
 ** Roadmap
 
@@ -175,13 +176,13 @@ On the company side, before a contributor can work on certain parts of the compa
 + consolidate learnings and iterate experiments done during Phase One
 + compensation committee to finalise compensation architecture
 
-*** Phase Three: November - Dec 2016
+*** Phase Three: November 2016 - Nov 2017
 *externally*  
 + close angel round 
 *internally*  
 + build v2 as our MVP
 
-*** Phase Four: Jan - Mar 2017
+*** Phase Four: Jan - Mar 2018
 + set up trackers and experiments for v2 (for (i) monetisation and (ii) interface)
 + implement payment system for v2
 + build/refine pitch deck and business plan for 2m seed round
@@ -201,6 +202,10 @@ On the company side, before a contributor can work on certain parts of the compa
       Legalese costs money to run. Where will that money come from?
 
       Some opensource infrastructure projects are embarrassingly underfunded. [[http://www.technologyreview.com/view/526386/the-underfunded-project-keeping-the-web-secure/][OpenSSL]] and [[http://www.propublica.org/article/the-worlds-email-encryption-software-relies-on-one-guy-who-is-going-broke][GPG]] recently put out calls for donations. Legalese must be more sustainable than just relying on donations. That means incorporating as a business, maybe getting venture funding. There are many precedents for opensource businesses, including [[http://en.wikipedia.org/wiki/MariaDB][MySQL and MariaDB]].
+
+*Remote-first company*
+- [[https://stackoverflow.blog/2017/02/08/means-remote-first-company/][What the Stack Overflow folks say about this]]
+- [[https://www.virgin.com/entrepreneur/running-business-people-youve-never-met][Running a business with people you've never met]]
 
 ~"Teal" Organizations~
 Self-managing organizations are better suited to Internet-era post-industrial conditions. We take guidance and inspiration from:
@@ -397,6 +402,9 @@ pot = 30,000,000. How do we split the loot from the heist?
 + Person A is a great fit for the startup. They create more value working at that startup than they would working anywhere else.
 + The Contribution Adjustment could be stack-ranked on a quarterly basis based on outcomes.
      - For example, introduction to investors could be rewarded. But if the investor actually invests, the contribution could be adjusted up.
+
+*Component: Location*
+Something like what Buffer has done:  https://open.buffer.com/introducing-open-salaries-at-buffer-including-our-transparent-formula-and-all-individual-salaries/
 
 *Component: Cash/Equity Tradeoff*
 + Instead of taking $100 in cash, each contributor can choose to take $50 in cash and invest the other $50, buying equity at the last priced-round rate, or some adjusted interpolation, extrapolation, or approximation thereof. Or each contributor could take $0 in cash and $100 in equity.
