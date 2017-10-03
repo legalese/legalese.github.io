@@ -8,6 +8,10 @@ h2 {
     font-weight: 300;
 }
 
+.underline {
+    text-decoration: underline;
+}
+
 .a-link {
     color: rgb(0, 0, 255);
     text-decoration: none;
@@ -457,4 +461,23 @@ ul.li-inline li:not(:first-child)::before {
     background-color: #54edfc;
     border: none;
     box-shadow: 2px 2px 2px 1px rgba(51, 51, 51, 0.2)
+}
+
+#accept-disclaimer {
+    border-bottom: 3px solid;
+    border-color: #f0fe1e;
+    font-size: 20px;
+}
+
+.big-ticks {
+    list-style: none;
+}
+
+.big-ticks > li {
+    margin-top: 5px;
+}
+
+.big-ticks > li > input {
+    margin-right: 1em;
+    display: inline;
 }
