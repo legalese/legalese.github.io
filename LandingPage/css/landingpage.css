@@ -439,3 +439,22 @@ ul.li-inline li:not(:first-child)::before {
 #legalese-pte-ltd > p {
     margin-bottom: 0px;
 }
+
+.not-found {
+    font-size: 40px;
+}
+
+.not-found-container {
+    margin-top: 20px;
+}
+
+.vert-center {
+    display: flex;
+    align-items: center;
+}
+
+.not-found-btn {
+    background-color: #54edfc;
+    border: none;
+    box-shadow: 2px 2px 2px 1px rgba(51, 51, 51, 0.2)
+}
