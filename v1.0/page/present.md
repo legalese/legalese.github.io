@@ -509,6 +509,9 @@ Legalese is importing all of these agreements. After you configure your deal in 
 	<li>
 		<a href="https://www.synergist.io">Synergist</a> is a contract negotiation platform with easily tunable knobs.
 	</li>
+	<li>
+		<a class="a-link" href="http://www.legalhub.ch/">LegalHub</a> outputs documents into both human-readable (PDF, .doc) and machine-readable (JSON, XML) forms.
+	</li>
 </ul>
 
 ## Document Assembly for Law Firms and In-House Counsel
