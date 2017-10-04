@@ -6,8 +6,7 @@
 </CoverBottom_Address>
 <CoverBottom_series>
 <? if (! (data._config.omit_date && data._config.omit_date.value)) { ?>
-<centered><textvar name="Output Date" />&#8195;<span_smallcaps><textvar name="output time" /></span_smallcaps></centered>
+<centered><textvar name="Output Date" />&#8195;<span_smallcaps>Generated on <textvar name="output time" /></span_smallcaps></centered>
 <? } ?>
-<centered>version <?= data.document_version || "1.0.0" ?></centered>
-<cover_address_block><?= data.sheet_id ?></cover_address_block>
+<cover_address_block>Our reference: <?= data.sheet_id ?></cover_address_block>
 </CoverBottom_series>
