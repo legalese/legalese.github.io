@@ -746,6 +746,9 @@ Legalese is importing all of these agreements. After you configure your deal in 
 	<li>
 		<a href="https://contractmill.com/#how-it-works">ContractMill</a> lets you create and use your own contract templates
 	</li>
+	<li>
+		<a href="http://ibt.tech/">International Blockchain Technologies</a> registers your contracts in a blockchain</a>
+	</li>
 </ul>
 
 ## Legal Research
