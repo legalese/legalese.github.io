@@ -571,6 +571,9 @@ Legalese is importing all of these agreements. After you configure your deal in 
 
 <ul class="li-inline">
 	<li>
+		<a class="a-link" href="https://medium.com/legal-tech/legal-tech-startups-9755b18f93ac">A Medium post</a> for some maps and classifications of services legal startups provide
+	</li>
+	<li>
 		<a href="http://www.asialawportal.com/2016/12/19/legal-startup-ai-law-set-to-deploy-an-army-of-robotic-lawyers-in-china/">Ai.Law</a> will eat it all, from China.
 	</li>
 	<li>
