@@ -740,6 +740,9 @@ Legalese is importing all of these agreements. After you configure your deal in 
 	<li>
 		<a href="https://papiertiger.com/">Papiertiger</a> offers a few contract templates, made with lawyer approval
 	</li>
+	<li>
+		<a href="https://nextlex.ch/willkommen">NextLex</a> offers templates, and also corresponding human services for compliance requirements
+	</li>
 </ul>
 
 ## Legal Research
