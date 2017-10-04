@@ -743,6 +743,9 @@ Legalese is importing all of these agreements. After you configure your deal in 
 	<li>
 		<a href="https://nextlex.ch/willkommen">NextLex</a> offers templates, and also corresponding human services for compliance requirements
 	</li>
+	<li>
+		<a href="https://contractmill.com/#how-it-works">ContractMill</a> lets you create and use your own contract templates
+	</li>
 </ul>
 
 ## Legal Research
