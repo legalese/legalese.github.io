@@ -1055,6 +1055,9 @@ Borrowing from social science, these apply computational data-science techniques
 	<li>
 		<a href="https://www.idparc.ch/de/docgenie">iDPARC</a>
 	</li>
+	<li>
+		<a href="http://docengine.ch/"> offers CLM along with compliance checks</a>
+	</li>
 </ul>
 
 ## Lawyers and Law Firms who get it
