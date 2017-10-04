@@ -1037,6 +1037,9 @@ Borrowing from social science, these apply computational data-science techniques
 	<li>
 		<a href="http://precisely.se/">Precisely</a> is doing contract management software with pleasant UX
 	</li>
+	<li>
+		<a href="https://www.idparc.ch/de/docgenie">iDPARC</a>
+	</li>
 </ul>
 
 ## Lawyers and Law Firms who get it
