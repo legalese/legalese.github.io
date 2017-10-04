@@ -737,6 +737,9 @@ Legalese is importing all of these agreements. After you configure your deal in 
 	<li>
 		<a href="https://www.imandra.ai/">Imandra</a>: Online ecosystem for sharing and analysing internal and client-facing trading system specifications
 	</li>
+	<li>
+		<a href="https://papiertiger.com/">Papiertiger</a> offers a few contract templates, made with lawyer approval
+	</li>
 </ul>
 
 ## Legal Research
