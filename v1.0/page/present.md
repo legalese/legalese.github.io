@@ -186,6 +186,9 @@ Legalese is importing all of these agreements. After you configure your deal in 
 	<li>
 		<a href="https://www.clydeco.com/clydecode">Clydecode</a> is a consultancy service by Clyde &amp; Co specialising in smart contract advice
 	</li>
+	<li>
+		<a href="http://www.surukam.com/">Surukam</a>helps corporate legal teams automate their workflows and the decision-making process with NLP and ML
+	</li>
 </ul>
 
 ## Template Libraries for Startups
