@@ -1,6 +1,6 @@
 <?!= include("inc_plain_letterhead", data) ?>
 <? if (data._include.director_or_member == undefined || data._include.director_or_member.toLowerCase() == "director") { ?>
-<resolution_title>Directors' resolution<?= (data.directors_resolution_2 || data._include.r_num && data._include.r_num > 1) ? "s" : "" ?> in writing&#8232;passed pursuant to Article <?= data._include.article_pursuant || data.article_for_directors_resolution_in_writing || 90 ?> of the Company's Constitution</resolution_title>
+<resolution_title>Directors' resolution<?= (data.directors_resolution_2 || data._include.r_num && data._include.r_num > 1) ? "s" : "" ?> in writing&#8232;passed pursuant to Article <?= data._include.article_pursuant || data.article_for_directors_resolution_in_writing || 93 ?> of the Company's Constitution</resolution_title>
 <? } else if (data._include.director_or_member.toLowerCase() == "member") { ?>
 <resolution_title><?!= plural(data.parties.shareholder, "Member's", "Members'") ?> resolution<?= (data.members_resolution_2 || data._include.r_num && data._include.r_num > 1) ? "s" : "" ?>
 <?      if (data.egm_or_written_means == undefined || data.egm_or_written_means.match(/written/)) { ?>
