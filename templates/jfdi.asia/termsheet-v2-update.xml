@@ -18,7 +18,7 @@
 <table_enclosing_para override="keepLinesTogether=false">
 <Table aid:table="table" aid:tcols="2" aid:trows="<?= 14 + (data.security_essential=="debt" ? 3 : 0) + (data.has_term ? 1 : 0) ?>" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/">
 <?!= cell_l ?>Investment Type</cell></Cell>
-<?!= cell_r ?><? data.security_type_short_singular ?>, i.e. the Simple Agreement for Future Equity financing document(s) released by Y-Combinator ("<? data.security_type_short_singular ?>"). See: https://www.ycombinator.com/documents </cell_fl></Cell>
+<?!= cell_r ?><?= data.security_type_short_singular ?>, i.e. the Simple Agreement for Future Equity financing document(s) released by Y-Combinator ("<?= data.security_type_short_singular ?>"). See: https://www.ycombinator.com/documents </cell_fl></Cell>
 <?!= cell_l ?>Issuer</cell></Cell>
 <?!= cell_r ?>the Company, i.e. <?= data.company.name ?></cell_fl></Cell>
 <?!= cell_l ?>Investor</cell></Cell>
