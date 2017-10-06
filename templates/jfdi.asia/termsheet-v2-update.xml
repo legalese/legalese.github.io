@@ -22,11 +22,11 @@
 <?!= cell_l ?>Issuer</cell></Cell>
 <?!= cell_r ?>the Company, i.e. <?= data.company.name ?></cell_fl></Cell>
 <?!= cell_l ?>Investor</cell></Cell>
-<?!= cell_r ?>Purchasers of the applicable <?= data.security_type_short_plural ?> as offered and accepted by the Company for this <?= data.security_type_short_singular ?> Financing Round</cell_fl></Cell>
+<?!= cell_r ?>Purchasers of the applicable <?= data.security_type_short_plural ?> as offered and accepted by the Company for this <?= data.security_type_short_singular ?> Financing Round.</cell_fl></Cell>
 <?!= cell_l ?>Total Financing Amount</cell></Cell>
-<?!= cell_r ?>Up to <?= data.amount_raising ?> worth of <?= data.security_type_short_plural ?></cell_fl></Cell>
+<?!= cell_r ?>Up to <?= data.amount_raising ?> worth of <?= data.security_type_short_plural ?>.</cell_fl></Cell>
 <?!= cell_l ?>Closing(s)</cell></Cell>
-<?!= cell_r ?>The Company may close the <?= data.security_type_short_singular ?> Financing Round with one or more Investors on identical terms, <?if (data.high_resolution == true) { ?> except that the Investor, Investment Amount<?= data.variable_terms ? data.variable_terms : "," ?> and Closing Date in each case may differ<?} else { ?>.<? } ?></cell_fl></Cell>
+<?!= cell_r ?>The Company may close the <?= data.security_type_short_singular ?> Financing Round with one or more Investors on identical terms<?if (data.high_resolution == true) { ?>, except that the Investor, Investment Amount<?= data.variable_terms ? data.variable_terms : "," ?> and Closing Date in each case may differ.<?} else { ?>.<? } ?></cell_fl></Cell>
 <?!= cell_l ?>Investment Amount</cell></Cell>
 <?!= cell_r ?>The amount invested by an Investor for the purchase of such Investor's <?= data.security_type_plural ?> (the "Investment Amount")</cell_fl></Cell>
 <? var and_interest_on = "of" ?>
