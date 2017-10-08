@@ -86,6 +86,7 @@ Contracts are private law; legislation and regulation are public law. Enterprise
 7. In Pittsburgh (with Matthias Grabmair), the [[http://dl.acm.org/citation.cfm?id=2746096&dl=ACM&coll=DL&CFID=937658292&CFTOKEN=67801372][LUIMA project]] attempts to extract semantics from regulations. See also [[https://www.researchgate.net/publication/266177190_On_Rule_Extraction_from_Regulations][Adam Wyner]]; and [[http://works.bepress.com/hyun_lee/2/][Applying Software Development Techniques to Statutory Drafting]].
 8. [[http://www.akomantoso.org/][Akoma Ntoso]] is a markup XML for legislation.
 9. [[https://en.wikipedia.org/wiki/GJXDM][The Global Justice XML Data Model]] is a data reference model for the exchange of information within the justice and public safety communities.
+10. The [[http://lov.okfn.org/dataset/lov/about][Linked Open Vocabularies]] project may list a few contract/legal ontologies.
 
 The name for this field is "RegTech".
 
