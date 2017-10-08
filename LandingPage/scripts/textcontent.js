@@ -178,14 +178,6 @@ $(window).scroll(function() {
     }
 });
 
-// classes for blurb-bar
-
-if ($(window).width() < 768) {
-    $("#blurb-nav-id").addClass("nav-justified");
-} else {
-    $("#blurb-nav-id").removeClass("nav-justified")
-}
-
 // fix top button to above bot-container when scrolling
 
 $(window).scroll(function() {
