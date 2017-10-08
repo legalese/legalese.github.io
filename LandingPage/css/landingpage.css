@@ -481,3 +481,7 @@ ul.li-inline li:not(:first-child)::before {
     margin-right: 1em;
     display: inline;
 }
+
+.twitter-column {
+    padding-top: 10px;
+}
