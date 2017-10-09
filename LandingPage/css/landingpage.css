@@ -481,3 +481,47 @@ ul.li-inline li:not(:first-child)::before {
     margin-right: 1em;
     display: inline;
 }
+
+.subtitle {
+    font-size: 10px;
+}
+
+.fancy-community {
+    list-style: none;
+    padding-left: 0px;
+}
+
+#slack-li:before {
+    font-family: FontAwesome;
+    content: "\f198";
+    left: -10px;
+    margin-right: 5px;
+}
+
+#forum-li:before {
+    font-family: FontAwesome;
+    content: "\f27b";
+    left: -10px;
+    margin-right: 5px;
+}
+
+#github-li:before {
+    font-family: FontAwesome;
+    content: "\f09b";
+    left: -10px;
+    margin-right: 5px;
+}
+
+#twitter-li:before {
+    font-family: FontAwesome;
+    content: "\f099";
+    left: -10px;
+    margin-right: 5px;
+}
+
+#contact-li:before {
+    font-family: FontAwesome;
+    content: "\f0e0";
+    left: -10px;
+    margin-right: 5px;
+}
