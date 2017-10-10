@@ -491,6 +491,10 @@ ul.li-inline li:not(:first-child)::before {
     padding-left: 0px;
 }
 
+.community-row {
+    margin-top: 20px;
+}
+
 #slack-li:before {
     font-family: FontAwesome;
     content: "\f198";
