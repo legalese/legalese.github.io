@@ -145,6 +145,9 @@ Legalese is importing all of these agreements. After you configure your deal in 
 	<li>
 		<a href="https://simmondsstewart.com/blogs/automated-southeast-asia-kiss-note-its-magic/">Automated KISS generation by Simmonds Stewart</a> for South-East Asia
 	</li>
+	<li>
+		<a href="https://www.jianfabang.com/">Jianfabang</a> is an document automation service for startups
+	</li>
 </ul>
 
 ## Workflow Apps for Specific Verticals
@@ -188,6 +191,12 @@ Legalese is importing all of these agreements. After you configure your deal in 
 	</li>
 	<li>
 		<a href="http://www.surukam.com/">Surukam</a>helps corporate legal teams automate their workflows and the decision-making process with NLP and ML
+	</li>	
+	<li>
+		<a href="http://www.icourt.cc/">ICourt</a> does case management
+	</li>
+	<li>
+		<a href="http://www.legalminer.com/">Legal Miner</a> offers litigation analysis with specific track records for judges and lawyers
 	</li>
 </ul>
 
@@ -313,6 +322,12 @@ Legalese is importing all of these agreements. After you configure your deal in 
 	<li>
 		<a href="http://www.adamsdrafting.com/downloads/Copyright-NYLJ-8.23.06.pdf">Adams, Kenneth. Copyright and the Contract Drafter. New York Law Journal, 2006</a> asks: are contracts copyrightable?
 	</li>
+	<li>
+		<a href="http://www.wusongtech.com/">Wusong</a> offers litigation as well as case analysis
+	</li>
+	<li>
+		<a href="http://www.falvgu.com/public/html/index.html">Falvgu</a> is a legal marketplace as well as case library
+	</li>
 </ul>
 
 
@@ -386,6 +401,9 @@ Legalese is importing all of these agreements. After you configure your deal in 
 	</li>
 	<li>
 		<a href="https://esharesinc.zendesk.com/hc/en-us/articles/203979799-Pro-Forma-Round-Modeling-Spreadsheet">eShares round modeling</a> which is gaining <a href="https://techcrunch.com/2015/08/18/eshares-now-valued-at-77-million-looks-far-beyond-silicon-valley-2/">impressive marketshare</a>
+	</li>
+	<li>
+		<a href="https://gust.com/equity">Gust Equity Management</a> does captables and equity issues
 	</li>
 </ul>
 
@@ -564,6 +582,9 @@ Legalese is importing all of these agreements. After you configure your deal in 
 	</li>
 	<li>
 		<a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=legalxml-econtracts">OASIS LegalXML eContracts TC</a>
+	</li>
+	<li>
+		<a href="https://www.legito.com">Legito does document assembly and customisation</a>
 	</li>
 </ul>
 
@@ -750,7 +771,10 @@ Legalese is importing all of these agreements. After you configure your deal in 
 		<a href="https://contractmill.com/#how-it-works">ContractMill</a> lets you create and use your own contract templates
 	</li>
 	<li>
-		<a href="http://ibt.tech/">International Blockchain Technologies</a> registers your contracts in a blockchain</a>
+		<a href="http://ibt.tech/">International Blockchain Technologies</a> registers your contracts in a blockchain
+	</li>
+	<li>
+		<a href="http://robotlawyerlisa.com/">Robot Lawyer Lisa</a>
 	</li>
 </ul>
 
@@ -786,6 +810,9 @@ Legalese is importing all of these agreements. After you configure your deal in 
 	</li>
 	<li>
 		<a href="http://www.bluejlegal.com/">Blue J Legal</a> helps lawyers research tax law
+	</li>
+	<li>
+		<a class="a-link" href="http://www.caseshare.cn/">Caseshare</a> and <a class="a-link" href="http://openlaw.cn/">Openlaw.cn</a> are both case databases
 	</li>
 </ul>
 
@@ -865,6 +892,9 @@ Borrowing from social science, these apply computational data-science techniques
 	</li>
 	<li>
 		<a href="http://law.mit.edu/">law.mit.edu</a> takes a social-science approach to examining law: see <a href="https://www.youtube.com/watch?v=G2_1I9aUwgs">Dazza's video</a>.
+	</li>
+	<li>
+		<a class="a-link" href="http://www.corlytics.com/">Corlytics</a> is regulation technology and analysis with big data
 	</li>
 </ul>
 
@@ -1113,6 +1143,9 @@ Reliable natural language processing is a *vastly harder* problem than domain-sp
 	</li>
 	<li>
 		<a href="http://www.riverviewlaw.com/">Riverview Law</a> is also developing an artificial assistant.
+	</li>
+	<li>
+		<a href="http://www.fagougou.com/">Fagougou</a> is an artificial assistant which predicts case outcomes based on precedent
 	</li>
 	<li>
 		<a href="https://thoughtriver.com">ThoughtRiver</a> does NLP to read contracts and reason about them
