@@ -3,7 +3,6 @@ _FV_ abbreviates Formal Verification
 _MC_ abbreviates Model Checker
 
 
-
 # Formal contract systems
 
 These all come from academia.
@@ -15,12 +14,18 @@ These all come from academia.
 ## FormaLex / FL language
 *License*:
 
-They are a class act, but a lot of the source code is in Spanish. :-(
+A lot of the source code is in Spanish. :-(
+
+Their actions have duration by default, and are concurrent by default. I believe that was a mistake.
 
 ## CL/SCL (language) / CLAN / Anacon / C-O diagrams (Gothenburg, Cammileri, Schneider, which MC?)
 *License*:
 
 *Papers*: [google drive](https://drive.google.com/open?id=0BzKTGZrxy40NbklTUWd5bEVTaWc)
+
+**Note**: CL doesn’t have time contraints, besides sequencing, so I think the languages from the Swedes to compare to CSL and FormaLex are SCL and C-O diagrams.
+
+**Note**: CL/SCL do not seem to support arithmetic, except perhaps in timing constraints in the case of SCL.
 
 Cammileri on limitations of AnaCon, from *A Domain-Specific Language for
 Normative Texts with Timing Constraints*:
@@ -53,14 +58,14 @@ a contract: an unfulfilled obligation is more serious than an
 unfulfilled permission.
 >
 > Another potentially misleading behaviour of SCL is that
-prohibition F is only persistent until violated... 
+prohibition F is only persistent until violated...
 >
 > Another limitation of SCL is that the language does not
 support the concept of repetition, which would be useful for
 modelling recurring contracts, e.g. paying rent every month.
 The treatment of actions as instantaneous—that is, taking zero
 time to complete—may also be a limiting feature.
-> 
+>
 > Unfortunately, full verification on our translated NTA when
 no trace is given can require more computing time and
 resources than is reasonably possible. While we try to mitigate
