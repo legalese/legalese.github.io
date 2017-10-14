@@ -21,7 +21,7 @@
     <p id="investor2" class="investor">Investor Name: <input class="name" type="text"> Investment Amount: <input class="amount" type="number"> Cap: <input class="cap" type="number"> Discount %: <input class="discount" type="number"></p>
     <p id="investor3" class="investor">Investor Name: <input class="name" type="text"> Investment Amount: <input class="amount" type="number"> Cap: <input class="cap" type="number"> Discount %: <input class="discount" type="number"></p>
     <p id="investor4" class="investor">Investor Name: <input class="name" type="text"> Investment Amount: <input class="amount" type="number"> Cap: <input class="cap" type="number"> Discount %: <input class="discount" type="number"></p>
-    <p id="terms">Premoney Valuation: <input id="premoney" type="number"> Number of shares being issued: <input id="sharenumber" type="number"> Amount raising $ <input id="amountraising" type="number"> Company Capitalisation: <input id="companycap" type="number"></p>
+    <p id="terms">Premoney Valuation: <input id="premoney" type="number"> Amount raising $ <input id="amountraising" type="number"> Company Capitalisation: <input id="companycap" type="number"></p>
     
 
     <svg width="960" height="500"></svg>
@@ -46,54 +46,45 @@
 	     }
 	     investors.push(newInvestor);
 	 });
+
+	 var amountRaising = parseInt($("#terms > input#amountraising").val())
+	 var preMoney = parseInt($("#terms > input#premoney").val());
+	 var companyCap = parseInt($("#terms > input#companycap").val())
+	     
+	 var newInvestorShares = (amountRaising / preMoney) * companyCap;
+	 var pricePerShare = amountRaising / newInvestorShares;
 	 
 	 var terms = {
-	     premoney: parseInt($("#terms > input#premoney").val()),
-	     sharenumber: parseInt($("#terms > input#sharenumber").val()),
-	     sharevalue: parseInt($("#terms > input#amountraising").val()),
-	     companycap: parseInt($("#terms > input#companycap").val())
+	     premoney: preMoney,
+	     amountraising: amountRaising,
+	     companycap: companyCap,
+	     newshares: newInvestorShares,
+	     pricepershare: pricePerShare
 	 };
 
-	 console.log(terms);    
-	 console.log(investors);
-	 
-	 var totalAmount = 0;
-	 $("input.amount").each(function() {
-	     if($(this).val()) {
-		 totalAmount += parseInt($(this).val());
-	     }
-	 });
-	 
-	 console.log(totalAmount);
-
-	 var shares = 0;
+	 console.log(terms);
 
 	 investors.forEach(function(item) {
-	     console.log(item);
 	     if (item.amount) {
-		 item.shares = item.amount / safePrice(item, terms);
-		 console.log(item.shares);
+		 item.shares = getShares(item, terms)
 		 var safeInvestor = {
 		     name: item.name,
 		     shares: item.shares
 		 }
 		 captable.push(safeInvestor);
-		 shares += item.shares;
 	     }
 	 });
 
 	 var newInvestors = {
 	     name: "New Investors",
-	     shares: terms.sharenumber
+	     shares: newInvestorShares
 	 };
-
-	 shares += terms.sharenumber;
 
 	 captable.push(newInvestors);
 
 	 var companyShares = {
 	     name: "Company",
-	     shares: terms.companycap - shares
+	     shares: terms.companycap
 	 }
 
 	 captable.push(companyShares);
@@ -101,10 +92,38 @@
 	 updateData(captable);
 	 
      }
-     
-     function safePrice(investor, terms) {
-	 var price = investor.cap / terms.companycap;
-	 return price;
+
+
+     function getShares(investor, terms) {
+	 
+	 var shares;
+	 var pricePerShare = terms.pricepershare;
+	 var safePrice = investor.cap / terms.companycap;
+	 var discountPrice = ((100 - investor.discount) / 100) * pricePerShare;
+	 
+	 if (!investor.discount && investor.cap) { // cap, no discount
+	     if (terms.premoney <= investor.cap) {
+		 shares = investor.amount / pricePerShare;
+		 console.log(pricePerShare, shares);
+		 return shares;
+	     } else if (terms.premoney > investor.cap) {
+		 shares = investor.amount / safePrice;
+		 console.log(pricePerShare, shares);
+		 return shares;
+	     }
+	 } else if (investor.cap && investor.discount) { // cap & discount
+	     shares = investor.amount / Math.min(discountPrice, safePrice) // lower price, more shares
+	     console.log("discount price is" + discountPrice, "safe price is" + safePrice, shares);
+	     return shares;
+	 } else if (!investor.cap && investor.discount) { // discount, no cap
+	     shares = investor.amount / discountPrice;
+	     console.log(discountPrice, shares);
+	     return shares;
+	 } else if (!investor.cap && !investor.discount) { // no discount, no cap
+	     shares = investor.amount / pricePerShare;
+	     console.log(pricePerShare, shares);
+	     return shares;
+	 }
      }
 
      function updateData(d) {
