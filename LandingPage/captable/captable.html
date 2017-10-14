@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<meta charset="utf-8">
+<style>
+
+ .arc text {
+     font: 10px sans-serif;
+     text-anchor: middle;
+ }
+
+ .arc path {
+     stroke: #fff;
+ }
+
+</style>
+<body>
+    
+    <p><input name="getData" type="button" value="Generate Captable" onclick="getData()"></p>
+    
+    <p id="investor1" class="investor">Investor Name: <input class="name" type="text" placeholder="Alex"> Investment Amount: <input class="amount" type="number"> Cap: <input class="cap" type="number"> Discount %: <input class="discount" type="number"></p>
+    <p id="investor2" class="investor">Investor Name: <input class="name" type="text"> Investment Amount: <input class="amount" type="number"> Cap: <input class="cap" type="number"> Discount %: <input class="discount" type="number"></p>
+    <p id="investor3" class="investor">Investor Name: <input class="name" type="text"> Investment Amount: <input class="amount" type="number"> Cap: <input class="cap" type="number"> Discount %: <input class="discount" type="number"></p>
+    <p id="investor4" class="investor">Investor Name: <input class="name" type="text"> Investment Amount: <input class="amount" type="number"> Cap: <input class="cap" type="number"> Discount %: <input class="discount" type="number"></p>
+    <p id="terms">Premoney Valuation: <input id="premoney" type="number"> Number of shares being issued: <input id="sharenumber" type="number"> Amount raising $ <input id="amountraising" type="number"> Company Capitalisation: <input id="companycap" type="number"></p>
+    
+
+    <svg width="960" height="500"></svg>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script
+src="https://code.jquery.com/jquery-3.2.1.min.js"
+integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+crossorigin="anonymous"></script>
+    <script>
+     
+     function getData() {
+
+	 var captable = [];
+	 
+	 var investors = [];
+	 $(".investor").each(function() {
+	     var newInvestor = {
+		 name: $(this).children("input.name").val(),
+		 amount: parseInt($(this).children("input.amount").val()),
+		 cap: parseInt($(this).children("input.cap").val()),
+		 discount: parseInt($(this).children("input.discount").val())
+	     }
+	     investors.push(newInvestor);
+	 });
+	 
+	 var terms = {
+	     premoney: parseInt($("#terms > input#premoney").val()),
+	     sharenumber: parseInt($("#terms > input#sharenumber").val()),
+	     sharevalue: parseInt($("#terms > input#amountraising").val()),
+	     companycap: parseInt($("#terms > input#companycap").val())
+	 };
+
+	 console.log(terms);    
+	 console.log(investors);
+	 
+	 var totalAmount = 0;
+	 $("input.amount").each(function() {
+	     if($(this).val()) {
+		 totalAmount += parseInt($(this).val());
+	     }
+	 });
+	 
+	 console.log(totalAmount);
+
+	 var shares = 0;
+
+	 investors.forEach(function(item) {
+	     console.log(item);
+	     if (item.amount) {
+		 item.shares = item.amount / safePrice(item, terms);
+		 console.log(item.shares);
+		 var safeInvestor = {
+		     name: item.name,
+		     shares: item.shares
+		 }
+		 captable.push(safeInvestor);
+		 shares += item.shares;
+	     }
+	 });
+
+	 var newInvestors = {
+	     name: "New Investors",
+	     shares: terms.sharenumber
+	 };
+
+	 shares += terms.sharenumber;
+
+	 captable.push(newInvestors);
+
+	 var companyShares = {
+	     name: "Company",
+	     shares: terms.companycap - shares
+	 }
+
+	 captable.push(companyShares);
+
+	 updateData(captable);
+	 
+     }
+     
+     function safePrice(investor, terms) {
+	 var price = investor.cap / terms.companycap;
+	 return price;
+     }
+
+     function updateData(d) {
+	 
+	 var svg = d3.select("svg"),
+	     width = +svg.attr("width"),
+	     height = +svg.attr("height"),
+	     radius = Math.min(width, height) / 2,
+	     g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+	 var color = d3.scaleOrdinal(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
+	 var pie = d3.pie()
+		     .sort(null)
+		     .value(function(d) { return d.shares; });
+	 
+	 var path = d3.arc()
+		      .outerRadius(radius - 10)
+		      .innerRadius(0);
+
+	 var label = d3.arc()
+		       .outerRadius(radius - 40)
+		       .innerRadius(radius - 40);
+	 
+	 d.forEach(function(e) {
+	     e.shares = +e.shares;
+	 });
+	 
+	 var arc = g.selectAll(".arc")
+		    .data(pie(d))
+		    .enter().append("g")
+		    .attr("class", "arc");
+
+	 arc.append("path")
+	    .attr("d", path)
+	    .attr("fill", function(d) { return color(d.data.name); });
+
+	 arc.append("text")
+	    .attr("transform", function(d) { return "translate(" + label.centroid(d) + ")"; })
+	    .attr("dy", "0.35em")
+	    .text(function(d) { return d.data.name + " " + d.data.shares.toString() });
+     }
+
+    </script>
+
+</body>
