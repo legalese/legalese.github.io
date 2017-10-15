@@ -18,14 +18,25 @@ A lot of the source code is in Spanish. :-(
 
 Their actions have duration by default, and are concurrent by default. I believe that was a mistake.
 
-## CL/SCL (language) / CLAN / Anacon / C-O diagrams (Gothenburg, Cammileri, Schneider, which MC?)
+## CL/SCL (language) / CLAN / Anacon / C-O diagrams (Gothenburg, Cammileri, Schneider, UPPAAL MC)
 *License*:
 
 *Papers*: [google drive](https://drive.google.com/open?id=0BzKTGZrxy40NbklTUWd5bEVTaWc)
 
+_COD14_ abbreviates C-O Diagrams Language from 2014 paper
+
+_COD17_ abbreviates C-O Diagrams Language from 2017 paper
+
 **Note**: CL doesn’t have time contraints, besides sequencing, so I think the languages from the Swedes to compare to CSL and FormaLex are SCL and C-O diagrams.
 
 **Note**: CL/SCL do not seem to support arithmetic, except perhaps in timing constraints in the case of SCL.
+
+**Note**: COD14 had what seems like a major flaw of not being able to distinguish between time constraints as guards on clauses vs time constraints as deadlines.
+
+Cammileri on comparing COD17 to COD14 from 2017 paper:
+> Differences from the original include the top-level contract type indicating Main/Aux clauses, the addition of cross-references, ⟙/⟘ as reparations, the distinction between guards and intervals, and the inclusion of predicates as constraints. In addition, our version of C-O Diagrams does not support repetition
+ 
+I do not know the implications of "our version of C-O Diagrams does not support repetition."
 
 Cammileri on limitations of AnaCon, from *A Domain-Specific Language for
 Normative Texts with Timing Constraints*:
