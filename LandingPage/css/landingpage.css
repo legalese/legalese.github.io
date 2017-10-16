@@ -212,21 +212,23 @@ blockquote footer:before {
     width: 20%;
 }
 
-#player-nav {
+#player-nav, #informatics-nav {
     margin-top: 20px;
 }
 
-#player-nav.affix {
+#player-nav.affix, #informatics-nav.affix {
     position: fixed;
     top: 40px;
 }
 
-#player-nav > p {
+#player-nav > p, #informatics-nav > p {
     margin-bottom: 2px;
 }
 
 #player-nav > p > a,
-#player-nav > p > a:hover {
+#player-nav > p > a:hover,
+#informatics-nav > p > a,
+#informatics-nav > p > a:hover{
     font-weight: 300;
     color: #333333;
 }

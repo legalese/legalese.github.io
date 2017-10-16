@@ -97,6 +97,16 @@ $(window).scroll(function() {
     }
 });
 
+$(window).scroll(function() {
+    if ($("#informatics-content").length) {
+	if ($(this).scrollTop() >= $("#informatics-content").offset().top) {
+	    $("#informatics-nav-accomp").addClass("col-md-offset-3")
+	} else {
+	    $("#informatics-nav-accomp").removeClass("col-md-offset-3")
+	}
+    }
+});
+
 // fix nav to top
 
 var lastScrollTop = 0;
@@ -126,6 +136,16 @@ if ($(window).width() > 768) {
 	offset: {
 	    top: function() {
 		return (this.top = $("#players-content").offset().top)
+	    }
+	}
+    })
+}
+
+if ($(window).width() > 768) {
+    $("#informatics-nav").affix({
+	offset: {
+	    top: function() {
+		return (this.top = $("#informatics-content").offset().top)
 	    }
 	}
     })

@@ -224,9 +224,14 @@
 
     <div class="container-fluid top-container" id="informatics-content" style="display: none">
       <div class="row">
-	<div class="col-md-6 col-md-offset-3">
-		<h2>The legal informatics industry is older than most web developers today...</h2>
-		<h3>Formalising Contracts</h3>
+	<div class="col-md-2 col-md-offset-1" id="informatics-nav">
+	  <p><a href="#formalising-contracts">Formalising Contracts</a></p>
+	  <p><a href="#other-efforts-formal">Other Efforts</a></p>
+	  <p><a href="#original-motivation">Original Motivation</a></p>
+	</div>
+	<div class="col-md-8" id="informatics-nav-accomp">
+	  <h2>The legal informatics industry is older than most web developers today...</h2>
+	  <h3 id="formalising-contracts">Formalising Contracts</h3>
 	  <ul class="li-inline">
 	    <li><a class="a-link" href="https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU">Contract Formalisation and Modular Implementation of Domain-Specific Languages</a>, Tom Hvitved's 2012 PhD Thesis, is a key inspiration for Legalese. The first chapter offers a comprehensive survey of prior art in contract formalization.</li>
 	    <li><a class="a-link" href="http://lawreview.law.ucdavis.edu/issues/46/2/Articles/46-2_Surden.pdf">Harry Surden's Computable Contracts, 2012</a></li>
@@ -270,7 +275,7 @@
       </div>
       <div class="row">
 	<div class="col-md-6 col-md-offset-3">
-	  <h3>Other Efforts</h3>
+	  <h3 id="other-efforts-formal">Other Efforts</h3>
 	  <ul class="li-inline">
 	    <li><a class="a-link" href="http://www.ibtimes.co.uk/barclays-smart-contract-templates-heralds-first-ever-public-demo-r3s-corda-platform-1555329">CLACK at UCL</a> (<a class="a-link" href="http://clacklang.org/">clacklang.org</a>), which may inform <a class="a-link" href="http://www.ibtimes.co.uk/r3-extends-collaboration-smart-contract-templates-summit-1570121">R3's work</a> (see <a class="a-link" href="static1.squarespace.com/static/55f73743e4b051cfcc0b02cf/t/5784f5dbebbd1aba2d3e400e/1468331499513/R3+Smart+Contract+Templates+Summit+_FINAL.pdf">slides</a>)</li>
 	    <li><a class="a-link" href="https://www.lexifi.com/product/technology/contract-description-language">Lexifi's MLFi was one of the earliest commercializations of financial contract formalization</a></li>
@@ -291,7 +296,7 @@
       </div>
       <div class="row row-with-blockquote">
 	<div class="col-md-6 col-md-offset-3">
-	  <h3>Original Motivation</h3>
+	  <h3 id="original-motivation">Original Motivation</h3>
 	  <p>How did we get the idea to represent contracts as code? Once upon a time, a programmer received an investment contract containing the following text:</p>
 	  <div id="investment-contract">
 	    <p>1.2.1 If the investment for the purpose of the Series B Funding is valued at not more than $32.5 Million, then the investors in the Note shall be entitled to convert the Note into Shares at a fixed valuation of $27.5 million.</p>
