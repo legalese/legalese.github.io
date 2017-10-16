@@ -114,9 +114,9 @@ var lastScrollTop = 0;
 $(window).scroll(function(event){
     var st = $(this).scrollTop();
     if (st > lastScrollTop) {
-	$(".legalese-nav").fadeOut(500)
+	$(".legalese-nav").fadeOut(100)
     } else {
-	$(".legalese-nav").fadeIn(500)
+	$(".legalese-nav").fadeIn(100)
     };
     lastScrollTop = st;
 });
