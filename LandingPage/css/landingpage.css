@@ -532,3 +532,11 @@ ul.li-inline li:not(:first-child)::before {
     left: -10px;
     margin-right: 5px;
 }
+
+#investment-contract {
+    padding: 20px;
+    background-color: #fffcf4;
+    box-shadow: inset 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
+    font-family: "Alegreya", serif;
+    font-weight: 400;
+}
