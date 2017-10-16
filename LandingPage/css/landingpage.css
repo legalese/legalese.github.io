@@ -368,17 +368,6 @@ ul.li-inline li:not(:first-child)::before {
     margin-left: 4pt;
 }
 
-ul.li-inline-special    { list-style-type: disc; margin-top: 0; padding-left: 0px; }
-ul.li-inline-special li { display: inline; line-height: 1.5em }
-ul.li-inline-special li:not(:first-child):not(:nth-child(2))::before {
-    content: "//";
-    position:relative;
-    vertical-align: center;
-    margin-right: 6pt;
-    margin-left: 4pt;
-}
-
-
 .svg-wrapper {
     height: 40px;
     margin: 0 auto;
