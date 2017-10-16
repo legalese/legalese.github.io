@@ -77,15 +77,37 @@ $("li[role=presentation]").click(function() {
     $("div", this).addClass("blurb-nav-highlight");
 });
 
+// show various bits of players navbar
+
 $("#early-stage-nav").click(function() {
-    $(".player-nav-ancillary").toggle()
-    $(".player-nav-early-stage").toggle()
+    $(".player-nav-ancillary").hide();
+    $(".player-nav-early-stage").show();
+    $(".player-nav-document-gen").hide();
+    $(".player-nav-lib-repos").hide();
 });
 
 $("#ancillary-solutions-nav").click(function() {
-    $(".player-nav-early-stage").toggle()
-    $(".player-nav-ancillary").toggle()
+    $(".player-nav-ancillary").show();
+    $(".player-nav-early-stage").hide();
+    $(".player-nav-document-gen").hide();
+    $(".player-nav-lib-repos").hide();
 });
+
+$("#document-gen-assembly-nav").click(function() {
+    $(".player-nav-ancillary").hide();
+    $(".player-nav-early-stage").hide();
+    $(".player-nav-document-gen").show();
+    $(".player-nav-lib-repos").hide();
+});
+
+$("#lib-repos-nav").click(function() {
+    $(".player-nav-ancillary").hide();
+    $(".player-nav-early-stage").hide();
+    $(".player-nav-document-gen").hide();
+    $(".player-nav-lib-repos").show();
+});
+
+// realign players navbar on scroll
 
 $(window).scroll(function() {
     if ($("#players-content").length) {
@@ -96,6 +118,8 @@ $(window).scroll(function() {
 	}
     }
 });
+
+// realign informatics navbar on scroll
 
 $(window).scroll(function() {
     if ($("#informatics-content").length) {
@@ -129,7 +153,7 @@ $('.legalese-nav').affix({
     }
 })
 
-// only affix other-players sidebar if not on mobile
+// only affix sidebar if not on mobile
 
 if ($(window).width() > 768) {
     $("#player-nav").affix({
