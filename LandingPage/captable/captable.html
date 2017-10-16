@@ -108,7 +108,7 @@
 		 return shares;
 	     } else if (terms.premoney > investor.cap) {
 		 shares = investor.amount / safePrice;
-		 console.log(pricePerShare, shares);
+		 console.log(pricePerShare, shares, safePrice);
 		 return shares;
 	     }
 	 } else if (investor.cap && investor.discount) { // cap & discount
@@ -168,5 +168,6 @@
      }
 
     </script>
+    <script src="tests.js"></script>
 
 </body>
