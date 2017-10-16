@@ -173,6 +173,7 @@ $(".downarrow").click(function() {
 
 // change color of navbar on scroll, show legalese-logo
 
+/*
 $(window).scroll(function() {
     if ($(this).scrollTop() >= $("#first-container").height()) {
 	$(".legalese-nav").css("background-color", "#333333");
@@ -197,6 +198,7 @@ $(window).scroll(function() {
 	}
     }
 });
+*/
 
 // fix top button to above bot-container when scrolling
 
