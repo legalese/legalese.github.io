@@ -508,35 +508,36 @@ ul.li-inline li:not(:first-child)::before {
     font-family: FontAwesome;
     content: "\f198";
     left: -10px;
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 #forum-li:before {
     font-family: FontAwesome;
     content: "\f27b";
     left: -10px;
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 #github-li:before {
     font-family: FontAwesome;
     content: "\f09b";
     left: -10px;
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 #twitter-li:before {
     font-family: FontAwesome;
     content: "\f099";
     left: -10px;
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 #contact-li:before {
     font-family: FontAwesome;
     content: "\f0e0";
+    font-size: 12px;
     left: -10px;
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 #investment-contract {
