@@ -370,6 +370,10 @@ ul.li-inline li:not(:first-child)::before {
     margin-left: 4pt;
 }
 
+.player-inline {
+    display: inline;
+}
+
 .svg-wrapper {
     height: 40px;
     margin: 0 auto;
