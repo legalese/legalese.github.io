@@ -47,12 +47,14 @@
 	     investors.push(newInvestor);
 	 });
 
-	 var amountRaising = parseInt($("#terms > input#amountraising").val())
-	 var preMoney = parseInt($("#terms > input#premoney").val());
-	 var companyCap = parseInt($("#terms > input#companycap").val())
-	     
-	 var newInvestorShares = (amountRaising / preMoney) * companyCap;
-	 var pricePerShare = amountRaising / newInvestorShares;
+	 // new terms related to the new financing round
+	 
+	 var amountRaising = parseInt($("#terms > input#amountraising").val()) // how much money is the company raising?
+	 var preMoney = parseInt($("#terms > input#premoney").val()); // how much is the company valued at?
+	 var companyCap = parseInt($("#terms > input#companycap").val()) // how many shares are there in the company before the new financing round?
+	      
+	 var newInvestorShares = (amountRaising / preMoney) * companyCap; // how many shares are going to be issued in the new financing round?
+	 var pricePerShare = amountRaising / newInvestorShares; // how much is a share?
 	 
 	 var terms = {
 	     premoney: preMoney,
@@ -98,8 +100,10 @@
 	 
 	 var shares;
 	 var pricePerShare = terms.pricepershare;
-	 var safePrice = investor.cap / terms.companycap;
-	 var discountPrice = ((100 - investor.discount) / 100) * pricePerShare;
+	 var safePrice = investor.cap / terms.companycap; // this is the price per share if the premoney valuation is greater than the cap
+	 var discountPrice = ((100 - investor.discount) / 100) * pricePerShare; // this is the price per share if there is a discount
+
+	 // for each of the four types, this is how to determine the number of shares issued to the SAFE investor
 	 
 	 if (!investor.discount && investor.cap) { // cap, no discount
 	     if (terms.premoney <= investor.cap) {
