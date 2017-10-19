@@ -77,6 +77,8 @@
 	     }
 	 });
 
+	 // shares issued to new investors
+	 
 	 var newInvestors = {
 	     name: "New Investors",
 	     shares: newInvestorShares
@@ -84,8 +86,10 @@
 
 	 captable.push(newInvestors);
 
-	 var companyShares = {
-	     name: "Company",
+	 // shares owned by founders (= company capitalisation because we assume seed round)
+	 
+	 var foundersShares = {
+	     name: "Founders",
 	     shares: terms.companycap
 	 }
 
