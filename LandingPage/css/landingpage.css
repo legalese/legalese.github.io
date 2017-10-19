@@ -547,3 +547,17 @@ ul.li-inline li:not(:first-child)::before {
     font-family: "Alegreya", serif;
     font-weight: 400;
 }
+
+.flipcard {
+    margin: 0 auto;
+    background-color: #f2f2f2;
+    padding: 0px;
+}
+
+.flipcard > div > p {
+    position: relative;
+    float: left;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -25,10 +25,20 @@ $.when(compiler(), io(), google(), indesign()).done(function(c1, c2, c3, c4) {
     });
     
     githubData.forEach(function(item) {
-	$("#second-container > div").append("<p>" + item.login + " has " + item.contributions + " git commits for Legalese!</p>")
+	$("#second-container > div").append("<div class='flipcard col-md-2 text-center center-block'><div class='front'><p>"
+					  + item.login + "<br>" + item.contributions + " git commits"
+					  + "</p></div><div class='back'>"
+					  + "<img src='images/20160713-b-sq.png' class='img-responsive'>"
+	                                  + "</div></div>")
+    });
+
+
+    $(".flipcard").flip({
+	trigger: 'hover'
     });
     
 });
+
 
 
 function getItem(repo, git) {
