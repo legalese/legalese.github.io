@@ -548,16 +548,11 @@ ul.li-inline li:not(:first-child)::before {
     font-weight: 400;
 }
 
-.flipcard {
-    margin: 0 auto;
-    background-color: #f2f2f2;
-    padding: 0px;
+.card-pictures {
+    height: 144px;
+    width: 144px;
 }
 
-.flipcard > div > p {
-    position: relative;
-    float: left;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.col-md-2.flipcard.text-center, .col-md-2.col-md-offset-2.flipcard.text-center {
+    padding: 0px;
 }
