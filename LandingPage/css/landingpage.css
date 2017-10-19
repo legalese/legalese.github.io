@@ -500,6 +500,10 @@ ul.li-inline li:not(:first-child)::before {
     padding-left: 0px;
 }
 
+.developer-ul {
+    padding-left: 20px;
+}
+
 .community-row {
     margin-top: 20px;
 }
@@ -555,4 +559,3 @@ ul.li-inline li:not(:first-child)::before {
 
 .col-md-2.flipcard.text-center, .col-md-2.col-md-offset-2.flipcard.text-center {
     padding: 0px;
-}
