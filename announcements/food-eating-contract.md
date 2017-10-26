@@ -8,13 +8,14 @@ We recently made a lovely food eating contract.
 Terms of the Food Challenge
 ------------------------------------
 
-(1) The Challenger must pay $50 to Bob's Burgers.  This is due in 3601 seconds.
-(2) The Challenger must complete the Food Challenge, consisting of:
-    
-    (2a) eating the whole 1kg Monster Burger and Fries; and
-    (2b) complete the obligation in clause (2a), above, within 1 hour (3600 seconds) of the start of this challenge.
 
-(3) Immediately upon the satisfaction of the above, the Restaurant must waive any cost of the 1kg Monster Burger and Fries in clause (2a) above.
+> (1) The Challenger must pay $50 to Bob's Burgers.  This is due in 3601 seconds.
+> (2) The Challenger must complete the Food Challenge, consisting of:
+>    
+>    (2a) eating the whole 1kg Monster Burger and Fries; and
+>    (2b) complete the obligation in clause (2a), above, within 1 hour (3600 seconds) of the start of this challenge.
+>
+> (3) Immediately upon the satisfaction of the above, the Restaurant must waive any cost of the 1kg Monster Burger and Fries in clause (2a) above.
 
 ------------------------------------
 
@@ -32,21 +33,21 @@ Permission( {"Alice", passport_id=161803}, action="pay" ):
   where( amount=50, recipient={"Bob's Burgers", org_id=27182} )
   due( afterinit=3601, within=0 )
   then:
-		Obligation( {"Alice", passport_id=161803}, action="foodchallenge" ):
-			where( "has eaten the entire 1kg KiloBurger" )
-	    due( afterinit=0, within=3600 )
+     Obligation( {"Alice", passport_id=161803}, action="foodchallenge" ):
+           where( "has eaten the entire 1kg KiloBurger" )
+	   due( afterinit=0, within=3600 )
     	then:
-				Obligation( {"Bob's Burgers", org_id=27182}, action="payment_adjustment" )
-        where( "waive the bill" )
-        due( afterevent=0, within=0 )
-        then:
-					Fulfilment
-			  lest:
-				  breach
-	    lest:
-			  pass
-	lest:
-		pass
+	   Obligation( {"Bob's Burgers", org_id=27182}, action="payment_adjustment" )
+             where( "waive the bill" )
+             due( afterevent=0, within=0 )
+           then:
+	     Fulfilment
+        lest:
+	    breach
+      lest:
+	pass
+    lest:
+      pass
 ```
 
 Lisp
