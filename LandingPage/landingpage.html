@@ -60,7 +60,7 @@
 	      <li><a href="community.html" class="top-bar-link"><div><b>RESOURCES&nbsp;&nbsp;&amp;&nbsp;&nbsp;COMMUNITY</b></div></a></li>
 	      <li><a href="blog.html" class="top-bar-link"><div><b>BLOG</b></div></a></li>
 	      <li><a href="team.html" class="top-bar-link"><div><b>TEAM</b></div></a></li>
-	      <li><a href="login.html" class="top-bar-link" id="login" style="color: rgba(0, 0, 255, 1)"><div><b>LOG IN</b></div></a></li>
+	      <li><a href="" class="top-bar-link" id="login" style="color: rgba(0, 0, 255, 1)"><div><b>LOG IN</b></div></a></li>
 	    </ul>
 	  </div>
 	</nav>
@@ -109,8 +109,8 @@
 	<div class="col-md-6 col-md-offset-3">
 	  <blockquote class="text-center">
 	    <div class="col-md-10 col-md-offset-1">
-	    <p>Everything “THEDAO” tried to be, it could have been correctly and in full compliance with the law. For this reason, what blockchain companies should be trying to do is take complex financial, business, and governance processes and turn them into machine-readable protocols that also tick all of the human requirements, legal or otherwise. A bit of code that does all those things is what a smart contract actually is.
-	    </p>
+	      <p>Everything “THEDAO” tried to be, it could have been correctly and in full compliance with the law. For this reason, what blockchain companies should be trying to do is take complex financial, business, and governance processes and turn them into machine-readable protocols that also tick all of the human requirements, legal or otherwise. A bit of code that does all those things is what a smart contract actually is.
+	      </p>
 	    </div>
 	    <footer><div class="blockquote-footer">Preston Byrne, <cite title="Failing Fast vs Failing Unnecessarily">Failing Fast vs Failing Unnecessarily</cite></div></footer>
 	  </blockquote>
@@ -232,7 +232,7 @@
 	<div class="col-md-6 col-md-offset-3">
 	  <h2>Why choose Legalese?</h2>
 	  <p>How does Legalese surpass existing approaches like <a class="a-link" href="https://www.clerky.com/">Clerky</a>, <a class="a-link" href="https://ironclad.ai/">Ironclad</a>, <a class="a-link" href="https://www.docracy.com/">Docracy</a>, <a class="a-link" href="https://github.com/commonform">Commonform</a>, and <a class="a-link" href="http://www.commonaccord.org/">CommonAccord</a>?</p>
-	    <p>Such initiatives tend to run aground on the shoals of English: their “logic” is templates, stitched together the way PHP stitches together HTML. Taking a cue from commercial successes like ContractExpress which use deeper formalisms (Prolog), Legalese is developing a domain-specific language (DSL) from first principles. The DSL does for the <a class="a-link" href="http://link.springer.com/book/10.1007%2F978-3-642-31570-1">deontic modal calculus</a> what functional languages do for the <a class="a-link" href="http://dl.acm.org/citation.cfm?id=363749">lambda calculus</a>. This solid foundation in CS theory enables the mapping of mature software concepts to the legal domain: compilation, dependency management, static analysis, and unit &amp; integration testing.</p>
+	  <p>Such initiatives tend to run aground on the shoals of English: their “logic” is templates, stitched together the way PHP stitches together HTML. Taking a cue from commercial successes like ContractExpress which use deeper formalisms (Prolog), Legalese is developing a domain-specific language (DSL) from first principles. The DSL does for the <a class="a-link" href="http://link.springer.com/book/10.1007%2F978-3-642-31570-1">deontic modal calculus</a> what functional languages do for the <a class="a-link" href="http://dl.acm.org/citation.cfm?id=363749">lambda calculus</a>. This solid foundation in CS theory enables the mapping of mature software concepts to the legal domain: compilation, dependency management, static analysis, and unit &amp; integration testing.</p>
 	  <p>Formal semantics makes it possible to automate the production of <a class="a-link" href="http://web.archive.org/web/20160703141747/http://www.tbrnet.org/blog/2014/08/01/legal-update-bilingual-contracts/">bilingual contracts</a> (think Quebec, Indonesia, China, EU, etc), using natural language generation tools that operate in the opposite direction to the current trend of natural language processing (<a class="a-link" href="https://www.judicata.com/">Judicata</a>, <a class="a-link" href="https://lexmachina.com/">Lex Machina</a>). Legalese will also automate the drafting of paperwork in the growing “self-help” segment currently served by LegalZoom. Eventually, Legalese may help states rewrite existing legislation and regulation in a formal grammar; such formalisms would make it much easier for companies like FiscalNote to achieve their goals.</p>
 	  <h2>Why now?</h2>
 	  <p>Thirty years of academic research in deontic modal logic, contract formalization, static analysis, and language design are coming to fruition in papers like <a class="a-link" href="http://www.diku.dk/hjemmesider/ansatte/hvitved/publications/hvitved12phd.pdf">Tom Hvitved's PhD thesis (2013)</a>. Contracts are multiparadigmatic: they can be object-oriented, event-driven (reactive), functional, aspect-oriented, declarative, and imperative, all in the same document. Academic contract formalizations are just now beginning to satisfy the necessary properties for reduction to software practice.</p>
@@ -353,14 +353,14 @@
 	  </div>
 	  <p>Ten minutes and a strong cup of tea later, the notes in the margin read:</p>
 	  <pre>
-// why wasn't this just
-if( seriesB < 32.5 ) { conversion = 27.5 }
-   else if( seriesB < 40 ) { conversion = seriesB * 0.85 }
-           else if( seriesB < 47.06 ) { conversion = seriesB * 0.85 } // then why the above line?
-	           else if( seriesB < 80 ) { conversion = 40 }
-			   else if( seriesB < 100 ) { conversion = 45 }
-			           else { conversion = 50 }</pre>
-	  <p>What if contracts could be written in a formal language first, and then compiled to natural language? A simple but powerful idea.  Imagine contracts in English, Spanish, French, German, Chinese – each translation provably identical to the others. Contracts amenable to <a class="a-link" href="https://en.wikipedia.org/wiki/Software_testing">testing</a> and <a class="a-link" href="https://www.quantamagazine.org/20160920-formal-verification-creates-hacker-proof-code/">formal methods</a>: <a class="a-link" href="http://spinroot.com/static/">static analysis</a> can prove that a contract is internally consistent, free of contradiction, and complete. Contracts that self-execute in software, integrated with business processes, interacting with other contracts. Contracts that easily afford illustrations, use cases, and scenarios, for end-users to reason concretely over. This vision has been expressed by <a class="a-link" href="http://szabo.best.vwh.net/contractlanguage.html">Nick Szabo (2002)</a>, by <a class="a-link" href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2216866">Harry Surden (2012)</a>, by <a class="a-link" href="https://financialresearch.gov/working-papers/files/OFRwp-2015-04_Contract-as-Automaton-The-Computational-Representation-of-Financial-Agreements.pdf">Flood &amp; Goodenough (2014)</a>, by <a class="a-link" href="https://arxiv.org/abs/1406.5691">Camilleri, Paganelli, &amp; Schneider (2014)</a>, by <a class="a-link" href="https://link.springer.com/chapter/10.1007%2F978-3-540-72952-5_11">Prisacariu &amp; Schneider (2007)</a>.</p>
+	    // why wasn't this just
+	    if( seriesB < 32.5 ) { conversion = 27.5 }
+			  else if( seriesB < 40 ) { conversion = seriesB * 0.85 }
+					     else if( seriesB < 47.06 ) { conversion = seriesB * 0.85 } // then why the above line?
+								else if( seriesB < 80 ) { conversion = 40 }
+										   else if( seriesB < 100 ) { conversion = 45 }
+												      else { conversion = 50 }</pre>
+												      <p>What if contracts could be written in a formal language first, and then compiled to natural language? A simple but powerful idea.  Imagine contracts in English, Spanish, French, German, Chinese – each translation provably identical to the others. Contracts amenable to <a class="a-link" href="https://en.wikipedia.org/wiki/Software_testing">testing</a> and <a class="a-link" href="https://www.quantamagazine.org/20160920-formal-verification-creates-hacker-proof-code/">formal methods</a>: <a class="a-link" href="http://spinroot.com/static/">static analysis</a> can prove that a contract is internally consistent, free of contradiction, and complete. Contracts that self-execute in software, integrated with business processes, interacting with other contracts. Contracts that easily afford illustrations, use cases, and scenarios, for end-users to reason concretely over. This vision has been expressed by <a class="a-link" href="http://szabo.best.vwh.net/contractlanguage.html">Nick Szabo (2002)</a>, by <a class="a-link" href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2216866">Harry Surden (2012)</a>, by <a class="a-link" href="https://financialresearch.gov/working-papers/files/OFRwp-2015-04_Contract-as-Automaton-The-Computational-Representation-of-Financial-Agreements.pdf">Flood &amp; Goodenough (2014)</a>, by <a class="a-link" href="https://arxiv.org/abs/1406.5691">Camilleri, Paganelli, &amp; Schneider (2014)</a>, by <a class="a-link" href="https://link.springer.com/chapter/10.1007%2F978-3-540-72952-5_11">Prisacariu &amp; Schneider (2007)</a>.</p>
 	</div>
       </div>
     </div>
@@ -406,20 +406,20 @@ if( seriesB < 32.5 ) { conversion = 27.5 }
 	    <li><a class="a-link" href="http://hellobonsai.com/">Bonsai</a> helps freelancers get paid</li>
 	    <li><a class="a-link" href="http://www.concordnow.com/">Concord</a> is end-to-end contract signature management</li>
 	    <li><a class="a-link" href="https://www.clerky.com/">Clerky</a> (Delaware) does incorporations and fundings</li>
-			<li><a class="a-link" href="http://www.docdep.com/">DocDep</a> takes you from investment to divestment</li>
+	    <li><a class="a-link" href="http://www.docdep.com/">DocDep</a> takes you from investment to divestment</li>
 	    <li><a class="a-link" href="http://dragonlaw.com.hk/">DragonLaw</a> is founded by a lawyer</li>
 	    <li><a class="a-link" href="https://www.esharesinc.com/">eShares</a></li>
 	    <li><a class="a-link" href="https://www.flashfunders.com/">FlashFunders</a> is an equity crowdfunding platform with a ton of augmentations, <a class="a-link" href="http://techcrunch.com/2015/05/11/equity-crowdfunding-platform-flashfunders-is-automating-securities-law-for-seed-stage-rounds/#.umyjoj:J2Lt">according to Techcrunch</a></li>
-			<li><a class="a-link" href="http://www.handshakes.com.sg/">Handshakes</a> maps out all relationships between companies and persons</li>
-			 <li><a class="a-link" href="https://incorporations.io/">Incorporations.io</a> finds the best jurisdiction in which to incorporate your particular startup</li>
+	    <li><a class="a-link" href="http://www.handshakes.com.sg/">Handshakes</a> maps out all relationships between companies and persons</li>
+	    <li><a class="a-link" href="https://incorporations.io/">Incorporations.io</a> finds the best jurisdiction in which to incorporate your particular startup</li>
 	    <li><a class="a-link" href="https://www.ironcladapp.com/">Ironclad</a> automates a range of startup-friendly legal templates, with Dropbox and HelloSign integration (for values of "startup" that mean "Delaware corporations operating in California")</li>
 	    <li><a class="a-link" href="https://www.jianfabang.com/">Jianfabang</a> is an document automation service for startups</li>
-			<li><a class="a-link" href="http://www.justinvesting.com/home/products/">JustInvesting</a> moves investing online</li>
-			<li><a class="a-link" href="http://www.lawcanvas.com/">LawCanvas</a> (for Singapore)</li>
+	    <li><a class="a-link" href="http://www.justinvesting.com/home/products/">JustInvesting</a> moves investing online</li>
+	    <li><a class="a-link" href="http://www.lawcanvas.com/">LawCanvas</a> (for Singapore)</li>
 	    <li><a class="a-link" href="https://www.legistify.com/">Legistify</a> does incorporations and fundings</li>
 	    <li><a class="a-link" href="https://get-paper.com/">Paper</a> does incorporations and fundings</li>
 	    <li><a class="a-link" href="http://patentory.com/">Patentory</a></li>
-			<li><a class="a-link" href="https://www.startupdocuments.com/">StartupDocuments</a> is affiliated with <a class="a-link" href="http://bedrocksf.com/">Bedrock</a>; does incorporations and fundings</li>
+	    <li><a class="a-link" href="https://www.startupdocuments.com/">StartupDocuments</a> is affiliated with <a class="a-link" href="http://bedrocksf.com/">Bedrock</a>; does incorporations and fundings</li>
 	    <li><a class="a-link" href="http://startuplawyer.com/">StartupLawyer</a> does incorporations and fundings</li>
 	    <li><a class="a-link" href="https://techcrunch.com/2017/04/05/seedlegals-automation-aims-to-replace-lawyers-in-startup-funding-rounds/">SeedLegals</a> does it in the UK</li>
 	    <li><a class="a-link" href="https://stripe.com/atlas">Stripe Atlas</a> (Delaware)</li>
@@ -509,7 +509,7 @@ if( seriesB < 32.5 ) { conversion = 27.5 }
 	    <li><a class="a-link" href="http://launch.wilmerhale.com/build/document-generator/">Wilmerhale</a></li>
 	    <li><a class="a-link" href="http://www.foundersworkbench.com/document-driver/">Founders Workbench</a></li>
 	    <li><a class="a-link" href="http://ebrevia.com/">eBrevia</a></li>
-			<li><a class="a-link" href="https://www.iubenda.com/">Iubenda</a> generates T&Cs for privacy policies and cookies</li>
+	    <li><a class="a-link" href="https://www.iubenda.com/">Iubenda</a> generates T&Cs for privacy policies and cookies</li>
 	    <li><a class="a-link" href="http://www.ndasforfree.com/">NDAs for Free</a></li>
 	    <li><a class="a-link" href="https://kirasystems.com/">DiligenceEngine</a></li>
 	    <li><a class="a-link" href="https://venturedocs.com/">VentureDocs</a></li>
@@ -557,7 +557,7 @@ if( seriesB < 32.5 ) { conversion = 27.5 }
 	  <ul class="li-inline player-inline">
 	    <li><a class="a-link" href="http://www.synergist.io/">Synergist</a> is a platform for online negotiation</li>
 	    <li><a class="a-link" href="https://parleypro.com/">Parley Pro</a> negotiate better contracts faster</li>
-			<li><a class="a-link" href="http://www.thedocyard.co/">The Doc Yard</a> is a polished app for lawyers to address the pain point of deal negotiation and closing.</li>
+	    <li><a class="a-link" href="http://www.thedocyard.co/">The Doc Yard</a> is a polished app for lawyers to address the pain point of deal negotiation and closing.</li>
 	  </ul>
 	  <br>
 	  <br>
@@ -718,7 +718,7 @@ if( seriesB < 32.5 ) { conversion = 27.5 }
 	    <li><a class="a-link" href="https://github.com/KingandWoodMallesonsAU/Project-DnA">KWM's Project DnA on Github</a></li>
 	    <li><a class="a-link" href="http://www.lawhackers.co/">Law Hackers</a> for a curated list of legal startups</li>
 	    <li><a class="a-link" href="https://www.imandra.ai/">Imandra</a>: Online ecosystem for sharing and analysing internal and client-facing trading system specifications</li>
-			<li><a class="a-link" href="https://tsc.orrick.com/">Orrick's Term Sheet Creator</a></li>
+	    <li><a class="a-link" href="https://tsc.orrick.com/">Orrick's Term Sheet Creator</a></li>
 	    <li><a class="a-link" href="https://papiertiger.com/">Papiertiger</a> offers a few contract templates, made with lawyer approval</li>
 	    <li><a class="a-link" href="https://nextlex.ch/willkommen">NextLex</a> offers templates, and also corresponding human services for compliance requirements</li>
 	    <li><a class="a-link" href="https://contractmill.com/#how-it-works">ContractMill</a> lets you create and use your own contract templates</li>
@@ -852,6 +852,7 @@ if( seriesB < 32.5 ) { conversion = 27.5 }
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdn.auth0.com/js/auth0/8.10.1/auth0.min.js"></script>
     <script src="scripts/textcontent.js"></script>
 
   </body>

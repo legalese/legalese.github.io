@@ -1,3 +1,54 @@
+$(window).on("load", function() {
+    var webAuth = new auth0.WebAuth({
+	domain: "legalese.auth0.com",
+	clientID: "u6mNNtkHsQU3rA1wI9LMBzr78htT4U6s",
+	redirectUri: "https://testserver.legalese.proteus-tech.com/v2/",
+	audience: 'https://' + "legalese.auth0.com" + '/userinfo',
+	responseType: 'token id_token',
+	scope: 'openid',
+	leeway: 60
+    });
+
+    $("#login").click(function(e) {
+	e.preventDefault();
+	webAuth.authorize();
+    });
+
+    function setSession(authResult) {
+	// Set the time that the access token will expire at
+	var expiresAt = JSON.stringify(
+	    authResult.expiresIn * 1000 + new Date().getTime()
+	);
+	localStorage.setItem('access_token', authResult.accessToken);
+	localStorage.setItem('id_token', authResult.idToken);
+	localStorage.setItem('expires_at', expiresAt);
+    }
+
+    function isAuthenticated() {
+	// Check whether the current time is past the
+	// access token's expiry time
+	var expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+	return new Date().getTime() < expiresAt;
+    }
+
+    function handleAuthentication() {
+	webAuth.parseHash(function(err, authResult) {
+	    if (authResult && authResult.accessToken && authResult.idToken) {
+		window.location.hash = '';
+		setSession(authResult);
+	    } else if (err) {
+		console.log(err);
+		alert(
+		    'Error: ' + err.error + '. Check the console for further details.'
+		);
+	    }
+	});
+    }
+
+    handleAuthentication();
+    
+})
+
 // hide and show relevant sections
 
 $( "#investornotice" ).click(function(e) {
@@ -198,31 +249,31 @@ $(".downarrow").click(function() {
 // change color of navbar on scroll, show legalese-logo
 
 /*
-$(window).scroll(function() {
-    if ($(this).scrollTop() >= $("#first-container").height()) {
-	$(".legalese-nav").css("background-color", "#333333");
-	$("#top-bar > li > a").css("color", "white");
-	$(".fa.fa-twitter").css("color", "white");
-	if ($(window).width() < 768) {
-	    $(".navbar-collapse").css("background-color", "#333333");
-	    $(".navbar-brand.visible-xs-inline > img").attr("src", "images/legalese-section-logo-20160611-croissant-plain-white.png");
-	} else {
-	    $("#legalese-logo-nav > a > img").attr("src", "images/legalese-section-logo-20160611-croissant-plain-white.png");
-	}
-    } else {
-	$(".legalese-nav").css("background-color", "white");
-	$("#top-bar > li > a").css("color", "#333333");
-	$("#login").css("color", "rgb(0, 0, 255)");
-	$(".fa.fa-twitter").css("color", "#333333");
-	if ($(window).width() < 768) {
-	    $(".navbar-collapse").css("background-color", "white");
-	    $(".navbar-brand.visible-xs-inline > img").attr("src", "images/20160713-b-sq.png");
-	} else {
-	    $("#legalese-logo-nav > a > img").attr("src", "images/20160713-b-sq.png");
-	}
-    }
-});
-*/
+   $(window).scroll(function() {
+   if ($(this).scrollTop() >= $("#first-container").height()) {
+   $(".legalese-nav").css("background-color", "#333333");
+   $("#top-bar > li > a").css("color", "white");
+   $(".fa.fa-twitter").css("color", "white");
+   if ($(window).width() < 768) {
+   $(".navbar-collapse").css("background-color", "#333333");
+   $(".navbar-brand.visible-xs-inline > img").attr("src", "images/legalese-section-logo-20160611-croissant-plain-white.png");
+   } else {
+   $("#legalese-logo-nav > a > img").attr("src", "images/legalese-section-logo-20160611-croissant-plain-white.png");
+   }
+   } else {
+   $(".legalese-nav").css("background-color", "white");
+   $("#top-bar > li > a").css("color", "#333333");
+   $("#login").css("color", "rgb(0, 0, 255)");
+   $(".fa.fa-twitter").css("color", "#333333");
+   if ($(window).width() < 768) {
+   $(".navbar-collapse").css("background-color", "white");
+   $(".navbar-brand.visible-xs-inline > img").attr("src", "images/20160713-b-sq.png");
+   } else {
+   $("#legalese-logo-nav > a > img").attr("src", "images/20160713-b-sq.png");
+   }
+   }
+   });
+ */
 
 // fix top button to above bot-container when scrolling
 
@@ -244,4 +295,4 @@ $(window).scroll(function() {
 	});
     }
 })
-	    
+
