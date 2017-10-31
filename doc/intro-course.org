@@ -341,6 +341,7 @@ We review the above projects in more detail.
 - [[https://www.w3.org/community/odrl/][ODRL]]
 - http://uterms.software/
 - http://openminted.eu/
+- http://remu.grammaticalframework.org/contracts/ is the index to a lot of work product from REMU including CNL and C-OD
 - http://remu.grammaticalframework.org/contracts/converter/
 - http://remu.grammaticalframework.org/retreat/2016/ workplan for june 2016 to 2017
 
