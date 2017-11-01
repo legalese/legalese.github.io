@@ -2,7 +2,7 @@ $(window).on("load", function() {
     var webAuth = new auth0.WebAuth({
 	domain: "legalese.auth0.com",
 	clientID: "u6mNNtkHsQU3rA1wI9LMBzr78htT4U6s",
-	redirectUri: "https://testserver.legalese.proteus-tech.com/v2/",
+	redirectUri: `${window.location.host}/v2/`,
 	audience: 'https://' + "legalese.auth0.com" + '/userinfo',
 	responseType: 'token id_token',
 	scope: 'openid',
