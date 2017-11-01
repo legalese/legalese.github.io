@@ -328,6 +328,10 @@ Legalese is importing all of these agreements. After you configure your deal in 
 	<li>
 		<a href="http://www.falvgu.com/public/html/index.html">Falvgu</a> is a legal marketplace as well as case library
 	</li>
+	<li>
+		<a href="http://ithacaconnect.org/">Ithaca</a> is a humanitarian initiative to connect lawyers to refugees in need of asylum
+	</li>
+	
 </ul>
 
 
@@ -528,7 +532,10 @@ Legalese is importing all of these agreements. After you configure your deal in 
 		<a href="https://www.synergist.io">Synergist</a> is a contract negotiation platform with easily tunable knobs.
 	</li>
 	<li>
-		<a class="a-link" href="http://www.legalhub.ch/">LegalHub</a> outputs documents into both human-readable (PDF, .doc) and machine-readable (JSON, XML) forms.
+		<a href="http://www.legalhub.ch/">LegalHub</a> outputs documents into both human-readable (PDF, .doc) and machine-readable (JSON, XML) forms.
+	</li>
+	<li>
+		<a href="https://avvoka.com/">Avvoka</a> offers contract automation and pair drafting
 	</li>
 </ul>
 
@@ -632,6 +639,9 @@ Legalese is importing all of these agreements. After you configure your deal in 
 	</li>
 	<li>
 		<a href="http://www.elementaryip.com/">elementaryIP</a> groks patent law
+	</li>
+	<li>
+		<a href="https://www.nivaura.com/">Nivaura</a> is a cloud-based service for issue of financial instruments by SMEs
 	</li>
 	<li>
 		<a href="http://www.lawgeex.com/">LawGeex</a> reads contracts
@@ -1152,6 +1162,9 @@ Reliable natural language processing is a *vastly harder* problem than domain-sp
 	</li>
 	<li>
 		<a href="http://www.recommind.com/perceptiv-product-page/">Perceptiv</a> also does NLP to read and extract data from finance contracts
+	</li>
+	<li>
+		<a href="https://ndalynn.com/">NDA Lynn</a> helps you check your NDA
 	</li>
 </ul>
 
