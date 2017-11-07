@@ -5,7 +5,7 @@ layout: "default"
 
 ## I want to hop on a phone-call to chat!
 We get about 2-3 requests like this per day.  And if we agreed to them, we would cease to be getting work done.  So, *no cold-calls*, ever.
-- If you have a specific proposal, email us at [collective@legalese.com].(mailto:collective@legalese.com).  If you do not have specifics, you are likely to get a response.
+- If you have a specific proposal, email us at [collective@legalese.com](mailto:collective@legalese.com).  If you do not have specifics, you are unlikely to get a response.
 - If you don't have a specific proposal, chat it up the community mailing list, [talk@lists.legalese.com](https://groups.google.com/a/lists.legalese.com/forum/#!forum/talk) or our Twitter [@legalese](https://twitter.com/legalese).
 
 ## I propose a strategic partnership
