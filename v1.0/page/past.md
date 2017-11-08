@@ -231,7 +231,7 @@ With the advent of electronic and digital signatures, the execution of such pape
 While execution is concerned with the relations between contracts, and does not look into the body of a contract beyond the parties and the **signatures**, drafting is concerned with the content of contracts.
 
 1. Natural-language contracts often look like somebody trying to program without knowing any programming languages.
-2. To a programmer, the [structure of a contract](http://www.weagree.com/book/124-Structure+and+presentation+of+contracts.html) reveals familiar ideas. The *preamble* is a high-level [comment block](https://en.wikipedia.org/wiki/Comment_(computer_programming) that may declare [assertions](https://en.wikipedia.org/wiki/Assertion_(software_development)). The *definitions* section declares [variables](https://en.wikipedia.org/wiki/Variable_(computer_science)) and [constants](https://en.wikipedia.org/wiki/Constant_(computer_programming)). The *conditions precedent* define, well, [preconditions](https://en.wikipedia.org/wiki/Precondition). The *main clauses* describe the [happy path](https://en.wikipedia.org/wiki/Happy_path). The *breach/damages* clauses handle exceptions. The *term* clause defines a timeout. And so on.
+2. To a programmer, the [structure of a contract](http://www.weagree.com/book/124-Structure+and+presentation+of+contracts.html) reveals familiar ideas. The *preamble* is a high-level [comment block](https://en.wikipedia.org/wiki/Comment_(computer_programming)) that may declare [assertions](https://en.wikipedia.org/wiki/Assertion_(software_development)). The *definitions* section declares [variables](https://en.wikipedia.org/wiki/Variable_(computer_science)) and [constants](https://en.wikipedia.org/wiki/Constant_(computer_programming)). The *conditions precedent* define, well, [preconditions](https://en.wikipedia.org/wiki/Precondition). The *main clauses* describe the [happy path](https://en.wikipedia.org/wiki/Happy_path). The *breach/damages* clauses handle exceptions. The *term* clause defines a timeout. And so on.
 3. Few contracts use basic [structured programming](https://en.wikipedia.org/wiki/Structured_programming) idioms. Most complex contracts read like [spaghetti code](https://en.wikipedia.org/wiki/Spaghetti_code)–[object/machine code](https://en.wikipedia.org/wiki/Object_code) whose control flow jumps all over the place, from one clause reference to another.
 4. Some contracts are (inadvertently or deliberately) [obfuscated](https://en.wikipedia.org/wiki/Obfuscation_(software)).
 5. [Imprecisions](http://www.musicindie.com/news/1284) abound. [Bugs](http://www.adamsdrafting.com/the-contract-drafting-error-that-gave-tommy-lee-jones-an-extra-10-million/) result.
@@ -258,7 +258,7 @@ Software engineering teams often need to integrate new team members, fix bugs, a
 5. Confidence in the codebase could arise from the bazaar model of contract development ("[given enough eyeballs, all bugs are shallow](https://en.wikipedia.org/wiki/Linus%27s_Law#By_Eric_Raymond)"), from reputation systems, and other transparent, crowd-sourced mechanisms.
 
 See Also
-* <a href="https://blog.abevoelker.com/gitlaw-github-for-laws-and-legal-documents-a-tourniquet-for-american-liberty/">github for laws</a></li>
+* <a href="https://blog.abevoelker.com/gitlaw-github-for-laws-and-legal-documents-a-tourniquet-for-american-liberty/">github for laws</a>
 
 
 
