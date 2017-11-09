@@ -633,3 +633,6 @@ https://docs.google.com/spreadsheets/d/1zPwx-0S6AwAyYtxtE0X64TkEXQywz99m56xZZWOv
 
 ~Can I get something in writing?~
 /We can probably generate an employment agreement in writing once the procedures are followed through with. We can also probably generate a bunch of other documents. But if you want equity in writing, we have nothing to carve from now. And you should probably also realise that, that is essentially asking if you can have a piece of paper from us to tell you that we have no money, but when we do have money, we may splice some of that off for you and everyone else based on a yet to be defined metric......./
+
+~How do I interact with the team?~
+/Mostly on slack.  Look at all of the existing slack channels and attempt to find the channel that best fits.  If you cannot find a suitable channel that fits the topic you're talking about, post it on #random./
