@@ -80,7 +80,7 @@ Contracts are different. Once executed, they don't change. Parties can turn host
 		<li>Regarding model checking, see also FormaLex linked elsewhere on this page. They published about formalizing the Argentinean Customer Protection Act, in 2017.
 		</li>
 		<li>
-			<a href="http://www.ai.rug.nl/~verheij/AI4J/papers/AI4J_paper_9_agarwal.pdf">Toward Machine-Understandable Contracts</a>, 2016, by Sudhir Agarwal1, Kevin Xu, John Moghtader at Stanford, defines CDL, Contract Definition Language (implemented in Prolog), part of work at <a href="http://compk.stanford.edu/">the Stanford Computable Contracts initiative</a>
+			<a href="http://www.ai.rug.nl/~verheij/AI4J/papers/AI4J_paper_9_agarwal.pdf">Toward Machine-Understandable Contracts</a>, 2016, by Sudhir Agarwal, Kevin Xu, John Moghtader at Stanford, defines CDL, Contract Definition Language (implemented in Prolog), part of work at <a href="http://compk.stanford.edu/">the Stanford Computable Contracts initiative</a>
 		</li>
 		<li>
 			<a href="https://link.springer.com/chapter/10.1007%2F978-3-319-07443-6_18">These Are Your Rights</a>: A Natural Language Processing Approach to Automated RDF Licenses Generation

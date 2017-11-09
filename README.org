@@ -213,7 +213,7 @@ Zooming out from investment term sheets: what else can software eat?
 
 Contracts generally. Contracts tend to fall into genres, and within each genre of contract it is possible to start with a standard form and customize it as necessary.
 
-Business generally. The first wave of computational business happened decades ago: [EDI](http://en.wikipedia.org/wiki/Electronic_data_interchange). The next wave brings even more automation: automatic document assembly for directors' and shareholders' resolutions. Smart contracts.
+Business generally. The first wave of computational business happened decades ago: [[EDI][http://en.wikipedia.org/wiki/Electronic_data_interchange]]. The next wave brings even more automation: automatic document assembly for directors' and shareholders' resolutions. Smart contracts.
 
 Legalese 2.0 will obsolete lawyers, or at least put them back in their place -- in court doing dispute resolution, not in front of Microsoft Word charging $500/hour to copy and paste boilerplate.
 

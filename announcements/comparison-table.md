@@ -48,6 +48,6 @@ A glorious comparison of related products
     <span class="ng-binding">Did you know?</span>
       </h3>
 
-  <div marked="data.body" class="ng-isolate-scope"><p>Legalese v1 is a glorified templating system.<br>Legalese v2 includes the beautiful domain specific language, L4.</p>
+  <div marked="data.body" class="ng-isolate-scope"><p>Legalese v1 is a glorified templating system.<br>Legalese v3 includes the beautiful domain specific language, L4.</p>
   </div>
   </div>	

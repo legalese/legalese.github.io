@@ -45,7 +45,7 @@ But if you want committer access to the repository, or to potentially get paid, 
 
 *PLEASE REMEMBER THAT unless you have the compensation committee's written and public approval (i.e. on Slack, a legalese-domained email, or in a validly executed contract) on compensation, no financial relationship can be assumed.*
 
-*Legalese does not make *private* promises or representations with anyone. So if someone in our team promises you anything on behalf of Legalese, you should know that it is invalid and unenforceable.*
+*Legalese does not make /private/ promises or representations with anyone. So if someone in our team promises you anything on behalf of Legalese, you should know that it is invalid and unenforceable.*
 
 If you are new to any of these:
 - opensource projects
