@@ -67,13 +67,11 @@ As a company, however, we don't have many rules but we do have three commandment
 
     *3. Bias for public -- by default, all company-related conversations should be held publicly. This means either in email copying collective@legalese.com and/or on a public channel on Slack*
       + If there are good reasons why the conversation cannot be open, then create a private chat on Slack and invite the appropriate people to join it -- preferably more than one other person. Private chats are not logged to our public archives.
-      + Good reasons for going nonpublic include: 
+      + Good reasons for going nonpublic, where more participants is better than 1-on-1, include: 
            * you need to expose data that is confidential to an end-user
            * you want to discuss a possible ethics violation of another contributor, without publicly libeling them
            * you want to discuss your own compensation privately.
-           
-        Even such discussions are not be secret (1-on-1); they're more akin to being semi-private (1-on-few/few-on-few).
-      
+      + Possibly-good reasons for going private, 1-on-1 include: chatting about your feelings, health, family, non-company business, etc.
       + In the eyes of the company, secret 1-on-1 conversations never happened (and we don't care who your secret Legalese buddy is) -- if it didn't happen on Slack, on a mailing list, or at an official summit, then did it really happen? By analogy, in a seminar-style class, if you ask questions in class, you get credit for participation; if you wait until the end of the lecture for everybody else to leave before you approach the professor privately, no credit.
       + In traditional organisations, managers are intended to be single-point-of-contact gateways to the rest of the organisation -- they act as a filter so you can get work done. And when you talk to them, you are respecting the "chain of command": your manager is responsible for conveying your discussion to the rest of the organization, if appropriate.
       + However, Legalese doesn't have the "agricultural surplus" to support a manager class. Instead, guided by [[http://www.benkler.org/CoasesPenguin.html][Coase's Penguin]], we make everything public by default and expect you to filter it. Having a single point of contact that represents the organization is a luxury. Very well-heeled clients may be entitled to an account manager, but contributors and staff are not.
