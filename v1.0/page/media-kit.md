@@ -43,23 +43,14 @@ To be clear, the article was written before Legalese was launched, and the sourc
 
 ![Black quote](/assets/img/horiz-quote-black-11.png){: .center-image }
 
-[block:api-header]
-{
-  "type": "basic",
-  "title": "On our funding round"
-}
-[/block]
+
+# On our Funding Round
 
 We recently raised our first angel round of ~US$415,000.  The lead investor was [Walden International](https://www.crunchbase.com/organization/walden-international).
 
 ![Cheque](/assets/img/legalese-team.png){: .center-image }
 
-[block:api-header]
-{
-  "type": "basic",
-  "title": "Contributors and Advisors"
-}
-[/block]
+# Contributors and Advisors
 
 Meng Weng **Wong** is a co-founder of Legalese.com. Meng previously designed a globally deployed piece of Internet email infrastructure (published by the IETF as RFC4408), worked at the Office of the CTO at EarthLink, co-founded two high-tech startups (both acquired), and helped launch JFDI.Asia, the first seed accelerator in Singapore. As an angel and via JFDI, Meng has made over 80 early-stage investments since 2010.
 
