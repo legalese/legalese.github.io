@@ -1,3 +1,4 @@
+/*
 $(window).on("load", function() {
     var webAuth = new auth0.WebAuth({
 	domain: "legalese.auth0.com",
@@ -48,6 +49,7 @@ $(window).on("load", function() {
     handleAuthentication();
     
 })
+*/
 
 // hide and show relevant sections
 
