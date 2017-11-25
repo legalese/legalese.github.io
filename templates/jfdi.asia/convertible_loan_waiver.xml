@@ -56,7 +56,7 @@ if (data.relationship_plural   == undefined) { data.relationship_plural   = "cre
     <para_1><span_smallcaps>in favour of</span_smallcaps> <?!= include("inc_party", data, data.company) ?> (the "Company").</para_1>
     <para_1><span_smallcaps>Whereas</span_smallcaps> the <?
    if (data.parties.jfdi_investor.length == 1) { ?>Investor is a <?= data.relationship_singular ?> the Company<? } else { ?>Investors are <?= data.relationship_plural ?> the Company<? } ?>
-<? var jfdi_round = data.capTable ? data.capTable.getRound("JFDI Round") : undefined;
+<? var jfdi_round = (data.capTable && data.capTable.isValid) ? data.capTable.getRound("JFDI Round") : undefined;
    var captable_commitment = jfdi_round ? jfdi_round.new_investors["JFDI.2014 Pte. Ltd."].money : undefined ; ?>
  by virtue of a <?= data.security_title ?> executed on or about <?= data.original_agreement_date ?>, in the total amount of <?= data.principal_amount || data.parties.jfdi_investor[0].commitment || captable_commitment ?><?
    if (data._orig_interest) { ?> (plus any accrued and unpaid interest)<? } ?>
