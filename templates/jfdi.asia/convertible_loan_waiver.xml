@@ -58,6 +58,7 @@ if (data.relationship_plural   == undefined) { data.relationship_plural   = "cre
    if (data.parties.jfdi_investor.length == 1) { ?>Investor is a <?= data.relationship_singular ?> the Company<? } else { ?>Investors are <?= data.relationship_plural ?> the Company<? } ?>
 <? var jfdi_round = (data.capTable && data.capTable.isValid) ? data.capTable.getRound("JFDI Round") : undefined;
    var captable_commitment = jfdi_round ? jfdi_round.new_investors["JFDI.2014 Pte. Ltd."].money : undefined ; ?>
+<? xmLog("convertible_loan_waiver: INFO: jfdi_round = %s",jfdi_round); ?>
  by virtue of a <?= data.security_title ?> executed on or about <?= data.original_agreement_date ?>, in the total amount of <?= data.principal_amount || data.parties.jfdi_investor[0].commitment || captable_commitment ?><?
    if (data._orig_interest) { ?> (plus any accrued and unpaid interest)<? } ?>
  (the "<?= data.security_shortname ?> Amount");</para_1>
