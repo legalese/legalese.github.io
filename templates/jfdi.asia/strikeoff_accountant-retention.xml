@@ -23,8 +23,8 @@ For the period under review, no taxable income was received and the accounts are
 We will use accounting expertise to collect, classify, and summarise financial information which the Company provides, into a financial report.
 The Management is responsible for both the accuracy and completeness of the information supplied to us and is responsible to users for the financial information compiled by us. This includes the maintenance of adequate accounting records and internal controls and the selection and application of appropriate accounting policies. Our engagement cannot be relied upon to disclose the existence of fraud, errors, or illegal acts.
 The information will be prepared in accordance with Financial Reporting Standards. Any known departures from this framework will be disclosed within the financial statements.
-<? } ?>
 This letter will be effective for future years unless terminated, amended, or superseded in writing.
+<? } ?>
 
 Yours faithfully,
 <?= data.parties.accountant[0].name ?>
