@@ -309,6 +309,10 @@ https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1288689
 
 **** Building an Expert System in L4
 
+*** Social Implications
+[[http://www.theconglomerate.org/2009/11/a-wiki-for-contracts-transactional-lawyers-wanted.html][Github for Contracts]]
+
+
 * Volume 3 (one to two years) -- Advanced Background
 
 /This section is under construction./
