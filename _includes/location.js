@@ -5,6 +5,6 @@ if (location.protocol != 'https:')
     }
 
 // redirect www.legalese.com, and legalese.github.io domains
-if( window.location.hostname != "legalese.com" ) {
-    window.location.replace("https://legalese.com" + window.location.pathname );
-}
+// if( window.location.hostname != "legalese.com" ) {
+//     window.location.replace("https://legalese.com" + window.location.pathname );
+// }
