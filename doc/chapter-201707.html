@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-11 Mon 11:15 -->
+<!-- 2017-12-06 Wed 09:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Computable Contracts: from Academia to Industry</title>
@@ -64,21 +64,21 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf98b59e">1. Introduction</a></li>
-<li><a href="#org78f28ce">2. Two Traditions</a></li>
-<li><a href="#orgdad92c3">3. Contract Templates</a></li>
-<li><a href="#org6929654">4. Smart Contracts</a></li>
-<li><a href="#orgc2f8d35">5. Smart-Contract Templates meet Smart Contract-Templates</a></li>
-<li><a href="#orgaefd756">6. An Industry Snapshot of SCT2.5 Bridges</a></li>
-<li><a href="#org0a20caa">7. Strengths of 1st and 2nd generation systems</a></li>
-<li><a href="#orgc9360e8">8. Weaknesses of 1st and 2nd generation systems</a></li>
-<li><a href="#org8e10e17">9. 3rd generation smart contract templates</a></li>
-<li><a href="#org7e53ef2">10. Connecting SC-Ts with S-CTs</a></li>
-<li><a href="#orgb0aa3df">11. Why a DSL?</a></li>
-<li><a href="#org8e84071">12. Legalese As Object Code</a></li>
-<li><a href="#org7cae27c">13. Example: SCT2 versus SCT3</a></li>
-<li><a href="#orga3966bd">14. Smart Statutes</a></li>
-<li><a href="#orgee16075">15. The Science Fiction of Computational Law</a></li>
+<li><a href="#org9ab0731">1. Introduction</a></li>
+<li><a href="#orgc4d4fda">2. Two Traditions</a></li>
+<li><a href="#org5104fd7">3. Contract Templates</a></li>
+<li><a href="#org6a0c016">4. Smart Contracts</a></li>
+<li><a href="#org3ae1970">5. Smart-Contract Templates meet Smart Contract-Templates</a></li>
+<li><a href="#orgd1542b3">6. An Industry Snapshot of SCT2.5 Bridges</a></li>
+<li><a href="#orgd07ff94">7. Strengths of 1st and 2nd generation systems</a></li>
+<li><a href="#orgcd3ed6d">8. Weaknesses of 1st and 2nd generation systems</a></li>
+<li><a href="#org3ab39aa">9. 3rd generation smart contract templates</a></li>
+<li><a href="#org65609f5">10. Connecting SC-Ts with S-CTs</a></li>
+<li><a href="#org8ff6a2f">11. Why a DSL?</a></li>
+<li><a href="#org763b35e">12. Legalese As Object Code</a></li>
+<li><a href="#orgd9f4301">13. Example: SCT2 versus SCT3</a></li>
+<li><a href="#orgb3a2e2f">14. Smart Statutes</a></li>
+<li><a href="#orge419f86">15. The Science Fiction of Computational Law</a></li>
 </ul>
 </div>
 </div>
@@ -86,8 +86,8 @@ for the JavaScript code in this tag.
 pre-publication, not for redistribution (<span class="timestamp-wrapper"><span class="timestamp">[2017-08-09 Wed]</span></span>)
 </p>
 
-<div id="outline-container-orgf98b59e" class="outline-2">
-<h2 id="orgf98b59e"><span class="section-number-2">1</span>Introduction</h2>
+<div id="outline-container-org9ab0731" class="outline-2">
+<h2 id="org9ab0731"><span class="section-number-2">1</span>Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Ever since Ethereum was conceived in 2013, critics have quipped: "Smart contracts are neither smart nor contracts".
@@ -107,8 +107,8 @@ What industry initiatives are afoot in the world of blockchain smart contracts? 
 </div>
 </div>
 
-<div id="outline-container-org78f28ce" class="outline-2">
-<h2 id="org78f28ce"><span class="section-number-2">2</span>Two Traditions</h2>
+<div id="outline-container-orgc4d4fda" class="outline-2">
+<h2 id="orgc4d4fda"><span class="section-number-2">2</span>Two Traditions</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 This paper was written at the end of July 2017. It was an exciting month: in the span of three short weeks, five separate initiatives were announced, all with the same stated goal: to bridge the brave new world of blockchain "smart contracts" with the ancient traditions of law.
@@ -128,8 +128,8 @@ SCTs represent a marriage between two noble families, each proud with history, b
 </div>
 </div>
 
-<div id="outline-container-orgdad92c3" class="outline-2">
-<h2 id="orgdad92c3"><span class="section-number-2">3</span>Contract Templates</h2>
+<div id="outline-container-org5104fd7" class="outline-2">
+<h2 id="org5104fd7"><span class="section-number-2">3</span>Contract Templates</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The first, and older, tradition is that of the lawyer: the legal draftsman, the scribe, the notary. This is the tradition also of the handbook of model forms, of the clause bank of contract templates, of copy-and-paste and fill-in-the-blanks.
@@ -144,8 +144,8 @@ Most contract templates are coarse-grained: they fill in the blanks at the level
 </p>
 </div>
 
-<div id="outline-container-org1a9cf72" class="outline-3">
-<h3 id="org1a9cf72"><span class="section-number-3">3.1</span>First-Generation Document Assembly</h3>
+<div id="outline-container-org7b6f0d5" class="outline-3">
+<h3 id="org7b6f0d5"><span class="section-number-3">3.1</span>First-Generation Document Assembly</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 This exponential increase presents an obvious opportunity for software smarts: composable clause libraries and conditional logic. In the 1980s and 1990s, the advent of desktop publishing led to the first wave of document assembly, or document automation, systems &#x2013; DAs for short. DAs helped automate business processes: salespeople could quickly generate their own agreements from templates previously blessed by legal.
@@ -161,8 +161,8 @@ In the legal domain, first-generation DA systems include HotDocs, ContractExpres
 </div>
 </div>
 
-<div id="outline-container-org200c051" class="outline-3">
-<h3 id="org200c051"><span class="section-number-3">3.2</span>Not Legal Markup</h3>
+<div id="outline-container-orgb9d2b98" class="outline-3">
+<h3 id="orgb9d2b98"><span class="section-number-3">3.2</span>Not Legal Markup</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Note that we are <i>not</i> talking about legal <i>markup</i> languages: the idea of adding logical, rather than physical, structure to a document (heading levels 1, 2, 3 as opposed to font sizes 24, 18, 15) <a href="https://arxiv.org/pdf/1507.05081.pdf">regularly occurs to individuals</a>, and initiatives such as <a href="https://en.wikipedia.org/wiki/Legal_XML">Legal XML</a> and <a href="http://www.akomantoso.org/">Akoma Ntoso</a> serve this need. But they do not attempt to capture the semantics of the document.
@@ -170,8 +170,8 @@ Note that we are <i>not</i> talking about legal <i>markup</i> languages: the ide
 </div>
 </div>
 
-<div id="outline-container-org26a20d8" class="outline-3">
-<h3 id="org26a20d8"><span class="section-number-3">3.3</span>Ricardian Contracts</h3>
+<div id="outline-container-org6e0dd08" class="outline-3">
+<h3 id="org6e0dd08"><span class="section-number-3">3.3</span>Ricardian Contracts</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 "Fill in the blanks" leads to the idea of recording data values in a database, separate from their templates. Digitization leads to the idea that a contract could enjoy a purely paperless existence from start to finish.
@@ -191,8 +191,8 @@ The goal of the Ricardian contract was not to solve the templating or legal pros
 </div>
 </div>
 
-<div id="outline-container-org18c76ad" class="outline-3">
-<h3 id="org18c76ad"><span class="section-number-3">3.4</span>Second-Generation Smart Contract Template systems</h3>
+<div id="outline-container-org6ad124b" class="outline-3">
+<h3 id="org6ad124b"><span class="section-number-3">3.4</span>Second-Generation Smart Contract Template systems</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 Second-generation DA systems, which this paper will call SCT2 systems, continued the document automation tradition into the 2010s. They address the problem posed by the Ricardian Contract. They tend toward opensource and Web technologies like Javascript. <a href="http://www.commonaccord.org/">CommonAccord</a> and <a href="https://commonform.org/">CommonForm</a> are examples of the opensource generation of smart contract templates. These two do not have blockchain ambitions, but many SCT2 systems do. 
@@ -200,8 +200,8 @@ Second-generation DA systems, which this paper will call SCT2 systems, continued
 </div>
 </div>
 
-<div id="outline-container-orga500ffa" class="outline-3">
-<h3 id="orga500ffa"><span class="section-number-3">3.5</span>(Smart) (Contract Templates)</h3>
+<div id="outline-container-orgc0c1177" class="outline-3">
+<h3 id="orgc0c1177"><span class="section-number-3">3.5</span>(Smart) (Contract Templates)</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 The above tradition, descending from law and spanning two generations of software, interprets the term "Smart Contract Templates" as contract templates that are, in some sense, smart.
@@ -214,8 +214,8 @@ But that is not the only tradition, and not the only interpretation. There is an
 </div>
 </div>
 
-<div id="outline-container-org6929654" class="outline-2">
-<h2 id="org6929654"><span class="section-number-2">4</span>Smart Contracts</h2>
+<div id="outline-container-org6a0c016" class="outline-2">
+<h2 id="org6a0c016"><span class="section-number-2">4</span>Smart Contracts</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 In the early 1990s, Nick Szabo proposed "smart contracts"<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>: agreements that were not just digital and machine-readable, but also formalized and machine-executable. Not mere PDFs or XMLs, but <i>programs</i>, describing the obligations of the parties and the rules of their interaction in code that a computer could interpret and reason over.
@@ -226,8 +226,8 @@ Such a contract would be suitable for automated execution. One example: a vendin
 </p>
 </div>
 
-<div id="outline-container-org5cec400" class="outline-3">
-<h3 id="org5cec400"><span class="section-number-3">4.1</span>Formal Verification with Model Checking</h3>
+<div id="outline-container-org07ed8ec" class="outline-3">
+<h3 id="org07ed8ec"><span class="section-number-3">4.1</span>Formal Verification with Model Checking</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Think of a SAT solver as a black box with two inputs. On one hand, like Paul Muad'dib swallowing Water of Life to enter a clairvoyant trance<sup><a id="fnr.7" class="footref" href="#fn.7">7</a></sup>, a SAT solver swallows a program and prepares to contemplate every possible future envisaged by the code.
@@ -255,8 +255,8 @@ What does this have to do with contracts? Business contracts can be worth billio
 </div>
 </div>
 
-<div id="outline-container-orgddefe49" class="outline-3">
-<h3 id="orgddefe49"><span class="section-number-3">4.2</span>Model Checking Contracts</h3>
+<div id="outline-container-orgd50d7ce" class="outline-3">
+<h3 id="orgd50d7ce"><span class="section-number-3">4.2</span>Model Checking Contracts</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 Yet the legal field has nothing like the testing tools that programmers enjoy. Programmers have developed an extensive arsenal in their war on bugs. Formal verification is just one tool; others include unit testing, linting, fuzzing, and static type checking.
@@ -296,8 +296,8 @@ As the term suggests, formal verification requires a contract to first be formal
 </div>
 </div>
 
-<div id="outline-container-orgc14ac5b" class="outline-3">
-<h3 id="orgc14ac5b"><span class="section-number-3">4.3</span>Formal Languages for Law</h3>
+<div id="outline-container-orgd9b1b93" class="outline-3">
+<h3 id="orgd9b1b93"><span class="section-number-3">4.3</span>Formal Languages for Law</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 Financial contracts were the first to be formalized. Special-purpose contract languages have been developed, along Ricardian lines, within the limited domain of financial agreements: examples include <a href="https://en.wikipedia.org/wiki/FpML">FpML</a> (1999) and Lexifi's <a href="https://www.lexifi.com/product/technology/contract-description-language">MLFi</a> (2000).
@@ -331,13 +331,13 @@ This tradition of academic research evolved slowly and steadily, elaborating Sza
 </p>
 
 <p>
-Then, in the 2010s, a handful of billionaire anarchists co-opted the term "smart contract" and gave it a new meaning.
+Then, in the 2010s, a handful of soon-to-be-billionaire cypherpunks co-opted the term "smart contract" and gave it a new meaning.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org82fbcc1" class="outline-3">
-<h3 id="org82fbcc1"><span class="section-number-3">4.4</span>Enter Blockchain</h3>
+<div id="outline-container-org84b1675" class="outline-3">
+<h3 id="org84b1675"><span class="section-number-3">4.4</span>Enter Blockchain</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 While one corner of academia toiled away at contract formalization and verification, another obscure corner of cypherpunk crypto-anarchists were fomenting a revolution that would change the world. In their hands, cryptography 1.0 (which concerned itself with message encryption and endpoint authentication) was reborn as cryptography 2.0, which repurposed hashes for proof-of-work, and repurposed public keys to sign irrevocable ledgers.
@@ -386,7 +386,7 @@ Partly in response to Ethereum's perceived security failings<sup><a id="fnr.20.1
 </p>
 </div>
 
-<ul class="org-ul"><li><a id="org959b75d"></a>Other Blockchain Smart Contract Systems<br  /><div class="outline-text-4" id="text-org959b75d">
+<ul class="org-ul"><li><a id="org837036c"></a>Other Blockchain Smart Contract Systems<br  /><div class="outline-text-4" id="text-org837036c">
 <ul class="org-ul">
 <li>plasma.io</li>
 <li>kadena</li>
@@ -396,8 +396,8 @@ Partly in response to Ethereum's perceived security failings<sup><a id="fnr.20.1
 </div></li></ul>
 </div>
 
-<div id="outline-container-orgfe7610f" class="outline-3">
-<h3 id="orgfe7610f"><span class="section-number-3">4.5</span>(Smart Contract) (Templates)</h3>
+<div id="outline-container-org72dd49e" class="outline-3">
+<h3 id="org72dd49e"><span class="section-number-3">4.5</span>(Smart Contract) (Templates)</h3>
 <div class="outline-text-3" id="text-4-5">
 <p>
 All of these smart contract initiatives have one thing in common.
@@ -430,8 +430,8 @@ From this perspective, SCTs are templates for smart contracts: (smart contract) 
 </div>
 </div>
 
-<div id="outline-container-orgc2f8d35" class="outline-2">
-<h2 id="orgc2f8d35"><span class="section-number-2">5</span>Smart-Contract Templates meet Smart Contract-Templates</h2>
+<div id="outline-container-org3ae1970" class="outline-2">
+<h2 id="org3ae1970"><span class="section-number-2">5</span>Smart-Contract Templates meet Smart Contract-Templates</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 In the legal tradition, where computerization has brought smarts to contract templates, SCT means (smart) (contract templates).
@@ -455,8 +455,8 @@ This paper follows the lead set by R3, in which the term "Smart Contract Templat
 </div>
 </div>
 
-<div id="outline-container-orgaefd756" class="outline-2">
-<h2 id="orgaefd756"><span class="section-number-2">6</span>An Industry Snapshot of SCT2.5 Bridges</h2>
+<div id="outline-container-orgd1542b3" class="outline-2">
+<h2 id="orgd1542b3"><span class="section-number-2">6</span>An Industry Snapshot of SCT2.5 Bridges</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 The matchmakers envision a bridge between smart contracts and natural language contracts. Libraries of contract templates will emerge, with a foot in each world. Once the blanks are filled in, the contracts will take shape both as Ethereum smart contracts and as PDF or docx paperwork suitable for parties to sign.
@@ -561,6 +561,16 @@ In July 2017 alone, five new SCT2.5 systems were announced &#x2013; two on the s
 </tr>
 
 <tr>
+<td class="org-left"><a href="http://www.legalhub.ch/">LegalHub.ch</a></td>
+<td class="org-left">October 2017</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">(SC)(T)</td>
+<td class="org-left">Switzerland</td>
+<td class="org-left">claimed</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
 <td class="org-left"><a href="http://openlaw.io/">OpenLaw.io</a></td>
 <td class="org-left"><a href="https://media.consensys.net/introducing-openlaw-7a2ea410138b">25 July 2017</a></td>
 <td class="org-left">(S)(CT)</td>
@@ -575,8 +585,8 @@ In July 2017 alone, five new SCT2.5 systems were announced &#x2013; two on the s
 <td class="org-left"><a href="https://medium.com/@accordhq/the-accord-project-launches-industry-first-tools-and-standards-for-smart-legal-contracts-with-2e67b2b6f2fd">26 July 2017</a></td>
 <td class="org-left">(S)(CT)</td>
 <td class="org-left">(SC)(T)</td>
-<td class="org-left">Hyperledger</td>
-<td class="org-left">claimed</td>
+<td class="org-left">Hyperledger / Clause.io</td>
+<td class="org-left">on Github</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
@@ -609,13 +619,23 @@ In July 2017 alone, five new SCT2.5 systems were announced &#x2013; two on the s
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
+
+<tr>
+<td class="org-left">LiveContracts.io</td>
+<td class="org-left">2017</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">(SC)(T)</td>
+<td class="org-left">LegalThings One</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ICO in Dec 2017</td>
+</tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-org0a20caa" class="outline-2">
-<h2 id="org0a20caa"><span class="section-number-2">7</span>Strengths of 1st and 2nd generation systems</h2>
+<div id="outline-container-orgd07ff94" class="outline-2">
+<h2 id="orgd07ff94"><span class="section-number-2">7</span>Strengths of 1st and 2nd generation systems</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 DA and SCT2 systems are sufficient to solve several classes of problems.
@@ -635,16 +655,16 @@ Customization is a function of expressiveness: the more expressive the system, t
 </div>
 </div>
 
-<div id="outline-container-orgc9360e8" class="outline-2">
-<h2 id="orgc9360e8"><span class="section-number-2">8</span>Weaknesses of 1st and 2nd generation systems</h2>
+<div id="outline-container-orgcd3ed6d" class="outline-2">
+<h2 id="orgcd3ed6d"><span class="section-number-2">8</span>Weaknesses of 1st and 2nd generation systems</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 DA and SCT2 approaches face two major limitations.
 </p>
 </div>
 
-<div id="outline-container-org048c902" class="outline-3">
-<h3 id="org048c902"><span class="section-number-3">8.1</span>Syntax versus Semantics</h3>
+<div id="outline-container-org850d6ac" class="outline-3">
+<h3 id="org850d6ac"><span class="section-number-3">8.1</span>Syntax versus Semantics</h3>
 <div class="outline-text-3" id="text-8-1">
 <p>
 The semantics of a contract reside in natural language. The advent of cryptocurrencies brings an increasing demand for integration between natural language and blockchain-native smart contracts. However, DA systems are limited to filling static values into static blanks. They can fill names and numbers and strings, and they may be able to switch sub-templates based on Booleans and case expressions, but they do not offer a way to express the logical semantics of the contract itself.
@@ -652,8 +672,8 @@ The semantics of a contract reside in natural language. The advent of cryptocurr
 </div>
 </div>
 
-<div id="outline-container-org7d5c94a" class="outline-3">
-<h3 id="org7d5c94a"><span class="section-number-3">8.2</span>Expressiveness</h3>
+<div id="outline-container-orgf1e49f3" class="outline-3">
+<h3 id="orgf1e49f3"><span class="section-number-3">8.2</span>Expressiveness</h3>
 <div class="outline-text-3" id="text-8-2">
 <p>
 What if an end-user legal developer wants to customize a contract template?
@@ -706,8 +726,8 @@ A computer scientist would say that, at best, the notion of a Ricardian contract
 </div>
 </div>
 
-<div id="outline-container-org757c6b1" class="outline-3">
-<h3 id="org757c6b1"><span class="section-number-3">8.3</span>Specialized Knowledge</h3>
+<div id="outline-container-orgfc3cc02" class="outline-3">
+<h3 id="orgfc3cc02"><span class="section-number-3">8.3</span>Specialized Knowledge</h3>
 <div class="outline-text-3" id="text-8-3">
 <p>
 Just as database design and administration tends to end up the specialty of the DBA, customization of contract templates requires specialized knowledge which tends to accumulate in the department of the "contract template admin". It would be better for this capability to be distributed throughout the organization, along the lines of the computer literacy movement that says everyone should be able to code.
@@ -715,8 +735,8 @@ Just as database design and administration tends to end up the specialty of the 
 </div>
 </div>
 
-<div id="outline-container-orgaed92a7" class="outline-3">
-<h3 id="orgaed92a7"><span class="section-number-3">8.4</span>Internationalization</h3>
+<div id="outline-container-org6560618" class="outline-3">
+<h3 id="org6560618"><span class="section-number-3">8.4</span>Internationalization</h3>
 <div class="outline-text-3" id="text-8-4">
 <p>
 In Model-View-Controller lingo, 1st and 2nd generation DA/SCT systems tend to intermingle the presentation view with the business logic of the data model. There are no clean boundary layer separations: a single template may contain chunks of hardcoded text, output formatting instructions, data blanks, and logical directives to show/hide.
@@ -729,8 +749,8 @@ Such a structure is unclean. What if you want not just one language but a multil
 </div>
 </div>
 
-<div id="outline-container-org8e10e17" class="outline-2">
-<h2 id="org8e10e17"><span class="section-number-2">9</span>3rd generation smart contract templates</h2>
+<div id="outline-container-org3ab39aa" class="outline-2">
+<h2 id="org3ab39aa"><span class="section-number-2">9</span>3rd generation smart contract templates</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 To overcome these limitations, some have proposed to take the Ricardian contract to the next level: to encode not just the data values but the full logical semantics of a contract.
@@ -749,8 +769,8 @@ The toolchain for that DSL operates in multiple stages.
 </p>
 </div>
 
-<div id="outline-container-orgedfaa46" class="outline-3">
-<h3 id="orgedfaa46"><span class="section-number-3">9.1</span>Opensource Templates</h3>
+<div id="outline-container-org49b296c" class="outline-3">
+<h3 id="org49b296c"><span class="section-number-3">9.1</span>Opensource Templates</h3>
 <div class="outline-text-3" id="text-9-1">
 <p>
 We assume that, as with a 2nd gen SCT, a library of 3rd gen templates are available in some opensource repository, easily imported by a program, the way NPM has made Node modules easy to import. As with Node modules, SCT3 templates could be sized at any level of functionality, from a sentence fragment (for Oxford commas) to a standard exemption clause to an entire contract workflow (such as a SAFE plus its sides).
@@ -762,8 +782,8 @@ We preserve the Ricardian notion of separating data from template, but the data 
 </div>
 </div>
 
-<div id="outline-container-org38fdbac" class="outline-3">
-<h3 id="org38fdbac"><span class="section-number-3">9.2</span>Compiler Toolchain</h3>
+<div id="outline-container-org1dad95b" class="outline-3">
+<h3 id="org1dad95b"><span class="section-number-3">9.2</span>Compiler Toolchain</h3>
 <div class="outline-text-3" id="text-9-2">
 <p>
 Stage 1 (the lexer/parser) compiles programs written in that DSL into an intermediate form representing the contract in the abstract &#x2013; what one might recognize as being akin to a Gen 2 smart contract template, but highly structured and with semantics fully available for inspection and evaluation.
@@ -784,8 +804,8 @@ Other stages may be connected up in parallel to this primary pipeline. For examp
 </div>
 </div>
 
-<div id="outline-container-org7e53ef2" class="outline-2">
-<h2 id="org7e53ef2"><span class="section-number-2">10</span>Connecting SC-Ts with S-CTs</h2>
+<div id="outline-container-org65609f5" class="outline-2">
+<h2 id="org65609f5"><span class="section-number-2">10</span>Connecting SC-Ts with S-CTs</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 Unification between blockchain smart contracts and legacy paper is the goal of several SCT2.5 systems. Their template orientation means that Gen 2.5 SCT systems will be able to bridge the gap, albeit crudely.
@@ -805,8 +825,8 @@ Gen 3 SCT systems, having been designed for the purpose from the ground up, will
 </div>
 </div>
 
-<div id="outline-container-orgb0aa3df" class="outline-2">
-<h2 id="orgb0aa3df"><span class="section-number-2">11</span>Why a DSL?</h2>
+<div id="outline-container-org8ff6a2f" class="outline-2">
+<h2 id="org8ff6a2f"><span class="section-number-2">11</span>Why a DSL?</h2>
 <div class="outline-text-2" id="text-11">
 <p>
 Is there a direction, a teleology to the evolution of SCT systems? The history of the Web offers a compelling analogy.
@@ -834,8 +854,8 @@ To elaborate this argument, let us examine another analogy from the history of c
 </div>
 </div>
 
-<div id="outline-container-org8e84071" class="outline-2">
-<h2 id="org8e84071"><span class="section-number-2">12</span>Legalese As Object Code</h2>
+<div id="outline-container-org763b35e" class="outline-2">
+<h2 id="org763b35e"><span class="section-number-2">12</span>Legalese As Object Code</h2>
 <div class="outline-text-2" id="text-12">
 <p>
 (a version of the following text was originally published on Medium, on Jan 21 2017)
@@ -915,8 +935,8 @@ Today, lawyers are human compilers, just as there used to be human computers. Bu
 </div>
 </div>
 
-<div id="outline-container-org7cae27c" class="outline-2">
-<h2 id="org7cae27c"><span class="section-number-2">13</span>Example: SCT2 versus SCT3</h2>
+<div id="outline-container-orgd9f4301" class="outline-2">
+<h2 id="orgd9f4301"><span class="section-number-2">13</span>Example: SCT2 versus SCT3</h2>
 <div class="outline-text-2" id="text-13">
 <p>
 Let's look at an example of how SCT2 and SCT3 systems handle a common contract situation differently.
@@ -1002,8 +1022,8 @@ This approach is not possible in a 2nd-generation SCT system. It is only possibl
 </p>
 </div>
 
-<div id="outline-container-org87d130a" class="outline-3">
-<h3 id="org87d130a"><span class="section-number-3">13.1</span>Multiple Languages, Multiple Jurisdictions</h3>
+<div id="outline-container-orga1549ec" class="outline-3">
+<h3 id="orga1549ec"><span class="section-number-3">13.1</span>Multiple Languages, Multiple Jurisdictions</h3>
 <div class="outline-text-3" id="text-13-1">
 <p>
 Localizing a contract for a different jurisdiction, a different language, should be as simple as changing a single line in the file.
@@ -1011,8 +1031,8 @@ Localizing a contract for a different jurisdiction, a different language, should
 </div>
 </div>
 
-<div id="outline-container-org085a875" class="outline-3">
-<h3 id="org085a875"><span class="section-number-3">13.2</span>What-If Scenario Exploration</h3>
+<div id="outline-container-orgc341c78" class="outline-3">
+<h3 id="orgc341c78"><span class="section-number-3">13.2</span>What-If Scenario Exploration</h3>
 <div class="outline-text-3" id="text-13-2">
 <p>
 An interactive interface could help the end-user game out scenarios they are concerned about, to see what the outcomes will be, without needing an expensive lawyer to talk them through the possibilities.
@@ -1020,8 +1040,8 @@ An interactive interface could help the end-user game out scenarios they are con
 </div>
 </div>
 
-<div id="outline-container-org0e3f11a" class="outline-3">
-<h3 id="org0e3f11a"><span class="section-number-3">13.3</span>Formal Verification</h3>
+<div id="outline-container-orgb1d5856" class="outline-3">
+<h3 id="orgb1d5856"><span class="section-number-3">13.3</span>Formal Verification</h3>
 <div class="outline-text-3" id="text-13-3">
 <p>
 As discussed above, compatibility with formal verification means that contract developers can automatically verify safety and liveness properties over contract scenarios, thereby increasing confidence that there are no mistakes or loopholes.
@@ -1029,8 +1049,8 @@ As discussed above, compatibility with formal verification means that contract d
 </div>
 </div>
 
-<div id="outline-container-org2cd0293" class="outline-3">
-<h3 id="org2cd0293"><span class="section-number-3">13.4</span>Multilingual Generation</h3>
+<div id="outline-container-orgc85ac27" class="outline-3">
+<h3 id="orgc85ac27"><span class="section-number-3">13.4</span>Multilingual Generation</h3>
 <div class="outline-text-3" id="text-13-4">
 <p>
 With the right infrastructure, producing English, French, Spanish, Chinese contracts should be just a matter of checking a few boxes.
@@ -1038,8 +1058,8 @@ With the right infrastructure, producing English, French, Spanish, Chinese contr
 </div>
 </div>
 
-<div id="outline-container-org2f3c3ac" class="outline-3">
-<h3 id="org2f3c3ac"><span class="section-number-3">13.5</span>Controlled Natural Language Generation</h3>
+<div id="outline-container-orgfa839d3" class="outline-3">
+<h3 id="orgfa839d3"><span class="section-number-3">13.5</span>Controlled Natural Language Generation</h3>
 <div class="outline-text-3" id="text-13-5">
 <p>
 We can develop separate modules to <a href="https://en.wikipedia.org/wiki/Natural_language_generation">produce the natural language version</a> of contracts, using tools such as <a href="http://www.grammaticalframework.org/">GF</a>. Some work has been done in this domain already by Henrik Leopold.<sup><a id="fnr.28" class="footref" href="#fn.28">28</a></sup>
@@ -1051,8 +1071,8 @@ The bulk of wordsmithing energy in the legal industry today is spent on specific
 </div>
 </div>
 
-<div id="outline-container-org526681e" class="outline-3">
-<h3 id="org526681e"><span class="section-number-3">13.6</span>Isomorphism with Diagrams</h3>
+<div id="outline-container-orga8f68d5" class="outline-3">
+<h3 id="orga8f68d5"><span class="section-number-3">13.6</span>Isomorphism with Diagrams</h3>
 <div class="outline-text-3" id="text-13-6">
 <p>
 Just as geometry is dual to algebra, it will aid end-user comprehension if we produce a visual representation of contracts, in the form of flowcharts and other explanatory diagrams. This work will be a success if we can make <a href="https://legalinformatics.wordpress.com/2014/02/23/passera-haapio-and-curtotti-making-the-meaning-of-contracts-visible-automating-contract-visualization/">Helena Haapio and Stefania Passera</a> happy. <a href="https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation">BPMN</a> is a leading candidate for visual notation.
@@ -1060,8 +1080,8 @@ Just as geometry is dual to algebra, it will aid end-user comprehension if we pr
 </div>
 </div>
 
-<div id="outline-container-org43cb059" class="outline-3">
-<h3 id="org43cb059"><span class="section-number-3">13.7</span>Isomorphism with Blockchain Smart Contracts</h3>
+<div id="outline-container-org34185ed" class="outline-3">
+<h3 id="org34185ed"><span class="section-number-3">13.7</span>Isomorphism with Blockchain Smart Contracts</h3>
 <div class="outline-text-3" id="text-13-7">
 <p>
 In the Ethereum domain, Gen-3 contracts could transpile to Solidity / Viper or compile to EVM.
@@ -1073,8 +1093,8 @@ Going beyond Ethereum, <a href="http://www.tezos.community/t/michelson-101/23">T
 </div>
 </div>
 
-<div id="outline-container-org9bb60cc" class="outline-3">
-<h3 id="org9bb60cc"><span class="section-number-3">13.8</span>Runtime Automated Execution</h3>
+<div id="outline-container-org6e095e7" class="outline-3">
+<h3 id="org6e095e7"><span class="section-number-3">13.8</span>Runtime Automated Execution</h3>
 <div class="outline-text-3" id="text-13-8">
 <p>
 A convertible note, once signed, goes to sleep until the next funding round. It wakes up, reads the next-round contract (which is, naturally, also expressed as a 3rd gen program), and automatically produces all the paperwork needed for the conversion.
@@ -1086,8 +1106,8 @@ This is akin to the sort of automated execution promised by blockchain smart con
 </div>
 </div>
 
-<div id="outline-container-orgc813506" class="outline-3">
-<h3 id="orgc813506"><span class="section-number-3">13.9</span>Github for Law</h3>
+<div id="outline-container-orge0200ad" class="outline-3">
+<h3 id="orge0200ad"><span class="section-number-3">13.9</span>Github for Law</h3>
 <div class="outline-text-3" id="text-13-9">
 <p>
 The idea of "Github for Law" belongs more to the world of 3rd-generation SCT than 2nd-generation.
@@ -1114,8 +1134,8 @@ For the first time in history we can move into a machine not just the words, but
 </div>
 </div>
 
-<div id="outline-container-orga3966bd" class="outline-2">
-<h2 id="orga3966bd"><span class="section-number-2">14</span>Smart Statutes</h2>
+<div id="outline-container-orgb3a2e2f" class="outline-2">
+<h2 id="orgb3a2e2f"><span class="section-number-2">14</span>Smart Statutes</h2>
 <div class="outline-text-2" id="text-14">
 <p>
 So far we have dealt mostly with contracts. Contracts are private law. What about public law &#x2013; legislation and regulation?
@@ -1144,8 +1164,8 @@ Rules may conflict. Defeasible logics<sup><a id="fnr.39" class="footref" href="#
 </div>
 
 
-<div id="outline-container-orgee16075" class="outline-2">
-<h2 id="orgee16075"><span class="section-number-2">15</span>The Science Fiction of Computational Law</h2>
+<div id="outline-container-orge419f86" class="outline-2">
+<h2 id="orge419f86"><span class="section-number-2">15</span>The Science Fiction of Computational Law</h2>
 <div class="outline-text-2" id="text-15">
 <p>
 Two quotes from science fiction offer a vision of where computational law could lead.
@@ -1411,7 +1431,7 @@ The white-hot cube spoke: “Phaethon, you may be unaware that you have already 
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: mengwong@legalese.com</p>
-<p class="date">Created: 2017-09-11 Mon 11:15</p>
+<p class="date">Created: 2017-12-06 Wed 09:13</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

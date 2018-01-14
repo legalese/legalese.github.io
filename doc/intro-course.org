@@ -309,6 +309,10 @@ https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1288689
 
 **** Building an Expert System in L4
 
+*** Social Implications
+[[http://www.theconglomerate.org/2009/11/a-wiki-for-contracts-transactional-lawyers-wanted.html][Github for Contracts]]
+
+
 * Volume 3 (one to two years) -- Advanced Background
 
 /This section is under construction./
@@ -341,6 +345,7 @@ We review the above projects in more detail.
 - [[https://www.w3.org/community/odrl/][ODRL]]
 - http://uterms.software/
 - http://openminted.eu/
+- http://remu.grammaticalframework.org/contracts/ is the index to a lot of work product from REMU including CNL and C-OD
 - http://remu.grammaticalframework.org/contracts/converter/
 - http://remu.grammaticalframework.org/retreat/2016/ workplan for june 2016 to 2017
 
