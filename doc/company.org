@@ -11,13 +11,13 @@ Discussion of this document is welcome on the *#mgmt-organisation* and *#general
 
 You are here because someone requested that you be onboarded.
 
-Onboarding consists of two parts:
+Onboarding consists of two parts: Initial Onboarding, and Role-Specific Onboarding. 
 
 ** Part 1: Initial Onboarding
 
-        This is the initial onboarding process that everyone has to go through. Unless otherwise specifically and publicly approved by the compensation committee, the completion of Initial Onboarding is a prerequisite for any discussions of compensation and/or a stake in our organisation.
+        This is the initial onboarding process that everyone has to go through. Unless otherwise specifically and publicly approved by the compensation committee, the completion of Initial Onboarding is a prerequisite for any discussions of compensation and/or a stake in our organisation. As we are a deep-tech, multi-disciplinary startup, the kind of problems we work on are not easily solved. We may decide in our discretion that you are not a good fit for the Company at the particular point of time, however, we do promise to communicate that to you and to give you a fair (in our opinion) chance.
 
-But if you want committer access to the repository, or to potentially get paid, you will need to walk the path.
+You will need to walk the path, especially if you want committer access to the repository, or to potentially get paid.
 
         The tasks to be fulfilled for initial onboarding are:-   
 
@@ -29,7 +29,12 @@ But if you want committer access to the repository, or to potentially get paid, 
             + The work we do is harder than flipping burgers, so it will take you longer to read all the books. It often takes up to a year for a new contributor to be fully onboarded. Books take time to read.
 
         3. sign the Contributor License Agreement
+        
+        4. read  and familiarise yourself with the content on our website, our terms of use, privacy policy, and Code of Conduct; and
+        
+        5. demonstrate literacy (reading and writing) and share your core competence with the team.   
 
+Any exceptions to the above must be specifically approved and sponsored by at least 1 cofounder, and one team lead in the Company.
 
 ** Part 2: Problem-specific / Role-specific Onboarding  
      
@@ -60,9 +65,10 @@ you may find that the way we work is different to the way you have worked in the
 As you will come to realise, we adhere to many principles, beliefs, and their associated bastards (e.g., Holacracy).
 As a company, however, we don't have many rules but we do have three commandments that operate jointly and concomitantly extend to _everything_:
 
-    *1. Respect people -- do not make or expect another person to do what he/she is unwilling to do.*
+    *1. Respect people; and do not make or expect another person to do what he/she is unwilling to do*
         + If you want an issue solved, you are empowered to follow the prescribed protocols to solve it. This includes persuading the relevant persons to do what you cannot or will not do. If this does not happen, be prepared to accept that it probably will not get solved. 
-
+        + We want to hire, reward, and tolerate only [[https://hbr.org/2014/01/how-netflix-reinvented-hr][fully formed adults]]. Mostly this means relying on your logic and common sense, using proper grammar and spelling where contextually significant, searching for duplicates before posting, [[https://en.wikipedia.org/wiki/RTFM][RTFM]], being respectful of others' time, resources, and opportunity costs, clearly communicating needs, boundaries, expectations, and feelings, [[https://eight2late.wordpress.com/2008/05/10/the-dunning-kruger-effect-and-its-relevance-to-project-management/][checking yourself for the Dunning-Kruger Effect]] (i.e. being able to effectively and objectively [[https://localgovernmentutopia.com/2015/02/25/40-unskilled-unaware-or-both-the-dunning-kruger-effect-at-work/][evaluate your own abilities and your ability to do your job]] (whether self-assigned or otherwise)).
+        
     *2. Have integrity -- do not make promises on behalf of the company or other people in the company without going through the exhaustive protocols*
 
     *3. Bias for public -- by default, all company-related conversations should be held publicly. This means either in email copying collective@legalese.com and/or on a public channel on Slack*
@@ -132,12 +138,7 @@ On the product side, before an contributor can work on certain parts of the code
 
 On the company side, before a contributor can work on certain parts of the company, they must first read books like /Holacracy/, /the Five Dysfunctions of a Team/, and /the Art of the Start/. But these are just badges, and at the end of the day anyone can level up into any role based on capability and inclination -- as with any opensource project, in theory.
 
-* 2. Roadmap and where we are now (as of: 20 Aug 2016) :golf:
-
-~The current Compensation Committee consists of:~
-- Alexis
-- Chiahli
-- Meng
+* 2. Roadmap and where we are now :golf:
 
 ~Who is being compensated and what for~
 - Job: v1 development and v2 support
@@ -546,9 +547,6 @@ function Participant(params) {
 ** FAQs about the product
 
 *** you can start by learning the product from an end-user perspective.
-
-*** once you've done all the tutorials, go make yourself a business card:
-https://docs.google.com/spreadsheets/d/1zPwx-0S6AwAyYtxtE0X64TkEXQywz99m56xZZWOv8cE/edit#gid=212450702
 
 ** FAQs about the organisation
 
