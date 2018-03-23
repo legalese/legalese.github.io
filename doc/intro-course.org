@@ -240,6 +240,9 @@ Rule defeasibility.
 
 Introduction to CTL*.
 
+Introduction to TLA+.
+http://lamport.azurewebsites.net/tla/book-02-08-08.pdf
+
 Review of Model Checking with CL.
 
 Property verification via model checking.
