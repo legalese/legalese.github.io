@@ -1,3 +1,0 @@
-perl -pi -le 'if (/firstbold>(.*?)\. /) { my $xname = lc($1); $xname =~ s/\s/_/g; $xname =~ s/\W//g; s/firstbold>/firstbold xname="$xname">/ }' cub-sha.xml  
-# a separate action is needed to test the xnames for uniqness
-# amend the above regexps to do a_left_sidehead and b_left_sidehead/nonum also

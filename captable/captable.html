@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<meta charset="utf-8">
+<style>
+
+ .arc text {
+     font: 10px sans-serif;
+     text-anchor: middle;
+ }
+
+ .arc path {
+     stroke: #fff;
+ }
+
+</style>
+<body>
+    
+    <p><input name="getData" type="button" value="Generate Captable" onclick="getData()"></p>
+    
+    <p id="investor1" class="investor">Investor Name: <input class="name" type="text" placeholder="Alex"> Investment Amount: <input class="amount" type="number"> Cap: <input class="cap" type="number"> Discount %: <input class="discount" type="number"></p>
+    <p id="investor2" class="investor">Investor Name: <input class="name" type="text"> Investment Amount: <input class="amount" type="number"> Cap: <input class="cap" type="number"> Discount %: <input class="discount" type="number"></p>
+    <p id="investor3" class="investor">Investor Name: <input class="name" type="text"> Investment Amount: <input class="amount" type="number"> Cap: <input class="cap" type="number"> Discount %: <input class="discount" type="number"></p>
+    <p id="investor4" class="investor">Investor Name: <input class="name" type="text"> Investment Amount: <input class="amount" type="number"> Cap: <input class="cap" type="number"> Discount %: <input class="discount" type="number"></p>
+    <p id="terms">Premoney Valuation: <input id="premoney" type="number"> Amount raising $ <input id="amountraising" type="number"> Company Capitalisation: <input id="companycap" type="number"></p>
+    
+
+    <svg width="960" height="500"></svg>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script
+	src="https://code.jquery.com/jquery-3.2.1.min.js"
+	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	crossorigin="anonymous"></script>
+    <script>
+     
+     function getData() {
+
+	 var captable = [];
+	 
+	 var investors = [];
+	 $(".investor").each(function() {
+	     var newInvestor = {
+		 name: $(this).children("input.name").val(),
+		 amount: parseInt($(this).children("input.amount").val()),
+		 cap: parseInt($(this).children("input.cap").val()),
+		 discount: parseInt($(this).children("input.discount").val())
+	     }
+	     investors.push(newInvestor);
+	 });
+
+	 // new terms related to the new financing round
+	 
+	 var amountRaising = parseInt($("#terms > input#amountraising").val()) // how much money is the company raising?
+	 var preMoney = parseInt($("#terms > input#premoney").val()); // how much is the company valued at?
+	 var companyCap = parseInt($("#terms > input#companycap").val()) // how many shares are there in the company before the new financing round?
+	      
+	 var newInvestorShares = (amountRaising / preMoney) * companyCap; // how many shares are going to be issued in the new financing round?
+	 var pricePerShare = amountRaising / newInvestorShares; // how much is a share?
+	 
+	 var terms = {
+	     premoney: preMoney,
+	     amountraising: amountRaising,
+	     companycap: companyCap,
+	     newshares: newInvestorShares,
+	     pricepershare: pricePerShare
+	 };
+
+	 console.log(terms);
+
+	 investors.forEach(function(item) {
+	     if (item.amount) {
+		 item.shares = getShares(item, terms)
+		 var safeInvestor = {
+		     name: item.name,
+		     shares: item.shares
+		 }
+		 captable.push(safeInvestor);
+	     }
+	 });
+
+	 // shares issued to new investors
+	 
+	 var newInvestors = {
+	     name: "New Investors",
+	     shares: newInvestorShares
+	 };
+
+	 captable.push(newInvestors);
+
+	 // shares owned by founders (= company capitalisation because we assume seed round)
+	 
+	 var foundersShares = {
+	     name: "Founders",
+	     shares: terms.companycap
+	 }
+
+	 captable.push(foundersShares);
+
+	 updateData(captable);
+	 
+     }
+
+
+     function getShares(investor, terms) {
+	 
+	 var shares;
+	 var pricePerShare = terms.pricepershare;
+	 var safePrice = investor.cap / terms.companycap; // this is the price per share if the premoney valuation is greater than the cap
+	 var discountPrice = ((100 - investor.discount) / 100) * pricePerShare; // this is the price per share if there is a discount
+
+	 // for each of the four types, this is how to determine the number of shares issued to the SAFE investor
+	 
+	 if (!investor.discount && investor.cap) { // cap, no discount
+	     if (terms.premoney <= investor.cap) {
+		 shares = investor.amount / pricePerShare;
+		 console.log(pricePerShare, shares);
+		 return shares;
+	     } else if (terms.premoney > investor.cap) {
+		 shares = investor.amount / safePrice;
+		 console.log(pricePerShare, shares, safePrice);
+		 return shares;
+	     }
+	 } else if (investor.cap && investor.discount) { // cap & discount
+	     shares = investor.amount / Math.min(discountPrice, safePrice) // lower price, more shares
+	     console.log("discount price is" + discountPrice, "safe price is" + safePrice, shares);
+	     return shares;
+	 } else if (!investor.cap && investor.discount) { // discount, no cap
+	     shares = investor.amount / discountPrice;
+	     console.log(discountPrice, shares);
+	     return shares;
+	 } else if (!investor.cap && !investor.discount) { // no discount, no cap
+	     shares = investor.amount / pricePerShare;
+	     console.log(pricePerShare, shares);
+	     return shares;
+	 }
+     }
+
+     function updateData(d) {
+	 
+	 var svg = d3.select("svg"),
+	     width = +svg.attr("width"),
+	     height = +svg.attr("height"),
+	     radius = Math.min(width, height) / 2,
+	     g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+	 var color = d3.scaleOrdinal(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
+	 var pie = d3.pie()
+		     .sort(null)
+		     .value(function(d) { return d.shares; });
+	 
+	 var path = d3.arc()
+		      .outerRadius(radius - 10)
+		      .innerRadius(0);
+
+	 var label = d3.arc()
+		       .outerRadius(radius - 40)
+		       .innerRadius(radius - 40);
+	 
+	 d.forEach(function(e) {
+	     e.shares = +e.shares;
+	 });
+	 
+	 var arc = g.selectAll(".arc")
+		    .data(pie(d))
+		    .enter().append("g")
+		    .attr("class", "arc");
+
+	 arc.append("path")
+	    .attr("d", path)
+	    .attr("fill", function(d) { return color(d.data.name); });
+
+	 arc.append("text")
+	    .attr("transform", function(d) { return "translate(" + label.centroid(d) + ")"; })
+	    .attr("dy", "0.35em")
+	    .text(function(d) { return d.data.name + " " + d.data.shares.toString() });
+     }
+
+    </script>
+    <script src="tests.js"></script>
+
+</body>

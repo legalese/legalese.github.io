@@ -1,3 +1,0 @@
-<para_1>This is a test of the include system. I am the parent.</para_1>
-<?= include("child", data) ?>
-<para_1>If the test worked there should be a bit of child text above.</para_1>

@@ -1,6 +1,0 @@
-<?!= data.xml_declaration ?>
-<?!= data.xmlRoot(['templateSpec="business-card-90x54-20160712.indt"']) ?>
-<Front><name><?= data.staff.businesscard_name || data.staff.name ?></name>
-<email><?= data.staff.businesscard_email || data.email ?></email>
-<companyTwitter><?= data.companytwitter ?></companyTwitter>  <personalTwitter><?= data.staff.personaltwitter ?></personalTwitter><? if (data.staff.phone) { ?>
-<phone addnewline="false"><?= data.staff.phone ?></phone><?}?></Front></Root>
