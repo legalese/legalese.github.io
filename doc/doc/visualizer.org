@@ -1,0 +1,41 @@
+# Visualizer
+
+Software offers a visual representation of the contract.
+
+http://cs.anu.edu.au/people/Michael.Curtotti/visualcontracting/
+
+Let's look at some conversion scenarios:
+
+* Scenarios
+** Next Qualifying Financing
+- company raises funds
+- && the instrument is an equity instrument
+- && the funds raised are above /a certain threshold/.
+
+** Next Nonqualifying Financing
+*** instrument is not an equity instrument.
+*** the funds raised are below a certain threshold.
+
+** Maturity
+on or after the maturity date, (at the election of the investor,)
+- company must repay /(a certain multiple of)/ the principal invested, OR
+- the instrument converts to common at a /maturity_conversion_discount/ to the valuation cap
+
+** Sale prior to conversion
+prior to conversion, the company gets acquired.
+
+the investor gets to decide whether to
+- get paid back their LP (with participation, if that was agreed)
+- convert to common
+
+Meng would like to introduce the idea of an Acquisition Preference that can be a different number than an LP.
+
+** Dissolution prior to conversion
+
+Either the investor
+
+*** converts to common and participates alongside common, or
+*** gets back (LPx) the principal invested, or
+*** if they negotiated participation, they do both.
+* Bonus Optional Features!
+** MFN

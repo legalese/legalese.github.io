@@ -1,0 +1,79 @@
+#+TITLE: Legalese 2.0 High-Level Specification
+
+This document should be read in conjunction with [[file:v2-architecture.org][v2-architecture.org]].
+
+
+
+* Domains of Work
+
+Legalese conceptually separates into the following Domains of Work.
+
+See also [[architecture.org]].
+
+** Frontend: User Interface
+*** Education
+Most users of the system will be first-timers and will need help understanding the decisions they are being asked to make.
+
+This is an intrinsically challenging problem, but the world of software has learned ways to manage this complexity and give end-users a reasonably satisfying experience. Lots of sensible defaults.
+
+*** Technical Support
+*** Professional Services
+*** User Management System
+** API
+Our web user interface is not the only possible user interface.
+
+Maybe in the future there will be a mobile front-end.
+
+Or maybe there will be a natural language front-end, like Clara or Peter. We could call it Beverly!
+
+So good engineering practice encourages the use of cleanly specified APIs between the front and back end.
+
+** Backend
+*** [[*Company Model][Company Model]]
+knows about the company, its shareholders, constitutional documents.
+*** [[*Execution Model][Execution Model]]
+knows about who is supposed to sign what, and whether they have actually signed it.
+
+*** [[*Company Model][Contract Model]]
+knows about how a particular docset is configured, and expands it to natural language.
+
+* Lay Observations
+** document configuration
+*** genre
+term sheets | employment contract | nda | creative commons license | ...
+*** school
+seriesseed | y combinator safe | y combinator aa | techstars | jfdi | ...
+*** jurisdiction
+usa | eu | singapore | ...
+*** stage
+angel | seed | series a | series b
+** minimal validity
+a document of a given genre must conform to certain requirements to be considered a well-formed instance of the dtd.
+default terms
+** articles / clauses / terms
+** defaults
+e.g. confidentiality -- either in or out, but no tweaking
+* technologies
+** [[http://www.frameless.io/xslt/][frameless]] XPath 2
+** XSLT
+http://www.w3schools.com/xsl/xsl_value_of.asp
+** outputting to Microsoft Word .docx
+[[http://msdn.microsoft.com/en-us/library/ee872374(v%3Doffice.12).aspx][http://msdn.microsoft.com/en-us/library/ee872374(v=office.12).aspx]]
+
+* test cases
+TDD FTW!
+see [[*Temasys%20Investment][temasys]] for a test case.
+
+* questions
+** conditional logic
+how to represent "in the event of this, then that; elsif this, then that"
+** variables
+how to represent variable declarations and expressions?
+
+for example, a weighted average ratchet clause.
+
+what gets defined in the preamble section and what gets defined later?
+** overrides
+should be able to override any standard term with arbitrary text
+
+such overrides represent a "gold dust" source of value. maybe an override is worth pushing back to the master?

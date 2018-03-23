@@ -1,0 +1,72 @@
+#+TITLE: Fundraising Test Suite
+
+* Test Scenarios
+
+The software needs to do the right thing in each of the scenarios tested.
+
+In each test we define:
+- a *History*, containing a set of *Past Events*
+- a *Contemplation*, containing a set of desired *Outcomes*
+
+From the *History* we /resolve/ the current *Situation*, which represents the current state of affairs. Resolving a Situation from a History is a lot like resolving a balance sheet from a ledger of transactions. Both accountants and blockchain people get this.
+
+The Outcomes may be phrased as a list of assertions.
+
+The Contemplation may be decomposed into one or more Current Events in a Sequence.
+
+After those Events are correctly Executed in Sequence, the Current Events become Past Events, and the Contemplation passes into History.
+
+Each test specifies the History, the Contemplation, and the Expected Sequence of Current Events.
+
+The test runs the History and the Contemplation against Legalese.
+
+Legalese returns a Proposed Sequence of Events.
+
+If the proposed sequence of events is the same as the expected sequence of events, then the test passes.
+
+* Incorporation
+
+* Ordinary Debt Issue, No Priors
+
+* Ordinary Equity Issue, No Priors
+
+* Convertible Debt Issue, No Priors
+
+* Convertible Debt Issue, With Prior Convertible Note
+
+* Preference Equity Issue, No Priors
+
+* Preference Equity Issue, With Prior Convertible Note Failing Threshold
+
+* Preference Equity Issue, With Prior Convertible Note Meeting Threshold
+
+* KISS Debt Issue, No Priors
+
+* KISS Equity Issue, No Priors
+
+* SAFE Issue, No Priors -- No Cap, No Discount (SAFE_nn)
+
+* SAFE Issue, No Priors -- Yes Cap, No Discount (SAFE_cn)
+
+* SAFE Issue, No Priors -- No Cap, Yes Discount (SAFE_nd)
+
+* SAFE Issue, No Priors -- Yes Cap, Yes Discount (SAFE_cd)
+
+* Preference Equity Issue, With SAFE_nn
+
+* Preference Equity Issue, With SAFE_cn
+
+* Preference Equity Issue, With SAFE_nd
+
+* Preference Equity Issue, With SAFE_cd
+
+* KISS debt followed by SAFE_cd
+
+* ESOP Establishment, with No Priors
+
+* ESOP Establishment, with Prior Convertible Debt
+
+* ESOP Establishment, with Prior Preference Equity
+
+* ESOP Establishment, with Prior Convertible Debt and Preference Equity
+

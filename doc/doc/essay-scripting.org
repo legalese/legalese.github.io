@@ -1,0 +1,104 @@
+* Programming and Scripting
+"So anyway, tell me, what's the difference between programming and scripting?"
+
+The question was asked in all innocence. Others leaned forward over glasses of Chardonnay, polite expectation on their faces.
+
+But I couldn't speak. All my attention was fixed on controlling the surge of adrenaline the question had provoked. Breathe in, breathe out. Try not to think.
+
+I'm a veteran of the Scripting Wars. My generation came of age when Perl, Python, and PHP were new. The youth of the 1990s embraced those languages, despite their utter absence from the university curriculum, or perhaps because they had that samizdat, underground quality. To use those languages, you had to download them, overnight, from mysterious mirrors in Japan and Canada.
+
+"Nonsense pidgin," our seniors would universally scoff. "Real programmers use C."
+
+The thing is, our seniors were right -- Perl, Python and PHP were themselves coded in C. The upstarts have borne a chip on their shoulder ever since. But scripting languages were, like teenage slang, so much more expressive, so much more portable, flowing like quicksilver from platform to platform, from Solaris to Linux to FreeBSD, infinitely better suited to the impatient, ever-changing world of the Web, where time-to-market was everything and bugs be damned.
+
+Nowadays, of course, Perl is an Old Fogey tongue, its one-liner incantations copy-and-pasted blindly at the shell prompt by Javascript brogrammers who prefer tapping a touchpad to typing into the terminal. Most of the veterans who used to rally under the Perl flag have themselves moved on to well-paying Ruby pastures or the eldritch fringes of Go, Erlang, and Haskell.
+
+Reminiscence over. I can take the question now. So, what is the difference between programming and scripting? I'll try answer the question from two decades of experience in Computer Science.
+
+"Computer Science", by the way, is actually a misnomer. At my school, it was "CIS" -- computer and information science. That's actually much better: calling it "computer science" is like calling architecture "blueprint science", calling law "contract science", calling painting "canvas science". Never confuse the activity with the tool: the tool may be Photoshop, but (in the right hands) the result is art.
+
+Like mathematics, information science stands one Platonic remove from its applications. Physics and chemistry gave us the nuclear reactor and the solar panel; but physics and chemistry are about energy and matter, not about specific engines or particular materials. One is science, and the other is engineering. As the pat phrase goes, the scientist builds in order to learn, and the engineer learns in order to build.
+
+In the same way, "computer science" is really about the structuring of abstractions; it's about the communication of meaning in code and in codes; it's about the shifting of thought from mind to machine. One of the earliest computer companies was called Thinking Machines, and that name alludes to the fundamental mystery of the field, to its frankly godlike aspirations to create golems that move by our spells.
+
+Computer science makes it possible to put a movie on a disc or a thumb drive or on a wire without caring which method you use; computer science makes it possible to prevent end-users from copying that movie; and computer science makes it possible for you to break the encryption and rip it anyway; but none of those things are what computer science is really about.
+
+Computer science is really about thinking -- thinking deeply about how something works, how something should work, and what things need to happen, in what sequence, for your wishes to come true; and about how to recover when the unexpected occurs, as it always does. Computer science is about knowing a thing so well you can explain it not even to a six-year-old who's trying his hardest to understand what you're saying, but to a soulless machine with even less empathy than a day-old puppy. If we anthropomorphize computers at all, we invariably believe they are trying their hardest to /misunderstand/ what we say. Nowadays computer scientists orchestrate thousands of those machines to work in concert. That takes a lot of deep thinking and clear communication.
+
+How do we communicate with machines? Through special languages. Programming languages.
+
+In the pantheon of programming languages, C stands apart, like Odin. Before Odin and the Norse gods to whom he is Allfather, there were the jötunn, the Giants: COBOL and Fortran. Then C came, and with it Unix, and the Giants were defeated to Niflheim, and the age of the Æsir began. (Well, first there was another war: the compiled languages -- C and Pascal and C++ -- warred with the Vanir -- the LISPs and the Schemes -- and bred with them. Their joint progeny -- the scripting languages -- bear both parentages proudly.)
+
+These languages are tools. They are not natural languages; they are formal grammars. They speak to computers with a precision and expressiveness that are unavailable in English, French, German, Hindi, Chinese, or any other natural language that emerged from collections of billions of neurons grunting and whistling at thousands of other such collections.
+
+All the programming languages made by man occupy a middle ground between the warm emotional humanity of natural language and the cold binary logic of machine code. Programming languages are written by humans, and can be read (one hopes, for the sake of maintenance programmers everywhere) by humans; but they are also meant to be read by computers, which translate programs into the low-level binary instructions that microprocessors execute at clock speeds of a billion cycles a second.
+
+Within that middle ground, compiled languages like Pascal and C lie closer to machine code; the scripting languages lie closer to natural language. The "high level languages" are more compact, yet more expressive. Where a low-level language like C might only have a few words, like "if/else" and "do/while", high-level languages have words for bigger ideas, like "map" and "filter" and "reduce". Where a low-level language sees the world in shades of gray, a high-level language sees the world in colour: it knows about arrays, dictionaries, serialization. C doesn't even know about strings: it has to be taught.
+
+The scripting languages have another difference: where Pascal and C are always compiled to executable binaries, the younger scripting languages take several generations of Moore's law for granted, and are accordingly profligate with CPU capacity; they interpret and compile anew, every time a program runs. A binary executable only works for a single processor architecture and a single operating system environment -- which is, fundamentally, why Windows software doesn't run on Macs, and vice versa. A high-level script, having the benefit of an indulgent interpreter to pave its way, can run on any platform where its interpreter is comfortable.
+
+Some languages play with these ideas. Java compiles to a virtual machine which then runs on an actual processor. Go, otherwise a member of the scripting family, is statically typed and compiles so fast you can't tell there's an interpreter at work.
+
+These aren't all the differences -- but I won't get into them now, because what I really want to talk about is how, after four thousand years of C, law is about to discover Perl.
+
+Paul Graham wrote about Hackers and Painters. I'm going to write about Hackers and Lawyers.
+
+What do lawyers and coders have in common?
+
+Quite a lot. The two professions are twins separated at birth. Particularly where it comes to contracts and legislation, we do the same things. Laws are standards. Contracts are programs. We express them in very different ways, but both are expressions of a fundamentally human act.
+
+Humans are not the only species to use language; humans are not the only species to use tools. But humans are the only species to use language /as a tool/.
+
+This is a profound idea. The use of language as a /specialized/ tool is, arguably, one of the highest forms of human practice: the domain of poets, programmers ... and lawyers.
+
+For four thousand years, lawyers have laboured in ignorance. They were programmers, writing programs, without a programming language. So they used Latin; they used English; they used French; they used a convoluted version of natural language called /Legalese/.
+
+If Legalese is C, then something new -- so new it hasn't been invented yet -- will be the Perl, the Python, the Ruby of our day. I don't know much about it, but here's what I do know.
+
+The long-term vision is /formalization/: to make it possible to express contracts and legislation as precisely as one might wish, in a formal language, that compiles to natural language, but that can be modeled, executed, and visualized by machines executing the wishes of the human mind. It will be a domain-specific language; it will come with a compiler; you will be able to compile it to natural language legalese. Programs written in it will be executable by computers. It may connect to blockchains and Bitcoin.
+
+Marc Andreessen says: Software is eating the world. This is a perfect illustration of software eating law.
+
+Programmers -- computer scientists -- /information/ scientists -- are landing on the shores of law by droves, and /they are horrified/. They witness practices that are centuries old. Programmers react to these practices exactly the way that a modern doctor might react to surgical practices from the 15th century: "Wash your hands. Wash your hands. Wash your hands. Let me tell you about germ theory." They are even more horrified when they learn that law firms are actively resistant to productivity and automation because of the backward practice of hourly billing. The 15th century surgeon calmly explains: "I make twice as much money from a funeral as from a birth, so tell me again why I should wash my hands?"
+
+The elements of information science apply just as much to law as they do to computers. To take a banal example, consider *dependencies*: basically, the idea that before C happens, A and B first have to happen. And A and B may have dependencies of their own. Computer scientists model this stuff with a dependency tree, or a dependency graph. Example? A startup hires its first employee. The employee wants stock options. Now your employment agreement needs to describe stock options. But you haven't set up a stock option plan. To set up a stock option plan, you have to create a new class of shares. To create a new class of shares, you have to alter the articles of association. To alter the articles of association, you have to get a resolution from the shareholders. To get a resolution from the shareholders, you have to get a resolution from the board of directors.
+
+To hire a new employee, you now need sign-off from every founder and every shareholder who invested in your company.
+
+This is why things get "stuck in legal". The official computer science term for this is [[http://sethgodin.typepad.com/seths_blog/2005/03/dont_shave_that.html][yak shaving]].
+
+Fortunately, computer scientists have an embarrassment of tools for handling dependency graphs. [[http://en.wikipedia.org/wiki/Make_(software)][make(1)]], for instance, dates back to 1976. Programmers routinely use /make/ to rebuild hundreds of fragments of code as part of compiling a program. It's a solved problem. E-signature services promise to speed up the process of collecting these signatures from weeks to hours.
+
+This is just one example of the rich body of practice that programmers have evolved. CS theory may be at the core of the profession, but it's engineering practice that makes it possible to code reliably, productively, and in concert with other coders.
+
+Another example. When collaborating on a piece of software, Version Control allows coders to see who did what, when, and why. Every professional programmer uses version control, even when coding alone. Because the truth is that, even if you're the only coder on a project, you're still collaborating; with the past and future versions of yourself.
+
+Github recently raised funding at a billion-dollar valuation. What is it? A version control platform for coders to collaborate. Engineering practices are that important. Now it's becoming a social network for programmers and the app store for opensource. All built around a simple three-letter command: git.
+
+Lawyers aren't bad people. Lawyers aren't dumb.
+
+It's just that, to date, lawyers have coded in legalese because they couldn't do any better.
+
+They lacked the tools.
+
+Now, the tools are coming.
+
+Some legal researchers and entrepreneurs, looking forward to the future of law, see [[http://szabo.best.vwh.net/contractlanguage.html][formal languages]], [[http://lawreview.law.ucdavis.edu/issues/46/2/Articles/46-2_Surden.pdf][computable contracts]], [[http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2538224][contracts as automata]]. [[https://legalinformatics.wordpress.com/2013/12/08/happio-next-generation-contracts-a-paradigm-shift/][Next generation contracts]] and [[http://www.effacts.com/blog/the-stanford-computable-contracts-initiative][computable contracts]] are already a subject of research at Stanford's [[http://codex.stanford.edu/projects/][Codex center for legal informatics]].
+
+In the 1990s, the new tools for programmers were scripting languages: Perl, Python, PHP.
+
+In 2015, the new tools for lawyers will be new practices and new languages. That's why we use the tagline "Legalese 2.0".
+
+They say old people can tell when a storm is coming; they feel it in their bones.
+
+Well, I'm old now. I can feel this storm coming. It felt this way during the Scripting Wars, and it feels the same way now, in law.
+
+* Coda: the Moral Imperative
+
+There's an important moral component to this.
+
+If legal advice requires a legal license -- but the demand for legal services is ever-growing -- them it's important that computational legal services be available to all, and not subject to licensure. A computer is able to take the particulars of a user's situation into account and apply the law, to some degree. Should it be illegal for people to avail themselves of that software? (Currently the answer is: no if it's free; yes if it's paid.) But there is a Promethean challenge here: just as Martin Luther democratized scripture, we must democratize law.
+
+Without getting into too controversial a domain, it might be worth pointing out similarities between do-it-yourself legal, and do-it-yourself abortion: history shows that people are going to do it whether or not it's legal, whether or not it's affordable. And there is a strong public policy argument in favour of making it accessible, because that way the harm is, on the whole, less.
+
+Indeed, the strong form of the argument is this: with software eating the world, sooner or later it will be inevitable that programmers address themselves to law. To ban programmers from writing software (even in cooperation with lawyers) that practises law, we disempower the users of that software in a fundamental way, and we cripple society as a result. Sooner or later, /all/ business software will practise law, to some extent, because it will be aware of the laws affecting the business, and it will respond and customize accordingly.

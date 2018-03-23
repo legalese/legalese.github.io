@@ -1,0 +1,141 @@
+#+TITLE: notes from Legalese / Proteus meeting [2017-01-10 Tue]
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://dl.dropboxusercontent.com/u/9544489/org-style-img100.css" />
+#+OPTIONS: toc:1
+
+* Assumptions and Preconditions
+
+** the company has been incorporated already
+
+** end-user's company has the ACRA standard default-from-template M&A / Constitution.
+
+*** IN FUTURE it is possible to auto-download this from ACRA and OCR it lol and parse it for semantics by at least matching the text word for word
+
+*** IN FUTURE we can then do an alteration of articles to give them all the prereqs they need to do the current operation.
+
+** end-user's company has no previous rounds of investment
+
+*** there are no third party investors in the picture with special rights and agreements. 
+
+everybody is an ordinary shareholder and willing to be treated pari passu with the founders.
+
+there are no signed investment documents.
+
+* templates and prerequisites
+
+~==>~ is a binary operator meaning prerequisite. This allows us to backward-chain from the goal state. It is overloaded to handle multiple types.
+
+The goal state is a workflow.
+
+The arguments to ~==>~ are typed as follows:
+
+#+BEGIN_SRC
+(signatory S, template T) => S ==> T
+(template T, template T) => T ==> T
+(template T, workflow W) => T ==> W
+(state V) => _ ==> V, V ==> _
+#+END_SRC
+
+~T1 ==> T2~ means that template T1 must be fully signed before T2 is ready to run. In other words, all the signatories S belonging to template T1 must have signed. Meaning all the possible S for ~S ==> T1~.
+
+~T ==> W~ means that all the templates specified for W must be signed before a workflow can be considered complete.
+
+Some templates have zero S, for example ~termsheet~ and ~cap_table~.
+
+** esop_workflow
+
+#+BEGIN_SRC
+dr_egm_notice_issue_shares ==> mr_issue_shares
+mr_issue_shares            ==> jfdi_class_f_agreement
+jfdi_class_f_agreement     ==> dr_allotment
+dr_allotment               ==> corpsec_allotment
+                               ==> esop_workflow
+#+END_SRC
+
+** esop_exists
+
+#+BEGIN_SRC
+esop_workflow ==> esop_exists
+#+END_SRC
+
+After running the ESOP workflow once, esop_exists is set to true, and remains true.
+
+** investment_workflow
+
+#+BEGIN_SRC
+esop_exists ? () : investment_workflow
+
+termsheet ==> investment_workflow
+cap_table ==> investment_workflow
+
+dr_fundraising
+==> dr_egm_notice_issue_shares
+    ==> mr_issue_shares
+        ==> preemptive_waiver
+            ==> main_contract
+
+if (main_contract == series_aa) {
+  mr_issue_shares
+  ==> new_share_class_dr
+      ==> new_share_class_mr
+          ==> main_contract
+}
+
+main_contract ::= multisafe | series_aa
+
+main_contract
+==> ( shareholders_agreement_exists ? dora
+                                    : jfdi_shareholders_agreement )
+
+if (main_contract == series_aa) {
+    main_contract
+    ==> dr_allotment
+        ==> corpsec_allotment WITHIN 14 DAYS OMG
+}
+
+main_contract ==> transferFundsInstruction
+#+END_SRC
+
+* UX flow for demo MVP
+which we can use as a basis for further discussion
+and put in front of a potential end-user to get a sense of problem/solution fit.
+
+system to include instrumentation, so we know where users are leaking, so maybe mixpanel.
+
+1. disclaimer. this is not a legal service lolol.
+2. display/preview a froggy version of the roadmap of documents which Legalese will give the user
+   - the whole stack of the agreements above
+3. fill in the goal: bank transfer instructions, how to send me money, name of company, country of company, UEN, jurisdiction
+4. we fake-query questnet
+5. fill in the subgoal: the main_contract parameters: pre-money valuation, etc
+6. fill in other parameters, smart or froggy defaults are always in place so you never have [  ] ERROR
+   - names of investors
+   - cap table before & after
+7. confirm that you meet our expectations:
+   - the M&A is standard
+   - you have no existing investors who need cleanup
+   - it's a singapore company
+8. at any step above you can download everything with an ugly DRAFT across each page
+9. push "engross" to generate all the actual documents with no DRAFT, now you can download an executable.
+10. display the dependency graph showing step by step who signs what. this is static, because there is no backend.
+11. do you want to manage the signature process?
+    - yes :: go ahead, have a .zip
+    - no :: pay us $$$, push "send", we will bug people for you. If this were real software something would go out now.
+12. do you want it in Comic Sans?
+    - yes :: go ahead, have a .zip
+    - no :: pay us $, we will change it to Times New Roman
+    - no :: pay us $$, we will change it to Helvetica
+    - no :: pay us $$$, we will change it to Garamond
+13. do you want it in
+    - PDF :: free
+    - docx :: $$$$$
+
+* cap table visualization
+
+the investor will ask for it, and then the end-user will ask us to help them produce it.
+
+who's already in the company?
+- ask the end-user to fill it in
+- ask ACRA directly and we fill it in
+  (can query the questnet API to find out who the shareholders are)
+
+what percentage of the company will each investor own after the round?

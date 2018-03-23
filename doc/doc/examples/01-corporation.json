@@ -1,0 +1,27 @@
+{ "entities" : {
+  "NewCo": {
+    "name" : "NewCo Inc.",
+    "entityType" : "corporation",
+    "jurisdiction" : "SG",
+    "externalId": { "id": "C12345678K", "idType": "UEN" },
+    "directors" : [ "Alice", "Bob" ],
+    "shareClasses" : { "ordinary": { } }
+    "shareholders" : { "Bob":   { "shareClass": "ordinary", "num": 20 },
+                       "Carol": { "shareClass": "ordinary", "num": 10 } },
+  },
+  "Alice": {
+    "name": "Alice Lovelace",
+    "entityType": "naturalPerson",
+    "externalId": { "id": "S11111111A", "idType": "NRIC" }
+  },
+  "Bob": {
+    "name": "Bob Dobbs, Jr.",
+    "entityType": "naturalPerson",
+    "externalId": { "id": "S22222222B", "idType": "NRIC" }
+  },
+  "Carol": {
+    "name": "Carol Choo-Choo",
+    "entityType": "naturalPerson",
+    "externalId": { "id": "S33333333C", "idType": "NRIC" }
+  }
+} }

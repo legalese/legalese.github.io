@@ -1,0 +1,2135 @@
+* Entity, Relation, Operations Model
+a comprehensive taxonomy of all operations that can be performed.
+
+we use an object-oriented paradigm to model these things. they suffer CRUD operations.
+** Prerequisites
+To understand this document you should be familiar with object-oriented programming and domain modeling.
+
+See:
+- http://martinfowler.com/eaaCatalog/domainModel.html
+- http://www.martinfowler.com/bliki/AnemicDomainModel.html
+
+** Entities
+
+*** Objects (Entities)
+**** NaturalPerson | Individual
+***** stateOfCitizenship
+***** stateOfResidency
+***** IDnumber
+***** IDtype
+**** class LegalPerson where
+***** stateOfRegistration
+***** IDnumber
+***** IDtype
+
+**** data LegalEntity = Corporation | SoleProprietorship | LLP | Trust
+**** Corporation
+***** Exempt :: Bool
+***** ShareClasses :: [ShareClass]
+**** ShareClass
+***** Ordinary | Preferred
+***** Priority
+***** etc requirements
+
+*** Methods
+**** Create
+***** NaturalPerson
+****** phrase: "birth"
+****** evidence
+- Birth Certificate
+- Passport
+- Government Issued ID
+***** Organization
+****** phrase: "incorporation" | "registration"
+****** external API: state registry
+
+**** Replace
+***** () immutable
+
+**** Update
+***** NameChange
+
+**** Delete (ShutDown)
+***** WindUp
+***** StrikeOff
+***** Liquidate
+
+** Relation Objects
+
+*** Standard
+**** Shareholder :: (ShareClass, LegalEntity)
+id: share certificate number
+***** Operations
+****** C
+******* phrase: "subscription"
+******* evidence
+- share certificate
+- registration with state registry
+******* consideration :: Money | InKind | Zero
+******* number of shares
+******* class of shares
+****** R
+cancellation of old certificate
+issuance of new certificate
+****** U
+change of LegalEntity: novation
+****** D
+redemption of (preferred) shares
+cancellation of shares
+
+**** Promoter    :: (Corporation, Entity)
+**** Officer     :: (Corporation, NaturalPerson)
+***** C
+appointment
+***** R
+***** U
+***** D
+resignation
+**** Director    :: (Corporation, NaturalPerson)
+***** C
+appointment
+***** R
+***** U
+change of directors fees
+***** D
+resignation | termination
+**** Secretary   :: (Corporation, NaturalPerson)
+**** Employee    :: (Corporation, NaturalPerson)
+**** Volunteer   :: (Corporation, NaturalPerson)
+**** Contractor  :: (Corporation, Entity)
+*** User-Defined (Transaction-Specific) Relations
+
+a particular agreement may define other relations which are not necessarily defined by law
+
+**** Key Holder
+
+**** Founder
+
+** Relation Methods
+
+*** ShareSplit
+*** ShareSquish
+*** Dividend
+*** 
+
+** Operations
+
+*** C
+*** R
+*** U
+*** D
+
+
+** resignations
+*** resignation of director
+*** resignation of volunteer
+*** resignation of employee
+*** resignation of founder
+** establish esop
+** new volunteer
+- [ ] class f shares? or no
+** alteration of articles
+** new investment round
+*** subscription agreement
+
+* Modeling the Corporation
+
+** Misc Thoughts
+In the financial services industry, UML and XML models for financial transactions exist: ISO 20022 is the basis for SWIFT.
+
+Maybe we can import some of those ideas. A startup investment is, after all, just a special case of a financial transaction.
+
+Corporations are relatively lightweight structures, especially at the startup stage. Even public corporations aren't terribly complex: they have a lot of shareholders, a few directors, and a bunch of bank accounts.
+
+Astonishingly, we have not been able to find a data model schema for a corporation. So here's one.
+** Entities
+*** Primary Entity: Company
+
+The Models given in this document claim to work for two kinds of primary entities. A Company is assumed to be one of the following:
+
+**** Private Limited Companies                                              :SG:SG_CA50_20160103:
+
+The Resolutions Model claims correctness for Singapore Private Limited Companies.
+
+**** Exempt Private Limited Companies                                       :SG:SG_CA50_20160103:
+
+For the purpose of the Resolutions Model, all facts true of Private Limited Companies are also true of Exempt Private Limited Companies.
+
+*** Secondary Entities                                                                   :general:
+
+Along the way, the following secondary entities will turn up:
+
+**** Natural Person                                                                     :general:
+
+Usually a human being. May be resident in any jurisdiction.
+
+May be the estate, personal representative, attorney, etc, of a human being.
+
+**** Organization                                                                       :general:
+
+Synonymous with a corporate person -- anything that is not a natural person. For example, an investment holding company may be a corporate shareholder.
+
+*** Roles
+
+The following roles exist with-respect-to the Company.
+
+**** General Role Attributes
+a role relationship starts and stops in time. So we need [[https://en.wikipedia.org/wiki/Bitemporal_data][bitemporality]].
+
+**** Director Role                                                                      :general:
+
+**** Shareholder Role                                                                   :general:
+
+May be of a specific class of shares.
+
+**** Bondholder Role                                                                    :general:
+
+Of a specific security.
+
+**** Warrantholder Role                                                                 :general:
+
+Of a specific security.
+
+**** Investor Role                                                                      :general:
+
+**** Member Role                                                            :SG:SG_CA50_20160103:
+
+Often synonymous with shareholder, but specifically defined as a person entitled to receive notices of meetings.
+
+Not tagged as global because the notion of a member may not be common outside Singapore jurisdiction.
+
+*** Entities Out of Scope                                                                :general:
+
+The resolution model does not claim to cover:
+
+**** Companies Limited by Guarantee
+**** Trusts
+**** Public Companies
+
+
+
+* Modeling the Drafting -- Semantics
+Within a contract, we deal with terms and content. This model cares about the conceptual/abstract representation, also known as the formal representation. It also cares about the physical text in a natural language. The physical text may include formatting instructions.
+
+** Background Reading
+To understand this section, you should:
+- be reading Ken Adams, A Manual of Style for Contract Drafting
+- understand what a context-free grammar is, and be familiar with Backus-Naur Form
+- read http://content.iospress.com/articles/semantic-web/sw224, a survey of the landscape of computational legal semantics
+- read https://drive.google.com/open?id=0BxOaYa8pqqSwTC04OTF5b1hYams Some computational properties of a model for electronic documents, TBC 1989
+- view https://drive.google.com/open?id=0BxOaYa8pqqSwUWlCajFJQURXdG8 introducing deontic logics, Gorin 2010
+- read [[https://www.um.edu.mt/__data/assets/pdf_file/0008/51749/wict08_submission_17.pdf][conflict analysis of deontic contracts, Stephen Fenech]]
+- read [[http://www.diku.dk/~paba/pubs/talks/bahr15icfp.html][Certified Symbolic Management of Financial Multi-party Contracts]]
+- read http://wyner.info/research/Papers/2014/NL_DeonticConcepts_Lux_2014.pdf another perspective on deontic logic
+- read http://wyner.info/research/Papers/WynerPetersJURIX2011.pdf -- Wyner 2011, /On Rule Extraction from Regulations/
+- read http://wyner.info/research/Papers/2013/WynerICAIL2013Tutorial.pdf discussing text extraction
+- http://people.dsv.su.se/~petia/Publications/lap98.pdf shows how to model deontics for software specifications, in software
+
+Video
+- watch Surden's [[https://www.youtube.com/watch?v=KLAE_SKMeAY&index=61&list=PL48E61C121CAD0E1B][2011 talk on Computable Contracts]]
+- watch the Futurelaw [2013-04-26 Fri] [[https://www.youtube.com/watch?v=KBI8_tv2VDM][presentation on Computational Law and Contracts]]
+- watch the FutureLaw [2016-04-30 Sat] [[https://www.youtube.com/watch?v=efr9VctcMe8&index=1&list=LLprx0R928jz7WPTG5EBdrnQ][panel discussion: New Breakthroughs in Computational Law]]
+
+Previous Legal DSLs:
+- read Tom Hvitved's [[http://www.diku.dk/forskning/phd-studiet/phd/davidg_thesis.pdf/hvitved12phd.pdf][PhD Thesis]] which covers some of the most recent work in the field
+- read https://drive.google.com/file/d/0BxOaYa8pqqSwWk9NallEck83T2M/view-- CLAN 2009
+- read https://drive.google.com/file/d/0BxOaYa8pqqSwSjRMeGtzVGhIaWs/view -- FormaLex 2011
+- read http://wyner.info/research/Papers/2013/OASISLegalRuleML.pdf on LegalRuleML.
+- review [[https://www.lexifi.com/product/technology/contract-description-language][LexiFi's Contract Description Language]], MLFi
+- review [[https://github.com/mpoulshock/HammurabiProject/blob/master/Code/DSL/DSL.pdf][Hammurabi's DSL]]
+- review the DSL presented in Hvitved's [[http://www.diku.dk/forskning/phd-studiet/phd/davidg_thesis.pdf/hvitved12phd.pdf][PhD Thesis]], particularly Appendix E.2.3
+
+
+** Formal Representation
+
+Formally, a legal document obeys a grammar. In this document, we treat "grammar" and "schema" as [[https://www.w3.org/People/Bos/Schema/schemas][rough homomorphisms]], with schemas being slightly more specific and grammars being slightly more general.
+
+Different jurisdictions may impose different schemas. For example, a contract written in the US style will look different from a contract written in the UK style. However, both documents will exhibit a high degree of structure. A family of UK documents will share the same schema.
+
+A rough schema for a contract could be: title, date, parties, recitals, definitions, conditions precedent, habendum, standard bits, attestation. The habendum is composed of a list of clauses.
+
+A rough schema for a directors' resolution could be: letterhead, item [...], signatures. Each item is either a Resolved or a Noted.
+
+** Regulations and Contracts as Business Logic
+
+Our approach departs from the prior art in a key way: we treat contract formalization not as a problem in linguistics, but as a problem in business logic modeling. Rather than parse contracts into structured syntax trees, we formalize contracts as executable programs. Programs, of course, may themselves be modeled as digraphs. Still, the goal is to represent the semantics of the contract first, and the syntax second.
+
+What does that mean?
+
+Let's take [[http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfcfr/CFRSearch.cfm?FR=610.40][an example of regulatory verbiage]] which was the subject of a paper ([[http://wyner.info/research/Papers/2013/WynerICAIL2013Tutorial.pdf][with slides]]) by Peters & Wyner ([[https://legalinformatics.wordpress.com/2011/11/11/wyner-and-peters-on-rule-extraction-from-regulations/][blog post]], [[http://wyner.info/research/Papers/2014/NL_DeonticConcepts_Lux_2014.pdf][more slides on deontics]]):
+
+#+BEGIN_QUOTE
+Except as specified in paragraph c, you, an establishment that collects blood, must test each donation of human blood that is intended for use in preparing a product for evidence of infection due to the following communicable disease agents:
+(1) Human immunodeficiency virus, type 1;
+(2) Human T-lymphotropic virus, type I, and
+(3) Human T-lymphotropic virus, type II.
+#+END_QUOTE
+
+*** As a Syntax Tree
+The linguistic approach parses the syntax (rightly or wrongly) as follows:
+#+BEGIN_SRC xml
+    <ExceptionClause2>Except as <Verb>specified</Verb> in paragraph c</ExceptionClause2>,
+    <AgentNP>you, an establishment that <Verb>collects</Verb> blood,</AgentNP>
+    <Obligation>must</Obligation> <Verb>test</Verb>
+    <ThemeNP>each donation of human blood that
+    <Passive><Verb>is</Verb><Verb>intended</Verb></Passive> for use in preparing a product
+    for evidence of infection due to the following communicable disease agents</ThemeNP>:
+#+END_SRC
+
+It is, fundamentally, sentence diagramming, with some wiring up of pronouns to agents.
+
+*** As Javascript
+A computational contract would represent the same text very differently. The following object-oriented code represents each agent in the sentence with its own constructor, attributes, and methods:
+#+BEGIN_SRC js
+  // This code uses syntax based on the Joose.it metaprogramming framework for Javascript.
+  // It should make sense to any programmer versed in the object-oriented paradigm.
+  Role('bloodCollectingEstablishment', {
+    has: {
+      communicableDiseaseAgentsToTest : {
+        is : 'rw',
+        init : [ "Human immunodeficiency virus, type 1",
+                 "Human T-lymphotropic virus, type I",
+                 "Human T-lymphotropic virus, type II" ] },
+      bloodDonations : { is : 'rw', init: [ ], isPrivate: true },
+      // Array of BloodDonation objects. This includes both clean and infected blood,
+      // so we limit access to specialized getter methods which should prevent
+      // unintentional retrieval of infected blood.
+      // Such methods include getCleanDonations() and getInfectedDonations(), not shown due to space limitations.
+      // They filter through the bloodDonations list, inspecting bloodDonation.testResults.
+    }
+    methods: {
+      bloodTestException : function(donation) {
+        return (new Moon).getPhase() == "waxing crescent" || 
+        donation != undefined && donation.getBloodType() == "O";
+        }
+      },
+      collectBlood : function(donation) {
+        this._initializeRelationWith(donation);
+        this.bloodDonations.push(donation);
+        // note that we always add the donation to the list of donations
+        // without regard to whether it passed or failed the communicable-disease tests.
+      },
+      _initializeRelationWith : function(donation) {
+        if (! this.bloodTestException(donation)) {
+          if (donation.getUsageIntent().match(/for use in preparing a product/)) {
+            this.getCommunicableDiseaseAgentsToTest().map(
+              function(t) { donation.sendBloodTest(t); });
+          }
+        }
+      },
+      getBloodDonations : { return "ERROR: getter restricted for safety reasons. Please use getCleanDonations(), getInfectedDonations(), or getUntestedDonations instead to make your intent clear." }
+      setCommunicableDiseaseAgentsToTest : function(tests) {
+        // in case the list of communicable disease agents changes, reschedule all donated blood for re-testing against newly introduced tests.
+        // not shown for space reasons
+      },
+    }
+  });
+
+  Class('BloodDonation', {
+    has: {
+      testResults : { is: 'rw', init: {} },
+      bloodType:    { is: 'rw' }, // one of A, B, O, AB
+      usageIntent:  { is: 'rw' },
+      collectedBy:  { is: 'ro', isa: 'bloodCollectingEstablishment' }
+    },
+    methods: {
+      sendBloodTest: function(testName) {
+        this.testResults[testName] = undefined;
+        // Submit a blood sample for testing against testName.
+        // When the result arrives, it triggers the method recvBloodtest(testName).
+      },
+      recvBloodTest: function(testName, result) {
+        this.testResults[testName] = result;
+      },
+      setUsageIntent: function(intent) { // in case the usage intent for the blood changes after we've collected it
+        this.usageIntent = intent;
+        this.getCollectedBy()._initializeRelationWith(this);
+      }
+    },
+    after : {
+      initialize: function() {
+        this.sendBloodTest("type"); // always test for blood type, as required by bloodCollectingEstablishment.bloodTestException().
+      }
+    },
+  });
+#+END_SRC
+
+Javascript was chosen for the above formalization because it is familiar to many programmers.
+
+*** As Prolog
+The equivalent program in a logic programming language:
+
+#+BEGIN_SRC prolog
+  regulation([title(21), volume(7), section([610,40,a])],
+             Subject, Scenario, Object, excepted ) :-
+      establishment(Subject), collects_blood(Subject),
+      Scenario = blood_collection, for_production(Subject, Object),
+      exception(Subject, Scenario, Object).
+
+  regulation([title(21), volume(7), section([610,40,a])],
+             Subject, Scenario, Object, pass ) :-
+      establishment(Subject), collects_blood(Subject),
+      Scenario = blood_collection, for_production(Subject, Object),
+      communicableDiseaseTests(Object).
+
+  for_production(Subject, Donation) :-
+      blood_collected_by(Subject, Donation),
+      member("for use in preparing a product", Donation.intent).
+
+  communicableDiseaseTests(Donation) :-
+      member("Human immunodeficiency virus, type 1", Donation.tests),
+      member("Human T-lymphotropic virus, type I",   Donation.tests),
+      member("Human T-lymphotropic virus, type II",  Donation.tests).
+
+  exception(_, blood_collection, Donation) :- Donation.bloodType = "O".
+  exception(_, blood_collection, _       ) :- moonphase(waxing_crescent).
+  moonphase(waning_gibbous).
+
+  establishment(chopshop).
+  collects_blood(chopshop).
+
+  blood_collected_by(chopshop,
+                     donation{ date:date(2015,1,1),
+                               name:"first donation",
+                               intent:["for use in preparing a product"],
+                               tests:[
+                                   "Human immunodeficiency virus, type 1",
+                                   "Human T-lymphotropic virus, type I",
+                                   "Human T-lymphotropic virus, type II",
+                                   "bloodType"
+                               ],
+                               bloodType:"A" }).
+#+END_SRC
+
+The code is much shorter and expressive of the intent of the regulation, at the cost of procedural operability.
+
+*** In Legalese
+
+In the Legalese Domain-Specific Language, we strike a balance between executability and output to natural language:
+
+#+BEGIN_SRC text
+  entity e has bloodDonations [{}] ("donation of human blood")
+  rule bloodCollection governs e ("you") being { .is?(establishment) that .does?(collectsBlood) } {
+    dealswith .bloodDonations
+ 
+    except (moonphaseException) {
+      e.must ("Contagious Disease Test Requirement") {
+        foreach bd in .bloodDonations that { .isForProduction? } {
+            e.must.bloodTest ("test _O_ for evidence of infection due to :-e.CDA-:") {
+                O:bd against e.CDA.all }
+        }
+      }
+    }
+    
+    definitions:
+      bd.isForProduction? ("is intended") = {
+         bd.intents.contains("for use in preparing a product"
+                             INCLUDING ("as a component of" OR "used to prepare") -> "a medical device")
+      }
+      e.CDA ("communicable disease agents") = ["HIV 1", "HTLV 1", "HTLV 2"]
+  }
+
+  exception moonphaseException (rule) {
+      return (moon.phase == "waxing crescent")
+  }
+
+  exception moonphaseException ( [rule, e.must, bd] ) { // rules have parameter type & arity match. this specifies a certain subtree of the code path.
+      return (bd.bloodType == "O")
+  }
+#+END_SRC
+
+To output to French instead of English, we instruct Legalese with a basic mapping:
+
+#+BEGIN_SRC text
+  lingua en_to_fr {
+      you: vous / toi / tu
+      donation of human blood: don de sang humain
+      test _O_ for evidence of infection due to: _O_ examiner des preuves de l'infection due à
+      communicable disease agents: agents de maladies transmissibles
+      is intended: est destiné
+      for use in preparing a product: pour une utilisation dans la préparation d'un produit
+      as a component of: en tant que composant de
+      or: ou
+      used to prepare: utilisée pour préparer
+      a medical device: un dispositif médical
+      all: tous
+  }
+#+END_SRC
+
+
+** Some thoughts about the DSL
+
+*** Background and Resources for building a DSL
+
+**** http://martinfowler.com/dsl.html
+**** http://www.martinfowler.com/articles/languageWorkbench.html
+**** https://www.jetbrains.com/mps/
+
+*** Primitives from Patterns
+One strategy for designing a DSL is to compile a list of common patterns in the domain itself; then construct a set of primitives that make it possible to express those patterns in a formal, unambiguous, machine-readable form.
+
+That form should be approximately as compact as the original text.
+
+If the formal version is longer than the original text, that diffuseness should arise from the desire for unambiguous specification.
+
+If the formal version is shorter than the original, that terseness should arise from the correct application of mathematical and programming concepts like modularity, abstraction, encapsulation, and recursion.
+
+*** Recognizing existing concepts from legal drafting
+Legal drafting already adumbrates a number of concepts which we can translate to our domain..
+
+For example, one pattern pair described by Jon Bing in "Let there be LITE" is the principle of textual replacement vs omnibus replacement. (History of Legal Informatics, Paliwala, p.24)
+
+**** How would textual replacement appear in the DSL?
+
+Textural replacement transforms the text.
+
+**** How would omnibus replacement appear in the DSL?
+
+Omnibus replacement transforms the interpretation.
+
+*** Some Cognitive Dimensions
+https://en.wikipedia.org/wiki/Cognitive_dimensions_of_notations
+
+*** A Blue-Sky Wild-Eyed Suggestion: Subjective Perspectives
+
+Maybe the fundamental principle of this language is the representation -- just as the fundamental premise of Clojure is the sequence, or the fundamental premise of Erlang is the message-passing actor, or the fundamental premise of Elm is the signal, or the fundamental innovation of Unix is the pipeline.
+
+What is a representation?
+
+The Legalese DSL is functional.
+
+The Legalese DSL is also transactional: every object contains a history of how it came to be that way. Fowler, as usual, is ahead of us: he calls this the [[http://martinfowler.com/eaaDev/EventSourcing.html][Event Sourcing model]].
+
+A presentation is a pattern-match against any object or pattern of objects which satisfies a predicate. A representation may alter the matched presentation.
+
+In the trivial case a representation passes thru the original presentation, with only two addenda: the business tag and the system tag, indicating that the representation acted to filter the presentation. This vocabulary alludes to bitemporality. There may be cases where a representation insists that it should not be logged, in which case we omit the business tag but leave in the system tag.
+
+Representation has to be as cheap in Legalese as tail recursion is in Lisp, or as method chaining is in an object-oriented language.
+
+Perhaps an "imputation" would be as good a word as "representation".
+
+Every pattern represented includes the following properties:
+- imputer :: this identifies the code that originates the representation. It could be a clause in a regulation or contract.
+
+**** Examples
+
+
+
+**** Allusion
+
+Note: We allude to legal usages of "representation":
+- know all men by these presents
+- a lawyer represents a client
+- a party to a contract makes representations
+- a litigator makes a presentation of a 
+
+*** Functionality
+
+The strongly functional ideas of referential transparency and purity should help in drafting contracts.
+
+*** Modularity
+One obvious place where they help: a drafter can choose the degree of modularity: they can subscribe so adamantly to Don't Repeat Yourself that the code ends up being obfuscated; or they can "unroll the loop" so much that a reader will be constantly flipping between pages just to see if the definitions have stayed the same.
+
+*** Versioning and Representaiton
+
+In Clojure, Software Transactional Memory provides transactional integrity for variable references. This is a lot like locking in a database, or rollback transactions.
+
+In a bitemporal database, every fact is inflected with its valid time and system time.
+
+Now think of git as a huge ledger in a DAG that represents commits as transactions.
+
+Why not take STM to the next level, with fully versioned variables?
+
+In Legalese, Variable Versioning records the "varying" value of "variables" across representations.
+
+In the Legalese DSL, every fact resides in a database, or ledger, which is constructed on the fly from the Premises. The database as a whole is mutable, in the same way that Prolog's database is mutable through assertions and retractions, or a git repository is mutable through commits. However, individual facts in the database are immutable. They are the equivalent of scala's vals as opposed to vars.
+
+Variables are immutable; to mutate a variable, represent it. It then becomes the master HEAD.
+
+Yes, that means that representations grow as a DAG, just as a git repository is a DAG.
+
+*** Time and Space as Organizing Principles
+
+What is time? "The universe's way of keeping everything from happening at once." -- Sandman
+
+*** A specification language first, and an implementation language second
+
+Regulations are specifications.
+
+What about contracts?
+
+Is a contract a program? Or the specification for a program? Or a program that validates past execution?
+
+Maybe the DSL will need to support all of the above notions.
+
+The DSL expresses constraints and deontics.
+
+From the DSL it should be possible to evaluate a given scenario; the evaluation should return the status of compliance with deontics, the description of penalties, and the status of the contract generally: breach / voidable / void / performed / part performed. In that sense a contract is a specification.
+
+From the DSL it should also be possible to derive operable expressions from a party perspective -- for example, a security should offer triggers and handlers as callbacks which can be run against any future issue, or event, or scenario, or time. So in that sense a contract is a program.
+
+See also [[https://en.wikipedia.org/wiki/Formal_specification][wikipedia:"Formal specification"]]
+
+
+*** Multiparadigm Support
+
+In [[http://www.amazon.com/Multi-Paradigm-Design-James-O-Coplien/dp/0201824671]["Multi-paradigm Design for C++"]] James Coplien describes how C++ supports multiple paradigms: classes, overloaded functions, templates, modules, ordinary procedural programming, and others.
+
+The patterns of lay legal contracts likewise span multiple paradigms: some more imperative, some are more declarative. Some describe state transitions on a core object or objects, with or without human input.
+
+#+BEGIN_QUOTE
+It would indeed be nice if some single logical language, with a single axiomatic base, were to satisfy all our needs, because then we could set about providing a tool kit of programs to assist designers in using this single calculus. [...]
+
+The different branches of mathematics are too various, and our linguistic invention too fertile for this kind of uniformity to be sustained. The subject matter of computation is equally various, so we would expect the same need for plurality; indeed Kim Larsen and I recently did a small experiment in process validation and found that, in the space of three or four pages, we needed three or four distinct formal calculi to express the natural proof succinctly.
+
+Robin Milner, /Is Computing an Experimental Science?/
+#+END_QUOTE
+
+To fit the domain, the DSL will have to allow multi-paradigm drafting.
+
+*** Implications for Reverse Engineering
+As we start to port lay contracts over, one principle that will aid drafting is to identify the dominant paradigm in each chunk of the "code".
+
+*** Homoiconicity Squared
+
+In homoiconic languages like Lisp, "code is data".
+
+In Legalese, "code execution is data" too -- the history of every computation is available. If we want to know how something got to be the way it is, we can trace current and past state.
+
+*** Compile time versus run time
+
+UPPERCASE keywords run at compile time and help construct the text of the contract.
+
+lowercase keywords are the meat of the contract itself.
+
+in C, think #ifdef vs if()
+
+in our case we would have `IF()` vs `if()`
+
+** Legal Formalization: a Brief Overview
+
+In an application, "business rules" and "business logic" are typically encoded in machine-executable form by a domain expert. Sometimes, DSLs are employed.
+
+In the legal domain, we consider such business rules and logic to take two forms: regulatory constraints; and legal agreements and other resolutions. For short, we call these "public" and "private" respectively.
+
+The public rules impose constraints on parties -- /involuntary/ deontics.
+
+The private rules express constraints undertaken by parties -- /voluntary/ deontics -- and performative statements -- "we hereby do something", or "we warrant that...".
+
+These public and private logics interact constantly. For example, if a corporation performs action A by executing paperwork P, then a legally mandated filing F must be performed by date D else the corporation will be subject to penalties. A and P are private. F and D are public.
+
+The academic literature has explored the formalization of regulations, typically in the form of XML syntax or linguistic parse trees.
+
+The academic literature has explored the automation of the formalization of regulations, using software like GATE.
+
+At least one commercial effort, acquired by Oracle as [[https://redstack.wordpress.com/2010/08/03/creating-rules-in-oracle-policy-automation/][Oracle Policy Automation]] has resulted in an expert system [[https://en.wikipedia.org/wiki/Business_rule_management_system][BRMS]] which parses structured natural language and builds a query wizard.
+
+The research community has begun to explore the formalization of private contracts -- "computable contracts" or "smart contracts" -- which express the semantics of a contract in a form executable by machine. The crucial distinction between a program expressing business logic, and a computable or smart contract, is that the contract itself, as a program, is granted executive agency, in the same way that a power of attorney might be granted to a third party, and, once invoked, is capable of effecting changes in the real world. Furthermore, the language in which a smart contract is written must be rich enough to express general computation, and not overly limited to specific domains.
+
+** Novelties
+The research community is only just beginning to explore the generation of natural-language contracts from a formalism. At present, no software is capable of converting the formalization of the example above into a natural language. We claim that such a compiler is possible.
+
+The literature also has not explored the automated generation of private logics from public logics, as an exercise in constraint satisfaction. At present, a domain expert is required to encode such business logic. We seek to advance the state of the art from syntax to semantics, and to automate the process.
+
+At present, once business logic is encoded into an application, that logic is executed by machine, but the whys and wherefores that led to a particular outcome are often obscure. Our project will explain the rationale for any highlighted component.
+
+** Primitives and Principles
+
+
+*** requirements principles
+**** entities are modelled using objects / types
+
+Elements belong to sets.
+
+#+BEGIN_QUOTE
+This agreement is between A, B, C (the "Alphas"), 1, 2, (the "Numbers"), and #! (the "Punct"), collectively the "Parties".
+#+END_QUOTE
+
+Elements can join and leave sets.
+
+#+BEGIN_QUOTE
+The New Investors hereby accede to and ratify the Previous Agreement, and agree to be bound by the terms and conditions of the Previous Agreement as if they had been a party thereto, and to duly and punctually perform and discharge all liabilities and obligations whatsoever from time to time to be performed or discharged by it under or by virtue of the Previous Agreement in all respects as if named as a party therein.
+#+END_QUOTE
+
+**** relations are modelled using objects / types
+
+A share is a relation between a Company and a Shareholder, with certain attributes, such as issue price, voting rights, convertibility, etc.
+
+**** a relation can be created, modified, or terminated by an agreement
+
+an investment agreement creates a shareholder relation.
+
+#+BEGIN_QUOTE
+Each investor listed as a "Purchaser" on Schedule 1 (each, a "Purchaser") shall purchase at the applicable Closing and the Company agrees to sell and issue to each Purchaser at such Closing that number of shares of Series Seed Preferred Stock of the Company ("Series Seed Preferred Stock") set forth opposite such Purchaser's name on Schedule 1, at a purchase price per share equal to the Purchase Price.
+#+END_QUOTE
+
+an employment agreement creates an employer--employee relation.
+
+a volunteer agreement creates an unpaid employee relation.
+
+a nondisclosure agreement creates an NDA relation.
+
+**** functional -- representations
+
+A term in an expression may be functional in nature, in the sense that it depends on many other terms, each of which may be depend on other terms.
+
+method share.conversion_price = least_of(antidilution_price, discount_price, valuation_cap)
+
+**** actor / reactor model
+
+both entities and relations are expected to respond to scenarios by emitting transformations.
+
+**** language-orientation
+
+a compiler generates an isomorphic natural language representation of programs written in the DSL.
+
+**** homoiconicity
+
+a program may modify itself:
+
+#+BEGIN_QUOTE
+Except where the context otherwise requires, references to any person include its successors and permitted assignees. Except where the context otherwise requires, Clauses which refer to the "Company" shall apply mutatis mutandis to subsidiaries or successors of the Company which may from time to time be established.
+#+END_QUOTE
+
+**** traces, history, and state
+
+a piece of code must be able to reason based on knowledge available at time of execution. It needs to know what actions have been taken by the program and all related entities to date. If those actions are available in a log, great. That log may need to contain a representation of the relevant objects at a different time.
+
+So bitemporality applies to object state.
+
+#+BEGIN_QUOTE
+If the Company issues any additional shares (including, but not limited to, all classes of shares, warrants, rights to subscribe for shares and securities convertible into any share class) for a consideration per share that is less than the Subscription price per share (as adjusted for any change of nominal values of shares, e.g. share splits and similar events), the subscription price (as adjusted for share splits, consolidations of shares and similar events) of the subscribed shares issued subject to this Investment shall be adjusted on a full ratchet basis.
+The adjustment will be made through the issuance of additional shares to the Subscriber at par value (i.e. S$1.00 per subscribed share of nominally S$1.00), so that the ownership of the Subscriber after the dilutive issuance shall be set equal to the ownership that the Subscriber would have had if the subscription price paid by the Subscriber (based on the Investment amount, added for the avoidance of doubt, the amount paid to Subscribe for the anti-dilution shares) had been the same as the price of the dilutive issuance.
+#+END_QUOTE
+
+**** temporal logic
+
+The functions used to compute a term may finally depend on state which may have arisen and changed between the times of negotiation, execution, and eventuation.
+
+**** deontic modal logic
+
+A contract defines obligations.
+
+Obligations may be violated; such violations may entail further obligations.
+
+*** Agreements follow a Document Schema
+*** Elements of Agreements: the Clause / Article / Section
+*** The Definitions
+*** Deontic Obligations
+*** Exceptions
+*** Mutatis Mutandis
+*** Action Pursuant To
+*** References
+*** The Event
+*** The Deemed Event
+
+** Dimensions
+There are many ways to represent a given clause. Some dimensions of interest are:
+
+*** Formal vs Natural Language Representation
+
+A concept may be expressed formally.
+
+A concept may be expressed naturally, in a language like English.
+
+A concept may be expressed in a hybrid of formal and natural -- see [[https://en.wikipedia.org/wiki/Controlled_natural_language][Controlled Natural Languages]], e.g. [[https://en.wikipedia.org/wiki/Attempto_Controlled_English][Attempto]].
+
+*** Compactness vs Completeness
+
+For compactness, we want to be able to summarize a clause as tersely as possible.
+
+For completeness, we want to be able to expand a clause, to "look inside" it both syntactically and semantically.
+
+*** Locality and Coupling
+
+Some clauses are limited in scope. A standalone clause does not modify, and is not modified by, any other clause.
+
+Other clauses are highly coupled. A coupled clause explicitly modifies, or is explicitly modified by, another clause.
+
+** Modals
+factive, non-factive, contrafactive, alethic, epistemic, temporal, deontic.  see p. 133 of wyner tutorial 2013.
+** Distributed Deontics
+A contract contains, among other things, a collection of deontic propositions (obligation, prohibition, permission). [[https://www.ietf.org/rfc/rfc2119.txt][RFC2119]] specifies the language "MUST", "MUST NOT", and "MAY" respectively.
+
+These propositions can be seen as a shotgun-spray of agency and consequence: parties committing to do or not do things, and if this happens, then that follows.
+** Conflict Resolution
+*** Specificity
+as with CSS, the most specific match wins.
+
+scope of a rule.
+** Event Handling
+
+A clause contains one or more deontic statements that constrain the behaviour of the party or parties involved. We say that a party is /bound/ by contract.
+
+This means that any time a party contemplates an action or inaction, that /event/ could be /evaluated/ against every contract that /binds/ the party. An event describes a scenario involving one or more parties.
+
+This process of proposal evaluation operates much as you might imagine: each clause, or /proposition/, in the contract is /proposed/ the /event/, and /returns/ an opinion about whether the proposal passes or fails the proposition.
+
+You may be familiar with the idea of a program executing on a virtual machine on some input data. In this case, the contract is the program, the proposal is the input, and the output is a pass/fail opinion.
+
+In /introspection mode/, running a contract with a null proposal, and a party set, may return the obligations of the parties.
+
+** Respect
+
+Proposal evaluation occurs with respect to a given counterparty. In the context of a given proposition, a given counterparty may not care about a given actor's event.
+
+** Defactorization
+
+Natural language contracts often "unroll the loop", exposing a huge chunk of code inline. When another caller wants to refer to the same code, that caller often simply refers to the code and defines deltas. Programming patterns like refactoring, modularization, and parameterization are beyond the capabilities of natural language programmers, but are available to formalizations.
+
+If function definitions are unavailable under the "coding style" of the natural language legal forms, then we must mimic the bad practice.
+
+Some call this antipattern "defactoring" or "obfuscation" -- deliberately reducing abstraction.
+
+** Pattern Matching Mutation
+
+As with Lisp and other strongly homoiconic languages, we expose the syntax tree to itself.
+
+This means, if we define a rule:
+
+#+BEGIN_SRC text
+  entity hotel has toilets ("toilets")
+  rule toilets governs hotel ("Restroom Requirements") {
+      dealswith .workingToilets = .toilets.filter(t){t.working == true} ("working toilets")
+      val numMaleToilets   ("the number of working male toilets")   = hotel.workingToilets.count(t){t.gender == "m"}
+      val numFemaleToilets ("the number of working female toilets") = hotel.workingToilets.count(t){t.gender == "f"}
+      val numUnisexToilets ("the number of working unisex toilets") = hotel.workingToilets.count(t){t.gender == "u"}
+      hotel.must ("the Flushagette Rule") {
+        (numUnisexToilets + numFemaleToilets) >= numMaleToilets
+      }
+      hotel.mustnot ("the Rosa Parks Rule") {
+        hotel.toilets.count(t){ t.has?("race") }
+      }
+  }
+#+END_SRC
+
+We can clone and modify that rule, /mutatis mutandis/:
+
+#+BEGIN_SRC text
+  entity hotel has babyrooms ("baby changing stations")
+  rule babyrooms governs hotel = mutatis(hotel.rule(toilets),babyrooms)
+#+END_SRC text
+
+Which means, the same rule shall apply to baby changing stations, mutatis mutandis.
+
+Languages like Io and ReFLect make this sort of thing very natural.
+
+** Examples Under Construction
+*** Contract-Level Examples
+**** Example 1A: definition
+#+NAME: 1A round definition series seed
+#+BEGIN_SRC js
+  var investment = newRound( {
+    security: "SeriesSeed",
+    parties: {
+      company: "MyCompany",
+      new_investors: [ { name: "Alice", commitment: 100000 },
+                       { name: "Bob",   commitment:  50000 },
+                       { name: "Carol", commitment:  20000 } ] },
+    terms: {
+      pre_money_valuation: 10000000,
+      round_size:           1000000,
+      esop:                      15
+    }
+  } );
+#+END_SRC
+
+This is the formal representation defining a simple Series Seed investment round. The meat of the definition is your basic JSON data structure, which could be constructed by a UI or read out of a spreadsheet.
+
+**** Example 1B: export to natural language
+#+NAME: 1B export natural
+#+BEGIN_SRC js
+investment.workflows().export_as({format:"XML", lang:"en-US"});
+#+END_SRC
+
+This outputs all the paperwork required to effect the round, in XML format, suitable for import into InDesign and subsequent output to PDF.
+
+In practice the workflows() method runs prerequisites(), agreements(), and filings().
+
+**** Example 1C: export to formal representation
+#+NAME: 1C export formal
+#+BEGIN_SRC js
+investment.agreements("shareholder").export_as(format:"javascript");
+#+END_SRC
+
+produces a bunch of Javascript. See the next example for a microscopic view of the clause-level exports.
+
+*** Clause-Level Examples
+
+The Series Seed v3.2 Certificate of Incorporation contains a clause:
+
+#+BEGIN_QUOTE
+Mandatory Conversion. Upon either (a) the closing of the sale of shares of Common Stock to the public in a firm-commitment underwritten public offering pursuant to a prospectus filed under the Securities and Futures Act or (b) the date and time, or the occurrence of an event, specified by vote or written consent of the Requisite Holders at the time of such vote or consent, voting as a single class on an as-converted basis (the time of such closing or the date and time specified or the time of the event specified in such vote or written consent,the <b><i>“Mandatory Conversion Time”</i></b>), (i) all outstanding shares of Series Seed Preferred Stock will automatically convert into shares of Common Stock, at the applicable ratio described in Section <xref to="conversionratio" /> as the same may be adjusted from time to time in accordance with Section <xref to="conversion" /> and (ii) such shares may not be reissued by the Company.
+#+END_QUOTE
+
+In this example, we'll see how Legalese represents that clause. In particular, we are interested in how the formal representation affords natural language generation.
+
+**** Exposition in Lay Terms
+
+The Gentle Reader may not be familiar with the semantics of this clause. If you need help understanding the clause, read on.
+
+The context: the Company's constitution defines a class of shares called "Series Seed". A class attribute is "mandatory conversion". This clause describes when mandatory conversion can happen.
+
+What does conversion mean? Series Seed shares turn into Common Stock.
+
+What does mandatory conversion mean? That the conversion happens automatically, when some other condition is met. Neither the Company nor the Series Seed Holders can block the conversion.
+
+What conditions trigger mandatory conversions? It turns out there are three possible triggers.
+
+First trigger: there is an IPO -- an Initial Public Offering. Shares of the company are sold to the public in a public offering.
+
+Second trigger: a certain voting majority of the Series Seed Holders agree to 
+
+If any of these triggers occurs, then mandatory conversion follows.
+
+**** Example 2A: Conversion
+#+NAME: 2A conversion clause retrieval
+#+BEGIN_SRC js
+var clauses = investment.clauses_matching("conversion");
+#+END_SRC
+
+returns
+
+#+NAME: 2B conversion clause content
+#+BEGIN_SRC js
+  [ { clauseName: { "en-US": "Mandatory Conversion" },
+      handler: function(events) {
+    for (var event_i in events) {
+      var event = events[event_i];
+      var parties = event.parties;
+      var respect = event.respect; // party with deontic obligation perspective
+      if (event.name == "IPO" ||
+          event.name == "classVote") {
+        var company = this;
+      }
+    }
+      }
+    } ]
+#+END_SRC
+
+
+**** Example 2B: 
+
+* Modeling the Drafting -- Syntax
+** Different styles
+A given syntax may be styled in one or more ways. Different styles are possible. For example, one style might have the Signatures precede the Schedules; another might do it the other way.
+** Singapore Contract Style
+*** As a Prolog DCG
+a BNF syntax would be an equivalent specification.
+
+#+BEGIN_SRC prolog
+  decorated_contract -->
+      cover,
+      contract.
+
+  contract -->
+      dated, sep0,
+      between_parties, sep0,
+      recitals, sep1,
+      definitions, sep1,
+      habendum, sep1,
+      boilerplate, sep0,
+      schedules, sep2,
+      attestation, sep2,
+      appendices.
+
+  dated --> ['This',document,is,dated,Date],
+            { contract_date(Date) }.
+
+  between_parties --> ['Between', Parties],
+                      { parties(Parties) }.
+
+  recitals --> ['Whereas', Recitals],
+               { recitals(Recitals) }.
+
+  definitions --> [].
+  habendum --> [].
+  boilerplate --> [].
+  schedules --> [].
+  attestation --> testimonium, signatures.
+  appendices --> [].
+
+  testimonium --> [].
+  signatures --> [].
+
+  contract_date(Date(1,1,1901)).
+  parties(['Alice', 'Bob', 'Charlie']).
+  recitals(["Alice owes Bob money"]).
+
+  sep2 --> [chapter_separator].
+  sep1 --> [section_separator].
+  sep0 --> [paragraph_separator].
+
+
+    
+#+END_SRC
+** Adams Contract Style
+http://www.amazon.com/Manual-Style-Contract-Drafting-ebook/dp/B00GUUQTZY/ is one bible
+** Australian Style
+Peter Butt's [[http://www.cambridge.org/au/academic/subjects/law/law-general-interest/modern-legal-drafting-guide-using-clearer-language-3rd-edition?format=PB&isbn=9781107607675][Modern Legal Drafting: A Guide to Using Clearer Language, 3rd Edition]]
+
+* Modeling the Execution
+the dependency and concurrency relationships between contracts and other documents, treating an individual document as a black box with just a blob of text and a bunch of signatures. it's the signatures we care about at this level.
+
+* Modeling the Resolutions
+
+This section records domain knowledge about corporate resolutions.
+
+** Jurisdiction Scope -- Space
+
+Domain facts which are generally true are tagged "general".
+
+Domain facts which are specific to a particular jurisdiction are tagged accordingly.
+
+** Jurisdiction Scope -- Time
+
+Domain facts may be tagged with both application time and system time. Facts are true as of time of writing. System time may be found in Git.
+
+Application time refers to the date that legislation/regulation comes into effect.
+
+In the case of Singapore jurisdiction, Companies Act (Cap. 50) was last revved & effective as of [2016-01-03 Sun]. Hence the tag SG_CA50_20160103.
+
+If regulations change subsequently, tag them accordingly.
+
+** Global Scope: Company
+
+Unless otherwise specified, a Resolution is assumed to belong to a [[*Primary Entity: Company][Company, modeled above]].
+
+** Resolution Types                                                           :SG:SG_CA50_20160103:
+
+If we learn that these resolution types are applicable outside Singapore then update the model accordingly.
+
+*** Directors Resolutions
+
+*** Members Resolutions
+
+**** Ordinary
+
+**** Special
+
+**** Within a Class of Shares
+Regulation, articles, or other agreement may specify that shareholders within a certain class may vote as a class on resolutions pertaining to that class of shares.
+
+** Meeting Types
+
+Resolutions may be associated with a Meeting:
+
+*** Directors Meeting
+
+**** Directors Resolutions in Writing
+
+*** Members Meeting
+
+**** AGM
+
+**** EGM
+
+**** Members Resolutions In Writing
+
+** Notices and Filings; Time and Dates
+
+*** Meetings require Notice to the attendees.
+
+*** Meetings produce Minutes.
+
+*** Some minutes must be filed with the state.
+
+*** Some minutes may be filed with the state.
+
+ 
+** Signatures
+
+** Validity: Quorum
+
+To be valid, a general meeting requires a quorum.
+
+** Validity: Pass / Fail
+
+To pass, a resolution must meet certain voting or signature requirements.
+
+The requirements may differ by subject matter.
+
+* Modeling Rules
+
+The L4 language has a term ~rule-spec~.
+
+around 2002 Gert Wagner said:
+https://pdfs.semanticscholar.org/81e7/034af84458290d7885cb257f92fef00cb739.pdf
+#+BEGIN_QUOTE
+Three basic types of business rules have been identified in the literature (see [TW01]): integrity rules (also called ‘integrity constraints’), derivation rules (also called ‘deduction rules’ or ‘Horn clauses’), and reaction rules (also called ‘stimulus response rules’, ‘action rules’ or ‘event-condition-action (ECA) rules’). A fourth type, deontic assignments, has only been marginally discussed (in a proposal of considering ‘authorizations’ as business rules).
+#+END_QUOTE
+
+(I'm writing this without having read Constraint Handling Rules which claims to be More Powerful.)
+
+** some freestyling [2017-08-26 Sat 21:10] off Kowalski
+
+Kowalski & Sadri's LPS offers a fundamental dichotomy between two paradigms which describe two kinds of rules and two kinds of computation.
+
+Paraphrasing from Integrating Logic Programming and Production Systems in Abductive Logic Programming Agents
+
+https://www.doc.ic.ac.uk/~rak/papers/newbook.pdf
+
+| category                   | bottom                               | top                           | constraints           | remark |
+|----------------------------+--------------------------------------+-------------------------------+-----------------------+--------|
+|                            | procedural                           | logic programming             | integrity constraints |        |
+|                            | reactive rule                        | deliberation rule             |                       |        |
+|                            | production rule                      | deduction rule                |                       |        |
+|                            | event-condition-action               |                               |                       |        |
+| conventional control arrow | ->                                   | <- aka :-                     | '=> false'            |        |
+| state operator             | ':='                                 | assert / retract              |                       |        |
+| first order logic          | implication                          | satisfaction                  |                       |        |
+|                            | synthesis                            | analysis                      |                       |        |
+|                            | bottom up                            | top down                      |                       |        |
+| if statement               | if (x) then { y }                    | x if y                        |                       |        |
+|                            | imperative programming               | declarative                   |                       |        |
+|                            | goals compiled away, appear emergent | goals are explicitly stated   |                       |        |
+|                            | programmer decides what to do        | computer decides what to do   |                       |        |
+|                            | goal                                 | belief                        |                       |        |
+| chaining                   | forward chaining / reasoning         | backward chaining / reasoning |                       |        |
+| searle                     | regulative rule                      | constitutive rule             |                       |        |
+| linguistic                 | verb                                 | noun                          |                       |        |
+|                            | must-do                              | must-be                       |                       |        |
+|                            | shall-do                             | shall-be                      |                       |        |
+| deontics                   | deontic action                       | deontic role                  |                       |        |
+| push/pull                  | push                                 | pull                          |                       |        |
+| meet/seek                  | condition is met                     | condition is sought           |                       |        |
+|                            | enqueue an action for performance    | decide action for performance |                       |        |
+|                            | detect/record an event               | evaluate a trace of events    |                       |        |
+| relations                  | do-verb                              | is-a                          |                       |        |
+| haskell purity             | impure -- IO monad                   | pure                          |                       |        |
+| operational semantics      | state transitions                    |                               |                       |        |
+
+
+also, what about
+*** integrity constraints
+*** assertion and retraction from database
+*** frame problem?
+*** proper ALP
+*** THREE kinds of condition-action rules
+**** reactive rules
+**** goal-reduction rules
+**** forward reasoning rules
+*** random notes while reading Kowalski
+
+~a -> b~
+
+converse: ~b -> a~
+
+contrapositive: ~not b -> not a~
+
+the history of the Wason selection task reads like a history of autistic people trying to make fun of neurotypicals
+
+see p.48, Stenning and van Lambalgen
+
+but it seems easiest to understand humans as interpreting "if" as "iff"
+
+
+
+
+** diff-oriented rules
+
+given two states of a company, compute the delta, expressed as a sequence of operations required to transition from one state to another.
+
+the specific operations are given by rules governing the finer-grained state deltas.
+
+** addition of a new class of shares
+
+requires amendment of constitution to describe the new class
+
+** amendment of constitution
+
+requires members' resolutions approving the change; the resolutions may be ordinary or special.
+
+** members' resolutions approving
+
+requires directors' resolutions
+- proposing the change
+- circulating the proposed resolutions with the goal of holding an AGM by written means
+
+** directors' resolutions
+
+concatenate all pending directors' resolutions
+
+
+* Further Research
+
+** Toulmin
+Stephen Toulmin (1922- ) held that formal logic is inappropriare as a model for argumentation. He developed a new and more adaptible model for nonformal reasoning. He also developed a way to diagram arguments widely in use today.
+
+* Legalese Katas
+
+These katas pose problems to be solved. They allow us to compare the solutuions proposed by different approaches -- DSLs, different languages, different paradigms.
+
+** Fundraising Tests
+see [[file:fundraising-tests.org]] for a test suite
+
+** Kata MD01: Modeling Drafting
+
+In a contract, change every instance of "Articles of Association" to "Constitutional Documents".
+
+** Kata MD02: Conditions Precedent
+
+#+BEGIN_QUOTE
+  The obligations of the parties under this Agreement shall be conditional upon the completion of the subscription for the Preference Shares being effected in accordance with the terms of the Investment Agreement.
+#+END_QUOTE
+
+** Kata MD03: Conflict Detection
+
+Detect the conflict between 3.1 vs 6.2 of http://legal.cf.sg/purchase_agreement_for_convertible_note/
+
+** Kata MD04: Model the conversion logic described in the [[https://www.ycombinator.com/documents/#seriesaa][YC-AA]] documents
+especially the Deemed Issue logic of the [[https://www.ycombinator.com/docs/Series_AA_COI.docx][COI]].
+
+** Kata MD05: antidilution clause
+
+Model this!
+
+#+BEGIN_QUOTE
+WHEREAS
+
+(A)Company will apply the following provision(s) to this Agreement, in addition to the shareholder rights defined in the Company Memorandum of Association.
+
+ADDENDUM
+
+NOW, THEREFORE, THE PARTIES HAVE AGREED AS FOLLOWS:
+
+1. ANTI-DILUTION
+
+If the Company issues any additional shares (including, but not limited to, all classes of shares, warrants, rights to subscribe for shares and securities convertible into any share class) for a consideration per share that is less than the Subscription price per share (as adjusted for any change of nominal values of shares, e.g. share splits and similar events), the subscription price (as adjusted for share splits, consolidations of shares and similar events) of the subscribed shares issued subject to this Investment shall be adjusted on a full ratchet basis.
+The adjustment will be made through the issuance of additional shares to the Subscriber at par value (i.e. S$1.00 per subscribed share of nominally S$1.00), so that the ownership of the Subscriber after the dilutive issuance shall be set equal to the ownership that the Subscriber would have had if the subscription price paid by the Subscriber (based on the Investment amount, added for the avoidance of doubt, the amount paid to Subscribe for the anti-dilution shares) had been the same as the price of the dilutive issuance.
+
+SIGNED BY AND AMONG:
+
+Company Pte. Limited
+
+Investor
+#+END_QUOTE  
+
+Reformatted for clarity
+
+#+BEGIN_SRC
+If (the Company
+    issues any additional shares
+       (including, but not limited to, all classes of shares, warrants, rights to subscribe for shares and securities convertible into any share class)
+    for a consideration per share that is
+    less than the Subscription price per share
+       (as adjusted for any change of nominal values of shares, e.g. share splits and similar events)),
+    {
+      the subscription price
+          (as adjusted for share splits, consolidations of shares and similar events)
+      of the subscribed shares
+         issued subject to this Investment
+      shall be adjusted
+      on a full ratchet basis.
+    }
+#+END_SRC
+
+** Kata ML01: Modeling Legislation and Regulation
+
+As seen [[*Regulations and Contracts as Business Logic][above]]:
+
+#+BEGIN_QUOTE
+Except as specified in paragraph c, you, an establishment that collects blood, must test each donation of human blood that is intended for use in preparing a product for evidence of infection due to the following communicable disease agents:
+(1) Human immunodeficiency virus, type 1;
+(2) Human T-lymphotropic virus, type I, and
+(3) Human T-lymphotropic virus, type II.
+#+END_QUOTE
+
+We observe that the rule is phrased in an imperative style, but the intent of the rule may be equally interpreted as an invariant assertion.
+
+The imperative style is: for each newly instantiated d :: D, if p d, for each t in T, you must run f d t, where f d t :: d -> t -> TestResult t.
+
+The invariant is: for all d in D, filtering for p d, for all t in T, it must be true that a test result exists for d*t.
+
+Taking the time dimension into account, we accept that a test is not instantaneous: a unit may be either tested, or pending testing. Obviously it would violate the intent of the rule to allow a backlog of pending tests. The good-faith implication is that the time in which a donation spends in "pending" state should be minimized.
+
+The rule is presumably meant to be interpreted in a larger context: the TestResult is presumably consumed by some other element of a workflow; it would make no sense to test everything and then never look at the result of the test. If the TestResult is not known, presumably the donation would not be used.
+
+Consider an establishment E1 which has 1% of donations in "pending testing" state, and all of those donations are < 48h old.
+
+Consider an establshment E2 which has 70% of donations in "pending testing" state, and most of those donations are > 7d old.
+
+E2 is in violation of the spirit of the rule, while E1 is not.
+
+
+#+BEGIN_SRC haskell
+
+-- express a rule in an imperative style, easily reducible to an operational refinement
+newImperativeRule party
+
+
+-- express a CTL* style assertion over the state space of possible futures
+-- requires that we define a Kripke structure to represent the state space.
+newCTLrule party
+
+
+-- express the rule as an invariant
+
+-- express the rule as an invariant with a temporal deadline
+
+#+END_SRC
+
+
+** Standard ML** Exercise
+*** Develop a formalism to represent the natural language text.
+**** what does the fully expressed language look like?
+**** what is the underlying language grammar?
+**** what libraries are required to make the thing work in full?
+
+*** Compile the formalism to the original English.
+
+**** Readings
+http://www.inf.ed.ac.uk/teaching/courses/nlg/
+
+*** Compile the formalism to a specification language.
+
+*** Compile the formalism to a programming language.
+
+*** Compile the formalism to a non-English natural language.
+
+** Kata MR01: Modeling Resolutions
+
+** Kata MC01: Completion
+
+*** R&W
+
+*** Conditions Precedent
+
+The obligations of the parties under this Agreement are conditional upon the following matters being fulfilled [on or prior to the Completion Date:-
+**** Condition Alpha
+**** Condition Beta
+**** Condition Gamma
+(the "Conditions Precedent")
+
+
+*** Completion
+If any of the Conditions Precedent are not fulfilled (or  waived by [usually investor]) by the Completion Date, this Agreement shall ipso facto cease and determine and none of the Parties shall have any claim against the others for costs, damages, compensation or otherwise, except that all reasonable legal fees incurred in the preparation, negotiation and execution of this Agreement shall be borne by [usually, Company]).
+
+**** Party P1 must perform Obligations Ob11 and Ob12
+**** Party P2 must perform Obligations Ob21 and Ob22
+
+*** Failure to Achieve Conditions Precedent
+
+(by a certain date)
+
+What happens if the Conditions Precedent are not met by a certain date?
+
+There is no penalty.
+
+*** Failure to Perform Obligations
+
+What happens if the Obligations are not met?
+
+There is a penalty.
+
+** Kata TA02: Trademark Application
+
+#+BEGIN_QUOTE
+The Company has filed an application for registration of trade mark for the "XXX" mark with the Registrar of Trade Marks in Singapore, as set forth in the Disclosure Schedule ("Application"). As at the date hereof, neither the Company nor any Key Holder has any reason to believe that the Application will be opposed, revoked or refused for registration. On and from the Agreement Date, the Company shall, and each Key Holder shall procure that the Company will diligently monitor and pursue the Application, and provide each Purchaser with updates and information materially affecting the Application.
+#+END_QUOTE
+
+This decomposes into three bits
+
+1. The Company has filed an application for registration of trade mark for the "XXX" mark with the Registrar of Trade Marks in Singapore, as set forth in the Disclosure Schedule ("Application").
+2. As at the date hereof, neither the Company nor any Key Holder has any reason to believe that the Application will be opposed, revoked or refused for registration.
+3. On and from the Agreement Date, the Company shall, and each Key Holder shall procure that the Company will diligently monitor and pursue the Application, and provide each Purchaser with updates and information materially affecting the Application.
+
+Of which the third statement becomes
+
+1. On and from the Agreement Date,
+2. the Company shall,
+3. and each Key Holder shall procure that the Company will
+4. diligently
+   1. monitor
+   2. and pursue
+   3. the Application,
+5. and provide each Purchaser with updates and information materially affecting the Application.
+
+The semantic model of this statement looks something like:
+
+Expression:
+- conditional upon: execution of main contract (no other conditions)
+- temporal start: starting on the agreement date
+- temporal end: not specified in the clause.
+- temporal end: keyed to the life of the application, so the expression terminates when the application succeeds or fails.
+- obligation 1:
+  - party: company
+  - action:
+    - first part:
+      - monitor the application
+      - pursue the application
+    - second part:
+      - provide each purchaser with updates and information materially affecting the application
+- obligation 2:
+  - party: each of [ key holders ]
+  - action:
+    - procure that the company performs obligation 1
+
+In Leiden Language 1, we would express this as:
+CE case ifpredicate=Contract_Execution
+TE from Agreement_Date
+PE party Company ("PE1")
+   OE must
+      [ monitor, pursue ] `perform` the application
+      lest BC breach_exception
+   OE must
+      provide [ updates, information ] <*> purchasers
+        where updates,information materially affecting application
+PE party in [ Key_Holders ] ("PE2")
+   OE must
+   action = perform procurement PE1
+
+** From this we can think about well-formedness of expressions and subexpressions. Let us call this the Leiden Language 1.
+
+*** breach_consequence
+BC ::= intensional_consequence+ | extensional_consequence+ | breach_exception
+intensional_consequence ::= party.attribute_change()
+extensional_consequence ::= TE
+breach_exception ::= monad
+
+*** obligation expression
+OE ::= ( must | may | mustnot ) (action+ lest BC+)+
+action ::= perform | send_notice
+perform ::= act_monad | hereby_statement | procurement
+send_notice ::= party sends notice to some other party
+procurement ::= procure PE
+
+*** party expression
+PE ::= party OE+
+party ::= individual | corporation
+
+*** temporal expression
+TE ::= temporal PE+
+temporal ::= ( at | upon | when | while | before | after | from ) datetime
+
+*** conditional expression
+CE ::= case ( ifpredicate TE+ )* default ( TE | null )
+ifpredicate ::= condition_monad
+
+** reducing a complicated impossible contract to a simple bottom
+
+it is possible to formulate a contract which seems "all right" but is upon inspection impossible for at least one party to execute: they are set up to fail. It should be possible for our contract checker to prove that the game is unwinnable.
+
+we can imagine a function that simplifies a complicated contract to bottom.
+
+** Securities Notice.
+
+If the Company proposes to undertake an issuance of New Securities, it shall give notice to each Major Shareholder of its intention to issue New Securities (the "Notice") describing the type of New Securities and the price and the general terms upon which the Company proposes to issue the New Securities.
+
+
+** Right of First Refusal Notice
+
+Subject to any direction to the contrary that may be given by the company in general meeting, all shares, before being offered for transfer to any person who is not a Member, shall first be offered, on the same terms, to such persons as at the date of the offer are entitled to receive notices from the company of general meetings in proportion, as nearly as the circumstances admit, to the amount of the existing shares to which they are entitled, first within their class of shares and then to Members of other classes.
+
+Subject to any direction to the contrary that may be given by the company in general meeting,
+  all shares,
+    before being offered for transfer to any person who is not a Member,
+    shall first be offered, on the same terms, to
+      such persons as at the date of the offer are entitled to receive notices from the company of general meetings
+    in proportion,
+      as nearly as the circumstances admit,
+      to the amount of the existing shares to which they are entitled,
+    first within their class of shares
+    and then to Members of other classes.
+  
+
+
+
+
+
+The offer shall be made via the Directors or the Corporate Secretary by notice specifying the number of shares offered, and limiting a time within which the offer, if not accepted, will be deemed to be declined, and, after the expiration of that time, or on the receipt of an intimation from the person to whom the offer is made that he declines to accept the shares offered, the directors may register the transfer of those shares as directed by the transferor.
+
+
+
+
+
+
+
+
+Each Major Shareholder will have (10) days from the date of notice, to agree in writing to purchase such Major Shareholder's Pro Rata Share of such New Securities for the price and upon the general terms specified in the Notice by giving written notice to the Company and stating therein the quantity of New Securities to be purchased (not to exceed such Major Shareholder's Pro Rata Share).
+
+** A Bestiary of Bugs
+
+*** Type Error
+- debt shouldn't be able to have preemptive rights
+
+*** dangling pointer
+
+https://en.wikipedia.org/wiki/Dangling_pointer
+https://en.wikipedia.org/wiki/Anaphora_(linguistics)
+
+"the aforementioned Potato"
+
+similar to undefined behaviour in operational semantics
+
+*** State Conflict
+- at maturity, a convertible note can automatically redeem or automatically convert, but it can't automatically do both.
+
+*** privilege reduction
+- (liveness) prior to (maturity || qualifying round), an investor always has the right to convert. at (maturity || qualifying round), an investor has the right to redeem. if the company can opt to redeem, the liveness property is violated.
+
+*** unwinnable games
+- if there is at least one path in which at least one party will always lose/breach no matter what action they take.
+
+http://tvtropes.org/pmwiki/pmwiki.php/UnwinnableByMistake/OtherVideoGames
+
+*** unreachable clause
+- there is no path in which the clause will have effect
+
+*** conflict with previous contract
+- a previous contract specifies that future contracts must / must not be written in a certain way
+- a previous contract specifies that future contracts must / must not specify a certain obligation
+
+*** conflict with legislation / regulation
+- legislation specifies that contracts must / must not be written in a certain way
+- legislation specifies that contracts must / must not specify a certain obligation
+- by common law, a certain syntactic construct is understood to be unenforceable or even harmful to the proposing party
+
+* Full Cases
+
+** YC SAFE
+
+*** Conception Clause
+
+Alice must pay ten dollars to Bob.
+
+Note: There is no deadline on this! Is this a wise contract? No. Is this a valid contract? Maybe.
+What happens if alice overpays? what happens if alice underpays?
+
+It is up to the compiler to complain.
+
+So the module that handles payments needs to know how to handle all these scenarios.
+
+And the unit testing too.
+
+*** Newborn Clause
+
+The Company means Bob.
+
+Investor means Alice.
+
+The Investor will pay ten dollars to the Company.
+
+The Company will issue to the Investor ten shares of Common Stock.
+
+*** Newborn Birthday Clause
+
+On January 1 2018, the Company will issue to the Investor ten shares of Common Stock.
+
+*** Infant Clause
+
+The Company will issue to the Investor a number of shares of SAFE Preferred Stock equal to the Purchase Amount divided by the SAFE Price.
+
+*** Swaddled Infant
+
+Definitions Section:
+
+Equity Financing means a bona fide transaction or series of transactions with the principal purpose of raising capital, pursuant to which the Company issues and sells shares of preferred stock of the Company at a fixed pre-money valuation.
+
+SAFE Preferred Stock means the shares of a series of the Company’s preferred stock issued to the Investor in an Equity Financing, having the identical rights, privileges, preferences and restrictions as the shares of Standard Preferred Stock, other than with respect to the per share liquidation preference, which will equal the SAFE Price, as well as price-based antidilution protection and dividend rights, which will be based on such SAFE Price.
+
+SAFE Price means the price per share equal to the quotient obtained by dividing the Valuation Cap by either
+- the Company Capitalization as of immediately prior to the Equity Financing or
+- the capitalization of the Company used to calculate the price per share of the Standard Preferred Stock, whichever calculation results in a lower price.
+
+Standard Preferred Stock means the shares of a series of the Company’s preferred stock issued to the investors investing new money in the Company in connection with the initial closing of the Equity Financing.
+
+*** Swaddled Infant's Mama and Papa
+
+This agreement is between
+
+Party A (the "Investor")
+
+and
+
+Party B (the "Company").
+
+*** Baby Clause, wearing Green
+
+If the pre-money valuation is greater than the Valuation Cap,
+
+  the Company will issue to the Investor a number of shares of SAFE Preferred Stock equal to the Purchase Amount divided by the SAFE Price,
+
+otherwise,
+
+  the Company will issue to the Investor a number of shares of Standard Preferred Stock sold in the Equity Financing equal to the Purchase Amount divided by the price per share of the Standard Preferred Stock
+
+*** Baby Clause, wearing Blue
+
+(this clause is semantically identical to the Green clause, just syntactically refactored.)
+
+The Company will issue to the Investor either:
+
+- a number of shares of Standard Preferred Stock sold in the Equity Financing equal to the Purchase Amount divided by the price per share of the Standard Preferred Stock, if the pre-money valuation is less than or equal to the Valuation Cap; or
+
+- a number of shares of SAFE Preferred Stock equal to the Purchase Amount divided by the SAFE Price, if the pre-money valuation is greater than the Valuation Cap.
+
+*** Toddler Clause
+
+(the clause becomes a callback to be automatically executed, conditional upon an event.)
+
+If there is an Equity Financing before the expiration or termination of this instrument, the Company will automatically issue to the Investor either:
+
+- a number of shares of Standard Preferred Stock sold in the Equity Financing equal to the Purchase Amount divided by the price per share of the Standard Preferred Stock, if the pre-money valuation is less than or equal to the Valuation Cap; or
+
+- a number of shares of SAFE Preferred Stock equal to the Purchase Amount divided by the SAFE Price, if the pre-money valuation is greater than the Valuation Cap.
+
+*** Toddler Twins
+
+If there is an Equity Financing before the expiration or termination of this instrument, the Company will automatically issue to the Investor either:
+
+- a number of shares of Standard Preferred Stock sold in the Equity Financing equal to the Purchase Amount divided by the price per share of the Standard Preferred Stock, if the pre-money valuation is less than or equal to the Valuation Cap; or
+
+- a number of shares of SAFE Preferred Stock equal to the Purchase Amount divided by the SAFE Price, if the pre-money valuation is greater than the Valuation Cap.
+
+In connection with the issuance of Standard Preferred Stock or SAFE Preferred Stock, as applicable, by the Company to the Investor pursuant to this provision:
+
+- The Investor will execute and deliver to the Company all transaction documents related to the Equity Financing; and
+
+- This instrument will expire and terminate.
+
+*** The Complete Equity Financing Clause
+
+If there is an Equity Financing before the expiration or termination of this instrument, the Company will automatically issue to the Investor either:
+
+- a number of shares of Standard Preferred Stock sold in the Equity Financing equal to the Purchase Amount divided by the price per share of the Standard Preferred Stock, if the pre-money valuation is less than or equal to the Valuation Cap; or
+
+- a number of shares of SAFE Preferred Stock equal to the Purchase Amount divided by the SAFE Price, if the pre-money valuation is greater than the Valuation Cap.
+
+In connection with the issuance of Standard Preferred Stock or SAFE Preferred Stock, as applicable, by the Company to the Investor pursuant to this provision:
+
+- The Investor will execute and deliver to the Company all transaction documents related to the Equity Financing; provided, that such transaction documents are the same documents to be entered into with the purchasers of the Standard Preferred Stock, with appropriate variations for the SAFE Preferred Stock if applicable;
+
+- The Investor and the Company will execute a Pro Rata Rights Agreement, unless the Investor is already included in such rights in the transaction documents related to the Equity Financing; and
+
+- This instrument will expire and terminate.
+
+*** Learning to Keep Secrets
+
+Confidentiality. The Investor will not disclose anything about this deal to any third party.
+
+*** Promising to Keep Secrets Forever
+
+Survival. Clause "Confidentialty" will survive the termination of this Agreement.
+
+** YC SAFE (SG)
+
+#+BEGIN_SRC yaml
+  # comment: we define the company as an instance of the Company class
+  #          or, if you're a functional programmer, as having a Company type
+  
+  my company is a Company with:
+    id: 2016000001A
+    name: My Example Inc.
+  
+  # the syntax looks a lot like YAML. I prefer YAML to JSON because:
+  # 1. we have better uses for curly braces.
+  # 2. Ingy is a personal friend.
+  
+  # instead of cryptic punctuation (preferred by Hardcore Computer Scientists)
+  # and terse keywords (preferred by Real Programmers),
+  # the Legalese DSL is more verbose, more applescripty, because our users are more lay.
+  
+  
+  
+  # comment: a safeRound is an instance of the InvestmentFinancingWorkflow class.
+  # with prototypal inheritance, other objects could themselves inherit from safeRound.
+    
+  my safeRound is an InvestmentFinancingWorkflow.
+  
+  # after introducing a thing by saying "my" or "a", we subsequently refer to it as "the".
+  # this is syntactic sugar; think of "my" and "a" as a variable declaration. indeed, perl uses "my"!
+  # the my/a variable declaration is responsible for setting the type.
+  # 
+  # subsequently, we use "the" to refer to a variable that has been declared somewhere above.
+  # this is consistent with English grammatical norms.
+  # so a layperson reading a fragment which says "the thing" will know to search for "a thing".
+  # if code gets moved around so that "the" comes before "a" the compiler will know to throw a type error.
+  #
+  # "my" establishes a singleton global object.
+  # "a" establishes a potentially one-of-many object.
+  # "an" is a synonym for "a".
+  
+  the safeRound has parties:
+    investors (each an 'investor'):
+      - name: Alice, id: S1111111A, purchaseMoney: US$20000
+      - name: Bob,   id: S2222222B, purchaseMoney: US$10000
+      - name: Carol (defined above/below)
+    company: (defined above/below)
+  
+  # we infer from above that safeRound.parties.investors is an array of generic objects
+  # we infer that each of those objects has attributes name,id,purchaseMoney
+  # each of which has their own inferred types.
+  # Idris would be really strong at inferring dependent types.
+  
+  # the above stanza also introduces the parenthetical remark.
+  # Like most languages, parentheses are used for argument-passing to function calls and method calls.
+  # Parentheses are also used for expression grouping.
+  # Unlike most languages, Legalese uses parentheses following a symbol as a compiler hint and/or as an expression that appears in the output text.
+  # Single quotes are used to identify a symbol in much the same way that Prolog uses them.
+  # If an array is hinted with "(each a 'thingy')" then whenever we iterate through that array,
+  # Legalese automatically binds 'thingy' as the loop variable.
+  
+  
+  # next comes an example of defining an investor separately.
+  # note that it is linked in to the safeRound.parties.investors array.
+  # how is that done?
+  # the (defined above/below) token instructs the compiler to expect to find an investor with "name: Carol" elsewhere in the program.
+  # later, when "a particular investor has" the name Carol, that is unified into safeRound.parties.investors due to matching type and name.
+  
+  a particular investor has:
+    name: Carol
+    id: S3333333C
+    purchaseMoney: US$5000
+  
+  # comment: we define a safeInstrument as a specific document signed between the investors and the company.
+  # we could also have worded this as "and all of" or "and any of" or just the thing.
+  # safeInstrument is an instance/subclass of Security, which would normally be defined in a library separately.
+  
+  a safeInstrument defines a Security relation between company and each of safeRound.parties.investors.
+  
+  # under the hood, this creates a cartesian product of the 1 or more arrays specified. there is some subtlety here.
+  
+  # you actually get a generator named safeInstrument, which is iterable.
+  # for the sake of illustration you can imagine that we are dealing with something kind of like:
+  #   safeInstruments = [ safeInstrument1, ..., safeInstrumentn ]
+  #   safeInstrument1.company = company
+  #   safeInstrument1.investor = Alice
+  #   safeInstrument2.company = company
+  #   safeInstrument2.investor = Bob
+  #   safeInstrument3.company = company
+  #   safeInstrument3.investor = Carol
+  
+  # what is the subtlety? if we had said
+  # a safeInstrument defines a Security relation between company and all of safeRound.parties.investors.
+  # or the identical
+  # a safeInstrument defines a Security relation between company and        safeRound.parties.investors.
+  #
+  # then we would have a single safeInstrument with
+  # safeInstrument.company = company
+  # safeInstrument.investors = [ Alice, Bob, Carol ]
+  
+  # if we had said
+  # a safeInstrument defines a Security relation between company and any of safeRound.parties.investors.
+  # then the moment any of the investors signs the document, the relation is considered satisfied.
+  # when might we want to do that? maybe when any one of N directors has previously been authorized to sign something.
+  
+  # if you are already a bad-ass Haskell programmer these ideas will come very naturally to you:
+  # cartProd xs ys = [(x,y) | x <- xs, y <- ys]
+  
+  
+  
+  
+  # next we come to objects and pattern-matching on attributes.
+  
+  # comment: saying "a Thing generally has Blah" is syntactic sugar for establishing Thing.Blah as itself an object with its own attributes.
+  
+  the safeInstrument generally has terms:
+    discount:  0.2
+    valuation: 100000
+    maturity:  3y
+  
+  # safeInstrument.terms = { discount: 0.2, valuation: 10000, maturity: 3y }
+  #    or, spelling it out,
+  # safeInstrument.terms.discount = 0.2
+  # safeInstrument.terms.valuation = 100000
+  # safeInstrument.terms.maturity = 3y
+  
+  the safeInstrument generally also has:
+    agreementDate: 2016-02-30 is a Date
+    effectiveDate: {{ .investor.date || today() }}
+  
+  # if a thing is enclosed in double curly braces, that means it is an expression meant to be executed at compile time.
+  # the "investor" symbol is available to the safeInstrument because the relation is defined between company and safeRound.parties.investors, each of which was defined earlier to be 'investor'.
+  # note that there are two paths to the 'company' symbol -- global scope and object scope. both point to the same actual company.
+  # in this case the object is the safeInstrument.
+  # the safeInstrument has an attribute 'investor'. so that's how that gets there.
+  # what does a dot prefix mean? it's syntactic sugar, or rather syntactic aspartame, for "this.".
+  
+  # Legalese has two implicit context variables: . and _.
+  #  the .  prefix means "this.". The "this" comes from the containing contex.t
+  #  the _. prefix is the loop variable in a list comprehension, like array.all( print _.name ). It's like perl's $_ in that situation.
+  
+  
+  # notice how we've been saying "the Thingy generally has"?
+  # that means that a Thingy with a specific set of properties may be dealt with differently.
+  # this is kind of like your basic prolog/erlang-style pattern-matching, or like Haskell's guards:
+  
+  the SafeInstrument generally has:
+    explode: one doc per investor
+  
+  a SafeInstrument (locale:"en-UK") has:
+    explode: one doc for all parties
+  
+  # is that prototypal inheritance? Why, I suppose it is.
+  
+  the SafeInstrument generally has:
+    parts: [ intro, topDefinitions, events, conditionsPrecedent, definitions, representationsCompany, representationsInvestor, miscellaneous, attestation]
+    intro: {
+      "this document" certifies {
+        consideration({from: investor, to: company}) ->
+        company.hereby( issues( rightTo( shares( subjectTo( terms ) ) ) ) ) )
+    }
+    topDefinitions: company.terms.FILTER(discount,valuation,maturity)
+    # whoa, what's the difference between object.filter() and object.FILTER()?
+    # uppercase methods and functions run at compile time!
+    # lowercase methods and functions represent contractual intent and are translated for output.
+    # it's like the difference between #ifdef and if().
+  
+    # check it out, Legalese supports reactive programming.
+    # An object can define an "events" dictionary, which registers a set of "upon" handlers.
+    # Legalese makes it easy to call all "upon" handlers against a scenario.
+    events:
+      - upon(company.event.financing.equityIssue ('equityIssue')) {
+          # check it out, Legalese supports deontic modal logic.
+          # the special method .must() on an object registers an obligation for our mu-calculus engine to reason about.
+          # syntax: object.must(conditions) { body }
+          company.must(automatically) {
+            safe.parties.investors.all(
+              company.must(upon(equityIssue.stage=="completion")) {
+                .issue(equityIssue.shareClass, quantity:investor.purchaseMoney / equityIssue.pricePerShare)
+                .to(investor) ('ShareIssue')
+              }
+            )
+          }
+  
+          # check it out, Legalese supports the definition of "variables" which are really functors.
+          # the text output engine is responsible for optimizing these definitions into comprehensible natural language.
+          defining safe.parties.investors.all( _.EFdocs = equityIssue.transactionDocuments.filter.hasParty(_) )
+          defining EFpurchasers = equityIssue.purchasers
+  
+          # parentheticals may prefix or suffix any expression.
+          # sometimes they serve no semantic function, only a narrative function.
+          (inConnectionWith(ShareIssue))
+          investor.must(.EFdocs.all(_.parties.any(|p| EFpurchasers.any(_ == p)))
+                        and
+                        (.EFdocs.all(_.has(dragAlongRights) and
+                                     _.dragAlongRights.applyTo(investor) and
+                                     _.has(dragAlongRights.exceptions) ('dragE') and
+                                     dragE.any.applyTo(investor)))): {
+            .EFdocs.all(.execute(_) and .deliver(_).to(company))
+          }
+          # that last bit was kinda dense but it can't be helped;
+          # when the CS formalizations are as cryptic as the legal-latin incantations, we know we're dealing in the same order of complexity.
+  
+          (investor & company).must( unless investor.EFdocs.any(_.has(proRataRights) and
+                                                                _.proRataRights.applyTo(investor))) {
+            .execute(new proRataRightsAgreement)
+          }
+        }    
+  
+        - upon(company.event.liquidity ('liquidityEvent')) {
+  
+          investor.may( # missing a notice period deadline here
+          ) { choose any one .liquidityPayout from [ cashPayout, speciePayout ] }
+          else { .liquidityPayout = speciePayout }
+  
+          company.may( liquidityEvent.status=="preconsummation") else
+          company.must(liquidityEvent.status==   "consummation") {
+            var cashPaid = {
+              if (investor.liquidityPayout == cashPayout) {
+                defining 'Cash-Out Investors' = safeRound.parties.investors.filter(_.liquidityPayout == cashPayout)
+                var origCashPayable = 'Cash-Out Investors'.sum(_.moneyAmount)
+    
+                company.board.may(liquidityEvent by_virtue_of company.event.changeOfControl
+                                  and
+                                  company.event.changeOfControl.intentions.include(
+                                  "to qualify as a tax-free reorganization for U.S. federal income tax purposes")) {
+                  var reducedPaymentAmount = origCashPayable - company.board.resolution(reducePaymentBy)
+                  # this is the I/O problem of pure functional languages
+                                  }
+                                  
+                var cashPayableAggregate  = reducedPaymentAmount or origCashPayable
+                val cashPayment = proRataPayment(investor, 'Cash-Out Investors',purchaseMoney,
+                                                 cashPayableAggregate,company.fundsAvailable)
+                company.pay(cashPayment).to(investor)
+              }
+              else { 0 }
+            }
+            company.issue(company.stock.common,
+                          quantity:(investor.purchaseMoney - cashPaid) / liquidityEvent.pricePerShare)
+          }
+          
+        - upon(company.event.dissolution ('dissolutionEvent')) {
+            company.must() {
+              val cashPayment = proRataPayment(investor, safeRound.parties.investors, purchaseMoney,
+                                               safeRound.parties.investors.sum(purchaseMoney),
+                                               company.fundsAvailable)
+              company.pay(cashPayment).to(investor)
+            }
+          }
+  
+  // define somePreferredStock as being named Standard or Safe Preferred Stock depending on the situation
+  
+  function _proRata(i,is,key) { i[key] / is.sum(_[key]) }
+  
+  function proRataPayment(individual, all, key, desiredAmount, fundsAvailable) {
+    return desiredAmount * _proRata(individual,all,key) * ((fundsAvailable >= desiredAmount) ? 1 : fundsAvailable / desiredAmount)
+  }
+  
+  # comment: the definitions of Security, Agreement, Document, etc would normally live in separate library modules
+  # but we display them here for completeness, so you can see the object model
+    
+  a Security is an Agreement.
+  
+  a Security generally has:
+    term: is a DateInterval
+    terminationDate: is a Date {
+      .effectiveDate + .term
+    }
+  
+  # comment: we define Agreement
+    
+  an Agreement generally has:
+    effectiveDate: is a Date
+    parties.company: is a Company
+  
+  an Agreement is a Document.
+  
+  # commen: we define Document
+  
+  a Document generally has:
+    locale: is a String
+    name: is a String
+    templateUrl: is a URL
+    version: is a String
+    
+    
+  
+#+END_SRC
+
+#+BEGIN_SRC
+moo
+#+END_SRC
+
+** Orrick Term Sheet for Convertible Note
+
+#+BEGIN_SRC
+
+Company = new Party alias "Company" ( idtype = "UEN", id = "123243524" )
+
+Holder = new Party alias "Alice" ( idtype = "NRIC", id = "3453545345" ) alias [ "Investor", "Holder" ]
+
+instrument = new ConvertibleNote alias "Notes" (
+  interestRate = rate(1% + observable(bbsa) || unobservable(last_observed(bbsa)), annual), // run-time evaluation
+  amount_raising = 4455663.34,
+  total_amount_raised = 0,
+  security_interest = (),
+  closing_dates = [ date(2016-04-10) ],
+  maturity = earlier_of( default_maturity_date(2019-04-01) alias "Maturity Date" ),
+  accumulated_interest = monad of some sort,
+  amount_owing = principal + accumulated_interest alias "principal and accrued interest") holder {
+
+  do_closing d amount =
+    | total_amount_raised <= 445674567 = closing_dates.push(d);
+                                         total_amount_raised += amount;
+    | otherwise = error("raised too much money")
+
+ifEvent (after (maturity) &&
+    Holder.emits(demand) &&
+    not (...below...) ) {
+  Company.must.pay(amount_owing)
+  .lest{contract is now in breach}
+}
+
+conversionSum = sum ( x | x <- Company.instruments.filter(isConvertible) )
+
+ifEvent (Company.raises( equityFinancing )
+    && isEquity( equityFinancing )
+    && equityFinancing.amount_raising(including=conversionSum ) >= 446674567
+    ) {
+  instrument.convert( amount = (principal +
+                               (instrument.poll(company, "do you want to pay accrued interest?") ? accumulated_interest : 0),
+                      pricePerShare = majority $ equityFinancing.pricePerShare
+                    )
+}
+
+
+
+#+End_SRC
+
+* Technology Application Cases, Problem/Solution Pairs
+
+** Observations
+
+*** Informal, Natural Language Contracts are a mess
+
+**** Commas
+
+https://secure.globeadvisor.com/servlet/ArticleNews/story/RTGAM/20060806/wr-rogers07
+
+http://www.adamsdrafting.com/downloads/g-and-m-082807.pdf
+
+"We can not solve our problems with the same level of thinking that created them."
+
+The sign that we have something to offer is the fact that Ken Adams and other lawyers find the question fascinating, while computer scientists find it gross.
+
+Once we have a new level of thinking, the reaction to considering the problems at the same level of thinking is exactly: "gross".
+
+**** Darmstadter, Precision's Counterfeit
+
+Contracts and other transaction documents are frequently
+said to be complex and difficult to read in order to avoid
+ambiguity and mistakes. I argue that such complexity has not
+solved these problems, and may have exacerbated them.
+Moreover, the problems are likely more widespread than
+generally appreciated. I examine some typical provisions of
+a revolving credit agreement that seem secure but that on
+closer examination (as might be given in litigation) contain
+potentially serious ambiguities and mistakes. These problems
+are not isolated instances of bad drafting but symptoms of a
+systemic problem. I suggest some partial remedies, some
+simple to implement but others requiring a more radical
+rethinking as to how a document should work.
+
+[...]
+
+it seems silly to have the legal documents ignore that the
+processes described are often those of a computer program.
+Just as the word description may act as a corrective for a
+programming error, so the program can act as a corrective
+for a legal drafting error. The rational thing would seem to
+be to have a document with multiple levels of description
+--- statements of objectives, examples, flowcharts,
+spreadsheets, or computer code --- and when something goes
+haywire, reach an acceptable answer through a process of
+triangulation.
+
+**** Ken Adams
+https://twitter.com/KonciseD/status/816827816125677568
+Am I restoring order to contract drafting? No, there never was a golden age of drafting, it's always been a mess.
+
+*** Allocation of Decision Rights Considered Superior to Complete Contracts
+
+Scientific Background on the Sveriges Riksbank Prize in Economic Sciences in Memory of Alfred Nobel 2016
+Oliver Hart and Bengt Holmström: Contract Theory
+
+*** Agile Iterations Considered Superior to Complete Contracts
+
+because parties more frequently get to decide whether to renew the contract, and therefore are more bound by game theory and reputational consequences, than by an obsolete, partial agreement.
+
+http://idei.fr/sites/default/files/medias/doc/by/rey/building.pdf
+
+*** There is a manual we can follow
+
+for purposes of NLG
+https://www.amazon.com/Manual-Style-Contract-Drafting/dp/1614388032/
+
+** Legislative Constraints
+
+161.—(1) Notwithstanding anything in a company’s constitution, the directors shall not, without the prior approval of the company in general meeting, exercise any power of the company to issue shares.
+
+(2) Approval for the purposes of this section may be confined to a particular exercise of that power or may apply to the exercise of that power generally; and any such approval may be unconditional or subject to conditions.
+
+(3) Any approval for the purposes of this section shall continue in force until —
+
+(a) the conclusion of the annual general meeting commencing next after the date on which the approval was given; or
+
+(b) the expiration of the period within which the next annual general meeting after that date is required by law to be held,
+whichever is the earlier; but any approval may be previously revoked or varied by the company in general meeting.
+
+(4) The directors may issue shares notwithstanding that an approval for the purposes of this section has ceased to be in force if the shares are issued in pursuance of an offer, agreement or option made or granted by them while the approval was in force and they were authorised by the approval to make or grant an offer, agreement or option which would or might require shares to be issued after the
+expiration of the approval.
+
+(5) Section 186 shall apply to any resolution whereby an approval is given for the purposes of this section.
+
+(6) Any issue of shares made by a company in contravention of this section shall be void and consideration given for the shares shall be recoverable accordingly.
+
+(7) Any director who knowingly contravenes, or permits or authorises the contravention of, this section with respect to any issue of shares shall be liable to compensate the company and the person to whom the shares were issued for any loss, damages or costs which the company or that person may have sustained or incurred thereby; but no proceedings to recover any such loss, damages or costs shall be commenced after the expiration of 2 years from the date of the issue.
+
+** Content Expression
+
+
+
+** Rule Systems
+
+** Temporal Logic
+
+https://secure.globeadvisor.com/servlet/ArticleNews/story/RTGAM/20060806/wr-rogers07
+
+ http://www.lawnow.org/comma-law/
+   http://www.crtc.gc.ca/eng/archive/2007/dt2007-75.htm
+
+original English: (39 words)
+
+The agreement shall continue in force for a period of five years from the date it is made,
+and thereafter for successive five year terms,
+               unless and until terminated by one year prior notice in writing by either party.
+
+alternative interpretations, indentations showing different bindings
+
+  The agreement
+    shall continue in force
+       for a period of five years from the date it is made,
+          and thereafter for successive five year terms,
+    unless and until terminated by one year prior notice
+       in writing by either party.
+
+  The agreement
+    shall continue in force
+       for a period of five years from the date it is made,
+       and thereafter for successive five year terms,
+                      unless and until terminated by one year prior notice
+                         in writing by either party.
+
+
+original french: (68 words)
+
+Sous réserve des dispositions relatives à la résiliation du présent contrat, ce dernier prend effet à la date de signature. Il demeure en vigueur pour une periode de cinq (5) ans, à partir de la date de la signature et il est subséquemment renouvelé pour des périodes successives de cinq (5) années, à moins d’un préavis écrit de résiliation à l’autre  partie un an avant l’expiration du contrat.
+
+english disambiguated by KonciseD: (78 words)
+
+The initial term of this agreement ends at midnight at the beginning of the fifth anniversary of the date of this agreement. The term of this agreement (consisting of the initial term and any extensions in accordance with this section 12) will automatically be extended by consecutive five-year terms unless no later than one year before the beginning of any such extension either party notifies the other in writing that it does not wish to extend this agreement.
+
+L4 temporal, semantics a side-effect of state: (19 words)
+
+endDate = startDate + 5y
+upon(endDate - 1y) {
+  unless (notices.filter(title == "termination")) {
+    endDate += 5y
+  }
+}
+
+L4 temporal, semantics explicitly described: (23 words)
+endDate = startDate + 5y
+upon(endDate) {
+  unless (notices.filter(title == "termination" and date <= endDate - 1y)) {
+    endDate += 5y
+  }
+}
+
+L4 temporal, where after the initial term parties are allowed to terminate with 1 year's notice:
+agreement { endDate = startDate + 5y }
+agreement.upon(endDate - 1y) {
+  unless (notices.match(title == "termination")) {
+    endDate = Never
+  }
+  agreement.upon(notice.match(title == "termination")) {
+    endDate = laterOf( notice.date + 1y, notice.body.requestedTerminationDate )
+  }
+}
+
+
+
+∀ ⋄ ( termNotice )
+∀ □ ( operate U ( meet termNotice fiveYearPeriodic + 1y ) )
+
+meet noticeEvent periodic
+
+** Model Checking
+
+Model_Checking_Contracts_-_A_Case_Study.pdf
+file:///Users/mengwong/Downloads/Model_Checking_Contracts_-_A_Case_Study.pdf
+slide 11 onwards
+
+NuSMV the model checker
+http://nusmv.fbk.eu/
+
+https://arxiv.org/abs/1009.2793 A Monadic Formalization of ML5
+
+** Dependent Types
+
+It is possible to define, study, automate, and use domain-specific logics within a dependently typed programming language.
+
+It is possible to implement, within a dependently typed programming language, a logical framework that allows derivability and admissibility to be mixed in novel and interesting ways.
+

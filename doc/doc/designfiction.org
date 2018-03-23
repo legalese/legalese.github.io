@@ -1,0 +1,470 @@
+#+TITLE: A Design Fiction: All in a Day's Work
+
+In which we tell the story of the early adopter customer using the product for great justice and the win.
+
+* What is this?
+A collection of [[https://en.wikipedia.org/wiki/Design_fiction][Design Fiction]] or [[https://en.wikipedia.org/wiki/Science_fiction_prototyping][SF Prototype]] stories written to illustrate the Legalese vision.
+
+* All in a Day's Work
+
+** Part 1: Alisha visits the toilet at Chye Seng Huat Hardware.
+
+"Congratulations," flashed the screen. "You have completed the Eight Queens kata using Prolix. You rank #141 on the leaderboards for the NGEACPS, and #82 in Singapore, for the 12 months leading up to today, May 28 2036."
+
+"Your next kata: an IoT startup. Click here to continue."
+
+Alisha rubbed her eyes, slid the power switch on her Bluetooth keyboard to "off", and stood up. Time for a toilet break. She made her way through the cafe crowd, out the back entrance, to the restrooms.
+
+The queue for the ladies' at Chye Seng Huat Hardware was usually twice as long as the queue for the mens' -- a sometimes charming but mostly annoying artefact of pre-Hillarian architecture. But today, there was no queue for the ladies' -- only for the mens'. On the door to the ladies' was a handwritten sign: "Out Of Order". Onoes!
+
+Hands on her hips, Alisha evaluated her options. Where to go?
+
+There was an old Buddhist temple up the street. No luck. A sign hung by the shoe shelves: "Restrooms for temple visitors only."
+
+Alisha went back to Chye Seng Huat. She took a position at the end of the toilet queue, in the corridor leading to the men's room. Each time someone exited the toilet, Alisha registered a flash of surprise as her hijab was noticed. /It's been ten years since the Trans Rights Act/, thought Alisha. /You'd think the toilet thing would be a solved problem by now, but it isn't./
+
+Finally it was her turn. The door opened and a man came out. Alisha saw the usual look of surprise as he shouldered past her with a muttered "sorry". Then, just as she was about to step in, an arm, hairy with blond fur, shot over her shoulder and pushed the door open. "Scuse me," said a voice from behind her ear. "Sorry, comin' through!" She hesitated just long enough for a man to step past. Tall, overweight, blonde. Tourist? Local? Either way, judging from the volume, American. "Man's gotta do what a man's gotta do!" As the door swung shut, she heard him say: "I'll be right out, you can clean when I'm done."
+
+"Sure, go ahead," Alisha responded automatically, then stopped herself. Had she just been mistaken for a cleaning lady? /I'll give him a piece of my mind when he comes out/, she thought. But when the big American finally left she just stepped aside, saying nothing. He gave her a blank, shit-eating smile as he went by.
+
+/What do you expect? Pre-Hillarian cafe, pre-Hillarian manners/, she fumed as she bolted the door shut. /In a stall this small -- W.C., sink, fan -- there's no difference between male and female. Just a sign on the door, dammit. And not particularly well maintained, either. Yuck./
+
+Chye Seng Huat Hardware, despite the name, was a cafe. It occupied a building so old it was not just pre-Hillarian, it was pre-war, dating back to the early 1900's. Once a hardware store, then a hipster cafe, then an IoT design architecture studio, it had been re-purchased by an Indiegogo collective when the design studio busted.
+
+The day before the purchase, the only occupant of the studio was a burned-out geek working late into the night on a proposal bid. At 13:00 hours the next day, the proposal was rejected. At 13:01, the building -- the sole liquidatable asset of the design studio -- went on the market. At 13:02, a swarm of Indiegogo snipebots with much better ideas for the space confirmed forty thousand sub-threshold commitments toward a collective which, at 13:03, instantiated itself and, at 13:04, purchased the building from the design studio. Rousted out of bed, the burned-out geek spent the rest of the day putting his personal possessions in boxes.
+
+That night, at the stroke of midnight, the walls came down: by 00:12 the smart whiteboards had shivered themselves back to nanogoo. At 00:30 a bored Commissioner for Oaths, Specialist in Conveyancing, thumbed the door open, walked through the office, eyeballed each room from the door, picked up three bags of trash, dumped them in the bin behind the building, and confirmed that the handover was complete. He left all the windows open, per instructions.
+
+A printcopter flew past him as he left. It, together with three dozen of its half 3D-printer, half quadcopter siblings,buzzing through the air, wayfinding using LIDAR, working off blueprints Tangoed from Instagrams from the mid-2010s, recreated the cafe as an exact replica of its initial incarnation. Apparently there were over forty thousand people out there with enough nostalgia for the place to demand a restoration. Identified by data-miners, those forty thousand individuals had presumptively committed toward a repurchase-and-reconstruction collective. Few of these individuals were aware that the R&R was going on -- mostly through Outbrain feeds -- and even fewer were aware that they were participants in it, since -- given enough participants -- each individual's contribution fell below their Conscious Decision Threshold and had been simply okayed by their PersonalShoppr spam filter and limited-power-of-attorney donee.
+
+None of this was a problem, of course. All forty thousand were now shareholders in a publicly listed collective corporation, Chye Seng Huat Hardware 2036 CC Ltd., which would operate the place as a bona fide cafe. Worst come to worst, the building could always be resold to any number of REITingClub funds.
+
+Alisha was not one of these forty thousand. She was too young. She had never seen the cafe in the original. But she liked the crowd: everyone over forty here was always in a good mood, smiling with the memories of their childhood and happy to talk. True to the original, you were welcome to camp out as long as you liked over a cold brew and a croissant. Alisha had stumbled upon the place after reading about the R&R CC, and pretty soon had become a regular. She came here to do her katas.
+
+What hipsters found in yoga, programmers found in katas. Both movements had sprung up around the same time. Both were, in hindsight, syntheses of the same Hegelian dialectic: a desire for structure and stability amongst a demographic who, on the one hand, claimed fierce independence from tradition, but on the other, took solace in rituals and weird dietary restrictions justified (often with a little too much fervour) by the latest in cognitive neuroscience.
+
+Most programmers agreed that katas were valuable mental gymnastics, executed purely for the challenge of mastering a discipline, moving through the classic forms that had emerged in tandem with the maturation of the craft of coding: from programming through app development into software engineering into what, pretty much everybody nowadays just agreed, was best called magic.
+
+The cynics, of course, sniffed at katas as nothing more than a library of employment interview questions, filtered through Quora, StackOverflow, and reddit. Even when the traditional employment interview went the way of traditional employment, the cynics simply shifted their contempt to the leaderboards.
+
+But Alisha didn't care. Katas made her feel good, she mused, as she eyed the decades-old graffiti, restored with historical impartiality by the printcopters. And that wasn't just the caffeine talking. She had always been a coder at heart. Her teachers had praised the tenacity with which she attacked videogames in school. Her parents (nerds themselves) had encouraged her to look past the graphics of games like /Portal: XVII/, and think about what they called the rules behind the rules, the algorithms that produced all the computationally generated landscapes of her youth, from Minecraft to Braid to Machinarium.
+
+Between puzzle games on the family 84" OLED TV, Arduino electronics in her room, and Raspberry Zero flipclasses in school, Alisha had pretty quickly gravitated to magic. Most kids just didn't have the knack, but Alisha was a natural. She could build models in her head not just of the real world (physics, chemistry, bio) but of the abstractions of software. She had patience; she had persistence; and she had sufficient disinterest in the ordinary social games of adolescence that by the time she was 20 she had amassed the 10,000 hours needed to master a handful of basic paradigms: imperative, procedural, object-oriented. That mastery already set her apart from all but a handful of children in her age/peer/school group.
+
+Now she was working her way through the next set of paradigms. Even among her group of friends -- the "nerd herd", they called themselves -- there had always been one or two who stood apart. They were, in a word, elfin: though not in physiognomy but in psyche. The elves invariably had three things in common.
+
+One, they were in the most advanced classes in maths that the school had to offer -- classes that were basically free-form seminars in which everyone sat in a circle, including the teacher, who was distinguished only as a sort of secretary in charge of the big shared screen in the classroom, responsible for looking up this or that on the Internet.
+
+Two, they spoke not just in complete sentences but whole paragraphs, in which the semicolons were practically audible. Not only audible, but distinguishable, too, from the en-dashes. It was a trick that she never figured out. They must have spent hours watching Star Trek, more hours practising their Data impressions in the mirror. Either that or it just came naturally. It didn't bear thinking about.
+
+Three, they generally refused to program in ordinary languages like Javascript. They would write Ruby or Python only under duress, and insisted whenever possible on languages with "first-class support for higher-order functions, metaprogramming, and native DCG", whatever that meant. Languages with ancient pedigrees and impenetrable syntax. Languages like Prolog.
+
+Now, doing these katas, Alisha was finally figuring out what "first-class support for higher-order functions" meant. She had always thought of herself as both a plodder and an explorer: there was no domain of human knowledge that she would admit was out-of-bounds. And once she decided she would master something, she would climb that mountain, no matter how long it took her, no matter how many other pilgrims breezed past her on the slopes of knowledge. She believed in her intelligence, if not in her genius. Ordinary intelligence was enough, given discipline.
+
+Hence the katas. The elf-geeks, she decided, would intimidate her no longer. On her way back from the toilet, she stopped at the counter, caught the eye of the (human) barista (how retro!), asked for another espresso macchiato, and noticed -- and immediately ignored -- the American jerk. He was sitting by the window, talking earnestly to an petite, skeptical-looking Indian woman.
+
+With espresso in hand, Alisha composed her mind for the next exercise.
+
+** Part 2: IoT Startup as Kata
+
+#+BEGIN_QUOTE
+This kata for Prolix takes most people of your level about two hours to complete. Typical expenses are up to 5000mBTC. Please read the instructions in full before beginning. You will need to be in an IoT-rich environment with publicly available sensors and displays; any urban environment should suffice. You should have completed two previous katas, "Face/Voice/Gesture Recognition" and "Dummy Corporation".
+
+*In this kata, you will script your local IoT cloud to obey your verbal commands. Give the command by clapping your hands while facing the sky, followed by speaking a codephrase of your own choosing. Filter the sensor input stream for these events. Actuate output by displaying an image and text of your choosing on a public display surface nearby. Instruct ambient IoT sensors to take a picture of you standing next to the displayed image.*
+
+First, launch a corporation with its own cryptocurrency, rooted as a sidechain off an existing blockchain. Fund it with a small amount of GACC (Generally Accepted Common Currency) from one of your personal accounts. 5000mBTC should be sufficient for most uses.
+
+Configure the corporation to terminate by default 24 hours after launch, releasing remaining funds to your original account.
+
+Use the corporation to rent, from commercial providers, nonexclusive access to the sensor event stream of nearby IoT audiovisual devices.
+
+Instantiate a controller engine owned by the corporation. Give yourself full access rights to the controller. Subscribe the controller engine to the event stream from the sensors. Configure the controller to recognize your face. Configure it to respond to a gestural event stream of clapping-while-looking. Configure it to then filter for a speech-to-text event that you define.
+
+Once the events are triggered, the controller should rent output access to a nearby display surface. Display an image and text of your choosing. Capture a still photo from a nearby IoT sensor. Save that as a selfie.
+
+Release the subscriptions to all IoT assets and terminate the corporation.
+#+END_QUOTE
+
+Alisha smiled. This was a fun kata. She had done it before in Javascript, years ago. It had taken her most of a day, then: she remembered hours spent trying one face recognition library after another before finding one that wasn't confused by her hijab. She'd written something like five hundred lines of code, wiring event loops to analytics engines and running into format incompatibilities.
+
+Prolix's approach to frameworks and libraries was Spartan compared to Javascript's: there tended to be only one library for anything. Alisha looked forward to doing the kata the Prolix way.
+
+A little over an hour later, Alisha took a deep breath, leaned back, and hit "Enter" with a theatrical swoop of the wrist. She peered intensely at the log window on the left half of her screen. Text started to scroll, green-on-black: that was the corporation sprouting into existence, budding off a public blockchain like a fern growing on a tree. Exactly one minute later, the corporation's new sidecurrency validated publicly, and a dozen video windows appeared on the right side of her screen. Some of them flashed captions as people walked past, chatting. In another window, a point cloud began to assemble itself: proof the controller engine was integrating multiple inputs.
+
+Alisha zoomed one of the video windows. A spectrum analyzer showed the audio feed was working. Making a mental note of the frame's borders, Alisha stood up. She took the empty espresso cup back to the counter. Then she walked out of the cafe, to go talk to the cloud.
+
+** Part 3: Encounter on the Street
+
+Standing on the sidewalk, Alisha could just barely make out the camera pointing at her. It was not much bigger than the splat of epoxy that fastened it to the wall. A thin wire ran along the wall and disappeared into the building behind it. Alisha had found it by running a GIS search for nearby public endpoints on the IoT cloud. It had an API URL. Alisha's recently instantiated corporation had launched a lightweight process that connected to the API, negotiated protocol compatibility, and promptly purchased a short-term nonexclusive subscription to the camera's video feed. The corporate controller was now sucking down 60 frames a second plus audio, sufficient for face/voice/gesture recognition. Correlated with another three cameras on the street, Alisha's corporation was building up a point-cloud realtime 3d model of everything happening on the street.
+
+Alisha looked straight at the camera, then tilted her chin up toward the sky. She clapped her hands twice. Then she said, loud enough for the camera to hear: "espresso macchiatto is my selfie trigger".
+
+There was a bus stop at the end of the block, opposite the Buddhist temple. The ad-wall was running a commercial for an upcoming movie on a five-second loop: Angelina Jordan's latest action musical. When the loop ended, instead of repeating, the ad-wall flashed white, black, white black. Then an image faded in: an Instagram of the cafe's espresso mach. Alisha hadn't actually taken that picture. She'd found it with a quick image search. Bold, all-caps text overlaid the image: I CAN HAZ IOT KATA IN PROLIX. Alisha jogged over to the bus stop. She posed next to it, holding a thumbs-up for a moment, looking at where she thought the camera was. That should do -- yup, Angelina Jordan's face reappeared on the bus stop at the same time she felt her phone buzz with a notification. That would be the picture arriving.
+
+Kata done!
+
+Alisha bounced back toward the cafe. She felt good. She was pleased with herself: her code had run right the first time. She was also pleased at acquiring a new skill. She was impressed, actually, at the economy of expression Prolix afforded: she had done the whole kata in less than 100 lines of code. Ten to setup/teardown the corporation, twenty to talk to the cameras, another twenty to filter for input recognition, and ten to take the selfie and mail the picture to herself. Most of the message-passing was handled by the language; most of the blockchain and IoT APIs were handled by protocol libraries. The rest was configuration, really. This was so much easier than doing the kata in Javascript. Alisha smiled to herself, thinking about how the new actor-concurrency model she'd used for the kata was a really nifty building block that opened the door to all kinds of possibilities.
+
+As she crossed the courtyard between the main gate and the cafe proper, Alisha saw the big American open the door. /Uh oh, shouldn't have made eye contact./ But it was too late. His eyes locked on to hers. "Hey," he called out. "You. I'm just curious ... what were you doing out there on the street?" His voice was too loud, even for outdoors. Alisha felt slightly nervous. She had never been accosted like this before, in a public place, by a stranger.
+
+Alisha's feet carried her to a spot a few steps away, off the line of traffic. She wasn't going to shout back, and her instincts, honed by years in a dense pedestrian urbanity, wouldn't let her block the path. If he wanted to talk to her he would have to come to her.
+
+"I was programming," she said. /If talking to the sky and posing for a selfie counts as programming/, she thought.
+
+The American approached. "Looked to me like you were talking to someone."
+
+"Oh, no, that was just a trigger."
+
+"Trigger for what?"
+
+"For the rest of my program."
+
+"The thing you did to the bus stop's ad? That was your program?" His eyes widened.
+
+"Yeah."
+
+"How did you hack the bus stop?"
+
+"I didn't."
+
+"Oh, sure, you did." He gave her a smile and leaned closer, conspiratorially. "I saw what you did. But it's playing the ads again. How did you hack it?"
+
+'I didn't hack it."
+
+"Okay, what /did/ you do then?"
+
+"Anyone could do what I did. I just bought ten seconds of display time on that particular bus stop. Anyone can bid. The bus stop runs a public auction API."
+
+"How did you do that?"
+
+"Well, technically, I didn't do it. My company did."
+
+"Your company? Who do you work for?"
+
+"No one. I mean, it was just a corporation I started. But it doesn't exist anymore."
+
+The American furrowed his brow. "Wow, talking to you, it's like you're not even speaking English."
+
+Alisha wasn't sure what to say.
+
+"I mean, don't get me wrong, you speak English really well. Where did you learn English?"
+
+"I learned English from my parents. Where did /you/ learn English?"
+
+The American laughed. "Oh, you're funny. But what I mean is, the words you're using, I'm sure they make sense to someone, but not to me!"
+
+Alisha smiled politely. She wasn't sure if she was embarrassed by him or for him.
+
+"Well, programmers do a lot of things that most people don't understand."
+
+"Oh, so you're a coder? Wow." The American made a typey-typey gesture, fingers flailing, playing air keyboard.
+
+"Yes, I'm a coder. I was doing a kata. The thing on the street was part of the assignment."
+
+"Wow, a kata, huh. That's ... okay. Well, whatever!" He pronounced the words distinctly, putting equal emphasis on "what" and "ever".
+
+Alisha took that as her cue to exit the conversation. But the American wasn't done. He reached out a hand and grabbed her arm.
+
+"Say, listen. I'm thinking about doing a startup. But I need a tech co-founder. Can you program apps as well as katas?"
+
+/Oh dear/, Alisha thought to herself. /He's one of those./
+
+"No, no, I, uh, don't really do front-end."
+
+"Oh." He looked crestfallen, like somebody who had just dropped his toothpaste.
+
+Alisha put her hands on her hips.
+
+"But if you want to do a startup, why don't you learn to code?"
+
+"Oh, I'm more of an ideas kind of guy. Big vision. Business guy. I do the deals."
+
+"Is that right," said Alisha.
+
+"Yeah, that person I was talking to back there, she's a VC. You know what a VC does? They fund startups. We're in discussions."
+
+"Is that right," said Alisha again. So he hadn't been hitting on the petite woman; he'd been pitching. From a distance, it was hard to tell the difference.
+
+"Yeah. Look, let me give you my card, and if you know anyone who can help me do some app development, drop me a ping, okay?"
+
+Another social reflex kicked in. Alisha found herself accepting his business card with both hands, even though he handed it to her casually with just one. The card read: "Jason August, LL.M. CEO, August Ventures."
+
+"Okay, well, good luck, and I'll definitely let you know if someone I know wants to work for you."
+
+"Cool. Hey, thanks! I dig the outfit, by the way!"
+
+And with that, the American was off.
+
+** Part 4: Alisha meets a VC.
+
+Alisha decided she deserved a reward: gluten-free chocolate cake. In line ahead of her stood the Indian VC that Jason had been talking to. When she noticed Alisha, she turned, smiled, and said, "So, did you know that guy?"
+
+"No," said Alisha. "Not really." An old Eddie Murphy movie came to mind, unbidden, and before Alisha could stop herself she said, "Just a man I met in the bathroom."
+
+"Really?" An eyebrow went up.
+
+"Well, uh. Long story. He wanted to talk about his startup."
+
+"Oh my God, I'm sorry you had to hear that."
+
+"Don't worry, I told him I couldn't code, so."
+
+"Oh, good. I'm glad he didn't waste your time."
+
+"Was he pitching you?"
+
+"He tried. You know, it's amazing how these non-technical founders want to do a tech startup, and they think they can raise money from VCs."
+
+"He told me he was looking for a CTO."
+
+"Yeah. Can you imagine someone saying: I don't play any instruments, but I want to start a band -- or, I have a great idea for a novel, I just need to hire a writer."
+
+"That's not how it works, huh?"
+
+"Nope. Tech startup, you need tech founders. That's how I did it. I used to be a coder."
+
+"Oh, you did a startup?"
+
+"Yeah. I was one of the founders of SoLooMo. Long time ago. Have you heard of it?"
+
+"Oh, I've heard about it. GPS toilet finder? With social rankings? In India."
+
+"Yeah, it did really well in India."
+
+"Wow. What's the footprint like in Singapore? I could have really used that just now."
+
+"We didn't aim for the international market. But sometimes, you know, I feel like going back and finishing the job. Wait a minute."
+
+The VC turned to the cashier. "Cold brew, please. The Ethiopian. Sidamo. Thanks."
+
+She turned back to Alisha. "What would you like?"
+
+"Oh, the gluten-free chocolate cake, please, thank you."
+
+"Sure. Let me take care of it. My treat." The VC smiled. "Malavika. Nice to meet you." She waved her watch against the till, which pulsed green to acknowledge the payment.
+
+"Alisha. Hey, thanks."
+
+"So what were you doing outside just now? We were both looking at you."
+
+This time Alisha felt the freedom to talk shop, speaking as one coder to another. "It was a kata. I'm learning a new language this month. Have you heard of Prolix?"
+
+"No, I haven't. What is it?"
+
+"It's half Prolog and half Elixir. Kind of like Erlog, but with Ruby syntax."
+
+"Oh, that makes sense," said Malavika. "Prolog begat Erlang which begat Elixir. But I hadn't heard of Erlog."
+
+"Yeah, it's mostly for logic programming. Prolix is kind of its dual."
+
+"Right, I get it. Gosh, I haven't heard anyone say 'dual' since grad school." Both women laughed.
+
+"Yeah. Anyway, the kata was pretty simple. Launch a crypto-corporation with a sidechain currency. Use that to host a Prolix controller engine which calls out to third party IoT APIs for input recognition and display. I outputted to the bus stop and took a selfie for the record."
+
+"Makes sense. I'd love to hear more. Do you mind if I join you?"
+
+Malavika took the seat next to Alisha's workstation. "Nice keyboard," she commented.
+
+"Yeah, it's an antique. An heirloom, I should say. It's incredibly ergonomic and it's really held up over the years. My father gave it to me."
+
+"What's it called?"
+
+"Keyboard.IO by Dekker & Vincent, 2019 model. Cherry MX blues."
+
+"Nice! Do you mind if I try? Oh, but I wouldn't want to mess up your work."
+
+"Don't worry," Alisha grinned. "Watch." She opened a new emacs buffer and mashed out 'the quick brown fox jumps over the lazy dog.' "Now you try."
+
+Malavika placed her fingers on the keyboard carefully, and typed a few words. Then she looked at Alisha quizzically. "Nice keyfeel. But nothing came out."
+
+"Each keycap has a fingerprint sensor. The keyboard is coded to me. If anyone else types, nothing goes in."
+
+"Wow. That's /very/ nice." Malavika raised her cold brew to toast Alisha. The ice tinkled in the glass.
+
+"Thanks. I'm glad to find someone who appreciates that!"
+
+"So what are you working on now, besides learning Prolix?"
+
+"Not much. Just playing around, learning the tools. But actually --" Alisha fell silent. She stared at Malavika's coffee and forked a slice of chocolate cake into her mouth.
+
+"But what?" said Malavika.
+
+"I was just thinking about your SoLooMo concept. Why didn't it take off outside India?"
+
+"We started off focused on different things -- it was about access to toilets, but it was also about education for people who were used to shitting in fields. We spent a lot of time localizing to Indian languages, and taking all the cultural nuances into account. The marketing campaign had a lot of support from the Modi government."
+
+"Didn't anyone try to do it for the rest of the world?"
+
+"Yeah, there were a few competitors in the U.S., but they couldn't make it work. They said it was not as big of a pain point, but I always thought they just didn't understand the adoption monotonics."
+
+"You said that sometimes you felt like finishing the job."
+
+"That's right. I think there's latent demand in the ex-India markets. And things are different now. Maybe more of the enablers are in place for the bigger vision. Maybe a different business model."
+
+"Well, I'll be the first customer -- I had the pain point earlier today!"
+
+"Oh? How so?"
+
+"The women's toilet, back there? Out of order."
+
+"Oh." Malavika had been about to take a sip of her coffee. She put it back down.
+
+"And there are still a lot of legacy buildings who haven't upgraded to post-Hillarian toilet setups. And there's always the thing about 'restrooms for patrons only.' I tried the Buddhist temple across the street. I ended up just using the mens' room here. Which is where I met our mutual friend."
+
+"It sounds like you have a solution in mind." Malavika smiled with the patience of a VC who's heard thousands of pitches.
+
+"So, imagine, what Classpass does for gyms, somebody should do for toilets. In fact, go one step further to the WeWork model, and operate a federated network of toilets, open to anyone in the network. Where the physical establishment -- let's call it the host -- where the host is concerned, it exposes a managed-services vendor API. It's a bit like what the New Black does for coffee bars inside big corporate offices. Have you heard about that model?"
+
+"No, tell me."
+
+"So the cost structure of running a traditional cafe is rent and staff. If you can taichi those factors to somebody else, you can reshape the business model. Who would you taichi to? Say, a big company that has office space, that has a kitchen on every floor, and has receptionist-type assistants around. You come in and train them to make a decent cappuccino. You lease them an espresso machine. You sell them the beans, on subscription. Now the big company can offer visitors a decent latte."
+
+Malavika nodded. "I can see that being valuable to B2B vendors with a high-touch sales model."
+
+"What's more, that company becomes essentially a microfranchise for your coffee. Other workers in the building -- even if they belong to a different company -- they download the app, join the network, and are entitled to good coffee, freshly made, from down the hall."
+
+"Wow, I can see how that competes with Nespresso and Nescafe. I can't believe I never thought about this."
+
+"Yeah, so, anyway, that's what these guys are doing. I heard they're doing pretty well."
+
+"Thanks! I'll have to remember that. What was the name?" Malavika took out a stylus and wrote a note to herself.
+
+"No problem." Alisha paused while Malavika wrote. "So anyway, with the SoLooMo idea, I was thinking about how to raise the QoS on the toilet UX. Because most retailers don't compete on toilets. Only in hotels do you find really good toilets. But not F&B. Not most restaurants. Not bars."
+
+"So what's the solution?"
+
+"We basically sublet the toilet from the primary tenant. We charge the tenant a fee for every use by an ordinary patron. But we also bring up a shadow network of toilet users, who have access to any toilet in the network. Subscription and usage fees cover the cost of operations, keeping the toilets clean and stocked, that sort of thing."
+
+"Don't most places already have a contract with a cleaning service?"
+
+"Yes, but that whole industry structure is mis-incentivized. This way, the economics are better aligned."
+
+"OK, I get it. This is a lot like what we originally wanted to do with SoLooMo, you know. The fundamental value-creation act here is basically an Airbnb-for-toilets model, on a micro timescale. But it all hinges on the unit economics: can the hosts, using you, turn their toilets from a cost center into a profit center?"
+
+"If we do the usage management intelligently, we can raise the utilization level and get rid of the queues."
+
+"So, tell me, what would it take to make this happen?"
+
+"Well, let me see. We'd need to rent the toilets. That takes relationships with the hosts." Alisha started counting on her fingers. "Hire cleaning vendors. That's actually a big one -- contracts usually get renewed once a year so a host might not want to sign on with this system until the contract ends. Maybe we can just shim in a layer of indirection but I don't know."
+
+Alisha continued. "The online stuff is easy. Collect subscription fees from in-network users. Collect usage fees from out-of-network users. Run settlement accounting with the host. Build the app."
+
+"The offline stuff is harder." Alisha paused. "Some sort of marketing to the userbase. Boots on the ground to sell to the cafes. Might be able to outsource sales eventually, or do it virally through the users, but we'd probably have to do the first few by hand."
+
+Malavika nodded. "You know, most coders don't have your grasp of business," she said.
+
+"My parents run a business, and I've worked for a lot of startups. It's all the same: the job of the system architect is to design a machine that produces value. Everything's a transaction pipeline; everything's a resource allocation economics problem."
+
+"Fair enough," said Malavika. "How would you make this happen?"
+
+"Well, this probably won't be quite as easy as the kata. We'll need to establish a corporation, and while I've done a bunch of crypto-corporations, and I've worked for a bunch of startups, I've never actually started a startup myself."
+
+"It's good to know what you don't know. Talking to IoT devices is pretty frictionless. Online services don't mind getting paid in Bitcoin. But in the real world, if you're going to deal with traditional retailers like restaurants and temples, you're going to need a traditional corporation too. And you'll need traditional contracts, not just smart contracts."
+
+"Yeah. I guess I'll have to go talk to a lawyer." Alisha paused, then frowned. "That feels like friction."
+
+"Hmm. Maybe you don't need to talk to a lawyer."
+
+"I would love to not have to talk to a lawyer."
+
+"Have you heard of Legalese?"
+
+"What's that?"
+
+"It's one of my portfolio companies. We went in for their Series A. But a lot of the companies that I funded were using it already even before that. All the stuff that you do with crypto-corporations, Legalese does with regular corporations."
+
+"That sounds really useful."
+
+"Basically it gives somebody like you the ability to script corporate actions using a DSL. If you think about it, law is code that runs in the real world. A contract is code that runs on companies and people. You know how a normal programming language compiles to a VM or to a native binary? The Legalese compiler targets Ethereum -- and English. In parallel."
+
+"Compiling to Ethereum, i can understand. But you're saying it also transpiles from a formal language to a natural language." Alisha spoke slowly, trying to get her head around the idea.
+
+"Well, if you've ever read a contract, you know that it's not quite English. A regular legal contract reads like a program written by a smart person who just didn't know any programming languages. Pseudocode that's metastasized. So it's a specialized dialect. A computational linguist would say it's a controlled language. Legalese compiles to a controlled language which is both natural and formal at the same time. The output syntax is based on something called Attempto. You know how XKCDPDR does explainers using simple English? Attempto is a lot like that."
+
+"Wow, that sounds like a really neat toolkit."
+
+"Yeah, you should go check it out. It might help you glue together the parts that you need for the startup. The end-user subscriptions can be Bitcoin, but you'll need traditional paper contracts with the host organizations. You can use Legalese for that. Code it yourself! You don't need a lawyer."
+
+"Then why do most founders still go to lawyers?"
+
+"Most founders aren't technical enough. At this level of risk, there are some corporate secretaries who would do the work on spec. They'll take 20% of the company, up front, in return for setting it up. An incubator would take 10%, and maybe give you $100,000 of seed capital in return."
+
+"All that sounds like a lot of overhead."
+
+"You're a hacker. You can take the law into her own hands." Malavika smiled. "Not as a vigilante. But as an intelligent individual with some agency, you should be able to interact with the world of law without having to go through LL.Ms like that Jason guy."
+
+Already Alisha's fingers were moving on the keyboard. Documentation ... gallery ... tutorials ... examples.
+
+"I never realized how similar contracts are to programs," said Alisha.
+
+"They both define constants and variables. They describe the happy path. They handle exceptions -- breaches and damages. They handle events using user-defined callbacks. You can configure variables that slot in to the rest of the template code. If/then/else. It's the same stuff."
+
+"That's true!" Alisha continued to browse. "It looks like they've built an entire stack. It's not just contract formalization."
+
+"Yeah, there are some really good libraries that handle legacy compatibility. I can't begin to tell you how much time it's saved me. I let Legalese handle all the corp sec drafting now. My actual corp sec just does the filing. I try to give them as little to do as possible so they don't screw it up."
+
+"The filing?"
+
+"Yeah. So, basically, a company is a data structure, right? With shareholders and a constitution and a bunch of contracts."
+
+"Ok, go on."
+
+"By law, the government maintains the master DB for a lot of company state. Shareholders, directors, that sort of thing. When an investor becomes a member of the company, that gets recorded inside the company's captable, but you also have to lodge it with the registrar."
+
+"I didn't know that. I mean, I guess I must have signed something like that in the past, but I never really paid attention to what I was signing."
+
+"Pretty much every time you want to alter the state of the company, any kind of [[https://en.wikipedia.org/wiki/Create,_read,_update_and_delete][CRUD]] operation requires uploading a PDF to the government website."
+
+"Wow."
+
+"That's what company secretaries do."
+
+"Shouldn't that be automated?"
+
+"Right. So Legalese models the evolution of a company like a bunch of SQL updates. Then it computes the diffs between any two commit points, like git. And it generates the paperwork and manages all the signatures. It handles the gnarly stuff, too. Like, if there's legacy paperwork that needs to be imported, Legalese parses the PDF scans to build up a historical model of the cap table."
+
+"Gosh, that sounds like a nasty NLP job."
+
+"If there's regulation that needs to be obeyed, Legalese reads that too. If you're doing Prolix then you know about Prolog. A lot of statutory compliance can be modeled in Prolog. The formalization of law has been going on for a long time. Legalese just went and productized it."
+
+"That makes sense. Gosh. I had never thought about what goes into the paperwork."
+
+"Shareholders and directors do a lot of signing but Legalese makes it as simple as possible."
+
+"So what do the company secretaries do?"
+
+"Some of them write Legalese scripts and submit pull requests to the main branch. The rest do OCR correction and data entry." Both women laughed.
+
+"Thanks for letting me know about that. I'll have to check it out."
+
+"Mmm." Malavika looked at Alisha speculatively. "The other reason you need a regular corporation for this, is because investors like me still need a traditional corporate structure for the startup."
+
+"Oh."
+
+"I like your vision. You have an authentic connection to the pain point. You get the business model. You have the ability to execute, at least in terms of developing the back-end. How are you for front-end?"
+
+"There are a few people I work with."
+
+"There are a lot of uncertainties, still. Like market demand, adoption dynamics, how the hosts will react. There's a lot of usability testing to be done. But I can put you in touch with one of my SoLooMo co-founders. He did the marketing and can talk your ear off about consumer behaviour."
+
+"I could see myself giving this a shot for a few months."
+
+"OK. What else do you have going on right now? Is this something you could actually commit to?"
+
+"I'm between gigs. Well, actually --"
+
+"Actually what?"
+
+"My parents are trying to get me to take over the family business."
+
+"Oh." Malavika's face fell. "I see that happen a lot with young people like you."
+
+"It's ok." Alisha grinned. "Ask me what my family business is."
+
+"What is your family business?"
+
+"We're the third-biggest toilet cleaning vendor in Southeast Asia."
+
+"Ah!" Malavika sat back and laughed. "Well, isn't that a coincidence?"
+
+

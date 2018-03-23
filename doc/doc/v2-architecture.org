@@ -1,0 +1,408 @@
+#+TITLE: Legalese System Architecture, version 2.0
+
+This document should be read in conjunction with [[file:v2-specification.org][v2-specification.org]].
+
+* Front-End: Simple Web UI
+*Paradigm*: the usual end-user-facing interactive web app. Functionality is presented in a dashboard with a bit of a wizard.
+
+*Languages*: Javascript? Ember? Google Apps?
+* Other Front End UIs
+In the future there may be a CLI or a mobile app, not to mention third-party integrations. So the Web UI should be coded from the start as just the first of many possible client consumers of a more generic API.
+
+* Front-End UI: Under the Hood
+We expose to advanced users the underlying machinery of the system. Google Spreadsheets, Google Docs, and other infrastructural components are available for the advanced user to tweak to taste.
+
+If, for instance, the end-user wants to tweak the documents prior to PDF engrossing, there should be a way to support this, using Google Docs, or a docx roundtrip.
+
+* Back-End Components
+
+** Entity Model
+Contracts deal with parties, with changes to parties, and with changes to relationships between parties.
+
+Most of these models persist in our [[file:spreadsheets.org][spreadsheet database]].
+*** Model of the Parties
+*Languages*: Google Spreadsheets? With strong lint checking. SQL database?
+
+*Paradigm*: Bitemporality and a commit log are probably really good ideas.
+
+Maybe [[http://pgxn.org/dist/temporal_tables/][Postgres with temporal tables]]?
+
+**** Model of the Corporation
+***** User Management
+We're going to have to deal with users who belong to companies with one or more roles; and who have privileges to engross certain documents and execute certain documents, possibly as a consequence of their roles and possibly as a direct grant.
+****** View Privileges
+A party to an HLO might be offered a full view or a limited view.
+
+The limited view only shows the documents to which they are a party.
+
+The full view shows all the documents which form part of the HLO.
+
+So, a directors resolution might not be visible to non-director parties.
+***** Contract Lifecycle Management (CLM)
+in the Glorious Future, there will be a CLM repository of all the contracts to which the company is a party.
+**** Model of the Individuals
+*** Model of Relationships
+*Languages*: NoSQL: CouchDB? Graph DB: Neo4j? SQL: Postgres? MySQL/MariaDB?
+
+**** Who is party to a given relationship?
+**** What elements of the relationship expire when?
+*** Model of Regulation; or, the Constraint Model
+external and internal requirements imposed upon the formal contracts and the execution workflow.
+
+*Languages*: Prolog? Erlang?
+
+*Paradigm*: Declarative / Logic / Functional.
+
+Examples:
+- pre-emptive notices.
+- corporate members' resolutions to authorize issue of new shares.
+- notice periods.
+- directors' resolutions required to take certain actions.
+- certain documents need to be phrased as deeds and witnessed.
+- certain documents need to be stamped with the corporate seal.
+**** Interesting Quotes
+
+This line of research, where legislation is translated into executable logic programs, has been a notable commercial success. The company Softlaw adopted key ideas and evolved to provide large scale, web-based tools to serve legislation to the public [4, 2]. In addition to executable logic, Softlaw scoped the problems, maintained links to the orginal legislative source, added a controlled language, among other features. The company has been (after several intervening changes) acquired by Oracle, where it now provides Oracle Policy Management to governments the world over. Despite this development and success, the AI and Law research community seems not to have followed suit with similar open-source tools for research and development.
+
+1987
+
+Logic Programming for Large Scale Applications in Law: A Formalisation of Supplementary Benefit Legislation, Trevor Bench-Capon, George Robinson, Tom Routen, and Marek Sergot
+
+** Execution Workflow Engine
+*Languages*: Prolog? Elixir? Erlang?
+
+*Paradigm*: Concurrent actor model, Functional.
+
+*** What documents need to be produced to satisfy the overall goals of a given high-level operation?
+*** Who /can/ sign those documents?
+
+Note that only certain people are empowered to sign certain documents on behalf of the company.
+
+Those powers need to be granted by resolution of the directors?
+
+For example, bank accounts have a well defined model for who can sign for what.
+
+We may need to set up that sort of understanding for hiring, NDAs, sales contracts, etc. This is standard contract lifecycle management / document automation practice and we can just learn from the prior art.
+*** Who /should/ sign those documents?
+Inputs: requiredDocuments, partyEntities.
+
+Outputs:
+
+*** Actually sending the documents to an e-signature service for execution.
+*** Who has actually signed so far?
+Inputs: API with e-signature service.
+
+Output: used by Web UI.
+*** In what sequence must the documents be executed?
+Inputs: regulatory logic
+*** One Possible Structure of Templates and Schema
+**** High Level Operation
+represented by a specific worksheet in the company's spreadsheet.
+
+contains an unordered set of Sequences.
+
+produces one or more documents for signature.
+
+what's the user-friendly, user-facing way to frame these examples?
+
+probably natural-language statements like:
+- I am bringing on a new co-founder (and I want them to get some shares).
+- One of my guys is resigning.
+- I'm hiring an employee and I want them to get some shares.
+- I previously brought someone on and now I want to give them some shares.
+- I'm raising funds and want to generate a term sheet to show investors.
+- I'm raising funds. Now that I have confirmed a few investors, I want to give them paperwork so I can take their money.
+
+The above may be organized into internal and external, etc etc.
+
+We can then translate the user intent to the appropriate HLO:
+
+***** incorporation
+***** appointment of director
+***** grant of shares to new "founder"
+****** issue of vesting shares to founders
+***** fundraising
+***** resignation
+***** establishment of ESOP
+***** start of employment
+****** issue of vesting shares to staff
+***** start of volunteership
+****** issue of vesting shares to staff
+
+
+**** Sequence
+
+represents the templates to be executed.
+
+a Sequence may contain one or more sub Sequences.
+
+A Sequence may be a Parallel Sequence or an Ordered Sequence.
+
+An Ordered Sequence. consists of an ordered set of one or more low-level operations (LLO). if there are more than 1 LLOs, each LLO cannot begin until the previous LLO has completed.
+
+
+Maybe we call it a DocSet.
+
+Parallel and Serial Sequences may be nested arbitrarily.
+
+
+
+**** Low Level Operation
+contains one or more templates which can be executed in any order.
+
+considered complete only when all templates are executed.
+
+each template is labeled with a template_name.
+
+**** Template
+listed on [[https://docs.google.com/spreadsheets/d/1rBuKOWSqRE7QgKgF6uVWR9www4LoLho4UjOCHPQplhw/edit#gid=981127052][Available Templates]].
+
+each template corresponds to a specific XML file.
+
+the template_name is usually, but not always, the same as the template-filename on disk.
+
+a template may include another template.
+
+the included templates are usually prefixed with inc_ or mod_.
+
+**** Variable
+
+***** Ordinary Variables
+Within a template, you will see things like <?= data.something ?>.
+
+That "something" refers to a variable defined in the sheet which calls the template.
+
+***** Captable Methods
+You will also see things like <?= data.captable.someMethod() ?>.
+
+That "someMethod" is usually derived from the captable sheet, which is a special sheet.
+
+***** Entity and Role Details: Multilateral Documents
+You will also see things like <?= data.parties.director ?>. This refers to entities who are nominated to a certain role.
+
+The Available Templates sheet defines To and CC columns.
+
+Roles described under "To" will be expected to sign a PDF. All the signatures will appear within the same PDF.
+
+Roles described under "CC" just get a copy of the PDF CC'ed to them, at the start and at the end of the signature process. Usually you would CC the corp sec, and anybody else who needs to receive notice, but isn't actually a party to the agreement.
+
+***** Exploded Entities: Bilateral Documents
+
+The Available Templates sheet defines a column "Explode". This identifies a special role which gets one PDF per entity with that role.
+
+So, if a template's _Explode_ column says "director", then each director of the company will get their own personal PDF of that template.
+
+You will see this in practice for things like preemptive_waiver, where each existing shareholder gets their own copy of the PDF to sign and send back.
+
+This is basically the "counterparts" idea.
+
+**** Schema
+
+- A High Level Operation (HLO) has one or more Low Level Operations (LLO).
+- A Low Level Operation has one or more Templates.
+- A Template contains zero or more other Templates.
+- A Template may expand one or more variables.
+
+Thus it is possible, for any given HLO, to compute the exhaustive set of all variables which are involved in the drafting and execution of that HLO.
+
+Given that exhaustive set of variables, it is thus possible to determine if the source spreadsheet is well-formed: every variable SHOULD be declared, and every variable MAY be defined.
+
+Sometimes a template will test <? if (data.variable == undefined) { ?> and then there will be a default. So it is sometimes OK for a variable to not be defined.
+
+So in the Near Future we will be able to tell the end-user that they screwed up because they are using a spreadsheet which requires a certain variable to be defined, and they didn't define it.
+
+This code should also check that the cell formats are sensible -- many hours are wasted tracing bugs to the fact that a given cell has Automatic cell format when it should have been Number or String.
+
+We will in the Glorious Future determine the semantics of undefined vs undeclared variables, and how that affects template expansion. Right now the uncertainty keeps us from doing what fascist static-type-safe languages like ML are famous for doing.
+
+**** Composition
+A given HLO may contain multiple directors' resolutions templates.
+
+In the Glorious Future, it should be possible to compute all the directors resolutions that are produced by all the templates under a given HLO, and then squish them together so they sit in the same PDF, rather than generating multiple DRs that need to be signed separately.
+
+
+
+*** Documentation for the Prolog Logic Engine
+
+**** Questions the Prolog Logic Engine Can Answer
+
+***** Given a Goal, what is the soonest it could possibly be achieved, if everybody signed everything they received right away?
+Sometimes there are notice requirements that delay signatures. An EGM, for instance. If the shareholders are cooperative it can be done right away -- everybody signs the members' resolution by written means. If the shareholders are uncooperative they may insist on proper notice periods before the EGM.
+
+***** Given a Goal, what are the sequences of execution?
+
+A synchronous event model entails blocking of subsequent actions.
+
+If A and B have to sign something before C and D can sign something, then there are two sequences:
+
+  sequence{name:1,
+           members:[A,B]}
+  sequence{name:2,
+           members:[C,D]}.
+
+This means Sequence 1 must complete before Sequence 2 can begin. If Sequence 1 does not complete, then Sequence 2 never begins.
+
+****** Quorum
+Each Sequence may be guarded by a quorum requirement.
+
+****** PassFail
+Each Sequence may pass or fail depending on a range of voting factors.
+
+Some votes require a 50% majority. Some require a 75% majority.
+
+****** Example Sequences
+
+The rights of Class C shares may be modified with the consent of the holders of 75% of all issued and fully paid Class C shares.
+
+Before new ordinary shares are issued under a given set of terms, all holders of ordinary shares must be given notice of the new share issue and must be offered the opportunity to purchase those shares pro rata on the same terms.
+
+Two out of three directors are required to sign any contracts worth >= $10,000.
+
+Before the directors may issue new shares, the shareholders must first approve the issue of those shares.
+
+****** Modeling this in Prolog
+a Sequence object contains the following keys:
+- name :: the name of the sequence
+- members :: a list of parties involved in executing the sequence
+- quorum :: a predicate/2 that, given a SequenceDetail object, returns YesNo.
+- passfail :: a predicate/2 that, giving a SequenceDetail object, returns YesNo.
+
+****** DAG Equivalence
+This sequence concept generalizes to a DAG, and the height of the DAG becomes a good approximation for how long it will take to meet the Goal.
+
+***** Given an HLO Goal, what necessary Actions, in what Sequence, are required to be Executed?
+
+
+***** Given a set of Actions, what Filings must follow?
+
+***** Given a set of Actions, what Notices must precede the Actions?
+
+***** Deadlines
+
+The Deadlines Module contains rules which compute the maximum and minimum times that may or must elapse between one action and another.
+
+These computations are based on facts:
+
+For example, if, by Section 1001 of the Companies Act, after Action A occurs, the company must file Filing F within D Days, then we say:
+
+ days_allowed(s1001, action_a, filing_f, d).
+
+If a company performs action_a, then the deadlines module will automatically compute that filing f needs to occur.
+
+Multiple actions, multiple filings. We can use bagof, setof, listall, etc, to capture all the necessary filings.
+
+****** days_allowed/4: requirements given
+
+****** days_required/4: requirements given
+
+****** current_date/1
+for the purposes of calculation we consider this "today".
+
+****** filed/2: (Filing, Date) 
+the date of a given filing.
+
+may be used declaratively to return one or more dates which satisfy other requirements: capture the full range and take the max to learn the latest date a filing may be performed.
+
+****** action/2
+dynamic.
+
+other rules may assert certain actions occur on certain dates. This helps with what-if scenarios.
+
+****** deadline/2
+capture a bagof deadlines to see Legalese's opinions about the compliance status of various filings it knows about, and entailments must be filed in order to maintain compliance.
+
+***** Prerequisites
+
+
+***** Actions
+
+
+
+**** Facts the Prolog Logic Engine Requires
+
+***** has the company been incorporated?
+
+***** what classes of shares are defined in the company's Articles of Association? 
+
+***** who are the shareholders as of the current date, according to ACRA?
+
+***** who are the shareholders according to the end-user?
+
+**** Connecting Reality to the Model; or, The Map is Not The Territory
+
+All the following data items are subject to bitemporality. At any given time, the system has an idea about what is true now and what was true before. And those impressions may change. The way to deal with this is Snodgrass.
+
+***** Assertions Collected From the User
+
+Like, NRIC, passport, UEN, addresses of various parties. Email addresses.
+
+***** The Known History Model
+given evidentiary documents that have been uploaded to Legalese, what facts are universally agreed to be true?
+
+In the Glorious Future, the software should be able to read those facts out of the documents.
+
+***** The Consensus Baseline Model
+All parties agree that a certain state of affairs is supposed to be the current case, whether or not it has been documented.
+Maybe things were handshaked but never written down.
+Maybe things were written down but never signed.
+Maybe things were signed but never filed.
+
+The parties seek Legalese's help in conforming paperwork to the Consensus Baseline.
+
+Over time, there may be multiple Consensus Baselines; but at any given time, there should be only one Consensus Baseline that is correct for that time.
+
+And usually they want the filings to occur in a way that doesn't attract any penalties.
+
+***** The Reported Filings Model
+To avoid penalties, sometimes it is necessary to submit filings that represent a distinctive perspective on reality.
+
+The Deadlines module will have quite a lot of input to give here.
+
+***** The Desired Future Model
+All parties agree on a future state of affairs.
+
+They seek Legalese's help in arriving there.
+
+***** Ongoing Negotiations
+Different parties may want different things, even if they are presumptively "on the same side"
+
+
+** Formal Contract Model
+the formal expression of a given agreement. Reducible to natural language and to smart contracts.
+
+Probably needs some sort of DSL. If [[http://solidity.readthedocs.org/en/latest/][Ethereum's Solidity]] is sufficiently expressive we can skip creating our own DSL.
+
+handles internal cross-references.
+
+*Paradigm*: [[http://www.diku.dk/forskning/performance-engineering/Generative-software-development/Glossary/multiparadigm-design.html][multiparadigm]]: imperative / functional. Should a contract describe what parties must do, or should a contract describe what state of affairs should be the case?
+
+** Natural Language Document Generator
+Input: formal contracts.
+
+Output: one or more natural language documents losslessly expressing the concepts of the formal contract.
+
+*Paradigm*: template / compiler / NLG stack.
+
+*** Multilingual support
+It would be nice to produce N>1 natural language document instances in different languages, whose essential unity is mathematically provable.
+*** Templates may be drawn from in-house sources.
+*** Templates may be drawn from third-party sources.
+- CommonAccord, LawPatch, Contract Standards.
+** Ethereum Transpiler
+Losslessly converts our internal formal contract to [[http://solidity.readthedocs.org/en/latest/][a smart contract language]].
+
+*Paradigm*: [[https://en.wikipedia.org/wiki/Source-to-source_compiler][source-to-source compiler]]. Metaprogramming in the DSL a plus.
+** Document Decompiler
+reads existing PDFs, scans, whatnot to try to extract semantics into our document and contract models. Like lawgeex. But summarizes the meaning.
+
+document types include:
+- existing contracts that the company is a party to
+- existing statutory regulations that govern the company
+- existing structured PDFs that describe the company, e.g.:
+  - acra bizfile profile
+  - articles of association
+
+* API
+Inter-component APIs are RESTful.
+
+Intra-component IPC and message-passing is at the discretion of the component. The component's underlying tech stack may provide its own concurrency and message-passing model, or the component may prefer an SQL, NoSQL, or other approach.
