@@ -1,0 +1,84 @@
+.navbar-brand {
+    padding-top: 5px;
+    height: 40px;
+}
+
+.nav-justified > li > a {
+    text-align: left;
+}
+
+.techcrunch {
+    width: 90vw;
+}
+
+#desktop-display-header {
+    display: none;
+}
+.collapse {
+    border: 0px;
+}
+
+#collapse-legalese,
+#collapse-legalese:hover {
+    font-family: "Alegreya", serif;
+    font-size: 16px;
+    color: #333333;
+    text-decoration: none;
+    padding-top: 7px;
+    display: inline-block;
+    letter-spacing: 2px;
+}
+
+.row.text-center.black-rec > h2 {
+    font-size: 16px;
+}
+
+.row.text-center.black-rec > p {
+    font-size: 12px;
+    padding: 0px 10px;
+}
+
+.navbar-collapse {
+    background-color: white;
+}
+
+.blurb-nav > li {
+    width: 100%;
+}
+
+#statusquo, #investornotice, #players {
+    padding-top: 0px;
+}
+
+.bot-squeeze {
+    width: 80%;
+    padding: 0 0 0 14px;
+}
+
+#first-bottom {
+    margin-left: 0px;
+    padding-top: 10px;
+}
+
+#bot-legalese-col {
+    width: 100%;
+    padding-right: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.left-menu {
+    position: relative;
+}
+
+.modal-dialog {
+    max-width: 90vw;
+    margin: 0 auto;
+}
+
+.modal-content {
+    max-width: 90vw;
+    margin: 0 auto;
+}

@@ -1,3 +1,0 @@
-#+TITLE: Story: Remedy
-* Summary
-Oops, somebody discovered an error and now we need to redo some or all of the paperwork of an HLO whose execution is already in progress.

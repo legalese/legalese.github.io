@@ -1,7 +1,0 @@
-<? if (data.egm_or_written_means == "EGM") { ?>
-<para_1>At the Extraordinary General Meeting held on <?= data.gm_date ?> the following resolutions were passed:</para_1>
-<? } else if (data.egm_or_written_means == "AGM") { ?>
-<para_1>At the Annual General Meeting held on <?= data.gm_date ?> the following resolutions were passed:</para_1>
-<? } else { ?>
-<para_1>The <?!= plural(data.parties.voting_shareholder, "Member") ?> of the Company hereby <?!= plural_verb(data.parties.voting_shareholder, "records") ?>, by written means in lieu of a General Meeting pursuant to Section <?!= plural(data.parties.voting_shareholder, "184G", "184A") ?> of the Companies Act (Cap. 50), <?!= plural(data.parties.voting_shareholder, "my") ?> approval for the following resolution<?= data.members_resolution_2 == undefined ? "" : "s" ?>:</para_1>
-<? } ?>

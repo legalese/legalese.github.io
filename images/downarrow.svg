@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .a{fill:#333333;stroke:#333333;stroke-width:0}
+    </style>
+  </defs>
+  <path class="a" d="M7.41 7.84L12 12.42 16.59 7.84 18 9.25 12 15.25 6 9.25Z">
+  </path>
+</svg>
