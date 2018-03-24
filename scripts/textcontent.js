@@ -97,7 +97,7 @@ $('.left-menu-item').hover(
 
 $(window).on('scroll', function() {
     $('.lower-nav-el').each(function() {
-        if($(window).scrollTop() >= $(this).offset().top) {
+        if($(window).scrollTop() > ($(this).offset().top - 10)) {
             var id = $(this).attr('id');
             $('.left-menu-item').css('font-weight','300');
             $('a[href="#'+ id +'"]').css('font-weight','700');
