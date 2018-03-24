@@ -1,7 +1,30 @@
-_FV_ abbreviates Formal Verification
+_FV_ abbreviates Formal Verification. _MC_ abbreviates Model Checker.
 
-_MC_ abbreviates Model Checker
+# Modeling/specification systems and FV tools 
 
+## Symbolic Evaluation
+
+Try analyzing L4 examples with [symbolic evaluation for Python](https://github.com/thomasjball/PyExZ3) ?
+
+## Discrete event dynamic systems
+[wiki discrete event dynamic systems](https://en.wikipedia.org/wiki/Discrete_event_dynamic_system)
+
+[wiki discrete event system specification](https://en.wikipedia.org/wiki/DEVS)
+
+This model has useful decidable problems, but I would need more time to determine if it is expressive enough for our purposes. But probably not.
+[wiki Finite & Deterministic Discrete Event System Specification](https://en.wikipedia.org/wiki/Finite_%26_Deterministic_Discrete_Event_System_Specification) 
+
+There is also _Symbolic DEVS_.
+
+## K Framework
+This could be good, but to assess we need to get over the hump of representing the operational semantics as a rewrite system.
+
+## TLA+
+Built for exhaustive model checking of distributed algorithms.
+
+Worried it won't play well with DateTime/TimeDelta, which introduce a lot of usually-superficial nondeterminism that I don’t think TLA+ can handle in a smart (i.e. symbolic) way.
+
+--------------------------------------
 
 # Formal contract systems
 
@@ -86,8 +109,7 @@ significant issue.
 
 
 ## EROP language / CCC / CB2B (Abdelsadiq, extended Promela, Spin MC, Drools rule engine)
-
-*License*: Carlos has some code on Github. See pinned post in Slack #edu-collaborations. 
+*License*: **????** _No evidence of open source_
 
 *Papers*: [google drive](https://drive.google.com/open?id=0BzKTGZrxy40NcXVZWDR0VmMxajg)
 
