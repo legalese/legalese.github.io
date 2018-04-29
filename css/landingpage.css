@@ -543,7 +543,7 @@ ul.li-inline li:not(:first-child)::before {
 }
 
 .subtitle {
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .fancy-community {
