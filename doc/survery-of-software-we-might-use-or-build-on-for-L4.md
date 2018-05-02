@@ -1,10 +1,61 @@
 _FV_ abbreviates Formal Verification. _MC_ abbreviates Model Checker.
 
+# Model Checking 
+
+## Friendly license
+
+### NuSMV v2
+license: LGPL. "This is an Open Source license that allows free academic and commercial usage of NuSMV."
+
+Is this bounded model checking only? No Timed Automata?
+
+http://nusmv.fbk.eu/index.html
+
+### SPIN
+license: BSD 3-Clause open source license
+
+*Looks like goood documentation* http://spinroot.com/spin/Man/
+
+PROMELA is the spec language
+
+"Spin targets the efficient verification of multi-threaded software, not the verification of hardware circuits."
+
+"The tool is one of very few verification tools that supports dynamically growing and shrinking numbers of processes, using a rubber state vector technique."
+
+"Spin can be used as a full LTL model checking system, supporting all correctness requirements expressible in linear time temporal logic, but it can also be used as an efficient on-the-fly verifier for more basic safety and liveness properties. Many of the latter properties can be expressed, and verified, without the use of LTL. 
+Correctness properties can be specified as system or process invariants (using assertions), as linear temporal logic requirements (LTL), as formal Büchi automata, or more broadly as general omega-regular properties in the syntax of Spin never claims."
+
+
+http://spinroot.com/spin/whatispin.html
+
+### Romeo
+license: (free) http://www.cecill.info/
+(free)
+
+seems bounded only:
+"Time Petri nets (TPNs) [1] are a classical time extension of Petri nets. They allow an easy representation of real-time systems features such as synchronization and parallelism. State reachability is decidable for bounded TPNs, which is sufficient for virtually all practical purposes."
+
+http://romeo.rts-software.org/?page_id=2
+
+## Unfriendly license
+### HyCOMP
+license: non-commercial only.  no mention of commercial licenses.
+
+https://es-static.fbk.eu/tools/hycomp/
+
+### nuXmv
+license: non-commericial only. no mention of commercial licenses.
+
+https://es.fbk.eu/tools/nuXmv/
+
+### Kratos
+license: "Kratos is available for research and evaluation purposes in an academic environment only. It cannot be used in any commercial environment, particularly as part of any commercial product, without written permission. Kratos is provided as is, without any warranty."
+
 # Modeling/specification systems and FV tools 
 
 ## Symbolic Evaluation
 
-Try analyzing L4 examples with [symbolic evaluation for Python](https://github.com/thomasjball/PyExZ3) ?
+implemented in pyL4
 
 ## Discrete event dynamic systems
 [wiki discrete event dynamic systems](https://en.wikipedia.org/wiki/Discrete_event_dynamic_system)
@@ -24,12 +75,19 @@ Built for exhaustive model checking of distributed algorithms.
 
 Worried it won't play well with DateTime/TimeDelta, which introduce a lot of usually-superficial nondeterminism that I don’t think TLA+ can handle in a smart (i.e. symbolic) way.
 
+## Alloy
+
+
 --------------------------------------
 
 # Formal contract systems
 
 These all come from academia.
 
+## Flood/Goodenough
+todo
+
+## McMaster
 
 ## CSL (Hvitved, no FV)
 *License*:
@@ -37,9 +95,11 @@ These all come from academia.
 ## FormaLex / FL language
 *License*:
 
-A lot of the source code is in Spanish. :-(
+A lot of the source code is in Spanish. :-( BUT it's quite readable with google translate.
 
 Their actions have duration by default, and are concurrent by default. I believe that was a mistake.
+
+As of Mar 26, 2018, no commits to github repo in 2 years.
 
 ## CL/SCL (language) / CLAN / Anacon / C-O diagrams (Gothenburg, Cammileri, Schneider, UPPAAL MC)
 *License*:
