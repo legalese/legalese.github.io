@@ -1,7 +1,10 @@
 * Entity, Relation, Operations Model
-a comprehensive taxonomy of all operations that can be performed.
+a comprehensive ontology of the state space of the company and the state transition operations that can occur.
 
-we use an object-oriented paradigm to model these things. they suffer CRUD operations.
+we use an object-oriented paradigm to model the company. they suffer CRUD operations.
+
+See also https://arxiv.org/abs/cs/0702089
+
 ** Prerequisites
 To understand this document you should be familiar with object-oriented programming and domain modeling.
 
@@ -9,19 +12,33 @@ See:
 - http://martinfowler.com/eaaCatalog/domainModel.html
 - http://www.martinfowler.com/bliki/AnemicDomainModel.html
 
-** Entities
+Also consider the difference between endurants and perdurants, discussed in /Engineering Legal Ontologies/.
 
-*** Objects (Entities)
+** Objects
+
+*** Dates and Times
+**** no need to reinvent the wheel here
+**** need support for business dates, holidays, etc, calendrical calculations.
+*** Utility Objects
+**** Mailing Address Object
+***** Country
+***** State / Province
+***** City
+***** Address (multiline string)
+**** Email Address Object
+***** email string
+*** Entity Objects
 **** NaturalPerson | Individual
 ***** stateOfCitizenship
 ***** stateOfResidency
 ***** IDnumber
 ***** IDtype
+***** Address Object
 **** class LegalPerson where
 ***** stateOfRegistration
 ***** IDnumber
 ***** IDtype
-
+***** Mailing Address Object
 **** data LegalEntity = Corporation | SoleProprietorship | LLP | Trust
 **** Corporation
 ***** Exempt :: Bool
@@ -31,7 +48,7 @@ See:
 ***** Priority
 ***** etc requirements
 
-*** Methods
+*** State Transition / Relation Transition Methods
 **** Create
 ***** NaturalPerson
 ****** phrase: "birth"
@@ -141,6 +158,18 @@ Maybe we can import some of those ideas. A startup investment is, after all, jus
 
 Corporations are relatively lightweight structures, especially at the startup stage. Even public corporations aren't terribly complex: they have a lot of shareholders, a few directors, and a bunch of bank accounts.
 
+They also have a company secretary and an auditor.
+
+In addition to shareholders, there may be other investors who have executed investment agreements with the company, in the form of notes, bonds, SAFEs, warrants, etc.
+
+Other metadata about the corporation includes dates of AGMs and government filings.
+
+The corporation may have sent or received notices to third parties.
+
+The corporation may have made filings to the state.
+
+The corporation may have officially given authorization to third parties to represent it in certain ways; for example, at another corporation's AGM.
+
 Astonishingly, we have not been able to find a data model schema for a corporation. So here's one.
 ** Entities
 *** Primary Entity: Company
@@ -169,6 +198,8 @@ May be the estate, personal representative, attorney, etc, of a human being.
 
 Synonymous with a corporate person -- anything that is not a natural person. For example, an investment holding company may be a corporate shareholder.
 
+A trust is a case of Organization.
+
 *** Roles
 
 The following roles exist with-respect-to the Company.
@@ -192,11 +223,38 @@ Of a specific security.
 
 **** Investor Role                                                                      :general:
 
+Of some other security not defined above, e.g. SAFE.
+
 **** Member Role                                                            :SG:SG_CA50_20160103:
 
 Often synonymous with shareholder, but specifically defined as a person entitled to receive notices of meetings.
 
 Not tagged as global because the notion of a member may not be common outside Singapore jurisdiction.
+
+*** History
+
+**** AGM Dates
+
+**** EGM Dates
+
+*** Directors Resolutions
+
+*** Members Resolutions
+
+have attributions such as
+
+**** the /mode/ of resolution:
+***** Resolutions By Written Means
+***** by vote
+
+**** the /nature/ of resolution:
+
+***** ordinary
+***** special
+**** the /majority requirement/ for resolution:
+***** ordinary is usually 50%
+***** special is usually 75%
+***** but the constitution may specify a different number for the subject matter
 
 *** Entities Out of Scope                                                                :general:
 
@@ -1270,7 +1328,8 @@ newCTLrule party
 #+END_SRC
 
 
-** Standard ML** Exercise
+** Standard ML
+** Exercise
 *** Develop a formalism to represent the natural language text.
 **** what does the fully expressed language look like?
 **** what is the underlying language grammar?
