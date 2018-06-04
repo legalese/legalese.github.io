@@ -34,7 +34,7 @@ If you get stuck, ask for help on the Legalese slack chat.
 
 1. What if we could write contracts (and statutes) the way we do programs? (Not to mention compile, test, debug, and verify ... or even share and sell.)
 2. http://compk.stanford.edu/ articulates the vision.
-3. Harry Surden (2014) explains computable contracts on his blog ([[http://www.harrysurden.com/wordpress/archives/203][part 1]], [[http://www.harrysurden.com/wordpress/archives/230][part 2]]).
+3. Harry Surden (2014) explains computable contracts on his blog ([[http://www.harrysurden.com/wordpress/archives/203][part 1]], [[http://www.harrysurden.com/wordpress/archives/230][part 2]]) and in his [[https://drive.google.com/open?id=0BxOaYa8pqqSwc282bFFJYXF4SVU][paper]].
 4. Eventually, professional services will be provided around contract drafting. Wait -- law firms already do that! Except, by and large, without technology and tools. Automation is just the first step.
 5. Darmstadter, Precision's Counterfeit
 6. [[https://papers.ssrn.com/sol3/papers.cfm?abstract_id=332941][Why Contracts are written in 'Legalese', by Claire Hill]]
