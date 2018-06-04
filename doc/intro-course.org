@@ -201,6 +201,19 @@ You can start contributing to opensource libraries of contract code. Share your 
 - Visit [[https://drive.google.com/open?id=0BxOaYa8pqqSwbl9GMWtwVU5HSFU][CSL]] and POETS.
 - You should at least learn SQL.
 
+*** Dynamic Logic Programming and Logic Production Systems
+
+**** https://pdfs.semanticscholar.org/338b/4318636432299f218d5a702bb3936fc7681f.pdf
+
+**** Epilog
+- Epilog.stanford.edu
+- worksheets.stanford.edu
+- symbium
+
+**** LPS
+- lps.doc.ic.ac.uk
+- logicalcontracts.com
+
 *** The Be-All and End-All of Contract Languages
 
 **** Introduction to L4.
