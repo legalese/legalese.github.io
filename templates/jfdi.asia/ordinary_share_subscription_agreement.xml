@@ -83,11 +83,6 @@ shall be fully-paid by the Investor at the time of issue by the Company in accor
 <numbered_3_para>Where applicable, all necessary approvals and consents from all relevant governmental, regulatory or other authorities and third parties for the issue, allotment and subscription of the Subscription Shares having been obtained by the company on terms and conditions acceptable to the Investor and continuing to be in force;</numbered_3_para>
 <numbered_3_para>the Warranties remaining true and accurate as at Completion.</numbered_3_para>
 
-<b_left_sidehead>Non-Fulfilment/Waiver</b_left_sidehead>
-<numbered_3_para>In relation to Clause <xref to="conditions_precedent"/>, the Company shall use its best endeavours to ensure the satisfaction of the conditions set out therein however, should any eventuality arise to seek waiver, the Investor will grant the waivers sought for bona fide reasons.</numbered_3_para>
-<numbered_3_para>If any of the conditions contained in Clause <xref to="conditions_precedent"/> above have not been satisfied or waived, as the case may be, on or prior to the Completion Date, this Agreement shall then terminate and have no further effect (except for the Surviving Clauses which shall remain in full force and effect) and neither Party hereto shall be under any liability to any other Party in respect of this Agreement.</numbered_3_para>
-
-
 
 <a_left_sidehead xname="completion">Completion</a_left_sidehead>
 
@@ -101,12 +96,11 @@ shall be fully-paid by the Investor at the time of issue by the Company in accor
 
 <numbered_3_para>On Completion, the Company shall:</numbered_3_para>
  <numbered_4_para>deliver or cause to be delivered to the Investor:</numbered_4_para>
-  <numbered_5_para>certified true copies of the Board and shareholders' resolutions, approving (as applicable):</numbered_5_para>
+  <numbered_5_para>copies of the Board and shareholders' resolutions, approving (as applicable):</numbered_5_para>
    <numbered_6_para>the allotment and issue of the Subscription Shares to the Investor;</numbered_6_para>
-   <numbered_6_para>the entry of the name of the Investor in the register of members of the Company as the registered holder of the Subscription Shares;</numbered_6_para>
-   <numbered_6_para>the issue and delivery to the Investor of a share certificate for its number of Subscription Shares; and</numbered_6_para>
+   <numbered_6_para>the entry of the name of the Investor in the register of members of the Company as the registered holder of the Subscription Shares; and</numbered_6_para>
    <numbered_6_para>the execution by the Company of this Agreement.</numbered_6_para>
- <numbered_4_para>effect the allotment and issue of the Subscription Shares to the Investor, including the entry of the name of the Investor in the register of members of the Company as the registered holder of the Subscription Shares and the issue and delivery to the Investor of a share certificate for its number of Subscription Shares.</numbered_4_para>
+ <numbered_4_para>effect the allotment and issue of the Subscription Shares to the Investor, including the entry of the name of the Investor in the register of members of the Company as the registered holder of the Subscription Shares.</numbered_4_para>
 
 <numbered_3_para xname="completion_investor">On Completion, the Investor shall:</numbered_3_para>
 <?if(! data.previously_paid){?>
