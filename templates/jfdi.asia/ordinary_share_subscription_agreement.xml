@@ -42,7 +42,8 @@
 <definition_nonum>Other New Investors	means the parties thus identified in <xref to="new_investors" /> of <xref to="schedule_shareholding" />;</definition_nonum>
 <? }?>
 <definition_nonum>Shareholders	mean the shareholders for the time being of the Company;</definition_nonum>
-<definition_nonum>Shareholders' Agreement	means the Shareholders' Agreement dated <?= data.shareholders_agreement_date ?>;</definition_nonum>
+<?if(data.sha_exists){?>
+<definition_nonum>Shareholders' Agreement	means the Shareholders' Agreement dated <?= data.shareholders_agreement_date ?>;</definition_nonum><?}?>
 <definition_nonum>Subscription Price	has the meaning given to it in Clause <xref to="subscription_price"/>;</definition_nonum>
 <definition_nonum>Subscription Shares	means <?= data.new_investor.num_new_shares ?> <?= data.security_type_plural ?> to be subscribed by the Investor, and to be allotted and issued by the Company pursuant to Clause <xref to="terms_of_issue" /></definition_nonum>
 <definition_nonum>Surviving Clauses	means Clauses <xref to="indemnity" format="Paragraph Number (text)" />, <xref to="confidentiality" format="Paragraph Number (text)" />, and <xref to="medarb" format="Paragraph Number (text)" />.</definition_nonum>
