@@ -143,17 +143,17 @@ shall be fully-paid by the Investor at the time of issue by the Company in accor
  <?if(data.jfdi_investment_agreement_title){?>
  <numbered_5_para_fltab>the <?=data.jfdi_investment_agreement_title?>;</numbered_5_para_fltab><?}?>
  <?if(data._other_new_investors){?>
- <numbered_5_para_fltab>agreements, similar to this one, made with Other New Investors;</numbered_5_para_fltab><?}?>
- <numbered_5_para_fltab>the Shareholders' Agreement; and</numbered_5_para_fltab>
+ <numbered_5_para_fltab>agreements, similar to this one, made with Other New Investors;</numbered_5_para_fltab>
+ <?if(data.sha_exists){?>
+ <numbered_5_para_fltab>the Shareholders' Agreement;</numbered_5_para_fltab><?}?>
  <numbered_5_para_fltab>the Articles;</numbered_5_para_fltab>
 
+ <?if(!data.no_other_calls){?>
  <numbered_4_para_fl>immediately before Completion, no person <? if(data._other_new_investors){?>(except an Other New Investor) <?}?>has the right (whether exercisable now or in the future and whether contingent or not) to call for the allotment, issue, sale or transfer of any share or loan capital of the Company under any option or other agreement (including conversion rights), and there are no claims, charges, liens, equities or encumbrances on the shares of the Company;</numbered_4_para_fl>
-
+ <?}?>
 
  <c_left_sidehead>Supply of Information</c_left_sidehead>
  <numbered_4_para_fl>all information contained in this Agreement (including the information set out in Schedules) and all other information which has been given by or on behalf of the Company or by any of the directors, officials or professional advisers of the Company to any of the directors, officials or professional advisers of the Investor in the course of the negotiations leading to this Agreement was when given true, complete and accurate in all respects and the Company is not aware of any fact or matter or circumstances not disclosed in writing to the Investor which renders any such information untrue, inaccurate or misleading or the disclosure of which might reasonably affect the willingness of the Investor to purchase the Subscription Shares or the price at or terms upon which the Investor would be willing to purchase them;</numbered_4_para_fl>
-
- <numbered_4_para_fl>the copies of the Articles, the Shareholders' Agreement, the <?=data.other_agreement_title?>, and the <?=data.jfdi_investment_agreement_title?> delivered to the Investor are complete and accurate in all respects, and contain full details of the rights and restrictions attached to the share capital of the Company and have attached to them copies of all such resolutions and agreements as are required by law to be delivered to the Accounting and Corporate Regulatory Authority for filing and all other resolutions passed by the Company;</numbered_4_para_fl>
 
  <c_left_sidehead>Assets and Finance</c_left_sidehead>
  <numbered_4_para_fl>as at Completion, all charges and other security issued by the Company have been duly released and none of the assets of the Company is the subject of any option, right to acquire, assignment, mortgage, charge, lien or hypothecation or other encumbrance whatsoever (excepting only liens arising by operation of law in the normal course of trading) or the subject of any factoring arrangement, hire-purchase, conditional sale or credit sale agreement;</numbered_4_para_fl>
