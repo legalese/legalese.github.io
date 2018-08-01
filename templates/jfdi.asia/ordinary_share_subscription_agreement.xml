@@ -143,7 +143,7 @@ shall be fully-paid by the Investor at the time of issue by the Company in accor
  <?if(data.jfdi_investment_agreement_title){?>
  <numbered_5_para_fltab>the <?=data.jfdi_investment_agreement_title?>;</numbered_5_para_fltab><?}?>
  <?if(data._other_new_investors){?>
- <numbered_5_para_fltab>agreements, similar to this one, made with Other New Investors;</numbered_5_para_fltab>
+ <numbered_5_para_fltab>agreements, similar to this one, made with Other New Investors;</numbered_5_para_fltab><?}?>
  <?if(data.sha_exists){?>
  <numbered_5_para_fltab>the Shareholders' Agreement;</numbered_5_para_fltab><?}?>
  <numbered_5_para_fltab>the Articles;</numbered_5_para_fltab>
