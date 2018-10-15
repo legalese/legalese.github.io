@@ -1,5 +1,5 @@
 // move to https
-if (location.protocol != 'https:')
+if (location.protocol != 'https:' && ! location.href.match("http://localhost:"))
     {
 	location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
     }

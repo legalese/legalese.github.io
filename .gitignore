@@ -3,3 +3,5 @@
 experimental
 build
 _site/
+Icon*
+.DS_Store
