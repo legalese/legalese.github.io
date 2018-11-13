@@ -302,6 +302,8 @@ https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1288689
 
 **** Call-Outs to Oracles.
 
+**** Integration with Blockchain-based automated execution environments
+
 
 
 *** Advanced L4
