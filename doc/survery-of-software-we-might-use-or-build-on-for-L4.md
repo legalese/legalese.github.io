@@ -1,5 +1,7 @@
 _FV_ abbreviates Formal Verification. _MC_ abbreviates Model Checker.
 
+If you're new to formal methods, see also [A Feature-Based Classification of Formal Verification Techniques for Software Models](https://drive.google.com/open?id=18_S3XW2G2a6F_hjumON8TZCDwnXm1cmI) for an outline of the different approaches.
+
 # Model Checking 
 
 ## Friendly license

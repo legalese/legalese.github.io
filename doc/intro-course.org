@@ -344,6 +344,8 @@ We review the above projects in more detail.
 
 ** Use Case: terms of service, privacy policies
 
+- investment agreements. debt and equity. convertibles.
+- procedural regulatory compliance. directors, members, resolutions, preemptive notices.
 - [[https://en.wikipedia.org/wiki/Creative_Commons_Rights_Expression_Language][ccREL]] ([[https://www.w3.org/Submission/ccREL/][w3c]])
 - [[https://www.w3.org/community/odrl/][ODRL]]
 - http://uterms.software/
@@ -359,7 +361,7 @@ We review the above projects in more detail.
 - http://www.omg.org/spec/CMMN/index.htm
 - http://www.omg.org/spec/DMN/
 - https://www.slideshare.net/dgagne/bpmncmmndmn-an-intro-to-the-triple-crown-of-process-improvement-standards-denis-gagne
-- [[https://en.wikipedia.org/wiki/Object_Constraint_Language][OCL]] is part of [[https://en.wikipedia.org/wiki/Unified_Modeling_Language][UML]]; see [[https://orbilu.uni.lu/bitstream/10993/15339/1/oclr-report.pdf][OCLR]] for temporals
+- [[https://en.wikipedia.org/wiki/Object_Constraint_Language][OCL]] is part of [[https://en.wikipedia.org/wiki/Unified_Modeling_Language][UML]]; see [[https://orbilu.uni.lu/bitstream/10993/15339/1/oclr-report.pdf][OCLR]] for temporals. See [[https://drive.google.com/open?id=1-8J77Z89gQEYJg7fh_rbFE8fT2eYOWxy][an authoring tool for informal and formal requirements]]
 - conversion of BPMN to natural language: see [[http://www.henrikleopold.com/publications/][Henrik Leopold]]'s [[http://www.henrikleopold.com/downloads/][software]].
 
 ** Introduction to Semantic Web
@@ -391,14 +393,21 @@ e.g. the representation of time: http://ceur-ws.org/Vol-1875/paper2.pdf
   - spacy.io
   - https://bitbucket.org/coherentknowledge/ergonlp
   - https://www.lexpredict.com/2017/07/03/open-sourcing-contract-analytics-platform/
-  - prolog.
-- Natural Language Generation.
-- Text Planning.
+  - historical approaches: prolog. contractexpress.
 - Introduction to Grammatical Framework.
+  - grammaticalframework.org
+- Natural Language Generation.
+  - http://www.molto-project.eu/biblio/deliverable/ace-grammar-library
+  - http://attempto.ifi.uzh.ch/site/resources/
+  - https://github.com/Attempto/ACE-in-GF
+- Text Planning.
+  - docassemble; hub.clerical.ai
 - https://amr.isi.edu/index.html
 - framenet, wordnet, etc.
   - https://framenet2.icsi.berkeley.edu/fnReports/data/frameIndex.xml?frame=Required_event
   - https://framenet2.icsi.berkeley.edu/fnReports/data/frameIndex.xml?frame=Desirable_event
+- bringing it all together
+  - john camilleri's phd thesis
 
 ** Introduction to Mathematical Logic
 
@@ -432,7 +441,7 @@ e.g. the representation of time: http://ceur-ws.org/Vol-1875/paper2.pdf
 
 ** Model Checking
 
-- Model Checking. CTL* and LCTL. Uppaal. Alloy. [[https://yurichev.com/writings/SAT_SMT_draft-EN.pdf][SAT/SMT]]. [[http://smtlib.cs.uiowa.edu/language.shtml][SMTLIB2]]. Z3.
+- Model Checking. CTL* and LCTL. [[http://smtlib.cs.uiowa.edu/language.shtml][SMTLIB2]]. Z3. TLA+. Alloy. IVy. Uppaal. NuSMV. [[https://yurichev.com/writings/SAT_SMT_draft-EN.pdf][SAT/SMT]].
 - VTSA summer school: http://resources.mpi-inf.mpg.de/departments/rg1/conferences/vtsa17/index.html
 - SAT/SMT summer school: http://www.sc-square.org/CSA/school/programme.html
 - FormaLex
@@ -441,7 +450,11 @@ e.g. the representation of time: http://ceur-ws.org/Vol-1875/paper2.pdf
 
 - Introduction to Contract Law.
 - The Clause Construct.
-- The Interpretation Combinator.
+- Definitions.
+- The Interpretation Combinator: Definitions for the purpose of a context.
+- Legal idioms.
+- Ambiguity vs vagueness.
+- Oracles: calling the expert witness forward in time.
 - Extending the core language with subdomain expression languages.
 
 
