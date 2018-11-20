@@ -30,6 +30,21 @@ If you get stuck, ask for help on the Legalese slack chat.
 
 * Volume 1 (two days) -- Background Survey
 
+** input from Dustin:
+-Alexis’s video presentation
+-Meng’s video presentation
+-Precision’s Counterfeit
+-Why Contracts are Written in Legalese (which I’m currently reading. reading things by lawyers is such a pleasure in comparison to computer scientists.)
+-Meng’s book chapter
+-Wolfram’s article? 
+-Somthing by Nick Szabo
+-Innovator’s Solution (somebody send me an epub)
+-Mapping Technique
+-Adams book
+-For people with a STEM background, Cook’s notes on logic
+-First x sections of my thesis
+-Z3 tutorial, because I think it’s a good intro to SMT.
+
 ** Motivation and Explication
 
 1. What if we could write contracts (and statutes) the way we do programs? (Not to mention compile, test, debug, and verify ... or even share and sell.)
