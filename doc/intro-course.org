@@ -30,20 +30,6 @@ If you get stuck, ask for help on the Legalese slack chat.
 
 * Volume 1 (two days) -- Background Survey
 
-** input from Dustin:
--Alexis’s video presentation
--Meng’s video presentation
--Precision’s Counterfeit
--Why Contracts are Written in Legalese (which I’m currently reading. reading things by lawyers is such a pleasure in comparison to computer scientists.)
--Meng’s book chapter
--Wolfram’s article? 
--Somthing by Nick Szabo
--Innovator’s Solution (somebody send me an epub)
--Mapping Technique
--Adams book
--For people with a STEM background, Cook’s notes on logic
--First x sections of my thesis
--Z3 tutorial, because I think it’s a good intro to SMT.
 
 ** Motivation and Explication
 
@@ -51,7 +37,20 @@ If you get stuck, ask for help on the Legalese slack chat.
 2. http://compk.stanford.edu/ articulates the vision.
 3. Harry Surden (2014) explains computable contracts on his blog ([[http://www.harrysurden.com/wordpress/archives/203][part 1]], [[http://www.harrysurden.com/wordpress/archives/230][part 2]]).
 4. Eventually, professional services will be provided around contract drafting. Wait -- law firms already do that! Except, by and large, without technology and tools. Automation is just the first step.
-5. One premise of the approach in this course is that the CS field of [[https://en.wikipedia.org/wiki/Formal_verification][Formal Verification]] has much to offer.
+5. Darmstadter's [[https://drive.google.com/open?id=0B8axPLLxhjQFWGc0ellBYTF3RnM][Precision's Counterfeit]] angsts about the problem from the point of view of a lawyer.
+6. One premise of the approach in this course is that the CS field of [[https://en.wikipedia.org/wiki/Formal_verification][Formal Verification]] has much to offer. In Sep 2017 the Atlantic Magazine discussed how FV could save the world from [[https://www.theatlantic.com/technology/archive/2017/09/saving-the-world-from-code/540393/][The Coming Software Apocalypse]].
+
+** Some context
+
+- [[https://drive.google.com/open?id=0BxOaYa8pqqSwM2o1ZDNaTno2MXM][Why Contracts Are Written In Legalese, by Claire Hill]]
+- [[https://blog.stephenwolfram.com/2016/10/computational-law-symbolic-discourse-and-the-ai-constitution/][Computational Law, Symbolic Discourse and the AI Constitution]] by Stephen Wolfram, Oct 12 2016
+- [[https://www.amazon.com/Manual-Style-Contract-Drafting/dp/1634259645/][A Manual of Style for Contract Drafting]] by Ken Adams, now in its fourth edition, offers uncanny parallels to [[https://www.amazon.com/Elements-Programming-Style-2nd/dp/0070342075/][style guides in programming]].
+
+** What Legalese Thinks, in slides and videos
+
+- https://rossintelligence.com/author/alexis/
+- https://goo.gl/1e8Hpc -- see the speaker notes for the voice track
+- [[https://docs.google.com/presentation/d/1puQ_kEQn5kGM75a0teZDqUQr4BAMTot8ttO-YYCdp84/edit#slide=id.p][Legalese's startup pitch deck]] envisions the commercial opportunity for a business audience; the door is wide open for a classic [[https://www.amazon.com/Innovators-Solution-Creating-Sustaining-Successful-ebook/dp/B00E257S7C][Christensen disruption]]. The industry can be mapped using [[http://wardleypedia.org/mediawiki/index.php/Wardley_Mapping][Wardley maps]].
 
 ** A Quick Survey of Prior Art in Computable Contracts
 
@@ -61,7 +60,7 @@ The three most important readings are marked *IMPORTANT* below. If you print any
 
 Computable contracts is a narrow segment of computational law, which goes back over 30 years. For a sense of the larger field, see [[https://www.researchgate.net/publication/259872879_The_TAXMAN_Project_Towards_a_Cognitive_Theory_of_Legal_Argument][the contents page of Computer Science and Law]] (1979), [[https://drive.google.com/open?id=0BxOaYa8pqqSwNWg4d1lsSGJnSVE][the ICAIL retrospective]] (2012), and [[https://drive.google.com/open?id=0BxOaYa8pqqSwNFlaNEUzd1d3RGc][slides from the intro to AI & Law workshop at ICAIL 2017]].
 
-Meng gave [[https://docs.google.com/presentation/d/1qP7Immmo51Rik9X96KmyZPLi2zC2mGQSTgsWccq3wNA/edit#slide=id.g228038fb28_0_3][a presentation covering some of this material]] at CodeX on 2017-09-09.
+Meng gave [[https://docs.google.com/presentation/d/1qP7Immmo51Rik9X96KmyZPLi2zC2mGQSTgsWccq3wNA/edit#slide=id.g228038fb28_0_3][a presentation covering some of this material]] at CodeX on 2017-09-09. The novel version of that movie is available at https://github.com/legalese/complaw-deeptech/blob/master/doc/chapter-201707.org ([[http://legalese.github.io/doc/chapter-201707.html][HTML version]]).
 
 *** American Work
 
@@ -350,6 +349,10 @@ When you attend academic conferences about law and logic, you will be able to fo
 - How to be a Genius (vs a Consultant), with thanks to ed kmett.
 - three generations of document assembly
 
+** Prior Art: people you might come across
+
+- [[https://drive.google.com/open?id=0BxOaYa8pqqSwNXUxQ2VPdHZHMVU][Dustin Wehr's PhD thesis]]
+
 ** Prior Art: Computational Law Projects
 
 We review the above projects in more detail.
@@ -429,6 +432,7 @@ e.g. the representation of time: http://ceur-ws.org/Vol-1875/paper2.pdf
 ** Introduction to Mathematical Logic
 
 - [[http://repository.cmu.edu/cgi/viewcontent.cgi?article=1923&context=compsci][On the Unusual Effectiveness of Logic in Computer Science]]
+- https://www.cs.toronto.edu/~sacook/csc438h/
 - Predicate Logic.
 - Modal logics. Kripke structures. Deontic, Epistemic, Temporal, Dynamic Logics.
 - Standard Deontic Logic and its paradoxes.
@@ -458,7 +462,7 @@ e.g. the representation of time: http://ceur-ws.org/Vol-1875/paper2.pdf
 
 ** Model Checking
 
-- Model Checking. CTL* and LCTL. [[http://smtlib.cs.uiowa.edu/language.shtml][SMTLIB2]]. Z3. TLA+. Alloy. IVy. Uppaal. NuSMV. [[https://yurichev.com/writings/SAT_SMT_draft-EN.pdf][SAT/SMT]].
+- Model Checking. CTL* and LCTL. [[https://ericpony.github.io/z3py-tutorial/guide-examples.htm][Z3 (in Python) -- this is a recommended tutorial intro to SMT]]. [[http://smtlib.cs.uiowa.edu/language.shtml][SMTLIB2]]. [[https://www.amazon.com/Practical-TLA-Planning-Driven-Development-ebook/dp/B07FMHX7M2/][TLA+]]. Alloy. IVy. Uppaal. NuSMV. [[https://yurichev.com/writings/SAT_SMT_draft-EN.pdf][SAT/SMT]].
 - VTSA summer school: http://resources.mpi-inf.mpg.de/departments/rg1/conferences/vtsa17/index.html
 - SAT/SMT summer school: http://www.sc-square.org/CSA/school/programme.html
 - FormaLex
