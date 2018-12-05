@@ -54,8 +54,8 @@ You'll need to have Git on your computer to work on our files.
 git is /usr/local/bin/git
 ```
 5. Congratulations, you have Git. If you don't, you won't see any message like the above printed out, and instead your cursor will travel to the next line with no output.
-   a. In this case, visit [Git](https://git-scm.com/), which should have a Download For Mac button somewhere near the bottom right. Follow the instructions from the installer.
-   b. Quit your Terminal with Command + Q, and open it again. When you run `which git`, it should show you the message printed above.
+    a. In this case, visit [Git](https://git-scm.com/), which should have a Download For Mac button somewhere near the bottom right. Follow the instructions from the installer.
+    b. Quit your Terminal with Command + Q, and open it again. When you run `which git`, it should show you the message printed above.
    
 ### For Windows users:
 
@@ -87,8 +87,8 @@ I recommend [Atom](https://atom.io/), because it's fuss free. Go download and in
 1. Navigate to the correct repository. As an example, we're going to use the repository that contains code for Legalese's website: [legalese.github.io](https://github.com/legalese/legalese.github.io).
 2. On the right-hand-side of the screen, there should be a bright green button that says Clone or download. Click it.
 3. A little popup should be displayed.
-   a. Does the title say Clone with SSH? Copy the text in the field, which should look like this: `git@github.com:legalese/legalese.github.io.git`
-   b. Does the title say Clone with HTTPS? The text in the field is not what we want. Click on Use SSH in the top right hand corner of the popup, and follow step 3a.
+    a. Does the title say Clone with SSH? Copy the text in the field, which should look like this: `git@github.com:legalese/legalese.github.io.git`
+    b. Does the title say Clone with HTTPS? The text in the field is not what we want. Click on Use SSH in the top right hand corner of the popup, and follow step 3a.
 4. Go back to your Terminal window. Type `git clone `, and press Command + V to paste the copied text from step 3a. Press Enter.
 5. There should be some 1337 goings-on in your Terminal that tells you something is cloning something. Enjoy the show, it's going to take a while for this repository (there's a lot of images). Feel free to alt-tab out and do something else.
 6. After two minutes or so, go back to your Terminal window. There should be a `done` somewhere. If there isn't, `git` isn't done. If there is, you've just cloned (downloaded) our website code!
@@ -111,22 +111,22 @@ How do you make a pull request?
 
 1. To prevent changes you make from affecting our code before we accept it, we use the power of Git, and the idea of [branches](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging). Essentially you work on a separate version of the code and make changes there. When you submit a pull request, we can see the changes you've made, and if we approve it, we can merge your changes back into the `master` branch - the canon.
 2. For contributors, you'll be working on the `contributors` branch. Go back to your Terminal window, and go back to your `legalese.github.io` folder.
-   a. If you can't find it, run `cd`. Then run `ls`. These two steps made you go back to your root directory (which is the Home folder on Mac/User folder on Windows), which contains your `legalese.github.io` repository. Then run `cd legalese.github.io`. You're now in your local copy of the repository.
+    a. If you can't find it, run `cd`. Then run `ls`. These two steps made you go back to your root directory (which is the Home folder on Mac/User folder on Windows), which contains your `legalese.github.io` repository. Then run `cd legalese.github.io`. You're now in your local copy of the repository.
 3. Run `git status`. It should say something like `on branch master`. This is holy canon. Do not make changes to the holy canon. Make changes to the `contributors` branch.
 4. To switch branches, run `git checkout contributors`. `git checkout` tells git to switch branches to the argument coming afterward, which in our case will be `contributors`.
-   a. Is there an error which tells you that Git can't find a branch called `contributors`? It's @jobchong's fault. Email him at jobchong@gmail.com, or message him on Slack. He will create the branch for you to work on. Feel free to snigger at his incompetence.
+    a. Is there an error which tells you that Git can't find a branch called `contributors`? It's @jobchong's fault. Email him at jobchong@gmail.com, or message him on Slack. He will create the branch for you to work on. Feel free to snigger at his incompetence.
 5. Once you've checked out `contributors`, you need to run `git pull`. This _pulls_ the latest changes to the code from GitHub.
 6. Then run `git rebase master`. This bases the `contributors` branch on the `master` branch, which keeps it up to date on the latest holy canon.
 7. Open up your text editor, and make whatever changes necessary. Save your changes.
 8. We're now going to make a commit - essentially a note in the history of the repository that says, at this date, Contributor made this changes.
-8. Go back to your Terminal window. Run `git add .`. This tells Git to notice all your changes and add them to the commit you're about to make.
-9. Type `git commit -am `, and after that space type in your _commit message_. Keep it short and sweet and as descriptive as possible: for example, 'Corrected typos in the LegalTech Industry section'. Press Enter.
-10. Run `git push origin contributors`. A `git push` tells Git to _push_ your changes to GitHub, so that other people can see them and include them in their work too.
-	a. If this is your first time running `git push`, you need to run `git push -u origin contributors` instead.
-11. Go to the `legalese.github.io` repository on the GitHub website. Click New pull request.
-12. Click on the compare: box to the right, and select the contributors branch.
-13. The title of the pull request should be automatically your commit message. Feel free to change it if you like. Add a description if it helps to describe what you did. On the right, select the relevant reviewers based on whoever gave you the task to do.
-14. Click Create pull request. You're done! We'll review your changes and get back to you (if there's something we'd like you to change) or accept the pull request (if you did great).
+9. Go back to your Terminal window. Run `git add .`. This tells Git to notice all your changes and add them to the commit you're about to make.
+10. Type `git commit -am `, and after that space type in your _commit message_. Keep it short and sweet and as descriptive as possible: for example, 'Corrected typos in the LegalTech Industry section'. Press Enter.
+11. Run `git push origin contributors`. A `git push` tells Git to _push_ your changes to GitHub, so that other people can see them and include them in their work too.
+    a. If this is your first time running `git push`, you need to run `git push -u origin contributors` instead.
+12. Go to the `legalese.github.io` repository on the GitHub website. Click New pull request.
+13. Click on the compare: box to the right, and select the contributors branch.
+14. The title of the pull request should be automatically your commit message. Feel free to change it if you like. Add a description if it helps to describe what you did. On the right, select the relevant reviewers based on whoever gave you the task to do.
+15. Click Create pull request. You're done! We'll review your changes and get back to you (if there's something we'd like you to change) or accept the pull request (if you did great).
 
 #*IMPORTANT*
 
