@@ -128,7 +128,7 @@ How do you make a pull request?
 14. The title of the pull request should be automatically your commit message. Feel free to change it if you like. Add a description if it helps to describe what you did. On the right, select the relevant reviewers based on whoever gave you the task to do.
 15. Click Create pull request. You're done! We'll review your changes and get back to you (if there's something we'd like you to change) or accept the pull request (if you did great).
 
-#*IMPORTANT*
+# *IMPORTANT*
 
 Your basic workflow every time you make changes is steps 4 to 14 above. You will execute every single step in sequence.
 
