@@ -58,7 +58,7 @@ Ready to add some tabs to your browser?
 
 The three most important readings are marked *IMPORTANT* below. If you print anything, print those. Skim everything else, but read those.
 
-Computable contracts is a narrow segment of computational law, which goes back over 30 years. For a sense of the larger field, see [[https://www.researchgate.net/publication/259872879_The_TAXMAN_Project_Towards_a_Cognitive_Theory_of_Legal_Argument][the contents page of Computer Science and Law]] (1979), [[https://drive.google.com/open?id=0BxOaYa8pqqSwNWg4d1lsSGJnSVE][the ICAIL retrospective]] (2012), and [[https://drive.google.com/open?id=0BxOaYa8pqqSwNFlaNEUzd1d3RGc][slides from the intro to AI & Law workshop at ICAIL 2017]].
+Computable contracts is a narrow segment of computational law, which goes back over 30 years. For a sense of the larger field, see [[https://www.researchgate.net/publication/259872879_The_TAXMAN_Project_Towards_a_Cognitive_Theory_of_Legal_Argument][the contents page of Computer Science and Law]] (1979), [[https://drive.google.com/open?id=0BxOaYa8pqqSwNWg4d1lsSGJnSVE][the ICAIL retrospective]] "A History of AI and Law in 50 papers" (2012), and [[https://drive.google.com/open?id=0BxOaYa8pqqSwNFlaNEUzd1d3RGc][slides from the intro to AI & Law workshop at ICAIL 2017]].
 
 Meng gave [[https://docs.google.com/presentation/d/1qP7Immmo51Rik9X96KmyZPLi2zC2mGQSTgsWccq3wNA/edit#slide=id.g228038fb28_0_3][a presentation covering some of this material]] at CodeX on 2017-09-09. The novel version of that movie is available at https://github.com/legalese/complaw-deeptech/blob/master/doc/chapter-201707.org ([[http://legalese.github.io/doc/chapter-201707.html][HTML version]]).
 
@@ -485,5 +485,7 @@ After mastering the above subjects, pick an advanced topic and dive in. You may 
 
 - Temporal Issues in Legislative Versioning. Computing legality over time. Introduction to bitemporal databases. Applications to legal scenarios.
 - [[http://www.springer.com/gp/book/9783319195742][Logic in the Theory and Practice of Lawmaking]]: textbook. Pre-CS legal scholarship. Legal formalism vs legal realism. Types of rules. Complete vs Incomplete Contracts. Allocation of decision rights under uncertainty: I cut, you choose.
+- https://bargaininggame.wordpress.com/2015/08/23/are-there-constitutive-rules/
+- http://lps.doc.ic.ac.uk/
 - NLG: Contract drafting. Ken Adams. Tina Stark. Quill. Text planning. [[https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2932333][Interpretive caveats]].
 
