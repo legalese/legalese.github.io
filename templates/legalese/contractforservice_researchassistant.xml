@@ -303,7 +303,7 @@ TL;DR IANAL
 <b_left_sidehead_nonum>Notices</b_left_sidehead_nonum>
 
 <numbered_2_para>Notices under this Contract shall be given in writing via the Parties' respective email addresses (or such other address as Parties may notify the other in writing):-</numbered_2_para>
-<para_2>the <b>Contractor</b> at <u><?= data.contractor_email ?></u></para_2>
+<para_2>the <b>Contractor</b> at <u><?= data.contractor.email ?></u></para_2>
 <para_2>the <b>Company</b> at <u><?= data.contract_email ?></u></para_2>
 
 <numbered_2_para>Any notices given in accordance with this Contract shall be deemed to have been served on the day on which such notice was successfully delivered via email.</numbered_2_para>
