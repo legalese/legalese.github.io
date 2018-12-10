@@ -284,7 +284,7 @@ https://www.youtube.com/watch?v=x1LFbDQhbso
 
 http://www.grammaticalframework.org/~aarne/ud-gf-malta-2017.pdf
 
-
+See [[https://drive.google.com/open?id=0BxOaYa8pqqSwcGR2TjJLQ0VROE0][Translating Formal Software Specifications to Natural Language]]
 
 ***** English Output
 
@@ -381,7 +381,7 @@ We review the above projects in more detail.
 - http://www.omg.org/spec/CMMN/index.htm
 - http://www.omg.org/spec/DMN/
 - https://www.slideshare.net/dgagne/bpmncmmndmn-an-intro-to-the-triple-crown-of-process-improvement-standards-denis-gagne
-- [[https://en.wikipedia.org/wiki/Object_Constraint_Language][OCL]] is part of [[https://en.wikipedia.org/wiki/Unified_Modeling_Language][UML]]; see [[https://orbilu.uni.lu/bitstream/10993/15339/1/oclr-report.pdf][OCLR]] for temporals. See [[https://drive.google.com/open?id=1-8J77Z89gQEYJg7fh_rbFE8fT2eYOWxy][an authoring tool for informal and formal requirements]]
+- [[https://en.wikipedia.org/wiki/Object_Constraint_Language][OCL]] is part of [[https://en.wikipedia.org/wiki/Unified_Modeling_Language][UML]]; see [[https://orbilu.uni.lu/bitstream/10993/15339/1/oclr-report.pdf][OCLR]] for temporals. See [[https://drive.google.com/open?id=1-8J77Z89gQEYJg7fh_rbFE8fT2eYOWxy][an authoring tool for informal and formal requirements]]. See [[https://www.revolvy.com/page/Unified-Modeling-Language][introduction to UML by Revolvy]].
 - conversion of BPMN to natural language: see [[http://www.henrikleopold.com/publications/][Henrik Leopold]]'s [[http://www.henrikleopold.com/downloads/][software]].
 
 ** Introduction to Semantic Web
