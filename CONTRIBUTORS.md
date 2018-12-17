@@ -33,7 +33,7 @@ So you'll need an account to start contributing changes to our code!
 
 ### b. Get access to Legalese's organisation.
 
-1. Sign up, blah blah, see private repos.
+1. Email jobchong@gmail.com or ping him on #ikm on Slack to add you as a contributor. You'll need that particular role to make changes to our code later.
 
 # Cool, I can see what you guys did. How do I actually make changes?
 
