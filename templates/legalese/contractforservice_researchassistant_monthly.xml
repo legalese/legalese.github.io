@@ -86,7 +86,9 @@ TL;DR IANAL
     <definition>Effective Date	means the later of (i) the earliest date on which all Parties have executed this Contract, and (ii) <?= data.alternative_effective_date ?>;</definition>
     <definition>Engagement Term	means the term of <?= data.engagement_term ?> commencing on the Effective Date --- where applicable, shall include such term as extended in accordance with Clause <xref to="Extension" /> below --- and unless terminated under this Contract, shall last till the term (including any extended term if applicable) expires under this Contract;</definition>
     <definition>Fees	means the fees payable by the Company to the Contractor as set out under Clause <xref to="Fees" />, for the Contractor's provision and/or performance of the Services;</definition>
+<!-- only for hourly
     <definition>Fees Cap	has the meaning ascribed to it under Clause <xref to="Fees Cap" />;</definition>
+<-->
     <definition>Finance Request Form 	 means the google form at <i>http://bit.ly/2ElyUzX</i>;</definition>
     <definition>GitHub	means the Company's repositories at <i><?= data.company.github_url ?></i> and such other (i) repositories, (ii) derivative repositories, and/or (iii) associated repositories which the Company uses or directs the Contractor to;</definition>
     <definition>Information	means information and data (whether recorded or not, and if recorded, in whatever form on whatever media);</definition>
@@ -159,10 +161,10 @@ Only relevant for individual Service Requests.
   
 <!--Consideration tells you what is being exchanged between the parties-->
 <a_left_sidehead>Compensation &amp; payment terms</a_left_sidehead>
-<numbered_2_para xname="Fees"><b>Hourly Rate</b></numbered_2_para>
+<numbered_2_para xname="Fees"><b>Monthly Rate</b></numbered_2_para>
 
 <!-- Could be monthly payment -->
-<numbered_3_para>During the Engagement Term, in consideration of the fees payable at a <b>monthly</b> rate of <b><?= data.monthly_fees ?></b> ("<b>Fees</b>") to be paid by the Company to the Contractor, the Contractor agrees to provide to and/or perform for the Company, the Services - as an independent contractor - in accordance with this Contract.</numbered_3_para>
+<numbered_3_para>During the Engagement Term, in consideration of the fees payable at a <b>monthly</b> rate of <b><?= data.monthly_fees ?></b> ("<b>Fees</b>") to be paid by the Company to the Contractor, the Contractor agrees to provide to and/or perform for the Company, the Services -- as an independent contractor -- in accordance with this Contract.</numbered_3_para>
 
 <!-- Hourly Rate -->
 <!-- <numbered_3_para>During the Engagement Term, the Services performed by the Contractor as an independent contractor under each accepted Service Request shall be performed at the rate of <b><?= data.fees ?></b> per <b>hour</b> in accordance with this Contract and the relevant Service Request.</numbered_3_para>
