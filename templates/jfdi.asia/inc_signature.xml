@@ -2,8 +2,7 @@
   if (data._include.party_type == "company" && data._include.signatory_name != undefined && data._include.signatory_name.length ) { rows.splice(2,0,["signatory_name"]); }
   if (data._include.party_type == "company" && data._include.signatory_role != undefined && data._include.signatory_role.length ) { rows.splice(2,0,["signatory_role"]); }
   var signature_comment = data.signature_comment || data._include.signature_comment;
-  var rowcount = rows.length;
-  if (signature_comment != undefined) { rowcount++ }
+  var rowcount = rows.length + (signature_comment ? 1 : 0);
 ?>
 <table_enclosing_para class="signatureblock" unmailed="<?= data._include._unmailed ?>"<? if(data._include._unmailed) { ?><?!= " esnum=\"" + data._include._es_num + "\"" ?><? } ?>
 <? if (data._include2 && data._include2.no_addnewline) { ?> addnewline="false"<? } ?>
