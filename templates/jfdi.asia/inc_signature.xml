@@ -13,6 +13,6 @@
 rows[i] != undefined ? rows[i].map(function(r){return data._include[r]}).join(" ") : ""
 ?><? if (i==1) { ?></span_ucnum><? } ?></cell></Cell>
 <? } if (signature_comment != undefined) { ?>
-<!-- signature_comment --><Cell aid:ccols="1" aid:ccolwidth="150" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell><?= signature_comment ?></cell></Cell>
+<!-- signature_comment --><Cell aid:ccols="1" aid:ccolwidth="150" aid:crows="1" aid:table="cell" aid5:cellstyle="border_r"><cell><?!= signature_comment ?></cell></Cell>
 <? } ?>
 </Table></table_enclosing_para>
