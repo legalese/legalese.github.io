@@ -90,7 +90,7 @@ TL;DR IANAL
     <definition>Fees Cap	has the meaning ascribed to it under Clause <xref to="Fees Cap" />;</definition>
 <-->
     <definition>Finance Request Form 	 means the google form at <i>http://bit.ly/2ElyUzX</i>;</definition>
-    <definition>GitHub	means the Company's repositories at <i><?= data.company.github_url ?></i> and such other (i) repositories, (ii) derivative repositories, and/or (iii) associated repositories which the Company uses or directs the Contractor to;</definition>
+    <definition>GitHub	means the Company's repositories at <i><?= data.company.github_url ?></i> and such other repositories, including derivative repositories, and associated repositories which the Company uses or directs the Contractor to;</definition>
     <definition>Information	means information and data (whether recorded or not, and if recorded, in whatever form on whatever media);</definition>
     <definition>Rights	means (i) trade marks, service marks, registered designs, trade and business names (including domain names and email address names), unregistered trade marks and service marks, copyrights, database rights, know-how, rights in designs, and patents; (ii) applications of and for any of each of the rights described under (i) of this definition in whatever form on whatever media (including computer output, computer program, web application and web service); (iii) rights under licenses, consents, orders, statutes, or otherwise in relation to a right described under (i) and (ii) of this definition; and (iv) rights of the same or similar effect or nature as, or to those rights described in this definition;</definition>
     <definition>Services	has the meaning set out under Clause <xref to="Services"/>;</definition>
@@ -118,13 +118,13 @@ TL;DR IANAL
 
 <a_left_sidehead xname="Services">Services</a_left_sidehead>
 <!-- TODO: at some point we should automate these into the form so that they can be easily replaced for different roles. The input should bear in mind the context in which the services will be described-->
-<numbered_2_para>"<b>Services</b>" means the following activities to be performed by the Contractor on a non-exclusive basis --- specifically in the role of <b><?= data.role ?></b> for the purposes of the Business --- during the Engagement Term:-</numbered_2_para>
+<numbered_2_para>"<b>Services</b>" means at least four of the following enumerated activities to be performed by the Contractor on a non-exclusive basis --- specifically in the role of <b><?= data.role ?></b> for the purposes of the Business --- during the Engagement Term:-</numbered_2_para>
 <numbered_3_para><b>natural language generation</b>, where the Contractor shall deliver a module that, given the abstract syntax tree interpreted from the program or specification coded in the Company's domain-specific language ("<b>L4</b>"), interfaces with the grammaticalframework.org API to produce natural language output that matches the sample contracts and quasi-legal documentation that Contractor will be given;
-<b>automated template extraction and execution modelling</b>, where the Contractor shall automate the process for importing and integrating new template suites for the Company's web app, and write software that first constructs the computed directed acyclic graph ("<b>DAG</b>") abstractly, then visualizes the DAG concretely using graphviz dot first, and then (if time permits, and after discussion with the rest of the research team) D3;
-<b>refactoring the web app in preparation for L4</b>, where the Contractor shall create and document an architectural design for the next iteration of the Company's web app which integrates L4 technology for document assembly and signature management;
-<b>modelling the company and its rules</b>, where the Contractor shall produce a model of a Singapore Pte. Ltd. company (including its constitution, shareholders, directors, officers, contractual counterparties, history of resolutions, and granted powers) and model a subset of the rules that govern it for the purposes of corporate transactions as communicated by the Company to the Contractor;
+<b>automated template extraction and execution modelling</b>, where the Contractor shall automate the process for importing and integrating new template suites for the Company's web application, and write software that first constructs the computed directed acyclic graph ("<b>DAG</b>") abstractly, then visualizes the DAG concretely using graphviz dot first, and then (if time permits, and after discussion with the rest of the research team) D3;
+<b>refactoring the web application in preparation for L4</b>, where the Contractor shall create and document an architectural design for the next iteration of the Company's web application which integrates L4 technology for document assembly and signature management;
+<b>modelling the company and its rules</b>, where the Contractor shall produce a model of a Singapore private limited company (including its constitution, shareholders, directors, officers, contractual counterparties, history of resolutions, and granted powers) and model a subset of the rules that govern it for the purposes of corporate transactions communicated by the Company to the Contractor;
 <b>computing state transitions of a company</b>, where the Contractor shall, first, specify a program that, given a <i>(before,after)</i> tuple of nodes in the state space of a company, and a set of rules that define legal and illegal state transitions, computes the set of legal state transition paths from the before node to the after node; second, using verification techniques, prove that this program is bug-free and will not violate given rules, and  refine the program specification to working code in an implementation language such as OCaml, Scala, Haskell, or Python;
-<b>modelling and visualising the cap table of the company</b>, where the Contractor shall devise and implement a way to model and visualise a company's cap table on the Company's web app; and
+<b>modelling and visualising the cap table of the company</b>, where the Contractor shall devise and implement a way to model and visualise a company's cap table on the Company's web application; and
 such other issues and/or milestones as may be set out at <span_smallcaps>GitHub</span_smallcaps>, <span_smallcaps>Slack</span_smallcaps>, email, and such other means and systems suggested by the Company for requirements management, issue tracking, document management, source control, and other support or development functions, and in each case within any timeframes specified therein</numbered_3_para>
 
 <para_1>(collectively, the "<b>Services</b>").</para_1>
@@ -140,14 +140,14 @@ TODO: at some point we should automate these into the form so that they can be e
 <numbered_3_para>The Contractor may choose to accept multiple Service Requests, but shall be solely responsible for managing zir time, effort, and priorities to ensure that each Service Request can be fulfilled and performed on time and in accordance with the specifications.</numbered_3_para>
 -->
 
-<numbered_2_para><b>Scope of Services</b></numbered_2_para>
-<numbered_3_para>The Services to be performed will be in relation to the Business of the Company and shall be performed by the Contractor on an non-exclusive basis.</numbered_3_para>
+<numbered_2_para><b>Scope of Services to always include handover documentation</b></numbered_2_para>
+
 <!--
 Only relevant for individual Service Requests.
 <numbered_3_para>The scope of Services shall be set out in each Service Request, and shall at all times, include the writing (and/or updating) and delivery of any handover documentation as may be requested by the Company. Handover documentation are to ensure that Services under a Service Request can be handed over to the Company (or another person engaged by the Company) smoothly and easily.</numbered_3_para>
 -->
 <!-- this is the scope of Services for monthly -->
-<numbered_3_para>The scope of Services shall at all times, include the writing (and/or updating) and delivery of any handover documentation as may be requested by the Company. Handover documentation are to ensure that relevant Services can be handed over to the Company (or another person engaged by the Company) smoothly and easily.</numbered_3_para>
+<numbered_3_para>The scope of Services shall at all times include the writing (and/or updating) and delivery of any handover documentation as may be requested by the Company. Handover documentation are to ensure that relevant Services can be handed over to the Company (or another person engaged by the Company) smoothly and easily.</numbered_3_para>
   <numbered_3_para>The content of handover documentation may be suggested by the Company. It should include, where applicable, the status of the project (including what has been done, next steps, and documententation of the same), list of work functions and enumerated steps on how one could go about fulfiling them, any troubleshooting issues to be aware of, and specific listings of people, places, and things that one ought to take note of.</numbered_3_para>
   
 <!--Consideration tells you what is being exchanged between the parties-->
@@ -232,6 +232,7 @@ Only relevant for individual Service Requests.
   <numbered_3_para>ze will seek timely review and comments on zir deliverables, performance and/or provision of the Services, and zir fulfilment of obligations under this Contract;</numbered_3_para>
   <numbered_3_para>ze will notify Company immediately of any change in zir representations under this Contract or change in zir abilities to fulfil any of zir obligations under this Contract;</numbered_3_para>
   <numbered_3_para>ze will promptly communicate to the Company any gaps in zir knowledge of the operations, the Business, or knowledge required for zir provision and/or performance of the Services or fulfilment of zir obligations under this Contract, and thereafter, use zir best efforts to actively address and resolve such gaps;</numbered_3_para>
+  <numbered_3_para>ze will comply with the Company's code of conduct as set out on its website;</numbered_3_para>
   <numbered_3_para>ze will write, create, and update any documentation (whether or not such documentation was created by zir) in respect of zir provision and/or performance of the Services, so as to enable other independent contractors, employees of the Company, or community members of the Company to, as the case may be, take over, collaborate with the Contractor, and/or work on developing, improving, or adapting the relevant subject matter;</numbered_3_para>
   <numbered_3_para>ze will actively work with and communicate with the Company's personnel (including its employees, directors, contractors, external vendors, service provider, etc.), in particular, where there is an overlap or interaction in the job scope or services rendered; and</numbered_3_para>
   <numbered_3_para>save where otherwise expressly agreed to by the Company's directors, ze is responsible for and will accordingly, pay for all ordinary, extraordinary, or necessary expenses (whether for herself or otherwise) arising out of or relating to this Contract, zir provision and/or performance of the Services, and/or zir obligations under this Contract.</numbered_3_para>
@@ -246,7 +247,7 @@ Only relevant for individual Service Requests.
     <numbered_3_para xname="license">If, under Applicable Law, the Contractor is unable to assign all or any part of such Rights to the Company, or if approval of such assignment is required from a government authority and such approval is not granted, the Contractor hereby licenses to the Company such Rights as cannot be assigned, so that the Company shall have the complete right to use and right to exploit the applicable Work (and any Rights relating thereto), and any modified or derivative works thereof. Unless otherwise agreed between the Parties in writing, the license described under this Clause <xref to="license" /> shall be perpetual, free of charge, sub-licensable, irrevocable, exclusive (excluding both the Contractor and all third parties), worldwide, and transferable.</numbered_3_para>
 <!--I am sceptical if the clause below is enforceable in Singapore. It is effectively executing a POA (which by default has to executed as a deed), but this is also a long-distance, remote contract for a fully online, remote-first company that expressly specifies software applications/online platforms as the default mode of communication-->
 
-<numbered_2_para>The Contractor hereby irrevocably designates and appoints the Company (including its duly authorized officers and agents, as may be relevant or required) as zir agent and attorney in fact, but only to the extent where the Company is unable -- because of the Contractor's mental or physical incapacity or unavailability -- to secure the Contractor's signature to apply for or to pursue any rights or interest protecting application covering the Rights or Works under this Contract, to act for and on zir behalf and stead to execute and file any such applications, and to do all other lawfully permitted acts to further the application for, prosecution, issuance, maintenance or transfer of such rights or interest with the same legal force and effect as if personally executed by the Contractor.</numbered_2_para>
+<numbered_2_para>The Contractor hereby irrevocably designates and appoints the Company (including its duly authorized officers and agents, as may be relevant or required) as zir agent and attorney in fact, but only to the extent where the Company is unable -- because of the Contractor's incapacity (mental or physical) or unavailability -- to secure the Contractor's signature to apply for or to pursue any rights or interest protecting application covering the Rights or Works under this Contract, to act for and on zir behalf and stead to execute and file any such applications, and to do all other lawfully permitted acts to further the application for, prosecution, issuance, maintenance or transfer of such rights or interest with the same legal force and effect as if personally executed by the Contractor.</numbered_2_para>
 
   <numbered_2_para>The Contractor further agrees not to exercise any rights or interests in Rights and/or Works that under Applicable Law cannot be assigned or licensed to the Company pursuant to the foregoing, including but not limited to right to claim authorship and the right not to suffer false attribution of authorship, except with the prior written consent of the Company.</numbered_2_para>
 
@@ -263,7 +264,7 @@ Only relevant for individual Service Requests.
 <!-- monthly -->
   <numbered_3_para>the Contractor is able to continue and fulfil zir obligations as set out under this Contract; and</numbered_3_para>
 
-  <numbered_3_para>the Contractor's participation in or pursuance of such other activity, does not conflict or is not otherwise incompatible with zir obligations or zir performance and/or provision of Services.</numbered_3_para>
+  <numbered_3_para>the Contractor's participation in or pursuance of such other activity, does not compromise, conflict, or is not otherwise incompatible with zir obligations or zir performance and/or provision of Services.</numbered_3_para>
 
   <!-- Confidential Informatin Clause -->
 
@@ -410,7 +411,7 @@ Only relevant for individual Service Requests.
 
 <para_1>Intending to be bound by this Contract for Service, the Parties hereby set their hands:</para_1>
 
-<?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, override_section_header:true, _include2: { term: { director: "Company" } } }) ?>
+<?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, override_section_header:true, _include2: { term: { director: "For and on behalf of the Company" }, signature_comment: { director: "Director" } } }) ?>
 
 </Story_Main>
 </Root>
