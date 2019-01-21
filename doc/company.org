@@ -145,8 +145,8 @@ On the company side, before a contributor can work on certain parts of the compa
 - Dustin: L4 research and development
 
 ~What we're looking for in a v2 web developer~
-- Prerequisites: JavaScript, HTML/CSS, NodeJS, ReactJS (along with Redux/sagas), RESTful APIs
-- Plus points: CasperJS, SQL (Postgres), Docker, AWS EC2/ECS, OAuth, HTTP, Python
+- Experience with: JavaScript, HTML/CSS, Node, ReactJS (Redux/sagas), RESTful APIs
+- Plus points: SQL (Postgres), Docker, AWS EC2/ECS, OAuth, HTTP, Python
 - Things which will reduce onboarding time and/or signs of a strong developer: TypeScript, Coffeescript, Angular, Ember, Vue, Webcomponents, Linux, bash, zsh, emacs, vim, Markdown, Perl, C++, Elixir, Ruby, Lisp, Racket, Java, MySQL, R, Selenium
 - You should ask about our R&D work instead: Haskell, SMTlib, Z3, B, Z, Idris, Agda, Coq, Racket, TLA+
 

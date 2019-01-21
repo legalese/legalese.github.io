@@ -1,5 +1,5 @@
 * Sysadmin Notes
-The www.legalese.com website is served via readme.io.
+The www.legalese.com website is served via Github pages and keycdn.
 
 Clause has an account with the DNS provider dnsimple.com
 
