@@ -117,21 +117,14 @@ TL;DR IANAL
     <numbered_3_para>references to a statutory provision include such provision and any regulations made in pursuance thereof, from time to time modified and/or re-enacted, whether before or after the Effective Date so far as such modification or re-enactment applies or is capable of applying to and/or in connection with this Contract.</numbered_3_para>
 
 <a_left_sidehead xname="Services">Services</a_left_sidehead>
-<!--TODO: at some point we should automate these into the form so that they can be easily replaced for different roles. The input should bear in mind the context in which the services will be described-->
+<!-- TODO: at some point we should automate these into the form so that they can be easily replaced for different roles. The input should bear in mind the context in which the services will be described-->
 <numbered_2_para>"<b>Services</b>" means the following activities to be performed by the Contractor on a non-exclusive basis --- specifically in the role of <b><?= data.role ?></b> for the purposes of the Business and/or <?= data.purpose ?> --- during the Engagement Term:-</numbered_2_para>
-
 <numbered_3_para><b>natural language generation</b>, where the Contractor shall deliver a module that, given the abstract syntax tree interpreted from the program or specification coded in the Company's domain-specific language ("<b>L4</b>"), interfaces with the grammaticalframework.org API to produce natural language output that matches the sample contracts and quasi-legal documentation that Contractor will be given;
-
-<b>automated template extraction and execution modelling</b>, where the Contractor shall automate the process for importing and integrating new template suites for the Company's web app, and write software that first constructs the computed DAG abstractly, then visualizes the DAG concretely using graphviz dot first, and then (if time permits, and after discussion with the rest of the research team) D3;
-
+<b>automated template extraction and execution modelling</b>, where the Contractor shall automate the process for importing and integrating new template suites for the Company's web app, and write software that first constructs the computed directed acyclic graph ("<b>DAG</b>") abstractly, then visualizes the DAG concretely using graphviz dot first, and then (if time permits, and after discussion with the rest of the research team) D3;
 <b>refactoring the web app in preparation for L4</b>, where the Contractor shall create and document an architectural design for the next iteration of the Company's web app which integrates L4 technology for document assembly and signature management;
-
 <b>modelling the company and its rules</b>, where the Contractor shall produce a model of a Singapore Pte. Ltd. company (including its constitution, shareholders, directors, officers, contractual counterparties, history of resolutions, and granted powers) and model a subset of the rules that govern it for the purposes of corporate transactions as communicated by the Company to the Contractor;
-
 <b>computing state transitions of a company</b>, where the Contractor shall, first, specify a program that, given a <i>(before,after)</i> tuple of nodes in the state space of a company, and a set of rules that define legal and illegal state transitions, computes the set of legal state transition paths from the before node to the after node; second, using verification techniques, prove that this program is bug-free and will not violate given rules, and  refine the program specification to working code in an implementation language such as OCaml, Scala, Haskell, or Python;
-
 <b>modelling and visualising the cap table of the company</b>, where the Contractor shall devise and implement a way to model and visualise a company's cap table on the Company's web app; and
-
 such other issues and/or milestones as may be set out at <span_smallcaps>GitHub</span_smallcaps>, <span_smallcaps>Slack</span_smallcaps>, email, and such other means and systems suggested by the Company for requirements management, issue tracking, document management, source control, and other support or development functions, and in each case within any timeframes specified therein</numbered_3_para>
 
 <para_1>(collectively, the "<b>Services</b>").</para_1>
