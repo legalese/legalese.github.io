@@ -411,7 +411,7 @@ Only relevant for individual Service Requests.
 
 <para_1>Intending to be bound by this Contract for Service, the Parties hereby set their hands:</para_1>
 
-<?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, override_section_header:true, _include2: { term: { director: "For and on behalf of the Company" }, signature_comment: { director: "Director" } } }) ?>
+<?!= include("inc_enumerate_signatures", data, {rcpts_to:rcpts_to, override_section_header:true, _include2: { term: { director: "For and on behalf of the Company" }, signature_comment: { director: "<i>Director</i>" } } }) ?>
 
 </Story_Main>
 </Root>
