@@ -115,12 +115,12 @@ TL;DR IANAL
 <!-- <numbered_3_para>During the Engagement Term, in consideration of the fees payable at a <b>monthly</b> rate of <b><?= data.monthly_fees ?></b> ("<b>Fees</b>") to be paid by the Company to the Contractor, the Contractor agrees to provide to and/or perform for the Company, the Services - as an independent contractor - in accordance with this Contract.</numbered_3_para> -->
 
 <!-- Could also be one-time payment -->
-<numbered_3_para>During the Engagement Term, in consideration of the fees of <b><?= data.monthly_fees ?></b> per <b>month</b> ("<b>Fees</b>") to be paid by the Company to the Contractor, the Contractor agrees to provide to and/or perform for the Company, the Services - as an independent contractor - in accordance with this Contract.</numbered_3_para>
+<numbered_3_para>During the Engagement Term, in consideration of the one-time fee of <b><?= data.monthly_fees ?></b> ("<b>Fees</b>") to be paid by the Company to the Contractor, the Contractor agrees to provide to and/or perform for the Company, the Services - as an independent contractor - in accordance with this Contract.</numbered_3_para>
 
 <numbered_3_para>Fees paid by Company to the Contractor shall constitute the full and only payment the Contractor is entitled to in respect of the Services.</numbered_3_para>
 
 <numbered_2_para><b>Timing of payment</b></numbered_2_para>
-  <numbered_3_para>During the Engagement Term, Fees shall be paid by the Company to the Contractor by the last day of each contractual month of the Engagement Term, provided that where applicable, Fees shall be pro-rated for any partial contractual month resulting from the termination of this Contract prior to its expiration or otherwise. Alternatively, the Company may, at its own discretion, elect to pay in one sum, the full Fees of the Engagement Term.</numbered_3_para>
+  <numbered_3_para>The Fees shall be paid to the Contractor by the Company upon fourteen days of the Contractor's fulfilment of the Services to the satisfaction of the Company.</numbered_3_para>
 
 <numbered_2_para><b>Method of payment</b></numbered_2_para>
   <numbered_3_para>The Company's payment of Fees to the Contractor shall be either via:-</numbered_3_para>
@@ -149,10 +149,21 @@ TL;DR IANAL
 
 <a_left_sidehead xname="Services">Services</a_left_sidehead>
 <!--TODO: at some point we should automate these into the form so that they can be easily replaced for different roles. The input should bear in mind the context in which the services will be described-->
-<numbered_2_para>During the Engagement Term, the Contractor shall on a non-exclusive basis --- specifically in the role of <b><?= data.role ?></b> for the purposes of the Business and/or <?= data.purpose ?> --- devote zir time, energy, abilities and resources as may be necessary, expedient, and efficient, to resolve the issues and/or milestones set out at <span_smallcaps>GitHub</span_smallcaps>, <span_smallcaps>Slack</span_smallcaps>, email, and such other means and systems suggested by the Company for requirements management, issue tracking, document management, source control, and other support or development functions, and in each case within any timeframes specified therein. The Company may from time to time, suggest priorities for such issues and/or milestones via <span_smallcaps>Slack</span_smallcaps>,<span_smallcaps> GitHub</span_smallcaps>, or email. Collectively, the "<b>Services</b>".</numbered_2_para>
+<numbered_2_para>During the Engagement Term, the Contractor shall on a non-exclusive basis --- specifically in the role of <b><?= data.role ?></b> for the purposes of the Business and/or <?= data.purpose ?> --- devote zir time, energy, abilities and resources as may be necessary, expedient, and efficient, to performing and/or delivering the DocX conversion' task as described in Asana (to which Contractor has already been given access), consisting of:-</numbered_2_para>
+<numbered_3_para>setting up of automated testing;</numbered_3_para>
+<numbered_3_para>testing by hand;</numbered_3_para>
+<numbered_3_para>figuring out how to do an include;</numbered_3_para>
+<numbered_3_para>creating matching typescript for the template source;</numbered_3_para>
+<numbered_3_para>creating docX templates to match customer requirements;</numbered_3_para>
+<numbered_3_para>generating a few docX and PDF documents;</numbered_3_para>
+<numbered_3_para>updating the relevant documentation in clear and precise language to reflect any new changes, instructions, and output for others users and future use;</numbered_3_para>
+<numbered_3_para>review and understand the relevant schemas &amp; documentation; </numbered_3_para>
+<numbered_3_para>review customer requirements for assigned tasks;</numbered_3_para>
+<numbered_3_para>review existing docx-template examples and check their viability, correctness, and execution via a web interface; and</numbered_3_para>
+<numbered_3_para>convert assigned customer documents to docx-templates.</numbered_3_para>
+<numbered_2_para>The tasks above, collectively the "<b>Services</b>", which shall be complemented by such details, instructions, deadlines, deliverables and/or priorities,  which shall be given (or requested for by Contractor where lacking) via Github, Slack, email, Asana, or such other agreed means (or combination of such means) of communiations between the Parties.</numbered_2_para>
 
 <a_left_sidehead>Representations</a_left_sidehead>
-
 <!--Factual representations from the Company-->
 <numbered_2_para>The Company hereby represents that:-</numbered_2_para>
   <numbered_3_para>it has the power and capacity to enter into this Contract;</numbered_3_para>
@@ -199,26 +210,25 @@ TL;DR IANAL
   <a_left_sidehead>Dealing with Confidential Information and Work</a_left_sidehead>
   <numbered_2_para>The Company does not give any warranty or representation to the Contractor as to the accuracy or completeness of Confidential Information, and the Company shall not be liable for any damages, claims, or losses resulting from the use of Confidential Information.</numbered_2_para>
   <numbered_2_para>The Contractor hereby undertakes that during the Engagement Term and after, ze shall protect Work and Confidential Information using at least the same standard of care ze applies to zir own proprietary and/or confidential Information (but no less than reasonable care), and to the extent not prohibited by Applicable Law, ensure that Confidential Information and Work which ze accesses, create, amends, or otherwise deals with, is stored, handled, and maintained in such a way as to prevent unauthorised access or disclosure.</numbered_2_para>
-  <!-- <numbered_2_para>Save where expressly permitted under this Contract or required for the Contractor's provision and/or performance of the Services or zir fulfilment of zir obligations under this Contract, the Contractor shall not copy, reproduce, adapt, modify, translate, manufacture, market, publish, distribute, sell, license (or sublicense), transfer, rent, lease, transmit, broadcast, display, use, or otherwise exploit (i) any Work or Confidential Information; or (ii) disclose any or Work or Confidential Information to any person.</numbered_2_para> -->
-  <!-- <numbered_2_para>Nothing in this Contract, whether by implication or otherwise, and whether directly or indirectly, shall or be construed as granting to or conferring upon Contractor any Rights (whether to Work, Confidential Information, or otherwise).</numbered_2_para> -->
-  <!-- <numbered_2_para>The Contractor hereby acknowledges and accepts that Work and Confidential Information, and all Rights therein, are and shall remain the sole and exclusive property of the Company.</numbered_2_para> -->
-  <!-- <numbered_2_para>Save where expressly permitted under this Contract or otherwise agreed to by the Company in writing, the Contractor hereby undertakes to:-</numbered_2_para> -->
-  <!--   <numbered_3_para>hold in strictest confidence the Confidential Information;</numbered_3_para> -->
-  <!--   <numbered_3_para>take all steps (including any steps that the Company may direct or suggest) to prevent any unauthorised reproduction, duplication, use, access, or modification of Confidential Information and Work by any person;</numbered_3_para> -->
-  <!--   <numbered_3_para>take all steps (including any steps that the Company may direct or suggest) to ensure that documents and/or items of work-in-progress that embody Work or Confidential Information are kept and maintained securely (including, using disk encryption and two-factor authentication protection whenever such options are available);</numbered_3_para> -->
-  <!--   <numbered_3_para>not create derivative works from, provide access electronically to, or enter into computer memory beyond the Company's control, Work or Confidential Information (including any portion or copy thereof) in any form; and </numbered_3_para> -->
-  <!--   <numbered_3_para>not apply for, or apply to register, any Rights in or related to Confidential Information or Work, in Singapore or any other country or region.</numbered_3_para> -->
-  <!-- <numbered_2_para>For the avoidance of doubt, Confidential Information shall not include any information or data which:-</numbered_2_para> -->
-  <!--   <numbered_3_para>at the date of its disclosure can be proved by documentary evidence to be Information which is publicly available or which subsequently becomes publicly available, unless such public available is due to or relating to the Contractor's breach of this Contract or a third party's breach of any confidentiality obligations; or</numbered_3_para> -->
-  <!--   <numbered_3_para>at the date of its disclosure can be proved by documentary evidence to be already rightfully available and/or in the possession of the Contractor prior to the Contractor's receipt of the same from the Company, and that the same had not been acquired (whether directly or indirectly) from the Company or any person known to the Contractor as being under an obligation of confidence; or</numbered_3_para> -->
-  <!--   <numbered_3_para>is compelled to be disclosed by Applicable Law of a competent jurisdiction to which the Contractor is subject, or by a court of competent jurisdiction, regulator, or any competent supervisory or regulatory body to which the Contractor may be subject, provide that where the Contractor is so compelled, ze shall prior to making any disclosure and save where prohibited under Applicable Law, promptly inform the Company and take the Company's instructions as to the form, nature, content, and extent of any proposed disclosure; or</numbered_3_para> -->
-  <!--   <numbered_3_para>is developed by the Contractor independently without the use and/or reference to Confidential Information.</numbered_3_para> -->
+<numbered_2_para>Save where expressly permitted under this Contract or required for the Contractor's provision and/or performance of the Services or zir fulfilment of zir obligations under this Contract, the Contractor shall not copy, reproduce, adapt, modify, translate, manufacture, market, publish, distribute, sell, license (or sublicense), transfer, rent, lease, transmit, broadcast, display, use, or otherwise exploit (i) any Work or Confidential Information; or (ii) disclose any or Work or Confidential Information to any person.</numbered_2_para>
+  <numbered_2_para>Nothing in this Contract, whether by implication or otherwise, and whether directly or indirectly, shall or be construed as granting to or conferring upon Contractor any Rights (whether to Work, Confidential Information, or otherwise).</numbered_2_para>
+  <numbered_2_para>The Contractor hereby acknowledges and accepts that Work and Confidential Information, and all Rights therein, are and shall remain the sole and exclusive property of the Company.</numbered_2_para>
+  <numbered_2_para>Save where expressly permitted under this Contract or otherwise agreed to by the Company in writing, the Contractor hereby undertakes to:-</numbered_2_para>
+    <numbered_3_para>hold in strictest confidence the Confidential Information;</numbered_3_para>
+    <numbered_3_para>take all steps (including any steps that the Company may direct or suggest) to prevent any unauthorised reproduction, duplication, use, access, or modification of Confidential Information and Work by any person;</numbered_3_para>
+    <numbered_3_para>take all steps (including any steps that the Company may direct or suggest) to ensure that documents and/or items of work-in-progress that embody Work or Confidential Information are kept and maintained securely (including, using disk encryption and two-factor authentication protection whenever such options are available);</numbered_3_para>
+    <numbered_3_para>not create derivative works from, provide access electronically to, or enter into computer memory beyond the Company's control, Work or Confidential Information (including any portion or copy thereof) in any form; and </numbered_3_para>
+    <numbered_3_para>not apply for, or apply to register, any Rights in or related to Confidential Information or Work, in Singapore or any other country or region.</numbered_3_para>
+  <numbered_2_para>For the avoidance of doubt, Confidential Information shall not include any information or data which:-</numbered_2_para>
+    <numbered_3_para>at the date of its disclosure can be proved by documentary evidence to be Information which is publicly available or which subsequently becomes publicly available, unless such public available is due to or relating to the Contractor's breach of this Contract or a third party's breach of any confidentiality obligations; or</numbered_3_para>
+    <numbered_3_para>at the date of its disclosure can be proved by documentary evidence to be already rightfully available and/or in the possession of the Contractor prior to the Contractor's receipt of the same from the Company, and that the same had not been acquired (whether directly or indirectly) from the Company or any person known to the Contractor as being under an obligation of confidence; or</numbered_3_para>
+    <numbered_3_para>is compelled to be disclosed by Applicable Law of a competent jurisdiction to which the Contractor is subject, or by a court of competent jurisdiction, regulator, or any competent supervisory or regulatory body to which the Contractor may be subject, provide that where the Contractor is so compelled, ze shall prior to making any disclosure and save where prohibited under Applicable Law, promptly inform the Company and take the Company's instructions as to the form, nature, content, and extent of any proposed disclosure; or</numbered_3_para>
+    <numbered_3_para>is developed by the Contractor independently without the use and/or reference to Confidential Information.</numbered_3_para>
 
 <a_left_sidehead>Termination of Contract</a_left_sidehead>
-
 <b_left_sidehead_nonum>Termination without cause</b_left_sidehead_nonum>
-  <numbered_2_para>The Company shall be entitled to terminate this Contract upon the issuance of not less than <b>14 days' prior written notice</b> to Contractor at any time.</numbered_2_para>
-  <numbered_2_para>The Contractor shall be entitled to terminate this Contract by giving the Company no less than <b>1 months' prior written notice</b>.</numbered_2_para>
+  <numbered_2_para>The Company shall be entitled to terminate this Contract upon the issuance of not less than <b>3 days' prior written notice</b> to Contractor at any time.</numbered_2_para>
+  <numbered_2_para>The Contractor shall be entitled to terminate this Contract by giving the Company no less than <b>3 days prior written notice</b>.</numbered_2_para>
 
 <b_left_sidehead_nonum>Termination by summary notice</b_left_sidehead_nonum>
 <numbered_2_para>The Company shall be entitled (but not obliged) at any time to terminate the Contract with immediate effect by summary notice where the Company reasonably determines that:-</numbered_2_para>
@@ -244,8 +254,8 @@ TL;DR IANAL
 <b_left_sidehead_nonum>Electronic signatures &amp; communications</b_left_sidehead_nonum>
   <numbered_2_para>The Parties agree that this Contract may be electronically signed, and electronic signatures appearing on this Contract shall be taken as the same as handwritten signatures for the purposes of validity, enforceability, and admissibility. The Parties also hereby consent to transact and conduct their affairs under this Contract using electronic communications, to receive notices, and disclosures electronically, and to utilise electronic signatures and/or digital documents in lieu of paper documents.</numbered_2_para>
 
-<b_left_sidehead_nonum>Governing law &amp; jurisdiction</b_left_sidehead_nonum>
-  <numbered_2_para>This Contract shall be governed by and construed in accordance with the laws of the Republic of Singapore without regard to the principles of conflict of laws, and Parties hereby submit to the non-exclusive jurisdiction of the courts in Singapore.</numbered_2_para>
+<b_left_sidehead_nonum>Governing law</b_left_sidehead_nonum>
+  <numbered_2_para>This Contract shall be governed by and construed in accordance with the laws of the Republic of Singapore without regard to the principles of conflict of laws.</numbered_2_para>
 
 <!--dispute reso - as far as SG is concerned, litigation is preferred. Less time and money spent, and we won't have to separately seek to enforce the settlement/arbitration judgment.-->
 <b_left_sidehead_nonum>Dispute resolution</b_left_sidehead_nonum>
