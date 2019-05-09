@@ -141,9 +141,8 @@ blockquote footer:before {
 
 .navbar {
     margin-bottom: 0px;
-    min-height: 45px;
     border-radius: 0px;
-    height: 49px;
+    height: 50px;
 }
 
 .nav > li > a.active,
@@ -193,24 +192,54 @@ blockquote footer:before {
     max-width: 100vw;
 }
 
-#top-bar {
-    font-size: 12px;
+.title-font {
+    font-size: 16px;
     font-family: "Lato", sans-serif;
-}
-    
-#top-bar > li > a,
-#blurb-nav-id > li > a {
     color: #333333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0px;
+    border: none;
+    font-size: 14px;
+
+}
+.no-underline:hover {
     text-decoration: none;
 }
 
-#blurb-nav-id > li > a:hover {
+.top-justify {
+    display: inline-block;
+    width: 16%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#top-bar {
+    font-size: 12px;
+    font-family: "Lato", sans-serif;
+    height: 50px;
+}
+    
+#top-bar > li > a,
+#blurb-nav-id {
+    color: #333333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#blurb-nav-id > div:hover {
     font-weight: bold;
 }
 
 .blurb-nav-highlight {
-    border-bottom: 2px solid;
-    border-color: rgba(30, 30, 30, 0.9);
+    text-decoration: underline;
     font-weight: 700;
 }
 
@@ -223,11 +252,9 @@ blockquote footer:before {
     font-family: 'Lato', sans-serif;
     font-size: 15px;
     box-shadow: 0px 3px 3px rgba(150,150,150,0.2);
+    padding: 10px;
 }
 
-.blurb-nav > li {
-    width: 20%;
-}
 
 .left-menu {
     color: #333333;
@@ -695,6 +722,7 @@ a.footnote:hover span {
   position: relative;
   overflow: hidden;
 }
+
 
 .hvr-underline-from-center:before {
   content: "";

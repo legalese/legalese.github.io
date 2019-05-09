@@ -1,13 +1,43 @@
 // hide and show relevant sections
 
-$(".bottom-content-title").each(function() {
-    $(this).click(function(e) {
-	var id = $(this).attr("href");
-	$(".bottom-content").hide();
-	$(id).show();
-    });
-});
+/*
+let url = window.location.href
+let addListener = url.match(/\.com$|localhost$|index/i)
 
+if (addListener) {
+  $(window).on("unload", function(){
+    localStorage.removeItem('visible')
+  })
+}
+
+if (localStorage.getItem('visible') && addListener) {
+  let visible = localStorage.getItem('visible')
+  console.log('visible')
+  console.log(visible)
+  $(visible).show();
+  $('body,html').animate({
+    scrollTop : $("#top-c").height() - $(".legalese-nav").height()
+  }, 500) 
+}
+
+$(".bottom-content-title").each(function() {
+  $(this).click(function(e) {
+    if (addListener) {
+      e.preventDefault();
+      var id = $(this).attr("scroll");
+      $(".bottom-content").hide();
+      $(id).show();
+      $('body,html').animate({
+	scrollTop : $("#top-c").height() - $(".legalese-nav").height()
+      }, 500) 
+    } else {
+      var id = $(this).attr("scroll");
+      localStorage.setItem('visible', id)
+    }
+  });
+});
+*/
+  
 // for scrolltotop arrow
 
 $(window).scroll(function() {
@@ -30,21 +60,22 @@ let currentYear = `2017 \u2014 ${(new Date()).getFullYear()}`
 $("#copyright-date").text(currentYear);
 
 // scroll to blurb bar on renavigate
-
+/*
 $("li[role=presentation]").click(function(e) {
-    /* if ($(this).scrollTop() <= $(".title-blurb").offset().top) {
-       $('html, body').animate({
-     *         scrollTop: $(".title-blurb").offset().top - $(".legalese-nav").height()
-       }, 500);
-     * } else {
-       $('html, body').animate({
-     *         scrollTop: $(".title-blurb").offset().top - $(".legalese-nav").height()// can't retrieve nav height when it's fixed to top
-       }, 500);
-     * }*/
-    e.preventDefault();
+  if ($(this).scrollTop() <= $(".title-blurb").offset().top) {
+    $('html, body').animate({
+      scrollTop: $(".title-blurb").offset().top - $(".legalese-nav").height()
+    }, 500);
+  } else {
+    $('html, body').animate({
+      scrollTop: $(".title-blurb").offset().top - $(".legalese-nav").height()// can't retrieve nav height when it's fixed to top
+    }, 500);
+  }
+  e.preventDefault();
     $("li[role=presentation] > a > div").removeClass("blurb-nav-highlight");
     $("div", this).addClass("blurb-nav-highlight");
 });
+*/
 
 // show various bits of players navbar
 
@@ -71,7 +102,7 @@ $(window).scroll(function(event){
     lastScrollTop = st;
 });
 
-$('.legalese-nav').affix({
+$(".legalese-nav").affix({
     offset: {
  	top: function() {
 	    return (this.top = $("#second-container").offset().top)
