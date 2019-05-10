@@ -193,7 +193,7 @@ blockquote footer:before {
 }
 
 .title-font {
-    font-size: 16px;
+    font-size: 12px;
     font-family: "Lato", sans-serif;
     color: #333333;
     text-decoration: none;
@@ -216,14 +216,15 @@ blockquote footer:before {
 
 .top-justify {
     display: inline-block;
-    width: 16%;
     text-align: center;
-    margin-top: 10px;
+    margin: 10px 5% 0px 5%;
 }
 
 #top-bar {
     font-size: 12px;
     font-family: "Lato", sans-serif;
+    display: flex;
+    justify-content: center;
     height: 50px;
 }
     
@@ -714,7 +715,7 @@ a.footnote:hover span {
 }
 
 .hvr-underline-from-center {
-  display: inline-block;
+  display: inline;
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
@@ -732,7 +733,7 @@ a.footnote:hover span {
   right: 50%;
   bottom: -6px;
   background: rgba(51,236,255,0.3);
-  height:52px;
+  height:2em;
   -webkit-transition-property: left, right;
   transition-property: left, right;
   -webkit-transition-duration: 0.3s;
