@@ -731,9 +731,9 @@ a.footnote:hover span {
   z-index: -1;
   left: 50%;
   right: 50%;
-  bottom: -6px;
-  background: rgba(51,236,255,0.3);
-  height:2em;
+  bottom: -0.2em;
+  background: rgba(243,255,0,0.9);
+  height:1em;
   -webkit-transition-property: left, right;
   transition-property: left, right;
   -webkit-transition-duration: 0.3s;
