@@ -29,6 +29,18 @@
     letter-spacing: 2px;
 }
 
+#bs-example-navbar-collapse-1 {
+    height: 7em;
+}
+
+#top-bar {
+    display: block;
+}
+
+.top-justify {
+    display: block;
+}
+
 .row.text-center.black-rec > h2 {
     font-size: 16px;
 }
