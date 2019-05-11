@@ -193,8 +193,9 @@ blockquote footer:before {
 }
 
 .title-font {
-    font-size: 12px;
+    font-size: 14px;
     font-family: "Lato", sans-serif;
+    font-weight: 700;
     color: #333333;
     text-decoration: none;
     cursor: pointer;
@@ -203,8 +204,8 @@ blockquote footer:before {
 .dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0;
-    margin-left: 50%;
-    transform: translateX(-50%);
+    // margin-left: 50%;
+    // transform: translateX(-50%);
     border-radius: 0px;
     border: none;
     font-size: 14px;
@@ -218,6 +219,11 @@ blockquote footer:before {
     display: inline-block;
     text-align: center;
     margin: 10px 5% 0px 5%;
+}
+
+.top-subtitle {
+    color: #919191;
+    padding: 3px 20px;
 }
 
 #top-bar {
@@ -257,6 +263,19 @@ blockquote footer:before {
 }
 
 
+#login-menu-item {
+  color: #0000ff;
+  text-shadow:
+    0 0 5px #0ff,
+    0 0 10px #0ff,
+    0 0 20px #0ff,
+    0 0 40px #0ff,
+    0 0 80px #0ff,
+    0 0 90px #0ff,
+    0 0 100px #0ff,
+    0 0 150px #0ff;
+}
+
 .left-menu {
     color: #333333;
     height: 80%;
@@ -267,7 +286,7 @@ blockquote footer:before {
     font-weight: 100;
     top: 0;
     left: 0;
-    padding-top: 10px;
+    padding-top: 20px;
 }
 
 .left-menu-item {
@@ -732,8 +751,8 @@ a.footnote:hover span {
   left: 50%;
   right: 50%;
   bottom: -0.2em;
-  background: rgba(243,255,0,0.9);
-  height:1em;
+  background: rgba(82, 254, 206, 1);
+  height: 1em;
   -webkit-transition-property: left, right;
   transition-property: left, right;
   -webkit-transition-duration: 0.3s;
