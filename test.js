@@ -10,7 +10,7 @@ const siteChecker = new blc.SiteChecker(acc, {
   link: function(result, customData) {
     if (result.broken) {
       console.error(`${result.url.original} is broken because of ${result.brokenReason}`)
-      console.error(`Found on ${result.base.original}`)
+      // console.error(`Found on ${result.base.original}`)
       acc.push(result)
     }
   },
@@ -18,7 +18,7 @@ const siteChecker = new blc.SiteChecker(acc, {
     console.log('Finished checks')
     console.log(`There are a grand total of ${acc.length} broken links.`)
     console.log(`Please review the log below and fix them as necessary.`)
-    console.log(`${acc.map(a=> `${a.url.original} in ${a.base.original}\n`)}`)
+    console.log(`${acc.map(a=> `In ${a.base.original}: ${a.url.original}`).join('\n')}`)
   }
 })
 
