@@ -18,7 +18,7 @@ const siteChecker = new blc.SiteChecker(acc, {
     console.log('Finished checks')
     console.log(`There are a grand total of ${acc.length} broken links.`)
     console.log(`Please review the log below and fix them as necessary.`)
-    console.log(`${acc.map(a=> `${a.url.original} in ${a.base.original}`)}`)
+    console.log(`${acc.map(a=> `${a.url.original} in ${a.base.original}\n`)}`)
   }
 })
 
