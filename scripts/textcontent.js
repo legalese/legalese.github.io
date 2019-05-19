@@ -41,7 +41,9 @@ $(".bottom-content-title").each(function() {
 // for scrolltotop arrow
 
 $(window).scroll(function() {
-    if ($(this).scrollTop() >= $("#top-c").height()) {
+  if ($(this).scrollTop() >= $("#top-c").height()) {
+    console.log('hi noting top-c')
+    console.log($('#return-to-top'))
         $('#return-to-top').fadeIn(200);    // Fade in the arrow
     } else {
         $('#return-to-top').fadeOut(200);   // Else fade out the arrow

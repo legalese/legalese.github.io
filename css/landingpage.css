@@ -912,3 +912,29 @@ button.close {
     background: #1d40ec;
     color: #fff;
 }
+
+.pricing-choice-active {
+    display: inline;
+    border-bottom: 1px solid blue;
+    font-size: 20px;
+}
+
+.pricing-choice-inactive {
+    display: inline;
+    border-bottom: 1px solid white;
+    font-size: 20px;
+}
+
+.table-col-width {
+    width: 20%;
+    text-align: center;
+}
+
+.small-button {
+    font-size: 10px;
+    padding: 3px 6px;
+}
+
+.table-row-title {
+    width: 25%;
+}
