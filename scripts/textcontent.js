@@ -41,7 +41,7 @@ $(".bottom-content-title").each(function() {
 // for scrolltotop arrow
 
 $(window).scroll(function() {
-    if ($(this).scrollTop() >= $("#top-c").height()) {
+  if ($(this).scrollTop() >= $("#first-container").height()) {
         $('#return-to-top').fadeIn(200);    // Fade in the arrow
     } else {
         $('#return-to-top').fadeOut(200);   // Else fade out the arrow
@@ -50,7 +50,7 @@ $(window).scroll(function() {
 
 $('#return-to-top').click(function() {      // When arrow is clicked
     $('body,html').animate({
-        scrollTop : $("#top-c").height() - $(".legalese-nav").height()// Scroll to top of body
+        scrollTop : $("#top-c").scrollTop() - $(".legalese-nav").height()// Scroll to top of body
     }, 500);
 });
 
