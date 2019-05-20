@@ -227,3 +227,40 @@ if ($('body').outerHeight() < $(window).height()) {
 } else {
     $(".bot-container").removeClass("bot-container-fixed")
 }
+
+// set pricetags
+
+function monthly(price, which) {
+  if (which) {
+    return price
+  } else {
+    return (price / 0.7).toFixed(2)
+  }
+}
+
+let which = false
+
+const prices = {
+  pro: {
+    substandard: 1.74,
+    subcomplex: 2.34,
+  },
+  plus: {
+    substandard: 1.74,
+    subcomplex: 2.34,
+  },
+  basic: {
+    substandard: 2.32,
+    subcomplex: 3.12,
+  },
+}
+
+$('#price-toggle').change(function() {
+  $('#substandard-pro').hide().html(`$${monthly(prices.pro.substandard, which)}`).fadeIn(500)
+  $('#substandard-plus').hide().html(`$${monthly(prices.plus.substandard, which)}`).fadeIn(500)
+  $('#substandard-basic').hide().html(`$${monthly(prices.basic.substandard, which)}`).fadeIn(500)
+  $('#subcomplex-pro').hide().html(`$${monthly(prices.pro.subcomplex, which)}`).fadeIn(500)
+  $('#subcomplex-plus').hide().html(`$${monthly(prices.plus.subcomplex, which)}`).fadeIn(500)
+  $('#subcomplex-basic').hide().html(`$${monthly(prices.basic.subcomplex, which)}`).fadeIn(500)
+  which = !which
+})
