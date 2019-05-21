@@ -988,3 +988,8 @@ button.close {
 #table-header-fixed {
     background-color: white;
 }
+
+.btn-horizontal-padding {
+    padding-left: 5px;
+    padding-right: 5px;
+}
