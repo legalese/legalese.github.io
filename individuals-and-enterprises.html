@@ -6,16 +6,25 @@ layout: default
   <div class="row" style="margin-top: 30px">
     <div class="col-md-10 col-md-offset-1">
       <div class="table-responsive">
-	<table class="table table-bordered">
-	  <thead>
-	    <tr id="table-header-fixed">
+	<table class="table">
+	  <thead id="table-header-fixed">
+	    <tr style="border: none">
+	      <th class="table-col-width" style="border: none"></th>
+	      <th class="table-col-width" style="border: none"></th>
+	      <th class="table-col-width" style="border-left: none; border-bottom: none; border-right: 2px solid #00f9d8"></th>
+	      <th class="table-col-width" style="font-size: 10px; background-color: #00f9d8; border-left: none; border-bottom: none; border-right: 2px solid #00f9d8">Recommended!</th>
+	      <th class="table-col-width" style="border: none"></th>
+	    </tr>
+	    <tr>
 	      <th class="table-col-width" style="vertical-align: top">
 		<h4 style="margin: 10px 0px">What's included?</h4>
-		<div class="can-toggle">
-		  <input id="price-toggle" type="checkbox">
-		  <label for="price-toggle">
-		    <div class="can-toggle__switch" data-checked="Bill yearly (30% off!)" data-unchecked="Bill monthly"></div>
-		  </label>
+		<div style="display: inline-block">
+		  <div class="can-toggle">
+		    <input id="price-toggle" type="checkbox">
+		    <label for="price-toggle">
+		      <div class="can-toggle__switch" data-checked="Bill yearly (30% off!)" data-unchecked="Bill monthly"></div>
+		    </label>
+		  </div>
 		</div>
 	      </th>
 	      <th class="table-col-width" style="vertical-align: top">
@@ -26,8 +35,7 @@ layout: default
 		<h5>Boutique</h5>
 		<p>SGD $2000</p>
 	      </th>
-	      <th class="table-col-width column-right-border" id="recommended" style="vertical-align: top; border-top: 2px solid #00f9d8">
-		<div style="width: 100%; font-size: 10px; background-color: #00f9d8">Recommended!</div>
+	      <th class="table-col-width column-right-border"style="vertical-align: top; border-top: 2px solid #00f9d8">
 		<h5 style="margin-top: 0">Basic</h5>
 		<p>SGD $2000</p>
 	      </th>

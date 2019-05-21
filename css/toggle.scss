@@ -63,7 +63,7 @@
 
 @mixin can-toggle-appearance
 ( 
-  $can-toggle-width: 300px,
+  $can-toggle-width: 200px,
   $can-toggle-height: 36px,
   $can-toggle-border-radius: 4px,
   $can-toggle-offset: 2px,
@@ -104,17 +104,17 @@
       border-radius: $can-toggle-border-radius;
       
       &:before {
-        left: $can-toggle-width/2;
+        left: $can-toggle-width * 0.4;
         font-size: $can-toggle-switch-font-size; 
         line-height: $can-toggle-height;
-        width: $can-toggle-width/2;
+        width: $can-toggle-width * 0.6;
         padding: 0px;
       }
       
       &:after {
         top: $can-toggle-offset; left: $can-toggle-offset;
         border-radius: $can-toggle-border-radius/2;
-        width: $can-toggle-switch-width - $can-toggle-offset; 
+        width: $can-toggle-switch-width * 0.8 - $can-toggle-offset; 
         line-height: $can-toggle-height - ($can-toggle-offset*2);
         font-size: $can-toggle-switch-font-size;
       }
@@ -129,7 +129,8 @@
 
 
 .can-toggle {
-  position: relative;
+    position: relative;
+    width: 200px;
   *, *:before, *:after { box-sizing: border-box; }
   //overflow: hidden;
   
