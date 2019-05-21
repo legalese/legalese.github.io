@@ -3,7 +3,7 @@ layout: default
 ---
 <div class="container-fluid top-container bottom-content" id="second-container">
   {% include pricing.html choiceClass="individual-left" choiceClassIndividual="pricing-choice-active" choiceClassApi="pricing-choice-inactive" %}
-  <div class="row" style="margin-top: 30px; margin-bottom: 1000px">
+  <div class="row" style="margin-top: 30px">
     <div class="col-md-10 col-md-offset-1">
       <div class="table-responsive">
 	<table class="table table-bordered">
@@ -22,12 +22,13 @@ layout: default
 		<h5>Professional</h5>
 		<p>SGD $2000</p>
 	      </th>
-	      <th class="table-col-width" style="vertical-align: top">
+	      <th class="table-col-width column-right-border" style="vertical-align: top">
 		<h5>Boutique</h5>
 		<p>SGD $2000</p>
 	      </th>
-	      <th class="table-col-width" style="vertical-align: top">
-		<h5>Basic</h5>
+	      <th class="table-col-width column-right-border" id="recommended" style="vertical-align: top; border-top: 2px solid #00f9d8">
+		<div style="width: 100%; font-size: 10px; background-color: #00f9d8">Recommended!</div>
+		<h5 style="margin-top: 0">Basic</h5>
 		<p>SGD $2000</p>
 	      </th>
 	      <th class="table-col-width" style="vertical-align: top">
@@ -45,15 +46,15 @@ layout: default
 		<h5 style="display: inline"><b>Standard Document Generation</b></h5>
 	      </td>
 	      <td style="border-right: 1px solid white"></td>
-	      <td style="border-right: 1px solid white"></td>
-	      <td style="border-right: 1px solid white"></td>
+	      <td class="column-right-border"></td>
+	      <td class="column-right-border"></td>
 	      <td style="border-right: 1px solid white"></td>
 	    </tr>
 	    <tr>
 	      <td class="table-col-width" style="text-align: right"><b>Free</b> document(s)</td>
 	      <td class="table-col-width">2000</td>		      
-	      <td class="table-col-width">12</td>
-	      <td class="table-col-width">6</td>
+	      <td class="table-col-width column-right-border">12</td>
+	      <td class="table-col-width column-right-border">6</td>
 	      <td class="table-col-width">0</td>
 	    </tr>
 	    <tr>
@@ -63,8 +64,8 @@ layout: default
 		</a>
 	      </td>
 	      <td id="substandard-pro" class="table-col-width">$1.74</td>		      
-	      <td id="substandard-plus" class="table-col-width">$1.74</td>
-	      <td id="substandard-basic" class="table-col-width">$2.32</td>
+	      <td id="substandard-plus" class="table-col-width column-right-border">$1.74</td>
+	      <td id="substandard-basic" class="table-col-width column-right-border">$2.32</td>
 	      <td class="table-col-width">$2.90</td>
 	    </tr>
 	    <tr>
@@ -74,8 +75,8 @@ layout: default
 		</a>
 	      </td>
 	      <td class="table-col-width">20</td>		      
-	      <td class="table-col-width">20</td>
-	      <td class="table-col-width">20</td>
+	      <td class="table-col-width column-right-border">20</td>
+	      <td class="table-col-width column-right-border">20</td>
 	      <td class="table-col-width">20</td>
 	    </tr>
 	    <tr>
@@ -85,8 +86,8 @@ layout: default
 		</a>
 	      </td>
 	      <td class="table-col-width">Unlimited</td>		      
-	      <td class="table-col-width">Unlimited</td>
-	      <td class="table-col-width">10</td>
+	      <td class="table-col-width column-right-border">Unlimited</td>
+	      <td class="table-col-width column-right-border">10</td>
 	      <td class="table-col-width">10</td>
 	    </tr>
 	    <tr>
@@ -94,40 +95,54 @@ layout: default
 		<h5><b>Complex Document Generation</b></h5>
 	      </td>
 	      <td style="border-right: 1px solid white"></td>
-	      <td style="border-right: 1px solid white"></td>
-	      <td style="border-right: 1px solid white"></td>
+	      <td class="column-right-border"></td>
+	      <td class="column-right-border"></td>
 	      <td style="border-right: 1px solid white"></td>
 	    </tr>
 	    <tr>
 	      <td class="table-col-width" style="text-align: right"><b>Free</b> document(s)</td>
 	      <td class="table-col-width">2000</td>		      
-	      <td class="table-col-width">10</td>
-	      <td class="table-col-width">0</td>
+	      <td class="table-col-width column-right-border">10</td>
+	      <td class="table-col-width column-right-border">0</td>
 	      <td class="table-col-width">0</td>
 	    </tr>
 	    <tr>
 	      <td class="table-col-width" style="text-align: right">Price per doc for subsequent generation</td>
 	      <td id="subcomplex-pro" class="table-col-width">$2.34</td>		      
-	      <td id="subcomplex-plus" class="table-col-width">$2.34</td>
-	      <td id="subcomplex-basic" class="table-col-width">$3.12</td>
+	      <td id="subcomplex-plus" class="table-col-width column-right-border">$2.34</td>
+	      <td id="subcomplex-basic" class="table-col-width column-right-border">$3.12</td>
 	      <td class="table-col-width">$3.90</td>
 	    </tr>
 	    <tr>
 	      <td class="table-col-width" style="text-align: right"><b>Free</b> fields per document</td>
 	      <td class="table-col-width">20</td>		      
-	      <td class="table-col-width">20</td>
-	      <td class="table-col-width">20</td>
+	      <td class="table-col-width column-right-border">20</td>
+	      <td class="table-col-width column-right-border">20</td>
 	      <td class="table-col-width">20</td>
 	    </tr>
 	    <tr>
 	      <td class="table-col-width" style="text-align: right"><b>Free</b> pages per document</td>
 	      <td class="table-col-width">Unlimited</td>		      
-	      <td class="table-col-width">Unlimited</td>
-	      <td class="table-col-width">10</td>
+	      <td class="table-col-width column-right-border">Unlimited</td>
+	      <td class="table-col-width column-right-border">10</td>
 	      <td class="table-col-width">10</td>
 	    </tr>
 	  </tbody>
 	</table>
+      </div>
+    </div>
+  </div>
+  <div class="row highlight-row" style="height: 30px; margin-top: 60px">
+  </div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="row row-equal-height">
+	<div class="col-md-4">
+	  <img class="optional-logo" src="images/94- spy-male-african-american.svg">
+	</div>
+	<div class="col-md-8">
+	  <h2><b>Optional add-ons to supercharge your workflows</b></h2>
+	</div>
       </div>
     </div>
   </div>

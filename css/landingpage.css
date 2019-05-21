@@ -975,6 +975,13 @@ button.close {
     right: 0;
 }
 
+.optional-logo {
+    height: 250px;
+    position: absolute;
+    bottom: -80px;
+    right: 0;
+}
+
 .row-equal-height {
     display: flex;
     display: -webkit-flex;
@@ -992,4 +999,12 @@ button.close {
 .btn-horizontal-padding {
     padding-left: 5px;
     padding-right: 5px;
+}
+
+.column-right-border {
+    border-right: 2px solid #00f9d8 !important
+}
+
+#recommended {
+    padding: 0
 }
