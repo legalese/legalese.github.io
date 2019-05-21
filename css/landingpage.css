@@ -1004,3 +1004,11 @@ button.close {
 .column-right-border {
     border-right: 2px solid #00f9d8 !important
 }
+
+.paragraph-small-margin {
+    margin: 2px;
+}
+
+.blue-check {
+    color: blue
+}
