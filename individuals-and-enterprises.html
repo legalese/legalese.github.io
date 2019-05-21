@@ -11,7 +11,12 @@ layout: default
 	    <tr id="table-header-fixed">
 	      <th class="table-col-width" style="vertical-align: top">
 		<h4 style="margin: 10px 0px">What's included?</h4>
-		<input type="checkbox" id="price-toggle" data-toggle="toggle" checked data-onstyle="success" data-width="200" data-on="Bill yearly (30% off!)" data-off="Bill monthly">
+		<div class="can-toggle">
+		  <input id="price-toggle" type="checkbox">
+		  <label for="price-toggle">
+		    <div class="can-toggle__switch" data-checked="Bill yearly (30% off!)" data-unchecked="Bill monthly"></div>
+		  </label>
+		</div>
 	      </th>
 	      <th class="table-col-width" style="vertical-align: top">
 		<h5>Professional</h5>
