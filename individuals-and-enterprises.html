@@ -2,13 +2,13 @@
 layout: default
 ---
 <div class="container-fluid top-container bottom-content" id="second-container">
-  {% include pricing.html choiceClassIndividual="pricing-choice-active" choiceClassApi="pricing-choice-inactive" %}
+  {% include pricing.html choiceClass="individual-left" choiceClassIndividual="pricing-choice-active" choiceClassApi="pricing-choice-inactive" %}
   <div class="row" style="margin-top: 30px">
     <div class="col-md-10 col-md-offset-1">
       <div class="table-responsive">
 	<table class="table table-bordered">
 	  <thead>
-	    <tr>
+	    <tr id="table-header-fixed" >
 	      <th class="table-col-width" style="vertical-align: top">
 		<h4 style="margin: 10px 0px">What's included?</h4>
 		<input type="checkbox" id="price-toggle" data-toggle="toggle" checked data-onstyle="success" data-width="200" data-on="Bill yearly (30% off!)" data-off="Bill monthly">
