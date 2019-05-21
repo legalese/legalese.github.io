@@ -152,16 +152,23 @@
       <script src="scripts/textcontent.js"></script>
       <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
       <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+      <script src="https://unpkg.com/floatthead"></script>
+
       <script>
 	$(".flipcard").flip({
-	trigger: "hover",
-	front: ".frontcard",
-	back: ".backcard"
+	    trigger: "hover",
+	    front: ".frontcard",
+	    back: ".backcard"
 	});
       </script>
-
-
-
+      <script>
+	$(() => $('table').floatThead({
+            responsiveContainer: function($table){
+		return $table.closest(".table-responsive");
+            },
+	    top: 50
+	}));
+      </script>
   </body>
 </html>
 

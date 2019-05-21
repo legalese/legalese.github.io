@@ -984,3 +984,7 @@ button.close {
 .highlight-row {
     background: linear-gradient(90deg, rgba(65,62,255,1) 0%, rgba(198,50,241,1) 100%);
 }
+
+#table-header-fixed {
+    background-color: white;
+}
