@@ -63,15 +63,17 @@
 
 @mixin can-toggle-appearance
 ( 
-  $can-toggle-width: 200px,
+    $can-toggle-width: 200px,
+    $can-toggle-switch-width: 100px,
   $can-toggle-height: 36px,
   $can-toggle-border-radius: 4px,
   $can-toggle-offset: 2px,
   $can-toggle-label-font-size: 14px,
   $can-toggle-switch-font-size: 12px,
-  $can-toggle-shadow: 0 3px 3px rgba(black, 0.4)
+  $can-toggle-shadow: 0 3px 3px rgba(black, 0.4),
+  $can-toggle-left: 0.4,
+  $can-toggle-right: 0.6,
 ){
-  $can-toggle-switch-width: $can-toggle-width/2;
   
   input[type="checkbox"] {
 
@@ -84,7 +86,13 @@
     &:checked {
       ~ label {
         .can-toggle__switch {
-          &:after { transform: translate3d($can-toggle-width - ($can-toggle-switch-width + $can-toggle-offset),0,0); }  
+            &:after {
+		transform: translate3d(calc(#{$can-toggle-switch-width} - #{$can-toggle-offset} * 2),0,0);
+		width: calc(#{$can-toggle-width} * #{$can-toggle-right});
+	    }
+	    &:before {
+		width: calc(#{$can-toggle-width} * #{$can-toggle-left});
+	    }
         }
       }
       &:focus, &:hover {
@@ -104,17 +112,17 @@
       border-radius: $can-toggle-border-radius;
       
       &:before {
-        left: $can-toggle-width * 0.4;
+          left: calc(#{$can-toggle-width} * #{$can-toggle-left});
         font-size: $can-toggle-switch-font-size; 
         line-height: $can-toggle-height;
-        width: $can-toggle-width * 0.6;
+        width: calc(#{$can-toggle-width} * #{$can-toggle-right});
         padding: 0px;
       }
       
       &:after {
         top: $can-toggle-offset; left: $can-toggle-offset;
         border-radius: $can-toggle-border-radius/2;
-        width: $can-toggle-switch-width * 0.8 - $can-toggle-offset; 
+        width: calc(#{$can-toggle-width} * #{$can-toggle-left} - #{$can-toggle-offset}); 
         line-height: $can-toggle-height - ($can-toggle-offset*2);
         font-size: $can-toggle-switch-font-size;
       }
@@ -130,7 +138,7 @@
 
 .can-toggle {
     position: relative;
-    width: 200px;
+    width: var(--toggleWidth);
   *, *:before, *:after { box-sizing: border-box; }
   //overflow: hidden;
   
@@ -205,7 +213,7 @@
   
   // Default values for .can-toggle class
   @include can-toggle-branding; 
-  @include can-toggle-appearance;
+  @include can-toggle-appearance($can-toggle-width: var(--toggleWidth), $can-toggle-left: var(--toggleLeft), $can-toggle-right: var(--toggleRight), $can-toggle-switch-width: var(--toggleSwitchWidth));
   
   // Create toggles of different sizes by overriding the can-toggle-appearance mixin defaults
   &.can-toggle--size-small {
@@ -238,10 +246,10 @@
   &.demo-rebrand-1 {
     @include can-toggle-branding
     (
-      #b53e74,  // Off state color
-      #3d9c72,  // On state color
-      rgba(white, 0.6),  // Off state text color
-      ease-in-out  // Transition timing function
+      #777,  // Off state color
+      #777,  // On state color
+      rgba(white, 0.5),  // Off state text color
+      cubic-bezier(0,1,0.5,1)  // Transition timing function
     ); 
   }
   

@@ -15,10 +15,14 @@
       </div>
       <div class="col-md-8">
 	<h2 style="color: #fff; font-weight: 700">{{include.blurb}}</h2>
-	<p class="{{include.choiceClass}}">
-	  <span class="{{include.choiceClassIndividual}}">Individual &amp; Enterprise</span>
-	  <span class="{{include.choiceClassApi}}">APIs/White Label Services</span>
-	</p>
+	<div class="can-toggle demo-rebrand-1" style="--toggleWidth: 360px; --toggleLeft: 0.5; --toggleRight: 0.5; --toggleSwitchWidth: 180px">
+	  <input id="service-toggle" type="checkbox">
+	  <label for="service-toggle">
+	    <div class="can-toggle__switch"
+		 data-checked="APIs/White Label Services"
+		 data-unchecked="Individual & Enterprise"></div>
+	  </label>
+	</div>
       </div>
     </div>
   </div>
