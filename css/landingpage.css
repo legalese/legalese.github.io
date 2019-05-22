@@ -989,7 +989,7 @@ button.close {
 }
 
 .highlight-row {
-    background: linear-gradient(90deg, rgba(65,62,255,1) 0%, rgba(198,50,241,1) 100%);
+    background: linear-gradient(169deg, #dd68ff 0%, #413eff 100%);
 }
 
 .table-header-fixed {
@@ -1016,7 +1016,7 @@ button.close {
 .highlight-border {
     height: 5px;
     border-radius: 2px;
-    background: 2px linear-gradient(90deg, rgba(65,62,255,1) 0%, rgba(198,50,241,1) 100%);
+    background: 2px linear-gradient(169deg, rgba(198,50,241,1) 0%, rgba(65,62,255,1) 100%);
 }
 
 .picture-padding {
@@ -1027,4 +1027,18 @@ button.close {
     display: inline-block;
     padding: 2px;
     margin: 10px 0px;
+}
+
+.subscription-box-margins {
+    display: inline-block;
+    padding: 2px;
+    margin: 10px;
+}    
+
+.subscription-box-margins > div > h3, p {
+    margin: 0px;
+}
+
+.cost-label {
+    width: 80px;
 }
