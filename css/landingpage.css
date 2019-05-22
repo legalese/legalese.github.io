@@ -1012,3 +1012,19 @@ button.close {
 .blue-check {
     color: blue
 }
+
+.highlight-border {
+    height: 5px;
+    border-radius: 2px;
+    background: 2px linear-gradient(90deg, rgba(65,62,255,1) 0%, rgba(198,50,241,1) 100%);
+}
+
+.picture-padding {
+    padding-top: 50px
+}
+
+.subscription-box {
+    display: inline-block;
+    padding: 2px;
+    margin: 10px 0px;
+}
