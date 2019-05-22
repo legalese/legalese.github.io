@@ -2,7 +2,12 @@
 layout: default
 ---
 <div class="container-fluid top-container bottom-content" id="second-container">
-  {% include pricing.html choiceClass="individual-left" choiceClassIndividual="pricing-choice-active" choiceClassApi="pricing-choice-inactive" %}
+  {% include pricing.html
+  blurb="Choose a plan that's right for you"
+  smallTitle="Your templates (and ours), but smarter!"
+  choiceClass="individual-left"
+  choiceClassIndividual="pricing-choice-active"
+  choiceClassApi="pricing-choice-inactive" %}
   <div class="row" style="margin-top: 30px">
     <div class="col-md-10 col-md-offset-1">
       <div class="table-responsive">
@@ -48,9 +53,11 @@ layout: default
 	  <tbody>
 	    <tr>
 	      <td class="table-row-title" style="text-align: right; border-right: 1px solid white; border-left: 1; border-left: 1px solid white">
-		<a tabindex="0" class="btn btn-horizontal-padding" role="button" data-placement="bottom" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">
-		  <i class="fa fa-info-circle" aria-hidden="true"></i>
-		</a>
+		{% include popover.html
+		position="bottom"
+		title="Test"
+		content="Lorem ipsum, etc."
+		%}
 		<h5 style="display: inline"><b>Standard Document Generation</b></h5>
 	      </td>
 	      <td style="border-right: 1px solid white"></td>
@@ -67,9 +74,11 @@ layout: default
 	    </tr>
 	    <tr>
 	      <td class="table-col-width" style="text-align: right">Price per doc for subsequent generation
-		<a tabindex="0" class="btn btn-horizontal-padding" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">
-		  <i class="fa fa-info-circle" aria-hidden="true"></i>
-		</a>
+		{% include popover.html
+		position="right"
+		title="Test"
+		content="Lorem ipsum, etc."
+		%}
 	      </td>
 	      <td id="substandard-pro" class="table-col-width">$1.74</td>		      
 	      <td id="substandard-plus" class="table-col-width column-right-border">$1.74</td>
@@ -78,9 +87,11 @@ layout: default
 	    </tr>
 	    <tr>
 	      <td class="table-col-width" style="text-align: right"><b>Free</b> fields per document
-	      	<a tabindex="0" class="btn btn-horizontal-padding" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">
-		  <i class="fa fa-info-circle" aria-hidden="true"></i>
-		</a>
+		{% include popover.html
+		position="right"
+		title="Test"
+		content="Lorem ipsum, etc."
+		%}
 	      </td>
 	      <td class="table-col-width">20</td>		      
 	      <td class="table-col-width column-right-border">20</td>
@@ -89,9 +100,11 @@ layout: default
 	    </tr>
 	    <tr>
 	      <td class="table-col-width" style="text-align: right"><b>Free</b> pages per document
-	      	<a tabindex="0" class="btn btn-horizontal-padding" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">
-		  <i class="fa fa-info-circle" aria-hidden="true"></i>
-		</a>
+		{% include popover.html
+		position="right"
+		title="Test"
+		content="Lorem ipsum, etc."
+		%}
 	      </td>
 	      <td class="table-col-width">Unlimited</td>		      
 	      <td class="table-col-width column-right-border">Unlimited</td>

@@ -2,5 +2,23 @@
 layout: default
 ---
 <div class="container-fluid top-container bottom-content" id="second-container">
-  {% include pricing.html choiceClassIndividual="pricing-choice-inactive" choiceClassApi="pricing-choice-active" %}  
+  {% include pricing.html
+  blurb="Flexible plans that grow with you"
+  smallTitle="Build your business & service your clients – we'll help with the easy* tech bit based on your templates (and ours), but smarter!"
+  choiceClass="api-right"
+  choiceClassIndividual="pricing-choice-inactive"
+  choiceClassApi="pricing-choice-active"
+  %}
+  <div class="row" style="margin-top: 40px">
+    <div class="col-md-9" style="padding-left: 30px">
+      <h2 style="margin-bottom: 0px"><b>Welcome to the Legalese Developer Platform.</b></h2>
+      <p>Designed to allow you to connect your applications with the Legalese Services via an API platform.
+	{% include popover.html
+	position="right"
+	title="Test"
+	content="Lorem ipsum, etc."
+	%}
+      </p>
+    </div>
+  </div>
 </div>
