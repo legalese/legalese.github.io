@@ -50,7 +50,7 @@
 	</div>
 
 	<!-- top horizontal nav menu -->
-	<nav class="navbar navbar-default legalese-nav">
+	<nav class="navbar navbar-default legalese-nav navbar-static-top">
 	  <div class="navbar-header">
 	    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
@@ -164,8 +164,7 @@
 	$(() => $('table').floatThead({
             responsiveContainer: function($table){
 		return $table.closest(".table-responsive");
-            },
-	    top: 50
+            }
 	}));
       </script>
   </body>

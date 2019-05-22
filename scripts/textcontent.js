@@ -104,13 +104,13 @@ $(".sidebar-header").each(function() {
  *     lastScrollTop = st;
  * }); */
 
-$(".legalese-nav").affix({
-  offset: {
-    top: function() {
-      return (this.top = $("#second-container").offset().top)
-    }
-  }
-})
+/* $(".legalese-nav").affix({
+ *   offset: {
+ *     top: function() {
+ *       return (this.top = $("#second-container").offset().top)
+ *     }
+ *   }
+ * }) */
 
 // don't know why I can't just add a css class here
 
