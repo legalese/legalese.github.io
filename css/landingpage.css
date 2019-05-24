@@ -1033,12 +1033,26 @@ button.close {
     display: inline-block;
     padding: 2px;
     margin: 10px;
+    max-width: 150px;
 }    
 
 .subscription-box-margins > div > h3, p {
     margin: 0px;
 }
 
+.subscription-content {
+    background: #fff;
+    padding: 10px;
+}
+
 .cost-label {
     width: 80px;
+}
+
+.pricing-feature-cols {
+    min-width: 500px;
+}
+
+.pricing-feature-cols-long {
+    min-width: 700px;
 }
