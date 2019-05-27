@@ -975,6 +975,13 @@ button.close {
     right: 0;
 }
 
+.pricing-logo-docs {
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
 .optional-logo {
     height: 250px;
     position: absolute;
@@ -1036,13 +1043,15 @@ button.close {
     max-width: 150px;
 }    
 
-.subscription-box-margins > div > h3, p {
+.subscription-box-margins > div > h3,
+.subscription-box-margins > div > p {
     margin: 0px;
 }
 
 .subscription-content {
     background: #fff;
     padding: 10px;
+    min-height: 95px;
 }
 
 .cost-label {
