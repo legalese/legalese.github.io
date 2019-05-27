@@ -3,238 +3,252 @@ layout: default
 ---
 <!--Computational legal tab-->
 <div class="container-fluid top-container bottom-content" id="second-container">
-  <div class="col-md-2 col-md-offset-1 left-menu">
-    <p><a class="left-menu-item" href="#original-motivation">Our Original Motivation</a></p>
-    <p><a class="left-menu-item" href="#CompLaw">Solution: Computational Legal</a></p>
-    <p><a class="left-menu-item" href="#L4">L4:&nbsp; a domain-specific language (DSL) for law</a></p>
+  <div class="row row-equal-height">
+    <div class="col-md-2 col-md-offset-1" style="height: 200px">
+      <img class="pricing-logo-docs" src="images/52- star-trek-space-colony-male-caucasian-2.svg">
+    </div>    
   </div>
-  <div class="col-md-6 col-md-offset-1">
-    <div class="row text-justify row-with-blockquote">
-      <blockquote class="text-center">
-        <div class="col-md-10 col-md-offset-1">
-	  <p>The day should come, when it will come I don't know, but the day should come, when you will be able to feed a set of facts to a machine that has cases, rules of law, and reasoning rules stored in it, and in which the machine can then lay out for you, step by step, the reasoning process by which you may be able to arrive at a conclusion.</p>
-        </div>
-        <footer><div class="blockquote-footer">Reed Lawlor at
-            the <cite>First National Law and Electronic
-              Conference</cite><br><p>October, 1960</p></div></footer>
-      </blockquote>
+  <div class="row">
+    <div class="col-md-11 col-md-offset-1">
+      <h3><b>Why Computational Law?</b></h3>
+      <h1><b>Part III.  Solution:  Computational Law has joined the chat. </b></h1>
     </div>
+  </div>
 
-    <div class="row prose row-with-blockquote">
-      <h2 class="lower-nav-el" id="original-motivation">Our Original Motivation</h2>
-      <h4>(or how we got the idea to represent contracts as code)</h4>
-      <p>Once upon a time, a programmer received an investment contract containing the following text:</p>
-      <div id="investment-contract">
-	<p>1.2.1 If the investment for the purpose of the Series B
-	  Funding is valued at not more than $32.5 Million, then the
-	  investors in the Note shall be entitled to convert the
-	  Note into Shares at a fixed valuation of $27.5
-	  million.</p>
-	<p>1.2.2 If the investment for the purpose of the Series B
-	  Funding is valued at less than $40 million but not below
-	  $32.5 million, investors in the Convertible Note will be
-	  entitled to convert the Note into Shares at a 15% discount
-	  over the valuation of the Series B Funding (for instance,
-	  if the series B Funding is at a valuation of $35 million,
-	  then the investors in the Note shall be entitled to
-	  convert at a valuation of 35M less 15% discount);</p>
-	<p>1.2.3 If the investment for the purpose of the Series B
-	  Funding is valued at not less than $40 million but less
-	  than $47.06 million, investors in the Convertible Note
-	  will be entitled to convert the Note into Shares at a 15%
-	  discount over the valuation of the Series B Funding (for
-	  instance, if the series B Funding is at a valuation of
-	  $47.06 million, then the investors in the Note shall be
-	  entitled to convert at a pre-money valuation of 40M
-	  i.e. $47.06 million less 15% discount);</p>
-	<p>1.2.4 If the investment for the purpose of the Series B
-	  Funding is valued at not less than $47.06 million but less
-	  than $80 million, investors in the Convertible Note will
-	  be entitled to convert the Note into Shares at a fixed
-	  pre-money valuation of $40 million;</p>
-	<p>1.2.5 If the investment for the purpose of the Series B
-	  Funding is valued at not less than $80M but less than
-	  $100M, investors in the Convertible Note will be entitled
-	  to convert the Note into Shares at a fixed pre-money
-	  valuation of $45M; and</p>
-	<p>1.2.6 If the investment for the purpose of the Series B
-	  Funding is valued at not less than $100 million, investors
-	  in the Convertible Note will be entitled to convert the
-	  Note into Shares at a fixed pre-money valuation of $50
-	  million.</p>
+  <div class="row">
+    <div class="col-md-2 col-md-offset-1 left-menu">
+      <p><a class="left-menu-item" href="#original-motivation">Our Original Motivation</a></p>
+      <p><a class="left-menu-item" href="#CompLaw">Solution: Computational Legal</a></p>
+      <p><a class="left-menu-item" href="#L4">L4:&nbsp; a domain-specific language (DSL) for law</a></p>
+    </div>
+    <div class="col-md-6 col-md-offset-1">
+      <div class="row text-justify row-with-blockquote">
+	<blockquote class="text-center">
+          <div class="col-md-10 col-md-offset-1">
+	    <p>The day should come, when it will come I don't know, but the day should come, when you will be able to feed a set of facts to a machine that has cases, rules of law, and reasoning rules stored in it, and in which the machine can then lay out for you, step by step, the reasoning process by which you may be able to arrive at a conclusion.</p>
+          </div>
+          <footer><div class="blockquote-footer">Reed Lawlor at
+              the <cite>First National Law and Electronic
+		Conference</cite><br><p>October, 1960</p></div></footer>
+	</blockquote>
       </div>
-      <br>
-      <p>Ten minutes and a strong cup of tea later, the notes in the margin read:</p>
-      <pre>
-	// why wasn't this just if( seriesB < 32.5 ) { conversion = 27.5 }
-					      else if( seriesB < 40 ) { conversion = seriesB * 0.85 } else if(
-								 seriesB < 47.06 ) { conversion = seriesB * 0.85 } // then why the
-									   above line?  else if( seriesB < 80 ) { conversion = 40 } else if(
-													   seriesB < 100 ) { conversion = 45 } else { conversion = 50 }
-														     </pre>
+
+      <div class="row prose row-with-blockquote">
+	<h2 class="lower-nav-el" id="original-motivation">Our Original Motivation</h2>
+	<h4>(or how we got the idea to represent contracts as code)</h4>
+	<p>Once upon a time, a programmer received an investment contract containing the following text:</p>
+	<div id="investment-contract">
+	  <p>1.2.1 If the investment for the purpose of the Series B
+	    Funding is valued at not more than $32.5 Million, then the
+	    investors in the Note shall be entitled to convert the
+	    Note into Shares at a fixed valuation of $27.5
+	    million.</p>
+	  <p>1.2.2 If the investment for the purpose of the Series B
+	    Funding is valued at less than $40 million but not below
+	    $32.5 million, investors in the Convertible Note will be
+	    entitled to convert the Note into Shares at a 15% discount
+	    over the valuation of the Series B Funding (for instance,
+	    if the series B Funding is at a valuation of $35 million,
+	    then the investors in the Note shall be entitled to
+	    convert at a valuation of 35M less 15% discount);</p>
+	  <p>1.2.3 If the investment for the purpose of the Series B
+	    Funding is valued at not less than $40 million but less
+	    than $47.06 million, investors in the Convertible Note
+	    will be entitled to convert the Note into Shares at a 15%
+	    discount over the valuation of the Series B Funding (for
+	    instance, if the series B Funding is at a valuation of
+	    $47.06 million, then the investors in the Note shall be
+	    entitled to convert at a pre-money valuation of 40M
+	    i.e. $47.06 million less 15% discount);</p>
+	  <p>1.2.4 If the investment for the purpose of the Series B
+	    Funding is valued at not less than $47.06 million but less
+	    than $80 million, investors in the Convertible Note will
+	    be entitled to convert the Note into Shares at a fixed
+	    pre-money valuation of $40 million;</p>
+	  <p>1.2.5 If the investment for the purpose of the Series B
+	    Funding is valued at not less than $80M but less than
+	    $100M, investors in the Convertible Note will be entitled
+	    to convert the Note into Shares at a fixed pre-money
+	    valuation of $45M; and</p>
+	  <p>1.2.6 If the investment for the purpose of the Series B
+	    Funding is valued at not less than $100 million, investors
+	    in the Convertible Note will be entitled to convert the
+	    Note into Shares at a fixed pre-money valuation of $50
+	    million.</p>
+	</div>
+	<br>
+	<p>Ten minutes and a strong cup of tea later, the notes in the margin read:</p>
+	<pre>
+	  // why wasn't this just if( seriesB < 32.5 ) { conversion = 27.5 }
+						else if( seriesB < 40 ) { conversion = seriesB * 0.85 } else if(
+								   seriesB < 47.06 ) { conversion = seriesB * 0.85 } // then why the
+									     above line?  else if( seriesB < 80 ) { conversion = 40 } else if(
+													     seriesB < 100 ) { conversion = 45 } else { conversion = 50 }
+														       </pre>
 
 
-      <h3>Software is eating the world</h3><p>Today, software drives our trains, trades our shares, and
-	maps our flight routes.  Today, the world's largest <a class="a-link"
-							       href="http://www.therobinreport.com/amazon-from-earths-biggest-bookstore-to-the-biggest-store-on-earth/"
-							       target="_blank">bookstore (Amazon)</a>, <a class="a-link"
-													  href="https://theundercoverrecruiter.com/linkedin-competitors/"
-													  target="_blank">recruiting company (LinkedIn)</a>, <a class="a-link"
-																				href="https://www.newyorker.com/news/john-cassidy/facebook-the-worlds-biggest-direct-marketing-company/"
-																				target="_blank">direct marketing platform
-	  (Facebook)</a>, <a class="a-link"
-			     href="https://techcrunch.com/2015/03/03/in-the-age-of-disintermediation-the-battle-is-all-for-the-customer-interface/"
-			     target="_blank">taxi company (Uber)</a>, <a class="a-link"
-									 href="http://fortune.com/2017/11/09/ott-internet-video-netflix-hbo-hulu/"
-									 target="_blank">video service (Netflix)</a>, <a class="a-link"
-															 href="https://eventige.com/how-airbnb-became-the-largest-hotel-chain-without-owning-a-single-hotel/"
-															 target="_blank">accomodation provider (airbnb)</a> are all <b>software
-	  companies</b>. <b>Yet the largest law firm is still a law firm</b> the
-	same way it was 200 years ago.<br><br>
+	<h3>Software is eating the world</h3><p>Today, software drives our trains, trades our shares, and
+	  maps our flight routes.  Today, the world's largest <a class="a-link"
+								 href="http://www.therobinreport.com/amazon-from-earths-biggest-bookstore-to-the-biggest-store-on-earth/"
+								 target="_blank">bookstore (Amazon)</a>, <a class="a-link"
+													    href="https://theundercoverrecruiter.com/linkedin-competitors/"
+													    target="_blank">recruiting company (LinkedIn)</a>, <a class="a-link"
+																				  href="https://www.newyorker.com/news/john-cassidy/facebook-the-worlds-biggest-direct-marketing-company/"
+																				  target="_blank">direct marketing platform
+	    (Facebook)</a>, <a class="a-link"
+			       href="https://techcrunch.com/2015/03/03/in-the-age-of-disintermediation-the-battle-is-all-for-the-customer-interface/"
+			       target="_blank">taxi company (Uber)</a>, <a class="a-link"
+									   href="http://fortune.com/2017/11/09/ott-internet-video-netflix-hbo-hulu/"
+									   target="_blank">video service (Netflix)</a>, <a class="a-link"
+															   href="https://eventige.com/how-airbnb-became-the-largest-hotel-chain-without-owning-a-single-hotel/"
+															   target="_blank">accomodation provider (airbnb)</a> are all <b>software
+	    companies</b>. <b>Yet the largest law firm is still a law firm</b> the
+	  same way it was 200 years ago.<br><br>
 
-	Today’s foremost technology investor <a class="a-link"
-						href="https://www.wsj.com/articles/SB10001424053111903480904576512250915629460"
-						target="_blank">Marc Andreessen said “software is eating the
-	  world”</a>. When Andreessen, a <a class="footnote">software
-	  engineer<span>Andreessen co-authored Mosaic (the first widely used web
-	    browser) and co-founded Netscape)</span></a>says “<em>eats</em>” he
-	probably had something very specific in mind: &nbsp;the
-	“Turing’ification” of an industry is something that only a computer
-	scientist can properly understand. In Twitter conversation with us, in
-	2014, he mentioned Judicata and LegalZoom – then said “we’re looking
-	for a good one.” What does that mean?  Find-a-lawyer marketplaces,
-	download-a-template sites, and e-discovery search engines may be
-	nibbling at the edges of the traditional legal profession, but they
-	aren’t eating it, not the way Uber is eating the taxi industry, or the
-	way Netflix is eating TV.  <b>Today’s document automation software is
-	  mostly a more full-featured version of Microsoft Word</b>. Although
-	Legalese sees its roots in document automation, we have our sights set
-	higher and deeper: &nbsp;on deep-tech, computer-science-driven
-	software that will transform the legal industry (not just the legal
-	profession), serving not just lawyers but end users directly as
-	well.</p>
-      <br>
+	  Today’s foremost technology investor <a class="a-link"
+						  href="https://www.wsj.com/articles/SB10001424053111903480904576512250915629460"
+						  target="_blank">Marc Andreessen said “software is eating the
+	    world”</a>. When Andreessen, a <a class="footnote">software
+	    engineer<span>Andreessen co-authored Mosaic (the first widely used web
+	      browser) and co-founded Netscape)</span></a>says “<em>eats</em>” he
+	  probably had something very specific in mind: &nbsp;the
+	  “Turing’ification” of an industry is something that only a computer
+	  scientist can properly understand. In Twitter conversation with us, in
+	  2014, he mentioned Judicata and LegalZoom – then said “we’re looking
+	  for a good one.” What does that mean?  Find-a-lawyer marketplaces,
+	  download-a-template sites, and e-discovery search engines may be
+	  nibbling at the edges of the traditional legal profession, but they
+	  aren’t eating it, not the way Uber is eating the taxi industry, or the
+	  way Netflix is eating TV.  <b>Today’s document automation software is
+	    mostly a more full-featured version of Microsoft Word</b>. Although
+	  Legalese sees its roots in document automation, we have our sights set
+	  higher and deeper: &nbsp;on deep-tech, computer-science-driven
+	  software that will transform the legal industry (not just the legal
+	  profession), serving not just lawyers but end users directly as
+	  well.</p>
+	<br>
 
 
-      <h2 class="lower-nav-el" id="CompLaw">Solution:  Computational Legal</h2>
-      <h4>Moving from <a class="footnote"><b>syntax</b><span>the grammar,
-	    structure, form of language (e.g. the legalistic &amp; often
-	    convoluted language that lawyers use today)</span></a>
-	&rArr; <a class="footnote"><b>semantics</b><span>the actual meanings
-	    attached to the words, symbols, and
-	    characters</span></a>&rArr; <a class="footnote"><b>pragmatics</b><span>the
-	    context and its effect of the outcomes, e.g. whether something can be
-	    enforced in one's country</span></a></h4>
-      <br>
-      <p>Imagine</p>
-      <ul><li>Contracts in English, Spanish, French, German,
-          Mandarin Chinese, etc – each translation <b>provably
-	    identical</b> to the others</li>
-        <li>Contracts amenable to <a class="a-link"
-				     href="https://en.wikipedia.org/wiki/Software_testing"
-				     target="_blank">testing</a>
-	  and <a class="a-link"
-		 href="https://www.quantamagazine.org/20160920-formal-verification-creates-hacker-proof-code/"
-		 target="_blank">formal
-	    methods</a>:&nbsp; <a class="a-link"
-				  href="http://spinroot.com/static/"
-				  target="_blank">static
-	    analysis</a> can prove that a
-	  contract is internally
-	  consistent, free of
-	  contradiction, and
-	  complete</li>
-        <li>Contracts that self-execute in software, integrated
-          with business processes, interacting with other
-          contracts</li>
-        <li>Contracts that easily afford illustrations, use cases, and scenarios, for end-users to reason concretely over</li>
-      </ul>
-      <p>This vision has been expressed by <a class="a-link"
-					      href="http://szabo.best.vwh.net/contractlanguage.html"
-					      target="_blank">Nick Szabo (2002)</a>, by <a class="a-link"
-											   href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2216866"
-											   target="_blank">Harry Surden (2012)</a>,
-        by <a class="a-link"
-	      href="https://financialresearch.gov/working-papers/files/OFRwp-2015-04_Contract-as-Automaton-The-Computational-Representation-of-Financial-Agreements.pdf"
-	      target="_blank">Flood &amp; Goodenough (2014)</a>,
-        by <a class="a-link" href="https://arxiv.org/abs/1406.5691"
-              target="_blank">Camilleri, Paganelli, &amp; Schneider
-          (2014)</a>, by <a class="a-link"
-			    href="https://link.springer.com/chapter/10.1007%2F978-3-540-72952-5_11"
-			    target="_blank">Prisacariu &amp; Schneider (2007)</a>.</p>
-      <p>Gotta respect the prior art; there's <em>a lot</em> of
-        it. In fact, legal informatics goes back at
-        least <a class="a-link" href="#informatics-content">70
-          years</a>.</p><br>
+	<h2 class="lower-nav-el" id="CompLaw">Solution:  Computational Legal</h2>
+	<h4>Moving from <a class="footnote"><b>syntax</b><span>the grammar,
+	      structure, form of language (e.g. the legalistic &amp; often
+	      convoluted language that lawyers use today)</span></a>
+	  &rArr; <a class="footnote"><b>semantics</b><span>the actual meanings
+	      attached to the words, symbols, and
+	      characters</span></a>&rArr; <a class="footnote"><b>pragmatics</b><span>the
+	      context and its effect of the outcomes, e.g. whether something can be
+	      enforced in one's country</span></a></h4>
+	<br>
+	<p>Imagine</p>
+	<ul><li>Contracts in English, Spanish, French, German,
+            Mandarin Chinese, etc – each translation <b>provably
+	      identical</b> to the others</li>
+          <li>Contracts amenable to <a class="a-link"
+				       href="https://en.wikipedia.org/wiki/Software_testing"
+				       target="_blank">testing</a>
+	    and <a class="a-link"
+		   href="https://www.quantamagazine.org/20160920-formal-verification-creates-hacker-proof-code/"
+		   target="_blank">formal
+	      methods</a>:&nbsp; <a class="a-link"
+				    href="http://spinroot.com/static/"
+				    target="_blank">static
+	      analysis</a> can prove that a
+	    contract is internally
+	    consistent, free of
+	    contradiction, and
+	    complete</li>
+          <li>Contracts that self-execute in software, integrated
+            with business processes, interacting with other
+            contracts</li>
+          <li>Contracts that easily afford illustrations, use cases, and scenarios, for end-users to reason concretely over</li>
+	</ul>
+	<p>This vision has been expressed by <a class="a-link"
+						href="http://szabo.best.vwh.net/contractlanguage.html"
+						target="_blank">Nick Szabo (2002)</a>, by <a class="a-link"
+											     href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2216866"
+											     target="_blank">Harry Surden (2012)</a>,
+          by <a class="a-link"
+		href="https://financialresearch.gov/working-papers/files/OFRwp-2015-04_Contract-as-Automaton-The-Computational-Representation-of-Financial-Agreements.pdf"
+		target="_blank">Flood &amp; Goodenough (2014)</a>,
+          by <a class="a-link" href="https://arxiv.org/abs/1406.5691"
+		target="_blank">Camilleri, Paganelli, &amp; Schneider
+            (2014)</a>, by <a class="a-link"
+			      href="https://link.springer.com/chapter/10.1007%2F978-3-540-72952-5_11"
+			      target="_blank">Prisacariu &amp; Schneider (2007)</a>.</p>
+	<p>Gotta respect the prior art; there's <em>a lot</em> of
+          it. In fact, legal informatics goes back at
+          least <a class="a-link" href="#informatics-content">70
+            years</a>.</p><br>
 
-      <h2 class="lower-nav-el" id="L4">L4:&nbsp; a domain-specific
-	language (DSL) for law</h2>
+	<h2 class="lower-nav-el" id="L4">L4:&nbsp; a domain-specific
+	  language (DSL) for law</h2>
 
-      <p>When we borrow Andreessen's adage and say "<em>software
-	  is eating law</em>", we mean software eating law in a rather
-	specific way:&nbsp; it gets <a class="a-link"
-				       href="http://kk.org/thetechnium/2008/03/turingd/"
-				       target="_blank">Turing’d</a>, by way of a domain-specific
-	language. (Lawyers, don’t worry; <a class="a-link"
-					    href="http://hodgen.com/questions-are-harder-than-answers/"
-					    target="_blank">you’ll keep your
-	  jobs</a>, <em>sorta</em>)</p>
+	<p>When we borrow Andreessen's adage and say "<em>software
+	    is eating law</em>", we mean software eating law in a rather
+	  specific way:&nbsp; it gets <a class="a-link"
+					 href="http://kk.org/thetechnium/2008/03/turingd/"
+					 target="_blank">Turing’d</a>, by way of a domain-specific
+	  language. (Lawyers, don’t worry; <a class="a-link"
+					      href="http://hodgen.com/questions-are-harder-than-answers/"
+					      target="_blank">you’ll keep your
+	    jobs</a>, <em>sorta</em>)</p>
 
-      <p>A domain-specific <b>programming</b> language (DSL) for
-	legal means a language that is <b>designed to capture legal
-	  semantics and logic</b>; a deep-tech computer science
-	approach to law. The DSL does for the <a class="a-link"
-						 href="https://en.wikipedia.org/wiki/Modal_%CE%BC-calculus"
-						 target="_blank">modal calculus</a> what <a class="a-link"
-											    href="https://wiki.haskell.org/Functional_programming"
-											    target="_blank">functional languages</a> do for
-	the <a class="a-link"
-	       href="https://en.wikipedia.org/wiki/Lambda_calculus"
-	       target="_blank">lambda calculus</a>.<br>  The one we're
-	designing and implementing is called, <b>L4</b>.</p>
+	<p>A domain-specific <b>programming</b> language (DSL) for
+	  legal means a language that is <b>designed to capture legal
+	    semantics and logic</b>; a deep-tech computer science
+	  approach to law. The DSL does for the <a class="a-link"
+						   href="https://en.wikipedia.org/wiki/Modal_%CE%BC-calculus"
+						   target="_blank">modal calculus</a> what <a class="a-link"
+											      href="https://wiki.haskell.org/Functional_programming"
+											      target="_blank">functional languages</a> do for
+	  the <a class="a-link"
+		 href="https://en.wikipedia.org/wiki/Lambda_calculus"
+		 target="_blank">lambda calculus</a>.<br>  The one we're
+	  designing and implementing is called, <b>L4</b>.</p>
 
-      <p>Simply put, a DSL means that all legal (and quasi-legal)
-	documents and laws will have a <b>common denominator for
-	  entire suites of future functionality</b>. The history of
-	computer science informs the future of legal: &nbsp;we can
-	translate entire families of concepts, such as compilation,
-	dependency management, multi-lingual code, linters, code
-	libraries, fuzz testing, unit & integration testing, and
-	even agile development and opensource software communities
-	of practice. Accompanied by static analysers capable of
-	formal verification, a DSL will enable us to prove, to the
-	extent mathematically possible, that the contracts written
-	in the language are correct, consistent, and compliant with
-	legislative constraints.</p>
+	<p>Simply put, a DSL means that all legal (and quasi-legal)
+	  documents and laws will have a <b>common denominator for
+	    entire suites of future functionality</b>. The history of
+	  computer science informs the future of legal: &nbsp;we can
+	  translate entire families of concepts, such as compilation,
+	  dependency management, multi-lingual code, linters, code
+	  libraries, fuzz testing, unit & integration testing, and
+	  even agile development and opensource software communities
+	  of practice. Accompanied by static analysers capable of
+	  formal verification, a DSL will enable us to prove, to the
+	  extent mathematically possible, that the contracts written
+	  in the language are correct, consistent, and compliant with
+	  legislative constraints.</p>
 
-      <p>The idea of building a DSL for an entire domain is not new; &nbsp;
-	companies like Adobe, Intuit, Autodesk, Cadence &ndash;
-	category-owners of their respective fields all started with their own
-	domain specific languages / standards.  As Frederik Pohl might put
-	it, <em>a good futurist predicts the car; a great futurist predicts
-	  the traffic jam.</em> If the car is a formal language for contracts
-	and agreements (maybe even legislation), then a taxi service might be
-	smart contracts integrated with cryptocurrencies and wholly automated
-	business processes, exposed through legally binding APIs. The traffic
-	jam? Maybe that’s a DDOS in the form of micro-contract spam, a welter
-	of frivolous lawsuits, or a zero-day exploit of an error enshrined in
-	some old piece of paperwork that didn’t get patched with the latest
-	service pack.</p>
+	<p>The idea of building a DSL for an entire domain is not new; &nbsp;
+	  companies like Adobe, Intuit, Autodesk, Cadence &ndash;
+	  category-owners of their respective fields all started with their own
+	  domain specific languages / standards.  As Frederik Pohl might put
+	  it, <em>a good futurist predicts the car; a great futurist predicts
+	    the traffic jam.</em> If the car is a formal language for contracts
+	  and agreements (maybe even legislation), then a taxi service might be
+	  smart contracts integrated with cryptocurrencies and wholly automated
+	  business processes, exposed through legally binding APIs. The traffic
+	  jam? Maybe that’s a DDOS in the form of micro-contract spam, a welter
+	  of frivolous lawsuits, or a zero-day exploit of an error enshrined in
+	  some old piece of paperwork that didn’t get patched with the latest
+	  service pack.</p>
 
-      <p>The battery of tools which computer scientists and
-	programmers currently have at their disposal (of which
-	lawyers don’t even have an inkling) can be applied to the
-	field of legal.  Legalese asserts what <a class="a-link"
-						  href="https://www.amazon.com/Tomorrows-Lawyers-Introduction-Your-Future/dp/019966806X/"
-						  target="_blank">tomorrow's lawyers</a> do will look a lot
-	like what today's programmers do: &nbsp;drawing on
-	opensource libraries, they will configure code for clients
-	that compiles to readable contracts &ndash; maybe English,
-	maybe Ethereum/Hyperledger. From that future, we will look
-	back on today's lawyers, drafting agreements in Microsoft
-	Word and checking references by hand, as impossibly quaint,
-	like hand embroidery.</p>
+	<p>The battery of tools which computer scientists and
+	  programmers currently have at their disposal (of which
+	  lawyers don’t even have an inkling) can be applied to the
+	  field of legal.  Legalese asserts what <a class="a-link"
+						    href="https://www.amazon.com/Tomorrows-Lawyers-Introduction-Your-Future/dp/019966806X/"
+						    target="_blank">tomorrow's lawyers</a> do will look a lot
+	  like what today's programmers do: &nbsp;drawing on
+	  opensource libraries, they will configure code for clients
+	  that compiles to readable contracts &ndash; maybe English,
+	  maybe Ethereum/Hyperledger. From that future, we will look
+	  back on today's lawyers, drafting agreements in Microsoft
+	  Word and checking references by hand, as impossibly quaint,
+	  like hand embroidery.</p>
+      </div>
     </div>
   </div>
-</div>
 
+</div>
