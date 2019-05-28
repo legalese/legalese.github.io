@@ -98,55 +98,9 @@ layout: default
       </div>
     </div>
   </div>
-  <div class="row" style="margin-top: 20px">
-    <div class="col-md-4 col-lg-4 col-lg-offset-2 pricing-feature-cols-long">
-      <div class="text-right subscription-box-margins cost-label">
-	<p style="margin-top: 10px">Add-ons to supercharge your workflows</p>
-      </div>
-      <div class="highlight-row subscription-box-margins text-center">
-	<div class="subscription-content">
-	  <img src="images/streamline-icon-attachment@24x24.svg">
-	  <p>Automatic annexures</p>
-	</div>
-      </div>
-      <div class="highlight-row subscription-box-margins text-center">
-	<div class="subscription-content">
-	  <img src="images/streamline-icon-hierarchy-files@24x24.svg">
-	  <p>Multi-step Custom Workflows</p>
-	</div>
-      </div>
-      <div class="highlight-row subscription-box-margins text-center">
-	<div class="subscription-content">
-	  <img src="images/streamline-icon-monetization-idea@24x24.svg">
-	  <p>Insights &amp; Optimisations</p>
-	</div>
-      </div>
-    </div>
-  </div>
-  <div class="row" style="margin-top: 20px">
-    <div class="col-md-4 col-lg-4 col-lg-offset-2 pricing-feature-cols-long">
-      <div class="text-right subscription-box-margins cost-label">
-	<p style="margin-top: 10px">&nbsp;</p>
-      </div>
-      <div class="highlight-row subscription-box-margins text-center">
-	<div class="subscription-content">
-	  <img src="images/streamline-icon-pie-line-graph@24x24.svg">
-	  <p>Real-time queries from ACRA</p>
-	</div>
-      </div>
-      <div class="highlight-row subscription-box-margins text-center">
-	<div class="subscription-content">
-	  <img src="images/streamline-icon-pen-write-paper@24x24.svg">
-	  <p>E-Signature Management</p>
-	</div>
-      </div>
-      <div class="highlight-row subscription-box-margins text-center">
-	<div class="subscription-content">
-	  <img src="images/streamline-icon-audio-book-art@24x24.svg">
-	  <p>Custom Branding &amp; House Styles</p>
-	</div>
-      </div>
-    </div>
-  </div>
-
+  {% include addons.html
+  leftLabel=true
+  center=false
+  bootstrapClasses="col-md-10 col-lg-10 col-lg-offset-2"
+  %}
 </div>
