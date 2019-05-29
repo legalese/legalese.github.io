@@ -67,7 +67,7 @@ blockquote:before {
     content: ",,";
     font-size: 60px;
     position: absolute;
-    left: 0px;
+    left: 0;
     top: 0px;
     color: #333333;
     transform: rotate(180deg);
@@ -79,7 +79,7 @@ blockquote:after {
     content: ",,";
     font-size: 60px;
     position: absolute;
-    right: 0px;
+    right: 0;
     bottom: 30px;
     color: #333333;
 }
@@ -644,7 +644,7 @@ ul.li-inline li:not(:first-child)::before {
 
 #investment-contract {
     padding: 20px;
-    background-color: #fffcf4;
+    background-color: #f0f2ff;
     box-shadow: inset 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
     font-family: "Alegreya", serif;
     font-weight: 400;
@@ -911,4 +911,163 @@ button.close {
 ::selection {
     background: #1d40ec;
     color: #fff;
+}
+
+.pricing-choice-active {
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.pricing-choice-inactive {
+    color: #d6d6d6;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.individual-left,
+.api-right {
+    position: relative;
+    padding-bottom: 2px;
+    display: inline-block;
+}
+
+.individual-left::before {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to right, white 46%, #d6d6d6 46%)
+}
+
+.api-right::before {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to right, #d6d6d6 46%, white 46%)
+}
+
+.table-col-width {
+    width: 20%;
+    text-align: center;
+}
+
+.small-button {
+    font-size: 10px;
+    padding: 3px 6px;
+}
+
+.table-row-title {
+    min-width: 240px;
+}
+
+.pricing-logo {
+    height: 250px;
+    position: absolute;
+    bottom: -50px;
+    right: 0;
+}
+
+.pricing-logo-docs {
+    width: 100%;
+    height: 160%;
+    bottom: -30%;
+    position: absolute;
+    display: inline-block;
+    transform: translateX(-55%);
+}
+
+.optional-logo {
+    height: 250px;
+    position: absolute;
+    bottom: -80px;
+    right: 0;
+}
+
+.row-equal-height {
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+}
+
+.highlight-row {
+    background: linear-gradient(169deg, #dd68ff 0%, #413eff 100%);
+}
+
+.table-header-fixed {
+    background-color: white;
+}
+
+.btn-horizontal-padding {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.column-right-border {
+    border-right: 2px solid #00f9d8 !important
+}
+
+.paragraph-small-margin {
+    margin: 2px;
+}
+
+.blue-check {
+    color: blue
+}
+
+.highlight-border {
+    height: 5px;
+    border-radius: 2px;
+    background: 2px linear-gradient(169deg, rgba(198,50,241,1) 0%, rgba(65,62,255,1) 100%);
+}
+
+.picture-padding {
+    padding-top: 50px
+}
+
+.subscription-box {
+    display: inline-block;
+    padding: 2px;
+    margin: 10px 0px;
+}
+
+.subscription-box-margins {
+    display: inline-block;
+    padding: 2px;
+    margin: 10px;
+    max-width: 150px;
+}    
+
+.subscription-box-margins > div > h3,
+.subscription-box-margins > div > p {
+    margin: 0px;
+}
+
+.subscription-content {
+    background: #fff;
+    padding: 10px;
+    min-height: 95px;
+}
+
+.cost-label {
+    width: 80px;
+}
+
+.pricing-feature-cols {
+    min-width: 500px;
+}
+
+.pricing-feature-cols-long {
+    min-width: 700px;
+}
+
+.active-tab {
+    border-bottom: 2px solid rgba(82, 254, 206, 1);
 }

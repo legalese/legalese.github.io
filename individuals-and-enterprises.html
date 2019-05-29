@@ -1,0 +1,225 @@
+---
+layout: default
+---
+<div class="container-fluid top-container bottom-content" id="second-container">
+  {% include pricing.html
+  blurb="Choose a plan that's right for you"
+  smallTitle="Your templates (and ours), but smarter!"
+  otherPage="apis-and-white-label"
+  checked=false
+  %}
+  <div class="row" style="margin-top: 30px">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="table-responsive">
+	<table class="table">
+	  <thead>
+	    <tr style="border: none">
+	      <th class="table-col-width table-header-fixed" style="border: none"></th>
+	      <th class="table-col-width table-header-fixed" style="border: none"></th>
+	      <th class="table-col-width table-header-fixed" style="border-left: none; border-bottom: none; border-right: 2px solid #00f9d8"></th>
+	      <th class="table-col-width table-header-fixed" style="font-size: 10px; background-color: #00f9d8; border-left: none; border-bottom: none; border-right: 2px solid #00f9d8">Recommended!</th>
+	      <th class="table-col-width table-header-fixed" style="border: none"></th>
+	    </tr>
+	    <tr>
+	      <th class="table-col-width table-header-fixed" style="vertical-align: top">
+		<h4 style="margin: 10px 0px">What's included?</h4>
+		<div style="display: inline-block">
+		  <div class="can-toggle" style="--toggleWidth: 250px; --toggleLeft: 0.4; --toggleRight: 0.6; --toggleSwitchWidth: 100px">
+		    <input id="price-toggle" type="checkbox">
+		    <label for="price-toggle">
+		      <div class="can-toggle__switch" data-checked="Bill yearly (30% off!)" data-unchecked="Bill monthly"></div>
+		    </label>
+		  </div>
+		</div>
+	      </th>
+	      <th class="table-col-width table-header-fixed" style="vertical-align: top">
+		<h5>Professional</h5>
+		<p>SGD $2000</p>
+	      </th>
+	      <th class="table-col-width table-header-fixed column-right-border" style="vertical-align: top">
+		<h5>Boutique</h5>
+		<p>SGD $2000</p>
+	      </th>
+	      <th class="table-col-width table-header-fixed column-right-border"style="vertical-align: top; border-top: 2px solid #00f9d8">
+		<h5 style="margin-top: 0">Basic</h5>
+		<p>SGD $2000</p>
+	      </th>
+	      <th class="table-col-width table-header-fixed" style="vertical-align: top">
+		<h5>Free Tier/pay as you go</h5>
+		<p>SGD $2000</p>
+	      </th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td class="table-row-title" style="text-align: right; border-right: 1px solid white; border-left: 1; border-left: 1px solid white">
+		{% include popover.html
+		position="bottom"
+		title="Test"
+		content="Lorem ipsum, etc."
+		%}
+		<h5 style="display: inline"><b>Standard Document Generation</b></h5>
+	      </td>
+	      <td style="border-right: 1px solid white"></td>
+	      <td class="column-right-border"></td>
+	      <td class="column-right-border"></td>
+	      <td style="border-right: 1px solid white"></td>
+	    </tr>
+	    <tr>
+	      <td class="table-col-width" style="text-align: right"><b>Free</b> document(s)</td>
+	      <td class="table-col-width">2000</td>		      
+	      <td class="table-col-width column-right-border">12</td>
+	      <td class="table-col-width column-right-border">6</td>
+	      <td class="table-col-width">0</td>
+	    </tr>
+	    <tr>
+	      <td class="table-col-width" style="text-align: right">Price per doc for subsequent generation
+		{% include popover.html
+		position="right"
+		title="Test"
+		content="Lorem ipsum, etc."
+		%}
+	      </td>
+	      <td id="substandard-pro" class="table-col-width">$1.74</td>		      
+	      <td id="substandard-plus" class="table-col-width column-right-border">$1.74</td>
+	      <td id="substandard-basic" class="table-col-width column-right-border">$2.32</td>
+	      <td class="table-col-width">$2.90</td>
+	    </tr>
+	    <tr>
+	      <td class="table-col-width" style="text-align: right"><b>Free</b> fields per document
+		{% include popover.html
+		position="right"
+		title="Test"
+		content="Lorem ipsum, etc."
+		%}
+	      </td>
+	      <td class="table-col-width">20</td>		      
+	      <td class="table-col-width column-right-border">20</td>
+	      <td class="table-col-width column-right-border">20</td>
+	      <td class="table-col-width">20</td>
+	    </tr>
+	    <tr>
+	      <td class="table-col-width" style="text-align: right"><b>Free</b> pages per document
+		{% include popover.html
+		position="right"
+		title="Test"
+		content="Lorem ipsum, etc."
+		%}
+	      </td>
+	      <td class="table-col-width">Unlimited</td>		      
+	      <td class="table-col-width column-right-border">Unlimited</td>
+	      <td class="table-col-width column-right-border">10</td>
+	      <td class="table-col-width">10</td>
+	    </tr>
+	    <tr>
+	      <td class="table-row-title" style="text-align: right; border-right: 1px solid white; border-left: 1px solid white">
+		<h5><b>Complex Document Generation</b></h5>
+	      </td>
+	      <td style="border-right: 1px solid white"></td>
+	      <td class="column-right-border"></td>
+	      <td class="column-right-border"></td>
+	      <td style="border-right: 1px solid white"></td>
+	    </tr>
+	    <tr>
+	      <td class="table-col-width" style="text-align: right"><b>Free</b> document(s)</td>
+	      <td class="table-col-width">2000</td>		      
+	      <td class="table-col-width column-right-border">10</td>
+	      <td class="table-col-width column-right-border">0</td>
+	      <td class="table-col-width">0</td>
+	    </tr>
+	    <tr>
+	      <td class="table-col-width" style="text-align: right">Price per doc for subsequent generation</td>
+	      <td id="subcomplex-pro" class="table-col-width">$2.34</td>		      
+	      <td id="subcomplex-plus" class="table-col-width column-right-border">$2.34</td>
+	      <td id="subcomplex-basic" class="table-col-width column-right-border">$3.12</td>
+	      <td class="table-col-width">$3.90</td>
+	    </tr>
+	    <tr>
+	      <td class="table-col-width" style="text-align: right"><b>Free</b> fields per document</td>
+	      <td class="table-col-width">20</td>		      
+	      <td class="table-col-width column-right-border">20</td>
+	      <td class="table-col-width column-right-border">20</td>
+	      <td class="table-col-width">20</td>
+	    </tr>
+	    <tr>
+	      <td class="table-col-width" style="text-align: right"><b>Free</b> pages per document</td>
+	      <td class="table-col-width">Unlimited</td>		      
+	      <td class="table-col-width column-right-border">Unlimited</td>
+	      <td class="table-col-width column-right-border">10</td>
+	      <td class="table-col-width">10</td>
+	    </tr>
+	    <tr>
+	      <td class="table-col-width" style="text-align: right">Auto-population of past entity details</td>
+	      <td class="table-col-width">Free</td>		      
+	      <td class="table-col-width column-right-border">Free</td>
+	      <td class="table-col-width column-right-border">Free</td>
+	      <td class="table-col-width">Free</td>
+	    </tr>
+	    <tr>
+	      <td class="table-col-width" style="text-align: right">
+		<p class="paragraph-small-margin">Email support</p>
+		<p class="paragraph-small-margin" style="font-size: 10px">3-5 working days</p>
+	      </td>
+	      <td class="table-col-width blue-check"><i class="fa fa-check" aria-hidden="true"></i></td>
+	      <td class="table-col-width column-right-border blue-check"><i class="fa fa-check" aria-hidden="true"></i></td>
+	      <td class="table-col-width column-right-border blue-check"><i class="fa fa-check" aria-hidden="true"></i></td>
+	      <td class="table-col-width blue-check"><i class="fa fa-check" aria-hidden="true"></i></td>
+	    </tr>
+	    <tr>
+	      <td class="table-col-width" style="text-align: right">
+		<p class="paragraph-small-margin">Priority mail support</p>
+		<p class="paragraph-small-margin" style="font-size: 10px">1 working day</p>
+	      </td>
+	      <td class="table-col-width blue-check"><i class="fa fa-check" aria-hidden="true"></i></td>
+	      <td class="table-col-width column-right-border blue-check"><i class="fa fa-check" aria-hidden="true"></i></td>
+	      <td class="table-col-width column-right-border"></td>
+	      <td class="table-col-width"></td>
+	    </tr>
+	    <tr>
+	      <td class="table-col-width" style="text-align: right">
+		<p class="paragraph-small-margin">Chat Support</p>
+		<p class="paragraph-small-margin" style="font-size: 10px">Telegram/Whatsapp</p>
+		<p class="paragraph-small-margin" style="font-size: 10px">weekdays 1pm - 4pm</p>
+	      </td>
+	      <td class="table-col-width blue-check"><i class="fa fa-check" aria-hidden="true"></i></td> 
+	      <td class="table-col-width column-right-border blue-check"><i class="fa fa-check" aria-hidden="true"></i></td>
+	      <td class="table-col-width column-right-border"></td>
+	      <td class="table-col-width"></td>
+	    </tr>
+	    <tr>
+	      <td class="table-col-width" style="text-align: right">Round-the-clock phone &amp; chat support</td>
+	      <td class="table-col-width blue-check"><i class="fa fa-check" aria-hidden="true"></i></td>
+	      <td class="table-col-width column-right-border"></td>
+	      <td class="table-col-width column-right-border"></td>
+	      <td class="table-col-width"></td>
+	    </tr>
+
+	  </tbody>
+	</table>
+      </div>
+    </div>
+  </div>
+  <div class="row highlight-row" style="height: 30px; margin-top: 60px">
+  </div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="row row-equal-height">
+	<div class="col-md-4">
+	  <img class="optional-logo" src="images/94- spy-male-african-american.svg">
+	</div>
+	<div class="col-md-8">
+	  <h2><b>Optional add-ons to supercharge your workflows</b></h2>
+	</div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 col-lg-5 col-lg-offset-4">
+      {% include addons.html
+      leftLabel=false
+      center=true
+      bootstrapClasses="col-md-12"
+      %}
+    </div>
+  </div>
+</div>

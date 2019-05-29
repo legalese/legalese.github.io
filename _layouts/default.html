@@ -16,7 +16,8 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <link rel="stylesheet" href="css/landingpage.css">
-    <link rel="stylesheet" media="(max-width: 768px)" href="css/landingpage-max-768.css">
+    <link rel="stylesheet" media="(max-width: 767px)" href="css/landingpage-max-768.css">
+    <link rel="stylesheet" href="css/toggle.css">
     <!-- comment this script out for local testing -->
     <!-- <script type="text/javascript" src="scripts/location.js"></script> -->
     <!--[if lt IE 9]>
@@ -49,7 +50,7 @@
 	</div>
 
 	<!-- top horizontal nav menu -->
-	<nav class="navbar navbar-default legalese-nav">
+	<nav class="navbar navbar-default legalese-nav navbar-static-top">
 	  <div class="navbar-header">
 	    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
@@ -65,7 +66,7 @@
 	  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	    <ul class="nav nav-pills nav-justified" id="top-bar">
 	      <div class="dropdown top-justify">
-		<div class="dropdown-toggle hvr-underline-from-center title-font" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+		<div class="dropdown-toggle hvr-underline-from-center title-font {% if page.location=='faq' %} active-tab {% endif %}" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 		  Why Computational Law?
 		</div>
 		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -76,7 +77,7 @@
 		</ul>
 	      </div>
 	      <div class="dropdown top-justify">
-		<div class="dropdown-toggle hvr-underline-from-center title-font" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+		<div class="dropdown-toggle hvr-underline-from-center title-font {% if page.location=='about' %} active-tab {% endif %}" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 		  What's Legalese?
 		</div>
 		<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -98,7 +99,7 @@
 	      </div>
 	      !-->
 	      <div class="dropdown top-justify">
-		<div class="dropdown-toggle hvr-underline-from-center title-font" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+		<div class="dropdown-toggle hvr-underline-from-center title-font {% if page.location=='resources' %} active-tab {% endif %}" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 		  Education &amp; Resources
 		</div>
 		<ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
@@ -108,7 +109,7 @@
 		</ul>
 	      </div>
 	      <div class="dropdown top-justify">
-		<a class="hvr-underline-from-center title-font no-underline" href="community.html">
+		<a class="hvr-underline-from-center title-font no-underline {% if page.location=='community' %} active-tab {% endif %}" href="community.html">
 		  Community &amp; Contact
 		</a>
 	      </div>
@@ -150,16 +151,22 @@
       <script src="https://cdn.auth0.com/js/auth0/8.10.1/auth0.min.js"></script>
       <script src="scripts/textcontent.js"></script>
       <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+      <script src="https://unpkg.com/floatthead"></script>
+
       <script>
 	$(".flipcard").flip({
-	trigger: "hover",
-	front: ".frontcard",
-	back: ".backcard"
+	    trigger: "hover",
+	    front: ".frontcard",
+	    back: ".backcard"
 	});
       </script>
-
-
-
+      <script>
+	$(() => $('table').floatThead({
+            responsiveContainer: function($table){
+		return $table.closest(".table-responsive");
+            }
+	}));
+      </script>
   </body>
 </html>
 

@@ -1,0 +1,33 @@
+<div class="row" style="min-height: 82px">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-4">
+	<h3><b>{{include.smallTitle}}</b></h3>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row highlight-row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="row row-equal-height">      
+      <div class="col-md-4">
+	<img class="pricing-logo" src="images/18- team-idea-brainstorm-2.svg">
+      </div>
+      <div class="col-md-8">
+	<h2 style="color: #fff; font-weight: 700">{{include.blurb}}</h2>
+	<div class="can-toggle demo-rebrand-1" style="--toggleWidth: 360px; --toggleLeft: 0.5; --toggleRight: 0.5; --toggleSwitchWidth: 180px">
+	  <input id="service-toggle" type="checkbox" onclick="window.location='./{{include.otherPage}}.html'"
+		 {% if include.checked %}
+		 checked
+		 {% endif %}>
+	  <label for="service-toggle">
+	    <div class="can-toggle__switch"
+		 data-checked="APIs/White Label Services"
+		 data-unchecked="Individual & Enterprise"></div>
+	  </label>
+	</div>
+      </div>
+    </div>
+  </div>
+</div>
+

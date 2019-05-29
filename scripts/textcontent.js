@@ -90,70 +90,70 @@ $(".sidebar-header").each(function() {
 
 // fix nav to top
 
-var lastScrollTop = 0;
+/* var lastScrollTop = 0;
+ * 
+ * $(window).scroll(function(event){
+ *     var st = $(this).scrollTop();
+ *     if (st > lastScrollTop) {
+ * 	$(".legalese-nav").fadeOut(100);
+ *     } else {
+ * 	$(".legalese-nav").fadeIn(100);
+ *     };
+ *     lastScrollTop = st;
+ * }); */
 
-$(window).scroll(function(event){
-    var st = $(this).scrollTop();
-    if (st > lastScrollTop) {
-	$(".legalese-nav").fadeOut(100);
-    } else {
-	$(".legalese-nav").fadeIn(100);
-    };
-    lastScrollTop = st;
-});
-
-$(".legalese-nav").affix({
-    offset: {
- 	top: function() {
-	    return (this.top = $("#second-container").offset().top)
-	}
-    }
-})
+/* $(".legalese-nav").affix({
+ *   offset: {
+ *     top: function() {
+ *       return (this.top = $("#second-container").offset().top)
+ *     }
+ *   }
+ * }) */
 
 // don't know why I can't just add a css class here
 
 $('.left-menu-item').on('click', function() {
-    $('.left-menu-item').css({ "font-weight": "300", "text-decoration": "none" });
-    $(this).css({ "font-weight": "700", "text-decoration": "none" });
+  $('.left-menu-item').css({ "font-weight": "300", "text-decoration": "none" });
+  $(this).css({ "font-weight": "700", "text-decoration": "none" });
 });
 
 $('.left-menu-item').hover(
-    function() {
-	$(this).css({ "font-weight": "700", "text-decoration": "none", "color": "#333333" });
-    }, function() {
-	$(this).css({ "font-weight": "300", "text-decoration": "none" });
-    }
+  function() {
+    $(this).css({ "font-weight": "700", "text-decoration": "none", "color": "#333333" });
+  }, function() {
+    $(this).css({ "font-weight": "300", "text-decoration": "none" });
+  }
 );
-  
+
 
 $(window).on('scroll', function() {
-    $('.lower-nav-el').each(function() {
-        if($(window).scrollTop() > ($(this).offset().top - 10)) {
-            var id = $(this).attr('id');
-            $('.left-menu-item').css('font-weight','300');
-            $('a[href="#'+ id +'"]').css('font-weight','700');
-        }
-    });
+  $('.lower-nav-el').each(function() {
+    if($(window).scrollTop() > ($(this).offset().top - 10)) {
+      var id = $(this).attr('id');
+      $('.left-menu-item').css('font-weight','300');
+      $('a[href="#'+ id +'"]').css('font-weight','700');
+    }
+  });
 });
 
 // only affix sidebar if not on mobile
 
 if ($(window).width() > 768) {
-    $(".player-nav").affix({
-	offset: {
-	    top: function() {
-		return (this.top = $("#blurb-nav-id").offset().top + 65)
-	    }
-	}
-    })
+  $(".player-nav").affix({
+    offset: {
+      top: function() {
+	return (this.top = $("#blurb-nav-id").offset().top + 65)
+      }
+    }
+  })
 }
 
 // downarrow click
 
 $(".downarrow").click(function() {
-    $('html, body').animate({
-        scrollTop: $("#top-c").height() - $(".legalese-nav").height()
-    }, 500);
+  $('html, body').animate({
+    scrollTop: $("#top-c").height() - $(".legalese-nav").height()
+  }, 500);
 });
 
 // underline navbar items
@@ -200,28 +200,69 @@ $(".downarrow").click(function() {
 // fix top button to above bot-container when scrolling
 
 $(window).scroll(function() {
-    var bottomHeight = $(".bot-container").height()
-    if ($(window).scrollTop() + $(window).height() >= $(".bot-container").offset().top) {
-	$("#return-to-top").css({
-	    "bottom": bottomHeight + 30
-	});
-	$("#return-to-top-text").css({
-	    "bottom": bottomHeight + 2
-	});
-    } else {
-	$("#return-to-top").css({
-	    "bottom": "20px"
-	});
-	$("#return-to-top-text").css({
-	    "bottom": "-8px"
-	});
-    }
+  var bottomHeight = $(".bot-container").height()
+  if ($(window).scrollTop() + $(window).height() >= $(".bot-container").offset().top) {
+    $("#return-to-top").css({
+      "bottom": bottomHeight + 30
+    });
+    $("#return-to-top-text").css({
+      "bottom": bottomHeight + 2
+    });
+  } else {
+    $("#return-to-top").css({
+      "bottom": "20px"
+    });
+    $("#return-to-top-text").css({
+      "bottom": "-8px"
+    });
+  }
 })
 
 // fix bar to bottom for large screens
 
 if ($('body').outerHeight() < $(window).height()) {
-    $(".bot-container").addClass("bot-container-fixed")
+  $(".bot-container").addClass("bot-container-fixed")
 } else {
-    $(".bot-container").removeClass("bot-container-fixed")
+  $(".bot-container").removeClass("bot-container-fixed")
 }
+
+// set pricetags
+
+function monthly(price, which) {
+  if (which) {
+    return price
+  } else {
+    return (price / 0.7).toFixed(2)
+  }
+}
+
+let which = false
+
+const prices = {
+  pro: {
+    substandard: 1.74,
+    subcomplex: 2.34,
+  },
+  plus: {
+    substandard: 1.74,
+    subcomplex: 2.34,
+  },
+  basic: {
+    substandard: 2.32,
+    subcomplex: 3.12,
+  },
+}
+
+$('#price-toggle').change(function() {
+  $('#substandard-pro').hide().html(`$${monthly(prices.pro.substandard, which)}`).fadeIn(500)
+  $('#substandard-plus').hide().html(`$${monthly(prices.plus.substandard, which)}`).fadeIn(500)
+  $('#substandard-basic').hide().html(`$${monthly(prices.basic.substandard, which)}`).fadeIn(500)
+  $('#subcomplex-pro').hide().html(`$${monthly(prices.pro.subcomplex, which)}`).fadeIn(500)
+  $('#subcomplex-plus').hide().html(`$${monthly(prices.plus.subcomplex, which)}`).fadeIn(500)
+  $('#subcomplex-basic').hide().html(`$${monthly(prices.basic.subcomplex, which)}`).fadeIn(500)
+  which = !which
+})
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
