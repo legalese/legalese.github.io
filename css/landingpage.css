@@ -67,7 +67,7 @@ blockquote:before {
     content: ",,";
     font-size: 60px;
     position: absolute;
-    left: 0px;
+    left: 0;
     top: 0px;
     color: #333333;
     transform: rotate(180deg);
@@ -79,7 +79,7 @@ blockquote:after {
     content: ",,";
     font-size: 60px;
     position: absolute;
-    right: 0px;
+    right: 0;
     bottom: 30px;
     color: #333333;
 }
@@ -644,7 +644,7 @@ ul.li-inline li:not(:first-child)::before {
 
 #investment-contract {
     padding: 20px;
-    background-color: #fffcf4;
+    background-color: #f0f2ff;
     box-shadow: inset 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
     font-family: "Alegreya", serif;
     font-weight: 400;
@@ -976,10 +976,12 @@ button.close {
 }
 
 .pricing-logo-docs {
-    height: 100%;
+    width: 100%;
+    height: 160%;
+    bottom: -30%;
     position: absolute;
-    bottom: 0;
-    right: 0;
+    display: inline-block;
+    transform: translateX(-55%);
 }
 
 .optional-logo {
