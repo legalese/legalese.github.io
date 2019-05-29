@@ -1065,3 +1065,7 @@ button.close {
 .pricing-feature-cols-long {
     min-width: 700px;
 }
+
+.active-tab {
+    border-bottom: 2px solid rgba(82, 254, 206, 1);
+}
