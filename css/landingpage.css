@@ -976,12 +976,10 @@ button.close {
 }
 
 .pricing-logo-docs {
-    width: 100%;
-    height: 160%;
-    bottom: -30%;
+    height: 200px;
     position: absolute;
     display: inline-block;
-    transform: translateX(-55%);
+    transform: translate(-75%, -15%);
 }
 
 .optional-logo {
