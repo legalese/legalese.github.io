@@ -1012,6 +1012,10 @@ button.close {
     border-right: 2px solid #00f9d8 !important
 }
 
+.column-bottom-border {
+    border-bottom: 2px solid #00f9d8 !important
+}
+
 .paragraph-small-margin {
     margin: 2px;
 }
