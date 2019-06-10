@@ -1069,3 +1069,7 @@ button.close {
 .active-tab {
     border-bottom: 2px solid rgba(82, 254, 206, 1);
 }
+
+.table-col-center {
+    text-align: center;
+}
