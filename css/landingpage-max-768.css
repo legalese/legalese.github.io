@@ -94,3 +94,11 @@ h2 {
     max-width: 90vw;
     margin: 0 auto;
 }
+
+.pricing-feature-cols {
+    min-width: 0px;
+}
+
+.pricing-feature-cols-long {
+    min-width: 0px;
+}
