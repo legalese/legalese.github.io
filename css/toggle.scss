@@ -246,10 +246,10 @@
   &.demo-rebrand-1 {
     @include can-toggle-branding
     (
-      #777,  // Off state color
-      #777,  // On state color
-      rgba(white, 0.5),  // Off state text color
-      cubic-bezier(0,1,0.5,1)  // Transition timing function
+      #232323,  // Off state color
+      #232323,  // On state color
+      white,  // Off state text color
+      cubic-bezier(0,1,0.5,1),  // Transition timing function
     ); 
   }
   
@@ -270,6 +270,16 @@
       13px,  // Label font size
       13px,  // Switch font size
       0 4px 4px rgba(black, 0.4) // Switch shadow on hover/focus
+    ); 
+  }
+
+  &.demo-rebrand-3 {
+    @include can-toggle-branding
+    (
+      #777,  // Off state color
+      #5fc054,  // On state color
+      rgba(white, 0.5),  // Off state text color
+      cubic-bezier(0,1,0.5,1),  // Transition timing function
     ); 
   }
   
