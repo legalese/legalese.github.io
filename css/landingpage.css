@@ -1077,3 +1077,19 @@ button.close {
 .table-col-center {
     text-align: center;
 }
+
+.larger-font {
+    font-size: 16px;
+}
+
+.dollar-font {
+    font-size: 18px;
+}
+
+td {
+    vertical-align: middle !important
+}
+
+.table > thead > tr > th {
+    border-bottom: 1px solid #ddd !important
+}
