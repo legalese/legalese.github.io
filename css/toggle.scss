@@ -5,7 +5,8 @@
   $can-toggle-off-color: #777, 
   $can-toggle-on-color: #5fc054,
   $can-toggle-inactive-text: rgba(white, 0.5),
-  $can-toggle-transition: cubic-bezier(0,1,0.5,1)
+  $can-toggle-transition: cubic-bezier(0,1,0.5,1),
+  $can-toggle-on-text-color: #5fc054
 ) {
   
   input[type="checkbox"] {
@@ -23,11 +24,11 @@
     &:hover ~label { color: darken($can-toggle-off-color, 5%); }
     &:checked {
       ~ label {
-        &:hover { color: darken($can-toggle-on-color, 3%); }
+        &:hover { color: darken($can-toggle-on-text-color, 3%); }
         
         .can-toggle__switch {
           background-color: lighten($can-toggle-on-color, 5%);
-          &:after { color: darken($can-toggle-on-color, 5%); }
+          &:after { color: darken($can-toggle-on-text-color, 5%); }
         }
       }
       
@@ -35,7 +36,7 @@
         ~ label {
           .can-toggle__switch {
             background-color: $can-toggle-on-color;
-            &:after { color: darken($can-toggle-on-color, 10%); }
+            &:after { color: darken($can-toggle-on-text-color, 10%); }
           }
         } 
       }
@@ -65,16 +66,16 @@
 ( 
     $can-toggle-width: 200px,
     $can-toggle-switch-width: 100px,
-  $can-toggle-height: 36px,
-  $can-toggle-border-radius: 4px,
-  $can-toggle-offset: 2px,
-  $can-toggle-label-font-size: 14px,
-  $can-toggle-switch-font-size: 12px,
-  $can-toggle-shadow: 0 3px 3px rgba(black, 0.4),
-  $can-toggle-left: 0.4,
-  $can-toggle-right: 0.6,
+    $can-toggle-height: 36px,
+    $can-toggle-border-radius: 4px,
+    $can-toggle-offset: 2px,
+    $can-toggle-label-font-size: 14px,
+    $can-toggle-switch-font-size: 12px,
+    $can-toggle-shadow: 0 3px 3px rgba(black, 0.4),
+    $can-toggle-left: 0.4,
+    $can-toggle-right: 0.6,
 ){
-  
+    
   input[type="checkbox"] {
 
     &:focus ~ label, &:hover ~ label {
@@ -250,6 +251,7 @@
       #232323,  // On state color
       white,  // Off state text color
       cubic-bezier(0,1,0.5,1),  // Transition timing function
+      #5fc054, // On state text color
     ); 
   }
   
@@ -276,10 +278,11 @@
   &.demo-rebrand-3 {
     @include can-toggle-branding
     (
-      #777,  // Off state color
-      #5fc054,  // On state color
-      rgba(white, 0.5),  // Off state text color
+      #232323,  // Off state color
+      #232323,  // On state color
+      white,  // Off state text color
       cubic-bezier(0,1,0.5,1),  // Transition timing function
+      #5fc054 // On state text color
     ); 
   }
   
