@@ -995,9 +995,22 @@ button.close {
     flex-wrap: wrap;
 }
 
-.highlight-row {
+.highlight-row-purple {
     background: linear-gradient(169deg, #dd68ff 0%, #413eff 100%);
 }
+
+.highlight-row-green {
+    background: linear-gradient(90deg, rgba(50,251,145,1) 0%, rgba(87,255,198,1) 100%);;
+}
+
+.highlight-row-blue {
+    background: linear-gradient(90deg, rgba(97,89,255,1) 0%, rgba(62,236,255,1) 100%);
+}
+
+.highlight-row-neon-blue {
+    background: linear-gradient(90deg, rgba(37,255,253,1) 0%, rgba(62,236,255,1) 100%);
+}
+
 
 .table-header-fixed {
     background-color: white;
