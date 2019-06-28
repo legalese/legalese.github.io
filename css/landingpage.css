@@ -1054,14 +1054,22 @@ button.close {
 }
 
 .subscription-box-margins {
-    display: inline-block;
     padding: 2px;
     margin: 10px;
     max-width: 150px;
+}
+
+.subscription-box-margins-large {
+    display: inline-block;
+    padding: 2px;
+    margin: 10px;
+    max-width: 300px;
 }    
 
 .subscription-box-margins > div > h3,
-.subscription-box-margins > div > p {
+.subscription-box-margins > div > p,
+.subscription-box-margins-large > div > h3,
+.subscription-box-margins-large > div > p {
     margin: 0px;
 }
 
@@ -1080,7 +1088,7 @@ button.close {
 }
 
 .pricing-feature-cols-long {
-    min-width: 700px;
+    min-width: 900px;
 }
 
 .active-tab {
