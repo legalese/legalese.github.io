@@ -221,6 +221,14 @@ blockquote footer:before {
     margin: 10px 5% 0px 5%;
 }
 
+@media (min-width: 768px) and (max-width: 1440px) {
+    .top-justify {
+	display: inline-block;
+	text-align: center;
+	margin: 10px 3% 0px 3%;
+    }
+}
+
 .top-subtitle {
     color: #919191;
     padding: 3px 20px;
