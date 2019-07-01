@@ -6,7 +6,8 @@
   $can-toggle-on-color: #5fc054,
   $can-toggle-inactive-text: rgba(white, 0.5),
   $can-toggle-transition: cubic-bezier(0,1,0.5,1),
-  $can-toggle-on-text-color: #5fc054
+  $can-toggle-on-text-color: #5fc054,
+  $can-toggle-left-switch-text: rgba(black, 1)
 ) {
   
   input[type="checkbox"] {
@@ -18,7 +19,7 @@
     &:focus ~ label, &:hover ~ label {
       .can-toggle__switch {
         background-color: $can-toggle-off-color;
-        &:after { color: darken($can-toggle-off-color, 10%); }
+        &:after { color: darken($can-toggle-left-switch-text, 10%); }
       }
     }
     &:hover ~label { color: darken($can-toggle-off-color, 5%); }
@@ -55,7 +56,7 @@
         // Autoprefixer choked here, so making the prefixes explicit
         -webkit-transition: -webkit-transform 0.3s $can-toggle-transition;
         transition: transform 0.3s $can-toggle-transition;
-        color: $can-toggle-off-color; 
+        color: $can-toggle-left-switch-text; 
       }
     }
     
@@ -66,7 +67,7 @@
 ( 
     $can-toggle-width: 200px,
     $can-toggle-switch-width: 100px,
-    $can-toggle-height: 36px,
+    $can-toggle-height: 24px,
     $can-toggle-border-radius: 4px,
     $can-toggle-offset: 2px,
     $can-toggle-label-font-size: 14px,
@@ -247,11 +248,12 @@
   &.demo-rebrand-1 {
     @include can-toggle-branding
     (
-      #232323,  // Off state color
-      #232323,  // On state color
+      #999999,  // Off state color
+      #999999,  // On state color
       white,  // Off state text color
       cubic-bezier(0,1,0.5,1),  // Transition timing function
       #232323, // On state text color
+      #232323, // left switch text color
     ); 
   }
   
@@ -278,11 +280,12 @@
   &.demo-rebrand-3 {
     @include can-toggle-branding
     (
-      #232323,  // Off state color
-      #232323,  // On state color
+      #999999,  // Off state color
+      #999999,  // On state color
       white,  // Off state text color
       cubic-bezier(0,1,0.5,1),  // Transition timing function
-      #5fc054 // On state text color
+      #5fc054, // On state text color
+      #232323, // left switch text color
     ); 
   }
   
