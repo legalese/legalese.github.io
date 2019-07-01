@@ -1,20 +1,20 @@
 <div class="row larger-font" style="margin-top: 30px">
   <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
     <div class="table-responsive">
-      <table class="table">
+      <table class="table table-bordered">
 	<thead>
 	  <tr style="border: none">
-	    <th class="table-col-width table-header-fixed" style="border: none"></th>
-	    <th class="table-col-width table-header-fixed" style="border: none"></th>
-	    <th class="table-col-width table-header-fixed" style="border-left: none; border-bottom: none; border-right: 2px solid #00f9d8"></th>
-	    <th class="table-col-width table-header-fixed" style="font-size: 10px; background-color: #00f9d8; border-left: none; border-bottom: none; border-right: 2px solid #00f9d8">Recommended!</th>
-	    <th class="table-col-width table-header-fixed" style="border: none"></th>
+	    <th class="table-col-width table-header-fixed"></th>
+	    <th class="table-col-width table-header-fixed"></th>
+	    <th class="table-col-width table-header-fixed column-right-border"></th>
+	    <th class="table-col-width table-header-fixed column-right-border" style="font-size: 10px; background-color: #00f9d8">Recommended!</th>
+	    <th class="table-col-width table-header-fixed"></th>
 	  </tr>
-	  <tr>
-	    <th class="table-col-width table-header-fixed" style="vertical-align: top">
+	  <tr style="border: none">
+	    <th class="table-col-width table-header-fixed" style="vertical-align: top; border-left: 1px solid white">
 	      <h4 style="margin: 10px 0px">What's included?</h4>
 	      <div style="display: inline-block">
-		<div class="can-toggle demo-rebrand-3" style="--toggleWidth: 250px; --toggleLeft: 0.4; --toggleRight: 0.6; --toggleSwitchWidth: 100px">
+		<div class="can-toggle demo-rebrand-3" style="--toggleWidth: 200px; --toggleLeft: 0.4; --toggleRight: 0.6; --toggleSwitchWidth: 80px">
 		  <input id="price-toggle" type="checkbox">
 		  <label for="price-toggle">
 		    <div class="can-toggle__switch" data-checked="Bill yearly (30% off!)" data-unchecked="Bill monthly"></div>
@@ -24,25 +24,28 @@
 	    </th>
 	    <th class="table-col-width table-header-fixed" style="vertical-align: top">
 	      <h5>Professional</h5>
-	      <p>SGD $2000</p>
+	      <p style="color: #929292; margin-bottom: 0">SGD <span style="font-size: 24px; font-weight: 700; color: #333" id="subheader-pro">$2000</span></p>
+	      <p style="color: #929292">per month</p>
 	    </th>
 	    <th class="table-col-width table-header-fixed column-right-border" style="vertical-align: top">
 	      <h5>Boutique</h5>
-	      <p></p>
+	      <p style="color: #929292; margin-bottom: 0">SGD <span style="font-size: 24px; font-weight: 700; color: #333" id="subheader-plus">$25</span></p>
+	      <p style="color: #929292">per month</p>
 	    </th>
 	    <th class="table-col-width table-header-fixed column-right-border" style="vertical-align: top; border-top: 2px solid #00f9d8">
 	      <h5>Basic</h5>
-	      <p></p>
+	      <p style="color: #929292; margin-bottom: 0">SGD <span style="font-size: 24px; font-weight: 700; color: #333" id="subheader-basic">$15</span></p>
+	      <p style="color: #929292">per month</p>
 	    </th>
-	    <th class="table-col-width table-header-fixed" style="vertical-align: top">
+	    <th class="table-col-width table-header-fixed" style="vertical-align: top; border-right: 1px solid white">
 	      <h5>Free Tier/pay as you go</h5>
-	      <p></p>
+	      <p>No monthly commitments</p>
 	    </th>
 	  </tr>
 	</thead>
 	<tbody>
 	  <tr>
-	    <td class="table-row-title" style="text-align: right; border-right: 1px solid white; border-left: 1px solid white">
+	    <td class="table-row-title" style="text-align: right; border-top: none; border-right: 1px solid white; border-left: 1px solid white">
 	      {% include popover.html
 	      position="bottom"
 	      title="Test"
@@ -50,16 +53,16 @@
 	      %}
 	      <h5 style="display: inline"><b>Standard Document Generation</b></h5>
 	    </td>
-	    <td style="border-right: 1px solid white" class="text-center">
+	    <td style="border-right: 1px solid white; border-top: none;" class="text-center">
 	      <a class="btn btn-default" href="#" role="button">Button</a>
 	    </td>
-	    <td class="column-right-border text-center">
+	    <td style="border-top: none;" class="column-right-border text-center">
 	      <a class="btn btn-default" href="#" role="button">Button</a>
 	    </td>
-	    <td class="column-right-border text-center">
+	    <td style="border-top: none;" class="column-right-border text-center">
 	      <a class="btn btn-default" href="#" role="button">Button</a>
 	    </td>
-	    <td style="border-right: 1px solid white" class="text-center">
+	    <td style="border-right: 1px solid white; border-top: none;" class="text-center">
 	      <a class="btn btn-default" href="#" role="button">Button</a>
 	    </td>
 	  </tr>
