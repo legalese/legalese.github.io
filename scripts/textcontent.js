@@ -1,43 +1,43 @@
 // hide and show relevant sections
 
 /*
-let url = window.location.href
-let addListener = url.match(/\.com$|localhost$|index/i)
+   let url = window.location.href
+   let addListener = url.match(/\.com$|localhost$|index/i)
 
-if (addListener) {
-  $(window).on("unload", function(){
-    localStorage.removeItem('visible')
-  })
-}
+   if (addListener) {
+   $(window).on("unload", function(){
+   localStorage.removeItem('visible')
+   })
+   }
 
-if (localStorage.getItem('visible') && addListener) {
-  let visible = localStorage.getItem('visible')
-  console.log('visible')
-  console.log(visible)
-  $(visible).show();
-  $('body,html').animate({
-    scrollTop : $("#top-c").height() - $(".legalese-nav").height()
-  }, 500) 
-}
+   if (localStorage.getItem('visible') && addListener) {
+   let visible = localStorage.getItem('visible')
+   console.log('visible')
+   console.log(visible)
+   $(visible).show();
+   $('body,html').animate({
+   scrollTop : $("#top-c").height() - $(".legalese-nav").height()
+   }, 500) 
+   }
 
-$(".bottom-content-title").each(function() {
-  $(this).click(function(e) {
-    if (addListener) {
-      e.preventDefault();
-      var id = $(this).attr("scroll");
-      $(".bottom-content").hide();
-      $(id).show();
-      $('body,html').animate({
-	scrollTop : $("#top-c").height() - $(".legalese-nav").height()
-      }, 500) 
-    } else {
-      var id = $(this).attr("scroll");
-      localStorage.setItem('visible', id)
-    }
-  });
-});
-*/
-  
+   $(".bottom-content-title").each(function() {
+   $(this).click(function(e) {
+   if (addListener) {
+   e.preventDefault();
+   var id = $(this).attr("scroll");
+   $(".bottom-content").hide();
+   $(id).show();
+   $('body,html').animate({
+   scrollTop : $("#top-c").height() - $(".legalese-nav").height()
+   }, 500) 
+   } else {
+   var id = $(this).attr("scroll");
+   localStorage.setItem('visible', id)
+   }
+   });
+   });
+ */
+
 // for scrolltotop arrow
 
 $(window).scroll(function() {
@@ -236,11 +236,26 @@ function monthly(price, which) {
   }
 }
 
+accounting.settings = {
+  currency: {
+    symbol : "$",   // default currency symbol is '$'
+    format: "%v", // controls output: %s = symbol, %v = value/number (can be object: see below)
+    decimal : ".",  // decimal point separator
+    thousand: ",",  // thousands separator
+    precision : 0   // decimal places
+  },
+  number: {
+    precision : 0,  // default precision on numbers is 0
+    thousand: ",",
+    decimal : "."
+  }
+}
+
 function headers(price, which) {
   if (which) {
     return price
   } else {
-    return (price * 0.7).toFixed(2)
+    return accounting.formatMoney(price*0.7)
   }
 }
 
