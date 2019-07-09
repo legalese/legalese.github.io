@@ -125,23 +125,29 @@ TL;DR IANAL
   
 <!--Consideration tells you what is being exchanged between the parties-->
 <a_left_sidehead>Compensation &amp; payment terms</a_left_sidehead>
-<numbered_2_para xname="Fees"><b>Hourly Rate</b></numbered_2_para>
 
+<numbered_2_para xname="Fees"><b>Consideration</b></numbered_2_para>
 <!-- Could be monthly payment -->
 <!-- <numbered_3_para>During the Engagement Term, in consideration of the fees payable at a <b>monthly</b> rate of <b><?= data.monthly_fees ?></b> ("<b>Fees</b>") to be paid by the Company to the Contractor, the Contractor agrees to provide to and/or perform for the Company, the Services - as an independent contractor - in accordance with this Contract.</numbered_3_para> -->
 
-<!-- Hourly Rate -->
-<numbered_3_para>During the Engagement Term, the Services performed by the Contractor as an independent contractor under each accepted Service Request shall be performed at the rate of <b><?= data.fees ?></b> per <b>hour</b> in accordance with this Contract and the relevant Service Request.</numbered_3_para>
-<numbered_3_para>The Contractor shall (no later than the end of the relevant month when the Services were performed) either issue a formal invoice to the Company or communicate to the Company via email or by submitting a duly completed Finance Request Form summarising the hours spent on the relevant Service Request and the corresponding total amount of fees incurred ("<b>Fees</b>").</numbered_3_para>
+<!-- <!-\- Hourly Rate -\-> -->
+<!-- <numbered_3_para>During the Engagement Term, the Services performed by the Contractor as an independent contractor under each accepted Service Request shall be performed at  <b><?= data.fees ?></b> per <b>Service Request</b> in accordance with this Contract and the relevant Service Request.</numbered_3_para> -->
+<!-- <numbered_3_para>The Contractor shall (no later than the end of the relevant month when the Services were performed) either issue a formal invoice to the Company or communicate to the Company via email or by submitting a duly completed Finance Request Form summarising the hours spent on the relevant Service Request and the corresponding total amount of fees incurred ("<b>Fees</b>").</numbered_3_para> -->
+<!-- <numbered_3_para>Save where otherwise agreed with the Company, Fees paid by Company to the Contractor shall constitute the full and only payment the Contractor is entitled to in respect of the Services under each Service Request.</numbered_3_para> -->
+
+<!-- <!-\- Cap on hourly rate  -\-> -->
+<!-- <numbered_2_para xname="Fees Cap"><b>Fees Cap</b></numbered_2_para> -->
+<!-- <numbered_3_para>In order for the Company to manage its spending, the Fees for each Service Request shall be <b>capped at $200</b> ("<b>Fees Cap</b>").</numbered_3_para> -->
+<!-- <numbered_3_para>Contractor shall promptly inform the Company once zir Fees incurred for each Service Request is reaching or has reached the Fees Cap and await further instructions from the Company on whether to stop performance altogether or reset the Fees Cap and proceed with a new Fees Cap.</numbered_3_para> -->
+
+<!-- Fixed fee per service request -->
+<numbered_3_para>During the Engagement Term, the Services performed by the Contractor as an independent contractor under each accepted Service Request shall be priced at <b><?= data.fees ?></b> for each <b>Service Request</b> completed in accordance with this Contract, subject to the Contractor's satisfactory performance of such Services and the in accordance with the details set out in the relevant Service Request.</numbered_3_para>
+<numbered_3_para xname="Payment Protocol">The Contractor shall (no later than the end of the relevant month when the Services were performed) either issue a formal invoice to the Company or communicate to the Company via email or by submitting a duly completed Finance Request Form summarising the hours spent on the relevant Service Request and the corresponding total amount of fees incurred ("<b>Fees</b>").</numbered_3_para>
 <numbered_3_para>Save where otherwise agreed with the Company, Fees paid by Company to the Contractor shall constitute the full and only payment the Contractor is entitled to in respect of the Services under each Service Request.</numbered_3_para>
 
-<!-- Cap on hourly rate  -->
-<numbered_2_para xname="Fees Cap"><b>Fees Cap</b></numbered_2_para>
-<numbered_3_para>In order for the Company to manage its spending, the Fees for each Service Request shall be <b>capped at $200</b> ("<b>Fees Cap</b>").</numbered_3_para>
-<numbered_3_para>Contractor shall promptly inform the Company once zir Fees incurred for each Service Request is reaching or has reached the Fees Cap and await further instructions from the Company on whether to stop performance altogether or reset the Fees Cap and proceed with a new Fees Cap.</numbered_3_para>
 
 <numbered_2_para><b>Timing of payment</b></numbered_2_para>
-<numbered_3_para>Undisputed Fees shall be made by the Company to the Contractor by the last day of the relevant month of the Service Request.</numbered_3_para>
+<numbered_3_para>Undisputed Fees shall be made by the Company to the Contractor by the last day of the relevant month of the Service Request's completion, provided that the protocol as set out under Clause <xref to="Payment Protocol" /> has been adhered to.</numbered_3_para>
 <numbered_3_para>Any changes to or variation of the timing of payment can be mutually agreed between the Parties via email.</numbered_3_para>  
 
 <numbered_2_para><b>Method of payment</b></numbered_2_para>
