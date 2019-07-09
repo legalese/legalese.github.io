@@ -3,10 +3,10 @@
 
 @mixin can-toggle-branding(
   $can-toggle-off-color: #777, 
-  $can-toggle-on-color: #5fc054,
+  $can-toggle-on-color: #00f9d8,
   $can-toggle-inactive-text: rgba(white, 0.5),
   $can-toggle-transition: cubic-bezier(0,1,0.5,1),
-  $can-toggle-on-text-color: #5fc054,
+  $can-toggle-on-text-color: #00f9d8,
   $can-toggle-left-switch-text: rgba(black, 1)
 ) {
   
@@ -284,7 +284,7 @@
       #999999,  // On state color
       white,  // Off state text color
       cubic-bezier(0,1,0.5,1),  // Transition timing function
-      #5fc054, // On state text color
+      #00f9d8, // On state text color
       #232323, // left switch text color
     ); 
   }
