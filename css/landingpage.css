@@ -1090,6 +1090,20 @@ button.close {
     background: #fff;
     padding: 10px;
     height: 100px;
+    position: relative;
+}
+
+.subscription-box-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    margin: 0 auto;    
+}
+
+.subscription-box-center > p {
+    min-width: 130px;
+    max-width: 100%;
 }
 
 .cost-label {
