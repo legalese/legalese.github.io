@@ -1068,8 +1068,8 @@ button.close {
 .subscription-box-margins {
     padding: 2px;
     margin: 0 auto;
-    width: 150px;
     max-width: 100%;
+    height: 104px;
 }
 
 .subscription-box-margins-large {
@@ -1089,7 +1089,7 @@ button.close {
 .subscription-content {
     background: #fff;
     padding: 10px;
-    min-height: 95px;
+    height: 100px;
 }
 
 .cost-label {
@@ -1128,4 +1128,12 @@ table.floatThead-table {
     border-top: none !important;
     border-bottom: none !important;
     background-color: #FFF;
+}
+
+.child-no-border > td {
+    border-top: none !important;
+}
+    
+.floatThead-col {
+    border-bottom: none !important;
 }
