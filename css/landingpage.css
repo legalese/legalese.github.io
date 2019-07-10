@@ -1142,6 +1142,7 @@ td {
 table.floatThead-table {
     border-top: none !important;
     border-bottom: none !important;
+    border-color: white !important;
     background-color: #FFF;
 }
 
