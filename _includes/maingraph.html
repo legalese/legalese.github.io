@@ -49,8 +49,8 @@
 	      <h5 style="display: inline; margin-bottom: 0px"><b>Standard Document Generation</b></h5>
 	      {% include popover.html
 	      position="auto left"
-	      title="Test"
-	      content="Lorem ipsum, etc."
+	      content="<h5 style='display: inline; margin-bottom: 0px'><b>Standard</b></h5> <em>means</em><br><p style='margin-bottom: 0px'>simple variations</p><p style='font-size: 12px; margin-bottom: 0px'>e.g. name, NRIC, dates, formula-derived calculations, address, numeric fields</p>"
+	      html=true
 	      %}
 	    </td>
 	    <td style="border-right: 1px solid white; border-top: none;" class="text-center">
@@ -75,11 +75,6 @@
 	  </tr>
 	  <tr>
 	    <td class="table-col-width" style="text-align: right; position: relative">Price per doc for subsequent generation
-	      {% include popover.html
-	      position="auto left"
-	      title="Test"
-	      content="Lorem ipsum, etc."
-	      %}
 	    </td>
 	    <td id="substandard-pro" class="table-col-width dollar-font">$1.74</td>		      
 	    <td id="substandard-plus" class="table-col-width column-right-border dollar-font">$1.74</td>
@@ -90,8 +85,8 @@
 	    <td class="table-col-width" style="text-align: right; position: relative"><b>Free</b> fields per document
 	      {% include popover.html
 	      position="auto left"
-	      title="Test"
-	      content="Lorem ipsum, etc."
+	      content="thereafter, $0.20/simple field<br>$1/complex field"
+	      html=true
 	      %}
 	    </td>
 	    <td class="table-col-width">20</td>		      
@@ -103,8 +98,8 @@
 	    <td class="table-col-width" style="text-align: right; position: relative"><b>Free</b> pages per document
 	      {% include popover.html
 	      position="auto left"
-	      title="Test"
-	      content="Lorem ipsum, etc."
+	      content="thereafter, $0.05/page"
+	      html=true
 	      %}
 	    </td>
 	    <td class="table-col-width">Unlimited</td>		      
@@ -117,8 +112,8 @@
 	      <h5 style="display: inline; margin-bottom: 0px"><b>Complex Document Generation</b></h5>
 	      {% include popover.html
 	      position="left"
-	      title="Test"
-	      content="Lorem ipsum, etc."
+	      content="<h5 style='display: inline; margin-bottom: 0px'><b>Complex</b></h5> <em>means</em><br><p style='margin-bottom: 0px'>if/then/else logic</p><p style='font-size: 12px; margin-bottom: 0px'>clause permutations<br>conditional fields</p>"
+	      html=true
 	      %}
 	    </td>
 	    <td style="border-right: 1px solid white"></td>
@@ -134,21 +129,33 @@
 	    <td class="table-col-width">0</td>
 	  </tr>
 	  <tr>
-	    <td class="table-col-width" style="text-align: right">Price per doc for subsequent generation</td>
+	    <td class="table-col-width" style="text-align: right; position: relative">Price per doc for subsequent generation</td>
 	    <td id="subcomplex-pro" class="table-col-width dollar-font">$2.34</td>		      
 	    <td id="subcomplex-plus" class="table-col-width column-right-border dollar-font">$2.34</td>
 	    <td id="subcomplex-basic" class="table-col-width column-right-border dollar-font">$3.12</td>
 	    <td class="table-col-width dollar-font">$3.90</td>
 	  </tr>
 	  <tr>
-	    <td class="table-col-width" style="text-align: right"><b>Free</b> fields per document</td>
+	    <td class="table-col-width" style="text-align: right; position: relative"><b>Free</b> fields per document
+	      {% include popover.html
+	      position="auto left"
+	      content="thereafter, $0.20/simple field<br>$1/complex field"
+	      html=true
+	      %}
+	    </td>
 	    <td class="table-col-width">20</td>		      
 	    <td class="table-col-width column-right-border">20</td>
 	    <td class="table-col-width column-right-border">20</td>
 	    <td class="table-col-width">20</td>
 	  </tr>
 	  <tr>
-	    <td class="table-col-width" style="text-align: right"><b>Free</b> pages per document</td>
+	    <td class="table-col-width" style="text-align: right; position: relative"><b>Free</b> pages per document
+	      {% include popover.html
+	      position="auto left"
+	      content="thereafter, $0.20/simple field<br>$1/complex field"
+	      html=true
+	      %}
+	    </td>
 	    <td class="table-col-width">Unlimited</td>		      
 	    <td class="table-col-width column-right-border">Unlimited</td>
 	    <td class="table-col-width column-right-border">10</td>
