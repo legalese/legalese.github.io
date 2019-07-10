@@ -1064,13 +1064,36 @@ button.close {
 .column-right-border {
     border-right: 2px solid #00f9d8 !important;
     border-left: 2px solid #00f9d8 !important;
-    display: relative;
+    position: relative !important;
+}
+
+.column-right-border::before {
+    box-shadow: -15px 0 8px -15px inset;
+    content: " ";
+    color: #333333;
+    height: 102%;
+    left: -15px;
+    position: absolute;
+    top: 0;
+    width: 15px;
+}
+
+.column-right-border::after, {
+    box-shadow: 15px 0 8px -15px inset;
+    content: " ";
+    height: 102%;
+    color: #333333;
+    position: absolute;
+    top: 0;
+    right: -15px;
+    width: 15px;
 }
 
 .column-right-border-top {
     border-right: 2px solid #00f9d8 !important;
     border-left: 2px solid #00f9d8 !important;
     border-top: 2px solid #00f9d8 !important;
+    box-shadow: -15px 0 15px -15px;    
 }
 
 .column-bottom-border {
