@@ -1007,9 +1007,32 @@ button.close {
     background: linear-gradient(169deg, #dd68ff 0%, #413eff 100%);
 }
 
+.highlight-row-special-above {
+    height: 8rem
+}
+
+.highlight-row-special::before {
+    top:-8rem;
+    left:-2rem;
+    right:0rem;
+    height:14rem;
+    border-top: 1px solid rgba(130,148,255, 0.2);
+    background-color: #fafbfc;
+    background-position-x:center;
+    background-position-y:bottom;
+    background-size:100% auto;
+    transform:rotate(4deg);
+    content: "";
+    position: absolute;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    display: block;
+    z-index: -1;
+}
+
 .highlight-row-special {
-    background: rgb(224,218,238);
-    background: linear-gradient(152deg, rgba(224,218,238,0.4780287114845938) 42%, rgba(130,148,255,0.39399509803921573) 82%);
+    background: linear-gradient(180deg, #fafbfc 0, rgba(130,148,255,0.4));
+    position: relative;
 }
 
 .highlight-row-green {
