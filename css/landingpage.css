@@ -1090,6 +1090,7 @@ button.close {
     background: #fff;
     padding: 10px;
     height: 100px;
+    display: block;
     position: relative;
 }
 
@@ -1150,4 +1151,18 @@ table.floatThead-table {
     
 .floatThead-col {
     border-bottom: none !important;
+}
+
+.popover-display {
+    position: absolute;
+    display: inline;
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 auto;
+}
+
+.tell-us {
+    cursor: pointer;
+    display: block;
 }
