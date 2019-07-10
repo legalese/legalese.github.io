@@ -1,5 +1,5 @@
 <div class="row larger-font" style="margin-top: 30px">
-  <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+  <div class="col-md-12 col-lg-8 col-lg-offset-2">
     <div class="table-responsive">
       <table class="table table-bordered">
 	<thead>
@@ -25,33 +25,33 @@
 	    <th class="table-col-width table-header-fixed" style="vertical-align: top">
 	      <p>Professional</p>
 	      <p style="color: #929292; margin-bottom: 0">SGD <span style="font-size: 24px; font-weight: 700; color: #333" id="subheader-pro">$2000</span></p>
-	      <h5 style="color: #929292">per month</h5>
+	      <h5 style="color: #929292; margin-top: 0">per month</h5>
 	    </th>
 	    <th class="table-col-width table-header-fixed column-right-border" style="vertical-align: top">
 	      <p>Boutique</p>
 	      <p style="color: #929292; margin-bottom: 0">SGD <span style="font-size: 24px; font-weight: 700; color: #333" id="subheader-plus">$25</span></p>
-	      <h5 style="color: #929292">per month</h5>
+	      <h5 style="color: #929292; margin-top: 0">per month</h5>
 	    </th>
 	    <th class="table-col-width table-header-fixed column-right-border" style="vertical-align: top; border-top: 2px solid #00f9d8">
 	      <p>Basic</p>
 	      <p style="color: #929292; margin-bottom: 0">SGD <span style="font-size: 24px; font-weight: 700; color: #333" id="subheader-basic">$15</span></p>
-	      <h5 style="color: #929292">per month</h5>
+	      <h5 style="color: #929292; margin-top: 0">per month</h5>
 	    </th>
 	    <th class="table-col-width table-header-fixed" style="vertical-align: top; border-right: 1px solid white">
 	      <p>Free Tier/pay as you go</p>
-	      <h5 style="color: #929292">No monthly commitments</h5>
+	      <h5 style="color: #929292; margin-top: 0">No monthly commitments</h5>
 	    </th>
 	  </tr>
 	</thead>
 	<tbody>
 	  <tr>
-	    <td class="table-row-title" style="text-align: right; border-top: none; border-right: 1px solid white; border-left: 1px solid white">
+	    <td class="table-row-title" style="text-align: right; border-top: none; border-right: 1px solid white; border-left: 1px solid white; position: relative">
+	      <h5 style="display: inline; margin-bottom: 0px"><b>Standard Document Generation</b></h5>
 	      {% include popover.html
-	      position="bottom"
+	      position="left"
 	      title="Test"
 	      content="Lorem ipsum, etc."
 	      %}
-	      <h5 style="display: inline"><b>Standard Document Generation</b></h5>
 	    </td>
 	    <td style="border-right: 1px solid white; border-top: none;" class="text-center">
 	      <a class="btn btn-default" href="#" role="button">Button</a>
@@ -74,9 +74,9 @@
 	    <td class="table-col-width">0</td>
 	  </tr>
 	  <tr>
-	    <td class="table-col-width" style="text-align: right">Price per doc for subsequent generation
+	    <td class="table-col-width" style="text-align: right; position: relative">Price per doc for subsequent generation
 	      {% include popover.html
-	      position="right"
+	      position="left"
 	      title="Test"
 	      content="Lorem ipsum, etc."
 	      %}
@@ -87,9 +87,9 @@
 	    <td class="table-col-width dollar-font">$2.90</td>
 	  </tr>
 	  <tr>
-	    <td class="table-col-width" style="text-align: right"><b>Free</b> fields per document
+	    <td class="table-col-width" style="text-align: right; position: relative"><b>Free</b> fields per document
 	      {% include popover.html
-	      position="right"
+	      position="left"
 	      title="Test"
 	      content="Lorem ipsum, etc."
 	      %}
@@ -100,9 +100,9 @@
 	    <td class="table-col-width">20</td>
 	  </tr>
 	  <tr>
-	    <td class="table-col-width" style="text-align: right"><b>Free</b> pages per document
+	    <td class="table-col-width" style="text-align: right; position: relative"><b>Free</b> pages per document
 	      {% include popover.html
-	      position="right"
+	      position="left"
 	      title="Test"
 	      content="Lorem ipsum, etc."
 	      %}
@@ -113,8 +113,13 @@
 	    <td class="table-col-width">10</td>
 	  </tr>
 	  <tr>
-	    <td class="table-row-title" style="text-align: right; border-right: 1px solid white; border-left: 1px solid white">
-	      <h5><b>Complex Document Generation</b></h5>
+	    <td class="table-row-title" style="text-align: right; border-right: 1px solid white; border-left: 1px solid white; position: relative">
+	      <h5 style="display: inline; margin-bottom: 0px"><b>Complex Document Generation</b></h5>
+	      {% include popover.html
+	      position="left"
+	      title="Test"
+	      content="Lorem ipsum, etc."
+	      %}
 	    </td>
 	    <td style="border-right: 1px solid white"></td>
 	    <td class="column-right-border"></td>
