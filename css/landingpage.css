@@ -1063,6 +1063,14 @@ button.close {
 
 .column-right-border {
     border-right: 2px solid #00f9d8 !important;
+    border-left: 2px solid #00f9d8 !important;
+    display: relative;
+}
+
+.column-right-border-top {
+    border-right: 2px solid #00f9d8 !important;
+    border-left: 2px solid #00f9d8 !important;
+    border-top: 2px solid #00f9d8 !important;
 }
 
 .column-bottom-border {
