@@ -1062,8 +1062,8 @@ button.close {
 }
 
 .column-right-border {
-    border-right: 2px solid #00f9d8 !important;
-    border-left: 2px solid #00f9d8 !important;
+    border-right: 3px solid #00f9d8 !important;
+    border-left: 3px solid #00f9d8 !important;
     position: relative !important;
 }
 
@@ -1148,8 +1148,8 @@ button.close {
 }
 
 .column-right-border-top {
-    border-right: 2px solid #00f9d8 !important;
-    border-left: 2px solid #00f9d8 !important;
+    border-right: 3px solid rgb(0, 249, 216, 0.5) !important;
+    border-left: 3px solid #00f9d8 !important;
     border-top: none !important;
     position: relative !important;
 }
