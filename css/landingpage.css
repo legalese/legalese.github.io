@@ -1271,7 +1271,7 @@ table.floatThead-table {
 .popover-display {
     position: absolute;
     display: inline;
-    left: -25px;
+    left: -30px;
     top: 50%;
     transform: translateY(-50%);
     margin: 0 auto;
@@ -1349,5 +1349,5 @@ table.floatThead-table {
 }
 
 .table-row-top {
-    border-top: 1px solid grey;
+    border-right: none;
 }
