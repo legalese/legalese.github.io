@@ -1333,6 +1333,10 @@ table.floatThead-table {
     margin: 0;
 }
 
+.table-row-title-content-subtitle{
+    margin: 0;
+}
+
 .highlight-column {
     border: 2px solid #00f9d8;
     border-radius: 2px;
