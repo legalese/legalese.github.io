@@ -1297,20 +1297,21 @@ table.floatThead-table {
     display: inline-block;
     text-align: center;
     margin: 0;
-    padding: 8px;
 }
 
 .pseudo-table-header {
     position: relative;
-    height: 5em;
+    padding-top: 15px;
+    height: 7em;
 }
 
 .pseudo-table {
     position: relative;
-    height: 50px;
+    height: 60px;
     align-items: center;
     justify-content: center;
     display: flex;
+    padding: 8px;
 }
 
 .table-row-title {
@@ -1321,4 +1322,10 @@ table.floatThead-table {
 .table-row-title-content {
     display: inline;
     margin: 0;
+}
+
+.highlight-column {
+    border: 2px solid #00f9d8;
+    border-radius: 2px;
+    box-shadow: 0px 0px 4px 4px #c9c9c9;
 }
