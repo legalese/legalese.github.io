@@ -1,227 +1,329 @@
 <div class="row larger-font" style="margin-top: 30px">
-  <div class="col-md-12 col-lg-8 col-lg-offset-2">
-    <div class="table-responsive">
-      <table class="table table-bordered">
-	<colgroup>
-	  <col style="width: 24%">
-	  <col style="width: 14%">
-	  <col style="width: 14%">
-	  <col style="width: 14%">
-	  <col style="width: 14%">
-	</colgroup>
-	<thead>
-	  <tr style="border: none">
-	    <th class="table-col-width table-header-fixed"></th>
-	    <th class="table-col-width table-header-fixed"></th>
-	    <th class="table-col-width table-header-fixed"></th>
-	    <th class="table-col-width table-header-fixed column-right-border-top" style="font-size: 10px; background-color: #00f9d8; padding-left: 0px; padding-right: 0px">
-	      <div class="top-shadow-hack"></div>
-	      Recommended!
-	    </th>
-	    <th class="table-col-width table-header-fixed"></th>
-	  </tr>
-	  <tr style="border: none">
-	    <th class="table-col-width table-header-fixed" style="vertical-align: top; border-left: 1px solid white">
-	      <h4 style="margin: 10px 0px">What's included?</h4>
-	      <div style="display: inline-block">
-		<div class="can-toggle demo-rebrand-3" style="--toggleWidth: 200px; --toggleLeft: 0.4; --toggleRight: 0.6; --toggleSwitchWidth: 80px">
-		  <input id="price-toggle" type="checkbox">
-		  <label for="price-toggle">
-		    <div class="can-toggle__switch" data-checked="Bill yearly (30% off!)" data-unchecked="Bill monthly"></div>
-		  </label>
-		</div>
-	      </div>
-	    </th>
-	    <th class="table-col-width table-header-fixed" style="vertical-align: top">
-	      <p>Professional</p>
-	      <p style="color: #929292; margin-bottom: 0">SGD <span style="font-size: 24px; font-weight: 700; color: #333" id="subheader-pro">$2000</span></p>
-	      <h5 style="color: #929292; margin-top: 0">per month</h5>
-	    </th>
-	    <th class="table-col-width table-header-fixed" style="vertical-align: top">
-	      <p>Boutique</p>
-	      <p style="color: #929292; margin-bottom: 0">SGD <span style="font-size: 24px; font-weight: 700; color: #333" id="subheader-plus">$25</span></p>
-	      <h5 style="color: #929292; margin-top: 0">per month</h5>
-	    </th>
-	    <th class="table-col-width table-header-fixed column-right-border" style="vertical-align: top; border-top: 2px solid #00f9d8">
-	      <p>Basic</p>
-	      <p style="color: #929292; margin-bottom: 0">SGD <span style="font-size: 24px; font-weight: 700; color: #333" id="subheader-basic">$15</span></p>
-	      <h5 style="color: #929292; margin-top: 0">per month</h5>
-	    </th>
-	    <th class="table-col-width table-header-fixed" style="vertical-align: top; border-right: 1px solid white">
-	      <p style="margin:0">Free Tier/pay as you go</p>
-	      <h5 style="color: #929292; margin-top: 0">No monthly commitments</h5>
-	    </th>
-	  </tr>
-	</thead>
-	<tbody>
-	  <tr>
-	    <td class="table-row-title" style="text-align: right; border-top: none; border-right: 1px solid white; border-left: 1px solid white; position: relative">
-	      <h5 style="display: inline; margin-bottom: 0px"><b>Standard Document Generation</b></h5>
-	      {% include popover.html
-	      position="auto left"
-	      content="<h5 style='display: inline; margin-bottom: 0px'><b>Standard</b></h5> <em>means</em><br><p style='margin-bottom: 0px'>simple variations</p><p style='font-size: 12px; margin-bottom: 0px'>e.g. name, NRIC, dates, formula-derived calculations, address, numeric fields</p>"
-	      html=true
-	      %}
-	    </td>
-	    <td style="border-right: 1px solid white; border-top: none;" class="text-center">
-	      <a class="btn btn-default" href="#" role="button">Button</a>
-	    </td>
-	    <td style="border-top: none;" class="text-center">
-	      <a class="btn btn-default" href="#" role="button">Button</a>
-	    </td>
-	    <td style="border-top: none;" class="column-right-border text-center">
-	      <a class="btn btn-default" href="#" role="button">Button</a>
-	    </td>
-	    <td style="border-right: 1px solid white; border-top: none;" class="text-center">
-	      <a class="btn btn-default" href="#" role="button">Button</a>
-	    </td>
-	  </tr>
-	  <tr>
-	    <td class="table-col-width" style="text-align: right"><b>Free</b> document(s)</td>
-	    <td class="table-col-width">2000</td>		      
-	    <td class="table-col-width">12</td>
-	    <td class="table-col-width column-right-border">6</td>
-	    <td class="table-col-width">0</td>
-	  </tr>
-	  <tr>
-	    <td class="table-col-width" style="text-align: right; position: relative">Price per doc for subsequent generation
-	    </td>
-	    <td id="substandard-pro" class="table-col-width">$1.74</td>		      
-	    <td id="substandard-plus" class="table-col-width">$1.74</td>
-	    <td id="substandard-basic" class="table-col-width column-right-border">$2.32</td>
-	    <td class="table-col-width">$2.90</td>
-	  </tr>
-	  <tr>
-	    <td class="table-col-width" style="text-align: right; position: relative"><b>Free</b> fields per document
-	      {% include popover.html
-	      position="auto left"
-	      content="thereafter, $0.20/simple field<br>$1/complex field"
-	      html=true
-	      %}
-	    </td>
-	    <td class="table-col-width">20</td>		      
-	    <td class="table-col-width">20</td>
-	    <td class="table-col-width column-right-border">20</td>
-	    <td class="table-col-width">20</td>
-	  </tr>
-	  <tr>
-	    <td class="table-col-width" style="text-align: right; position: relative"><b>Free</b> pages per document
-	      {% include popover.html
-	      position="auto left"
-	      content="thereafter, $0.05/page"
-	      html=true
-	      %}
-	    </td>
-	    <td class="table-col-width">Unlimited</td>		      
-	    <td class="table-col-width">Unlimited</td>
-	    <td class="table-col-width column-right-border">10</td>
-	    <td class="table-col-width">10</td>
-	  </tr>
-	  <tr>
-	    <td class="table-row-title" style="text-align: right; border-right: 1px solid white; border-left: 1px solid white; position: relative">
-	      <h5 style="display: inline; margin-bottom: 0px"><b>Complex Document Generation</b></h5>
-	      {% include popover.html
-	      position="left"
-	      content="<h5 style='display: inline; margin-bottom: 0px'><b>Complex</b></h5> <em>means</em><br><p style='margin-bottom: 0px'>if/then/else logic</p><p style='font-size: 12px; margin-bottom: 0px'>clause permutations<br>conditional fields</p>"
-	      html=true
-	      %}
-	    </td>
-	    <td style="border-right: 1px solid white"></td>
-	    <td></td>
-	    <td class="column-right-border"></td>
-	    <td style="border-right: 1px solid white"></td>
-	  </tr>
-	  <tr>
-	    <td class="table-col-width" style="text-align: right"><b>Free</b> document(s)</td>
-	    <td class="table-col-width">2000</td>		      
-	    <td class="table-col-width">10</td>
-	    <td class="table-col-width column-right-border">0</td>
-	    <td class="table-col-width">0</td>
-	  </tr>
-	  <tr>
-	    <td class="table-col-width" style="text-align: right; position: relative">Price per doc for subsequent generation</td>
-	    <td id="subcomplex-pro" class="table-col-width">$2.34</td>		      
-	    <td id="subcomplex-plus" class="table-col-width">$2.34</td>
-	    <td id="subcomplex-basic" class="table-col-width column-right-border">$3.12</td>
-	    <td class="table-col-width">$3.90</td>
-	  </tr>
-	  <tr>
-	    <td class="table-col-width" style="text-align: right; position: relative"><b>Free</b> fields per document
-	      {% include popover.html
-	      position="auto left"
-	      content="thereafter, $0.20/simple field<br>$1/complex field"
-	      html=true
-	      %}
-	    </td>
-	    <td class="table-col-width">20</td>		      
-	    <td class="table-col-width">20</td>
-	    <td class="table-col-width column-right-border">20</td>
-	    <td class="table-col-width">20</td>
-	  </tr>
-	  <tr>
-	    <td class="table-col-width" style="text-align: right; position: relative"><b>Free</b> pages per document
-	      {% include popover.html
-	      position="auto left"
-	      content="thereafter, $0.20/simple field<br>$1/complex field"
-	      html=true
-	      %}
-	    </td>
-	    <td class="table-col-width">Unlimited</td>		      
-	    <td class="table-col-width">Unlimited</td>
-	    <td class="table-col-width column-right-border">10</td>
-	    <td class="table-col-width">10</td>
-	  </tr>
-	  <tr>
-	    <td class="table-col-width" style="text-align: right">Auto-population of past entity details</td>
-	    <td class="table-col-width">Free</td>		      
-	    <td class="table-col-width">Free</td>
-	    <td class="table-col-width column-right-border">Free</td>
-	    <td class="table-col-width">Free</td>
-	  </tr>
-	  <tr>
-	    <td class="table-col-width" style="text-align: right">
-	      <p class="paragraph-small-margin">Email support</p>
-	      <p class="paragraph-small-margin" style="font-size: 10px">3-5 working days</p>
-	    </td>
-	    <td class="table-col-width blue-check"><i class="fa fa-check" aria-hidden="true"></i></td>
-	    <td class="table-col-width blue-check"><i class="fa fa-check" aria-hidden="true"></i></td>
-	    <td class="table-col-width column-right-border blue-check"><i class="fa fa-check" aria-hidden="true"></i></td>
-	    <td class="table-col-width blue-check"><i class="fa fa-check" aria-hidden="true"></i></td>
-	  </tr>
-	  <tr>
-	    <td class="table-col-width" style="text-align: right">
-	      <p class="paragraph-small-margin">Priority mail support</p>
-	      <p class="paragraph-small-margin" style="font-size: 10px">1 working day</p>
-	    </td>
-	    <td class="table-col-width blue-check"><i class="fa fa-check" aria-hidden="true"></i></td>
-	    <td class="table-col-width blue-check"><i class="fa fa-check" aria-hidden="true"></i></td>
-	    <td class="table-col-width column-right-border"></td>
-	    <td class="table-col-width"></td>
-	  </tr>
-	  <tr>
-	    <td class="table-col-width" style="text-align: right">
-	      <p class="paragraph-small-margin">Chat Support</p>
-	      <p class="paragraph-small-margin" style="font-size: 10px">Telegram/Whatsapp</p>
-	      <p class="paragraph-small-margin" style="font-size: 10px">Weekdays 1pm &mdash; 4pm</p>
-	    </td>
-	    <td class="table-col-width blue-check"><i class="fa fa-check" aria-hidden="true"></i></td> 
-	    <td class="table-col-width blue-check"><i class="fa fa-check" aria-hidden="true"></i></td>
-	    <td class="table-col-width column-right-border"></td>
-	    <td class="table-col-width"></td>
-	  </tr>
-	  <tr>
-	    <td class="table-col-width" style="text-align: right">Round-the-clock phone &amp; chat support</td>
-	    <td class="table-col-width blue-check"><i class="fa fa-check" aria-hidden="true"></i></td>
-	    <td class="table-col-width"></td>
-	    <td class="table-col-width column-right-border column-bottom-border" style="padding:0px">
-	      <div class="bottom-shadow-hack">
-	      </div>
-	    </td>
-	    <td class="table-col-width"></td>
-	  </tr>
+  <div class="col-md-12 col-lg-10 col-lg-offset-1">
+    <div class="horizontal-squeeze">
+      
+      <!-- First column -->
+      
+      <div class="horizontal-squeeze-child" id="first-column" style="width: 27%; border-top: 2px solid transparent">
+	<div class="pseudo-table-header">
+	  <p>What's included?</p>
+	  <div style="display: inline-block">
+	    <div class="can-toggle demo-rebrand-3" style="--toggleWidth: 200px; --toggleLeft: 0.4; --toggleRight: 0.6; --toggleSwitchWidth: 80px">
+	      <input id="price-toggle" type="checkbox">
+	      <label for="price-toggle">
+		<div class="can-toggle__switch" data-checked="Bill yearly (30% off!)" data-unchecked="Bill monthly"></div>
+	      </label>
+	    </div>
+	  </div>
+	</div>
+	<div class="pseudo-table table-row-title table-row-top" style="border-left: none">
+	  <h4 class="table-row-title-content"><b>Standard Document Generation</b></h4>
+	  {% include popover.html
+	  position="auto left"
+	  content="<h5 style='display: inline; margin-bottom: 0px'><b>Standard</b></h5> <em>means</em><br><p style='margin-bottom: 0px'>simple variations</p><p style='font-size: 12px; margin-bottom: 0px'>e.g. name, NRIC, dates, formula-derived calculations, address, numeric fields</p>"
+	  html=true
+	  %}
+	</div>
+	<div class="pseudo-table table-row-title">
+	  <p><b>Free</b> document(s)</p>
+	</div>
+	<div class="pseudo-table table-row-title">
+	  <p>Price per doc for subsequent generation</p>
+	</div>
+	<div class="pseudo-table table-row-title">
+	  <p class="table-row-title-content"><b>Free</b> fields per document</p>
+	  {% include popover.html
+	  position="auto left"
+	  content="thereafter, $0.20/simple field<br>$1/complex field"
+	  html=true
+	  %}
+	</div>
+	<div class="pseudo-table table-row-title">
+	  <p class="table-row-title-content"><b>Free</b> pages per document</p>
+	  {% include popover.html
+	  position="auto left"
+	  content="thereafter, $0.05/page"
+	  html=true
+	  %}
+	</div>
+	<div class="pseudo-table table-row-title table-row-top" style="border-left: none">
+	  <h4 class="table-title-row-content"><b>Complex Document Generation</b></h4>
+	  {% include popover.html
+	  position="left"
+	  content="<h5 style='display: inline; margin-bottom: 0px'><b>Complex</b></h5> <em>means</em><br><p style='margin-bottom: 0px'>if/then/else logic</p><p style='font-size: 12px; margin-bottom: 0px'>clause permutations<br>conditional fields</p>"
+	  html=true
+	  %}
+	</div>
+	<div class="pseudo-table table-row-title">
+	  <p><b>Free</b> document(s)</p>
+	</div>
+	<div class="pseudo-table table-row-title">
+	  <p class="table-row-title-content">Price per doc for subsequent generation</p>
+	</div>
+	<div class="pseudo-table table-row-title">
+	  <p class="table-row-title-content"><b>Free</b> fields per document</p>
+	  {% include popover.html
+	  position="auto left"
+	  content="thereafter, $0.20/simple field<br>$1/complex field"
+	  html=true
+	  %}
+	</div>
+	<div class="pseudo-table table-row-title">
+	  <p class="table-row-title-content"><b>Free</b> pages per document</p>
+	  {% include popover.html
+	  position="auto left"
+	  content="thereafter, $0.20/simple field<br>$1/complex field"
+	  html=true
+	  %}
+	</div>
+	<div class="pseudo-table table-row-title">
+	  <p class="table-row-title-content">Auto-population of past entity details</p>
+	</div>
+	<div class="pseudo-table table-row-title">
+	  <div class="table-row-title-content">
+	    <p class="table-row-title-content-subtitle">Email support</p>
+	    <p class="table-row-title-content-subtitle" style="font-size: 10px">3-5 working days</p>
+	  </div>
+	</div>
+	<div class="pseudo-table table-row-title">
+	  <div class="table-row-title-content">
+	    <p class="table-row-title-content-subtitle">Priority mail support</p>
+	    <p class="table-row-title-content-subtitle" style="font-size: 10px">1 working day</p>
+	  </div>
+	</div>
+	<div class="pseudo-table table-row-title">
+	  <div class="table-row-title-content">
+	    <p class="table-row-title-content-subtitle">Chat Support</p>
+	    <p class="table-row-title-content-subtitle" style="font-size: 10px">Telegram/Whatsapp</p>
+	    <p class="table-row-title-content-subtitle" style="font-size: 10px">Weekdays 1pm &mdash; 4pm</p>
+	  </div>
+	</div>
+	<div class="pseudo-table table-row-title">
+	  <p class="table-row-title-content">Round-the-clock phone &amp; chat support</p>
+	</div>		    
+      </div>
 
-	</tbody>
-      </table>
+      <!-- Second column -->
+
+      <div class="horizontal-squeeze-child" style="width: 17%; border-top: 2px solid transparent">
+	<div class="pseudo-table-header">
+	  <p>Professional</p>
+	  <p style="color: #929292; margin-bottom: 0">SGD <span style="font-size: 24px; font-weight: 700; color: #333" id="subheader-pro">$2000</span></p>
+	  <h5 style="color: #929292; margin-top: 0">per month</h5>
+	</div>
+	<div class="pseudo-table table-row-top">
+	  <a class="btn btn-default" href="#" role="button">Button</a>
+	</div>
+	<div class="pseudo-table">
+	  <p>2000</p>
+	</div>
+	<div class="pseudo-table">
+	  <p id="substandard-pro">$1.74</p>
+	</div>
+	<div class="pseudo-table">
+	  <p>20</p>
+	</div>
+	<div class="pseudo-table">
+	  <p>Unlimited</p>
+	</div>
+	<div class="pseudo-table table-row-top">
+	  <p></p>
+	</div>
+	<div class="pseudo-table">
+	  <p>2000</p>
+	</div>
+	<div class="pseudo-table">
+	  <p id="subcomplex-pro">$2.34</p>
+	</div>
+	<div class="pseudo-table">
+	  <p>20</p>
+	</div>
+	<div class="pseudo-table">
+	  <p>Unlimited</p>
+	</div>
+	<div class="pseudo-table">
+	  <p>Free</p>
+	</div>
+	<div class="pseudo-table">
+	  <p><i class="fa fa-check blue-check" aria-hidden="true"></i></p>
+	</div>
+	<div class="pseudo-table">
+	  <p><i class="fa fa-check blue-check" aria-hidden="true"></i></p>
+	</div>
+	<div class="pseudo-table">
+	  <p><i class="fa fa-check blue-check" aria-hidden="true"></i></p>
+	</div>
+	<div class="pseudo-table">
+	  <p><i class="fa fa-check blue-check" aria-hidden="true"></i></p>
+	</div>
+
+      </div>
+
+      <!-- Third column -->
+
+      <div class="horizontal-squeeze-child" id="third-column" style="width: 17%; border-top: 2px solid transparent">
+	<div class="pseudo-table-header">
+	  <p>Boutique</p>
+	  <p style="color: #929292; margin-bottom: 0">SGD <span style="font-size: 24px; font-weight: 700; color: #333" id="subheader-plus">$25</span></p>
+	  <h5 style="color: #929292; margin-top: 0">per month</h5>
+	</div>
+	<div class="pseudo-table table-row-top">
+	  <a class="btn btn-default" href="#" role="button">Button</a>
+	</div>
+	<div class="pseudo-table">
+	  <p>12</p>
+	</div>
+	<div class="pseudo-table">
+	  <p id="substandard-plus">$1.74</p>
+	</div>
+	<div class="pseudo-table">
+	  <p>20</p>
+	</div>
+	<div class="pseudo-table">
+	  <p>Unlimited</p>
+	</div>
+	<div class="pseudo-table table-row-top">
+	  <p></p>
+	</div>
+	<div class="pseudo-table">
+	  <p>10</p>
+	</div>
+	<div class="pseudo-table">
+	  <p id="subcomplex-plus">$2.34</p>
+	</div>
+	<div class="pseudo-table">
+	  <p>20</p>
+	</div>
+	<div class="pseudo-table">
+	  <p>Unlimited</p>
+	</div>
+	<div class="pseudo-table">
+	  <p>Free</p>
+	</div>
+	<div class="pseudo-table">
+	  <p><i class="fa fa-check blue-check" aria-hidden="true"></i></p>
+	</div>
+	<div class="pseudo-table">
+	  <p><i class="fa fa-check blue-check" aria-hidden="true"></i></p>
+	</div>
+	<div class="pseudo-table">
+	  <p><i class="fa fa-check blue-check" aria-hidden="true"></i></p>
+	</div>
+	<div class="pseudo-table">
+	  <p></p>
+	</div>
+      </div>
+
+      <!-- Fourth column -->
+
+      <div class="horizontal-squeeze-child highlight-column" style="width: 17%">
+	<div class="pseudo-table-header" style="padding-top: 0px">
+	  <p style="font-size: 10px; background-color: #00f9d8; margin-bottom: 0px">Recommended!</p>
+	  <p>Basic</p>
+	  <p style="color: #929292; margin-bottom: 0">SGD <span style="font-size: 24px; font-weight: 700; color: #333" id="subheader-basic">$15</span></p>
+	  <h5 style="color: #929292; margin-top: 0">per month</h5>
+	</div>
+	<div class="pseudo-table table-row-top">
+	  <a class="btn btn-default" href="#" role="button">Button</a>
+	</div>
+	<div class="pseudo-table">
+	  <p>6</p>
+	</div>
+	<div class="pseudo-table">
+	  <p id="substandard-basic">$2.32</p>
+	</div>
+	<div class="pseudo-table">
+	  <p>20</p>
+	</div>
+	<div class="pseudo-table">
+	  <p>10</p>
+	</div>
+	<div class="pseudo-table table-row-top">
+	  <p></p>
+	</div>
+	<div class="pseudo-table">
+	  <p>0</p>
+	</div>
+	<div class="pseudo-table">
+	  <p id="subcomplex-basic">$3.12</p>
+	</div>
+	<div class="pseudo-table">
+	  <p>20</p>
+	</div>
+	<div class="pseudo-table">
+	  <p>10</p>
+	</div>
+	<div class="pseudo-table">
+	  <p>Free</p>
+	</div>
+	<div class="pseudo-table">
+	  <p><i class="fa fa-check blue-check" aria-hidden="true"></i></p>
+	</div>
+	<div class="pseudo-table">
+	  <p></p>
+	</div>
+	<div class="pseudo-table">
+	  <p></p>
+	</div>
+	<div class="pseudo-table">
+	  <p></p>
+	</div>
+
+      </div>
+
+      <!-- Fifth column -->
+
+      <div class="horizontal-squeeze-child" style="width: 17%; border-top: 2px solid transparent">
+	<div class="pseudo-table-header">
+	  <p>Free Tier/pay as you go</p>
+	  <h5 style="color: #929292">No monthly commitments</h5>
+	</div>
+	<div class="pseudo-table table-row-top">
+	  <a class="btn btn-default" href="#" role="button">Button</a>
+	</div>
+	<div class="pseudo-table">
+	  <p>0</p>
+	</div>
+	<div class="pseudo-table">
+	  <p>$2.90</p>
+	</div>
+	<div class="pseudo-table">
+	  <p>20</p>
+	</div>
+	<div class="pseudo-table">
+	  <p>10</p>
+	</div>
+	<div class="pseudo-table table-row-top">
+	  <p></p>
+	</div>
+	<div class="pseudo-table">
+	  <p>0</p>
+	</div>
+	<div class="pseudo-table">
+	  <p>$3.90</p>
+	</div>
+	<div class="pseudo-table">
+	  <p>20</p>
+	</div>
+	<div class="pseudo-table">
+	  <p>10</p>
+	</div>
+	<div class="pseudo-table">
+	  <p>Free</p>
+	</div>
+	<div class="pseudo-table">
+	  <p><i class="fa fa-check blue-check" aria-hidden="true"></i></p>
+	</div>
+	<div class="pseudo-table">
+	  <p></p>
+	</div>
+	<div class="pseudo-table">
+	  <p></p>
+	</div>
+	<div class="pseudo-table">
+	  <p></p>
+	</div>
+      </div>
     </div>
   </div>
 </div>
