@@ -1067,7 +1067,7 @@ button.close {
     position: relative !important;
 }
 
-.column-right-border::before {
+.column-right-border:before {
     box-shadow: -15px 0 8px -15px inset;
     content: " ";
     color: #333333;
@@ -1078,7 +1078,7 @@ button.close {
     width: 15px;
 }
 
-.column-right-border::after, {
+.column-right-border:after {
     box-shadow: 15px 0 8px -15px inset;
     content: " ";
     height: 102%;
@@ -1089,15 +1089,73 @@ button.close {
     width: 15px;
 }
 
+.column-right-border-top:before {
+    box-shadow: -15px 0 8px -15px inset;
+    content: " ";
+    color: #333333;
+    height: 104%;
+    left: -15px;
+    position: absolute;
+    top: 0;
+    width: 15px;
+}
+
+.column-right-border-top:after {
+    box-shadow: 15px 0 8px -15px inset;
+    content: " ";
+    height: 104%;
+    color: #333333;
+    position: absolute;
+    top: 0;
+    right: -15px;
+    width: 15px;
+}
+
+.bottom-shadow-hack {
+    position: absolute;
+    bottom: 0px;
+    height: 10px;
+    width: 100%
+}
+
+.bottom-shadow-hack:before {
+    box-shadow: 0px 10px 4px -1px;
+    content: " ";
+    color: #7a7a7a;
+    height: 5px;
+    bottom: 5px;
+    position: absolute;
+    left: -1%;
+    width: 102%;
+}
+
+.top-shadow-hack {
+    position: absolute;
+    top: 0px;
+    height: 10px;
+    width: 100%
+}
+
+.top-shadow-hack:before {
+    box-shadow: inset 0px -10px 8px -12px #333; 
+    content: " ";
+    color: #7a7a7a;
+    height: 5px;
+    top: -5px;
+    position: absolute;
+    left: -1%;
+    width: 102%;
+}
+
 .column-right-border-top {
     border-right: 2px solid #00f9d8 !important;
     border-left: 2px solid #00f9d8 !important;
-    border-top: 2px solid #00f9d8 !important;
-    box-shadow: -15px 0 15px -15px;    
+    border-top: none !important;
+    position: relative !important;
 }
 
 .column-bottom-border {
-    border-bottom: 2px solid #00f9d8 !important
+    border-bottom: 2px solid #00c7ac !important
 }
 
 .paragraph-small-margin {
@@ -1211,6 +1269,7 @@ table.floatThead-table {
     
 .floatThead-col {
     border-bottom: none !important;
+    border: 1px solid white !important;
 }
 
 .popover-display {
@@ -1225,4 +1284,10 @@ table.floatThead-table {
 .tell-us {
     cursor: pointer;
     display: block;
+}
+
+.floatThead-container {
+    padding-top:10px;
+    border-color: white !important;
+    background-color: white !important;
 }
