@@ -972,10 +972,6 @@ button.close {
     padding: 3px 6px;
 }
 
-.table-row-title {
-    min-width: 240px;
-}
-
 .pricing-logo {
     height: 250px;
     position: absolute;
@@ -1275,7 +1271,7 @@ table.floatThead-table {
 .popover-display {
     position: absolute;
     display: inline;
-    left: 0px;
+    left: -30px;
     top: 50%;
     transform: translateY(-50%);
     margin: 0 auto;
@@ -1290,4 +1286,39 @@ table.floatThead-table {
     padding-top:5px;
     border-color: white !important;
     background-color: white !important;
+}
+
+.horizontal-squeeze {
+    display: flex;
+    justify-content: center;
+}
+
+.horizontal-squeeze-child {
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+    padding: 8px;
+}
+
+.pseudo-table-header {
+    position: relative;
+    height: 5em;
+}
+
+.pseudo-table {
+    position: relative;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.table-row-title {
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.table-row-title-content {
+    display: inline;
+    margin: 0;
 }
