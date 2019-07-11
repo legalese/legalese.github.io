@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/legalese/legalese.com#readme",
   "dependencies": {
-    "broken-link-checker": "^0.7.8"
+    "lodash": "^4.17.14"
   }
 }
