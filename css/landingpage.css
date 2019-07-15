@@ -979,11 +979,18 @@ button.close {
     right: 0;
 }
 
-.pricing-logo-docs {
-    height: 200px;
+.test-pricing {
+    height: 160%;
     position: absolute;
-    display: inline-block;
-    transform: translate(-75%, -15%);
+    right: 0;
+    transform: translateY(-40%);
+}
+
+.pricing-logo-docs {
+    height: 140%;
+    position: absolute;
+    right: -20%;
+    transform: translateY(-20%);
 }
 
 .optional-logo {
