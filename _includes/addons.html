@@ -1,127 +1,114 @@
-<div class="row">
+<div class="row" style="margin-top: 30px">
   <div class="col-md-12 col-lg-8 col-lg-offset-2">
-    <div class="table-responsive">
-      <table class="table">
-	<thead>
-	  <tr>
-	    {% if include.leftLabel %}
-	    <th class="table-header-fixed" style="width: 10%">
-	    </th>
-	    <th class="table-header-fixed" style="width: 18%">
-	    </th>
-	    <th class="table-header-fixed" style="width: 18%">
-	    </th>
-	    <th class="table-header-fixed" style="width: 18%">
-	    </th>
-	    <th class="table-header-fixed" style="width: 36%">
-	    </th>
+    <div class="horizontal-squeeze">
+      
+      <!-- First column -->
 
-	    {% else %}
-	    <th class="table-header-fixed" style="width: 20%">
-	    </th>
-	    <th class="table-header-fixed" style="width: 20%">
-	    </th>
-	    <th class="table-header-fixed" style="width: 20%">
-	    </th>
-	    <th class="table-header-fixed" style="width: 40%">
-	    </th>
-	    {% endif %}
-	  </tr>
-	</thead>
-	<tbody>
-	  <tr class="child-no-border">
-	    {% if include.leftLabel %}
-	    <td>
-	      <div class="text-right subscription-box-margins">
-		<p style="margin-top: 10px; color: #1fc3c2">Add-ons to supercharge your workflows</p>
-	      </div>	     
-	    </td>
-	    {% endif %}
-	    <td>
-	      <div class="highlight-row-neon-blue subscription-box-margins text-center">
-		<div class="subscription-content">
-		  <div class="subscription-box-center">
-		    <img src="images/streamline-icon-attachment@24x24.svg">
-		    <p>Automatic annexures</p>
-		  </div>
-		</div>
-	      </div>	      
-	    </td>
-	    <td>
-	      <div class="highlight-row-neon-blue subscription-box-margins text-center">      
-		<div class="subscription-content">
-		  <div class="subscription-box-center">		    
-		    <img src="images/streamline-icon-hierarchy-files@24x24.svg">
-		    <p>Multi-step Custom Workflows</p>
-		  </div>
-		</div>
+      {% if include.leftLabel %}
+
+      <div class="horizontal-squeeze-child" style="width: 10%; border-top: 2px solid transparent">
+	<div class="pseudo-table-no-border">
+	  <div class="text-right subscription-box-margins">
+	    <p style="margin-top: 10px; color: #1fc3c2">Add-ons to supercharge your workflows</p>
+	  </div>
+	</div>
+      </div>
+
+      {% endif %}
+
+      <!-- Second column -->
+      
+      <div class="horizontal-squeeze-child" style="width: {% if include.leftLabel %} 18% {% else %} 20% {% endif %}; border-top: 2px solid transparent">
+	<div class="pseudo-table-no-border">
+	  <div class="highlight-row-neon-blue subscription-box-margins text-center">
+	    <div class="subscription-content">
+	      <div class="subscription-box-center">
+		<img src="images/streamline-icon-attachment@24x24.svg">
+		<p>Automatic annexures</p>
 	      </div>
-	    </td>
-	    <td>
-	      <div class="highlight-row-neon-blue subscription-box-margins text-center">      
-		<div class="subscription-content">
-		  <div class="subscription-box-center">
-		    <img src="images/streamline-icon-monetization-idea@24x24.svg">
-		    <p>Insights &amp; Optimisations</p>
-		  </div>
-		</div>
+	    </div>
+	  </div>
+	</div>
+	<div class="pseudo-table-no-border">
+	  <div class="highlight-row-neon-blue subscription-box-margins text-center">
+	    <div class="subscription-content">
+	      <div class="subscription-box-center">			  
+		<img src="images/streamline-icon-pie-line-graph@24x24.svg">
+		<p>Real-time queries from ACRA</p>
 	      </div>
-	    </td>
-	    <td style="height: 100%">
-	      <a href="https://legalese1.typeform.com/to/ZMkwgQ" target="_blank" class="highlight-row-purple subscription-box-margins text-center tell-us">
-		<div class="subscription-content">
-		  <div class="subscription-box-center">			  
-		    <img src="images/streamline-icon-mood-question@24x24.svg">
-		    <p style="color: #333">Something else?<br>(Tell us!)</p>
-		  </div>
-		</div>
-	      </a>
-	    </td>
-	  </tr>
-	  <tr class="child-no-border">
-	    {% if include.leftLabel %}
-	    <td>
-	      <div class="text-right subscription-box-margins">      
-		<p style="margin-top: 10px">&nbsp;</p>
+	    </div>
+	  </div>
+	</div>
+      </div>
+      
+      <!-- Third column -->
+
+      <div class="horizontal-squeeze-child" style="width: {% if include.leftLabel %} 18% {% else %} 20% {% endif %}; border-top: 2px solid transparent">
+	<div class="pseudo-table-no-border">
+	  <div class="highlight-row-neon-blue subscription-box-margins text-center">      
+	    <div class="subscription-content">
+	      <div class="subscription-box-center">		    
+		<img src="images/streamline-icon-hierarchy-files@24x24.svg">
+		<p>Multi-step Custom Workflows</p>
 	      </div>
-	    </td>
-	    {% endif %}
-	    <td>
-	      <div class="highlight-row-neon-blue subscription-box-margins text-center">
-		<div class="subscription-content">
-		  <div class="subscription-box-center">			  
-		    <img src="images/streamline-icon-pie-line-graph@24x24.svg">
-		    <p>Real-time queries from ACRA</p>
-		  </div>
-		</div>
+	    </div>
+	  </div>
+	</div>
+	<div class="pseudo-table-no-border">
+	  <div class="highlight-row-neon-blue subscription-box-margins text-center">
+	    <div class="subscription-content">
+	      <div class="subscription-box-center">			  
+		<img src="images/streamline-icon-pen-write-paper@24x24.svg">
+		<p>E-Signature Management</p>
 	      </div>
-	    </td>
-	    <td>
-	      <div class="highlight-row-neon-blue subscription-box-margins text-center">
-		<div class="subscription-content">
-		  <div class="subscription-box-center">			  
-		    <img src="images/streamline-icon-pen-write-paper@24x24.svg">
-		    <p>E-Signature Management</p>
-		  </div>
-		</div>
+	    </div>
+	  </div>
+	</div>
+      </div>
+      
+      <!-- Fourth column -->
+      
+      <div class="horizontal-squeeze-child" style="width: {% if include.leftLabel %} 18% {% else %} 20% {% endif %}; border-top: 2px solid transparent">
+	<div class="pseudo-table-no-border">
+	  <div class="highlight-row-neon-blue subscription-box-margins text-center">
+	    <div class="subscription-content">
+	      <div class="subscription-box-center">
+		<img src="images/streamline-icon-monetization-idea@24x24.svg">
+		<p>Insights &amp; Optimisations</p>
 	      </div>
-	    </td>
-	    <td>
-	      <div class="highlight-row-neon-blue subscription-box-margins text-center">
-		<div class="subscription-content">
-		  <div class="subscription-box-center">			  
-		    <img src="images/streamline-icon-audio-book-art@24x24.svg">
-		    <p>Custom Branding &amp; House Styles</p>
-		  </div>
-		</div>
+	    </div>
+	  </div>
+	</div>
+	<div class="pseudo-table-no-border">
+	  <div class="highlight-row-neon-blue subscription-box-margins text-center">
+	    <div class="subscription-content">
+	      <div class="subscription-box-center">			  
+		<img src="images/streamline-icon-audio-book-art@24x24.svg">
+		<p>Custom Branding &amp; House Styles</p>
 	      </div>
-	    </td>
-	    <td>
-	      <a class="btn btn-default" href="#" role="button">Button</a>
-	    </td>	  
-	  </tr>
-	</tbody>
-      </table>
+	    </div>
+	  </div>
+	</div>
+      </div>
+
+
+      <!-- Fifth column -->
+
+      <div class="horizontal-squeeze-child" style="width: {% if include.leftLabel %} 36% {% else %} 40% {% endif %}; border-top: 2px solid transparent">
+	<div class="pseudo-table-no-border">
+	  <a href="https://legalese1.typeform.com/to/ZMkwgQ" target="_blank" class="highlight-row-purple subscription-box-margins text-center tell-us">
+	    <div class="subscription-content">
+	      <div class="subscription-box-center">			  
+		<img src="images/streamline-icon-mood-question@24x24.svg">
+		<p style="color: #333">Something else?<br>(Tell us!)</p>
+	      </div>
+	    </div>
+	  </a>
+	</div>
+	<div class="pseudo-table-no-border">
+	  <a class="btn btn-default" href="#" role="button">Button</a>
+	</div>
+      </div>
     </div>
   </div>
 </div>
