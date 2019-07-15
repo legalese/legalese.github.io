@@ -1,28 +1,20 @@
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <div class="row">
-      <div class="col-xs-8 col-xs-offset-4 col-md-8 col-md-offset-4">
-	<h3 style="font-weight: 700">{{include.smallTitle}}</h3>
-      </div>
-    </div>
+  <div class="col-xs-12 col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-4 col-lg-6">
+    <h4 style="font-weight: 700; margin-bottom: 10px">{{include.smallTitle}}</h4>
   </div>
 </div>
-<div class="row highlight-row-purple">
-  <div class="col-md-8 col-md-offset-2">
-    <div class="row">
-      <div class="col-xs-8 col-xs-offset-4 col-md-8 col-md-offset-4">
-	<h2 style="color: #fff; font-weight: 700">{{include.blurb}}</h2>
+<div class="row highlight-row-purple row-equal-height">
+  <div class="col-xs-12 col-sm-4 col-lg-4">
+    <img class="test-pricing" src="images/18- team-idea-brainstorm-2.svg">
+  </div>
+  <div class="col-xs-12 col-sm-8 col-lg-6">
+    <h3 style="color: #fff; font-weight: 700">{{include.blurb}}</h3>
+    <div class="horizontal-squeeze" style="margin-bottom: 20px; max-width: 400px">
+      <div class="horizontal-squeeze-child" style="margin-right: 1em">
+	<p style="color: white;">We offer</p>
       </div>
-    </div>
-    <div class="row row-equal-height">      
-      <div class="col-xs-4 col-md-4">
-	<img class="pricing-logo" src="images/18- team-idea-brainstorm-2.svg">
-      </div>
-      <div class="col-xs-1 col-md-1" style="width: 80px; padding: 0 0 0 15px">
-	<p style="color: white">We offer</p>
-      </div>
-      <div class="col-xs-6 col-md-6">
-	<div class="can-toggle demo-rebrand-1" style="--toggleWidth: 320px; --toggleLeft: 0.5; --toggleRight: 0.5; --toggleSwitchWidth: 160px; margin-bottom: 10px">
+      <div class="horizontal-squeeze-child">
+	<div class="can-toggle demo-rebrand-1" style="--toggleWidth: 320px; --toggleLeft: 0.5; --toggleRight: 0.5; --toggleSwitchWidth: 160px; display: inline-block">
 	  <input id="service-toggle" type="checkbox" onclick="window.location='./{{include.otherPage}}.html'"
 		 {% if include.checked %}
 		 checked
