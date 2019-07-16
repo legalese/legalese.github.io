@@ -1237,16 +1237,21 @@ button.close {
 }
 
 .pricing-labels {
-    text-align: right
+    text-align: right;
+    width: 100%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .pricing-labels {
 	text-align: center;
 	height: 50px;
 	font-size: 20px;
     }
 }
+
+.pricing-cols-padding {
+    padding: 0;
+}	
 
 
 .active-tab {
