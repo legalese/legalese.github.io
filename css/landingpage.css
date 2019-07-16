@@ -1319,6 +1319,10 @@ table.floatThead-table {
     background-color: transparent;
 }
 
+.nice-buttons {
+    padding: 6px;
+}
+
 .tell-us {
     cursor: pointer;
     display: block;
