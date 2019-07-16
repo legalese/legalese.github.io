@@ -1,43 +1,3 @@
-// hide and show relevant sections
-
-/*
-   let url = window.location.href
-   let addListener = url.match(/\.com$|localhost$|index/i)
-
-   if (addListener) {
-   $(window).on("unload", function(){
-   localStorage.removeItem('visible')
-   })
-   }
-
-   if (localStorage.getItem('visible') && addListener) {
-   let visible = localStorage.getItem('visible')
-   console.log('visible')
-   console.log(visible)
-   $(visible).show();
-   $('body,html').animate({
-   scrollTop : $("#top-c").height() - $(".legalese-nav").height()
-   }, 500) 
-   }
-
-   $(".bottom-content-title").each(function() {
-   $(this).click(function(e) {
-   if (addListener) {
-   e.preventDefault();
-   var id = $(this).attr("scroll");
-   $(".bottom-content").hide();
-   $(id).show();
-   $('body,html').animate({
-   scrollTop : $("#top-c").height() - $(".legalese-nav").height()
-   }, 500) 
-   } else {
-   var id = $(this).attr("scroll");
-   localStorage.setItem('visible', id)
-   }
-   });
-   });
- */
-
 // for scrolltotop arrow
 
 $(window).scroll(function() {
@@ -59,24 +19,6 @@ $('#return-to-top').click(function() {      // When arrow is clicked
 let currentYear = `2017 \u2014 ${(new Date()).getFullYear()}`
 $("#copyright-date").text(currentYear);
 
-// scroll to blurb bar on renavigate
-/*
-$("li[role=presentation]").click(function(e) {
-  if ($(this).scrollTop() <= $(".title-blurb").offset().top) {
-    $('html, body').animate({
-      scrollTop: $(".title-blurb").offset().top - $(".legalese-nav").height()
-    }, 500);
-  } else {
-    $('html, body').animate({
-      scrollTop: $(".title-blurb").offset().top - $(".legalese-nav").height()// can't retrieve nav height when it's fixed to top
-    }, 500);
-  }
-  e.preventDefault();
-    $("li[role=presentation] > a > div").removeClass("blurb-nav-highlight");
-    $("div", this).addClass("blurb-nav-highlight");
-});
-*/
-
 // show various bits of players navbar
 
 $(".sidebar-header").each(function() {
@@ -86,29 +28,6 @@ $(".sidebar-header").each(function() {
 	$(id).show();
     });
 });
-
-
-// fix nav to top
-
-/* var lastScrollTop = 0;
- * 
- * $(window).scroll(function(event){
- *     var st = $(this).scrollTop();
- *     if (st > lastScrollTop) {
- * 	$(".legalese-nav").fadeOut(100);
- *     } else {
- * 	$(".legalese-nav").fadeIn(100);
- *     };
- *     lastScrollTop = st;
- * }); */
-
-/* $(".legalese-nav").affix({
- *   offset: {
- *     top: function() {
- *       return (this.top = $("#second-container").offset().top)
- *     }
- *   }
- * }) */
 
 // don't know why I can't just add a css class here
 
@@ -155,47 +74,6 @@ $(".downarrow").click(function() {
     scrollTop: $("#top-c").height() - $(".legalese-nav").height()
   }, 500);
 });
-
-// underline navbar items
-
-/* $(".top-bar-link").click(function() {
- *     $(".top-bar-link > div").css("border-bottom", "0");
- *     $("div", this).css({
- * 	"border-bottom": "0px solid",
- * 	"border-color": "rgba(82, 254, 206, 1)"
- *     }).animate({
- * 	borderWidth: 3
- *     }, 200);
- * });*/
-
-// change color of navbar on scroll, show legalese-logo
-
-/*
-   $(window).scroll(function() {
-   if ($(this).scrollTop() >= $("#first-container").height()) {
-   $(".legalese-nav").css("background-color", "#333333");
-   $("#top-bar > li > a").css("color", "white");
-   $(".fa.fa-twitter").css("color", "white");
-   if ($(window).width() < 768) {
-   $(".navbar-collapse").css("background-color", "#333333");
-   $(".navbar-brand.visible-xs-inline > img").attr("src", "images/legalese-section-logo-20160611-croissant-plain-white.png");
-   } else {
-   $("#legalese-logo-nav > a > img").attr("src", "images/legalese-section-logo-20160611-croissant-plain-white.png");
-   }
-   } else {
-   $(".legalese-nav").css("background-color", "white");
-   $("#top-bar > li > a").css("color", "#333333");
-   $("#login").css("color", "rgb(0, 0, 255)");
-   $(".fa.fa-twitter").css("color", "#333333");
-   if ($(window).width() < 768) {
-   $(".navbar-collapse").css("background-color", "white");
-   $(".navbar-brand.visible-xs-inline > img").attr("src", "images/20160713-b-sq.png");
-   } else {
-   $("#legalese-logo-nav > a > img").attr("src", "images/20160713-b-sq.png");
-   }
-   }
-   });
- */
 
 // fix top button to above bot-container when scrolling
 
