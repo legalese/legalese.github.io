@@ -77,6 +77,14 @@ $(window).resize(function() {
   }
 })
 
+if ($(window).width() > 767) {
+  $("#magic-shift-toggle-bottom").hide();
+  $("#magic-shift-toggle").show()
+} else {
+  $("#magic-shift-toggle").hide();
+  $("#magic-shift-toggle-bottom").show()
+}
+
 // downarrow click
 
 $(".downarrow").click(function() {
