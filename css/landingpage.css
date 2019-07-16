@@ -1266,6 +1266,22 @@ button.close {
     font-size: 16px;
 }
 
+@media (max-width: 767px) {
+    .larger-font {
+	font-size: 12px;
+    }
+}
+
+.table-left-title {
+    font-size: 18px;
+}
+
+@media (max-width: 767px) {
+    .table-left-title {
+	font-size: 14px;
+    }
+}
+
 .dollar-font {
     font-size: 18px;
 }
@@ -1333,6 +1349,31 @@ table.floatThead-table {
     box-sizing: border-box;
 }
 
+.pseudo-table-header-price {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+}
+
+@media (max-width: 767px) {
+    .pseudo-table-header {
+	height: 8em;
+    }
+    .pseudo-table-header > p {
+	margin: 0;
+    }
+    .pseudo-table-header-price {
+	font-size: 16px;
+	display: block;
+    }
+}
+
+@media (max-width: 767px) {
+    #monthly-commitments {
+	display: none;
+    }
+}
+
 .pseudo-table {
     position: relative;
     height: 60px;
@@ -1343,6 +1384,24 @@ table.floatThead-table {
     border-bottom: 1px solid grey;
     border-right: 1px solid grey;
     box-sizing: border-box;
+}
+
+.pseudo-table-tall {
+    position: relative;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding: 8px;
+    border-bottom: 1px solid grey;
+    border-right: 1px solid grey;
+    box-sizing: border-box;
+}
+
+@media (max-width: 767px) {
+    .pseudo-table-tall {
+	height: 100px;
+    }
 }
 
 .pseudo-table-no-border {
@@ -1360,8 +1419,7 @@ table.floatThead-table {
     justify-content: flex-end;
 }
 
-.table-row-title-content {
-    display: inline;
+.table-row-title > p {
     margin: 0;
 }
 
@@ -1383,7 +1441,8 @@ table.floatThead-table {
     border-right: none;
 }
 
-#first-column > .pseudo-table {
+#first-column > .pseudo-table,
+#first-column > .pseudo-table-tall {
     border-left: 1px solid grey
 }
 
