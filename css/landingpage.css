@@ -994,10 +994,10 @@ button.close {
 }
 
 .optional-logo {
-    height: 250px;
+    height: 250%;
     position: absolute;
-    bottom: -80px;
-    right: 0;
+    right: -10%;
+    transform: translateY(-30%);
 }
 
 .row-equal-height {
