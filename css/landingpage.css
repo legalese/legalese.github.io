@@ -1231,13 +1231,23 @@ button.close {
     width: 80px;
 }
 
-.pricing-feature-cols {
-    min-width: 500px;
+.pricing-features-cols {
+    border-top: 2px solid transparent;
+    padding: 0px;
 }
 
-.pricing-feature-cols-long {
-    min-width: 900px;
+.pricing-labels {
+    text-align: right
 }
+
+@media (max-width: 768px) {
+    .pricing-labels {
+	text-align: center;
+	height: 50px;
+	font-size: 20px;
+    }
+}
+
 
 .active-tab {
     border-bottom: 2px solid rgba(82, 254, 206, 1);
