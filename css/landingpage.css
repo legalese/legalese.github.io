@@ -867,7 +867,6 @@ a.footnote:hover span {
 
 .modal-content {
     background-color: rgba(232, 232, 232, 1);
-    width: 70em;
     margin: 0 auto;   
 }
 
@@ -919,7 +918,6 @@ a.footnote:hover span {
 .modal-dialog {
     margin: 0 auto; 
     margin-top: 20px;
-    width: 70em;
 }
 
 /* close button on the modal */

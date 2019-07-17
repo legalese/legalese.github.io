@@ -191,3 +191,69 @@ $('#price-toggle').change(function() {
 $(function () {
   $('[data-toggle="popover"]').popover()
 })
+
+// show or hide relevant fields based on radio selection
+
+$(function() {
+  const emailRadio = $('#comms-email-radio')
+  const phoneRadio = $('#comms-phone-radio')
+  const eitherRadio = $('#comms-either-radio')
+
+  const emailField = $('#commsEmail')
+  const phoneField = $('#commsPhone')
+
+  const weekdayRadio = $('#weekdays-radio')
+  const everydayRadio = $('#everyday-radio')
+
+  const weekdayGroup = $('#weekdaysGroup')
+  const everydayGroup = $('#everydayGroup')
+
+  emailRadio.change(function() {
+    if (emailRadio.prop('checked', true)) {
+      emailField.show()
+      phoneField.hide()
+    } else {
+      emailField.hide()
+    }
+  })
+
+  phoneRadio.change(function() {
+    if (phoneRadio.prop('checked', true)) {
+      phoneField.show()
+      emailField.hide()
+    } else {
+      phoneField.hide()
+    }
+  })
+
+  eitherRadio.change(function() {
+    if (eitherRadio.prop('checked', true)) {
+      emailField.show()
+      phoneField.show()
+    } else {
+      emailField.hide()
+      phoneField.hide()
+    }
+  })
+
+  weekdayRadio.change(function() {
+    if (weekdayRadio.prop('checked', true)) {
+      weekdayGroup.show()
+      everydayGroup.hide()
+    } else {
+      weekdayGroup.show()
+      everydayGroup.hide()
+    }
+  })
+
+  everydayRadio.change(function() {
+    if (everydayRadio.prop('checked', true)) {
+      everydayGroup.show()
+      weekdayGroup.hide()
+    } else {
+      everydayGroup.show()
+      weekdayGroup.hide()
+    }
+  })
+
+})
