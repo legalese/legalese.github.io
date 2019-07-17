@@ -1348,7 +1348,7 @@ table.floatThead-table {
 
 .pseudo-table-header {
     position: relative;
-    padding: 15px 5px 0px 5px;
+    padding: 25px 5px 0px 5px;
     height: 7em;
     box-sizing: border-box;
 }
