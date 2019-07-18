@@ -257,3 +257,34 @@ $(function() {
   })
 
 })
+
+function sendData() {
+  var XHR = new XMLHttpRequest();
+
+  // Bind the FormData object and the form element
+  const form = document.getElementById('interestForm')
+  var FD = new FormData(form);
+
+  for(var pair of FD.entries()) {
+    console.log(pair[0]+ ', '+ pair[1]); 
+  }
+
+  const json = JSON.stringify($("#interestForm").serializeArray())
+
+
+  // Define what happens on successful data submission
+  XHR.addEventListener("load", function(event) {
+    console.log(event.target.responseText);
+  });
+
+  // Define what happens in case of error
+  XHR.addEventListener("error", function(event) {
+    console.log('Oops! Something went wrong.');
+  });
+
+  // Set up our request
+  // XHR.open("POST", "https://example.com/cors.php");
+
+  // The data sent is what the user provided in the form
+  // XHR.send(FD);
+}
