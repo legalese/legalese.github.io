@@ -1038,7 +1038,7 @@ button.close {
 .optional-logo {
     height: 250%;
     position: absolute;
-    right: -10%;
+    right: 0%;
     transform: translateY(-30%);
 }
 
