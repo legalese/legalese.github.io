@@ -1363,6 +1363,14 @@ table.floatThead-table {
 
 .nice-buttons {
     padding: 6px;
+    background-color: blue;
+    color: white;
+    border: none;
+}
+
+.nice-buttons:hover,
+.nice-buttons:focus {
+    background-color: rgba(82,254,206, 1);
 }
 
 .tell-us {
