@@ -1148,8 +1148,7 @@ button.close {
 }
 
 .btn-horizontal-padding {
-    padding-left: 5px;
-    padding-right: 5px;
+    padding: 0px 5px;
 }
 
 .column-right-border {
@@ -1408,6 +1407,17 @@ table.floatThead-table {
     top: 50%;
     transform: translateY(-50%);
     margin: 0 auto;
+}
+
+.popover-display-custom {
+    position: absolute;
+    right: -5px;
+    top: -2px;
+}
+
+.inline-p {
+    margin: 0;
+    display: inline;
 }
 
 .transparent-button {
