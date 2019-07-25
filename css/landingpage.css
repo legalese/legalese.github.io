@@ -1364,13 +1364,100 @@ table.floatThead-table {
 .nice-buttons {
     padding: 6px;
     background-color: blue;
+    border-radius: 0;
     color: white;
     border: none;
+    position: relative;
 }
 
 .nice-buttons:hover,
 .nice-buttons:focus {
     background-color: rgba(82,254,206, 1);
+}
+
+.nice-buttons:before{
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0;
+  height: 0;
+  background: transparent;
+  border: 2px solid transparent;
+}
+
+.nice-buttons:hover:before{
+    animation: animate 0.5s ease forwards;
+}
+
+@keyframes animate{
+  0%{
+    width: 0;
+    height: 0;
+    border-top-color: #262626;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+  50%{
+    width: 100%;
+    height: 0;
+    border-top-color: #262626;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-right-color: #262626;
+  }
+  100%{
+    width: 100%;
+    height: 100%;
+    border-top-color: #262626;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-right-color: #262626;
+  }
+}
+
+.nice-buttons:after{
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0;
+  height: 0;
+  background: transparent;
+  border: 2px solid transparent;
+}
+
+.nice-buttons:hover:after{
+  animation: animate2 0.5s ease forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes animate2{
+  0%{
+    width: 0;
+    height: 0;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: #262626;
+    border-right-color: transparent;
+  }
+  50%{
+    width: 0;
+    height: 100%;
+    border-top-color: transparent;
+    border-bottom-color: #262626;
+    border-left-color: #262626;
+    border-right-color: transparent;
+  }
+  100%{
+    width: 100%;
+    height: 100%;
+    border-top-color: transparent;
+    border-bottom-color: #262626;
+    border-left-color: #262626;
+    border-right-color: transparent;
+  }
 }
 
 .tell-us {
