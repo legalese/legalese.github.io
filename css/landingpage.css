@@ -876,7 +876,8 @@ a.footnote:hover span {
     margin-top: 10vh;
 }
 
-#contrastButton {
+#contrastButton,
+.contrastButton {
     border: none;
     background: linear-gradient(30deg,#82fece 40%,#10e7ff);
     border-radius: 0;
@@ -890,7 +891,7 @@ a.footnote:hover span {
     margin: 0;
     left: 50%;
     top: 0px;
-    border: 10px solid #333;
+    border: 10px solid #fefc59;
     transform: translate(-50%, -50%);
     height: 100px;
     width: 100px;
@@ -907,7 +908,12 @@ a.footnote:hover span {
 }
 
 .form-modal {
-    border-top: 10px solid #333;
+    border-top: 10px solid #fefc59;
+}
+
+#formModalContainer {
+    width: 800px;
+    max-width: 80vw
 }
 
 #formTitle {
@@ -1370,6 +1376,9 @@ table.floatThead-table {
     position: relative;
 }
 
+.nice-buttons:hover {
+    box-shadow: 0px 0px 4px 2px #bdbdbd;
+}
 .nice-buttons:hover,
 .nice-buttons:focus {
     background-color: blue;
@@ -1378,7 +1387,6 @@ table.floatThead-table {
 
 .nice-buttons:focus {
     outline: none;
-    box-shadow: 0px 0px 4px 2px #bdbdbd;
 }
 
 .nice-buttons:before{
@@ -1400,7 +1408,7 @@ table.floatThead-table {
   0%{
     width: 0;
     height: 0;
-    border-top-color: #82fece;
+    border-top-color: #dd68ff;
     border-bottom-color: transparent;
     border-left-color: transparent;
     border-right-color: transparent;
@@ -1408,18 +1416,18 @@ table.floatThead-table {
   50%{
     width: calc(100% + 4px);
     height: 0;
-    border-top-color: #82fece;
+    border-top-color: #dd68ff;
     border-bottom-color: transparent;
     border-left-color: transparent;
-    border-right-color: #82fece;
+    border-right-color: #dd68ff;
   }
   100%{
     width: calc(100% + 4px);
     height: calc(100% + 4px);
-    border-top-color: #82fece;
+    border-top-color: #dd68ff;
     border-bottom-color: transparent;
     border-left-color: transparent;
-    border-right-color: #82fece;
+    border-right-color: #dd68ff;
   }
 }
 
@@ -1445,23 +1453,23 @@ table.floatThead-table {
     height: 0;
     border-top-color: transparent;
     border-bottom-color: transparent;
-    border-left-color: #82fece;
+    border-left-color: #dd68ff;
     border-right-color: transparent;
   }
   50%{
     width: 0;
     height: calc(100% + 4px);
     border-top-color: transparent;
-    border-bottom-color: #82fece;
-    border-left-color: #82fece;
+    border-bottom-color: #dd68ff;
+    border-left-color: #dd68ff;
     border-right-color: transparent;
   }
   100%{
     width: calc(100% + 4px);
     height: calc(100% + 4px);
     border-top-color: transparent;
-    border-bottom-color: #82fece;
-    border-left-color: #82fece;
+    border-bottom-color: #dd68ff;
+    border-left-color: #dd68ff;
     border-right-color: transparent;
   }
 }
@@ -1496,6 +1504,10 @@ table.floatThead-table {
     box-sizing: border-box;
 }
 
+.pseudo-table-header-no-padding {
+    padding-top: 5px;
+}
+
 .pseudo-table-header-price {
     font-size: 24px;
     font-weight: 700;
@@ -1528,8 +1540,8 @@ table.floatThead-table {
     justify-content: center;
     display: flex;
     padding: 8px;
-    border-bottom: 1px solid grey;
-    border-right: 1px solid grey;
+    border-bottom: 1px solid #ebebeb;
+    border-right: 1px solid #ebebeb;
     box-sizing: border-box;
 }
 
@@ -1540,8 +1552,8 @@ table.floatThead-table {
     justify-content: center;
     display: flex;
     padding: 8px;
-    border-bottom: 1px solid grey;
-    border-right: 1px solid grey;
+    border-bottom: 1px solid #ebebeb;
+    border-right: 1px solid #ebebeb;
     box-sizing: border-box;
 }
 
@@ -1590,9 +1602,17 @@ table.floatThead-table {
 
 #first-column > .pseudo-table,
 #first-column > .pseudo-table-tall {
-    border-left: 1px solid grey
+    border-left: 1px solid #ebebeb
 }
 
 .table-row-top {
     border-right: none;
+}
+
+#celebration-canvas {
+    position: absolute;
+    right: 50%;
+    bottom: 0px;
+    height: 80px;
+    transform: translateX(50%);
 }

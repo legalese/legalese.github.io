@@ -27,34 +27,34 @@ layout: default
   largeCol="col-lg-2"
   %}
   <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="Form Modal">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog" id="formModalContainer" role="document">
       <div class="modal-content-form">
-	<div class="modal-header text-center form-modal">
+	<div class="modal-header text-center form-modal" style="border-bottom: none">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 id="formTitle">Get in touch with us!</h4>
-	  <div class="modal-center-circle" style="background-color: #10e7ff">
+	  <div class="modal-center-circle" style="background-color: #36edff">
 	    <img style="position: absolute; left: 0; top: 0; transform: translate(120%, 100%)" src="images/birthday-cake.svg">
 	  </div>
 	</div>
-	<div class="modal-body">
+	<div class="modal-body" style="padding: 15px 45px">
 	  <div class="row">
 	    <div class="col-xs-12">
 	      <form class="form-horizontal" id="interestForm">
 		<div class="form-group">
-		  <label for="inputName" class="col-sm-4 control-label">Name:</label>
-		  <div class="col-sm-8">
+		  <label for="inputName" class="col-sm-3 control-label">Name:</label>
+		  <div class="col-sm-9">
 		    <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Name">
 		  </div>
 		</div>
 		<div class="form-group">
-		  <label for="inputCompanyName" class="col-sm-4 control-label">Name of company:</label>
-		  <div class="col-sm-8">
+		  <label for="inputCompanyName" class="col-sm-3 control-label">Name of company:</label>
+		  <div class="col-sm-9">
 		    <input type="text" class="form-control" id="inputCompanyName" name="inputCompanyName" placeholder="Company Name">
 		  </div>
 		</div>
 		<div class="form-group">
-		  <label for="inputServices" class="col-sm-4 control-label">Services interested in:</label>
-		  <div class="col-sm-8">
+		  <label for="inputServices" class="col-sm-3 control-label">Services interested in:</label>
+		  <div class="col-sm-9">
 		    <div class="checkbox">
 		      <label>
 			<input type="checkbox" name="api-checkbox" id="api-checkbox">APIs
@@ -68,8 +68,8 @@ layout: default
 		  </div>
 		</div>
 		<div class="form-group">
-		  <label for="inputServices" class="col-sm-4 control-label">Preferred form of contact:</label>
-		  <div class="col-sm-8">
+		  <label for="inputServices" class="col-sm-3 control-label">Preferred form of contact:</label>
+		  <div class="col-sm-9">
 		    <div class="radio">
 		      <label>
 			<input type="radio" name="comms-selection" id="comms-email-radio" value="contact-email">Email
@@ -88,21 +88,21 @@ layout: default
 		  </div>
 		</div>
 		<div class="form-group" id="commsEmail" style="display: none">
-		  <label for="inputEmail" class="col-sm-4 control-label">Email:</label>
-		  <div class="col-sm-8">
+		  <label for="inputEmail" class="col-sm-3 control-label">Email:</label>
+		  <div class="col-sm-9">
 		    <input type="email" class="form-control" name="inputEmail" id="inputEmail" placeholder="Email">
 		  </div>
 		</div>
 		<div id="commsPhone" style="display: none">
 		  <div class="form-group">
-		    <label for="inputPhone" class="col-sm-4 control-label">Phone Number:</label>
-		    <div class="col-sm-8">
+		    <label for="inputPhone" class="col-sm-3 control-label">Phone Number:</label>
+		    <div class="col-sm-9">
 		      <input type="text" class="form-control" name="inputPhone" id="inputPhone" placeholder="90909090">
 		    </div>
 		  </div>
 		  <div class="form-group">
-		    <label for="inputCallTime" class="col-sm-4 control-label">Preferred timings for call:</label>
-		    <div class="col-sm-8">
+		    <label for="inputCallTime" class="col-sm-3 control-label">Preferred timings for call:</label>
+		    <div class="col-sm-9">
 		      <div class="radio">
 			<label>
 			  <input type="radio" name="weekdays-selection" id="weekdays-radio" value="weekday-call">Weekdays only
@@ -151,18 +151,41 @@ layout: default
 		  </div>
 		</div>
 		<div class="form-group">
-		  <label for="inputRemarks" class="col-sm-4 control-label">Other remarks</label>
-		  <div class="col-sm-8">
-		    <textarea class="form-control" rows="3" name="inputRemarks" id="inputRemarks" placeholder="Anything you want us to know/ask about"></textarea>
+		  <label for="inputRemarks" class="col-sm-3 control-label">Other remarks</label>
+		  <div class="col-sm-9">
+		    <textarea class="form-control" rows="3" name="inputRemarks" id="inputRemarks" placeholder="Anything else you want to tell us?"></textarea>
 		  </div>
 		</div>
 	      </form>
 	    </div>
 	  </div>
 	</div>
-	<div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-default" onclick="sendData()" id="contrastButton">Submit form</button>
+	<div class="modal-footer" style="border-top: none">
+          <button type="submit" class="btn btn-default" onclick="sendData()" id="contrastButton">Get in touch!</button>
+	</div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="congratsModal" tabindex="-1" role="dialog" aria-labelledby="Congratulations Modal">
+    <div class="modal-dialog" id="congratsModalContainer" role="document">
+      <div class="modal-content-form">
+	<div class="modal-header text-center form-modal" style="border-bottom: none">
+	  <div class="modal-center-circle" style="background-color: #36edff">
+	    <img style="position: absolute; left: 0; top: 0; transform: translate(120%, 100%)" src="images/birthday-cake.svg">
+	  </div>
+	</div>
+	<div class="modal-body" style="padding: 15px 45px">
+	  <div class="row">
+	    <div class="col-xs-12 text-center">
+	      <p style="font-size: 30px; margin: 20px 0px 5px 0px">🙌</p>
+	      <p style="font-size: 20px">Thanks, we'll be in touch!</p>
+	    </div>
+	  </div>
+	</div>
+	<div class="modal-footer" style="border-top: none; text-align: center">
+	  <canvas id="celebration-canvas">
+	  </canvas>
+            <button class="btn btn-default contrastButton" id="contrastButtonCelebration" data-dismiss="modal">Got it</button>
 	</div>
       </div>
     </div>

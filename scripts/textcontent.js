@@ -259,6 +259,9 @@ $(function() {
 })
 
 function sendData() {
+
+  $('#formModal').modal('toggle')
+  $('#congratsModal').modal('toggle')
   var XHR = new XMLHttpRequest();
 
   // Bind the FormData object and the form element
