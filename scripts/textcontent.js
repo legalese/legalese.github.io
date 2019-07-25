@@ -268,12 +268,6 @@ function sendData() {
   const form = document.getElementById('interestForm')
   var FD = new FormData(form);
 
-  for(var pair of FD.entries()) {
-    console.log(pair[0]+ ', '+ pair[1]); 
-  }
-
-  const json = JSON.stringify($("#interestForm").serializeArray())
-
 
   // Define what happens on successful data submission
   XHR.addEventListener("load", function(event) {
