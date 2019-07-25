@@ -1306,13 +1306,18 @@ button.close {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -45%);
+    transform: translate(-50%, -50%);
     margin: 0 auto;    
 }
 
 .subscription-box-center > p {
     min-width: 130px;
     max-width: 100%;
+    margin-bottom: 0;
+}
+
+.subscription-box-center > h3 {
+    margin: 0;
 }
 
 .cost-label {
@@ -1685,4 +1690,9 @@ table.floatThead-table {
     justify-content: center;
     display: flex;
     position: relative
+}
+
+.small-money {
+    font-size: 12px;
+    margin-left: 0.1em;
 }
