@@ -286,8 +286,111 @@ function sendData() {
   });
 
   // Set up our request
-  // XHR.open("POST", "https://example.com/cors.php");
+  XHR.open("POST", "http://localhost/api/email/signup");
 
   // The data sent is what the user provided in the form
-  // XHR.send(FD);
+  XHR.send(FD);
+}
+
+
+var c = document.getElementById('celebration-canvas');
+var ctx = c.getContext('2d');
+
+
+var particles = [];
+
+let startingX = c.width / 2
+let startingY = c.height / 2
+
+document.getElementById('contrastButtonCelebration').addEventListener('mouseover', function(e){
+  startingX = Math.random() * 400
+  startingY = Math.random() * 60
+  createParticles();
+});
+
+
+setTimeout(function(){
+  createParticles();
+}, 250);
+
+draw();
+
+function draw(){
+  
+  drawBg();
+  incParticles();
+  drawParticles();
+  window.requestAnimationFrame(draw);
+  
+}
+
+function drawBg(){
+  ctx.rect(0, 0, c.width, c.height);
+  ctx.fillStyle = "#fff";
+  ctx.fill();
+}
+
+function drawParticles(){
+  for(let i = 0; i < particles.length; i++){
+    ctx.beginPath();
+    ctx.arc(particles[i].x,
+	    particles[i].y,
+	    particles[i].size,
+	    0,
+	    Math.PI * 2);
+    ctx.fillStyle = particles[i].color;
+    ctx.closePath();
+    ctx.fill();
+  }
+}
+
+function incParticles(){
+  for(let i = 0; i < particles.length; i++){
+    particles[i].x += particles[i].velX;
+    particles[i].y += particles[i].velY;
+    
+    particles[i].size = Math.max(0, (particles[i].size - .05));
+    
+    if(particles[i].size === 0){
+      particles.splice(i, 1);
+    }
+  }
+}
+
+function createParticles(){
+  for(let i = 0; i < 30; i++){
+    particles.push({
+      x: startingX,
+      y: startingY,
+      size: parseInt(Math.random() * 10),
+      color: 'rgb(' + ranRgb() + ')',
+      velX: ranVel(),
+      velY: ranVel()
+    });
+  }
+}
+
+function ranRgb(){
+  var colors = [
+    '255, 122, 206',
+    '0, 157, 255',
+    '0, 240, 168',
+    '0, 240, 120'
+  ];
+  
+  var i = parseInt(Math.floor(Math.random() * Math.floor(4)));
+  
+  return colors[i];
+}
+
+function ranVel(){
+  var vel = 0;
+  
+  if(Math.random() < 0.5){
+    vel = Math.abs(Math.random());
+  } else {
+    vel = -Math.abs(Math.random());
+  }
+  
+  return vel;
 }
