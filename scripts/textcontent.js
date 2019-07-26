@@ -168,12 +168,12 @@ const prices = {
     subcomplex: 2.34,
   },
   plus: {
-    header: 17.5,
+    header: 18,
     substandard: 1.74,
     subcomplex: 2.34,
   },
   basic: {
-    header: 10.5,
+    header: 11,
     substandard: 2.32,
     subcomplex: 3.12,
   },
