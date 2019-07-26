@@ -1070,7 +1070,7 @@ button.close {
 }
 
 .test-pricing {
-    height: 160%;
+    height: 100%;
     position: absolute;
     right: 0;
     transform: translateY(-40%);
