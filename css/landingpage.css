@@ -1557,8 +1557,14 @@ table.floatThead-table {
 .pseudo-table-header {
     position: relative;
     padding: 25px 5px 0px 5px;
-    height: 7em;
+    height: 6em;
     box-sizing: border-box;
+}
+
+@media(max-width: 767px) {
+    .pseudo-table-header {
+	height: 8em;
+    }
 }
 
 .pseudo-table-header-no-padding {
@@ -1568,6 +1574,7 @@ table.floatThead-table {
 .pseudo-table-header-price-before {
     margin-bottom: 5px;
     font-size: 18px;
+    font-weight: 700;
     color: #333;
 }
 
