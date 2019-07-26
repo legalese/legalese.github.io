@@ -1082,10 +1082,10 @@ button.close {
 }
 
 .optional-logo {
-    height: 250%;
+    height: 300%;
     position: absolute;
     right: 0%;
-    transform: translateY(-30%);
+    transform: translateY(-40%);
 }
 
 .row-equal-height {
