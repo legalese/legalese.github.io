@@ -125,10 +125,14 @@ if ($('body').outerHeight() < $(window).height()) {
 // set pricetags
 
 function monthly(price, which) {
+  const pStr = price.toString()
   if (which) {
-    return price
+    const toreturn = `$${pStr.slice(0,2)}<span class="small-money">${pStr.slice(2)}</span>`
+    return toreturn
   } else {
-    return (price / 0.7).toFixed(2)
+    const p = (pStr / 0.7).toFixed(2) 
+    const toreturn = `$${p.slice(0,2)}<span class="small-money">${p.slice(2)}</span>`
+    return toreturn
   }
 }
 
@@ -151,7 +155,7 @@ function headers(price, which) {
   if (which) {
     return price
   } else {
-    return accounting.formatMoney(price*0.7)
+    return accounting.formatMoney(price/0.7)
   }
 }
 
@@ -159,17 +163,17 @@ let which = false
 
 const prices = {
   pro: {
-    header: 2000,
+    header: 1400,
     substandard: 1.74,
     subcomplex: 2.34,
   },
   plus: {
-    header: 25,
+    header: 17.5,
     substandard: 1.74,
     subcomplex: 2.34,
   },
   basic: {
-    header: 15,
+    header: 10.5,
     substandard: 2.32,
     subcomplex: 3.12,
   },
@@ -179,12 +183,12 @@ $('#price-toggle').change(function() {
   $('#subheader-pro').hide().html(`$${headers(prices.pro.header, which)}`).fadeIn(500)
   $('#subheader-plus').hide().html(`$${headers(prices.plus.header, which)}`).fadeIn(500)  
   $('#subheader-basic').hide().html(`$${headers(prices.basic.header, which)}`).fadeIn(500)  
-  $('#substandard-pro').hide().html(`$${monthly(prices.pro.substandard, which)}`).fadeIn(500)
-  $('#substandard-plus').hide().html(`$${monthly(prices.plus.substandard, which)}`).fadeIn(500)
-  $('#substandard-basic').hide().html(`$${monthly(prices.basic.substandard, which)}`).fadeIn(500)
-  $('#subcomplex-pro').hide().html(`$${monthly(prices.pro.subcomplex, which)}`).fadeIn(500)
-  $('#subcomplex-plus').hide().html(`$${monthly(prices.plus.subcomplex, which)}`).fadeIn(500)
-  $('#subcomplex-basic').hide().html(`$${monthly(prices.basic.subcomplex, which)}`).fadeIn(500)
+  $('#substandard-pro').hide().html(`${monthly(prices.pro.substandard, which)}`).fadeIn(500)
+  $('#substandard-plus').hide().html(`${monthly(prices.plus.substandard, which)}`).fadeIn(500)
+  $('#substandard-basic').hide().html(`${monthly(prices.basic.substandard, which)}`).fadeIn(500)
+  $('#subcomplex-pro').hide().html(`${monthly(prices.pro.subcomplex, which)}`).fadeIn(500)
+  $('#subcomplex-plus').hide().html(`${monthly(prices.plus.subcomplex, which)}`).fadeIn(500)
+  $('#subcomplex-basic').hide().html(`${monthly(prices.basic.subcomplex, which)}`).fadeIn(500)
   which = !which
 })
 
