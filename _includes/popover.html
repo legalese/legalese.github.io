@@ -1,5 +1,3 @@
-<div class="{% if include.customClass %} {{include.customClass }} {% else %} popover-display {% endif %}">
-  <button class="btn btn-horizontal-padding transparent-button" data-placement="{{include.position}}" data-toggle="popover" data-container="body" title="{{include.title}}" data-content="{{include.content}}" data-html="{{include.html}}">
-    <img src="images/streamline-icon-question-circle@16x16.svg">
-  </button>
-</div>
+<button class="{% if include.customClass %} {{include.customClass }} {% else %} popover-display {% endif %} btn btn-horizontal-padding transparent-button" data-placement="{{include.position}}" data-toggle="popover" data-container="body" title="{{include.title}}" data-content="{{include.content}}" data-html="{{include.html}}">
+  <img src="images/streamline-icon-question-circle@16x16.svg">
+</button>
