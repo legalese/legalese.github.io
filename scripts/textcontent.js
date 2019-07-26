@@ -71,18 +71,26 @@ $(window).resize(function() {
   if ($(window).width() > 767) {
     $("#magic-shift-toggle-bottom").hide();
     $("#magic-shift-toggle").show()
+    $(".dropdown.top-justify > a").toggleClass("hvr-underline-from-center")
+    $(".dropdown.top-justify > div").toggleClass("hvr-underline-from-center")
   } else {
     $("#magic-shift-toggle").hide();
     $("#magic-shift-toggle-bottom").show()
+    $(".dropdown.top-justify > a").toggleClass("hvr-underline-from-center")
+    $(".dropdown.top-justify > div").toggleClass("hvr-underline-from-center")
   }
 })
 
 if ($(window).width() > 767) {
   $("#magic-shift-toggle-bottom").hide();
   $("#magic-shift-toggle").show()
+  $(".dropdown.top-justify > a").addClass("hvr-underline-from-center")
+  $(".dropdown.top-justify > div").addClass("hvr-underline-from-center")
 } else {
   $("#magic-shift-toggle").hide();
   $("#magic-shift-toggle-bottom").show()
+  $(".dropdown.top-justify > a").removeClass("hvr-underline-from-center")
+  $(".dropdown.top-justify > div").removeClass("hvr-underline-from-center")
 }
 
 // downarrow click
