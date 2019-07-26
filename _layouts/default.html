@@ -150,6 +150,7 @@
       <script type="text/javascript" src="scripts/textcontent.js"></script>
       <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
       <script src="https://unpkg.com/floatthead"></script>
+      <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@0.3.0/dist/confetti.browser.min.js"></script>
 
       <script>
 	$(".flipcard").flip({
@@ -165,6 +166,20 @@
             }
 	}));
       </script>
+      <script>
+       var canvas = document.getElementById('celebration-canvas')
+       canvas.confetti = canvas.confetti || confetti.create(canvas, {
+	 resize: true
+       });
+       canvas.confetti({
+	 particleCount: 100,
+	 spread: 70,
+	 origin: {
+	   y: 0.6
+	 }
+       });
+      </script>
+
   </body>
 </html>
 
