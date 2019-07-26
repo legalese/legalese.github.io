@@ -1435,6 +1435,13 @@ table.floatThead-table {
     position: relative;
 }
 
+@media (max-width: 767px) {
+    .nice-buttons {
+	font-size: 10px;
+	padding: 3px;
+    }
+}
+
 .nice-buttons:hover {
     box-shadow: 0px 0px 4px 2px #bdbdbd;
 }
@@ -1563,9 +1570,22 @@ table.floatThead-table {
     box-sizing: border-box;
 }
 
+#recommended-header {
+    font-size: 10px;
+    background-color: #00f9d8;
+    margin-bottom: 0px;
+}
+
+#recommended-container {
+    padding: 0;
+}
+
 @media(max-width: 767px) {
     .pseudo-table-header {
 	height: 8em;
+    }
+    #recommended-header {
+	margin-bottom: calc(9em + 2px);
     }
 }
 
@@ -1580,10 +1600,38 @@ table.floatThead-table {
     color: #333;
 }
 
+@media(max-width: 767px) {
+    .pseudo-table-header-price-before {
+	font-size: 14px;
+	transform: rotate(55deg);
+	transform-origin: bottom right;
+	position: absolute;
+	bottom: 50px;
+	right: 50%;
+    }
+    #pseudo-table-header-no-rotate {
+	transform: rotate(0deg);
+	position: relative;
+	right: 0;
+    }
+
+}
+
 .pseudo-table-header-price-p {
     font-size: 14px;
     color: #929292;
     margin-bottom: 0;
+}
+
+.pseudo-table-header-price-h5 {
+    color: #929292;
+    margin-top: 0;
+}
+
+@media (max-width: 767px) {
+    .pseudo-table-header-price-h5 {
+	font-size: 12px;
+    }
 }
 .pseudo-table-header-price {
     font-size: 20px;
@@ -1593,7 +1641,8 @@ table.floatThead-table {
 
 @media (max-width: 767px) {
     .pseudo-table-header {
-	height: 8em;
+	height: 13em;
+	padding-top: 9em;
     }
     .pseudo-table-header > p {
 	margin: 0;
