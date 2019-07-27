@@ -168,16 +168,18 @@
       </script>
       <script>
        var canvas = document.getElementById('celebration-canvas')
-       canvas.confetti = canvas.confetti || confetti.create(canvas, {
-	 resize: true
-       });
-       canvas.confetti({
-	 particleCount: 100,
-	 spread: 70,
-	 origin: {
-	   y: 0.6
-	 }
-       });
+       if (canvas) {
+	 canvas.confetti = canvas.confetti || confetti.create(canvas, {
+	   resize: true
+	 });
+	 canvas.confetti({
+	   particleCount: 100,
+	   spread: 70,
+	   origin: {
+	     y: 0.6
+	   }
+	 });
+       }
       </script>
 
   </body>
