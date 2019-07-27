@@ -11,7 +11,7 @@ location: solutions
   %}
   <div class="row" style="margin-top: 40px">
     <div class="col-xs-12 col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-4 col-lg-8 col-lg-offset-4">
-      <h2 style="margin-bottom: 5px"><b>Welcome to the Legalese Developer Platform.</b></h2>
+      <h3 style="margin-bottom: 5px"><b>Welcome to the Legalese Developer Platform.</b></h3>
       <p style="margin-bottom: 0px">Designed to allow you to connect your applications with the Legalese Services via an API platform.
     </div>
   </div>
@@ -19,32 +19,48 @@ location: solutions
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-2 col-lg-offset-2">
       <img class="test-pricing" src="images/93- hacker-hacking-server.svg">
     </div>
-    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 picture-padding">
-      <h4><b>Transparent Calls-Based Pricing via our APIs</b></h4>
+    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" style="margin-bottom: 50px">
+      <h2 style="margin-bottom: 0"><b>Transparent Calls-Based Pricing via our APIs</b></h2>
       <div class="highlight-row-purple subscription-box">
 	<div style="background: #fff; padding: 10px">
-	  <h3 style="margin: 0px"><b>Your Subscription = <sup style="font-weight: 500; color: #929292; font-size: 10px; top: -1.2em">as low as USD</sup> $165/<span class="small-money">mo</span></b></h3>
+	  <h3 style="margin: 0px"><b>Subscription = <sup style="font-weight: 500; color: #929292; font-size: 10px; top: -1.2em">as low as USD</sup> $165/<span class="small-money">mo</span></b></h3>
 	</div>
       </div>
-      <h4><b>... and then each month, just spend your Subscription Amount on any combination of these calls</b></h4>
-      <h4 style="color: blue; margin-top: 5px"><b>based on your templates (and ours)!</b></h4>
-      <div class="text-center" style="padding: 20px 0px">
-	<div class="svg-wrapper" style="margin: 0">
-	  <svg height="40" width="200" xmlns="http://www.w3.org/2000/svg"
+      <h4>... and then each month, just spend your Subscription amount on any combination of these calls</h4>
+      <h4 style="color: blue; margin-top: 5px"><b>based on your templates (and ours)!</b>
+	{% include popover.html
+	customClass="popover-display-inline"
+	position="auto right"
+	content="<p style='font-size: 12px; margin-bottom: 0px'>your subscription amount converts to credits that you can spend on the API calls</p><p style='font-size: 12px; margin-bottom: 0px'>(this means that your subscription is just a minimum spend that you have to make each month)</p>"
+	html=true
+	%}      
+      </h4>
+      <div class="text-center" style="margin-top: 20px; height: 40px; width: 200px">
+	<div class="svg-wrapper-special">
+	  <svg style="width: 100%; height: 100%" xmlns="http://www.w3.org/2000/svg"
 	       xmlns:xlink="http://www.w3.org/1999/xlink">
-	    <a class="get-started-link" href="product/fundraising/">
-	      <rect class="button-shape" height="40" width="200" />
-	      <div class="button-text"><a href="product/fundraising/"><b>Get started <sup>(beta)</sup></b></a></div>
-	    </a>
+	    <rect class="button-shape-special" height="100%" width="100%"/>
 	  </svg>
+	  <button class="button-text-special" data-toggle="modal" data-target="#formModal"><b>Get started</b></button>
 	</div>
       </div>
     </div>
   </div>
   <div class="row highlight-row-special-above">
-  </div>
-  <div class="row highlight-row-special">	
+    <div class="col-xs-12 col-md-4 api-call-h2">
+    <h2><b>API Calls</b>
+      {% include popover.html
+      customClass="popover-display-inline"
+      position="auto right"
+      content="<p style='font-size: 12px; margin-bottom: 0px'>All available under your Subscription</p>"
+      html=true
+      %}      
+    </h2>
+    </div>
 
+  </div>
+  <div class="row highlight-row-special">
+    
     <!-- First column -->
     
     <div class="col-md-6 col-sm-6 col-sm-offset-0 col-xs-8 col-xs-offset-2 pricing-features-cols">
@@ -67,7 +83,7 @@ location: solutions
 		  {% include popover.html
 		  customClass="popover-display-custom"
 		  position="auto right"
-		  content="<h5 style='display: inline; margin-bottom: 0px'><b>Standard</b></h5> <em>means</em><br><p style='margin-bottom: 0px'>simple variations</p><p style='font-size: 12px; margin-bottom: 0px'>e.g. name, NRIC, dates, formula-derived calculations, address, nueric fields</p>"
+		  content="<h5 style='display: inline; margin-bottom: 0px'><b>Standard</b></h5> <em>means</em><br><p style='margin-bottom: 0px'>simple variations</p><p style='font-size: 12px; margin-bottom: 0px'>e.g. name, NRIC, dates, formula-derived calculations, address, numeric fields</p>"
 		  html=true
 		  %}
 		</div>
@@ -121,7 +137,7 @@ location: solutions
 		  {% include popover.html
 		  customClass="popover-display-custom"
 		  position="auto right"
-		  content="<h5 style='display: inline; margin-bottom: 0px'><b>Standard</b></h5> <em>means</em><br><p style='margin-bottom: 0px'>simple variations</p><p style='font-size: 12px; margin-bottom: 0px'>e.g. name, NRIC, dates, formula-derived calculations, address, nueric fields</p>"
+		  content="<h5 style='display: inline; margin-bottom: 0px'><b>Standard</b></h5> <em>means</em><br><p style='margin-bottom: 0px'>simple variations</p><p style='font-size: 12px; margin-bottom: 0px'>e.g. name, NRIC, dates, formula-derived calculations, address, numeric fields</p>"
 		  html=true
 		  %}
 		</div>
@@ -159,7 +175,7 @@ location: solutions
       <div class="col-sm-4 col-xs-12 pricing-cols-padding">
 	<div class="pseudo-table-no-border">
 	  <div class="pricing-labels subscription-box-margins">
-	    <p style="margin-top: 10px"><b>Import your templates for API calls</b></p>
+	    <p style="margin-top: 10px"><b>Import your own templates for API calls</b></p>
 	  </div>
 	</div>
       </div>
@@ -175,7 +191,7 @@ location: solutions
 		  {% include popover.html
 		  customClass="popover-display-custom"
 		  position="auto right"
-		  content="<h5 style='display: inline; margin-bottom: 0px'><b>Standard</b></h5> <em>means</em><br><p style='margin-bottom: 0px'>simple variations</p><p style='font-size: 12px; margin-bottom: 0px'>e.g. name, NRIC, dates, formula-derived calculations, address, nueric fields</p>"
+		  content="<h5 style='display: inline; margin-bottom: 0px'><b>Standard</b></h5> <em>means</em><br><p style='margin-bottom: 0px'>simple variations</p><p style='font-size: 12px; margin-bottom: 0px'>e.g. name, NRIC, dates, formula-derived calculations, address, numeric fields</p>"
 		  html=true
 		  %}
 		</div>
@@ -213,4 +229,5 @@ location: solutions
   smallCol="col-md-1"
   largeCol="col-lg-3"
   %}
+  {% include formModal.html %}
 </div>

@@ -504,23 +504,27 @@ ul.li-inline li:not(:first-child)::before {
     transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
 }
 
-.button-text-special > a,
-.button-text-special > a:hover {
+.button-text-special,
+.button-text {
     font-family: 'Lato', sans serif;
     font-size: 18px;
     color: rgba(82,254,206, 1);
     text-decoration: none;
-}
-
-.button-text-special {
+    border: none;
+    background: transparent;
+    height: 100%;
+    width: 100%;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 100%;
     text-align: center;
+    padding: none;
 }
-	
+
+.button-text-special:focus {
+    outline: none;
+}
 
 .svg-wrapper-special:hover .button-shape-special {
     stroke-width: 4px;
@@ -1076,6 +1080,13 @@ button.close {
     transform: translateY(-40%);
 }
 
+.api-pricing {
+    height: 150%;
+    position: absolute;
+    right: 0;
+    transform: translateY(-30%);
+}
+
 .pricing-logo-docs {
     height: 140%;
     position: absolute;
@@ -1327,7 +1338,7 @@ button.close {
 
 .pricing-features-cols {
     border-top: 2px solid transparent;
-    padding: 0px;
+    padding: 10px;
 }
 
 .pricing-labels {
@@ -1344,7 +1355,6 @@ button.close {
 }
 
 .pricing-cols-padding {
-    padding: 0;
 }	
 
 
@@ -1409,6 +1419,16 @@ table.floatThead-table {
     top: 50%;
     transform: translateY(-50%);
     margin: 0 auto;
+}
+
+.popover-display-inline {
+    position: relative;
+}
+
+.popover-display-inline > img {
+    left: 0;
+    top: 0;
+    transform: translateY(-20%);
 }
 
 .popover-display-custom {
@@ -1763,4 +1783,22 @@ table.floatThead-table {
 .small-money {
     font-size: 12px;
     margin-left: 0.1em;
+}
+
+.api-call-h2 {
+    padding-left: 70px;
+}
+
+@media (max-width: 767px) {
+    .api-call-h2 {
+	padding: 0;
+	text-align: center;
+    }
+}
+
+.pink-asterisk {
+    color: #ff38d1;
+    font-size: 100%;
+    top: -.3em;
+    right: -.1em;
 }
