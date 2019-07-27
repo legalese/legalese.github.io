@@ -272,28 +272,54 @@ $(function() {
 
 function sendData() {
 
-  $('#formModal').modal('toggle')
-  $('#congratsModal').modal('toggle')
-  var XHR = new XMLHttpRequest();
+  const validate = $('#interestForm').serializeArray()
 
-  // Bind the FormData object and the form element
-  const form = document.getElementById('interestForm')
-  var FD = new FormData(form);
+  const name = validate.filter(v => v.name == 'inputName' && v.value.length > 0).length > 0
+  const interest = validate.filter(v => v.name == 'apiCheckbox' || v.name == 'whiteLabelCheckbox').length > 0
+  const contact = validate.filter(v => (v.name == 'inputEmail' || v.name == 'inputPhone') && v.value.length > 0).length > 0
+  
+  if (!name) {
+    $('#nameField').addClass('has-error')
+  } else if (name) {
+    $('#nameField').removeClass('has-error')
+  }
+  
+  if (!interest) {
+    $('#interestField').addClass('has-error')
+  } else if (interest) {
+    $('#interestField').removeClass('has-error')
+  }
+  if (!contact) {
+    $('#contactField').addClass('has-error')    
+  } else if (contact) {
+    $('#contactField').removeClass('has-error')
+  }
+
+  if (name && interest && contact) {
+
+    $('#formModal').modal('toggle')
+    $('#congratsModal').modal('toggle')
+    var XHR = new XMLHttpRequest();
+
+    // Bind the FormData object and the form element
+    const form = document.getElementById('interestForm')
+    var FD = new FormData(form);
 
 
-  // Define what happens on successful data submission
-  XHR.addEventListener("load", function(event) {
-    console.log(event.target.responseText);
-  });
+    // Define what happens on successful data submission
+    XHR.addEventListener("load", function(event) {
+      console.log(event.target.responseText);
+    });
 
-  // Define what happens in case of error
-  XHR.addEventListener("error", function(event) {
-    console.log('Oops! Something went wrong.');
-  });
+    // Define what happens in case of error
+    XHR.addEventListener("error", function(event) {
+      console.log('Oops! Something went wrong.');
+    });
 
-  // Set up our request
-  XHR.open("POST", "http://localhost/api/email/signup");
+    // Set up our request
+    XHR.open("POST", "http://localhost/api/email/signup");
 
-  // The data sent is what the user provided in the form
-  XHR.send(FD);
+    // The data sent is what the user provided in the form
+    XHR.send(FD);
+  }
 }
