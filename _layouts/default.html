@@ -151,20 +151,20 @@
       <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
       <script src="https://unpkg.com/floatthead"></script>
       <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@0.3.0/dist/confetti.browser.min.js"></script>
-
+      <script src="https://cdn.jsdelivr.net/npm/node-uuid@1.4.8/uuid.min.js"></script>
       <script>
-	$(".flipcard").flip({
-	    trigger: "hover",
-	    front: ".frontcard",
-	    back: ".backcard"
-	});
+       $(".flipcard").flip({
+	 trigger: "hover",
+	 front: ".frontcard",
+	 back: ".backcard"
+       });
       </script>
       <script>
-	$(() => $('table').floatThead({
-            responsiveContainer: function($table){
-		return $table.closest(".table-responsive");
-            }
-	}));
+       $(() => $('table').floatThead({
+         responsiveContainer: function($table){
+	   return $table.closest(".table-responsive");
+         }
+       }));
       </script>
       <script>
        var canvas = document.getElementById('celebration-canvas')

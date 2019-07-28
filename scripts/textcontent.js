@@ -270,6 +270,32 @@ $(function() {
 
 })
 
+function getStarted() {
+
+  const formId = uuid.v4()
+  
+  $('#interestForm').append(`<input type="hidden" name="formId" value="${formId}" /> `);
+
+  var XHR = new XMLHttpRequest();
+
+  // Define what happens on successful data submission
+  XHR.addEventListener("load", function(event) {
+    console.log(event.target.responseText);
+  });
+
+  // Define what happens in case of error
+  XHR.addEventListener("error", function(event) {
+    console.log('Oops! Something went wrong.');
+  });
+
+  // Set up our request
+  XHR.open("POST", "http://localhost/api/email/getstarted");
+
+  XHR.setRequestHeader("Content-Type", "application/json");
+
+  XHR.send(JSON.stringify({ id: formId }));
+}
+
 function sendData() {
 
   const validate = $('#interestForm').serializeArray()
