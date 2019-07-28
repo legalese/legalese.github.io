@@ -1802,3 +1802,14 @@ table.floatThead-table {
     top: -.3em;
     right: -.1em;
 }
+
+.has-error > label {
+    color: #ff38d1 !important;
+}
+
+.has-error > div > input,
+.has-error > div > div.checkbox,
+.has-error > div > div.radio {    
+    border-color: #ff38d1 !important;
+    color: #ff38d1 !important;
+}
