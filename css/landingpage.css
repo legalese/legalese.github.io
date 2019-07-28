@@ -994,6 +994,10 @@ button.close {
 .close > span {
     font-size: 18px;
     color: #333333;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(50%, 5%);
 }
 
 .card-pictures {
