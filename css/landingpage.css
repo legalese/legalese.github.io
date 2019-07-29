@@ -1101,7 +1101,7 @@ button.close {
 }
 
 .pricing-logo-docs {
-    height: 160%;
+    height: 200px;
     position: absolute;
     right: -10%;
     transform: translateY(-20%);
