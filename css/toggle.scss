@@ -77,7 +77,13 @@
     $can-toggle-right: 0.6,
 ){
     
-  input[type="checkbox"] {
+    input[type="checkbox"] {
+
+	~ label {
+	    .can-toggle__switch {
+		&:after { box-shadow: $can-toggle-shadow; } 
+	    }
+	}
 
     &:focus ~ label, &:hover ~ label {
       .can-toggle__switch {
@@ -91,6 +97,7 @@
             &:after {
 		transform: translate3d(calc(#{$can-toggle-switch-width} - #{$can-toggle-offset} * 2),0,0);
 		width: calc(#{$can-toggle-width} * #{$can-toggle-right});
+		box-shadow: $can-toggle-shadow;
 	    }
 	    &:before {
 		width: calc(#{$can-toggle-width} * #{$can-toggle-left});
