@@ -52,10 +52,6 @@ p {
     height: 100%;
 }
 
-a > div {
-    display: inline-block;
-}
-
 blockquote {
     border-left: none;
     position: relative;
@@ -519,7 +515,20 @@ ul.li-inline li:not(:first-child)::before {
     top: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    padding: none;
+    padding: 0;
+    position: relative
+}
+
+a.button-text-special:hover {
+    color: rgba(82,254,206, 1)
+}
+
+#inside-button {
+    min-width: 100px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .button-text-special:focus {
