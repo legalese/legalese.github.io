@@ -1120,7 +1120,7 @@ button.close {
 }
 
 .highlight-row-special::before {
-    top:-8rem;
+    top:-7rem;
     left:-2rem;
     right:0rem;
     height:14rem;
