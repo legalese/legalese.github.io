@@ -37,7 +37,7 @@ TL;DR IANAL
 
 <Story_Main>
 <chapter_header>Contract for Service</chapter_header>
-<para_1>This contract for service is generated on <textvar name="Output Date"> "<b>Contract</b>")</textvar></para_1>
+<para_1>This contract for service is generated on <textvar name="Output Date"> (this "<b>Contract</b>")</textvar></para_1>
 <!-- For greater flexibility, the output date should be different from the Effective Date.
   Why?
     Mainly because Legalese gets the parties to execute it via Echosign - this means that parties and Legalese don't actually know at the outset the exact date of when the contract is to take effect. Like overeating at work lunches, it's not wrong per se; it just has the potential to get rather hairy, confusing, and/or complicating.
@@ -105,7 +105,7 @@ TL;DR IANAL
     <numbered_3_para>words importing a gender (including the gender neutral pronouns <i>'ze'</i> and <i>'zir'</i>) include every gender;</numbered_3_para>
     <numbered_3_para>references to persons include bodies corporate or unincorporated, any state or any agency thereof, and any other entity, and vice versa;</numbered_3_para>
     <numbered_3_para>headings, marginal sidenotes, and graphic art are for ease of reference only, have no legal effect, and shall not affect the interpretation of this Contract;</numbered_3_para>
-    <numbered_3_para>references to <b>Clauses</b> are to clauses of this Contract, and references to this <b>Contract</b> include any schedules, amendments, and/or supplementals thereto;</numbered_3_para>
+    <numbered_3_para>references to <b>Clauses</b> are to clauses of this Contract, and references to this <b>Contract</b> include any schedules, amendments, and supplementals thereto;</numbered_3_para>
     <numbered_3_para>references to <b>Company</b> shall include its successors and permitted assigns;</numbered_3_para>
     <numbered_3_para>the words and phrases "other", "including" and "in particular" do not limit the generality of any preceding words, and the words which follow them will not be construed as being limited in scope to the same class as the preceding words where a wider construction is possible;</numbered_3_para>
     <numbered_3_para>references to '<b>$</b>' or '<b>dollars</b>' denotes <?= data.specific_currency ?>; and</numbered_3_para>
@@ -119,13 +119,13 @@ TL;DR IANAL
 <!-- <numbered_3_para>During the Engagement Term, in consideration of the fees payable at a <b>monthly</b> rate of <b><?= data.monthly_fees ?></b> ("<b>Fees</b>") to be paid by the Company to the Contractor, the Contractor agrees to provide to and/or perform for the Company, the Services - as an independent contractor - in accordance with this Contract.</numbered_3_para> -->
 
 <!-- Could also be one-time payment -->
-<numbered_3_para>During the Engagement Term, in consideration of the fees of <b><?= data.monthly_fees ?></b>  ("<b>Fees</b>") to be paid by the Company to the Contractor, the Contractor agrees to provide to and/or perform for the Company, the Services - as an independent contractor - in accordance with this Contract.</numbered_3_para>
+<numbered_3_para>During the Engagement Term, in consideration of the fees of <b><?= data.monthly_fees ?></b>  ("<b>Fees</b>") to be paid by the Company to the Contractor, the Contractor agrees to provide to and/or perform for the Company, the Services --- as an independent contractor --- in accordance with this Contract.</numbered_3_para>
 
 <numbered_3_para>Fees paid by Company to the Contractor shall constitute the full and only payment the Contractor is entitled to in respect of the Services.</numbered_3_para>
 
 <!-- Conditional payment -->
 <numbered_2_para><b>Timing of payment</b></numbered_2_para>
-  <numbered_3_para xname="Completion">During the Engagement Term, Fees shall only become due and payable by the Company to the Contractor upon the Contractor's completion of the Services to the satisfaction of the Company ("<b>Completion</b>"). Any Fees due shall be made by the last day of the relevant calendar month when Completion occurs, provided that such month occurs during the Engagement Term.</numbered_3_para>
+  <numbered_3_para xname="Completion">During the Engagement Term, Fees shall only become due and payable by the Company to the Contractor upon the Contractor's completion of the Services to the satisfaction of the Company by the end of the Engagement Term ("<b>Completion</b>"). Any Fees due shall be made by the last day of the relevant calendar month when Completion occurs, provided that such month occurs during the Engagement Term.</numbered_3_para>
 
 <!-- Monthly payment -->
 <!-- <numbered_2_para><b>Timing of payment</b></numbered_2_para> -->
@@ -165,9 +165,9 @@ TL;DR IANAL
 <!-- <numbered_2_para>During the Engagement Term, the Contractor shall on a non-exclusive basis -\-\- specifically in the role of <b><?= data.role ?></b> for the purposes of the Business and/or <?= data.purpose ?> -\-\- devote zir time, energy, abilities and resources as may be necessary, expedient, and efficient, to resolve the issues and/or milestones set out at <span_smallcaps>GitHub</span_smallcaps>, <span_smallcaps>Slack</span_smallcaps>, email, and such other means and systems suggested by the Company for requirements management, issue tracking, document management, source control, and other support or development functions, and in each case within any timeframes specified therein. The Company may from time to time, suggest priorities for such issues and/or milestones via <span_smallcaps>Slack</span_smallcaps>,<span_smallcaps> GitHub</span_smallcaps>, or email. Collectively, the "<b>Services</b>".</numbered_2_para> -->
 
 <!-- deliverables job scope -->
-<numbered_2_para>During the Engagement Term, the Contractor shall on a non-exclusive basis --- specifically in the role of <b><?= data.role ?></b> for the purposes of the Business and/or <?= data.purpose ?> --- devote zir time, energy, abilities and resources as may be necessary, expedient, and efficient, to resolve, produce, and/or deliver the Deliverables as identified and set out in Schedule 1 of this Contract (the "<b>Services</b>")</numbered_2_para> 
+<numbered_2_para>During the Engagement Term, the Contractor shall on a non-exclusive basis --- specifically in the role of <b><?= data.role ?></b> for the purposes of the Business --- devote zir time, energy, abilities and resources as may be necessary, expedient, and efficient, to resolve, produce, and/or deliver the Deliverables as identified and set out in Schedule 1 of this Contract (the "<b>Services</b>"). Save where otherwise agreed in signed writing between the Parties, the Services must be delivered to the satisfaction of the Company by the end of the Engagement Term for the Fees to become due and payable. For the avoidance of doubt, Fees will not be pro-rated for any partial or incomplete Deliverables, and only Deliverables that satisfy the Completion criteria will be accepted for the purposes of Fees payment under this Contract.</numbered_2_para> 
 
-<numbered_2_para>In assisting the Contractor in performing the Services, the Parties may use <span_smallcaps>GitHub</span_smallcaps>, <span_smallcaps>Slack</span_smallcaps>, email, and such other means and systems suggested by the Company for requirements management, issue tracking, document management, source control, and other support or development functions, and in each case within any timeframes specified therein.</numbered_2_para>
+<numbered_2_para>As part of the Contractor's performance of the Services and the Company's management and tracking of the same, the Parties may use <span_smallcaps>GitHub</span_smallcaps>, <span_smallcaps>Slack</span_smallcaps>, email, and such other means and systems suggested by the Company for requirements management, issue tracking, document management, source control, and other support or development functions, and in each case within any timeframes specified therein.</numbered_2_para>
 
 <a_left_sidehead>Representations</a_left_sidehead>
 
@@ -177,7 +177,7 @@ TL;DR IANAL
   <numbered_3_para>it will make timely payment of the Fees when such Fees as applicable are due;</numbered_3_para>
   <numbered_3_para>it shall use reasonable endeavours to notify the Contractor of any changes to its procedures affecting the Contractor's obligations under this Contract;</numbered_3_para>
   <numbered_3_para>in view of the Company possessing critical knowledge of the operations and the Business, it shall respond and cooperate with Contractor in making such knowledge available to the Contractor in a timely fashion so as to facilitate the Contractor's provision and/or performance of the Services under this Contract; and </numbered_3_para>
-  <numbered_3_para>during the Engagement Term, it shall provide such other assistance to the Contractor as the Company (at its sole and absolute discretion) may deem reasonable and/or appropriate.</numbered_3_para>
+  <numbered_3_para>during the Engagement Term, it shall provide such other assistance to the Contractor as the Company (in its sole and absolute discretion) may deem reasonable and/or appropriate.</numbered_3_para>
 
 <!--from the Contractor now-->
 <numbered_2_para>The Contractor hereby represents that:-</numbered_2_para>
@@ -248,7 +248,6 @@ TL;DR IANAL
   <numbered_3_para>the Contractor in the absolute opinion of the Company becomes of unsound mind or incapacitated to provide and/or perform the Services and/or fulfil zir obligations under this Contract; or</numbered_3_para>
   <!-- <numbered_3_para>the Contractor makes or has a bankruptcy application or petition served on zir or makes any arrangement or composition with zir creditors generally; or</numbered_3_para> -->
   <numbered_3_para>it becomes illegal for the Company to engage the Contractor as an independent contractor whether under this Contract or otherwise.</numbered_3_para>
-<numbered_2_para>The termination of this Contract howsoever arising shall not affect such of the terms hereof as are expressed to operate or have effect after the Engagement Term, and shall be strictly without prejudice to any right of action or remedy which the Company may have.</numbered_2_para>
 
 <a_left_sidehead xname="Effects">Effects of Termination or Determination</a_left_sidehead>
   <numbered_2_para>Upon determination and/or termination of this Contract for whatever reason, the Contractor shall:-</numbered_2_para>
@@ -257,9 +256,12 @@ TL;DR IANAL
     <numbered_3_para>where the Company requires, promptly return to the Company all forms of Confidential Information and Work, including any and all copies and extracts thereof, and delete any such items in the Contractor's personal possession and prohibit the Contractor's subsequent personal access; and</numbered_3_para>
     <numbered_3_para>where the Company requires, not make or retain any copies or extracts of any Confidential Information or Work, and agree to provide written confirmation and supporting evidence to the Company of such undertaking.</numbered_3_para>
 
- <numbered_2_para>Involvement with the Company after Termination or Determination of this Contract</numbered_2_para>
+<numbered_2_para>The termination of this Contract howsoever arising shall not affect such of the terms hereof as are expressed to operate or have effect after the Engagement Term, and shall be strictly without prejudice to any right of action or remedy which the Company may have.</numbered_2_para>
+
+<numbered_2_para><b>Involvement with the Company after Termination or Determination of this Contract</b></numbered_2_para>
   <numbered_3_para>Should the Contractor in zir sole and absolute discretion decide to continue zir involvement with the Company and/or the Business after the termination or determination of this Contract, such involvement shall be subject to such contributors license agreement as applicable, and further, be subject to the provisions that survive the termination of this Contract.</numbered_3_para>    
 
+  
     <a_left_sidehead xname="Misc">General Provisions</a_left_sidehead>
 <!--electronic signatures & communications - in SG does not extend to deeds, POAs, instruments-->
 <b_left_sidehead_nonum>Electronic signatures &amp; communications</b_left_sidehead_nonum>
@@ -295,7 +297,7 @@ TL;DR IANAL
   <numbered_2_para>The Contractor hereby agrees with and undertakes to the Company that ze shall do all such other acts and things and to sign and execute (or process the signing and execution of) all such documents and instruments as may be necessary or expedient or requested by the Company to give effect to the terms of this Contract.</numbered_2_para>
 
 <b_left_sidehead_nonum>Survival</b_left_sidehead_nonum>
-  <numbered_2_para>The termination or determination of this Contract howsoever arising shall not operate to affect such of the provisions under this Contract which in accordance with their terms are expressed to operate or have effect after the termination or determination of this Contract. For the avoidance of doubt, provisions that shall survive the termination and/or determination of this Contract include without limitation, Clause <xref to="Definitions" /> (Definitions), Clause <xref to="Interpretation" /> (Interpretation), Clause <xref to="Relationship" /> (Relationship of the Parties), Clause <xref to="Ownership" /> (Ownership of Work), Clause <xref to="Confidentiality" /> (Dealing with Confidential Information and Work), and Clause <xref to="Misc" /> (General Provisions).</numbered_2_para>
+  <numbered_2_para>The termination or determination of this Contract howsoever arising shall not operate to affect such of the provisions under this Contract which in accordance with their terms are expressed to operate or have effect after the termination or determination of this Contract. For the avoidance of doubt, provisions that shall survive the termination or determination of this Contract include without limitation, Clause <xref to="Definitions" /> (Definitions), Clause <xref to="Interpretation" /> (Interpretation), Clause <xref to="Relationship" /> (Relationship of the Parties), Clause <xref to="Ownership" /> (Ownership of Work), Clause <xref to="Confidentiality" /> (Dealing with Confidential Information and Work),  Clause <xref to="Effects" /> (Effects of Termination or Determination) and Clause <xref to="Misc" /> (General Provisions).</numbered_2_para>
 
 <b_left_sidehead_nonum>No contra proferentum</b_left_sidehead_nonum>
   <numbered_2_para>The Contractor hereby represents that, in executing this Contract ze has had the opportunity (whether or not actually undertaken) to seek the advice of independent legal counsel, and ze has read and understood all of the terms and provisions of this Contract. In the interpretation of this Contract or any part thereof, no rule of construction shall apply to the disadvantage of any Party on the basis that that Party (i) prepared this Contract or any part of it; or (ii) seeks to rely on this Contract or any part of it.</numbered_2_para>
