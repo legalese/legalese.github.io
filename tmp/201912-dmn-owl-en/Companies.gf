@@ -1,4 +1,4 @@
-abstract Companies = {
+abstract Companies = Deontic ** {
   flags startcat = Statement;
   cat
     Statement;
@@ -8,6 +8,7 @@ abstract Companies = {
   fun
     mkStatement :
          Subject
+      -> Deontic
       -> Verb
       -> Object
       -> Statement;
