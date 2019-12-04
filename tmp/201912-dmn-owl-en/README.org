@@ -1,0 +1,1 @@
+This will evolve into an introduction to GF and how to use it as a serialization for legal specification, including OWL ontologies, DMN decision tables, and BPMN / UML state diagrams.
