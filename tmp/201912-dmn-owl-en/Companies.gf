@@ -11,4 +11,7 @@ abstract Companies = {
       -> Verb
       -> Object
       -> Statement;
+    Alice, Bob : Subject;
+    Eat : Verb;
+    Ribeye, MashedPotatoes : Object;
 }
