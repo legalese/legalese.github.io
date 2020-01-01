@@ -799,8 +799,6 @@ a.footnote:hover span {
 .hvr-underline-from-center {
   display: inline;
   vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   position: relative;
   overflow: hidden;
@@ -814,7 +812,6 @@ a.footnote:hover span {
   left: 50%;
   right: 50%;
   bottom: -0.2em;
-  background: rgba(82, 254, 206, 1);
   height: 1em;
   -webkit-transition-property: left, right;
   transition-property: left, right;
@@ -825,8 +822,9 @@ a.footnote:hover span {
 }
 
 .hvr-underline-from-center:hover:before, .hvr-underline-from-center:focus:before, .hvr-underline-from-center:active:before {
-  left: 0;
-  right: 0;
+    left: 0;
+    right: 0;
+    background: rgba(82, 254, 206, 1);
 }
   /* background: rgba(82, 254, 206, 1); */
 
