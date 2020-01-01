@@ -5,3 +5,4 @@ build
 _site/
 Icon*
 .DS_Store
+.jekyll-cache/
