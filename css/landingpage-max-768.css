@@ -109,3 +109,16 @@ h2 {
     right: 0;
     top: 40px;
 }
+
+.small-centre {
+    text-align: center;
+}
+
+ul.li-inline li { display: block; line-height: 1.5em }
+ul.li-inline li::before {
+    content: "//";
+    position:relative;
+    vertical-align: center;
+    margin-right: 6pt;
+    margin-left: 4pt;
+}
