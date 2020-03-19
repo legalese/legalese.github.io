@@ -200,12 +200,11 @@ blockquote footer:before {
 .dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0;
-    // margin-left: 50%;
-    // transform: translateX(-50%);
     border-radius: 0px;
     border: none;
     font-size: 14px;
-
+    left: 50%;
+    transform: translateX(-50%);
 }
 .no-underline:hover {
     text-decoration: none;
