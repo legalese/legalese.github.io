@@ -62,9 +62,17 @@
     padding-top: 0px;
 }
 
+.blurb-spacing {
+    line-height: 2.5rem;
+}
+
 .bot-squeeze {
     width: 80%;
     padding: 0 0 0 14px;
+}
+
+.bot-container {
+    margin-top: 50px;
 }
 
 #first-bottom {
