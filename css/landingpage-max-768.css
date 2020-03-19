@@ -30,7 +30,7 @@
 }
 
 #bs-example-navbar-collapse-1 {
-    height: 13em;
+    height: 14em;
 }
 
 #top-bar {
@@ -101,4 +101,11 @@ h2 {
 
 .pricing-feature-cols-long {
     min-width: 0px;
+}
+
+.pricing-logo-docs {
+    height: 200px;
+    position: absolute;
+    right: 0;
+    top: 40px;
 }
