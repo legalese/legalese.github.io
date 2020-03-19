@@ -123,3 +123,7 @@ ul.li-inline li::before {
     margin-right: 6pt;
     margin-left: 4pt;
 }
+
+.a-link {
+    display: inline;
+}
