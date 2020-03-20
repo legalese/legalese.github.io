@@ -1822,3 +1822,58 @@ table.floatThead-table {
     border-color: #ff38d1 !important;
     color: #ff38d1 !important;
 }
+
+.inline-media {
+    height: 1rem;
+    margin-right: 1rem;
+}
+
+.media-jumbo {
+    background-color: #f7f6f6;
+    margin-top: 50px;
+}
+
+.media-list {
+    margin-top: 50px;
+    padding-top: 10px;
+    text-align: right;
+}
+
+.media-col {
+    padding: 50px;
+}
+
+.news-square {
+    height: 200px;
+    width: 100%;
+    line-height: 1rem;
+    text-align: center;
+    display: block;
+    border: none;
+    background-color: white;
+    border: 1px solid #82fece;
+    margin: 0 auto;
+}
+
+#media-logo {
+    left: 75%;
+    transform: translateX(-50%);
+    top: -30px;
+}
+
+.media-list-item {
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+.active-media-link {
+    background-color: #32fb91;
+    transform: translateX(50px);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}

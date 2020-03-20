@@ -135,3 +135,15 @@ ul.li-inline li::before {
 .a-link {
     display: inline;
 }
+
+#media-logo {
+    left: 50%;
+}
+
+.media-list {
+    text-align: center;
+}
+
+.active-media-link {
+    transform: none;
+}
