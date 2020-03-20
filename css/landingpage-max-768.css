@@ -147,3 +147,7 @@ ul.li-inline li::before {
 .active-media-link {
     transform: none;
 }
+
+.left-media-col {
+    text-align: center;
+}
