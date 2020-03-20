@@ -93,6 +93,15 @@ if ($(window).width() > 767) {
   $(".dropdown.top-justify > div").removeClass("hvr-underline-from-center")
 }
 
+$(".media-list-item").on("click", function() {
+  if ($(this).hasClass("active-media-link")) {
+    $(".media-list-item").removeClass("active-media-link")
+  } else {
+    $(".media-list-item").removeClass("active-media-link")
+    $(this).addClass("active-media-link")
+  }
+})
+
 // downarrow click
 
 $(".downarrow").click(function() {
@@ -349,3 +358,4 @@ function sendData() {
     XHR.send(FD);
   }
 }
+
