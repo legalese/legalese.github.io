@@ -1830,7 +1830,6 @@ table.floatThead-table {
 
 .media-jumbo {
     background-color: #f7f6f6;
-    padding-bottom: 50px;
 }
 
 .media-list {
@@ -1918,4 +1917,8 @@ table.floatThead-table {
     font-weight: 700;
     font-size: 16px;
     margin-bottom: 2px;
+}
+
+.hidden-white {
+    background-color: white;
 }

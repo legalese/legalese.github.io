@@ -146,8 +146,13 @@ ul.li-inline li::before {
 
 .active-media-link {
     transform: none;
+    padding: 20px;
 }
 
 .left-media-col {
     text-align: center;
+}
+
+.hidden-white {
+    display: none;
 }
