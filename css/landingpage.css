@@ -544,7 +544,7 @@ a.button-text-special:hover {
 .bot-container {
     width: 100%;
     background-color: rgba(205, 205, 205, 1);
-    margin-top: 200px;
+    margin-top: 50px;
     padding: 25px 48px 25px 48px;
     box-shadow: 0 -3px 3px -3px rgba(51, 51, 51, 0.2);
 }
