@@ -140,7 +140,7 @@ ul.li-inline li::before {
     left: 50%;
 }
 
-.media-list {
+.media-menu {
     text-align: center;
 }
 
@@ -151,6 +151,7 @@ ul.li-inline li::before {
 
 .left-media-col {
     text-align: center;
+    padding-right: 0px;
 }
 
 .hidden-white {
