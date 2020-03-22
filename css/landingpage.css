@@ -1895,7 +1895,8 @@ table.floatThead-table {
     transition: all 0.5s ease;
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
-    padding: 20px 0px 20px 50px;
+    padding: 20px 20px 20px 50px;
+    font-size: 2.5rem;
 }
 
 .a-link.long {
