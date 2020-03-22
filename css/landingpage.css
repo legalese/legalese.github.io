@@ -1834,7 +1834,7 @@ table.floatThead-table {
 }
 
 .media-list {
-    padding-top: 10px;
+    padding-top: 40px;
     text-align: right;
 }
 
@@ -1895,6 +1895,7 @@ table.floatThead-table {
     transition: all 0.5s ease;
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
+    padding: 20px 0px 20px 50px;
 }
 
 .a-link.long {
