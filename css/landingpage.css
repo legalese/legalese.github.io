@@ -1838,7 +1838,7 @@ table.floatThead-table {
 }
 
 .media-col {
-    padding: 50px 50px 0px 50px;
+    padding: 40px 10px 0px 10px;
 }
 
 .media-col-offset-right {
@@ -1854,7 +1854,7 @@ table.floatThead-table {
 }
 
 .left-media-col {
-    padding-right: 0px;
+    padding-right: 30px;
     padding-left: 0px;
     text-align: right;
 }
@@ -1894,7 +1894,7 @@ table.floatThead-table {
     transition: all 0.5s ease;
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
-    padding: 20px 20px 20px 50px;
+    padding: 1rem 1rem 1rem 3rem;
     font-size: 2.5rem;
 }
 
@@ -1921,4 +1921,8 @@ table.floatThead-table {
 
 .hidden-white {
     background-color: white;
+}
+
+.media-col > .small-centre {
+    font-size: 2rem;
 }
