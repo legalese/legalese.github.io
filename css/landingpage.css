@@ -1832,7 +1832,7 @@ table.floatThead-table {
     background-color: #f7f6f6;
 }
 
-.media-list {
+.media-menu {
     padding-top: 40px;
     text-align: right;
 }
@@ -1895,7 +1895,7 @@ table.floatThead-table {
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
     padding: 1rem 1rem 1rem 3rem;
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 .a-link.long {
