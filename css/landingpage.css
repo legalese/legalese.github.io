@@ -926,10 +926,6 @@ a.footnote:hover span {
     }
 }
 
-/* modal */
-.modal-header > h2, h4 {
-    margin: 0;
-    
 }
 
 .modal-title {
@@ -978,6 +974,10 @@ a.footnote:hover span {
     vertical-align: middle;
 }
 
+.modal-header {
+    display: block;
+}
+
 .modal-center-circle {
     position: absolute;
     margin: 0;
@@ -1016,6 +1016,7 @@ a.footnote:hover span {
 .modal-dialog {
     margin: 0 auto; 
     margin-top: 20px;
+    max-width: 1000px;
 }
 
 /* close button on the modal */
@@ -1121,7 +1122,7 @@ button.close {
     position: absolute;
     bottom: -50px;
     right: 0;
-v}
+}
 
 .test-pricing {
     height: 100%;

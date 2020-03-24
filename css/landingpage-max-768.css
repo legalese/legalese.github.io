@@ -115,7 +115,7 @@ h2 {
 .pricing-logo-docs {
     height: 200px;
     position: absolute;
-    right: 0;
+    right: 25%;
     top: 40px;
 }
 
@@ -169,4 +169,13 @@ ul.li-inline li::before {
 
 .founded-block {
     margin-top: 20px;
+}
+
+blockquote:before {
+    left: -20px;
+}
+
+blockquote:after {
+    bottom: 60px;
+    right: -20px;
 }
