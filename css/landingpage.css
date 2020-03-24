@@ -1904,8 +1904,6 @@ table.floatThead-table {
 }
 
 .left-media-col {
-    padding-right: 30px;
-    padding-left: 0px;
     text-align: right;
 }
 
@@ -1945,12 +1943,12 @@ table.floatThead-table {
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
     padding: 1rem 1rem 1rem 3rem;
-    font-size: 2rem;
+    font-size: 1.2rem;
 }
 
 .a-link.long {
     display: inline;
-    font-size: 1.3rem;
+    font-size: 0.8rem;
 }
 
 .news-pictures {
@@ -1971,10 +1969,6 @@ table.floatThead-table {
 
 .hidden-white {
     background-color: white;
-}
-
-.media-col > .small-centre {
-    font-size: 2rem;
 }
 
 .small-block {
