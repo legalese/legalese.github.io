@@ -347,3 +347,17 @@ function sendData() {
   }
 }
 
+$(document).ready(function(e) {
+  $("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#navbarSupportedContent").toggleClass("toggled");
+    e.stopPropagation()
+  });
+
+  $(document).on('click', function() {
+    // $("#navbarSupportedContent").click(function(){ return false; });
+    if ($("#navbarSupportedContent").hasClass("toggled")) {
+      $("#navbarSupportedContent").removeClass("toggled");
+    }
+  });
+})

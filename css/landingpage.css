@@ -26,7 +26,6 @@ p {
     padding: 0 .1em;
     -webkit-transition: all 250ms;
     transition: all 250ms;
-    z-index: 2;
 }
 
 /* .a-link:before { */
@@ -1981,4 +1980,8 @@ table.floatThead-table {
 
 #knowallmen {
     max-width: 100%;
+}
+
+.sidebar-title {
+    display: none;
 }

@@ -179,3 +179,46 @@ blockquote:after {
     bottom: 60px;
     right: -20px;
 }
+
+.dropdown-menu {
+    display: block;
+    left: 0;
+    transform: translateX(0px);
+    box-shadow: none;
+    padding: 0;
+}
+
+.top-subtitle {
+    text-align: left;
+    padding: 0;
+}
+
+.dropdown.nav-item {
+    margin: 20px;
+}
+
+#navbarSupportedContent {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15rem;
+    min-height: 120vh;
+    margin-left: -15rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+    background-color: white;
+    z-index: 1;
+    padding-top: 50px;
+    padding-left: 15px;
+}
+
+#navbarSupportedContent.toggled {
+    margin-left: -1rem;
+}
+
+.sidebar-title {
+    display: block;
+    padding-left: 20px;
+}
