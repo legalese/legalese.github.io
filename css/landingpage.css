@@ -130,16 +130,67 @@ blockquote footer:before {
     text-decoration: none;
 }
 
-.col-md-6.col-md-offset-3 > h3.logotype > a {
+.logotype {
+    font-family: "Alegreya", serif;
+    color: #333333;
+    letter-spacing: 0.075em;
+    display: inline-block;
+    text-decoration: none;
+    margin: 0;
+}
+
+.logotype > a {
     color: #333333;
     text-decoration: none;
 }
 
+.dropdown.nav-item {
+    margin: 0px 20px;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.dropdown.nav-item:hover > .dropdown-menu {
+    display: block;
+    margin-top: 0;
+    border-radius: 0px;
+    border: none;
+    font-size: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    top: 30px;
+    min-width: max-content;
+}
+
+.dropdown-menu {
+    margin-top: 0;
+    border-radius: 0px;
+    border: none;
+    font-size: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    top: 30px;
+    min-width: max-content;
+}
+
+.dropdown-menu > li > a, 
+.dropdown-menu > li > a:hover {
+    color: #333333;
+    text-decoration: none;
+}
+
+
 .navbar {
     margin-bottom: 0px;
     border-radius: 0px;
-    height: 50px;
-}
+    padding: 0;
+}    
 
 .nav > li > a.active,
 .nav > li > a:hover {
@@ -168,7 +219,6 @@ blockquote footer:before {
 .legalese-nav {
     background-color: white;
     border: none;
-    box-shadow: 0 6px 3px -3px rgba(150,150,150,0.2);
     width: 100%;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -177,8 +227,9 @@ blockquote footer:before {
 }
 
 .brand-pic {
-    height: 24px;
-    position: inline-block;
+    height: 2rem;
+    margin-right: 0.2rem;
+    padding-bottom: 5px;
 }
 
 .legalese-nav.affix {
@@ -197,15 +248,6 @@ blockquote footer:before {
     cursor: pointer;
 }
 
-.dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0;
-    border-radius: 0px;
-    border: none;
-    font-size: 14px;
-    left: 50%;
-    transform: translateX(-50%);
-}
 .no-underline:hover {
     text-decoration: none;
 }
@@ -227,13 +269,12 @@ blockquote footer:before {
 .top-subtitle {
     color: #919191;
     padding: 3px 20px;
+    text-align: center;
 }
 
 #top-bar {
     font-size: 12px;
     font-family: "Lato", sans-serif;
-    display: flex;
-    justify-content: center;
     height: 50px;
 }
     
@@ -303,8 +344,7 @@ blockquote footer:before {
 }
 
 .legalese-logo {
-    height: 50px;
-    padding-top: 10px;
+    height: 3rem;
 }
 
 .techcrunch {
@@ -617,7 +657,7 @@ a.button-text-special:hover {
     font-size: 40px;
 }
 
-.not-found-container {
+v.not-found-container {
     margin-top: 20px;
 }
 
@@ -1081,7 +1121,7 @@ button.close {
     position: absolute;
     bottom: -50px;
     right: 0;
-}
+v}
 
 .test-pricing {
     height: 100%;
@@ -1933,4 +1973,8 @@ table.floatThead-table {
 
 #hq-img {
     margin-left: 3rem;
+}
+
+#knowallmen {
+    max-width: 100%;
 }
