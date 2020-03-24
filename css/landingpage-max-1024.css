@@ -222,3 +222,7 @@ blockquote:after {
     display: block;
     padding-left: 20px;
 }
+
+.highlight-row-purple {
+    padding-top: 10px;
+}

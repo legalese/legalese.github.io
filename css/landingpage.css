@@ -1168,6 +1168,7 @@ button.close {
 
 .highlight-row-purple {
     background: linear-gradient(169deg, #dd68ff 0%, #413eff 100%);
+    padding-top: 20px;
 }
 
 .highlight-row-special-above {
