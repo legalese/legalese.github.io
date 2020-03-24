@@ -55,18 +55,6 @@ $(window).on('scroll', function() {
   });
 });
 
-// only affix sidebar if not on mobile
-
-if ($(window).width() > 768) {
-  $(".player-nav").affix({
-    offset: {
-      top: function() {
-	return (this.top = $("#blurb-nav-id").offset().top + 65)
-      }
-    }
-  })
-}
-
 $(window).resize(function() {
   if ($(window).width() > 767) {
     $("#magic-shift-toggle-bottom").hide();
