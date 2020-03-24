@@ -29,8 +29,8 @@
     letter-spacing: 2px;
 }
 
-#bs-example-navbar-collapse-1 {
-    height: 14em;
+.legalese-nav.justify-content-center {
+    justify-content: space-between!important;
 }
 
 #top-bar {
