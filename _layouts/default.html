@@ -10,7 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link href="https://fonts.googleapis.com/css?family=Alegreya:400,700|Open+Sans:300,700" rel="stylesheet">
@@ -38,12 +40,12 @@
       <div class="container-fluid" id="first-container">
 	<div id="desktop-display-header">
 	  <div class="row">
-	    <div class="col-md-2 col-md-offset-5">
-	      <a href="index.html"><img src="images/20160713-b-sq.png" class="center-block legalese-logo"></a>
+	    <div class="col-md-2 offset-md-5 text-center">
+	      <img src="images/20160713-b-sq.png" class="center-block legalese-logo">
 	    </div>
 	  </div>
 	  <div class="row">
-	    <div class="col-md-6 col-md-offset-3 text-center">
+	    <div class="col-md-6 offset-md-3 text-center">
 	      <h3 class="logotype"><a href="index.html">LEGALESE</a></h3>
 	      <p id="eating-law"><a href="index.html">software is eating law</a></p>
 	    </div>
@@ -51,102 +53,98 @@
 	</div>
 
 	<!-- top horizontal nav menu -->
-	<nav class="navbar navbar-default legalese-nav navbar-static-top">
-	  <div class="navbar-header">
-	    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
+	<div class="container">
+	  <nav class="navbar navbar-expand-lg legalese-nav justify-content-center">
+	    <a class="navbar-brand logotype d-block d-sm-none" href="#"><img src="images/20160713-b-sq.png" class="brand-pic"><b>LEGALESE</b></a>
+	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
 	    </button>
-	    <a class="navbar-brand visible-xs-inline"
-	       href="#"><img src="images/20160713-b-sq.png"
-			     class="brand-pic"></a>
-	    <a class="visible-xs-inline-block" href="#" id="collapse-legalese"><b>LEGALESE</b></a>
-	  </div>
 
-	  <!-- top menu nav -->
-	  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	    <ul class="nav nav-pills nav-justified" id="top-bar">
-	      <div class="dropdown top-justify">
-		<div class="dropdown-toggle hvr-underline-from-center title-font {% if page.location=='faq' %} active-tab {% endif %}" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-		  Why Computational Law?
-		</div>
-		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-		  <li class="top-subtitle">a.k.a. CLAW</li>
-		  <li><a class="bottom-content-title" scroll="#statusquo-content" href="problem-with-legal.html">Problem with Status Quo</a></li>
-		  <li><a class="bottom-content-title" scroll="#informatics-content" href="prior-art.html">70 Years of R&amp;D</a></li>
-		  <li><a class="bottom-content-title" scroll="#complegal-content" href="computational-law.html">Solution:&nbsp;Computational Law?</a></li>
-		</ul>
-	      </div>
-	      <div class="dropdown top-justify">
-		<div class="dropdown-toggle hvr-underline-from-center title-font {% if page.location=='about' %} active-tab {% endif %}" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-		  About Us
-		</div>
-		<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-		  <li><a href="aboutus.html">About our company</a></li>
-		  <li><a href="team.html">Team</a></li>
-		  <li><a href="codeofconduct.html">Code of Conduct / Culture Keys</a></li>
-		</ul>
-	      </div>
-	      <div class="dropdown top-justify">
-		<div class="dropdown-toggle hvr-underline-from-center title-font {% if page.location=='solutions' %} active-tab {% endif %}" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-		  Solutions
-		</div>
-		<ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
-		  <li><a href="individuals-and-enterprises.html">Individuals &amp; Enterprises</a></li>
-		  <li><a href="apis-and-white-label.html">APIs &amp; White Label</a></li>
-		</ul>
-	      </div>
-	      <div class="dropdown top-justify">
-		<div class="dropdown-toggle hvr-underline-from-center title-font {% if page.location=='resources' %} active-tab {% endif %}" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-		  Education &amp; Resources
-		</div>
-		<ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
-		  <li><a class="bottom-content-title" scroll="#informatics-content" href="prior-art.html">70 Years of R&amp;D</a></li>
-		  <li><a class="bottom-content-title" scroll="#players-content" href="legalscape.html">LegalTech Map</a></li>
-		  <li><a class="bottom-content-title" scroll="#players-content" href="prior-art.html#workshops-conferences">CLAW Events</a></li>
-		</ul>
-	      </div>
-	      <div class="dropdown top-justify">
-		<a class="hvr-underline-from-center title-font no-underline {% if page.location=='community' %} active-tab {% endif %}" href="community.html">
-		  Community &amp; Contact
-		</a>
-	      </div>
-	      <div class="dropdown top-justify">
-		<a id="login-menu-item" class="hvr-underline-from-center title-font no-underline" href="https://legalese.com/product/start">
-		  Login
-		</a>
-	      </div>
-	    </ul>
-	  </div>
-	</nav>
+	    <!-- top menu nav -->
+	    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+	      <ul class="navbar-nav justify-content-center" id="top-bar">
+		<li class="dropdown nav-item">
+		  <a class="dropdown-toggle hvr-underline-from-center title-font {% if page.location=='faq' %} active-tab {% endif %}" role="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+		    Why Computational Law?
+		  </a>
+		  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+		    <li class="top-subtitle">a.k.a. CLAW</li>
+		    <li><a class="bottom-content-title" scroll="#statusquo-content" href="problem-with-legal.html">Problem with Status Quo</a></li>
+		    <li><a class="bottom-content-title" scroll="#informatics-content" href="prior-art.html">70 Years of R&amp;D</a></li>
+		    <li><a class="bottom-content-title" scroll="#complegal-content" href="computational-law.html">Solution:&nbsp;Computational Law?</a></li>
+		  </ul>
+		</li>
+		<li class="dropdown nav-item">
+		  <div class="dropdown-toggle hvr-underline-from-center title-font {% if page.location=='about' %} active-tab {% endif %}" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+		    About Us
+		  </div>
+		  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+		    <li><a href="aboutus.html">About our company</a></li>
+		    <li><a href="team.html">Team</a></li>
+		    <li><a href="codeofconduct.html">Code of Conduct / Culture Keys</a></li>
+		  </ul>
+		</li>
+		<li class="dropdown nav-item">
+		  <div class="dropdown-toggle hvr-underline-from-center title-font {% if page.location=='solutions' %} active-tab {% endif %}" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+		    Solutions
+		  </div>
+		  <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+		    <li><a href="individuals-and-enterprises.html">Individuals &amp; Enterprises</a></li>
+		    <li><a href="apis-and-white-label.html">APIs &amp; White Label</a></li>
+		  </ul>
+		</li>
+		<li class="dropdown nav-item">
+		  <div class="dropdown-toggle hvr-underline-from-center title-font {% if page.location=='resources' %} active-tab {% endif %}" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+		    Education &amp; Resources
+		  </div>
+		  <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+		    <li><a class="bottom-content-title" scroll="#informatics-content" href="prior-art.html">70 Years of R&amp;D</a></li>
+		    <li><a class="bottom-content-title" scroll="#players-content" href="legalscape.html">LegalTech Map</a></li>
+		    <li><a class="bottom-content-title" scroll="#players-content" href="prior-art.html#workshops-conferences">CLAW Events</a></li>
+		  </ul>
+		</li>
+		<li class="dropdown nav-item">
+		  <a class="hvr-underline-from-center title-font no-underline {% if page.location=='community' %} active-tab {% endif %}" href="community.html">
+		    Community &amp; Contact
+		  </a>
+		</li>
+		<li class="dropdown nav-item">
+		  <a id="login-menu-item" class="hvr-underline-from-center title-font no-underline" href="https://legalese.com/product/start">
+		    Login
+		  </a>
+		</li>
+	      </ul>
+	    </div>
+	  </nav>
+	</div>
       </div>
 
       {{ content }}
 
       <div class="container-fluid bot-container">
-	<div class="col-xs-12 col-md-4 col-lg-3" style="overflow-x: visible">
-	  <p id="bot-legalese-large"><a href="index.html">LEGALESE</a></p>
-	  <p class="para-ml"><a href="index.html">Legalese Pte. Ltd.</a>&nbsp;<span style="font-size: 11px">&copy;</span>&nbsp;<span id="copyright-date"></span> All rights reserved.</p>
-
-	</div>
-
-	<div class="col-xs-12 col-md-1 bot-squeeze" id="first-bottom">
-	  <p class="rights-reserved"><a href="terms.html">Terms of Use</a></p>
-	  <p class="rights-reserved"><a href="privacy.html">Privacy &amp; Cookies</a></p>
-	</div>
-	<div class="col-xs-12 col-md-1 bot-squeeze">
-	  <p class="rights-reserved"><a href="codeofconduct.html">Code of
-	      Conduct</a></p>
-	</div>
-	<div class="col-xs-12 col-md-1 bot-squeeze">
-	  <p class="rights-reserved"><a href="community.html">Contact Us</a></p>
-	  <p class="rights-reserved"><a href="media.html">Press &amp; Media</a></p>
+	<div class="row">
+	  <div class="col-12 col-md-4 col-lg-3" style="overflow-x: visible">
+	    <p id="bot-legalese-large"><a href="index.html">LEGALESE</a></p>
+	    <p class="para-ml"><a href="index.html">Legalese Pte. Ltd.</a>&nbsp;<span style="font-size: 11px">&copy;</span>&nbsp;<span id="copyright-date"></span> All rights reserved.</p>
+	  </div>
+	  <div class="col-12 col-md-1 bot-squeeze" id="first-bottom">
+	    <p class="rights-reserved"><a href="terms.html">Terms of Use</a></p>
+	    <p class="rights-reserved"><a href="privacy.html">Privacy &amp; Cookies</a></p>
+	  </div>
+	  <div class="col-12 col-md-1 bot-squeeze">
+	    <p class="rights-reserved"><a href="codeofconduct.html">Code of
+		Conduct</a></p>
+	  </div>
+	  <div class="col-12 col-md-1 bot-squeeze">
+	    <p class="rights-reserved"><a href="community.html">Contact Us</a></p>
+	    <p class="rights-reserved"><a href="media.html">Press &amp; Media</a></p>
+	  </div>
 	</div>
       </div>
 
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-      <script src="https://cdn.auth0.com/js/auth0/8.10.1/auth0.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>      <script src="https://cdn.auth0.com/js/auth0/8.10.1/auth0.min.js"></script>
       <script type="text/javascript" src="scripts/accounting.js"></script>
       <script type="text/javascript" src="scripts/textcontent.js"></script>
       <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
