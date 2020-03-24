@@ -107,6 +107,7 @@ blockquote footer:before {
 
 #first-container {
     padding: 0px;
+    box-shadow: 0px 3px 3px rgba(150,150,150,0.2);
 }
 
 #eating-law > a {
@@ -358,6 +359,10 @@ blockquote footer:before {
 }
 
 /* https://unsplash.com/photos/Oaqk7qqNh_c */
+
+#second-container {
+    padding-top: 20px;
+}
 
 .second-container-front {
     background-image: url('../images/paper.jpg');
@@ -657,7 +662,7 @@ a.button-text-special:hover {
     font-size: 40px;
 }
 
-v.not-found-container {
+.not-found-container {
     margin-top: 20px;
 }
 
