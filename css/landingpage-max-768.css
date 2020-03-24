@@ -157,3 +157,16 @@ ul.li-inline li::before {
 .hidden-white {
     display: none;
 }
+
+.small-block {
+    display: block;
+    text-align: center;
+}
+
+#hq-img {
+    margin-left: 0;
+}
+
+.founded-block {
+    margin-top: 20px;
+}

@@ -1926,3 +1926,11 @@ table.floatThead-table {
 .media-col > .small-centre {
     font-size: 2rem;
 }
+
+.small-block {
+    display: inline;
+}
+
+#hq-img {
+    margin-left: 3rem;
+}
