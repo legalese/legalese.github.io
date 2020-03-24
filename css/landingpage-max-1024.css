@@ -209,7 +209,7 @@ blockquote:after {
     -o-transition: margin .25s ease-out;
     transition: margin .25s ease-out;
     background-color: white;
-    z-index: 1;
+    z-index: 99999;
     padding-top: 50px;
     padding-left: 15px;
 }
