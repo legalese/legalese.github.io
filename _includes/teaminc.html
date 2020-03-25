@@ -53,19 +53,6 @@
 {% if include.team %}
 <div class="row team-row">
   <div class="col-12 col-lg-6 offset-lg-3">
-
-    <!-- <div class="flipcard text-center"> -->
-      <!--   <div class="prof-link" data-toggle="modal" data-target="#DustinModal"><i class="fa fa-arrow-right" aria-hidden="true"></i></div> -->
-      <!--   <div class="frontcard"> -->
-	<!-- 	<img src="images/team/dustinfront.jpg" class="card-pictures" data-toggle="modal" data-target="#DustinModal"> -->
-	<!--   </div> -->
-      <!--   <div class="backcard"> -->
-	<!-- 	<video class="card-pictures" src="images/team/dustinback.mp4" data-toggle="modal" data-target="#DustinModal" autoplay loop muted playsinline></video> -->
-	<!--   </div> -->
-      <!--   <p><b>Dustin Wehr (PhD)</b><br> -->
-	<!-- 	Computer Scientist</p> -->
-      <!-- </div> -->
-
     <div class="flipcard text-center">
       <div class="prof-link" data-toggle="modal" data-target="#JobModal"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>
       <div class="frontcard">
@@ -131,12 +118,15 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
 	<!-- Alexis wrote this at Meng's behest -->
 	<h2 class="modal-title"><b>MENG</b></h2>
 	<h4 align="left"><b>Cofounder</b><small> / Computer Scientist /
 	    Entrepreneur / Investor / Graphic Designer</small></h4>
+	<button type="button" data-dismiss="modal" aria-label="Close" id="teamModalClose">
+	  <span aria-hidden="true">&times;</span>
+	</button>
+
       </div>
       <div class="modal-body">
 	<div class="row">
@@ -254,373 +244,244 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	
 	<h2 class="modal-title"><b>ALEXIS</b></h2>
 	<h4><b>Cofounder</b><small> / Recovering Lawyer / Self-taught Programmer / UI &amp; UX Designer 
 	</small></h4>
-	<div class="modal-body">
-	  <div class="row">
-	    <div class="col-lg-4 text-center">
-	      <img src="images/team/alexisfront.jpg" class="card-pictures"><br>
-	      <br>
-	      <div class="favourite-things-qn">Alignment</div>
-	      <div class="favourite-things-ans">Neutral Good</div>
-	      
-	      <div class="favourite-things-qn">Heavily Influenced by
-	      </div>	  
-	      <div class="favourite-things-ans">His Dark Materials<br>
-		Diamond Age<br>
-		Tina Fey &amp; Amy Poehler<br>
-		Planescape Torment<br>
-	      </div>
-	      
-	      <div class="favourite-things-qn">Favourite things</div>	  
-	      <div class="favourite-things-ans">
-		belle &amp; sebastian<br>
-		fencing (épée)<br>
-		sparkling water<br>
-	      </div>
-
-	      <div class="favourite-things-qn">Most likely to</div>
-	      <div class="favourite-things-ans">
-		go on a proper rant in one seemingly impossible breath<br>
-
-		<div class="favourite-things-qn">Signalling Mechanisms</div>
-		<div class="favourite-things-ans">Bachelor of Laws (LL.B)<br>(Second Upper Class with Honours, Queen Mary University of London '11)<br>
-		  Cambridge University Long Vacation Scholarship<br>
-		  Advocate &amp; Solicitor of the Supreme Court of Singapore<br>
-		  TSMP Law Corporation (Corporate)<br>
-		  Rajah &amp; Tann LLP (Commercial Litigation; IP)<br>
-		  Secondments: BNP Paribas &amp; JP Morgan<br>
-		  Mandarin Chinese, Javascript, Emacs<br>
-	  	</div>
-	      </div>
+	<button type="button" data-dismiss="modal" aria-label="Close" id="teamModalClose">
+	  <span aria-hidden="true">&times;</span>
+	</button>
+      </div>
+      <div class="modal-body">
+	<div class="row">
+	  <div class="col-lg-4 text-center">
+	    <img src="images/team/alexisfront.jpg" class="card-pictures"><br>
+	    <br>
+	    <div class="favourite-things-qn">Alignment</div>
+	    <div class="favourite-things-ans">Neutral Good</div>
+	    
+	    <div class="favourite-things-qn">Heavily Influenced by
+	    </div>	  
+	    <div class="favourite-things-ans">His Dark Materials<br>
+	      Diamond Age<br>
+	      Tina Fey &amp; Amy Poehler<br>
+	      Planescape Torment<br>
 	    </div>
 	    
-
-	    <div class="col-lg-8" align="left">
-	      <h4 div class ="profiles-tldr">TL;DR</h4>
-	      <p>As cofounder and CEO of Legalese, Alexis's job description is
-		very vague. Anything that's not done but ought to have
-		been, is her job. As the recovering lawyer, Alexis also spends her day
-		exorcising legal demons and unlearning her bad
-		habits by sharing her understanding of the end-users, industry,
-		and established conventions and practices (i.e. horror stories) with the
-		engineering and product teams. She is known to sometimes style herself as
-		Alexis N. Chun in the well-honed tradition of Iain M. Banks.</p><br>
-
-	      <h4 div class ="profiles-tldr">Long Version</h4>
-	      <p>Alexis spends her days exorcising legal demons and
-		unlearning her bad habits. Mostly, she tries to get
-		things off the research team's plates so they can focus
-		on the hard stuff. That can be anything from writing
-		about and for Legalese, pitching to anyone who will listen,
-		convincing governments and companies to give us
-		money, answer product / industry questions,
-		managing the community, and putting her natural assets
-		(<a class="a-link"
-		    href="http://www.lmfgtfy.com/?q=rbf" target="_blank">RBF</a>) to good
-		use, by playing bad cop to Meng's good cop within the
-		company. A little more self-interestedly, she does all this
-                so she won't have to wait too long to become the
-		first L4 legal programmer.<br><br>
-
-		In her previous life, she first got <a class="footnote">lulled by the
-		  giant payout of being a corporate lawyer<span>(she trained in corporate law
-		    at TSMP Law Corporation, a boutique Singaporean law firm that boasted
-		    the highest starting salary)</span></a>, before moving on to a '<em>Big 4</em>'
-		experience with Rajah &amp; Tann where she continued her training and later
-		practised as an IP, IT, and commercial litigator. <a class="footnote">(Customary thank yous are footnoted here)<span>To <b> TSMP</b>, she is
-		    grateful for the character building and for having imbued her with a
-		    love of elegant drafting.<br><br> To <b>Rajah &amp; Tann</b>, she is grateful for the
-		    wide scope of work, secondment opportunities (BNP Paribas;&nbsp;
-		    JPMorgan), and for having always fed her like French royalty.</span></a>
-		Fortunately, none of the profession's razzle dazzle was enough to disabuse her of her mounting
-		suspicions that <b>the legal profession has neither the tools, math,
-		  nor systems needed to solve its problems</b>. Her then-covert
-		explorations in the tech industry led her to OKCupid, which eventually
-		led her to Meng. Long story short: &nbsp; They met, he proposed, and 1 month later
-		she quit her job to become co-founder of Legalese. (Technically, he formally proposed only 3 months after,
-		to which she might have reacted with a mild aneurysm and let a fumey fart escape whilst fully personifying the "???" thought bubble)<br><br>
-		
-		Alexis unschooled herself for secondary school in Singapore
-		(preferring instead to hole up in her bedroom discovering music,
-		films, and books), and is a proud alumna of Victoria Junior College. She's grateful that you read this far, but recommends that you
-		read any other section of the website instead (she put a lot of work into that). Or even
-		better, read Diamond Age. When she grows up, she'd rather like to be a
-		monster mash of Tina Fey, Amy Poehler, Lyra Silvertongue, Ursula K Le Guin, Nell, Karen Teoh, and Amanda
-		Palmer.</p>
+	    <div class="favourite-things-qn">Favourite things</div>	  
+	    <div class="favourite-things-ans">
+	      belle &amp; sebastian<br>
+	      fencing (épée)<br>
+	      sparkling water<br>
 	    </div>
+
+	    <div class="favourite-things-qn">Most likely to</div>
+	    <div class="favourite-things-ans">
+	      go on a proper rant in one seemingly impossible breath<br>
+
+	      <div class="favourite-things-qn">Signalling Mechanisms</div>
+	      <div class="favourite-things-ans">Bachelor of Laws (LL.B)<br>(Second Upper Class with Honours, Queen Mary University of London '11)<br>
+		Cambridge University Long Vacation Scholarship<br>
+		Advocate &amp; Solicitor of the Supreme Court of Singapore<br>
+		TSMP Law Corporation (Corporate)<br>
+		Rajah &amp; Tann LLP (Commercial Litigation; IP)<br>
+		Secondments: BNP Paribas &amp; JP Morgan<br>
+		Mandarin Chinese, Javascript, Emacs<br>
+	      </div>
+	    </div>
+	  </div>
+	  
+
+	  <div class="col-lg-8" align="left">
+	    <h4 div class ="profiles-tldr">TL;DR</h4>
+	    <p>As cofounder and CEO of Legalese, Alexis's job description is
+	      very vague. Anything that's not done but ought to have
+	      been, is her job. As the recovering lawyer, Alexis also spends her day
+	      exorcising legal demons and unlearning her bad
+	      habits by sharing her understanding of the end-users, industry,
+	      and established conventions and practices (i.e. horror stories) with the
+	      engineering and product teams. She is known to sometimes style herself as
+	      Alexis N. Chun in the well-honed tradition of Iain M. Banks.</p><br>
+
+	    <h4 div class ="profiles-tldr">Long Version</h4>
+	    <p>Alexis spends her days exorcising legal demons and
+	      unlearning her bad habits. Mostly, she tries to get
+	      things off the research team's plates so they can focus
+	      on the hard stuff. That can be anything from writing
+	      about and for Legalese, pitching to anyone who will listen,
+	      convincing governments and companies to give us
+	      money, answer product / industry questions,
+	      managing the community, and putting her natural assets
+	      (<a class="a-link"
+		  href="http://www.lmfgtfy.com/?q=rbf" target="_blank">RBF</a>) to good
+	      use, by playing bad cop to Meng's good cop within the
+	      company. A little more self-interestedly, she does all this
+              so she won't have to wait too long to become the
+	      first L4 legal programmer.<br><br>
+
+	      In her previous life, she first got <a class="footnote">lulled by the
+		giant payout of being a corporate lawyer<span>(she trained in corporate law
+		  at TSMP Law Corporation, a boutique Singaporean law firm that boasted
+		  the highest starting salary)</span></a>, before moving on to a '<em>Big 4</em>'
+	      experience with Rajah &amp; Tann where she continued her training and later
+	      practised as an IP, IT, and commercial litigator. <a class="footnote">(Customary thank yous are footnoted here)<span>To <b> TSMP</b>, she is
+		  grateful for the character building and for having imbued her with a
+		  love of elegant drafting.<br><br> To <b>Rajah &amp; Tann</b>, she is grateful for the
+		  wide scope of work, secondment opportunities (BNP Paribas;&nbsp;
+		  JPMorgan), and for having always fed her like French royalty.</span></a>
+	      Fortunately, none of the profession's razzle dazzle was enough to disabuse her of her mounting
+	      suspicions that <b>the legal profession has neither the tools, math,
+		nor systems needed to solve its problems</b>. Her then-covert
+	      explorations in the tech industry led her to OKCupid, which eventually
+	      led her to Meng. Long story short: &nbsp; They met, he proposed, and 1 month later
+	      she quit her job to become co-founder of Legalese. (Technically, he formally proposed only 3 months after,
+	      to which she might have reacted with a mild aneurysm and let a fumey fart escape whilst fully personifying the "???" thought bubble)<br><br>
+	      
+	      Alexis unschooled herself for secondary school in Singapore
+	      (preferring instead to hole up in her bedroom discovering music,
+	      films, and books), and is a proud alumna of Victoria Junior College. She's grateful that you read this far, but recommends that you
+	      read any other section of the website instead (she put a lot of work into that). Or even
+	      better, read Diamond Age. When she grows up, she'd rather like to be a
+	      monster mash of Tina Fey, Amy Poehler, Lyra Silvertongue, Ursula K Le Guin, Nell, Karen Teoh, and Amanda
+	      Palmer.</p>
 	  </div>
 	</div>
       </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+    </div>
+  </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
 
 
 
 
-<!-- Dustin button trigger modal -->
-<div class="modal fade" id="DustinModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
-	<h2 class="modal-title"><b>DUSTIN (PhD)</b></h2>
-	<h4 align="left"><b>Computer Scientist</b><small> / DSL Designer &amp; Researcher  
-	</small></h4>
-	<div class="modal-body">
-	  <div class="row">
-	    <div class="col-lg-4 text-center">
-	      <img src="images/team/dustinfront.jpg" class="card-pictures"><br>
-	      <br>
-	      <div class="favourite-things-qn">Alignment</div>
-	      <div class="favourite-things-ans">Chaotic Good</div>
-	      
-	      <div class="favourite-things-qn">Heavily Influenced by
-	      </div>	  
-	      <div class="favourite-things-ans">
-		Kurt Vonnegut<br>
-		Indie Films &amp; Music</div>
-	      
-	      <div class="favourite-things-qn">Favourite things</div>	  
-	      <div class="favourite-things-ans">
-		Music<br>
-		Craft Beers<br>
-		Hugs<br>
-	      </div>
-
-	      <div class="favourite-things-qn">Most likely to</div>
-	      <div class="favourite-things-ans">
-		suffer <em>l'esprit de l'escalier</em> and make us laugh anyway<br>
-
-		<div class="favourite-things-qn">Signalling Mechanisms</div>
-		<div class="favourite-things-ans">PhD, Computer Science (U'Toronto)<br>
-		  MSC, Theory of Computer Science (U'Toronto)<br>
-		  BSc, Computer Science (McGill University)<br>
-	  	</div>
-	      </div>
-	    </div>
-
-	    <div class="col-lg-8">
-	      <class="row-prose">
-		<p>Dustin is a computer scientist with a <b>three peat
-		    background in Computer Science</b> (BSc, MSc, and PhD)!
-		  Essentially, this means that he spends a great deal of time
-		  formalizing law and its associated appurtenances, sanity
-		  checking the other computer scientists (and computer
-		  scientist wannabes) in the team, and exercising his
-		  sainthood-worthy patience with the rest of us who waste his
-		  time with (silly) little questions and (trivial) demands (sorry Dustin!)</p>
-		<p>Prior to Legalese, he founded <a class="a-link"
-						    href="http://dustinwehr.github.io/logic-for-progress/"
-						    target="_blank">Logic for Progress</a>, a non-profit that
-		  aims to advance the quality of deliberation on contentious
-		  social issues. (We know, big man with a big heart to match
-		  &mdash; we got lucky with this one!) Logic for Progress
-		  has its genesis in <a class="a-link"
-					href="http://www.cs.toronto.edu/~wehr/thesis/index.html"
-					target="_blank">Dustin's PhD thesis</a> (which was completed under the
-		  supervision of Stephen Cook and Alasdair Urquhart). He
-		  advocates leveraging the high standards of formal deductive
-		  logic (which are much higher than the standards of applied
-		  statistics and philosophy) to cut through the noise to find
-		  fundamental sources of disagreement, <em>whilst</em> avoiding flawed
-		  reductionist mathematical modelling (as is usually found in
-		  economics or game theory). It's a wee bit of a shame that he's had to put that on the back
-		  burner for now ("<b>the world is not yet ready for this,
-		    not in this form</b>", he says).
-
-		<p>He has an old, old, old (his words) <a class="a-link"
-							  href="http://www.cs.toronto.edu/~wehr/"
-							  target="_blank">personal website</a> where you can check
-		  out more of his work. He currently lives in Toronto, but
-		  has on occasion been coaxed out of Canada to attend
-		  conferences and meetings with the rest of the team.</p>
-		
-	    </div>
-	  </div>
-	</div>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-<!-- Job button trigger modal -->
 <div class="modal fade" id="JobModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
 	<h2 class="modal-title"><b>JOB</b></h2>
 	<h4 align="left"><b>Developer</b><small> / Ex-lawyer-to-be  
 	</small></h4>
-	<div class="modal-body">
-	  <div class="row">
-	    <div class="col-lg-4 text-center">
-	      <img src="images/team/jobfront.jpg" class="card-pictures"><br>
-	      <br>
-	      <div class="favourite-things-qn">Alignment</div>
-	      <div class="favourite-things-ans">True Neutral</div>
-	      
-	      <div class="favourite-things-qn">Heavily Influenced by
-	      </div>	  
-	      <div class="favourite-things-ans">Dune<br>
-		Foundation<br>
-		Beethoven<br>
-		Metal Gear Solid<br>
-	      </div>
-	      
-	      <div class="favourite-things-qn">Favourite things</div>	  
-	      <div class="favourite-things-ans">
-		ARPGs<br>
-		DOTA / DOTA 2<br>
-		videos of the above<br>
-		steamed fish<br>
-	      </div>
-
-	      <div class="favourite-things-qn">Most likely to</div>
-	      <div class="favourite-things-ans">
-		move to another country to avoid having to share his opinions<br>
-
-		<div class="favourite-things-qn">Signalling Mechanisms</div>
-		<div class="favourite-things-ans">Bachelor of Laws (LL.B) (NUS, '16)<br>
-		  Javascript, Python, Ruby, the arcane languages that are AWS config, Emacs<br>
-	  	</div>
-	      </div>
+	<button type="button" data-dismiss="modal" aria-label="Close" id="teamModalClose">
+	  <span aria-hidden="true">&times;</span>
+	</button>
+      </div>
+      <div class="modal-body">
+	<div class="row">
+	  <div class="col-lg-4 text-center">
+	    <img src="images/team/jobfront.jpg" class="card-pictures"><br>
+	    <br>
+	    <div class="favourite-things-qn">Alignment</div>
+	    <div class="favourite-things-ans">True Neutral</div>
+	    
+	    <div class="favourite-things-qn">Heavily Influenced by
+	    </div>	  
+	    <div class="favourite-things-ans">Dune<br>
+	      Foundation<br>
+	      Beethoven<br>
+	      Metal Gear Solid<br>
 	    </div>
 	    
-	    <div class="col-lg-8" align="left">
-	      <div class="row-prose">
-		<h4 class ="profiles-tldr">TL;DR</h4>
-		<p>The self-taught web developer at Legalese who is super relieved that he gets to deal with code and computers instead of having to actually become a lawyer (he'd met Alexis and her horror stories worked wonders on him). Law school was boring enough.</p><br> 
-		<h4 class ="profiles-tldr">Long Version</h4>
-		<p>Yes, it's from that book and person in the bible. His
-		  parents are religious; he no longer is.<br><br>
-		  The <a class="footnote">self-taught web
-		    developer<span>though to be fair, he did attend a GA webdev course, but in his words, found it completely useless and preferred reading on his own instead</span></a>at Legalese deals with the practical side of
-		  Legalese's product. This includes front-end work,
-		  deployment, and all the other needs of a modern web
-		  application. After studying four years of law, he
-		  decided that the subject had turned his brain into mush,
-		  and thus is now rehabilitating himself with the more
-		  energetic environs of programming. But for Alexis's proclaimation that he is "too smart to be a real lawyer", he might have been peer and family pressured into Big Law. Boy, did he dodge one.<br><br>
-		  Job has one of the
-		  most enviable memory capacities of the team, is
-		  always first pick at trivia games, and a very avid reader. Somehow, he still manages to find time to
-		  play and watch DOTA 2, enjoy movies, and develop an
-		  opinion on music. He is occasionally (affectionately) teased
-		  for being from the <a class="a-link"
-					href="https://en.wikipedia.org/wiki/Gifted_Education_Programme_(Singapore)"
-					target="_blank">Gifted Education Programme</a> (where
-		  kids scoring amongst the top 1% of tested IQ are
-		  recruited for special education) because he's often 3 steps ahead of everyone and doesn't like writing documentation. He comforts the rest of us by
-		  pointing out that Meng was in it when it was designed for those in the top 0.25%, and if Meng can learn to write documentation and wait for the rest of us, so can he.<br><br>
-		</p>
+	    <div class="favourite-things-qn">Favourite things</div>	  
+	    <div class="favourite-things-ans">
+	      ARPGs<br>
+	      DOTA / DOTA 2<br>
+	      videos of the above<br>
+	      steamed fish<br>
+	    </div>
+
+	    <div class="favourite-things-qn">Most likely to</div>
+	    <div class="favourite-things-ans">
+	      move to another country to avoid having to share his opinions<br>
+
+	      <div class="favourite-things-qn">Signalling Mechanisms</div>
+	      <div class="favourite-things-ans">Bachelor of Laws (LL.B) (NUS, '16)<br>
+		Javascript, Python, Ruby, the arcane languages that are AWS config, Emacs<br>
 	      </div>
 	    </div>
 	  </div>
+	  
+	  <div class="col-lg-8" align="left">
+	    <div class="row-prose">
+	      <h4 class ="profiles-tldr">TL;DR</h4>
+	      <p>The self-taught web developer at Legalese who is super relieved that he gets to deal with code and computers instead of having to actually become a lawyer (he'd met Alexis and her horror stories worked wonders on him). Law school was boring enough.</p><br> 
+	      <h4 class ="profiles-tldr">Long Version</h4>
+	      <p>Yes, it's from that book and person in the bible. His
+		parents are religious; he no longer is.<br><br>
+		The <a class="footnote">self-taught web
+		  developer<span>though to be fair, he did attend a GA webdev course, but in his words, found it completely useless and preferred reading on his own instead</span></a>at Legalese deals with the practical side of
+		Legalese's product. This includes front-end work,
+		deployment, and all the other needs of a modern web
+		application. After studying four years of law, he
+		decided that the subject had turned his brain into mush,
+		and thus is now rehabilitating himself with the more
+		energetic environs of programming. But for Alexis's proclaimation that he is "too smart to be a real lawyer", he might have been peer and family pressured into Big Law. Boy, did he dodge one.<br><br>
+		Job has one of the
+		most enviable memory capacities of the team, is
+		always first pick at trivia games, and a very avid reader. Somehow, he still manages to find time to
+		play and watch DOTA 2, enjoy movies, and develop an
+		opinion on music. He is occasionally (affectionately) teased
+		for being from the <a class="a-link"
+				      href="https://en.wikipedia.org/wiki/Gifted_Education_Programme_(Singapore)"
+				      target="_blank">Gifted Education Programme</a> (where
+		kids scoring amongst the top 1% of tested IQ are
+		recruited for special education) because he's often 3 steps ahead of everyone and doesn't like writing documentation. He comforts the rest of us by
+		pointing out that Meng was in it when it was designed for those in the top 0.25%, and if Meng can learn to write documentation and wait for the rest of us, so can he.<br><br>
+	      </p>
+	    </div>
+	  </div>
 	</div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
-</div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <!-- Colin's writeup-->
 <div class="modal fade" id="ColinModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
 	<h2 class="modal-title"><b>COLIN</b></h2>
 	<h4 align="left"><b>Advisor on opensource &amp; open standards strategy</b></h4>
-	<div class="modal-body">
-	  <div class="row">
-	    <div class="col-lg-4 text-center">
-	      <img src="images/team/colinfront.jpg" class="card-pictures"><br></div>  
-	    <div class="col-lg-8">
-	      <p>Colin is an open-source and community building
-		expert, software engineer, and business
-		development consultant. He advises Legalese on
-		building a venture-backed, commercial,
-		open-source business.<br><br>  Colin joined MySQL
-		after Series B, and helped it grow from $34M
-		in revenue in 2005 to $78M in 2008, and later to
-		its $1B acquisition by Sun. Colin is also the
-		founder of Grok Sdn Bhd, a technical
-		architecture firm specialising in open-source
-		software. <br><br>Currently, Colin is Chief Evangelist
-		at MariaDB Corporation, where he is also a
-		shareholder and part of the extended management
-		team.  <br><br>On top of being an active contributor and
-		evangelist for the MySQL ecosystem and The
-		Fedora Project, he was team lead (MS localisation), community marketing contact and
-		trainer for OpenOffice.org, the leading
-		open-source office software suite. Colin also
-		co-wrote the End User Linux Desktop Manual for
-		the United Nations Development Program’s
-		International Open Source Network, and developed
-		a Live CD for the UNDP, was voting committee
-		member and conference chair for O’Reilly MySQL
-		Conference &amp; Expo for 3 years (where he also
-		works on community-related web development), and
-		is the project administrator for
-		MySQL’s/MariaDB’s Google’s Summer of Code
-		initiative.
-	      </p>
-	    </div>
+	<button type="button" data-dismiss="modal" aria-label="Close" id="teamModalClose">
+	  <span aria-hidden="true">&times;</span>
+	</button>
+      </div>
+      <div class="modal-body">
+	<div class="row">
+	  <div class="col-lg-4 text-center">
+	    <img src="images/team/colinfront.jpg" class="card-pictures"><br></div>  
+	  <div class="col-lg-8">
+	    <p>Colin is an open-source and community building
+	      expert, software engineer, and business
+	      development consultant. He advises Legalese on
+	      building a venture-backed, commercial,
+	      open-source business.<br><br>  Colin joined MySQL
+	      after Series B, and helped it grow from $34M
+	      in revenue in 2005 to $78M in 2008, and later to
+	      its $1B acquisition by Sun. Colin is also the
+	      founder of Grok Sdn Bhd, a technical
+	      architecture firm specialising in open-source
+	      software. <br><br>Currently, Colin is Chief Evangelist
+	      at MariaDB Corporation, where he is also a
+	      shareholder and part of the extended management
+	      team.  <br><br>On top of being an active contributor and
+	      evangelist for the MySQL ecosystem and The
+	      Fedora Project, he was team lead (MS localisation), community marketing contact and
+	      trainer for OpenOffice.org, the leading
+	      open-source office software suite. Colin also
+	      co-wrote the End User Linux Desktop Manual for
+	      the United Nations Development Program’s
+	      International Open Source Network, and developed
+	      a Live CD for the UNDP, was voting committee
+	      member and conference chair for O’Reilly MySQL
+	      Conference &amp; Expo for 3 years (where he also
+	      works on community-related web development), and
+	      is the project administrator for
+	      MySQL’s/MariaDB’s Google’s Summer of Code
+	      initiative.
+	    </p>
 	  </div>
 	</div>
       </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-<!-- Colin's writeup-->
-<div class="modal fade" id="VirgilModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
-	<h2 class="modal-title"><b>VIRGIL</b></h2>
-	<h4 align="left"><b>Advisor on Ethereum</b></h4>
-	<div class="modal-body">
-	  <div class="row">
-	    <div class="col-lg-4 text-center">
-	      <img src="images/team/virgilfront.jpg" class="card-pictures"><br></div>  
-	    <div class="col-lg-8">
-	      <p>Virgil currently works as a Research Scientist at the Ethereum Foundation.<br><br>
-
-		Virgil is a cognitive and data scientist,
-		disruptive technologist, information and machine intelligence
-		theorist, and self-taught software engineer. In 2007, Virgil created
-		WikiScanner, a publicly searchable database that exposed organisations
-		which had made edits to Wikipedia’s entries by cross-referencing IP
-		addresses with a database of IP address owners. The year after,
-		together with Aaron Swartz, designed the Tor2web proxy, a web
-		anonymity tool that allows Tor hidden services to be accessed from
-		standard web browsers without being connected to the Tor network.
-		Virgil is also an accomplished theoretical neurobiologist in
-		quantifying consciousness.  He has published papers on computer
-		science, electronic identities, artificial life and complexity and
-		information theory [http://arxiv.org/a/griffith_v_1.html]. Virgil
-		received the Computational Graduate Fellowship from the US Government
-		(their highest fellowship) to complete studies at the Stanford
-		Graphics Laboratory and MIT Center for Collective Intelligence. He has
-		also dissected a Chinese censorship program at Harvard Law School.
-		Virgil holds a Ph.D. in Computation and Neural Systems from the
-		California Institute of Technology.  
-	      </p>
-	    </div>
-	  </div>
-	</div>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+    </div>
+  </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->

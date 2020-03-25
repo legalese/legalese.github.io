@@ -2102,6 +2102,14 @@ table.floatThead-table {
 #termsModalClose {
     position: absolute;
     right: 10px;
+    border: none;
+    top: 10px;
+}
+
+#teamModalClose {
+    position: absolute;
+    right: 10px;
+    top: 10px;
     background-color: lightgrey;
     border: none;
     border-radius: 10px;
