@@ -1923,7 +1923,7 @@ table.floatThead-table {
     display: block;
     border: none;
     background-color: white;
-    border: 3px solid #82fece;
+    border: 3px solid #efefef;
     margin: 0 auto;
     position: relative;
     margin-bottom: 5px;
@@ -1942,14 +1942,15 @@ table.floatThead-table {
 }
 
 .active-media-link {
+    position: relative;
     background-color: #32fb91;
     transform: translateX(50px);
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
-    -webkit-transition-timing-function: ease-out;
-    transition-timing-function: ease-out;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
     padding: 1rem 1rem 1rem 3rem;
     font-size: 1.2rem;
     z-index: 2;
@@ -1967,6 +1968,15 @@ table.floatThead-table {
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+.icon-pictures {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
 
 .small-caps {
@@ -2002,4 +2012,13 @@ table.floatThead-table {
 
 .media-content-show {
     display: block;
+}
+
+.media-blue {
+    color: #1464f6;
+}
+
+.media-blue > .inline-media {
+    height: 1rem;
+    margin-right: 0.5rem;
 }
