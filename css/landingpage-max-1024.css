@@ -197,25 +197,109 @@ blockquote:after {
     margin: 20px;
 }
 
-#navbarSupportedContent {
+#sidebarMenu {
+    height: 120vh;
     position: fixed;
-    top: 0;
     left: 0;
-    width: 15rem;
-    min-height: 120vh;
-    margin-left: -15rem;
-    -webkit-transition: margin .25s ease-out;
-    -moz-transition: margin .25s ease-out;
-    -o-transition: margin .25s ease-out;
-    transition: margin .25s ease-out;
+    width: 250px;
+    margin-top: 10px;
     background-color: white;
+    transform: translateX(-250px);
+    transition: transform 250ms ease-in-out;
     z-index: 99999;
-    padding-top: 50px;
-    padding-left: 15px;
 }
 
-#navbarSupportedContent.toggled {
-    margin-left: -1rem;
+.sidebarMenuInner{
+    margin:0;
+    padding:0;
+    border-top: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.sidebarMenuInner > li {
+    list-style: none;
+    color: #333;
+    font-weight: bold;
+    padding: 20px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.sidebarMenuInner li {
+    list-style: none;
+}
+
+.sidebar-sublist {
+    padding-inline-start: 0
+}    
+
+#sidebarMenu.toggled {
+    transform: translateX(0px);
+}
+
+.sidebarIconToggle {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: absolute;
+    z-index: 99;
+    height: 100%;
+    width: 100%;
+    top: 12px;
+    left: 10px;
+    height: 22px;
+    width: 22px;
+}
+
+.spinner {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: #333;
+}
+
+.horizontal {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    margin-top: 3px;
+}
+
+.diagonal.part-1 {
+    position: relative;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    float: left;
+}
+
+.diagonal.part-2 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    margin-top: 3px;
+}
+
+.horizontal.animate {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    opacity: 0;
+}
+
+.diagonal.part-1.animate {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    transform: rotate(135deg);
+    margin-top: 8px;
+}
+
+.diagonal.part-2.animate {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    transform: rotate(-135deg);
+    margin-top: -9px;
 }
 
 .sidebar-title {
@@ -225,4 +309,18 @@ blockquote:after {
 
 .highlight-row-purple {
     padding-top: 10px;
+}
+
+.small-navbar {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: 0px 3px 3px rgba(150,150,150,0.2);
+    background-color: white;
+    position: fixed;
+    height: 40px!important;
+    overflow: hidden;
+    z-index: 10;
+    top: 0;
 }

@@ -348,16 +348,22 @@ function sendData() {
 }
 
 $(document).ready(function(e) {
-  $("#menu-toggle").click(function(e) {
+  $("#openSidebarMenu").click(function(e) {
     e.preventDefault();
-    $("#navbarSupportedContent").toggleClass("toggled");
+    $("#sidebarMenu").toggleClass("toggled");
+    $(".horizontal").toggleClass("animate");
+    $(".diagonal.part-1").toggleClass("animate");
+    $(".diagonal.part-2").toggleClass("animate");
     e.stopPropagation()
   });
 
   $(document).on('click', function() {
     // $("#navbarSupportedContent").click(function(){ return false; });
-    if ($("#navbarSupportedContent").hasClass("toggled")) {
-      $("#navbarSupportedContent").removeClass("toggled");
+    if ($("#sidebarMenu").hasClass("toggled")) {
+      $("#sidebarMenu").removeClass("toggled");
+      $(".horizontal").toggleClass("animate");
+      $(".diagonal.part-1").toggleClass("animate");
+      $(".diagonal.part-2").toggleClass("animate");
     }
   });
 })
