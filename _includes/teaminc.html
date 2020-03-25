@@ -1,7 +1,8 @@
 {% if include.loc %}
-<div class="row team-row" style="padding: 50px">
+<div class="row team-row" style="padding: 50px 0px">
   <div class="col-12">
-    <img src="images/streamline-icon-road-sign-oneway-right@40x40.svg" class="inline-media"/><a class="a-link" target="_blank" href="https://docs.google.com/document/d/1kiniHZiktijp4M4VgdBD0q3ia5OZR4NDLxSj0bsCqKk/edit?usp=sharing">feel free to head on to the Google Doc where all the info can be easily copied & pasted (you can also comment on it)</a>
+    <img src="images/streamline-icon-road-sign-oneway-right@40x40.svg" class="inline-media" style="height: 3rem;"/><a class="a-link" target="_blank" href="https://docs.google.com/document/d/1kiniHZiktijp4M4VgdBD0q3ia5OZR4NDLxSj0bsCqKk/edit?usp=sharing">feel free to head on to the Google Doc where all the info can be easily copied & pasted</a>
+    <div style="color: gray; font-size: 0.8rem">(opens in a new tab)</div>
   </div>
 </div>
 {% endif %}
@@ -18,11 +19,13 @@
       <p><b><span style="text-decoration: underline">Wong</span> Meng Weng</b><br>
 	Cofounder / Computer Scientist<br>
 	CTO</p>
-      <div class="text-left">
+      {% if include.loc %}
+      <div class="flipcard-links">
 	<p class="p-no-bottom"><img src="images/streamline-icon-social-media-twitter@40x40.svg" class="inline-media"/><a class="a-link" href="https://twitter.com/mengwong" target="_blank">twitter.com/mengwong</a></p>
 	<p class="p-no-bottom"><img src="images/streamline-icon-professional-network-linkedin@40x40.svg" class="inline-media"/><a class="a-link" href="https://www.linkedin.com/in/mengwong/" target="_blank">linkedin.com/in/mengwong/</a></p>	
-	<p class="p-no-bottom"><img src="images/streamline-icon-download-circle@40x40.svg" class="inline-media"/><a class="a-link" href="images/team/mengfront.jpg" target="_blank">Headshot</a></p>	
+	<p class="p-no-bottom"><img src="images/streamline-icon-download-circle@40x40.svg" class="inline-media"/><a class="a-link" href="images/team/mengfront.jpg" target="_blank">download headshot</a></p>	
       </div>
+      {% endif %}
     </div>
 
     <div class="flipcard text-center">
@@ -35,10 +38,14 @@
       </div>
       <p><b>Alexis Natalie <span style="text-decoration: underline">Chun</span></b><br>
 	Cofounder / Recovering Lawyer<br>
-      CEO</p>
+	CEO</p>
+      {% if include.loc %}
+      <div class="flipcard-links">
 	<p class="p-no-bottom"><img src="images/streamline-icon-social-media-twitter@40x40.svg" class="inline-media"/><a class="a-link" href="https://twitter.com/wabisabiyo" target="_blank">twitter.com/wabisabiyo</a></p>
 	<p class="p-no-bottom"><img src="images/streamline-icon-professional-network-linkedin@40x40.svg" class="inline-media"/><a class="a-link" href="https://www.linkedin.com/in/alexischun/" target="_blank">linkedin.com/in/alexischun/</a></p>	
-	<p class="p-no-bottom"><img src="images/streamline-icon-download-circle@40x40.svg" class="inline-media"/><a class="a-link" href="images/team/alexisfront.jpg" target="_blank">Headshot</a></p>
+	<p class="p-no-bottom"><img src="images/streamline-icon-download-circle@40x40.svg" class="inline-media"/><a class="a-link" href="images/team/alexisfront.jpg" target="_blank">download headshot</a></p>
+      </div>
+      {% endif %}
     </div>
   </div>
 </div>
