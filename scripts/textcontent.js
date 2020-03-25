@@ -1,12 +1,12 @@
 // for scrolltotop arrow
 
-$(window).scroll(function() {
-  if ($(this).scrollTop() >= $("#top-c").height()) {
-    $('#return-to-top').fadeIn(200);    // Fade in the arrow
-  } else {
-    $('#return-to-top').fadeOut(200);   // Else fade out the arrow
-  }
-});
+/* $(window).scroll(function() {
+ *   if ($(this).scrollTop() >= $("#top-c").height()) {
+ *     $('#return-to-top').fadeIn(200);    // Fade in the arrow
+ *   } else {
+ *     $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+ *   }
+ * }); */
 
 $('#return-to-top').click(function() {      // When arrow is clicked
     $('body,html').animate({
@@ -22,12 +22,19 @@ $("#copyright-date").text(currentYear);
 // show various bits of players navbar
 
 $(".sidebar-header").each(function() {
-    $(this).click(function() {
-	var id = ".sub-" + $(this).attr("href").slice(1);
-	$(".left-menu-sub").hide();
-	$(id).show();
-    });
+  $(this).click(function() {
+    var id = ".sub-" + $(this).attr("href").slice(1);
+    $(".left-menu-sub").hide();
+    $(id).show();
+  });
 });
+
+["#news", "#press", "#overview", "story", "#bios", "#assets"].map(e =>
+  $(e).click(function() {
+    $(".media-content").removeClass("media-content-show")
+    $(`${e}-content`).addClass("media-content-show")
+  })
+)
 
 // don't know why I can't just add a css class here
 
