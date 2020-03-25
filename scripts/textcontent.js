@@ -29,7 +29,7 @@ $(".sidebar-header").each(function() {
   });
 });
 
-["#news", "#press", "#overview", "story", "#bios", "#assets"].map(e =>
+["#news", "#press", "#overview", "#bios", "#assets"].map(e =>
   $(e).click(function() {
     $(".media-content").removeClass("media-content-show")
     $(`${e}-content`).addClass("media-content-show")

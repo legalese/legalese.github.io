@@ -171,14 +171,6 @@ ul.li-inline li::before {
     margin-top: 20px;
 }
 
-blockquote:before {
-    left: -20px;
-}
-
-blockquote:after {
-    bottom: 60px;
-    right: -20px;
-}
 
 .dropdown-menu {
     display: block;
@@ -202,7 +194,7 @@ blockquote:after {
     position: fixed;
     left: 0;
     width: 250px;
-    margin-top: 10px;
+    margin-top: 40px;
     background-color: white;
     transform: translateX(-250px);
     transition: transform 250ms ease-in-out;
@@ -327,4 +319,21 @@ blockquote:after {
 
 #second-container {
     padding-top: 50px;
+}
+
+.flipcard {
+    margin-top: 20px;
+}
+
+.flipcard-links {
+    text-align: center;
+}
+
+.name-col {
+    padding-top: 20px;
+}
+
+.media-jumbo {
+    padding-left: 10px;
+    padding-right: 10px;
 }

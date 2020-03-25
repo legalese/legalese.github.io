@@ -62,7 +62,7 @@ blockquote:before {
     content: ",,";
     font-size: 60px;
     position: absolute;
-    left: 0;
+    left: -30px;
     top: -10px;
     color: #333333;
     transform: rotate(180deg);
@@ -74,8 +74,8 @@ blockquote:after {
     content: ",,";
     font-size: 60px;
     position: absolute;
-    right: 0;
-    bottom: 20px;
+    right: -30px;
+    bottom: -20px;
     color: #333333;
 }
 
@@ -86,17 +86,19 @@ blockquote footer:before {
 .blockquote-footer {
     display: inline-block;
     position: relative;
-    top: 15px;
+    width: 100%;
+    text-align: center;
 }
 
 .blockquote-footer:before {
     content: "";
     position: absolute;
-    left    : 40%;
-    bottom  : -25px;
+    bottom  : -10px;
+    left: 50%;
     height  : 2px;
-    width   : 60px;
+    width   : 3rem;
     border-bottom: 2px solid #c2c2c2;
+    transform: translateX(-50%);
 }
 
 .row-with-blockquote {
@@ -713,6 +715,22 @@ a.button-text-special:hover {
     margin-top: 20px;
 }
 
+.tick-li:before {
+    font-family: FontAwesome;
+    content: "\f00c";
+    left: -10px;
+    margin-right: 10px;
+    color: #25ff1d;
+}
+
+.cross-li:before {
+    font-family: FontAwesome;
+    content: "\f00d";
+    left: -10px;
+    margin-right: 10px;
+    color: deeppink;
+}
+
 #slack-li:before {
     font-family: FontAwesome;
     content: "\f198";
@@ -1060,6 +1078,10 @@ button.close {
 .flipcard.text-center {
     width: 300px;
     display: inline-block;
+}
+
+.flipcard-links {
+    text-align: left;
 }
 
 .row.team-row {
@@ -1876,18 +1898,23 @@ table.floatThead-table {
 }
 
 .inline-media {
-    height: 2rem;
-    margin-right: 1rem;
-}
-
-.p-no-bottom > .inline-media {
     height: 1rem;
     margin-right: 0.5rem;
 }
 
+.p-no-bottom > .inline-media,
+.inline-media-small {
+    height: 1rem;
+    margin-right: 0.5rem;
+}
+
+.inline-media-left {
+    margin-left: 0.5rem;
+}
+
 .media-jumbo {
     background-color: #f7f6f6;
-    padding: 0px 10px 50px 10px;
+    padding: 0px 0px 50px 0px;
 }
 
 .media-menu {
@@ -1952,7 +1979,6 @@ table.floatThead-table {
     -webkit-transition-timing-function: ease-in-out;
     transition-timing-function: ease-in-out;
     padding: 1rem 1rem 1rem 3rem;
-    font-size: 1.2rem;
     z-index: 2;
 }
 
@@ -2014,11 +2040,70 @@ table.floatThead-table {
     display: block;
 }
 
-.media-blue {
-    color: #1464f6;
+.media-gray {
+    color: gray;
+}
+
+.grey-bull {
+    font-size: 0.8rem;
+}
+
+.media-gray > .a-link {
+    margin: 0px 0.2rem;
 }
 
 .media-blue > .inline-media {
     height: 1rem;
     margin-right: 0.5rem;
+}
+
+.press-release {
+    margin-bottom: 0;
+    padding: 20px;
+    position: relative;
+    border-left: 5px solid #ff2f9f;
+}
+
+.press-release:before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    width: 15px;
+    height: 15px;
+    background-color: #33fff8;
+    border-radius: 50%;
+    top: 25px;
+}
+
+.top-margin-large {
+    margin-top: 20px;
+}
+
+.yellow-span {
+    background-color: #f1ff07;
+    font-weight: 700;
+}
+
+.col-6.col-lg-2 > .small-caps {
+    font-size: 12px;
+    color: gray;
+}
+
+.col-12.col-lg-11.offset-lg-1 {
+    padding-left: 0px;
+}
+
+.name-col {
+    margin-top: 10px;
+    border-top: 8px solid white;
+    padding-top: 50px;
+}
+
+#termsModalClose {
+    position: absolute;
+    right: 10px;
+    background-color: lightgrey;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 3px 3px rgba(150,150,150,0.2);
 }
