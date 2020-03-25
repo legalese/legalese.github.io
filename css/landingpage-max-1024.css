@@ -324,3 +324,7 @@ blockquote:after {
     z-index: 10;
     top: 0;
 }
+
+#second-container {
+    padding-top: 50px;
+}

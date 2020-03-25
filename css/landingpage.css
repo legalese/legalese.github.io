@@ -1058,7 +1058,7 @@ button.close {
 }
 
 .flipcard.text-center {
-    width: 240px;
+    width: 300px;
     display: inline-block;
 }
 
@@ -1764,7 +1764,8 @@ table.floatThead-table {
 }
 
 .pseudo-table > p,
-.pseudo-table-tall > p {
+.pseudo-table-tall > p,
+.p-no-bottom {
     margin-bottom: 0;
 }
 
@@ -1879,8 +1880,14 @@ table.floatThead-table {
     margin-right: 1rem;
 }
 
+.p-no-bottom > .inline-media {
+    height: 1rem;
+    margin-right: 0.5rem;
+}
+
 .media-jumbo {
     background-color: #f7f6f6;
+    padding: 0px 10px 50px 10px;
 }
 
 .media-menu {
@@ -1945,6 +1952,7 @@ table.floatThead-table {
     transition-timing-function: ease-out;
     padding: 1rem 1rem 1rem 3rem;
     font-size: 1.2rem;
+    z-index: 2;
 }
 
 .a-link.long {
@@ -1986,4 +1994,12 @@ table.floatThead-table {
 
 .sidebar-title {
     display: none;
+}
+
+.media-content {
+    display: none;
+}
+
+.media-content-show {
+    display: block;
 }
