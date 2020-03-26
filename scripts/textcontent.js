@@ -21,6 +21,14 @@ $("#copyright-date").text(currentYear);
 
 // show various bits of players navbar
 
+new ResizeSensor(jQuery('#top-c'), function(){
+  if ($("#top-c").height() < $(window).height()) {
+    $(".bot-container").addClass("bot-container-fixed")
+  } else {
+    $(".bot-container").removeClass("bot-container-fixed")
+  }
+});
+
 $(".sidebar-header").each(function() {
   $(this).click(function() {
     var id = ".sub-" + $(this).attr("href").slice(1);
