@@ -19,12 +19,15 @@
 	  </div>
 	</div>
 	<div class="pseudo-table table-row-title table-row-top table-row-top-half" style="border-left: none">
-	  <h4 class="table-left-title"><b>Standard Document Generation</b></h4>
-	  {% include popover.html
-	  position="auto left"
-	  content="<h5 style='display: inline; margin-bottom: 0px'><b>Standard</b></h5> <em>means</em><br><p style='margin-bottom: 0px'>simple variations</p><p style='font-size: 12px; margin-bottom: 0px'>e.g. name, NRIC, dates, formula-derived calculations, address, numeric fields</p>"
-	  html=true
-	  %}
+	  <h4 class="table-left-title">
+	    {% include popover.html
+	    position="auto left"
+	    content="<h5 style='display: inline; margin-bottom: 0px'><b>Standard</b></h5> <em>means</em><br><p style='margin-bottom: 0px'>simple variations</p><p style='font-size: 12px; margin-bottom: 0px'>e.g. name, NRIC, dates, formula-derived calculations, address, numeric fields</p>"
+	    html=true
+	    customId="popover-title"
+	    %}	    
+	    <b>Standard Document Generation</b>
+	  </h4>
 	</div>
 	<div class="pseudo-table table-row-title">
 	  <p><b>Free</b> document(s)</p>
@@ -49,12 +52,15 @@
 	  %}
 	</div>
 	<div class="pseudo-table table-row-title table-row-top" style="border-left: none">
-	  <h4 class="table-left-title"><b>Complex Document Generation</b></h4>
-	  {% include popover.html
-	  position="auto left"
-	  content="<h5 style='display: inline; margin-bottom: 0px'><b>Complex</b></h5> <em>means</em><br><p style='margin-bottom: 0px'>if/then/else logic</p><p style='font-size: 12px; margin-bottom: 0px'>clause permutations<br>conditional fields</p>"
-	  html=true
-	  %}
+	  <h4 class="table-left-title">
+	    {% include popover.html
+	    position="auto left"
+	    content="<h5 style='display: inline; margin-bottom: 0px'><b>Complex</b></h5> <em>means</em><br><p style='margin-bottom: 0px'>if/then/else logic</p><p style='font-size: 12px; margin-bottom: 0px'>clause permutations<br>conditional fields</p>"
+	    html=true
+	    customId="popover-title"
+	    %}	    
+	    <b>Complex Document Generation</b>
+	  </h4>
 	</div>
 	<div class="pseudo-table table-row-title">
 	  <p><b>Free</b> document(s)</p>

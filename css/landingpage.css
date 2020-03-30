@@ -1463,6 +1463,7 @@ button.close {
 .table-left-title {
     font-size: 18px;
     color: #333;
+    position: relative;
 }
 
 @media (max-width: 767px) {
@@ -1517,6 +1518,10 @@ table.floatThead-table {
 .popover-display-custom {
     padding: 0;
     vertical-align: bottom;
+}
+
+#popover-title {
+    left: -30px;
 }
 
 .inline-p {
