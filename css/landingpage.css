@@ -323,6 +323,11 @@ blockquote footer:before {
     0 0 150px #0ff;
 }
 
+.login-menu-item-pink {
+  color: #0000ff;
+  text-shadow: #ff00b2 1px 0 10px;
+}
+
 .left-menu {
     color: #333333;
     height: 80%;
