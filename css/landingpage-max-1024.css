@@ -208,20 +208,20 @@ ul.li-inline li::before {
 }
 
 .sidebarMenuInner > li {
-    list-style: none;
+    // list-style: none;
     color: #333;
     font-weight: bold;
-    padding: 20px;
+    padding: 20px 20px 20px 30px;
     cursor: pointer;
     border-bottom: 1px solid rgba(0, 0, 0, 0.10);
 }
 
 .sidebarMenuInner li {
-    list-style: none;
+    // list-style: none;
 }
 
 .sidebar-sublist {
-    padding-inline-start: 0
+    padding-inline-start: 0;
 }    
 
 #sidebarMenu.toggled {
