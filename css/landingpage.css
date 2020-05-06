@@ -1673,6 +1673,8 @@ table.floatThead-table {
     text-align: center;
     margin: 0;
     box-sizing: border-box;
+    padding-top: 15px;
+    
 }
 
 .pseudo-table-header {
@@ -1686,10 +1688,12 @@ table.floatThead-table {
     font-size: 10px;
     background-color: #00f9d8;
     margin-bottom: 0px;
+    margin-top: -15px;
 }
 
 #recommended-container {
     padding: 0;
+    height: calc(6em + 15px);
 }
 
 @media(max-width: 767px) {
@@ -1697,8 +1701,11 @@ table.floatThead-table {
 	height: 8em;
     }
     #recommended-header {
-	margin-bottom: calc(9em + 2px);
+	margin-bottom: 12em;
 	font-size: 8px;
+    }
+    #recommended-container {
+	height: calc(14em + 15px);
     }
 }
 
@@ -1713,19 +1720,26 @@ table.floatThead-table {
     color: #333;
 }
 
+#pseudo-table-header-price-before-basic {
+    margin-top: 0px;
+}
+
 @media(max-width: 767px) {
     .pseudo-table-header-price-before {
 	font-size: 14px;
 	transform: rotate(55deg);
 	transform-origin: bottom right;
 	position: absolute;
-	bottom: 50px;
+	top: 80px;
 	right: 50%;
     }
     #pseudo-table-header-no-rotate {
 	transform: rotate(0deg);
 	position: relative;
 	right: 0;
+    }
+    #pseudo-table-header-price-before-basic {
+	margin-top: 0;
     }
 
 }
@@ -1754,7 +1768,7 @@ table.floatThead-table {
 
 @media (max-width: 767px) {
     .pseudo-table-header {
-	height: 13em;
+	height: 14em;
 	padding-top: 9em;
     }
     .pseudo-table-header > p {
