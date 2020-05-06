@@ -299,10 +299,6 @@ ul.li-inline li::before {
     padding-left: 20px;
 }
 
-.highlight-row-purple {
-    padding-top: 10px;
-}
-
 .small-navbar {
     display: block;
     margin: 0 auto;
