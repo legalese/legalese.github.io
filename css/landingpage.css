@@ -1701,7 +1701,7 @@ table.floatThead-table {
 	height: 8em;
     }
     #recommended-header {
-	margin-bottom: 12em;
+	margin-bottom: calc(12em + 15px);
 	font-size: 8px;
     }
     #recommended-container {
@@ -1730,7 +1730,7 @@ table.floatThead-table {
 	transform: rotate(55deg);
 	transform-origin: bottom right;
 	position: absolute;
-	top: 80px;
+	top: 50px;
 	right: 50%;
     }
     #pseudo-table-header-no-rotate {
@@ -1740,6 +1740,7 @@ table.floatThead-table {
     }
     #pseudo-table-header-price-before-basic {
 	margin-top: 0;
+	top: 65px;
     }
 
 }
