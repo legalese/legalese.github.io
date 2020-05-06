@@ -1698,6 +1698,7 @@ table.floatThead-table {
     }
     #recommended-header {
 	margin-bottom: calc(9em + 2px);
+	font-size: 8px;
     }
 }
 
