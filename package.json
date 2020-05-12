@@ -19,7 +19,5 @@
     "url": "https://github.com/legalese/legalese.com/issues"
   },
   "homepage": "https://github.com/legalese/legalese.com#readme",
-  "dependencies": {
-    "lodash": "^4.17.14"
-  }
+  "dependencies": {}
 }
