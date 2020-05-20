@@ -863,6 +863,10 @@ a.footnote:hover span {
     font-size: 2px;
 }
 
+.lower-nav-el {
+    margin-top: 20px;
+}
+
 .hvr-underline-from-center {
   display: inline;
   vertical-align: middle;
