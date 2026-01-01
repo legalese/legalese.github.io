@@ -1,29 +1,44 @@
-# How does this site work?
+# Legalese.com Website
 
-[Jekyll](https://jekyllrb.com/docs/step-by-step/01-setup/) will set you up.
+Static website for [Legalese](https://legalese.com), the company bringing computational law to market through the L4 programming language.
 
-## What happened to the navbars?
+## About
 
-In most of the `*.html` files you should see these lines at the top: 
+Originally launched around 2019/2020, this site was revised in 2025/2026 to showcase L4, a domain-specific language for law developed over five years at SMU CCLAW. L4 enables legal rules to be expressed as executable, type-checked code.
 
-	---
-	layout: default
-	---
-	
-This indicates `default.html`, which contains the default layout (which consists mostly of the top and bottom navigation bars. This file is the one to change if you want those things to look differently.
+**Key links:**
+- [L4 Web IDE](https://jl4.legalese.com/) - Try L4 in your browser
+- [L4 Documentation](https://l4.legalese.com/) - Language reference and tutorials
+- [legalese/l4-ide](https://github.com/legalese/l4-ide) - Core language and IDE source
 
-## How do I actually generate the HTML?
+## Future Work
 
-Navigate to the root directory and run `jekyll build -w`. This will make jekyll mash your templates together and watch for further changes.
+This site needs updates to better cover:
+- Productization work and commercial offerings
+- Core language development at [legalese/l4-ide](https://github.com/legalese/l4-ide)
 
-If you return to your terminal after saving some changes you've made, you should see something like
+---
 
-	Regenerating: 1 file(s) changed at 2018-10-17 23:53:35
-                    #readme.md#
-                    ...done in 0.126117 seconds.
+## Development
 
-The output of this build process is `_site`. Open the HTML files in that directory to see your completed output.
+Built with [Jekyll](https://jekyllrb.com/docs/step-by-step/01-setup/) and hosted on GitHub Pages.
 
-## Do I need to run the build command to check in my changes?
+### Building locally
 
-Nope. Just make your changes in the HTML files and push as usual.
+```bash
+jekyll build -w
+```
+
+Output goes to `_site/`. You don't need to build locally before pushing - GitHub Pages builds automatically.
+
+### Site structure
+
+Pages use Jekyll front matter to reference `_layouts/default.html`, which contains the navigation and footer:
+
+```
+---
+layout: default
+---
+```
+
+Edit `_layouts/default.html` to change the navigation bars.
