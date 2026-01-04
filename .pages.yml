@@ -1,0 +1,28 @@
+media:
+  input: public/assets
+  output: /assets
+  categories: [ "image" ]
+content:
+  - name: posts
+    label: Posts
+    type: collection
+    path: _posts
+    view:
+      fields: [ coverImage, title, date ]
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: excerpt, label: Excerpt, type: string }
+      - { name: coverImage, label: Cover image, type: image }
+      - { name: date, label: Date, type: date, options: { time: true, format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" } }
+      - name: author
+        label: Author
+        type: object
+        fields:
+          - { name: name, label: Name, type: string }
+          - { name: picture, label: Picture, type: image }
+      - name: ogImage
+        label: Image (social sharing)
+        type: object
+        fields:
+          - { name: url, label: URL, type: image }
+      - { name: body, label: Body, type: rich-text }
