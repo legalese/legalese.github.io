@@ -20,16 +20,18 @@ export default function Index() {
         
         {/* Hero Section */}
         <section className="mb-4">
-          <div 
-            className="flex flex-col lg:flex-row items-center gap-12 bg-amber-50 rounded-2xl"
-            style={{
-              backgroundImage: 'url(/assets/images/hero.png)',
-              backgroundPosition: 'right center',
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: 'contain',
-            }}
-          >
-            <div className="lg:w-2/3 p-24">
+          <div className="relative flex flex-col lg:flex-row items-center gap-12 bg-amber-50 rounded-2xl overflow-hidden">
+            {/* Background image - hidden on mobile/tablet */}
+            <div 
+              className="hidden lg:block absolute inset-0"
+              style={{
+                backgroundImage: 'url(/assets/images/hero.png)',
+                backgroundPosition: 'right center',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'contain',
+              }}
+            />
+            <div className="relative lg:w-2/3 p-24">
               <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight mb-6">
                 Software is<br />
                 <span className="text-accent">eating law</span>
@@ -43,7 +45,7 @@ export default function Index() {
                   href="https://l4.legalese.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-rose-700 text-white px-8 py-3 rounded-lg font-medium hover:bg-rose-800 transition-colors"
+                  className="bg-accent text-white px-8 py-3 rounded-lg font-medium hover:bg-accent-hover transition-colors"
                 >
                   Explore L4
                 </a>
@@ -239,7 +241,7 @@ else {
           <div className="flex flex-wrap justify-center gap-4">
             <Link 
               href="/community"
-              className="bg-rose-700 text-white px-8 py-3 rounded-lg font-medium hover:bg-rose-800 transition-colors"
+              className="bg-accent text-white px-8 py-3 rounded-lg font-medium hover:bg-accent-hover transition-colors"
             >
               Join the Community
             </Link>
