@@ -13,7 +13,7 @@ export default function Index() {
     <main>
       <Alert>
           Legalese acquires Monad Solutions &nbsp;
-          <a href="" className="text-accent">Read more</a>
+          <a href="posts/2026-01-01-legalese-acquires-monad-solutions" className="text-accent">Read more</a>
       </Alert>
       <Container>
         <Header />
