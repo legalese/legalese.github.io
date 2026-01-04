@@ -1,13 +1,13 @@
 ---
 title: "Wellwishers' Newsletter August 2016"
 excerpt: "In July we met angels and funds in Singapore, continued developing our industry-academia research partnership, and made progress on v2 product and v3 research."
-coverImage: "/assets/images/fundraising-forecast.png"
+coverImage: "/assets/blog/content/legalese-wellwishes.png"
 date: "2016-08-01T00:00:00.000Z"
 author:
-  name: "Meng Wong"
-  picture: "/assets/team/mengwong.jpg"
+  name: "Meng Weng Wong"
+  picture: "/assets/blog/authors/mengwong.jpg"
 ogImage:
-  url: "/assets/images/fundraising-forecast.png"
+  url: "/assets/blog/content/legalese-wellwishes.png"
 ---
 
 Dear [wellwishers](http://wellwishers.lists.legalese.com),

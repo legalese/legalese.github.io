@@ -1,7 +1,6 @@
 import Avatar from "./avatar";
 import CoverImage from "./cover-image";
 import DateFormatter from "./date-formatter";
-import { PostTitle } from "@/app/_components/post-title";
 import { type Author } from "@/interfaces/author";
 
 type Props = {
@@ -13,22 +12,21 @@ type Props = {
 
 export function PostHeader({ title, coverImage, date, author }: Props) {
   return (
-    <>
-      <PostTitle>{title}</PostTitle>
-      <div className="hidden md:block md:mb-12">
-        <Avatar name={author.name} picture={author.picture} />
-      </div>
-      <div className="mb-8 md:mb-16 sm:mx-0">
-        <CoverImage title={title} src={coverImage} />
-      </div>
-      <div className="max-w-2xl mx-auto">
-        <div className="block md:hidden mb-6">
+    <div className="max-w-6xl mx-auto">
+      <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left">
+        {title}
+      </h1>
+      <div className="max-w-6xl mx-auto mb-8 flex gap-6 items-center space-between">
+        <div className="">
           <Avatar name={author.name} picture={author.picture} />
         </div>
-        <div className="mb-6 text-lg">
+        <div className="">
           <DateFormatter dateString={date} />
         </div>
       </div>
-    </>
+      <div className="mb-4 md:mb-8 sm:mx-0">
+        <CoverImage title={title} src={coverImage} />
+      </div>
+    </div>
   );
 }

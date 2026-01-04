@@ -1,13 +1,13 @@
 ---
 title: "Why Computational Law, Part I: The Problem with Legal"
 excerpt: "The status quo sucks. From comma disputes costing millions to law firms 'trapped in 1995', the legal industry is ripe for disruption."
-coverImage: "/assets/images/know-all-men-by-these-presents-1000.png"
+coverImage: "/assets/blog/content/problem-legal.png"
 date: "2017-01-01T00:00:00.000Z"
 author:
   name: "Legalese Team"
   picture: "/assets/logos/legalese-logo.png"
 ogImage:
-  url: "/assets/images/know-all-men-by-these-presents-1000.png"
+  url: "/assets/blog/content/problem-legal.png"
 ---
 
 > "It is difficult to get a man to understand something, when his salary depends on his not understanding it."

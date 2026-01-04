@@ -17,11 +17,10 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        "accent-1": "#FAFAFA",
-        "accent-2": "#EAEAEA",
-        "accent-7": "#333",
-        success: "#0070f3",
-        cyan: "#79FFE1",
+        accent: {
+          DEFAULT: "#923047",
+          hover: "#7a2839",
+        },
       },
       spacing: {
         28: "7rem",

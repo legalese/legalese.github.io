@@ -18,7 +18,7 @@ export default function BlogIndex() {
       <main>
         <Container>
           <Header />
-          <div className="mb-32">
+          <div className="max-w-4xl mx-auto mb-32">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-8">
               Blog
             </h1>
@@ -38,7 +38,7 @@ export default function BlogIndex() {
     <main>
       <Container>
         <Header />
-        <div className="mb-8">
+        <div className="max-w-6xl mx-auto mb-8">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none">
             Blog
           </h1>

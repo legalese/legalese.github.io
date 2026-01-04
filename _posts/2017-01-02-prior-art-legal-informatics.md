@@ -1,13 +1,13 @@
 ---
 title: "Why Computational Law, Part II: 70 Years of Legal Informatics"
 excerpt: "An incomplete history of formalising contracts, regulations, and the rich tradition of computational approaches to law—from Leibniz to smart contracts."
-coverImage: "/assets/images/know-all-men-by-these-presents-1000.png"
+coverImage: "/assets/blog/content/legal-informatics.png"
 date: "2017-01-02T00:00:00.000Z"
 author:
   name: "Legalese Team"
   picture: "/assets/logos/legalese-logo.png"
 ogImage:
-  url: "/assets/images/know-all-men-by-these-presents-1000.png"
+  url: "/assets/blog/content/legal-informatics.png"
 ---
 
 > "There is this tremendous body of knowledge in the world of academia where extraordinary numbers of incredibly thoughtful people have taken the time to examine on a really profound level the way we live our lives and who we are and what we've been. That brilliant learning sometimes gets trapped in academia and never sees the light of day."

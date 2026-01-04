@@ -11,3 +11,136 @@
     font-family: var(--font-merriweather), serif;
   }
 }
+
+/* ==========================================================================
+   Prose/Markdown Styles (unlayered to override Tailwind base reset)
+   ========================================================================== */
+
+.prose {
+  @apply text-lg leading-relaxed;
+}
+
+.prose p,
+.prose ul,
+.prose ol,
+.prose blockquote {
+  @apply my-6;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  font-family: var(--font-merriweather), serif;
+}
+
+.prose h2 {
+  @apply text-3xl mt-12 mb-4 leading-snug;
+}
+
+.prose h3 {
+  @apply text-2xl mt-8 mb-4 leading-snug;
+}
+
+/* Links */
+.prose a {
+  @apply underline underline-offset-2 transition-colors duration-200;
+  color: theme('colors.accent.DEFAULT');
+  text-decoration-color: theme('colors.accent.DEFAULT' / 40%);
+}
+
+.prose a:hover {
+  color: theme('colors.accent.hover');
+  text-decoration-color: theme('colors.accent.DEFAULT');
+}
+
+/* Blockquotes */
+.prose blockquote {
+  @apply border-l-4 border-amber-100 bg-gradient-to-r from-amber-50 to-transparent pl-6 pr-4 py-4 italic text-gray-700;
+}
+
+.prose blockquote p {
+  @apply my-0;
+}
+
+.prose blockquote cite {
+  @apply block mt-2 text-sm not-italic text-gray-500;
+}
+
+/* Inline code */
+.prose code {
+  @apply px-1.5 py-0.5 rounded text-base font-mono bg-rose-50 text-accent;
+}
+
+/* Code blocks */
+.prose pre {
+  @apply bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto my-6;
+}
+
+.prose pre code {
+  @apply bg-transparent text-inherit p-0 text-sm;
+}
+
+/* Lists */
+.prose ul {
+  @apply list-disc pl-6;
+}
+
+.prose ol {
+  @apply list-decimal pl-6;
+}
+
+.prose li {
+  @apply my-2;
+}
+
+.prose li > ul,
+.prose li > ol {
+  @apply my-2;
+}
+
+/* Horizontal rule */
+.prose hr {
+  @apply max-w-4xl mx-auto my-16;
+  border-color: theme('colors.accent.DEFAULT' / 5%);
+  border-width: 1px;
+  border-style: solid;
+}
+
+/* Tables */
+.prose table {
+  @apply w-full border-collapse my-6;
+}
+
+.prose th {
+  @apply bg-amber-50 border border-gray-300 px-4 py-2 text-left font-semibold;
+}
+
+.prose td {
+  @apply border border-gray-300 px-4 py-2;
+}
+
+.prose tr:nth-child(even) {
+  @apply bg-rose-50;
+}
+
+/* Images */
+.prose img {
+  @apply rounded-lg my-6 max-w-full h-auto;
+}
+
+/* Strong and emphasis */
+.prose strong {
+  @apply font-bold text-gray-900;
+}
+
+.prose em {
+  @apply italic;
+}
+
+/* Mark/highlight */
+.prose mark {
+  @apply px-1 rounded bg-amber-200;
+}

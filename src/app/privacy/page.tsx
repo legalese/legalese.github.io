@@ -26,11 +26,7 @@ export default async function PrivacyPage() {
       <Container>
         <Header />
         <article className="mb-32">
-          <PageHeader 
-            title={page.title} 
-            lastModified={page.lastModified}
-            effectiveDate={page.effectiveDate}
-          />
+          <PageHeader title={page.title} />
           <PageContent content={content} />
         </article>
       </Container>

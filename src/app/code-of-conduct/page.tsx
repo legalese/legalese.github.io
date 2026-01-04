@@ -27,8 +27,7 @@ export default async function CodeOfConductPage() {
         <Header />
         <article className="mb-32">
           <PageHeader 
-            title={page.title} 
-            lastModified={page.lastModified}
+            title={page.title}
           />
           <PageContent content={content} />
         </article>

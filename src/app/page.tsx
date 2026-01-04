@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export default function Index() {
   const allPosts = getAllPosts();
-  const recentPosts = allPosts.slice(0, 3);
+  const recentPosts = allPosts.slice(0, 4);
 
   return (
     <main>
@@ -16,12 +16,12 @@ export default function Index() {
         <Header />
         
         {/* Hero Section */}
-        <section className="mb-20">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="lg:w-1/2">
+        <section className="mb-4">
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-12 bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl">
+            <div className="lg:w-2/3 p-24">
               <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight mb-6">
                 Software is<br />
-                <span className="text-pink-600">eating law</span>
+                <span className="text-amber-700">eating law</span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
                 Legalese is building L4, a domain-specific programming language for law. 
@@ -32,7 +32,7 @@ export default function Index() {
                   href="https://l4.legalese.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-pink-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-pink-700 transition-colors"
+                  className="bg-amber-700 text-white px-8 py-3 rounded-lg font-medium hover:bg-amber-800 transition-colors"
                 >
                   Explore L4
                 </a>
@@ -46,21 +46,11 @@ export default function Index() {
                 </a>
               </div>
             </div>
-            <div className="lg:w-1/2">
-              <Image
-                src="/assets/images/know-all-men-by-these-presents-1000.png"
-                alt="Legal document illustration"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-lg"
-                priority
-              />
-            </div>
           </div>
         </section>
 
         {/* What is L4 Section */}
-        <section className="mb-20 py-16 -mx-5 px-5 bg-gray-50 rounded-2xl">
+        <section className="mb-20 py-16 -mx-5 px-5 ">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-8 text-center">
             What is L4?
           </h2>
@@ -70,28 +60,28 @@ export default function Index() {
               and contracts as executable specifications, allowing you to:
             </p>
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-white p-6 rounded-lg shadow-lg">
                 <h3 className="text-xl font-bold mb-3">Formalize rules with precision</h3>
                 <p className="text-gray-600">
                   Express legal logic with mathematical precision, eliminating ambiguity 
                   and enabling automated analysis.
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-white p-6 rounded-lg shadow-lg">
                 <h3 className="text-xl font-bold mb-3">Test contracts against scenarios</h3>
                 <p className="text-gray-600">
                   Run your contracts through test cases to verify behavior before deployment, 
                   just like software testing.
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-white p-6 rounded-lg shadow-lg">
                 <h3 className="text-xl font-bold mb-3">Find contradictions automatically</h3>
                 <p className="text-gray-600">
                   Static analysis can prove that a contract is internally consistent, 
                   free of contradiction, and complete.
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-white p-6 rounded-lg shadow-lg">
                 <h3 className="text-xl font-bold mb-3">Generate applications</h3>
                 <p className="text-gray-600">
                   Compile L4 specifications into user-facing applications, decision services, 
@@ -104,7 +94,7 @@ export default function Index() {
                 href="https://github.com/smucclaw/l4-ide" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-pink-600 font-medium hover:text-pink-800 transition-colors"
+                className="text-amber-700 font-medium hover:text-amber-800 transition-colors"
               >
                 View on GitHub →
               </a>
@@ -113,7 +103,7 @@ export default function Index() {
         </section>
 
         {/* About Section */}
-        <section className="mb-20">
+        <section className="max-w-6xl mx-auto m-20">
           <div className="flex flex-col lg:flex-row gap-12">
             <div className="lg:w-1/2">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
@@ -130,7 +120,7 @@ export default function Index() {
               </p>
               <Link 
                 href="/about" 
-                className="text-pink-600 font-medium hover:text-pink-800 transition-colors"
+                className="text-amber-700 font-medium hover:text-amber-800 transition-colors"
               >
                 Learn more about us →
               </Link>
@@ -162,7 +152,7 @@ else {
         </section>
 
         {/* News/Press Section */}
-        <section className="mb-20">
+        <section className="max-w-6xl mx-auto mb-20">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-8">
             In the News
           </h2>
@@ -201,7 +191,7 @@ else {
           <div className="text-center mt-8">
             <Link 
               href="/media" 
-              className="text-pink-600 font-medium hover:text-pink-800 transition-colors"
+              className="text-amber-700 font-medium hover:text-amber-800 transition-colors"
             >
               View all press coverage →
             </Link>
@@ -210,7 +200,7 @@ else {
 
         {/* Blog Section */}
         {recentPosts.length > 0 && (
-          <section className="mb-20">
+          <section className="max-w-6xl mx-auto mb-20">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-8">
               Latest from the Blog
             </h2>
@@ -218,7 +208,7 @@ else {
             <div className="text-center mt-8">
               <Link 
                 href="/posts" 
-                className="text-pink-600 font-medium hover:text-pink-800 transition-colors"
+                className="text-amber-700 font-medium hover:text-amber-800 transition-colors"
               >
                 View all posts →
               </Link>
@@ -227,7 +217,7 @@ else {
         )}
 
         {/* CTA Section */}
-        <section className="mb-20 text-center py-16 bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl">
+        <section className="mb-20 text-center py-16 bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
             Ready to explore computational law?
           </h2>
@@ -238,7 +228,7 @@ else {
           <div className="flex flex-wrap justify-center gap-4">
             <Link 
               href="/community"
-              className="bg-pink-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-pink-700 transition-colors"
+              className="bg-amber-700 text-white px-8 py-3 rounded-lg font-medium hover:bg-amber-800 transition-colors"
             >
               Join the Community
             </Link>

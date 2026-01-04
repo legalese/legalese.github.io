@@ -14,13 +14,13 @@ const merriweather = Merriweather({
 
 export const metadata: Metadata = {
   title: {
-    default: `${CMS_NAME} - Software is Eating Law`,
+    default: `${CMS_NAME} - Rules Automation`,
     template: `%s | ${CMS_NAME}`
   },
   description: SITE_DESCRIPTION,
   metadataBase: new URL(SITE_URL),
   openGraph: {
-    title: `${CMS_NAME} - Software is Eating Law`,
+    title: `${CMS_NAME} - Rules Automation`,
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     siteName: CMS_NAME,
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${CMS_NAME} - Software is Eating Law`,
+    title: `${CMS_NAME} - Rules Automation`,
     description: SITE_DESCRIPTION,
     images: [HOME_OG_IMAGE_URL],
   },
