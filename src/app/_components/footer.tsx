@@ -107,12 +107,12 @@ export function Footer() {
                 </li>
                 <li>
                   <a 
-                    href="https://twitter.com/legalese" 
+                    href="https://x.com/legalese" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-gray-400 hover:text-white transition-colors text-sm"
                   >
-                    Twitter
+                    X
                   </a>
                 </li>
                 <li>
