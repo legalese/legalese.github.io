@@ -1,14 +1,13 @@
 import Container from "@/app/_components/container";
-import { CMS_NAME } from "@/lib/constants";
 import cn from "classnames";
 
 type Props = {
   preview?: boolean,
-  text?: string
+  children?: any
 };
 
-const Alert = ({ preview, text }: Props) => {
-  return text ? (
+const Alert = ({ preview, children }: Props) => {
+  return children || preview ? (
     <div
       className={cn("border-b", {
         "bg-neutral-800 border-neutral-800 text-white": preview,
@@ -28,11 +27,7 @@ const Alert = ({ preview, text }: Props) => {
               </a>{" "}
               to exit preview mode.
             </>
-          ) : (
-            <>
-              {text}
-            </>
-          )}
+          ) : children}
         </div>
       </Container>
     </div>

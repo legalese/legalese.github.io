@@ -1,10 +1,9 @@
 import Container from "@/app/_components/container";
 import Header from "@/app/_components/header";
-import { HeroPost } from "@/app/_components/hero-post";
+import Alert from "@/app/_components/alert";
 import { MoreStories } from "@/app/_components/more-stories";
 import { getAllPosts } from "../lib/api";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Index() {
   const allPosts = getAllPosts();
@@ -12,6 +11,10 @@ export default function Index() {
 
   return (
     <main>
+      <Alert>
+          Legalese acquires Monad Solutions &nbsp;
+          <a href="" className="text-accent">Read more</a>
+      </Alert>
       <Container>
         <Header />
         
