@@ -6,18 +6,23 @@ type Props = {
   title: string;
   src: string;
   slug?: string;
+  className?: string;
 };
 
-const CoverImage = ({ title, src, slug }: Props) => {
+const CoverImage = ({ title, src, slug, className }: Props) => {
+  const useFill = className?.includes("object-cover");
+  
   const image = (
     <Image
       src={src}
       alt={`Cover Image for ${title}`}
-      className={cn("shadow-sm w-full", {
+      className={cn("shadow-sm", className || "w-full", {
         "hover:shadow-lg transition-shadow duration-200": slug,
       })}
-      width={1300}
-      height={630}
+      {...(useFill 
+        ? { fill: true, sizes: "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" }
+        : { width: 1300, height: 630 }
+      )}
     />
   );
   return (

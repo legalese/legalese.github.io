@@ -3,11 +3,12 @@ import { CMS_NAME } from "@/lib/constants";
 import cn from "classnames";
 
 type Props = {
-  preview?: boolean;
+  preview?: boolean,
+  text?: string
 };
 
-const Alert = ({ preview }: Props) => {
-  return (
+const Alert = ({ preview, text }: Props) => {
+  return text ? (
     <div
       className={cn("border-b", {
         "bg-neutral-800 border-neutral-800 text-white": preview,
@@ -29,13 +30,13 @@ const Alert = ({ preview }: Props) => {
             </>
           ) : (
             <>
-              ${CMS_NAME}
+              {text}
             </>
           )}
         </div>
       </Container>
     </div>
-  );
+  ) : null;
 };
 
 export default Alert;

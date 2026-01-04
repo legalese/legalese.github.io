@@ -4,7 +4,7 @@ media:
   categories: [ "image" ]
 content:
   - name: posts
-    label: Posts
+    label: Blog Posts
     type: collection
     path: _posts
     view:
@@ -26,3 +26,16 @@ content:
         fields:
           - { name: url, label: URL, type: image }
       - { name: body, label: Body, type: rich-text }
+
+  - name: pages
+    label: Pages
+    type: collection
+    path: _pages
+    view:
+      fields: [ title, slug ]
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: slug, label: Slug, type: string, required: true }
+      - { name: lastModified, label: Last Modified, type: date }
+      - { name: effectiveDate, label: Effective Date, type: date }
+      - { name: body, label: Content, type: rich-text }

@@ -1,3 +1,5 @@
 export const CMS_NAME = "Legalese";
-export const HOME_OG_IMAGE_URL =
-  "https://og-image.vercel.app/Next.js%20Blog%20Starter%20Example.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg";
+export const SITE_NAME = "Legalese";
+export const SITE_DESCRIPTION = "Software is eating law. Legalese is building L4, a domain-specific programming language for legal.";
+export const SITE_URL = "https://legalese.com";
+export const HOME_OG_IMAGE_URL = "/assets/images/know-all-men-by-these-presents-1000.png";
