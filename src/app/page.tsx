@@ -20,11 +20,19 @@ export default function Index() {
         
         {/* Hero Section */}
         <section className="mb-4">
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-12 bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl">
+          <div 
+            className="flex flex-col lg:flex-row items-center gap-12 bg-amber-50 rounded-2xl"
+            style={{
+              backgroundImage: 'url(/assets/images/hero.png)',
+              backgroundPosition: 'right center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'contain',
+            }}
+          >
             <div className="lg:w-2/3 p-24">
               <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight mb-6">
                 Software is<br />
-                <span className="text-amber-700">eating law</span>
+                <span className="text-accent">eating law</span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
                 Legalese is building L4, a domain-specific programming language for law. 
@@ -35,7 +43,7 @@ export default function Index() {
                   href="https://l4.legalese.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-amber-700 text-white px-8 py-3 rounded-lg font-medium hover:bg-amber-800 transition-colors"
+                  className="bg-rose-700 text-white px-8 py-3 rounded-lg font-medium hover:bg-rose-800 transition-colors"
                 >
                   Explore L4
                 </a>
@@ -97,7 +105,7 @@ export default function Index() {
                 href="https://github.com/smucclaw/l4-ide" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-amber-700 font-medium hover:text-amber-800 transition-colors"
+                className="text-accent font-medium hover:text-accent-hover transition-colors"
               >
                 View on GitHub →
               </a>
@@ -123,7 +131,7 @@ export default function Index() {
               </p>
               <Link 
                 href="/about" 
-                className="text-amber-700 font-medium hover:text-amber-800 transition-colors"
+                className="text-accent font-medium hover:text-accent-hover transition-colors"
               >
                 Learn more about us →
               </Link>
@@ -194,7 +202,7 @@ else {
           <div className="text-center mt-8">
             <Link 
               href="/media" 
-              className="text-amber-700 font-medium hover:text-amber-800 transition-colors"
+              className="text-accent font-medium hover:text-accent-hover transition-colors"
             >
               View all press coverage →
             </Link>
@@ -211,7 +219,7 @@ else {
             <div className="text-center mt-8">
               <Link 
                 href="/posts" 
-                className="text-amber-700 font-medium hover:text-amber-800 transition-colors"
+                className="text-accent font-medium hover:text-accent-hover transition-colors"
               >
                 View all posts →
               </Link>
@@ -231,7 +239,7 @@ else {
           <div className="flex flex-wrap justify-center gap-4">
             <Link 
               href="/community"
-              className="bg-amber-700 text-white px-8 py-3 rounded-lg font-medium hover:bg-amber-800 transition-colors"
+              className="bg-rose-700 text-white px-8 py-3 rounded-lg font-medium hover:bg-rose-800 transition-colors"
             >
               Join the Community
             </Link>
