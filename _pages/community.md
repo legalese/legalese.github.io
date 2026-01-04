@@ -17,17 +17,14 @@ Thank you for bearing with our teething problems, we promise to make it worth yo
 
 👋 But first... read our [code of conduct](/code-of-conduct)
 
-### Slack
-Engage with us (or fly-on-the-wall, if you're the shy sort) by [requesting an invite to our Slack](https://legalese1.typeform.com/to/ZN8wEJ). Tell us your domain expertise, your nerd-out topic of choice, and your favourite science fiction.
-
-### Forum
-Join the discussion on our [Google Group](https://groups.google.com/a/lists.legalese.com/forum/#!forum/talk)
+### Discord
+Join the discussion on our [Discord](https://discord.gg/Q7a7NSEdNy)
 
 ### GitHub
-Check out our code on [GitHub](https://github.com/legalese/legalese.github.io)
+Check out our code on [GitHub](https://github.com/legalese/)
 
-### Twitter
-Follow us on [Twitter @legalese](https://twitter.com/legalese)
+### X
+Follow us on [X @legalese](https://x.com/legalese)
 
 ### Email us
 [collective@legalese.com](mailto:collective@legalese.com) only if you've got something **specific** in mind
@@ -53,7 +50,7 @@ Mmmm, watch this space. We'll get to writing documentation, eventually.
 For now, check out:
 - [L4 Documentation](https://l4.legalese.com/)
 - [L4 Web IDE](https://jl4.legalese.com/)
-- [L4 GitHub Repository](https://github.com/smucclaw/l4-ide)
+- [L4 GitHub Repository](https://github.com/legalese/l4-ide)
 
 ---
 
@@ -68,7 +65,3 @@ Or email us at [press@legalese.com](mailto:press@legalese.com)
 ## Join the team
 
 Are you sure? It is 92% unglamorous work (e.g. spam moderation, reimbursement review, writing documentation, competency building, and a lot of reading) and we *generally* require several months of probation (code contributions, thought sharing, reading, peer review and assessment) before you can be considered a full member of the project. (That said, we're quite against unpaid internships. Our interns earn their place, and we compensate them for it.)
-
-Still up for it? We like that. You might want to read [our thoughts on how we work](https://github.com/legalese/legalese.github.io/blob/master/doc/company.org) and read our [Code of Conduct](/code-of-conduct) to self-assess whether you're a good fit.
-
-**Web developers, we want you** (if you know this [carp](https://github.com/legalese/legalese.github.io/blob/master/doc/company.org#2-roadmap-and-where-we-are-now) 🐟).
