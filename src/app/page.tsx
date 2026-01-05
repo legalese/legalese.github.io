@@ -139,27 +139,12 @@ export default function Index() {
               </Link>
             </div>
             <div className="lg:w-1/2">
-              <div className="bg-gray-900 text-green-400 p-6 rounded-lg font-mono text-sm overflow-x-auto">
-                <pre>{`// why wasn't this just
-if( seriesB < 32.5 ) { 
-  conversion = 27.5 
-}
-else if( seriesB < 40 ) { 
-  conversion = seriesB * 0.85 
-}
-else if( seriesB < 80 ) { 
-  conversion = 40 
-}
-else if( seriesB < 100 ) { 
-  conversion = 45 
-}
-else { 
-  conversion = 50 
-}`}</pre>
+              <div className="rounded-lg text-sm overflow-x-auto">
+                <iframe src="https://jl4.legalese.com/?id=49ca8910-b83b-4ac9-8836-a120df51ea13" frame-border="0" width="100%" height="380px" />
+                <p className="text-sm text-gray-500 mt-3 italic">
+                  Why can't legal contracts be as clear as code?
+                </p>
               </div>
-              <p className="text-sm text-gray-500 mt-3 italic">
-                Why can't legal contracts be as clear as code?
-              </p>
             </div>
           </div>
         </section>
