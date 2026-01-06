@@ -31,7 +31,7 @@ export default function Index() {
                 backgroundSize: 'contain',
               }}
             />
-            <div className="relative lg:w-2/3 p-24">
+            <div className="relative w-full lg:w-2/3 p-8 md:p-16 lg:p-24">
               <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight mb-6">
                 Software is<br />
                 <span className="text-accent">eating law</span>
