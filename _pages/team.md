@@ -6,8 +6,6 @@ slug: "team"
 > "Isn't it enough to see that a garden is beautiful without having to believe that there are fairies at the bottom of it too?"
 > — thought Ford Prefect in *The Hitchhiker's Guide to the Galaxy*, Douglas Adams, 1979
 
----
-
 ## Cofounders
 
 ### Wong Meng Weng
@@ -29,7 +27,6 @@ Meng is running the ship and the lead language architect, computer scientist, an
 - Co-founded [karmasphere.com](http://karmasphere.com), one of the first big data analytics solutions
 - Co-founded Hackerspace.SG and JFDI.Asia (Singapore's first startup accelerator)
 
----
 
 ### Thomas Gorissen
 ![Thomas Gorissen](/assets/blog/authors/thomas.jpg)
@@ -46,7 +43,6 @@ Thomas is the conductor of agentic workers that build the fun products, AI and s
 - JFDI.Asia Mentor
 - Co-founded iSyndica - World's first professional media distribution service ('09)
 
----
 
 ### Michael Fairweather
 ![Michael Fairweather](/assets/blog/authors/michael.jpg)
@@ -59,8 +55,6 @@ Michael is an accomplished lawyer and technology consultant that has 20 years’
 - BSc (IT Systems), LLB, GradDipLegPrac​
 - Founder of Monad Solutions (acquired by Legalese '26)
 
-
----
 
 ### Alexis Natalie Chun
 ![Alexis Natalie Chun](/assets/blog/authors/alexis.jpg)

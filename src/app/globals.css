@@ -41,7 +41,11 @@
 }
 
 .prose h3 {
-  @apply text-2xl mt-8 mb-4 leading-snug;
+  @apply text-2xl mt-16 mb-4 leading-snug;
+}
+
+.prose h2 + h3 {
+  @apply mt-8
 }
 
 /* Links */
