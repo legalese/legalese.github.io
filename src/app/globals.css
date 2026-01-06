@@ -131,6 +131,23 @@
   @apply rounded-lg my-6 max-w-full h-auto;
 }
 
+/* Team member photos - images directly after h3 */
+.prose h3 + p > img {
+  float: right;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 0 0 1rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .prose h3 + p > img {
+    width: 250px;
+    height: 250px;
+  }
+}
+
 /* Strong and emphasis */
 .prose strong {
   @apply font-bold text-gray-900;
