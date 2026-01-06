@@ -4,8 +4,8 @@ excerpt: Alexis' and Meng's original pitch for Legalese and the development of L
 coverImage: /assets/blog/content/computational-law.png
 date: "2016-07-01T00:00:00.000Z"
 author:
-  name: Meng Weng Wong
-  picture: /assets/blog/authors/mengwong.jpg
+  name: "Legalese Team"
+  picture: "/assets/logos/legalese-logo.png"
 ogImage:
   url: /assets/blog/content/computational-law.png
 ---

@@ -5,7 +5,7 @@ coverImage: "/assets/blog/content/monad-acquisition.png"
 date: "2026-01-01T00:00:00.000Z"
 author:
   name: "Meng Weng Wong"
-  picture: "/assets/blog/authors/mengwong.jpg"
+  picture: "/assets/blog/authors/meng.jpg"
 ogImage:
   url: "/assets/blog/content/monad-acquisition.png"
 ---

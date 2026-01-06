@@ -5,7 +5,7 @@ coverImage: "/assets/blog/content/legalese-wellwishes.png"
 date: "2016-08-01T00:00:00.000Z"
 author:
   name: "Meng Weng Wong"
-  picture: "/assets/blog/authors/mengwong.jpg"
+  picture: "/assets/blog/authors/meng.jpg"
 ogImage:
   url: "/assets/blog/content/legalese-wellwishes.png"
 ---
