@@ -43,7 +43,7 @@ content:
         label: Footer Column
         type: string
         options:
-          values: [ "none", "company", "contact", "legal" ]
+          values: [ "company", "resources", "contact", "legal", "none" ]
         default: "none"
         description: "Which footer column to show this page in (company, resources, contact, legal, none)"
       - { name: footerOrder, label: Footer Order, type: number, description: "Order within footer column (lower = first)" }
@@ -63,7 +63,7 @@ content:
         label: Footer Column
         type: string
         options:
-          values: [ "company", "resources", "contact", "none" ]
+          values: [ "company", "resources", "contact", "legal", "none" ]
         required: true
         description: "Which footer column to show this link in (company, resources, contact, legal, none)"
       - { name: order, label: Order, type: number, description: "Order within footer column (lower = first)" }
