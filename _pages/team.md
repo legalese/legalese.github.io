@@ -47,7 +47,7 @@ Thomas is the conductor of agentic workers that build our products, the AI kind 
 ### Michael Fairweather
 ![Michael Fairweather](/assets/blog/authors/michael.jpg)
 
-**COO**
+**Lawyer / COO**
 
 Michael is an accomplished lawyer and technology consultant that has 20 years’ experience building legal automation systems all over the world. He holds degrees in Law and Computer Science from the University of Western Australia and provided technical consulting services on behalf of Oracle and Accenture before co-founding Monad in 2010. Michael is an expert in Legal Analysis and Legislative Quality Assurance (LQA), and has been a member of the International Association of Artificial Intelligence and Law (IAAIL) since 2007. He is from Australia and resides in the Philippines.
 
