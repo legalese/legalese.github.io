@@ -2,6 +2,8 @@
 title: "Code of Conduct"
 slug: "code-of-conduct"
 lastModified: "2019-04-30"
+footerColumn: "contact"
+footerOrder: 50
 ---
 
 > "You know, when I was a young man, hypocrisy was deemed the worst of vices," Finkle-McGraw said. "It was all because of moral relativism. You see, in that sort of climate, you are not allowed to criticise others — after all, if there is no absolute right and wrong, then what grounds is there for criticism?"

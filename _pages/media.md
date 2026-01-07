@@ -1,6 +1,8 @@
 ---
 title: "Press & Media"
 slug: "media"
+footerColumn: "company"
+footerOrder: 30
 ---
 
 # Legalese Press Room

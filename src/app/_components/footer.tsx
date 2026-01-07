@@ -1,10 +1,21 @@
 import Container from "@/app/_components/container";
 import { CMS_NAME } from "@/lib/constants";
+import { getFooterPages, getFooterExternalLinks } from "@/lib/api";
 import Link from "next/link";
 import Image from "next/image"
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  
+  // Get pages by footer column
+  const companyPages = getFooterPages("company");
+  const contactPages = getFooterPages("contact");
+  const legalPages = getFooterPages("legal");
+  
+  // Get external links by column
+  const companyExternalLinks = getFooterExternalLinks("company");
+  const resourcesExternalLinks = getFooterExternalLinks("resources");
+  const contactExternalLinks = getFooterExternalLinks("contact");
 
   return (
     <footer className="bg-gray-900 text-white">
@@ -36,21 +47,25 @@ export function Footer() {
             <div>
               <h4 className="font-bold mb-4 text-gray-300">Company</h4>
               <ul className="space-y-2">
-                <li>
-                  <Link href="/about" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/team" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    Team
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/media" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    Press & Media
-                  </Link>
-                </li>
+                {companyPages.map((page) => (
+                  <li key={page.slug}>
+                    <Link href={`/${page.slug}`} className="text-gray-400 hover:text-white transition-colors text-sm">
+                      {page.navTitle || page.title}
+                    </Link>
+                  </li>
+                ))}
+                {companyExternalLinks.map((link) => (
+                  <li key={link.slug}>
+                    <a 
+                      href={link.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-white transition-colors text-sm"
+                    >
+                      {link.title}
+                    </a>
+                  </li>
+                ))}
                 <li>
                   <Link href="/posts" className="text-gray-400 hover:text-white transition-colors text-sm">
                     Blog
@@ -63,63 +78,44 @@ export function Footer() {
             <div>
               <h4 className="font-bold mb-4 text-gray-300">Resources</h4>
               <ul className="space-y-2">
-                <li>
-                  <a 
-                    href="https://l4.legalese.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-white transition-colors text-sm"
-                  >
-                    L4 Documentation
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="https://jl4.legalese.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-white transition-colors text-sm"
-                  >
-                    L4 Web IDE
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="https://github.com/smucclaw/l4-ide" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-white transition-colors text-sm"
-                  >
-                    GitHub
-                  </a>
-                </li>
+                {resourcesExternalLinks.map((link) => (
+                  <li key={link.slug}>
+                    <a 
+                      href={link.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-white transition-colors text-sm"
+                    >
+                      {link.title}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
 
-            {/* Community & Legal */}
+            {/* Contact */}
             <div>
-              <h4 className="font-bold mb-4 text-gray-300">Community</h4>
+              <h4 className="font-bold mb-4 text-gray-300">Contact</h4>
               <ul className="space-y-2">
-                <li>
-                  <Link href="/community" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    Contact
-                  </Link>
-                </li>
-                <li>
-                  <a 
-                    href="https://x.com/legalese" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-white transition-colors text-sm"
-                  >
-                    X
-                  </a>
-                </li>
-                <li>
-                  <Link href="/code-of-conduct" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    Code of Conduct
-                  </Link>
-                </li>
+                {contactPages.map((page) => (
+                  <li key={page.slug}>
+                    <Link href={`/${page.slug}`} className="text-gray-400 hover:text-white transition-colors text-sm">
+                      {page.navTitle || page.title}
+                    </Link>
+                  </li>
+                ))}
+                {contactExternalLinks.map((link) => (
+                  <li key={link.slug}>
+                    <a 
+                      href={link.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-white transition-colors text-sm"
+                    >
+                      {link.title}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -130,12 +126,15 @@ export function Footer() {
               &copy; {currentYear} Legalese Pte. Ltd. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <Link href="/terms" className="text-gray-500 hover:text-white transition-colors text-sm">
-                Terms of Use
-              </Link>
-              <Link href="/privacy" className="text-gray-500 hover:text-white transition-colors text-sm">
-                Privacy & Cookies
-              </Link>
+              {legalPages.map((page) => (
+                <Link 
+                  key={page.slug}
+                  href={`/${page.slug}`} 
+                  className="text-gray-500 hover:text-white transition-colors text-sm"
+                >
+                  {page.navTitle || page.title}
+                </Link>
+              ))}
             </div>
           </div>
         </div>

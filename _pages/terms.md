@@ -3,6 +3,8 @@ title: "Terms of Use"
 slug: "terms"
 lastModified: "2018-12-01"
 effectiveDate: "2018-12-01"
+footerColumn: "legal"
+footerOrder: 10
 ---
 
 ## Hello! We are so chuffed to have you with us.

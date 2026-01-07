@@ -1,6 +1,11 @@
 ---
 title: "Community & Contact"
 slug: "community"
+navTitle: "Community"
+showInHeader: true
+headerOrder: 30
+footerColumn: "contact"
+footerOrder: 10
 ---
 
 ## Tech Support

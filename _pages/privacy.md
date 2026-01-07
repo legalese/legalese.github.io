@@ -3,6 +3,9 @@ title: "Privacy & Cookies Policy"
 slug: "privacy"
 lastModified: "2018-01-10"
 effectiveDate: "2018-01-10"
+navTitle: "Privacy & Cookies"
+footerColumn: "legal"
+footerOrder: 20
 ---
 
 ## Hello! We are so chuffed to have you with us.

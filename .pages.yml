@@ -32,10 +32,39 @@ content:
     type: collection
     path: _pages
     view:
-      fields: [ title, slug ]
+      fields: [ title, slug, showInHeader, footerColumn ]
     fields:
       - { name: title, label: Title, type: string, required: true }
       - { name: slug, label: Slug, type: string, required: true }
+      - { name: navTitle, label: Navigation Title, type: string, description: "Title to display in navigation (uses page title if empty)" }
+      - { name: showInHeader, label: Show in Header, type: boolean, default: false }
+      - { name: headerOrder, label: Header Order, type: number, description: "Order in header navigation (lower = first)" }
+      - name: footerColumn
+        label: Footer Column
+        type: string
+        options:
+          values: [ "none", "company", "contact", "legal" ]
+        default: "none"
+        description: "Which footer column to show this page in"
+      - { name: footerOrder, label: Footer Order, type: number, description: "Order within footer column (lower = first)" }
       - { name: lastModified, label: Last Modified, type: date }
       - { name: effectiveDate, label: Effective Date, type: date }
       - { name: body, label: Content, type: rich-text }
+  - name: external_links
+    label: External Links
+    type: collection
+    path: _external_links
+    view:
+      fields: [ title, url, footerColumn ]
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: url, label: URL, type: string, required: true }
+      - name: footerColumn
+        label: Footer Column
+        type: string
+        options:
+          values: [ "company", "resources", "contact" ]
+        required: true
+        description: "Which footer column to show this link in"
+      - { name: order, label: Order, type: number, description: "Order within footer column (lower = first)" }
+      - { name: description, label: Description, type: string }

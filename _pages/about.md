@@ -1,6 +1,11 @@
 ---
 title: "About Legalese"
 slug: "about"
+navTitle: "About us"
+showInHeader: true
+headerOrder: 10
+footerColumn: "company"
+footerOrder: 10
 ---
 
 ## What is Legalese?
