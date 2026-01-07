@@ -33,7 +33,7 @@ Meng is running the ship and the lead language architect, computer scientist, an
 
 **Software Architect / CTO**
 
-Thomas is the conductor of agentic workers that build the fun products, AI and soon maybe human, too. For twenty-five years he has been pushing bits accross screens with the intent to maximise user enjoyment. A Singapore transplant from Germany he grew up in the JavaScript open-source world and Southeast-Asian startup entrepreneurship. He only adopted the world of rules only after being uncomfortably confrontend with them during his tenures at big enterprise.
+Thomas is the conductor of agentic workers that build our products, the AI kind and soon maybe humans, too. For twenty-five years he has been pushing bits accross screens with the intent to maximise user enjoyment. A Singapore transplant from Germany he grew up in the JavaScript open-source world and Southeast-Asian startup entrepreneurship. He only adopted the world of rules only after being uncomfortably confrontend with them during his tenures at big enterprise.
 
 **Background:**
 - Bachelor of Information and Communication Technologies (Fonty's, '07)
