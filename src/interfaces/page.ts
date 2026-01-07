@@ -8,6 +8,6 @@ export type Page = {
   effectiveDate?: string;
   showInHeader?: boolean;
   headerOrder?: number;
-  footerColumn?: "none" | "company" | "contact" | "legal";
+  footerColumn?: "company" | "resources" | "contact" | "legal" | "none";
   footerOrder?: number;
 };
