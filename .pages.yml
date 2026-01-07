@@ -45,7 +45,7 @@ content:
         options:
           values: [ "none", "company", "contact", "legal" ]
         default: "none"
-        description: "Which footer column to show this page in (company, resources, contact, none)"
+        description: "Which footer column to show this page in (company, resources, contact, legal, none)"
       - { name: footerOrder, label: Footer Order, type: number, description: "Order within footer column (lower = first)" }
       - { name: lastModified, label: Last Modified, type: date }
       - { name: effectiveDate, label: Effective Date, type: date }
@@ -65,6 +65,6 @@ content:
         options:
           values: [ "company", "resources", "contact", "none" ]
         required: true
-        description: "Which footer column to show this link in (company, resources, contact, none)"
+        description: "Which footer column to show this link in (company, resources, contact, legal, none)"
       - { name: order, label: Order, type: number, description: "Order within footer column (lower = first)" }
       - { name: description, label: Description, type: string }
