@@ -4,10 +4,11 @@ excerpt: "The status quo sucks. From comma disputes costing millions to law firm
 coverImage: "/assets/blog/content/problem-legal.png"
 date: "2017-01-01T00:00:00.000Z"
 author:
-  name: "Legalese Team"
-  picture: "/assets/logos/legalese-logo.png"
+  name: "Meng Weng Wong"
+  picture: "/assets/blog/authors/meng.jpg"
 ogImage:
   url: "/assets/blog/content/problem-legal.png"
+published: true
 ---
 
 > "It is difficult to get a man to understand something, when his salary depends on his not understanding it."

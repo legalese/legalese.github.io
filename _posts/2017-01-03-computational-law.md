@@ -4,10 +4,11 @@ excerpt: "Moving from syntax to semantics to pragmatics—how a domain-specific 
 coverImage: "/assets/blog/content/entering-chat.png"
 date: "2017-01-03T00:00:00.000Z"
 author:
-  name: "Legalese Team"
-  picture: "/assets/logos/legalese-logo.png"
+  name: "Meng Weng Wong"
+  picture: "/assets/blog/authors/meng.jpg"
 ogImage:
   url: "/assets/blog/content/entering-chat.png"
+published: true
 ---
 
 > "The day should come, when it will come I don't know, but the day should come, when you will be able to feed a set of facts to a machine that has cases, rules of law, and reasoning rules stored in it, and in which the machine can then lay out for you, step by step, the reasoning process by which you may be able to arrive at a conclusion."

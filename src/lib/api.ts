@@ -13,16 +13,21 @@ export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
 }
 
-export function getPostBySlug(slug: string) {
+export function getPostBySlug(slug: string): Post | null {
   const realSlug = slug.replace(/\.md$/, "");
   const fullPath = join(postsDirectory, `${realSlug}.md`);
+  
+  if (!fs.existsSync(fullPath)) {
+    return null;
+  }
+  
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
   return { ...data, slug: realSlug, content } as Post;
 }
 
-export function getAllPosts(): Post[] {
+export function getAllPosts(includeUnpublished: boolean = false): Post[] {
   if (!fs.existsSync(postsDirectory)) {
     return [];
   }
@@ -30,6 +35,10 @@ export function getAllPosts(): Post[] {
   const posts = slugs
     .filter((slug) => slug.endsWith('.md'))
     .map((slug) => getPostBySlug(slug))
+    // filter out null posts (files that don't exist or couldn't be read)
+    .filter((post): post is Post => post !== null)
+    // filter out unpublished posts unless explicitly requested
+    .filter((post) => includeUnpublished || post.published === true)
     // sort posts by date in descending order
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;

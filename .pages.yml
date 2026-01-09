@@ -11,21 +11,22 @@ content:
       fields: [ coverImage, title, date ]
     fields:
       - { name: title, label: Title, type: string, required: true }
-      - { name: excerpt, label: Excerpt, type: string }
-      - { name: coverImage, label: Cover image, type: image }
+      - { name: published, label: Published, type: boolean, default: false }
+      - { name: excerpt, label: Excerpt, type: string, required: true }
+      - { name: coverImage, label: Cover image, type: image, required: true }
       - { name: date, label: Date, type: date, options: { time: true, format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" } }
       - name: author
         label: Author
         type: object
         fields:
-          - { name: name, label: Name, type: string }
-          - { name: picture, label: Picture, type: image }
+          - { name: name, label: Name, type: string, required: true }
+          - { name: picture, label: Picture, type: image, required: true }
       - name: ogImage
         label: Image (social sharing)
         type: object
         fields:
-          - { name: url, label: URL, type: image }
-      - { name: body, label: Body, type: rich-text }
+          - { name: url, label: URL, type: image, required: true }
+      - { name: body, label: Body, type: rich-text, required: true }
 
   - name: pages
     label: Pages
@@ -37,8 +38,8 @@ content:
       - { name: title, label: Title, type: string, required: true }
       - { name: slug, label: Slug, type: string, required: true }
       - { name: navTitle, label: Navigation Title, type: string, description: "Title to display in navigation (uses page title if empty)" }
-      - { name: showInHeader, label: Show in Header, type: boolean, default: false }
-      - { name: headerOrder, label: Header Order, type: number, description: "Order in header navigation (lower = first)" }
+      - { name: showInHeader, label: Show in Header Menu, type: boolean, default: false }
+      - { name: headerOrder, label: Menu Order, type: number, description: "Order in header navigation (lower = first)" }
       - name: footerColumn
         label: Footer Column
         type: string

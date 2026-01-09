@@ -56,22 +56,7 @@ If you're a member of the press, please feel free to ping us at: [press@legalese
 
 ## Press Releases
 
-### March 2020
-**SGD15M Industry-Alignment Grant: Legalese & Singapore Management University**
-- [Joint Press Release (University)](https://drive.google.com/file/d/1imt73v5uAxf-ExgWVtrp_4894xVczJ6w/view?usp=sharing)
-- [Legalese Press Release](https://drive.google.com/file/d/1CbKqqWvEe8YoivqO4c1Zo5JSV5cAJtYw/view?usp=sharing)
-
-### January 2017
-**Legalese secures SGD600,000 to automate legal services**
-- [Press Release](https://drive.google.com/file/d/0BxUwY-mTI-hrZDVQeDM3WEQ3MzA/view?usp=sharing)
-
-### August 2016
-**Legalese receives AUD30K ISIF.Asia Technical Innovation Grant**
-- [Press Release](https://drive.google.com/file/d/0BxUwY-mTI-hrSDNNeTFqbEFwMkE/view?usp=sharing)
-
-### July 2016
-**Legalese receives USD8888 String Grant to stop bugs in smart contracts before they start**
-- [Press Release](https://drive.google.com/file/d/0BxUwY-mTI-hrU3dyMWhfaWJaOE0/view?usp=sharing)
+Find a list of our press releases here: [Legalese Press Releases](/posts?author=Legalese%20Team)
 
 ---
 

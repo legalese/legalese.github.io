@@ -8,6 +8,7 @@ author:
   picture: "/assets/blog/authors/meng.jpg"
 ogImage:
   url: "/assets/blog/content/legalese-wellwishes.png"
+published: true
 ---
 
 Dear [wellwishers](http://wellwishers.lists.legalese.com),
