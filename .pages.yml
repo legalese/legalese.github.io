@@ -8,7 +8,7 @@ content:
     type: collection
     path: _posts
     view:
-      fields: [ coverImage, title, date ]
+      fields: [ coverImage, title, date, published ]
     fields:
       - { name: title, label: Title, type: string, required: true }
       - { name: published, label: Published, type: boolean, default: false }
