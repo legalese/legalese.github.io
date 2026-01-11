@@ -37,10 +37,6 @@ export function Footer() {
               <p className="text-gray-400 text-sm mb-4">
                 Software is eating law.
               </p>
-              <p className="text-gray-500 text-sm">
-                Legalese Pte. Ltd.<br />
-                Singapore
-              </p>
             </div>
 
             {/* Company */}
@@ -123,7 +119,7 @@ export function Footer() {
           {/* Bottom bar */}
           <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-500 text-sm">
-              &copy; {currentYear} Legalese Pte. Ltd. All rights reserved.
+              &copy; {currentYear} Legalese Pte. Ltd., Singapore. All rights reserved.
             </p>
             <div className="flex gap-6">
               {legalPages.map((page) => (
