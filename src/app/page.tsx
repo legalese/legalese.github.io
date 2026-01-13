@@ -37,7 +37,7 @@ export default function Index() {
                 <span className="text-accent">eating law</span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
-                Legalese is building L4, a domain-specific programming language for law. 
+                L4 is a domain-specific programming language for law. 
                 We treat legal rules and contracts as executable specifications.
               </p>
               <div className="flex flex-wrap gap-4">
