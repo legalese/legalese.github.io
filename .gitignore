@@ -34,3 +34,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# L4 build assets (fetched/generated at build time)
+/.l4-docs/
+/public/hljs-l4/
+/public/search-index.json
+/public/search-index.min.json
+/public/doc-images/*
