@@ -59,7 +59,7 @@ Mmmm, watch this space. We're writing documentation as we go. If you have improv
 
 For now, check out:
 
-*   [L4 Documentation](https://l4.legalese.com/)
+*   [L4 Documentation](https://legalese.com/l4)
     
 *   [L4 Web IDE](https://jl4.legalese.com/)
     

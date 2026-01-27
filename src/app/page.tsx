@@ -42,7 +42,7 @@ export default function Index() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <a 
-                  href="https://l4.legalese.com" 
+                  href="https://legalese.com/l4" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="bg-accent text-white px-8 py-3 rounded-lg font-medium hover:bg-accent-hover transition-colors"
