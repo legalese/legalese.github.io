@@ -10,7 +10,7 @@ set -e  # Exit on error
 # =============================================================================
 
 L4_REPO_URL="https://github.com/smucclaw/l4-ide.git"
-L4_BRANCH="thomasgorissen/documentation-v2"
+L4_BRANCH="main"
 DOC_DIR=".l4-docs"
 
 echo "Fetching L4 documentation..."
