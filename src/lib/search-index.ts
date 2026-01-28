@@ -50,9 +50,17 @@ export function searchIndex(
   if (!queryLower) return [];
   
   // Split query into terms for multi-word search
-  const queryTerms = queryLower.split(/\s+/).filter(t => t.length >= 3); // Increased from 2 to 3 for stricter matching
+  // Allow 2-char terms to support L4 keywords like IF, OR, AND, etc.
+  const queryTerms = queryLower.split(/\s+/).filter(t => t.length >= 2);
   
-  if (queryTerms.length === 0) return [];
+  // If no valid terms after split, use the whole query if it's at least 2 chars
+  if (queryTerms.length === 0) {
+    if (queryLower.length >= 2) {
+      queryTerms.push(queryLower);
+    } else {
+      return [];
+    }
+  }
   
   const results: SearchResult[] = [];
   
@@ -123,15 +131,42 @@ export function searchIndex(
     }
   }
   
-  // Sort by keyword match first, then by score descending, then by title for stable ordering
+  // Helper to get the display name (section if exists, otherwise title)
+  const getDisplayName = (entry: SearchResult): string => {
+    return (entry.section || entry.title).toLowerCase();
+  };
+
+  // Helper to check match quality for sorting
+  const getMatchRank = (entry: SearchResult): number => {
+    const displayName = getDisplayName(entry);
+    
+    // Exact match on display name (highest priority)
+    if (displayName === queryLower) return 6;
+    // Display name starts with query as a complete word
+    if (displayName.startsWith(queryLower + ' ') || displayName.startsWith(queryLower + ':') || displayName.startsWith(queryLower + '-')) return 5;
+    // Display name starts with query (partial/prefix match)
+    if (displayName.startsWith(queryLower)) return 4;
+    // Query is at the end after a space (like "Layout-Sensitive AND")
+    if (displayName.endsWith(' ' + queryLower)) return 2;
+    // Query appears as whole word somewhere in display name
+    if (new RegExp(`\\b${queryLower}\\b`).test(displayName)) return 1;
+    // Partial/substring match
+    return 0;
+  };
+
+  // Sort by: 1) match rank, 2) score, 3) alphabetical
   results.sort((a, b) => {
-    const aHasKeywords = a.matchedFields.includes('keywords');
-    const bHasKeywords = b.matchedFields.includes('keywords');
-    if (aHasKeywords !== bHasKeywords) {
-      return aHasKeywords ? -1 : 1;
-    }
+    const aRank = getMatchRank(a);
+    const bRank = getMatchRank(b);
+    
+    // Higher rank first
+    if (aRank !== bRank) return bRank - aRank;
+    
+    // Then by score
     if (b.score !== a.score) return b.score - a.score;
-    return a.title.localeCompare(b.title);
+    
+    // Finally alphabetical for stable ordering
+    return (a.section || a.title).localeCompare(b.section || b.title);
   });
   
   // Deduplicate: if both doc and section match, show both but group them

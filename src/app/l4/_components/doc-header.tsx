@@ -23,19 +23,28 @@ export default function DocHeader() {
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
-      <div className="flex items-center justify-between px-6 py-4">
-        <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-          <Image
-            src="/assets/logos/legalese-logo.png"
-            alt="§"
-            width={32}
-            height={32}
-            className="rounded"
-          />
-          <span className="text-xl font-bold tracking-tight font-merriweather">{CMS_NAME}</span>
-        </Link>
+      <div className="flex items-center px-6 py-4">
+        {/* Left: Logo - matches sidebar width (w-64 = 256px minus padding) */}
+        <div className="w-64 flex-shrink-0 pr-4">
+          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <Image
+              src="/assets/logos/legalese-logo.png"
+              alt="§"
+              width={32}
+              height={32}
+              className="rounded"
+            />
+            <span className="text-xl font-bold tracking-tight font-merriweather">{CMS_NAME}</span>
+          </Link>
+        </div>
         
-        <div className="flex items-center gap-6">
+        {/* Center: Search aligned with main content column */}
+        <div className="flex-1 flex items-center">
+          <DocSearch />
+        </div>
+        
+        {/* Right: Navigation + Online IDE button */}
+        <div className="flex items-center gap-4 flex-shrink-0">
           <nav className="hidden md:flex items-center gap-1">
             {DOC_TABS.map((tab) => (
               <Link
@@ -52,7 +61,27 @@ export default function DocHeader() {
             ))}
           </nav>
           
-          <DocSearch />
+          <a
+            href="https://jl4.legalese.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-accent hover:bg-accent/90 rounded-md transition-colors"
+          >
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+              />
+            </svg>
+            <span className="hidden sm:inline">Online IDE</span>
+          </a>
         </div>
       </div>
       
