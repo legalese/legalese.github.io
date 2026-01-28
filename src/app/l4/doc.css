@@ -143,4 +143,44 @@
   color: white;
 }
 
+/* ==========================================================================
+   Mobile Responsive Adjustments
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  .doc-content h1 {
+    font-size: 1.75rem;
+  }
+  
+  .doc-content h2 {
+    font-size: 1.375rem;
+  }
+  
+  .doc-content h3 {
+    font-size: 1.125rem;
+  }
+  
+  .doc-content pre {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .doc-content table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .l4-code-wrapper {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+}
+
 

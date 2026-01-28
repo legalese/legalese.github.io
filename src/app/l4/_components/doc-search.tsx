@@ -139,13 +139,13 @@ export default function DocSearch() {
   }, [isOpen]);
 
   return (
-    <div ref={containerRef} className="relative">
+    <div ref={containerRef} className="relative w-full max-w-[400px]">
       <button
         onClick={() => {
           setIsOpen(true);
           setTimeout(() => inputRef.current?.focus(), 0);
         }}
-        className="flex items-center justify-between px-3 py-1.5 text-sm text-gray-500 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors w-40 lg:w-80"
+        className="flex items-center justify-between px-3 py-1.5 text-sm text-gray-500 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors w-full"
       >
         <span className="flex items-center gap-2">
           <svg
@@ -161,7 +161,7 @@ export default function DocSearch() {
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             />
           </svg>
-          <span className="hidden sm:inline">Search</span>
+          Search
         </span>
         <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-xs font-mono bg-white rounded border border-gray-300">
           <span className="text-xs">⌘</span>/
@@ -169,7 +169,7 @@ export default function DocSearch() {
       </button>
 
       {isOpen && (
-        <div className="absolute left-0 top-full mt-2 w-80 sm:w-96 lg:w-[500px] bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden z-50">
+        <div className="fixed sm:absolute inset-x-4 sm:inset-x-auto sm:left-0 top-20 sm:top-full sm:mt-2 w-auto sm:w-96 lg:w-[500px] bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden z-50">
           <div className="p-3 border-b border-gray-100">
             <div className="flex items-center gap-2">
               <svg
@@ -201,7 +201,7 @@ export default function DocSearch() {
           </div>
           
           {/* Results area */}
-          <div className="max-h-60 sm:max-h-80 lg:max-h-[70vh] overflow-y-auto" ref={resultsRef}>
+          <div className="max-h-[70vh] overflow-y-auto" ref={resultsRef}>
             {isLoading && (
               <div className="p-4 text-center text-sm text-gray-500">
                 <div className="inline-block animate-spin rounded-full h-4 w-4 border-2 border-gray-300 border-t-gray-600 mr-2"></div>
@@ -290,25 +290,13 @@ export default function DocSearch() {
                     )}
                   </div>
                   
-                  {/* Enter hint for selected item */}
-                  <div className={`flex-shrink-0 ${idx === selectedIndex ? '' : 'invisible'}`}>
-                    <kbd className="px-1.5 py-0.5 text-xs font-mono text-gray-400 bg-gray-100 rounded">
-                      ↵
-                    </kbd>
-                  </div>
+
                 </div>
               </button>
             ))}
           </div>
           
-          {/* Footer with keyboard hints */}
-          {results.length > 0 && (
-            <div className="px-4 py-2 border-t border-gray-100 bg-gray-50 text-xs text-gray-500 flex gap-4">
-              <span><kbd className="px-1 py-0.5 bg-white rounded border border-gray-200">↑↓</kbd> navigate</span>
-              <span><kbd className="px-1 py-0.5 bg-white rounded border border-gray-200">↵</kbd> open</span>
-              <span><kbd className="px-1 py-0.5 bg-white rounded border border-gray-200">esc</kbd> close</span>
-            </div>
-          )}
+
         </div>
       )}
     </div>

@@ -1,9 +1,6 @@
 import { notFound } from 'next/navigation';
 import markdownToHtml from '@/lib/markdownToHtml';
-import DocHeader from '../_components/doc-header';
-import DocSidebar from '../_components/doc-sidebar';
-import DocToc from '../_components/doc-toc';
-import DocContent from '../_components/doc-content';
+import DocLayout from '../_components/doc-layout';
 
 import {
   parseSummary,
@@ -162,24 +159,11 @@ export default async function L4DocPage({ params }: PageProps) {
   htmlContent = addHeadingIds(htmlContent);
   
   return (
-    <div className="min-h-screen flex flex-col">
-      <DocHeader />
-      
-      <div className="flex-1 flex">
-        {/* Left Sidebar - Navigation from SUMMARY.md */}
-        {navSections.length > 0 && <DocSidebar sections={navSections} />}
-        
-        {/* Main Content */}
-        <main className="flex-1 overflow-y-auto">
-          <div className="max-w-4xl mx-auto px-6 py-8 lg:px-8">
-            <DocContent html={htmlContent} />
-          </div>
-        </main>
-        
-        {/* Right Sidebar - Table of Contents (sticky inside flex column) */}
-        {toc.length > 0 && <DocToc items={toc} />}
-      </div>
-    </div>
+    <DocLayout 
+      navSections={navSections} 
+      toc={toc} 
+      htmlContent={htmlContent} 
+    />
   );
 }
 

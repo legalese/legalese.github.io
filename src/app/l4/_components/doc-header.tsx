@@ -7,7 +7,12 @@ import { DOC_TABS } from '@/lib/l4-docs';
 import { usePathname } from 'next/navigation';
 import DocSearch from './doc-search';
 
-export default function DocHeader() {
+interface DocHeaderProps {
+  onMenuToggle?: () => void;
+  hasNavigation?: boolean;
+}
+
+export default function DocHeader({ onMenuToggle, hasNavigation = true }: DocHeaderProps) {
   const pathname = usePathname();
   
   // Determine active tab from pathname
@@ -23,9 +28,22 @@ export default function DocHeader() {
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
-      <div className="flex items-center px-6 py-4">
-        {/* Left: Logo - matches sidebar width (w-64 = 256px minus padding) */}
-        <div className="w-64 flex-shrink-0 pr-4">
+      <div className="flex items-center px-4 lg:px-6 py-4">
+        {/* Mobile menu button */}
+        {hasNavigation && (
+          <button
+            onClick={onMenuToggle}
+            className="lg:hidden p-2 -ml-2 mr-2 text-gray-500 hover:text-gray-700 rounded-md hover:bg-gray-100"
+            aria-label="Open navigation menu"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        )}
+        
+        {/* Left: Logo - matches sidebar width on desktop */}
+        <div className="lg:w-64 flex-shrink-0 pr-4">
           <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
             <Image
               src="/assets/logos/legalese-logo.png"
@@ -34,12 +52,12 @@ export default function DocHeader() {
               height={32}
               className="rounded"
             />
-            <span className="text-xl font-bold tracking-tight font-merriweather">{CMS_NAME}</span>
+            <span className="hidden sm:inline text-xl font-bold tracking-tight font-merriweather">{CMS_NAME}</span>
           </Link>
         </div>
         
         {/* Center: Search aligned with main content column */}
-        <div className="flex-1 flex items-center">
+        <div className="flex-1 flex justify-end md:justify-start mr-0 md:mr-4">
           <DocSearch />
         </div>
         
@@ -65,7 +83,7 @@ export default function DocHeader() {
             href="https://jl4.legalese.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-accent hover:bg-accent/90 rounded-md transition-colors"
+            className="hidden lg:flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-accent hover:bg-accent/90 rounded-md transition-colors"
           >
             <svg
               className="w-4 h-4"
@@ -80,7 +98,7 @@ export default function DocHeader() {
                 d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
               />
             </svg>
-            <span className="hidden sm:inline">Online IDE</span>
+            Online IDE
           </a>
         </div>
       </div>
