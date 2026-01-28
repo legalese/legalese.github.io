@@ -225,14 +225,15 @@ export function processMarkdownContent(
   baseRoute: string = '/l4'
 ): string {
   // Rewrite internal markdown links to use the l4 route
-  // Match [text](path.md) but not external links
+  // Match [text](path.md) or [text](path.md#anchor) but not external links
   let processedContent = content.replace(
-    /\[([^\]]+)\]\((?!https?:\/\/)([^)]+\.md)\)/g,
-    (match, text, path) => {
+    /\[([^\]]+)\]\((?!https?:\/\/)([^)]+\.md)(#[^)]*)?\)/g,
+    (match, text, path, anchor) => {
       // First resolve the relative path, then convert to slug
       const resolvedPath = resolveRelativePath(path, currentFolder);
       const slug = convertDocPathToSlug(resolvedPath);
-      return `[${text}](${baseRoute}/${slug.replace(/^\//, '')})`;
+      const anchorSuffix = anchor || '';
+      return `[${text}](${baseRoute}/${slug.replace(/^\//, '')}${anchorSuffix})`;
     }
   );
 
