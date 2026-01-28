@@ -69,7 +69,7 @@ export default function DocToc({ items }: DocTocProps) {
 
   return (
     <aside className="hidden xl:block w-64 2xl:w-72 flex-shrink-0">
-      <nav className="sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto p-4">
+      <nav className="sticky top-14 max-h-[calc(100vh-3.5rem)] overflow-y-auto px-4 pb-4 pt-6">
         <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
           On this page
         </h3>

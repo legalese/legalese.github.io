@@ -55,7 +55,7 @@ export default function DocLayout({ navSections, toc, htmlContent }: DocLayoutPr
         )}
         
         {/* Main Content */}
-        <main className={`flex-1 min-w-0 ${hasNavigation ? 'lg:ml-64' : ''}`}>
+        <main className="flex-1 min-w-0">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8 lg:px-8">
             <DocContent html={htmlContent} />
           </div>
