@@ -1,5 +1,7 @@
 import Footer from "@/app/_components/footer";
-import { CMS_NAME, SITE_DESCRIPTION, HOME_OG_IMAGE_URL, SITE_URL } from "@/lib/constants";
+import { CMS_NAME, SITE_DESCRIPTION, SITE_URL } from "@/lib/constants";
+
+const HOME_OG_IMAGE_URL = '/opengraph/software-is-eating-law.jpg';
 import type { Metadata } from "next";
 import { Inter, Merriweather } from "next/font/google";
 

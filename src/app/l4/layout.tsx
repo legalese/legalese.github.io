@@ -6,6 +6,17 @@ import HighlightInit from './_components/HighlightInit';  // New import
 export const metadata: Metadata = {
   title: 'L4 Documentation',
   description: 'L4 Language Reference and Documentation - Rules as Code',
+  openGraph: {
+    title: 'L4 Documentation',
+    description: 'L4 Language Reference and Documentation - Rules as Code',
+    images: ['/opengraph/l4-docs.jpeg'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'L4 Documentation',
+    description: 'L4 Language Reference and Documentation - Rules as Code',
+    images: ['/opengraph/l4-docs.jpeg'],
+  },
 };
 
 const hljsStyles = `
