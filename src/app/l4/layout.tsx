@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import Script from 'next/script';
 import './doc.css';
-import HighlightInit from './_components/HighlightInit';  // New import
+import HighlightInit from './_components/HighlightInit';
+import OsDetect from './_components/OsDetect';
 
 export const metadata: Metadata = {
   title: 'L4 Documentation',
@@ -44,6 +45,7 @@ export default function L4Layout({
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" />
       <Script src="/hljs-l4/l4.min.js" />
       <HighlightInit />
+      <OsDetect />
       <style dangerouslySetInnerHTML={{ __html: hljsStyles }} />
     </>
   );

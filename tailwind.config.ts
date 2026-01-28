@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
   content: [
@@ -40,6 +41,11 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function({ addVariant }) {
+      addVariant('os-mac', ':root.os-mac &');
+      addVariant('os-other', ':root.os-other &');
+    }),
+  ],
 };
 export default config;

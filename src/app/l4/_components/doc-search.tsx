@@ -169,7 +169,7 @@ export default function DocSearch() {
           Search
         </span>
         <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-xs font-mono bg-white rounded border border-gray-300">
-          <span className="text-xs">⌘</span>/
+          <span className="text-xs"><span className="os-mac:inline hidden">⌘</span><span className="os-other:inline hidden">Ctrl+</span></span>/
         </kbd>
       </button>
 
