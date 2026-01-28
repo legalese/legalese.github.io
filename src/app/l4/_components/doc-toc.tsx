@@ -8,7 +8,7 @@ interface DocTocProps {
 }
 
 export default function DocToc({ items }: DocTocProps) {
-  const [activeId, setActiveId] = useState<string>('');
+  const [activeIndex, setActiveIndex] = useState<number>(-1);
 
   // Track active heading
   useEffect(() => {
@@ -16,7 +16,10 @@ export default function DocToc({ items }: DocTocProps) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
+            const index = elementToIndex.get(entry.target);
+            if (index !== undefined) {
+              setActiveIndex(index);
+            }
           }
         });
       },
@@ -26,10 +29,14 @@ export default function DocToc({ items }: DocTocProps) {
       }
     );
 
-    // Observe all headings
-    items.forEach((item) => {
-      const element = document.getElementById(item.id);
-      if (element) {
+    // Observe all headings in document order
+    const elementToIndex = new Map<Element, number>();
+    const headings = document.querySelectorAll('h2, h3, h4, h5, h6');
+    const headingElements = Array.from(headings).filter(el => el.id);
+    
+    headingElements.forEach((element, index) => {
+      if (index < items.length) {
+        elementToIndex.set(element, index);
         observer.observe(element);
       }
     });
@@ -49,7 +56,10 @@ export default function DocToc({ items }: DocTocProps) {
         top: offsetPosition,
         behavior: 'smooth',
       });
-      setActiveId(id);
+      const index = items.findIndex((item) => item.id === id);
+      if (index !== -1) {
+        setActiveIndex(index);
+      }
     }
   };
 
@@ -64,15 +74,17 @@ export default function DocToc({ items }: DocTocProps) {
           On this page
         </h3>
         <ul className="space-y-1">
-          {items.map((item) => (
-            <li key={item.id}>
+          {items.map((item, index) => (
+            <li key={`${item.id}-${index}`}>
               <a
                 href={`#${item.id}`}
                 onClick={(e) => handleClick(e, item.id)}
-                className={`block py-1 text-sm transition-colors ${
-                  activeId === item.id
+                className={`block py-1 transition-colors text-sm ${
+                  activeIndex === index
                     ? 'text-accent font-medium'
-                    : 'text-gray-500 hover:text-gray-900'
+                    : item.level > 2
+                      ? 'text-gray-400 hover:text-gray-700'
+                      : 'text-gray-500 hover:text-gray-900'
                 }`}
                 style={{ paddingLeft: `${(item.level - 2) * 12}px` }}
               >
