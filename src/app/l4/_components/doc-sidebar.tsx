@@ -57,11 +57,11 @@ export default function DocSidebar({ sections, baseRoute = '/l4', isOpen = true,
       
       {/* Sidebar */}
       <nav className={`
-        fixed lg:static inset-y-0 left-0 z-50
+        fixed inset-y-0 left-0 z-50 lg:z-30
         w-64 flex-shrink-0 border-r border-gray-200 bg-gray-50
-        flex flex-col lg:block
+        flex flex-col
         transform transition-transform duration-200 ease-in-out
-        lg:transform-none lg:translate-x-0
+        lg:transform-none lg:translate-x-0 lg:top-16
         ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
       `}>
       {/* Mobile close button */}
@@ -77,7 +77,7 @@ export default function DocSidebar({ sections, baseRoute = '/l4', isOpen = true,
         </button>
       </div>
       
-      <div className="p-4 flex-1 overflow-y-auto lg:overflow-y-visible">
+      <div className="px-4 pb-4 pt-6 flex-1 overflow-y-auto">
         {sections.map((section, index) => (
           <div key={section.title} className={index > 0 ? 'mt-8' : ''}>
             <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 px-3">
