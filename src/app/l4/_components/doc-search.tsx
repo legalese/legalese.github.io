@@ -73,13 +73,11 @@ export default function DocSearch() {
       if ((e.metaKey || e.ctrlKey) && e.key === '/') {
         e.preventDefault();
         setIsOpen(true);
-        setTimeout(() => inputRef.current?.focus(), 0);
       }
       // Cmd+K or Ctrl+K to open (common search shortcut)
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
         setIsOpen(true);
-        setTimeout(() => inputRef.current?.focus(), 0);
       }
       // Escape to close
       if (e.key === 'Escape' && isOpen) {
@@ -124,6 +122,16 @@ export default function DocSearch() {
     }
   }, [selectedIndex, results.length]);
 
+  // Focus input when modal opens (handles iOS better than setTimeout)
+  useEffect(() => {
+    if (isOpen) {
+      // Small delay to ensure the input is rendered
+      requestAnimationFrame(() => {
+        inputRef.current?.focus();
+      });
+    }
+  }, [isOpen]);
+
   // Close on click outside
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -141,10 +149,7 @@ export default function DocSearch() {
   return (
     <div ref={containerRef} className="relative w-full max-w-[400px]">
       <button
-        onClick={() => {
-          setIsOpen(true);
-          setTimeout(() => inputRef.current?.focus(), 0);
-        }}
+        onClick={() => setIsOpen(true)}
         className="flex items-center justify-between px-3 py-1.5 text-sm text-gray-500 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors w-full"
       >
         <span className="flex items-center gap-2">
@@ -192,6 +197,7 @@ export default function DocSearch() {
               onKeyDown={handleInputKeyDown}
               placeholder="Search documentation..."
               className="flex-1 text-base outline-none placeholder-gray-400"
+              autoFocus
             />
             <kbd className="hidden sm:inline-block px-1.5 py-0.5 text-xs font-mono text-gray-400 bg-gray-100 rounded border border-gray-200">
               esc
