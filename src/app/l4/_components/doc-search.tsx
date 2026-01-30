@@ -174,7 +174,7 @@ export default function DocSearch() {
       </button>
 
       {isOpen && (
-        <div className="fixed left-4 right-4 top-[17px] sm:absolute sm:left-0 sm:right-0 sm:-top-px sm:w-full bg-white rounded-md shadow-lg border border-gray-200 overflow-hidden z-50">
+        <div className="fixed left-4 right-4 top-[11px] sm:absolute sm:left-0 sm:right-0 sm:-top-px sm:w-full bg-white rounded-md shadow-lg border border-gray-200 overflow-hidden z-50">
           <div className="flex items-center gap-2 px-3 py-1.5">
             <svg
               className="w-4 h-4 text-gray-400"

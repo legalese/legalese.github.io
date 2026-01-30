@@ -115,7 +115,7 @@ export default function DocSidebar({ sections, baseRoute = '/l4', isOpen = true,
                 d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
               />
             </svg>
-            Online IDE
+            Web IDE
           </a>
         </div>
       </nav>
