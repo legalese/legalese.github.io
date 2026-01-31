@@ -104,7 +104,7 @@ export default function Index() {
             </div>
             <div className="text-center mt-8">
               <a 
-                href="https://github.com/smucclaw/l4-ide" 
+                href="https://github.com/legalese/l4-ide" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-accent font-medium hover:text-accent-hover transition-colors"
@@ -231,7 +231,7 @@ export default function Index() {
               Join the Community
             </Link>
             <a 
-              href="https://github.com/smucclaw/l4-ide" 
+              href="https://github.com/legalese/l4-ide" 
               target="_blank" 
               rel="noopener noreferrer"
               className="border-2 border-gray-900 px-8 py-3 rounded-lg font-medium hover:bg-gray-900 hover:text-white transition-colors"
