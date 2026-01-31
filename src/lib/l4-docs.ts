@@ -19,7 +19,7 @@ export interface TableOfContentsItem {
 }
 
 export const DOC_TABS = [
-  { name: 'Overview', slug: '' },
+  { name: 'Home', slug: '' },
   { name: 'Reference', slug: 'reference' },
   { name: 'Courses', slug: 'courses' },
   { name: 'Tutorials', slug: 'tutorials' },
