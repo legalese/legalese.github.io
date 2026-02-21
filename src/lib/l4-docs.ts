@@ -222,7 +222,8 @@ export function resolveRelativePath(path: string, currentFolder: string): string
 export function processMarkdownContent(
   content: string,
   currentFolder: string,
-  baseRoute: string = '/l4'
+  baseRoute: string = '/l4',
+  { keepMdExtension = false }: { keepMdExtension?: boolean } = {}
 ): string {
   // Rewrite internal markdown links to use the l4 route
   // Match [text](path.md) or [text](path.md#anchor) but not external links
@@ -233,7 +234,8 @@ export function processMarkdownContent(
       const resolvedPath = resolveRelativePath(path, currentFolder);
       const slug = convertDocPathToSlug(resolvedPath);
       const anchorSuffix = anchor || '';
-      return `[${text}](${baseRoute}/${slug.replace(/^\//, '')}${anchorSuffix})`;
+      const ext = keepMdExtension ? '.md' : '';
+      return `[${text}](${baseRoute}/${slug.replace(/^\//, '')}${ext}${anchorSuffix})`;
     }
   );
 

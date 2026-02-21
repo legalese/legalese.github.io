@@ -2,7 +2,7 @@
 // This file should only be imported in Server Components or build scripts
 import fs from 'fs';
 import path from 'path';
-import { resolveRelativePath } from './l4-docs';
+import { resolveRelativePath, DOC_TABS } from './l4-docs';
 
 // Local path to cloned documentation (populated by scripts/fetch-l4-docs.sh)
 const LOCAL_DOC_PATH = path.join(process.cwd(), '.l4-docs/doc');
@@ -57,6 +57,60 @@ export function embedL4Files(content: string, currentFolder: string): string {
   }
   
   return processed;
+}
+
+/**
+ * Resolve a slug array to a document path and load its content.
+ * Shared between the HTML page and the markdown route handler.
+ */
+export function resolveSlugToDoc(slug: string[]): {
+  content: string;
+  currentFolder: string;
+  currentTab: string;
+} | null {
+  let currentTab = '';
+  let docPath = '';
+  let currentFolder = '';
+
+  if (slug.length === 0) {
+    currentTab = '';
+    docPath = 'README.md';
+    currentFolder = '';
+  } else {
+    const firstSegment = slug[0];
+    const tab = DOC_TABS.find((t) => t.slug === firstSegment);
+
+    if (tab && tab.slug) {
+      currentTab = tab.slug;
+      if (slug.length === 1) {
+        docPath = `${tab.slug}/README.md`;
+        currentFolder = tab.slug;
+      } else {
+        const restPath = slug.slice(1).join('/');
+        docPath = `${tab.slug}/${restPath}.md`;
+        currentFolder = slug.slice(0, -1).join('/');
+      }
+    } else {
+      docPath = `${slug.join('/')}.md`;
+      currentFolder = slug.length > 1 ? slug.slice(0, -1).join('/') : '';
+    }
+  }
+
+  let content = getDocContent(docPath);
+
+  if (!content && !docPath.endsWith('README.md')) {
+    const dirPath = docPath.replace('.md', '/README.md');
+    content = getDocContent(dirPath);
+    if (content) {
+      currentFolder = docPath.replace('.md', '');
+    }
+  }
+
+  if (!content) {
+    return null;
+  }
+
+  return { content, currentFolder, currentTab };
 }
 
 /**

@@ -11,7 +11,7 @@ import {
   NavSection,
   TableOfContentsItem,
 } from '@/lib/l4-docs';
-import { getDocContent, getDocumentList, embedL4Files } from '@/lib/l4-docs-server';
+import { getDocContent, getDocumentList, embedL4Files, resolveSlugToDoc } from '@/lib/l4-docs-server';
 
 interface PageProps {
   params: Promise<{
@@ -50,57 +50,13 @@ export function generateStaticParams() {
 export default async function L4DocPage({ params }: PageProps) {
   const resolvedParams = await params;
   const slug = resolvedParams.slug || [];
-  
-  // Determine the current tab and document path
-  let currentTab = '';
-  let docPath = '';
-  let currentFolder = '';
-  
-  if (slug.length === 0) {
-    // Root /l4 -> Overview tab, README.md
-    currentTab = '';
-    docPath = 'README.md';
-    currentFolder = '';
-  } else {
-    // Check if first segment is a tab
-    const firstSegment = slug[0];
-    const tab = DOC_TABS.find((t) => t.slug === firstSegment);
-    
-    if (tab && tab.slug) {
-      // It's a tab route like /l4/reference
-      currentTab = tab.slug;
-      if (slug.length === 1) {
-        // Tab root -> README.md in that folder
-        docPath = `${tab.slug}/README.md`;
-        currentFolder = tab.slug;
-      } else {
-        // Nested path within tab
-        const restPath = slug.slice(1).join('/');
-        docPath = `${tab.slug}/${restPath}.md`;
-        currentFolder = slug.slice(0, -1).join('/');
-      }
-    } else {
-      // Not a tab, it's a document path from root
-      docPath = `${slug.join('/')}.md`;
-      currentFolder = slug.length > 1 ? slug.slice(0, -1).join('/') : '';
-    }
-  }
-  
-  // Read the document content from local files
-  let content = getDocContent(docPath);
-  
-  // If not found, try as a directory with README.md
-  if (!content && !docPath.endsWith('README.md')) {
-    const dirPath = docPath.replace('.md', '/README.md');
-    content = getDocContent(dirPath);
-    if (content) {
-      currentFolder = docPath.replace('.md', '');
-    }
-  }
-  
-  if (!content) {
+
+  const resolved = resolveSlugToDoc(slug);
+  if (!resolved) {
     notFound();
   }
+
+  const { content, currentFolder, currentTab } = resolved;
   
   // Read SUMMARY.md - walk up the directory tree until we find one
   let summaryContent: string | null = null;

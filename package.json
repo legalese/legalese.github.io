@@ -8,7 +8,8 @@
   "private": true,
   "scripts": {
     "dev": "next",
-    "build": "npm run fetch-docs && npm run build-search-index && next build",
+    "build": "npm run fetch-docs && npm run build-search-index && next build && npm run generate-md-routes",
+    "generate-md-routes": "npx ts-node --compilerOptions '{\"module\":\"commonjs\"}' scripts/generate-md-routes.ts",
     "build-search-index": "npx ts-node --compilerOptions '{\"module\":\"commonjs\"}' scripts/build-search-index.ts",
     "start": "next start",
     "fetch-docs": "./scripts/fetch-l4-docs.sh"
