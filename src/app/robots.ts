@@ -22,8 +22,6 @@ export default function robots(): MetadataRoute.Robots {
           'Bytespider',
           'cohere-ai',
         ],
-        disallow: '/l4/',
-        allow: '/l4/*.md',
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
