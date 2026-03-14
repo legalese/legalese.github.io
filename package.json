@@ -15,6 +15,7 @@
     "fetch-docs": "./scripts/fetch-l4-docs.sh"
   },
   "dependencies": {
+    "@workos-inc/widgets": "^1.10.0",
     "classnames": "^2.5.1",
     "date-fns": "^3.3.1",
     "gray-matter": "^4.0.3",
