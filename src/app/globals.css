@@ -167,11 +167,11 @@
 }
 
 /* WorkOS / Radix accent color overrides — override the crimson scale
-   directly since Radix maps --accent-* via var(--crimson-*). Applied
-   globally so portals (dialogs, popovers) also pick up the brand color. */
+   directly since Radix maps --accent-* via var(--crimson-*). Uses
+   !important to win over Radix styles.css which may load later. */
 :root {
-  --crimson-9: #c8376a;
-  --crimson-10: #7a2839;
-  --crimson-a3: rgba(200, 55, 106, 0.15);
+  --crimson-9: #c8376a !important;
+  --crimson-10: #7a2839 !important;
+  --crimson-a3: rgba(200, 55, 106, 0.15) !important;
 }
 

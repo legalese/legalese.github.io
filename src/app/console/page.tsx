@@ -158,7 +158,7 @@ export default function ConsolePage() {
     <div>
       {/* Tabs */}
       <div>
-        <nav className="flex gap-6 pl-6">
+        <nav className="flex gap-6 pl-2">
           {(Object.keys(TAB_LABELS) as Tab[]).map((tab) => (
             <button
               key={tab}
@@ -223,7 +223,7 @@ function OrganizationInfo({
   }
 
   const rows = [
-    { label: "Name", value: organization.name },
+    { label: "Name", value: <strong>{organization.name}</strong> },
     { label: "Slug", value: organization.slug },
     {
       label: "API endpoint",
