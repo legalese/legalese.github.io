@@ -2,22 +2,8 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { AUTH_API_URL } from "@/lib/constants";
+import { useConsole } from "./console-context";
 import "@workos-inc/widgets/styles.css";
-
-interface SessionUser {
-  id: string;
-  email: string;
-  firstName: string | null;
-  lastName: string | null;
-  profilePictureUrl: string | null;
-}
-
-interface Session {
-  authenticated: true;
-  user: SessionUser;
-  organizationId: string | null;
-  permissions: string[];
-}
 
 type WidgetTab = "users" | "api-keys" | "profile" | "security";
 
@@ -37,7 +23,6 @@ const TAB_LABELS: Record<WidgetTab, string> = {
 
 const SESSION_TOKEN_KEY = "wos-session-token";
 
-/** Auth headers using the stored session token (or falling back to cookies). */
 function authHeaders(): HeadersInit {
   const token =
     typeof window !== "undefined"
@@ -47,46 +32,10 @@ function authHeaders(): HeadersInit {
 }
 
 export default function ConsolePage() {
-  const [session, setSession] = useState<Session | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { session, loading, onLogout } = useConsole();
   const [activeTab, setActiveTab] = useState<WidgetTab>("users");
   const [widgetToken, setWidgetToken] = useState<string | null>(null);
   const [tokenError, setTokenError] = useState<string | null>(null);
-
-  // On mount: capture ?token= from the auth callback redirect,
-  // persist it in localStorage, and clean the URL.
-  useEffect(() => {
-    const url = new URL(window.location.href);
-    const token = url.searchParams.get("token");
-    if (token) {
-      localStorage.setItem(SESSION_TOKEN_KEY, token);
-      url.searchParams.delete("token");
-      window.history.replaceState({}, "", url.pathname + url.search + url.hash);
-    }
-  }, []);
-
-  // Check session on mount
-  useEffect(() => {
-    fetch(`${AUTH_API_URL}/auth/session`, {
-      credentials: "include",
-      headers: authHeaders(),
-    })
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => {
-        if (data?.authenticated) {
-          setSession(data);
-          // Server may return a refreshed sealed session token
-          if (data.token) {
-            localStorage.setItem(SESSION_TOKEN_KEY, data.token);
-          }
-        } else {
-          // Token may be expired — clear it
-          localStorage.removeItem(SESSION_TOKEN_KEY);
-        }
-      })
-      .catch(() => {})
-      .finally(() => setLoading(false));
-  }, []);
 
   // Fetch widget token when session or tab changes
   const fetchWidgetToken = useCallback(
@@ -126,11 +75,6 @@ export default function ConsolePage() {
     fetchWidgetToken(activeTab);
   }, [activeTab, fetchWidgetToken]);
 
-  function handleLogout() {
-    localStorage.removeItem(SESSION_TOKEN_KEY);
-    window.location.href = `${AUTH_API_URL}/auth/logout`;
-  }
-
   // Show spinner until session validation completes
   if (loading) {
     return (
@@ -159,7 +103,7 @@ export default function ConsolePage() {
     );
   }
 
-  // Not logged in
+  // Not logged in — header already shows "Sign in" link
   if (!session) {
     return (
       <div className="flex flex-col items-center justify-center py-24 gap-6">
@@ -193,7 +137,7 @@ export default function ConsolePage() {
         </p>
         <div className="flex gap-3">
           <button
-            onClick={handleLogout}
+            onClick={onLogout}
             className="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
           >
             Sign out
@@ -205,31 +149,6 @@ export default function ConsolePage() {
 
   return (
     <div>
-      {/* User info bar */}
-      <div className="flex items-center justify-between mb-8">
-        <div className="flex items-center gap-3">
-          {session.user.profilePictureUrl && (
-            <img
-              src={session.user.profilePictureUrl}
-              alt=""
-              className="w-8 h-8 rounded-full"
-            />
-          )}
-          <div>
-            <div className="font-medium text-sm">
-              {session.user.firstName} {session.user.lastName}
-            </div>
-            <div className="text-xs text-gray-500">{session.user.email}</div>
-          </div>
-        </div>
-        <button
-          onClick={handleLogout}
-          className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
-        >
-          Sign out
-        </button>
-      </div>
-
       {/* Tabs */}
       <div className="border-b border-gray-200 mb-6">
         <nav className="flex gap-6">
