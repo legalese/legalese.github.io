@@ -1,12 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { WorkOsWidgets } from "@workos-inc/widgets";
 import { AUTH_API_URL } from "@/lib/constants";
 import { ConsoleContext, type ConsoleSession } from "./console-context";
 import { ConsoleHeader } from "./console-header";
-
-const queryClient = new QueryClient();
 
 const SESSION_TOKEN_KEY = "wos-session-token";
 
@@ -60,7 +58,7 @@ export function ConsoleShell({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <QueryClientProvider client={queryClient}>
+    <WorkOsWidgets>
       <ConsoleContext.Provider
         value={{ session, loading, onLogout: handleLogout }}
       >
@@ -71,6 +69,6 @@ export function ConsoleShell({ children }: { children: React.ReactNode }) {
           </main>
         </div>
       </ConsoleContext.Provider>
-    </QueryClientProvider>
+    </WorkOsWidgets>
   );
 }
