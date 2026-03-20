@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import "@radix-ui/themes/styles.css";
 import { WorkOsWidgets } from "@workos-inc/widgets";
 import { AUTH_API_URL } from "@/lib/constants";
 import { ConsoleContext, type ConsoleSession } from "./console-context";
