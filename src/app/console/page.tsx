@@ -150,7 +150,7 @@ export default function ConsolePage() {
   return (
     <div>
       {/* Tabs */}
-      <div className="border-b border-gray-200 mb-6">
+      <div>
         <nav className="flex gap-6">
           {(Object.keys(TAB_LABELS) as WidgetTab[]).map((tab) => (
             <button
