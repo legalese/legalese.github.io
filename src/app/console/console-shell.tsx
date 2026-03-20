@@ -1,9 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AUTH_API_URL } from "@/lib/constants";
 import { ConsoleContext, type ConsoleSession } from "./console-context";
 import { ConsoleHeader } from "./console-header";
+
+const queryClient = new QueryClient();
 
 const SESSION_TOKEN_KEY = "wos-session-token";
 
@@ -57,15 +60,17 @@ export function ConsoleShell({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <ConsoleContext.Provider
-      value={{ session, loading, onLogout: handleLogout }}
-    >
-      <div className="min-h-screen bg-gray-50">
-        <ConsoleHeader />
-        <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          {children}
-        </main>
-      </div>
-    </ConsoleContext.Provider>
+    <QueryClientProvider client={queryClient}>
+      <ConsoleContext.Provider
+        value={{ session, loading, onLogout: handleLogout }}
+      >
+        <div className="min-h-screen bg-gray-50">
+          <ConsoleHeader />
+          <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            {children}
+          </main>
+        </div>
+      </ConsoleContext.Provider>
+    </QueryClientProvider>
   );
 }
