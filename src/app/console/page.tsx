@@ -323,11 +323,6 @@ function OrganizationInfo({
 
   const rows: { label: string; value: React.ReactNode }[] = [
     { label: "Name", value: <strong>{organization.name}</strong> },
-    { label: "Slug", value: organization.slug },
-    {
-      label: "L4 Deployment URL",
-      value: `https://${organization.slug}.legalese.cloud`,
-    },
     {
       label: "Registered since",
       value: new Date(organization.createdAt).toLocaleDateString(undefined, {
@@ -336,6 +331,11 @@ function OrganizationInfo({
         day: "numeric",
       }),
     },
+    {
+      label: "L4 deployment URL",
+      value: `https://${organization.slug}.legalese.cloud`,
+    },
+    
   ];
 
   return (
