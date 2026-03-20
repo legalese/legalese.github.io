@@ -158,7 +158,7 @@ export default function ConsolePage() {
     <div>
       {/* Tabs */}
       <div>
-        <nav className="flex gap-6 ml-3">
+        <nav className="flex gap-6 pl-6">
           {(Object.keys(TAB_LABELS) as Tab[]).map((tab) => (
             <button
               key={tab}
