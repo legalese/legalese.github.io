@@ -209,24 +209,32 @@ import { UserSecurity } from "@workos-inc/widgets/user-security";
 
 import type { ConsoleOrganization } from "./console-context";
 
+interface ServiceStatus {
+  ok: boolean;
+  status: number;
+  data: Record<string, unknown>;
+}
+
 function HealthSection({ slug }: { slug: string }) {
-  const [health, setHealth] = useState<Record<string, unknown> | null>(null);
+  const [result, setResult] = useState<ServiceStatus | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [networkError, setNetworkError] = useState(false);
 
   useEffect(() => {
     fetch(`https://${slug}.legalese.cloud/health`, {
       headers: authHeaders(),
     })
-      .then((res) => (res.ok ? res.json() : Promise.reject(res.statusText)))
-      .then((data) => setHealth(data))
-      .catch((err) => setError(String(err)))
+      .then(async (res) => {
+        const data = await res.json().catch(() => ({}));
+        setResult({ ok: res.ok, status: res.status, data });
+      })
+      .catch(() => setNetworkError(true))
       .finally(() => setLoading(false));
   }, [slug]);
 
   if (loading) {
     return (
-      <div className="flex items-center gap-2 text-sm text-gray-400">
+      <div className="flex items-center gap-2 text-sm text-gray-400 font-sans">
         <svg
           className="animate-spin h-4 w-4"
           xmlns="http://www.w3.org/2000/svg"
@@ -252,18 +260,44 @@ function HealthSection({ slug }: { slug: string }) {
     );
   }
 
-  if (error) {
-    return <p className="text-sm text-gray-400">Service not running</p>;
+  if (networkError) {
+    return (
+      <p className="text-sm text-gray-400 font-sans">
+        Unable to reach service
+      </p>
+    );
   }
 
-  if (!health) return null;
+  if (!result) return null;
+
+  const { data } = result;
+  const entries = Object.entries(data);
+
+  if (entries.length === 0) return null;
+
+  // If the response is a simple error message, show it inline
+  if (!result.ok && data.error && entries.length === 1) {
+    return (
+      <p className="text-sm text-gray-500 font-sans">
+        {String(data.error)}
+      </p>
+    );
+  }
 
   return (
-    <dl className="divide-y divide-gray-100">
-      {Object.entries(health).map(([key, value]) => (
+    <dl className="divide-y divide-gray-100 font-sans">
+      {!result.ok && (
+        <div className="py-3 sm:grid sm:grid-cols-3 sm:gap-4">
+          <dt className="text-sm font-medium text-gray-500">Status</dt>
+          <dd className="mt-1 text-sm text-amber-600 sm:col-span-2 sm:mt-0">
+            {result.status}
+          </dd>
+        </div>
+      )}
+      {entries.map(([key, value]) => (
         <div key={key} className="py-3 sm:grid sm:grid-cols-3 sm:gap-4">
           <dt className="text-sm font-medium text-gray-500">{key}</dt>
-          <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 font-mono">
+          <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 font-mono text-xs">
             {typeof value === "object"
               ? JSON.stringify(value)
               : String(value)}
@@ -305,7 +339,7 @@ function OrganizationInfo({
   ];
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 font-sans">
       <dl className="divide-y divide-gray-100">
         {rows.map(({ label, value }) => (
           <div key={label} className="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
@@ -318,9 +352,9 @@ function OrganizationInfo({
       </dl>
 
       <div>
-        <h3 className="text-sm font-medium text-gray-500 mb-3">
-          Service health
-        </h3>
+        <p className="text-sm font-semibold text-gray-900 mb-3 font-sans">
+          Service status
+        </p>
         <HealthSection slug={organization.slug} />
       </div>
     </div>
