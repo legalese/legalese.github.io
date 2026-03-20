@@ -209,6 +209,71 @@ import { UserSecurity } from "@workos-inc/widgets/user-security";
 
 import type { ConsoleOrganization } from "./console-context";
 
+function HealthSection({ slug }: { slug: string }) {
+  const [health, setHealth] = useState<Record<string, unknown> | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch(`https://${slug}.legalese.cloud/health`, {
+      headers: authHeaders(),
+    })
+      .then((res) => (res.ok ? res.json() : Promise.reject(res.statusText)))
+      .then((data) => setHealth(data))
+      .catch((err) => setError(String(err)))
+      .finally(() => setLoading(false));
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <div className="flex items-center gap-2 text-sm text-gray-400">
+        <svg
+          className="animate-spin h-4 w-4"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            className="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            strokeWidth="4"
+          />
+          <path
+            className="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+          />
+        </svg>
+        Checking...
+      </div>
+    );
+  }
+
+  if (error) {
+    return <p className="text-sm text-gray-400">Service not running</p>;
+  }
+
+  if (!health) return null;
+
+  return (
+    <dl className="divide-y divide-gray-100">
+      {Object.entries(health).map(([key, value]) => (
+        <div key={key} className="py-3 sm:grid sm:grid-cols-3 sm:gap-4">
+          <dt className="text-sm font-medium text-gray-500">{key}</dt>
+          <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 font-mono">
+            {typeof value === "object"
+              ? JSON.stringify(value)
+              : String(value)}
+          </dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
 function OrganizationInfo({
   organization,
 }: {
@@ -222,15 +287,15 @@ function OrganizationInfo({
     );
   }
 
-  const rows = [
+  const rows: { label: string; value: React.ReactNode }[] = [
     { label: "Name", value: <strong>{organization.name}</strong> },
     { label: "Slug", value: organization.slug },
     {
-      label: "API endpoint",
+      label: "L4 Deployment URL",
       value: `https://${organization.slug}.legalese.cloud`,
     },
     {
-      label: "Created",
+      label: "Registered since",
       value: new Date(organization.createdAt).toLocaleDateString(undefined, {
         year: "numeric",
         month: "long",
@@ -240,16 +305,25 @@ function OrganizationInfo({
   ];
 
   return (
-    <dl className="divide-y divide-gray-100">
-      {rows.map(({ label, value }) => (
-        <div key={label} className="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
-          <dt className="text-sm font-medium text-gray-500">{label}</dt>
-          <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-            {value}
-          </dd>
-        </div>
-      ))}
-    </dl>
+    <div className="space-y-8">
+      <dl className="divide-y divide-gray-100">
+        {rows.map(({ label, value }) => (
+          <div key={label} className="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
+            <dt className="text-sm font-medium text-gray-500">{label}</dt>
+            <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+              {value}
+            </dd>
+          </div>
+        ))}
+      </dl>
+
+      <div>
+        <h3 className="text-sm font-medium text-gray-500 mb-3">
+          Service health
+        </h3>
+        <HealthSection slug={organization.slug} />
+      </div>
+    </div>
   );
 }
 
