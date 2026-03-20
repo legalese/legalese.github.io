@@ -59,7 +59,7 @@ export function ConsoleShell({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <WorkOsWidgets>
+    <WorkOsWidgets theme={{ accentColor: "crimson" }}>
       <ConsoleContext.Provider
         value={{ session, loading, onLogout: handleLogout }}
       >
