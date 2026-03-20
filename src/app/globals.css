@@ -166,3 +166,14 @@
   @apply px-1 rounded bg-amber-200;
 }
 
+/* WorkOS / Radix accent color overrides — applied globally so portals
+   (dialogs, popovers) that render outside the WorkOsWidgets wrapper
+   still pick up the correct brand color. */
+.radix-themes,
+[data-radix-popper-content-wrapper] .radix-themes,
+.rt-BaseDialogContent {
+  --accent-9: #c8376a;
+  --accent-10: #7a2839;
+  --accent-a3: rgba(200, 55, 106, 0.15);
+}
+
