@@ -35,6 +35,17 @@ const TAB_LABELS: Record<WidgetTab, string> = {
   security: "Security",
 };
 
+const SESSION_TOKEN_KEY = "wos-session-token";
+
+/** Auth headers using the stored session token (or falling back to cookies). */
+function authHeaders(): HeadersInit {
+  const token =
+    typeof window !== "undefined"
+      ? localStorage.getItem(SESSION_TOKEN_KEY)
+      : null;
+  return token ? { Authorization: `Bearer ${token}` } : {};
+}
+
 export default function ConsolePage() {
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
@@ -42,13 +53,31 @@ export default function ConsolePage() {
   const [widgetToken, setWidgetToken] = useState<string | null>(null);
   const [tokenError, setTokenError] = useState<string | null>(null);
 
+  // On mount: capture ?token= from the auth callback redirect,
+  // persist it in localStorage, and clean the URL.
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    const token = url.searchParams.get("token");
+    if (token) {
+      localStorage.setItem(SESSION_TOKEN_KEY, token);
+      url.searchParams.delete("token");
+      window.history.replaceState({}, "", url.pathname + url.search + url.hash);
+    }
+  }, []);
+
   // Check session on mount
   useEffect(() => {
-    fetch(`${AUTH_API_URL}/auth/session`, { credentials: "include" })
+    fetch(`${AUTH_API_URL}/auth/session`, {
+      credentials: "include",
+      headers: authHeaders(),
+    })
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => {
         if (data?.authenticated) {
           setSession(data);
+        } else {
+          // Token may be expired — clear it
+          localStorage.removeItem(SESSION_TOKEN_KEY);
         }
       })
       .catch(() => {})
@@ -67,7 +96,7 @@ export default function ConsolePage() {
         const res = await fetch(`${AUTH_API_URL}/auth/widget-token`, {
           method: "POST",
           credentials: "include",
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json", ...authHeaders() },
           body: JSON.stringify({
             organizationId: session.organizationId,
             scopes: [WIDGET_SCOPES[tab]],
@@ -93,11 +122,35 @@ export default function ConsolePage() {
     fetchWidgetToken(activeTab);
   }, [activeTab, fetchWidgetToken]);
 
-  // Loading state
+  function handleLogout() {
+    localStorage.removeItem(SESSION_TOKEN_KEY);
+    window.location.href = `${AUTH_API_URL}/auth/logout`;
+  }
+
+  // Show spinner until session validation completes
   if (loading) {
     return (
       <div className="flex items-center justify-center py-24">
-        <div className="text-gray-500">Loading...</div>
+        <svg
+          className="animate-spin h-8 w-8 text-gray-400"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            className="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            strokeWidth="4"
+          />
+          <path
+            className="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+          />
+        </svg>
       </div>
     );
   }
@@ -135,12 +188,12 @@ export default function ConsolePage() {
           your administrator for an invite.
         </p>
         <div className="flex gap-3">
-          <a
-            href={`${AUTH_API_URL}/auth/logout`}
+          <button
+            onClick={handleLogout}
             className="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
           >
             Sign out
-          </a>
+          </button>
         </div>
       </div>
     );
@@ -165,12 +218,12 @@ export default function ConsolePage() {
             <div className="text-xs text-gray-500">{session.user.email}</div>
           </div>
         </div>
-        <a
-          href={`${AUTH_API_URL}/auth/logout`}
+        <button
+          onClick={handleLogout}
           className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
         >
           Sign out
-        </a>
+        </button>
       </div>
 
       {/* Tabs */}
