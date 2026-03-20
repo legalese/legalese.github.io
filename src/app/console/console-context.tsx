@@ -10,10 +10,18 @@ interface SessionUser {
   profilePictureUrl: string | null;
 }
 
+export interface ConsoleOrganization {
+  id: string;
+  name: string;
+  slug: string;
+  createdAt: string;
+}
+
 export interface ConsoleSession {
   authenticated: true;
   user: SessionUser;
   organizationId: string | null;
+  organization?: ConsoleOrganization;
   permissions: string[];
 }
 

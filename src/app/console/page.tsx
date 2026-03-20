@@ -5,16 +5,17 @@ import { AUTH_API_URL } from "@/lib/constants";
 import { useConsole } from "./console-context";
 import "@workos-inc/widgets/styles.css";
 
-type WidgetTab = "users" | "api-keys" | "profile" | "security";
+type Tab = "organization" | "users" | "api-keys" | "profile" | "security";
 
-const WIDGET_SCOPES: Record<WidgetTab, string> = {
+const WIDGET_SCOPES: Partial<Record<Tab, string>> = {
   users: "widgets:users-table:manage",
   "api-keys": "widgets:api-keys:manage",
   profile: "widgets:users-table:manage",
   security: "widgets:users-table:manage",
 };
 
-const TAB_LABELS: Record<WidgetTab, string> = {
+const TAB_LABELS: Record<Tab, string> = {
+  organization: "Organization",
   users: "Members",
   "api-keys": "API Keys",
   profile: "Profile",
@@ -33,14 +34,20 @@ function authHeaders(): HeadersInit {
 
 export default function ConsolePage() {
   const { session, loading, onLogout } = useConsole();
-  const [activeTab, setActiveTab] = useState<WidgetTab>("users");
+  const [activeTab, setActiveTab] = useState<Tab>("organization");
   const [widgetToken, setWidgetToken] = useState<string | null>(null);
   const [tokenError, setTokenError] = useState<string | null>(null);
 
-  // Fetch widget token when session or tab changes
+  // Fetch widget token when session or tab changes (skip for non-widget tabs)
   const fetchWidgetToken = useCallback(
-    async (tab: WidgetTab) => {
+    async (tab: Tab) => {
       if (!session?.organizationId) return;
+      const scope = WIDGET_SCOPES[tab];
+      if (!scope) {
+        setWidgetToken(null);
+        setTokenError(null);
+        return;
+      }
 
       setWidgetToken(null);
       setTokenError(null);
@@ -52,7 +59,7 @@ export default function ConsolePage() {
           headers: { "Content-Type": "application/json", ...authHeaders() },
           body: JSON.stringify({
             organizationId: session.organizationId,
-            scopes: [WIDGET_SCOPES[tab]],
+            scopes: [scope],
           }),
         });
 
@@ -151,8 +158,8 @@ export default function ConsolePage() {
     <div>
       {/* Tabs */}
       <div>
-        <nav className="flex gap-6">
-          {(Object.keys(TAB_LABELS) as WidgetTab[]).map((tab) => (
+        <nav className="flex gap-6 ml-3">
+          {(Object.keys(TAB_LABELS) as Tab[]).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -168,19 +175,27 @@ export default function ConsolePage() {
         </nav>
       </div>
 
-      {/* Widget area */}
+      {/* Content area */}
       <div className="bg-white rounded-lg border border-gray-200 p-6 min-h-[400px]">
-        {tokenError && (
-          <div className="flex items-center justify-center py-12">
-            <div className="text-red-600 text-sm">{tokenError}</div>
-          </div>
+        {activeTab === "organization" ? (
+          <OrganizationInfo organization={session.organization} />
+        ) : (
+          <>
+            {tokenError && (
+              <div className="flex items-center justify-center py-12">
+                <div className="text-red-600 text-sm">{tokenError}</div>
+              </div>
+            )}
+            {!widgetToken && !tokenError && (
+              <div className="flex items-center justify-center py-12">
+                <div className="text-gray-500 text-sm">Loading...</div>
+              </div>
+            )}
+            {widgetToken && (
+              <WidgetRenderer tab={activeTab} token={widgetToken} />
+            )}
+          </>
         )}
-        {!widgetToken && !tokenError && (
-          <div className="flex items-center justify-center py-12">
-            <div className="text-gray-500 text-sm">Loading...</div>
-          </div>
-        )}
-        {widgetToken && <WidgetRenderer tab={activeTab} token={widgetToken} />}
       </div>
     </div>
   );
@@ -192,7 +207,53 @@ import { ApiKeys } from "@workos-inc/widgets/api-keys";
 import { UserProfile } from "@workos-inc/widgets/user-profile";
 import { UserSecurity } from "@workos-inc/widgets/user-security";
 
-function WidgetRenderer({ tab, token }: { tab: WidgetTab; token: string }) {
+import type { ConsoleOrganization } from "./console-context";
+
+function OrganizationInfo({
+  organization,
+}: {
+  organization?: ConsoleOrganization;
+}) {
+  if (!organization) {
+    return (
+      <div className="text-gray-500 text-sm py-12 text-center">
+        Organization details unavailable.
+      </div>
+    );
+  }
+
+  const rows = [
+    { label: "Name", value: organization.name },
+    { label: "Slug", value: organization.slug },
+    {
+      label: "API endpoint",
+      value: `https://${organization.slug}.legalese.cloud`,
+    },
+    {
+      label: "Created",
+      value: new Date(organization.createdAt).toLocaleDateString(undefined, {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }),
+    },
+  ];
+
+  return (
+    <dl className="divide-y divide-gray-100">
+      {rows.map(({ label, value }) => (
+        <div key={label} className="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
+          <dt className="text-sm font-medium text-gray-500">{label}</dt>
+          <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+            {value}
+          </dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+function WidgetRenderer({ tab, token }: { tab: Tab; token: string }) {
   switch (tab) {
     case "users":
       return <UsersManagement authToken={token} />;
