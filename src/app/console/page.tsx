@@ -209,102 +209,90 @@ import { UserSecurity } from "@workos-inc/widgets/user-security";
 
 import type { ConsoleOrganization } from "./console-context";
 
-interface ServiceStatus {
-  ok: boolean;
-  status: number;
-  data: Record<string, unknown>;
+interface HealthData {
+  status?: string;
+  deployments?: {
+    total?: number;
+    ready?: number;
+    compiling?: number;
+    failed?: number;
+  };
 }
 
-function HealthSection({ slug }: { slug: string }) {
-  const [result, setResult] = useState<ServiceStatus | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [networkError, setNetworkError] = useState(false);
+type ServiceHealth =
+  | { state: "loading" }
+  | { state: "error" }
+  | { state: "ok"; data: HealthData };
+
+function useServiceHealth(slug: string): ServiceHealth {
+  const [health, setHealth] = useState<ServiceHealth>({ state: "loading" });
 
   useEffect(() => {
     fetch(`https://${slug}.legalese.cloud/health`, {
       headers: authHeaders(),
     })
       .then(async (res) => {
-        const data = await res.json().catch(() => ({}));
-        setResult({ ok: res.ok, status: res.status, data });
+        if (!res.ok) {
+          setHealth({ state: "error" });
+          return;
+        }
+        const data: HealthData = await res.json().catch(() => ({}));
+        setHealth({ state: "ok", data });
       })
-      .catch(() => setNetworkError(true))
-      .finally(() => setLoading(false));
+      .catch(() => setHealth({ state: "error" }));
   }, [slug]);
 
-  if (loading) {
-    return (
-      <div className="flex items-center gap-2 text-sm text-gray-400 font-sans">
-        <svg
-          className="animate-spin h-4 w-4"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <circle
-            className="opacity-25"
-            cx="12"
-            cy="12"
-            r="10"
-            stroke="currentColor"
-            strokeWidth="4"
-          />
-          <path
-            className="opacity-75"
-            fill="currentColor"
-            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-          />
-        </svg>
-        Checking...
-      </div>
+  return health;
+}
+
+function DeploymentUrl({ slug }: { slug: string }) {
+  const health = useServiceHealth(slug);
+  const url = `https://${slug}.legalese.cloud`;
+
+  let dot: React.ReactNode;
+  let suffix: React.ReactNode = null;
+
+  if (health.state === "loading") {
+    dot = (
+      <span className="relative flex h-2.5 w-2.5 shrink-0">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-300 opacity-75" />
+        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-gray-300" />
+      </span>
     );
-  }
-
-  if (networkError) {
-    return (
-      <p className="text-sm text-gray-400 font-sans">
-        Unable to reach service
-      </p>
+  } else if (health.state === "error") {
+    dot = (
+      <span className="relative flex h-2.5 w-2.5 shrink-0">
+        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500" />
+      </span>
     );
-  }
+    suffix = <span className="text-gray-400 text-sm">unreachable</span>;
+  } else {
+    const { deployments } = health.data;
+    const total = deployments?.total ?? 0;
+    const failed = deployments?.failed ?? 0;
+    const compiling = deployments?.compiling ?? 0;
 
-  if (!result) return null;
+    const dotColor =
+      failed > 0 ? "bg-red-500" : compiling > 0 ? "bg-yellow-400" : "bg-green-500";
 
-  const { data } = result;
-  const entries = Object.entries(data);
-
-  if (entries.length === 0) return null;
-
-  // If the response is a simple error message, show it inline
-  if (!result.ok && data.error && entries.length === 1) {
-    return (
-      <p className="text-sm text-gray-500 font-sans">
-        {String(data.error)}
-      </p>
+    dot = (
+      <span className="relative flex h-2.5 w-2.5 shrink-0">
+        <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${dotColor}`} />
+      </span>
+    );
+    suffix = (
+      <span className="text-gray-400 text-sm">
+        ({total === 1 ? "1 deployment" : `${total} deployments`})
+      </span>
     );
   }
 
   return (
-    <dl className="divide-y divide-gray-100 font-sans">
-      {!result.ok && (
-        <div className="py-3 sm:grid sm:grid-cols-3 sm:gap-4">
-          <dt className="text-sm font-medium text-gray-500">Status</dt>
-          <dd className="mt-1 text-sm text-amber-600 sm:col-span-2 sm:mt-0">
-            {result.status}
-          </dd>
-        </div>
-      )}
-      {entries.map(([key, value]) => (
-        <div key={key} className="py-3 sm:grid sm:grid-cols-3 sm:gap-4">
-          <dt className="text-sm font-medium text-gray-500">{key}</dt>
-          <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 font-mono text-xs">
-            {typeof value === "object"
-              ? JSON.stringify(value)
-              : String(value)}
-          </dd>
-        </div>
-      ))}
-    </dl>
+    <span className="inline-flex items-center gap-2">
+      {dot}
+      <span>{url}</span>
+      {suffix}
+    </span>
   );
 }
 
@@ -333,9 +321,9 @@ function OrganizationInfo({
     },
     {
       label: "L4 deployment URL",
-      value: `https://${organization.slug}.legalese.cloud`,
+      value: <DeploymentUrl slug={organization.slug} />,
     },
-    
+
   ];
 
   return (
@@ -350,13 +338,6 @@ function OrganizationInfo({
           </div>
         ))}
       </dl>
-
-      <div>
-        <p className="text-sm font-semibold text-gray-900 mb-3 font-sans">
-          Service status
-        </p>
-        <HealthSection slug={organization.slug} />
-      </div>
     </div>
   );
 }
