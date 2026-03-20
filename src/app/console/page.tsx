@@ -75,6 +75,10 @@ export default function ConsolePage() {
       .then((data) => {
         if (data?.authenticated) {
           setSession(data);
+          // Server may return a refreshed sealed session token
+          if (data.token) {
+            localStorage.setItem(SESSION_TOKEN_KEY, data.token);
+          }
         } else {
           // Token may be expired — clear it
           localStorage.removeItem(SESSION_TOKEN_KEY);
