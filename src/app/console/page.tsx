@@ -503,7 +503,10 @@ function OrganizationInfo({
       label: "L4 deployment URL",
       value: (
         <div>
-          <DeploymentUrl slug={organization.slug} health={health} />
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+            <DeploymentUrl slug={organization.slug} health={health} />
+            {isAdmin && <RestartServiceButton slug={organization.slug} />}
+          </div>
           <ServiceDetails health={health} />
         </div>
       ),
@@ -512,23 +515,16 @@ function OrganizationInfo({
 
   return (
     <div className="space-y-8 font-sans">
-      <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
-        <dl className="divide-y divide-gray-100 flex-1 min-w-0">
-          {rows.map(({ label, value }) => (
-            <div key={label} className="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
-              <dt className="text-sm font-medium text-gray-500">{label}</dt>
-              <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 break-words">
-                {value}
-              </dd>
-            </div>
-          ))}
-        </dl>
-        {isAdmin && (
-          <div className="lg:pt-4 shrink-0">
-            <RestartServiceButton slug={organization.slug} />
+      <dl className="divide-y divide-gray-100 min-w-0">
+        {rows.map(({ label, value }) => (
+          <div key={label} className="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
+            <dt className="text-sm font-medium text-gray-500">{label}</dt>
+            <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 break-words">
+              {value}
+            </dd>
           </div>
-        )}
-      </div>
+        ))}
+      </dl>
     </div>
   );
 }
