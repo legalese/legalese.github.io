@@ -328,16 +328,18 @@ function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }
   }
 
   return (
-    <span className="inline-flex items-start gap-2 flex-wrap">
-      <span className="inline-flex items-center gap-2">
-        {dot}
-        <span>{url}</span>
+    <div>
+      <span className="inline-flex items-center gap-2 flex-wrap">
+        <span className="inline-flex items-center gap-2">
+          {dot}
+          <span>{url}</span>
+        </span>
+        {suffix}
       </span>
-      {suffix}
       {buildTag && (
-        <div className="text-gray-400 font-mono text-xs">{buildTag}</div>
+        <div className="text-gray-400 font-mono text-xs mt-1">{buildTag}</div>
       )}
-    </span>
+    </div>
   );
 }
 
