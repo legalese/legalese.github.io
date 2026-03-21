@@ -230,6 +230,12 @@ interface HealthData {
     maxZipSizeMb?: number;
     idleTimeoutHours?: number;
     dailyRequestLimit?: number;
+    suspended?: boolean;
+    stripeMeteredItems?: {
+      customerId: string;
+      requests: string;
+      allocBytes: string;
+    };
   };
 }
 
@@ -237,6 +243,12 @@ type ServiceHealth =
   | { state: "loading" }
   | { state: "error" }
   | { state: "ok"; data: HealthData };
+
+/** Derive plan label from the health endpoint's config. */
+function planFromHealth(health: ServiceHealth): string {
+  if (health.state !== "ok" || !health.data.config) return "Free plan";
+  return health.data.config.stripeMeteredItems ? "Custom plan" : "Free plan";
+}
 
 function useServiceHealth(slug: string): ServiceHealth {
   const [health, setHealth] = useState<ServiceHealth>({ state: "loading" });
@@ -269,6 +281,7 @@ function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }
 
   let dot: React.ReactNode;
   let suffix: React.ReactNode = null;
+  let buildTag: string | null = null;
 
   if (health.state === "loading") {
     dot = (
@@ -308,6 +321,10 @@ function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }
         ({total === 1 ? "1 deployment" : `${total} deployments`})
       </span>
     );
+
+    if (health.data.config?.binaryUrl) {
+      buildTag = extractBuildTag(health.data.config.binaryUrl);
+    }
   }
 
   return (
@@ -317,6 +334,9 @@ function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }
         <span>{url}</span>
       </span>
       {suffix}
+      {buildTag && (
+        <span className="text-gray-400 font-mono text-xs">{buildTag}</span>
+      )}
     </span>
   );
 }
@@ -432,8 +452,6 @@ function ServiceDetails({ health }: { health: ServiceHealth }) {
   if (health.state !== "ok" || !health.data.config) return null;
 
   const cfg = health.data.config;
-  const binaryUrl = cfg.binaryUrl;
-  const buildTag = binaryUrl ? extractBuildTag(binaryUrl) : null;
 
   const details: { label: string; value: string }[] = [
     { label: "Instances", value: String(cfg.instances ?? "-") },
@@ -449,24 +467,19 @@ function ServiceDetails({ health }: { health: ServiceHealth }) {
   ];
 
   return (
-    <div className="mt-1">
-      {buildTag && (
-        <span className="text-gray-500 font-mono text-xs">{buildTag}</span>
-      )}
-      <details className="mt-1 group">
-        <summary className="text-xs text-gray-400 hover:text-gray-600 cursor-pointer select-none">
-          More info
-        </summary>
-        <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-xs">
-          {details.map(({ label, value }) => (
-            <div key={label} className="contents">
-              <dt className="text-gray-400">{label}</dt>
-              <dd className="text-gray-600 font-mono">{value}</dd>
-            </div>
-          ))}
-        </dl>
-      </details>
-    </div>
+    <details className="mt-1 group">
+      <summary className="text-xs text-gray-400 hover:text-gray-600 cursor-pointer select-none">
+        More info
+      </summary>
+      <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-xs">
+        {details.map(({ label, value }) => (
+          <div key={label} className="contents">
+            <dt className="text-gray-400">{label}</dt>
+            <dd className="text-gray-600 font-mono">{value}</dd>
+          </div>
+        ))}
+      </dl>
+    </details>
   );
 }
 
@@ -511,16 +524,16 @@ function OrganizationInfo({
       ),
     },
     {
-      label: "Service Level",
+      label: "Subscription",
       value: (
         <div className="w-full">
           <div className="flex items-start justify-between gap-2 flex-wrap">
-            <span>Free Plan</span><br />
+            <span>{planFromHealth(health)}</span>
             <ServiceDetails health={health} />
           </div>
         </div>
-      ),
-    },
+      )
+    }
   ];
 
   return (
