@@ -526,11 +526,9 @@ function OrganizationInfo({
     {
       label: "Subscription",
       value: (
-        <div className="w-full">
-          <div className="flex items-start justify-between gap-2 flex-wrap">
-            <span>{planFromHealth(health)}</span>
-            <ServiceDetails health={health} />
-          </div>
+        <div>
+          <span>{planFromHealth(health)}</span>
+          <ServiceDetails health={health} />
         </div>
       )
     }
