@@ -158,7 +158,7 @@ export default function ConsolePage() {
     <div>
       {/* Tabs */}
       <div className="overflow-x-auto -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-        <nav className="flex gap-6 pl-2 whitespace-nowrap">
+        <nav className="flex gap-6 pr-8 whitespace-nowrap">
           {(Object.keys(TAB_LABELS) as Tab[]).map((tab) => (
             <button
               key={tab}
@@ -180,7 +180,7 @@ export default function ConsolePage() {
         {activeTab === "organization" ? (
           <OrganizationInfo organization={session.organization} />
         ) : (
-          <>
+          <div className="bg-white rounded-lg border border-gray-200 p-6">
             {tokenError && (
               <div className="flex items-center justify-center py-12">
                 <div className="text-red-600 text-sm">{tokenError}</div>
@@ -194,7 +194,7 @@ export default function ConsolePage() {
             {widgetToken && (
               <WidgetRenderer tab={activeTab} token={widgetToken} />
             )}
-          </>
+          </div>
         )}
       </div>
     </div>
