@@ -502,8 +502,8 @@ function OrganizationInfo({
     {
       label: "L4 deployment URL",
       value: (
-        <div>
-          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+        <div className="w-full">
+          <div className="flex items-start justify-between gap-2 flex-wrap">
             <DeploymentUrl slug={organization.slug} health={health} />
             {isAdmin && <RestartServiceButton slug={organization.slug} />}
           </div>
