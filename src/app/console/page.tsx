@@ -157,8 +157,8 @@ export default function ConsolePage() {
   return (
     <div>
       {/* Tabs */}
-      <div className="overflow-x-auto -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-        <nav className="flex gap-6 pr-8 whitespace-nowrap">
+      <div className="overflow-x-auto -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 pr-8">
+        <nav className="flex gap-6 whitespace-nowrap">
           {(Object.keys(TAB_LABELS) as Tab[]).map((tab) => (
             <button
               key={tab}
@@ -176,7 +176,7 @@ export default function ConsolePage() {
       </div>
 
       {/* Content area */}
-      <div className="bg-white rounded-lg border border-gray-200 p-6 mt-6 min-h-[400px]">
+      <div className="bg-white p-6 mt-6 min-h-[400px]">
         {activeTab === "organization" ? (
           <OrganizationInfo organization={session.organization} />
         ) : (
