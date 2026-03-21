@@ -335,7 +335,7 @@ function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }
       </span>
       {suffix}
       {buildTag && (
-        <span className="text-gray-400 font-mono text-xs">{buildTag}</span>
+        <div className="text-gray-400 font-mono text-xs">{buildTag}</div>
       )}
     </span>
   );
