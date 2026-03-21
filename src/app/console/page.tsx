@@ -176,11 +176,11 @@ export default function ConsolePage() {
       </div>
 
       {/* Content area */}
-      <div className="min-h-[400px] pt-6">
+      <div className="bg-white rounded-lg border border-gray-200 p-6 mt-6 min-h-[400px]">
         {activeTab === "organization" ? (
           <OrganizationInfo organization={session.organization} />
         ) : (
-          <div className="bg-white rounded-lg border border-gray-200 p-6">
+          <>
             {tokenError && (
               <div className="flex items-center justify-center py-12">
                 <div className="text-red-600 text-sm">{tokenError}</div>
@@ -194,7 +194,7 @@ export default function ConsolePage() {
             {widgetToken && (
               <WidgetRenderer tab={activeTab} token={widgetToken} />
             )}
-          </div>
+          </>
         )}
       </div>
     </div>
