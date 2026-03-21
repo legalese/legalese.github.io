@@ -507,7 +507,17 @@ function OrganizationInfo({
             <DeploymentUrl slug={organization.slug} health={health} />
             {isAdmin && <RestartServiceButton slug={organization.slug} />}
           </div>
-          <ServiceDetails health={health} />
+        </div>
+      ),
+    },
+    {
+      label: "Service Level",
+      value: (
+        <div className="w-full">
+          <div className="flex items-start justify-between gap-2 flex-wrap">
+            <span>Free Plan</span><br />
+            <ServiceDetails health={health} />
+          </div>
         </div>
       ),
     },
