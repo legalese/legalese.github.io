@@ -176,7 +176,7 @@ export default function ConsolePage() {
       </div>
 
       {/* Content area */}
-      <div className="bg-white p-6 min-h-[400px] -mx-4 sm:-mx-6 lg:-mx-8">
+      <div className="bg-white p-6 min-h-[400px] -mx-4 sm:-mx-6 lg:mx-0">
         {activeTab === "organization" ? (
           <OrganizationInfo organization={session.organization} />
         ) : (
