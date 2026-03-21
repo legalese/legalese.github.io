@@ -158,12 +158,12 @@ export default function ConsolePage() {
     <div>
       {/* Tabs */}
       <div className="overflow-x-auto -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 pr-8">
-        <nav className="flex gap-6 whitespace-nowrap">
+        <nav className="flex whitespace-nowrap">
           {(Object.keys(TAB_LABELS) as Tab[]).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`pb-3 text-sm font-medium border-b-2 transition-colors ${
+              className={`pb-3 mr-4 text-sm font-medium border-b-2 transition-colors ${
                 activeTab === tab
                   ? "border-accent text-accent"
                   : "border-transparent text-gray-500 hover:text-gray-700"
@@ -176,7 +176,7 @@ export default function ConsolePage() {
       </div>
 
       {/* Content area */}
-      <div className="bg-white p-6 mt-6 min-h-[400px]">
+      <div className="bg-white p-6 min-h-[400px] -mx-4 sm:-mx-6 lg:-mx-8">
         {activeTab === "organization" ? (
           <OrganizationInfo organization={session.organization} />
         ) : (
