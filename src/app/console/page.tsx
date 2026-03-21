@@ -178,7 +178,7 @@ export default function ConsolePage() {
       {/* Content area */}
       <div className="bg-white p-6 min-h-[400px] -mx-4 sm:-mx-6 lg:mx-0">
         {activeTab === "organization" ? (
-          <OrganizationInfo organization={session.organization} />
+          <OrganizationInfo organization={session.organization} permissions={session.permissions} />
         ) : (
           <>
             {tokenError && (
@@ -214,8 +214,22 @@ interface HealthData {
   deployments?: {
     total?: number;
     ready?: number;
+    pending?: number;
     compiling?: number;
     failed?: number;
+  };
+  config?: {
+    binaryUrl?: string | null;
+    instances?: number;
+    evalMemoryMb?: number;
+    compileMemoryMb?: number;
+    maxDeployments?: number;
+    maxConcurrentRequests?: number;
+    evalTimeoutSeconds?: number;
+    compileTimeoutSeconds?: number;
+    maxZipSizeMb?: number;
+    idleTimeoutHours?: number;
+    dailyRequestLimit?: number;
   };
 }
 
@@ -228,8 +242,13 @@ function useServiceHealth(slug: string): ServiceHealth {
   const [health, setHealth] = useState<ServiceHealth>({ state: "loading" });
 
   useEffect(() => {
+    if (!slug) {
+      setHealth({ state: "error" });
+      return;
+    }
     fetch(`https://${slug}.legalese.cloud/health`, {
       headers: authHeaders(),
+      credentials: "include",
     })
       .then(async (res) => {
         if (!res.ok) {
@@ -245,8 +264,7 @@ function useServiceHealth(slug: string): ServiceHealth {
   return health;
 }
 
-function DeploymentUrl({ slug }: { slug: string }) {
-  const health = useServiceHealth(slug);
+function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }) {
   const url = `https://${slug}.legalese.cloud`;
 
   let dot: React.ReactNode;
@@ -271,9 +289,14 @@ function DeploymentUrl({ slug }: { slug: string }) {
     const total = deployments?.total ?? 0;
     const failed = deployments?.failed ?? 0;
     const compiling = deployments?.compiling ?? 0;
+    const pending = deployments?.pending ?? 0;
 
     const dotColor =
-      failed > 0 ? "bg-red-500" : compiling > 0 ? "bg-yellow-400" : "bg-green-500";
+      failed > 0
+        ? "bg-red-500"
+        : compiling > 0 || pending > 0
+          ? "bg-yellow-400"
+          : "bg-green-500";
 
     dot = (
       <span className="relative flex h-2.5 w-2.5 shrink-0">
@@ -298,11 +321,164 @@ function DeploymentUrl({ slug }: { slug: string }) {
   );
 }
 
+/** Extract the build tag (e.g. "vscode-wasm-build-59") from a GitHub release URL. */
+function extractBuildTag(binaryUrl: string): string | null {
+  // URL pattern: .../releases/download/{tag}/{filename}
+  const match = binaryUrl.match(/\/releases\/download\/([^/]+)\//);
+  return match?.[1] ?? null;
+}
+
+function RestartServiceButton({ slug }: { slug: string }) {
+  const [state, setState] = useState<
+    "idle" | "confirming" | "restarting" | "success" | "error"
+  >("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  async function handleRestart() {
+    setState("restarting");
+    setErrorMsg("");
+    try {
+      const res = await fetch(
+        `https://${slug}.legalese.cloud/service/restart`,
+        {
+          method: "POST",
+          headers: authHeaders(),
+        },
+      );
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error ?? body.detail ?? `HTTP ${res.status}`);
+      }
+      setState("success");
+      setTimeout(() => setState("idle"), 3000);
+    } catch (err) {
+      setErrorMsg(err instanceof Error ? err.message : "Restart failed");
+      setState("error");
+      setTimeout(() => setState("idle"), 5000);
+    }
+  }
+
+  if (state === "confirming") {
+    return (
+      <span className="inline-flex items-center gap-2 text-sm">
+        <span className="text-gray-500">Restart service?</span>
+        <button
+          onClick={handleRestart}
+          className="text-red-600 hover:text-red-700 font-medium underline underline-offset-2"
+        >
+          Yes, restart
+        </button>
+        <button
+          onClick={() => setState("idle")}
+          className="text-gray-500 hover:text-gray-700 underline underline-offset-2"
+        >
+          Cancel
+        </button>
+      </span>
+    );
+  }
+
+  if (state === "restarting") {
+    return (
+      <span className="inline-flex items-center gap-2 text-sm text-gray-500">
+        <svg
+          className="animate-spin h-4 w-4"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            className="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            strokeWidth="4"
+          />
+          <path
+            className="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+          />
+        </svg>
+        Restarting...
+      </span>
+    );
+  }
+
+  if (state === "success") {
+    return (
+      <span className="text-sm text-green-600">Service restarted</span>
+    );
+  }
+
+  if (state === "error") {
+    return (
+      <span className="text-sm text-red-600">{errorMsg}</span>
+    );
+  }
+
+  return (
+    <button
+      onClick={() => setState("confirming")}
+      className="text-sm text-gray-500 hover:text-gray-700 underline underline-offset-2"
+    >
+      Restart service
+    </button>
+  );
+}
+
+function ServiceDetails({ health }: { health: ServiceHealth }) {
+  if (health.state !== "ok" || !health.data.config) return null;
+
+  const cfg = health.data.config;
+  const binaryUrl = cfg.binaryUrl;
+  const buildTag = binaryUrl ? extractBuildTag(binaryUrl) : null;
+
+  const details: { label: string; value: string }[] = [
+    { label: "Instances", value: String(cfg.instances ?? "-") },
+    { label: "Max deployments", value: String(cfg.maxDeployments ?? "-") },
+    { label: "Max concurrent requests", value: String(cfg.maxConcurrentRequests ?? "-") },
+    { label: "Max evaluation memory", value: `${cfg.evalMemoryMb ?? "-"} MB` },
+    { label: "Compile memory", value: `${cfg.compileMemoryMb ?? "-"} MB` },
+    { label: "Evaluation timeout", value: `${cfg.evalTimeoutSeconds ?? "-"}s` },
+    { label: "Compile timeout", value: `${cfg.compileTimeoutSeconds ?? "-"}s` },
+    { label: "Max deployment size", value: `${cfg.maxZipSizeMb ?? "-"} MB` },
+    { label: "Idle timeout", value: `${cfg.idleTimeoutHours ?? "-"} hours` },
+    { label: "Daily request limit", value: String(cfg.dailyRequestLimit ?? "-") },
+  ];
+
+  return (
+    <div className="mt-1">
+      {buildTag && (
+        <span className="text-gray-500 font-mono text-xs">{buildTag}</span>
+      )}
+      <details className="mt-1 group">
+        <summary className="text-xs text-gray-400 hover:text-gray-600 cursor-pointer select-none">
+          More info
+        </summary>
+        <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-xs">
+          {details.map(({ label, value }) => (
+            <div key={label} className="contents">
+              <dt className="text-gray-400">{label}</dt>
+              <dd className="text-gray-600 font-mono">{value}</dd>
+            </div>
+          ))}
+        </dl>
+      </details>
+    </div>
+  );
+}
+
 function OrganizationInfo({
   organization,
+  permissions,
 }: {
   organization?: ConsoleOrganization;
+  permissions: string[];
 }) {
+  const health = useServiceHealth(organization?.slug ?? "");
+
   if (!organization) {
     return (
       <div className="text-gray-500 text-sm py-12 text-center">
@@ -310,6 +486,8 @@ function OrganizationInfo({
       </div>
     );
   }
+
+  const isAdmin = permissions.includes("l4:admin");
 
   const rows: { label: string; value: React.ReactNode }[] = [
     { label: "Name", value: <strong>{organization.name}</strong> },
@@ -323,23 +501,34 @@ function OrganizationInfo({
     },
     {
       label: "L4 deployment URL",
-      value: <DeploymentUrl slug={organization.slug} />,
+      value: (
+        <div>
+          <DeploymentUrl slug={organization.slug} health={health} />
+          <ServiceDetails health={health} />
+        </div>
+      ),
     },
-
   ];
 
   return (
     <div className="space-y-8 font-sans">
-      <dl className="divide-y divide-gray-100">
-        {rows.map(({ label, value }) => (
-          <div key={label} className="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
-            <dt className="text-sm font-medium text-gray-500">{label}</dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-              {value}
-            </dd>
+      <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+        <dl className="divide-y divide-gray-100 flex-1 min-w-0">
+          {rows.map(({ label, value }) => (
+            <div key={label} className="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
+              <dt className="text-sm font-medium text-gray-500">{label}</dt>
+              <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 break-words">
+                {value}
+              </dd>
+            </div>
+          ))}
+        </dl>
+        {isAdmin && (
+          <div className="lg:pt-4 shrink-0">
+            <RestartServiceButton slug={organization.slug} />
           </div>
-        ))}
-      </dl>
+        )}
+      </div>
     </div>
   );
 }
