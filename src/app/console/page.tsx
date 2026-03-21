@@ -157,8 +157,8 @@ export default function ConsolePage() {
   return (
     <div>
       {/* Tabs */}
-      <div>
-        <nav className="flex gap-6 pl-2">
+      <div className="overflow-x-auto -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+        <nav className="flex gap-6 pl-2 whitespace-nowrap">
           {(Object.keys(TAB_LABELS) as Tab[]).map((tab) => (
             <button
               key={tab}
@@ -176,7 +176,7 @@ export default function ConsolePage() {
       </div>
 
       {/* Content area */}
-      <div className="bg-white rounded-lg border border-gray-200 p-6 min-h-[400px]">
+      <div className="min-h-[400px] pt-6">
         {activeTab === "organization" ? (
           <OrganizationInfo organization={session.organization} />
         ) : (
@@ -288,9 +288,11 @@ function DeploymentUrl({ slug }: { slug: string }) {
   }
 
   return (
-    <span className="inline-flex items-center gap-2">
-      {dot}
-      <span>{url}</span>
+    <span className="inline-flex items-start gap-2 flex-wrap">
+      <span className="inline-flex items-center gap-2">
+        {dot}
+        <span>{url}</span>
+      </span>
       {suffix}
     </span>
   );

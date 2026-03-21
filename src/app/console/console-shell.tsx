@@ -65,7 +65,7 @@ export function ConsoleShell({ children }: { children: React.ReactNode }) {
       >
         <div className="min-h-screen bg-gray-50">
           <ConsoleHeader />
-          <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <main className="px-4 sm:px-6 lg:px-8 py-8">
             {children}
           </main>
         </div>
