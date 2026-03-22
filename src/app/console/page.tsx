@@ -228,6 +228,7 @@ interface HealthData {
     evalTimeoutSeconds?: number;
     compileTimeoutSeconds?: number;
     maxZipSizeMb?: number;
+    debug?: boolean;
     idleTimeoutHours?: number;
     dailyRequestLimit?: number;
     suspended?: boolean;
@@ -466,6 +467,7 @@ function ServiceDetails({ health }: { health: ServiceHealth }) {
     { label: "Max deployment size", value: `${cfg.maxZipSizeMb ?? "-"} MB` },
     { label: "Idle timeout", value: `${cfg.idleTimeoutHours ?? "-"} hours` },
     { label: "Daily request limit", value: String(cfg.dailyRequestLimit ?? "-") },
+    ...(cfg.debug ? [{ label: "Debug log mode", value: "Enabled" }] : []),
   ];
 
   return (
