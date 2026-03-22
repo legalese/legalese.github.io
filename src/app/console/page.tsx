@@ -303,12 +303,11 @@ function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }
     const total = deployments?.total ?? 0;
     const failed = deployments?.failed ?? 0;
     const compiling = deployments?.compiling ?? 0;
-    const pending = deployments?.pending ?? 0;
 
     const dotColor =
       failed > 0
         ? "bg-red-500"
-        : compiling > 0 || pending > 0
+        : compiling > 0
           ? "bg-yellow-400"
           : "bg-green-500";
 
