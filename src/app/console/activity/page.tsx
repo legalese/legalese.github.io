@@ -34,7 +34,8 @@ export default function ActivityPage() {
 
   // Keep ref in sync with latest entries
   useEffect(() => {
-    newestTsRef.current = new Date(new Date(entries[0]?.ts).getTime() + 1).toISOString();
+    const lastEntryTimestamp = new Date(entries[0]?.ts)
+    newestTsRef.current = lastEntryTimestamp ? new Date(lastEntryTimestamp.getTime() + 1).toISOString() : undefined
   }, [entries]);
 
   useEffect(() => {
