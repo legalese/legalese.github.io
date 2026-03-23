@@ -153,7 +153,7 @@ export function useWidgetToken(organizationId: string | null, scope: string) {
       const data = await res.json();
       setToken(data.token);
     } catch {
-      setError("Failed to connect to auth service");
+      setError("Service temporarily unavailable");
     }
   }, [organizationId, scope]);
 

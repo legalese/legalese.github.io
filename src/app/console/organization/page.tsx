@@ -276,7 +276,7 @@ function UsageChart({ slug, health }: { slug: string; health: ServiceHealth }) {
   }, [slug, period, days, health.state]);
 
   if (health.state !== "ok") {
-    return <span className="text-gray-400 text-sm">Unavailable</span>;
+    return <span className="text-gray-400 text-sm">Service temporarily unavailable</span>;
   }
 
   const maxCount = Math.max(1, ...buckets.map((b) => b.count));
