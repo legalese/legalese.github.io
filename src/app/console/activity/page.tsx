@@ -109,13 +109,13 @@ export default function ActivityPage() {
 
   return (
     <div className="font-sans">
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex justify-between mb-4">
         <input
           type="text"
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
           placeholder="Filter..."
-          className="text-s border border-gray-200 rounded px-2 py-1 w-40 focus:outline-none focus:border-gray-400"
+          className="text-sm border border-gray-200 rounded px-2 py-1 w-40 focus:outline-none focus:border-gray-400"
         />
         <span className="text-xs text-gray-400">
           {lastUpdated ? <>Last updated: {new Date(lastUpdated).toLocaleTimeString()}</> : <>&nbsp;</>}
