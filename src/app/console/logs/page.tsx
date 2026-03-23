@@ -161,6 +161,7 @@ export default function LogsPage() {
               <tr className="border-b border-gray-100 text-left">
                 <th className="pb-2 pr-3 font-medium">Time</th>
                 <th className="pb-2 pr-3 font-medium">Level</th>
+                <th className="pb-2 pr-3 font-medium">Source</th>
                 <th className="pb-2 pr-3 font-medium">Message</th>
                 <th className="pb-2 pr-3 font-medium">Deployment</th>
                 {isAdmin && <th className="pb-2 pr-3 font-medium">Instance</th>}
@@ -239,6 +240,9 @@ function LogRow({
             {entry.level}
           </span>
         </td>
+        <td className="py-1.5 pr-3 text-gray-400 text-[10px]">
+          {entry.source === "jl4-service" ? "JL4" : (entry.source ?? "")}
+        </td>
         <td className="py-1.5 pr-3 text-gray-800 max-w-md truncate">
           {entry.msg}
         </td>
@@ -253,7 +257,7 @@ function LogRow({
       </tr>
       {expanded && extraFields.length > 0 && (
         <tr className="bg-gray-50">
-          <td colSpan={isAdmin ? 5 : 4} className="px-4 py-2">
+          <td colSpan={isAdmin ? 6 : 5} className="px-4 py-2">
             <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 text-[11px]">
               {extraFields.map(([key, value]) => (
                 <div key={key} className="contents">
