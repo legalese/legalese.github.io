@@ -29,6 +29,7 @@ export default function LogsPage() {
   const [error, setError] = useState<string | null>(null);
   const [expandedTs, setExpandedTs] = useState<string | null>(null);
   const [filter, setFilter] = useState("");
+  const [refreshKey, setRefreshKey] = useState(0);
   const newestTsRef = useRef<string | undefined>();
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -59,7 +60,13 @@ export default function LogsPage() {
         if (cancelled) return;
 
         if (since && data.entries?.length > 0) {
-          setEntries((prev) => [...data.entries, ...prev].slice(0, 200));
+          setEntries((prev) => {
+            const existingKeys = new Set(prev.map((e: LogEntry) => `${e.ts}-${e.msg}`));
+            const newEntries = data.entries.filter(
+              (e: LogEntry) => !existingKeys.has(`${e.ts}-${e.msg}`),
+            );
+            return [...newEntries, ...prev].slice(0, 200);
+          });
         } else if (!since) {
           setEntries(data.entries ?? []);
         }
@@ -103,7 +110,7 @@ export default function LogsPage() {
       if (timerRef.current) clearInterval(timerRef.current);
       document.removeEventListener("visibilitychange", onVisibilityChange);
     };
-  }, [slug]);
+  }, [slug, refreshKey]);
 
   if (!slug) {
     return <div className="text-gray-500 text-sm py-12 text-center">No organization selected.</div>;
@@ -111,7 +118,7 @@ export default function LogsPage() {
 
   return (
     <div className="font-sans">
-      <div className="flex justify-between mb-4">
+      <div className="flex justify-center justify-between mb-4">
         <input
           type="text"
           value={filter}
@@ -119,8 +126,22 @@ export default function LogsPage() {
           placeholder="Filter..."
           className="text-sm border border-gray-200 rounded px-2 py-1 w-40 focus:outline-none focus:border-gray-400"
         />
-        <span className="text-xs text-gray-400">
+        <span className="text-xs text-gray-400 flex items-center gap-2">
           {lastUpdated ? <>Last updated: {new Date(lastUpdated).toLocaleTimeString()}</> : <>&nbsp;</>}
+          <button
+            onClick={() => {
+              setEntries([]);
+              setLoading(true);
+              newestTsRef.current = undefined;
+              setRefreshKey((k) => k + 1);
+            }}
+            className="text-gray-400 hover:text-gray-600 transition-colors"
+            title="Refresh"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5">
+              <path fillRule="evenodd" d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H4.598a.75.75 0 0 0-.75.75v3.634a.75.75 0 0 0 1.5 0v-2.033l.312.311a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm-10.624-2.85a5.5 5.5 0 0 1 9.201-2.465l.312.311H11.768a.75.75 0 0 0 0 1.5h3.634a.75.75 0 0 0 .75-.75V3.536a.75.75 0 0 0-1.5 0v2.033l-.312-.311A7 7 0 0 0 2.628 8.396a.75.75 0 0 0 1.449.39Z" clipRule="evenodd" />
+            </svg>
+          </button>
         </span>
       </div>
 
