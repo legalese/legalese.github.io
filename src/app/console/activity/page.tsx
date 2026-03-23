@@ -49,7 +49,7 @@ export default function ActivityPage() {
           { headers: authHeaders(), credentials: "include" },
         );
         if (!res.ok) {
-          if (!cancelled) setError(`Failed to load logs (${res.status})`);
+          if (!cancelled) setError("Service temporarily unavailable");
           return;
         }
         const data = await res.json();
@@ -63,7 +63,7 @@ export default function ActivityPage() {
         setLastUpdated(data.lastUpdated ?? new Date().toISOString());
         setError(null);
       } catch {
-        if (!cancelled) setError("Failed to connect");
+        if (!cancelled) setError("Service temporarily unavailable");
       } finally {
         if (!cancelled) setLoading(false);
       }
