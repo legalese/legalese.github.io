@@ -181,7 +181,6 @@ function LogRow({
   expanded: boolean;
   onToggle: () => void;
 }) {
-  const levelLabel = pinoLevelLabel(entry.level);
   const levelColors: Record<string, string> = {
     fatal: "bg-red-200 text-red-800",
     error: "bg-red-100 text-red-700",
@@ -189,13 +188,13 @@ function LogRow({
     info: "bg-gray-100 text-gray-600",
     debug: "bg-blue-50 text-blue-600",
   };
-  const levelClass = levelColors[levelLabel] ?? levelColors.info;
+  const levelClass = levelColors[entry.level] ?? levelColors.info;
 
   const extraFields = Object.entries(entry).filter(
     ([k]) => !["ts", "level", "msg", "source", "deploymentId"].includes(k),
   );
 
-  const timestamp = new Date(parseInt(entry.ts, 10))
+  const timestamp = new Date(entry.ts)
 
   return (
     <>
@@ -208,7 +207,7 @@ function LogRow({
         </td>
         <td className="py-1.5 pr-3">
           <span className={`inline-block px-1.5 py-0.5 rounded text-[10px] font-medium ${levelClass}`}>
-            {levelLabel}
+            {entry.level}
           </span>
         </td>
         <td className="py-1.5 pr-3 text-gray-800 max-w-md truncate">
@@ -236,15 +235,4 @@ function LogRow({
       )}
     </>
   );
-}
-
-function pinoLevelLabel(level: string): string {
-  const num = Number(level);
-  if (isNaN(num)) return level; // already a string label
-  if (num >= 60) return "fatal";
-  if (num >= 50) return "error";
-  if (num >= 40) return "warn";
-  if (num >= 30) return "info";
-  if (num >= 20) return "debug";
-  return "trace";
 }
