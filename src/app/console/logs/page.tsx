@@ -20,7 +20,7 @@ interface LogEntry {
   [key: string]: unknown;
 }
 
-export default function ActivityPage() {
+export default function LogsPage() {
   const { session } = useConsole();
   const slug = session?.organization?.slug;
   const [entries, setEntries] = useState<LogEntry[]>([]);
@@ -32,10 +32,11 @@ export default function ActivityPage() {
   const newestTsRef = useRef<string | undefined>();
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // Keep ref in sync with latest entries
+  // Keep ref in sync with latest entry timestamp (+1ms to avoid duplicates)
   useEffect(() => {
-    const lastEntryTimestamp = new Date(entries[0]?.ts)
-    newestTsRef.current = lastEntryTimestamp ? new Date(lastEntryTimestamp.getTime() + 1).toISOString() : undefined
+    const ts = entries[0]?.ts;
+    if (!ts) return;
+    newestTsRef.current = new Date(new Date(ts).getTime() + 1).toISOString();
   }, [entries]);
 
   useEffect(() => {

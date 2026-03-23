@@ -7,7 +7,7 @@ import { useConsole } from "./console-context";
 
 const TABS = [
   { path: "/console/organization", label: "Organization" },
-  { path: "/console/activity", label: "Activity" },
+  { path: "/console/logs", label: "Logs" },
   { path: "/console/members", label: "Members" },
   { path: "/console/api-keys", label: "API Keys" },
   { path: "/console/profile", label: "Profile" },
