@@ -28,6 +28,7 @@ export default function ActivityPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [expandedTs, setExpandedTs] = useState<string | null>(null);
+  const [filter, setFilter] = useState("");
   const newestTsRef = useRef<string | undefined>();
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -114,6 +115,13 @@ export default function ActivityPage() {
             Last updated: {new Date(lastUpdated).toLocaleTimeString()}
           </span>
         )}
+        <input
+          type="text"
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+          placeholder="Filter..."
+          className="text-xs border border-gray-200 rounded px-2 py-1 w-40 focus:outline-none focus:border-gray-400"
+        />
       </div>
 
       {error && <div className="text-sm mb-4 text-center italic text-gray-500">{error}</div>}
@@ -136,7 +144,18 @@ export default function ActivityPage() {
               </tr>
             </thead>
             <tbody>
-              {entries.map((entry) => {
+              {entries
+                .filter((entry) => {
+                  if (!filter) return true;
+                  const q = filter.toLowerCase();
+                  return (
+                    entry.msg.toLowerCase().includes(q) ||
+                    entry.level.toLowerCase().includes(q) ||
+                    (entry.deploymentId ?? "").toLowerCase().includes(q) ||
+                    (entry.source ?? "").toLowerCase().includes(q)
+                  );
+                })
+                .map((entry) => {
                 const id = `${entry.ts}-${entry.msg}`;
                 return (
                   <LogRow
