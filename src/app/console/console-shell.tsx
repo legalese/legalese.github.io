@@ -2,20 +2,12 @@
 
 import { useEffect, useState } from "react";
 import "@radix-ui/themes/styles.css";
+import "@workos-inc/widgets/styles.css";
 import { WorkOsWidgets } from "@workos-inc/widgets";
 import { AUTH_API_URL } from "@/lib/constants";
 import { ConsoleContext, type ConsoleSession } from "./console-context";
 import { ConsoleHeader } from "./console-header";
-
-const SESSION_TOKEN_KEY = "wos-session-token";
-
-function authHeaders(): HeadersInit {
-  const token =
-    typeof window !== "undefined"
-      ? localStorage.getItem(SESSION_TOKEN_KEY)
-      : null;
-  return token ? { Authorization: `Bearer ${token}` } : {};
-}
+import { authHeaders, SESSION_TOKEN_KEY } from "./console-utils";
 
 export function ConsoleShell({ children }: { children: React.ReactNode }) {
   const [session, setSession] = useState<ConsoleSession | null>(null);

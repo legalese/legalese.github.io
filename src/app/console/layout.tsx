@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ConsoleShell } from "./console-shell";
+import { ConsoleNav } from "./console-nav";
 
 export const metadata: Metadata = {
   title: "Console",
@@ -11,5 +12,9 @@ export default function ConsoleLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <ConsoleShell>{children}</ConsoleShell>;
+  return (
+    <ConsoleShell>
+      <ConsoleNav>{children}</ConsoleNav>
+    </ConsoleShell>
+  );
 }
