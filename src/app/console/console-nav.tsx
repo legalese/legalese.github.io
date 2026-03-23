@@ -11,7 +11,6 @@ const TABS = [
   { path: "/console/members", label: "Members" },
   { path: "/console/api-keys", label: "API Keys" },
   { path: "/console/profile", label: "Profile" },
-  { path: "/console/security", label: "Security" },
 ] as const;
 
 export function ConsoleNav({ children }: { children: React.ReactNode }) {
