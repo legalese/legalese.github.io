@@ -97,7 +97,6 @@ function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }
   const url = `https://${slug}.legalese.cloud`;
   let dot: React.ReactNode;
   let suffix: React.ReactNode = null;
-  let version: string | null = null;
 
   if (health.state === "loading") {
     dot = (
@@ -133,8 +132,12 @@ function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }
         ({total === 1 ? "1 deployment" : `${total} deployments`})
       </span>
     );
-    version = health.data.instances[0]?.version ?? null;
   }
+
+  // Extract build tag from binaryUrl (e.g. ".../releases/download/vscode-wasm-build-63/..." → "vscode-wasm-build-63")
+  const buildTag = health.state === "ok" && health.data.config?.binaryUrl
+    ? health.data.config.binaryUrl.match(/\/releases\/download\/([^/]+)\//)?.[1] ?? null
+    : null;
 
   return (
     <div>
@@ -142,7 +145,7 @@ function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }
         <span className="inline-flex items-center gap-2">{dot}<span>{url}</span></span>
         {suffix}
       </span>
-      {version && <div className="text-gray-400 font-mono text-xs mt-1">{version}</div>}
+      {buildTag && <div className="text-gray-400 font-mono text-xs mt-1">{buildTag}</div>}
     </div>
   );
 }

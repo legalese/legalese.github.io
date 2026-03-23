@@ -18,8 +18,6 @@ export function authHeaders(): HeadersInit {
 
 export interface HealthInstance {
   status: string;
-  version: string | null;
-  uptime: string | null;
   deployments: string[];
   deploymentStatus?: {
     total: number;
@@ -32,6 +30,7 @@ export interface HealthInstance {
 
 export interface HealthConfig {
   plan: string;
+  binaryUrl: string | null;
   dailyRequestLimit: number;
   blockOnOverage: boolean;
   maxConcurrentRequests: number;

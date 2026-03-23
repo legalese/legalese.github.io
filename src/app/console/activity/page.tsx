@@ -109,7 +109,6 @@ export default function ActivityPage() {
   return (
     <div className="font-sans">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-sm font-medium text-gray-700">Service Activity Log</h2>
         {lastUpdated && (
           <span className="text-xs text-gray-400">
             Last updated: {new Date(lastUpdated).toLocaleTimeString()}
@@ -117,7 +116,7 @@ export default function ActivityPage() {
         )}
       </div>
 
-      {error && <div className="text-red-600 text-sm mb-4">{error}</div>}
+      {error && <div className="text-sm mb-4 text-center italic text-gray-500">{error}</div>}
 
       {loading ? (
         <div className="flex items-center justify-center py-12 text-gray-400 text-sm">Loading...</div>
