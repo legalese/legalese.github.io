@@ -134,7 +134,7 @@ export default function ActivityPage() {
         <div className="overflow-x-auto">
           <table className="w-full text-xs">
             <thead>
-              <tr className="border-b border-gray-100 text-left text-gray-400">
+              <tr className="border-b border-gray-100 text-left">
                 <th className="pb-2 pr-3 font-medium">Time</th>
                 <th className="pb-2 pr-3 font-medium">Level</th>
                 <th className="pb-2 pr-3 font-medium">Message</th>
