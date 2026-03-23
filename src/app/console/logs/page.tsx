@@ -23,6 +23,7 @@ interface LogEntry {
 export default function LogsPage() {
   const { session } = useConsole();
   const slug = session?.organization?.slug;
+  const isAdmin = session?.permissions?.includes("l4:admin") ?? false;
   const [entries, setEntries] = useState<LogEntry[]>([]);
   const [lastUpdated, setLastUpdated] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -118,7 +119,7 @@ export default function LogsPage() {
 
   return (
     <div className="font-sans">
-      <div className="flex justify-center justify-between mb-4">
+      <div className="flex justify-between mb-4">
         <input
           type="text"
           value={filter}
@@ -162,6 +163,7 @@ export default function LogsPage() {
                 <th className="pb-2 pr-3 font-medium">Level</th>
                 <th className="pb-2 pr-3 font-medium">Message</th>
                 <th className="pb-2 pr-3 font-medium">Deployment</th>
+                {isAdmin && <th className="pb-2 pr-3 font-medium">Instance</th>}
               </tr>
             </thead>
             <tbody>
@@ -173,7 +175,8 @@ export default function LogsPage() {
                     entry.msg.toLowerCase().includes(q) ||
                     entry.level.toLowerCase().includes(q) ||
                     (entry.deploymentId ?? "").toLowerCase().includes(q) ||
-                    (entry.source ?? "").toLowerCase().includes(q)
+                    (entry.source ?? "").toLowerCase().includes(q) ||
+                    (isAdmin && String(entry.instanceId ?? "").toLowerCase().includes(q))
                   );
                 })
                 .map((entry) => {
@@ -184,6 +187,7 @@ export default function LogsPage() {
                     entry={entry}
                     expanded={expandedTs === id}
                     onToggle={() => setExpandedTs(expandedTs === id ? null : id)}
+                    isAdmin={isAdmin}
                   />
                 );
               })}
@@ -199,10 +203,12 @@ function LogRow({
   entry,
   expanded,
   onToggle,
+  isAdmin,
 }: {
   entry: LogEntry;
   expanded: boolean;
   onToggle: () => void;
+  isAdmin: boolean;
 }) {
   const levelColors: Record<string, string> = {
     fatal: "bg-red-200 text-red-800",
@@ -214,7 +220,7 @@ function LogRow({
   const levelClass = levelColors[entry.level] ?? levelColors.info;
 
   const extraFields = Object.entries(entry).filter(
-    ([k]) => !["ts", "level", "msg", "source", "deploymentId"].includes(k),
+    ([k]) => !["ts", "level", "msg", "source", "deploymentId", "instanceId"].includes(k),
   );
 
   const timestamp = new Date(entry.ts)
@@ -239,10 +245,15 @@ function LogRow({
         <td className="py-1.5 pr-3 text-gray-400 font-mono">
           {entry.deploymentId ?? ""}
         </td>
+        {isAdmin && (
+          <td className="py-1.5 pr-3 text-gray-400 font-mono">
+            {typeof entry.instanceId === "string" ? entry.instanceId : ""}
+          </td>
+        )}
       </tr>
       {expanded && extraFields.length > 0 && (
         <tr className="bg-gray-50">
-          <td colSpan={4} className="px-4 py-2">
+          <td colSpan={isAdmin ? 5 : 4} className="px-4 py-2">
             <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 text-[11px]">
               {extraFields.map(([key, value]) => (
                 <div key={key} className="contents">
