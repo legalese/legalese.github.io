@@ -110,17 +110,15 @@ export default function ActivityPage() {
   return (
     <div className="font-sans">
       <div className="flex items-center justify-between mb-4">
-        {lastUpdated && (
-          <span className="text-xs text-gray-400">
-            Last updated: {new Date(lastUpdated).toLocaleTimeString()}
-          </span>
-        )}
+        <span className="text-xs text-gray-400">
+          {lastUpdated ? <>Last updated: {new Date(lastUpdated).toLocaleTimeString()}</> : <>&nbsp;</>}
+        </span>
         <input
           type="text"
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
           placeholder="Filter..."
-          className="text-xs border border-gray-200 rounded px-2 py-1 w-40 focus:outline-none focus:border-gray-400"
+          className="border border-gray-200 rounded px-2 py-1 w-40 focus:outline-none focus:border-gray-400"
         />
       </div>
 
@@ -204,7 +202,7 @@ function LogRow({
         onClick={onToggle}
       >
         <td className="py-1.5 pr-3 whitespace-nowrap text-gray-500">
-          {relativeTime(entry.ts)}
+          {new Date(entry.ts).toLocaleString()}
         </td>
         <td className="py-1.5 pr-3">
           <span className={`inline-block px-1.5 py-0.5 rounded text-[10px] font-medium ${levelClass}`}>
@@ -236,28 +234,6 @@ function LogRow({
       )}
     </>
   );
-}
-
-/** Parse a timestamp that may be an epoch ms (number or numeric string) or ISO string. */
-function parseTimestamp(ts: string): number {
-  const num = Number(ts);
-  if (!isNaN(num) && num > 1e12) return num; // epoch ms
-  return new Date(ts).getTime();
-}
-
-function relativeTime(ts: string): string {
-  const time = parseTimestamp(ts);
-  if (isNaN(time)) return ts;
-  const diff = Date.now() - time;
-  const seconds = Math.floor(diff / 1000);
-  if (seconds < 5) return "just now";
-  if (seconds < 60) return `${seconds}s ago`;
-  const minutes = Math.floor(seconds / 60);
-  if (minutes < 60) return `${minutes}m ago`;
-  const hours = Math.floor(minutes / 60);
-  if (hours < 24) return `${hours}h ago`;
-  const days = Math.floor(hours / 24);
-  return `${days}d ago`;
 }
 
 function pinoLevelLabel(level: string): string {
