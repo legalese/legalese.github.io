@@ -45,7 +45,7 @@ export default function ActivityPage() {
       try {
         const params = since ? `?since=${encodeURIComponent(since)}` : "";
         const res = await fetch(
-          `https://${slug}.legalese.cloud/billing/logs${params}`,
+          `https://${slug}.legalese.cloud/service/logs${params}`,
           { headers: authHeaders(), credentials: "include" },
         );
         if (!res.ok) {
