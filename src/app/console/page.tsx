@@ -209,35 +209,40 @@ import { UserSecurity } from "@workos-inc/widgets/user-security";
 
 import type { ConsoleOrganization } from "./console-context";
 
+interface HealthInstance {
+  status: string;
+  uptime: string | null;
+  deployments: string[];
+  deploymentStatus?: {
+    total: number;
+    ready: number;
+    compiling: number;
+    failed: number;
+  } | null;
+  token?: string; // admin only
+}
+
+interface HealthConfig {
+  plan: string;
+  binaryUrl: string | null;
+  dailyRequestLimit: number;
+  blockOnOverage: boolean;
+  maxConcurrentRequests: number;
+  maxDeployments: number;
+  maxEvalMemoryMb: number;
+  compileMemoryMb: number;
+  evalTimeoutSeconds: number;
+  compileTimeoutSeconds: number;
+  maxZipSizeMb: number;
+  idleTimeoutHours: number;
+  publicDeployments: string[];
+  suspended: boolean;
+}
+
 interface HealthData {
-  status?: string;
-  deployments?: {
-    total?: number;
-    ready?: number;
-    pending?: number;
-    compiling?: number;
-    failed?: number;
-  };
-  config?: {
-    binaryUrl?: string | null;
-    instances?: number;
-    evalMemoryMb?: number;
-    compileMemoryMb?: number;
-    maxDeployments?: number;
-    maxConcurrentRequests?: number;
-    evalTimeoutSeconds?: number;
-    compileTimeoutSeconds?: number;
-    maxZipSizeMb?: number;
-    debug?: boolean;
-    idleTimeoutHours?: number;
-    dailyRequestLimit?: number;
-    suspended?: boolean;
-    stripeMeteredItems?: {
-      customerId: string;
-      requests: string;
-      allocBytes: string;
-    };
-  };
+  status: string;
+  instances: HealthInstance[];
+  config: HealthConfig;
 }
 
 type ServiceHealth =
@@ -248,7 +253,7 @@ type ServiceHealth =
 /** Derive plan label from the health endpoint's config. */
 function planFromHealth(health: ServiceHealth): string {
   if (health.state !== "ok" || !health.data.config) return "Free plan";
-  return health.data.config.stripeMeteredItems ? "Custom plan" : "Free plan";
+  return health.data.config.plan === "custom" ? "Custom plan" : "Free plan";
 }
 
 function useServiceHealth(slug: string): ServiceHealth {
@@ -259,19 +264,55 @@ function useServiceHealth(slug: string): ServiceHealth {
       setHealth({ state: "error" });
       return;
     }
-    fetch(`https://${slug}.legalese.cloud/health`, {
-      headers: authHeaders(),
-      credentials: "include",
-    })
-      .then(async (res) => {
-        if (!res.ok) {
-          setHealth({ state: "error" });
-          return;
-        }
-        const data: HealthData = await res.json().catch(() => ({}));
-        setHealth({ state: "ok", data });
+
+    function fetchHealth() {
+      fetch(`https://${slug}.legalese.cloud/service/health`, {
+        headers: authHeaders(),
+        credentials: "include",
       })
-      .catch(() => setHealth({ state: "error" }));
+        .then(async (res) => {
+          if (!res.ok) {
+            setHealth({ state: "error" });
+            return;
+          }
+          const data: HealthData = await res.json().catch(() => ({}));
+          setHealth({ state: "ok", data });
+        })
+        .catch(() => setHealth({ state: "error" }));
+    }
+
+    fetchHealth();
+
+    // Poll every 5s while the tab is visible
+    let timer: ReturnType<typeof setInterval> | null = null;
+
+    function startPolling() {
+      if (!timer) timer = setInterval(fetchHealth, 10_000);
+    }
+
+    function stopPolling() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    function onVisibilityChange() {
+      if (document.visibilityState === "visible") {
+        fetchHealth(); // Immediate refresh when tab becomes visible
+        startPolling();
+      } else {
+        stopPolling();
+      }
+    }
+
+    if (document.visibilityState === "visible") startPolling();
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
+    return () => {
+      stopPolling();
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    };
   }, [slug]);
 
   return health;
@@ -282,7 +323,7 @@ function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }
 
   let dot: React.ReactNode;
   let suffix: React.ReactNode = null;
-  let buildTag: string | null = null;
+  let version: string | null = null;
 
   if (health.state === "loading") {
     dot = (
@@ -299,17 +340,22 @@ function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }
     );
     suffix = <span className="text-gray-400 text-sm">unreachable</span>;
   } else {
-    const { deployments } = health.data;
-    const total = deployments?.total ?? 0;
-    const failed = deployments?.failed ?? 0;
-    const compiling = deployments?.compiling ?? 0;
+    // Aggregate deployment status across all instances
+    const allStatuses = health.data.instances
+      .map((i) => i.deploymentStatus)
+      .filter(Boolean);
+    const total = allStatuses.reduce((sum, s) => sum + (s?.total ?? 0), 0);
+    const failed = allStatuses.reduce((sum, s) => sum + (s?.failed ?? 0), 0);
+    const compiling = allStatuses.reduce((sum, s) => sum + (s?.compiling ?? 0), 0);
 
     const dotColor =
-      failed > 0
-        ? "bg-red-500"
-        : compiling > 0
-          ? "bg-yellow-400"
-          : "bg-green-500";
+      health.data.status === "idle"
+        ? "bg-gray-300"
+        : failed > 0
+          ? "bg-red-500"
+          : compiling > 0
+            ? "bg-yellow-400"
+            : "bg-green-500";
 
     dot = (
       <span className="relative flex h-2.5 w-2.5 shrink-0">
@@ -323,7 +369,7 @@ function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }
     );
 
     if (health.data.config?.binaryUrl) {
-      buildTag = extractBuildTag(health.data.config.binaryUrl);
+      version = extractBuildTag(health.data.config.binaryUrl);
     }
   }
 
@@ -336,8 +382,8 @@ function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }
         </span>
         {suffix}
       </span>
-      {buildTag && (
-        <div className="text-gray-400 font-mono text-xs mt-1">{buildTag}</div>
+      {version && (
+        <div className="text-gray-400 font-mono text-xs mt-1">{version}</div>
       )}
     </div>
   );
@@ -345,7 +391,6 @@ function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }
 
 /** Extract the build tag (e.g. "vscode-wasm-build-59") from a GitHub release URL. */
 function extractBuildTag(binaryUrl: string): string | null {
-  // URL pattern: .../releases/download/{tag}/{filename}
   const match = binaryUrl.match(/\/releases\/download\/([^/]+)\//);
   return match?.[1] ?? null;
 }
@@ -454,19 +499,19 @@ function ServiceDetails({ health }: { health: ServiceHealth }) {
   if (health.state !== "ok" || !health.data.config) return null;
 
   const cfg = health.data.config;
+  const instanceCount = health.data.instances.length;
 
   const details: { label: string; value: string }[] = [
-    { label: "Instances", value: String(cfg.instances ?? "-") },
+    { label: "Instances", value: String(instanceCount) },
     { label: "Max deployments", value: String(cfg.maxDeployments ?? "-") },
     { label: "Max concurrent requests", value: String(cfg.maxConcurrentRequests ?? "-") },
-    { label: "Max evaluation memory", value: `${cfg.evalMemoryMb ?? "-"} MB` },
+    { label: "Max evaluation memory", value: `${cfg.maxEvalMemoryMb ?? "-"} MB` },
     { label: "Compile memory", value: `${cfg.compileMemoryMb ?? "-"} MB` },
     { label: "Evaluation timeout", value: `${cfg.evalTimeoutSeconds ?? "-"}s` },
     { label: "Compile timeout", value: `${cfg.compileTimeoutSeconds ?? "-"}s` },
     { label: "Max deployment size", value: `${cfg.maxZipSizeMb ?? "-"} MB` },
     { label: "Idle timeout", value: `${cfg.idleTimeoutHours ?? "-"} hours` },
     { label: "Daily request limit", value: String(cfg.dailyRequestLimit ?? "-") },
-    ...(cfg.debug ? [{ label: "Debug log mode", value: "Enabled" }] : []),
   ];
 
   return (
