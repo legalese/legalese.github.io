@@ -163,6 +163,7 @@ export default function LogsPage() {
                 <th className="pb-2 pr-3 font-medium">Level</th>
                 <th className="pb-2 pr-3 font-medium">Source</th>
                 <th className="pb-2 pr-3 font-medium">Message</th>
+                <th className="pb-2 pr-3 font-medium">Function</th>
                 <th className="pb-2 pr-3 font-medium">Deployment</th>
                 {isAdmin && <th className="pb-2 pr-3 font-medium">Instance</th>}
               </tr>
@@ -176,6 +177,7 @@ export default function LogsPage() {
                     entry.msg.toLowerCase().includes(q) ||
                     entry.level.toLowerCase().includes(q) ||
                     (entry.deploymentId ?? "").toLowerCase().includes(q) ||
+                    String(entry.functionName ?? "").toLowerCase().includes(q) ||
                     (entry.source ?? "").toLowerCase().includes(q) ||
                     (isAdmin && String(entry.instanceId ?? "").toLowerCase().includes(q))
                   );
@@ -221,7 +223,7 @@ function LogRow({
   const levelClass = levelColors[entry.level] ?? levelColors.info;
 
   const extraFields = Object.entries(entry).filter(
-    ([k]) => !["ts", "level", "msg", "source", "deploymentId", "instanceId"].includes(k),
+    ([k]) => !["ts", "level", "msg", "source", "deploymentId", "functionName", "instanceId"].includes(k),
   );
 
   const timestamp = new Date(entry.ts)
@@ -247,6 +249,9 @@ function LogRow({
           {entry.msg}
         </td>
         <td className="py-1.5 pr-3 text-gray-400 font-mono">
+          {typeof entry.functionName === "string" ? entry.functionName : ""}
+        </td>
+        <td className="py-1.5 pr-3 text-gray-400 font-mono">
           {entry.deploymentId ?? ""}
         </td>
         {isAdmin && (
@@ -257,7 +262,7 @@ function LogRow({
       </tr>
       {expanded && extraFields.length > 0 && (
         <tr className="bg-gray-50">
-          <td colSpan={isAdmin ? 6 : 5} className="px-4 py-2">
+          <td colSpan={isAdmin ? 7 : 6} className="px-4 py-2">
             <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 text-[11px]">
               {extraFields.map(([key, value]) => (
                 <div key={key} className="contents">
