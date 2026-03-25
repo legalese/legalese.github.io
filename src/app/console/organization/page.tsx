@@ -137,7 +137,7 @@ function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }
       );
       suffix = (
         <span className="text-gray-400 text-sm">
-          ({total === 1 ? "1 deployment" : `${total} deployments`})
+          {total === 1 ? "1 deployment" : `${total} deployments`}
         </span>
       );
     }
