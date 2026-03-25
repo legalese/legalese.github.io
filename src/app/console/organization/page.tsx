@@ -108,30 +108,39 @@ function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }
   } else if (health.state === "error") {
     dot = (
       <span className="relative flex h-2.5 w-2.5 shrink-0">
-        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500" />
+        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-gray-300" />
       </span>
     );
-    suffix = <span className="text-gray-400 text-sm">unreachable</span>;
+    suffix = <span className="text-gray-400 text-sm">unavailable</span>;
   } else {
     const allStatuses = health.data.instances.map((i) => i.deploymentStatus).filter(Boolean);
     const total = allStatuses.reduce((sum, s) => sum + (s?.total ?? 0), 0);
     const failed = allStatuses.reduce((sum, s) => sum + (s?.failed ?? 0), 0);
     const compiling = allStatuses.reduce((sum, s) => sum + (s?.compiling ?? 0), 0);
-    const dotColor =
-      health.data.status === "idle" ? "bg-gray-300"
-      : failed > 0 ? "bg-red-500"
-      : compiling > 0 ? "bg-yellow-400"
-      : "bg-green-500";
-    dot = (
-      <span className="relative flex h-2.5 w-2.5 shrink-0">
-        <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${dotColor}`} />
-      </span>
-    );
-    suffix = (
-      <span className="text-gray-400 text-sm">
-        ({total === 1 ? "1 deployment" : `${total} deployments`})
-      </span>
-    );
+
+    if (health.data.status === "idle") {
+      dot = (
+        <span className="relative flex h-2.5 w-2.5 shrink-0">
+          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-yellow-400" />
+        </span>
+      );
+      suffix = <span className="text-gray-400 text-sm">dormant</span>;
+    } else {
+      const dotColor =
+        failed > 0 ? "bg-red-500"
+        : compiling > 0 ? "bg-yellow-400"
+        : "bg-green-500";
+      dot = (
+        <span className="relative flex h-2.5 w-2.5 shrink-0">
+          <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${dotColor}`} />
+        </span>
+      );
+      suffix = (
+        <span className="text-gray-400 text-sm">
+          ({total === 1 ? "1 deployment" : `${total} deployments`})
+        </span>
+      );
+    }
   }
 
   // Extract build tag from binaryUrl (e.g. ".../releases/download/vscode-wasm-build-63/..." → "vscode-wasm-build-63")
@@ -142,7 +151,12 @@ function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }
   return (
     <div>
       <span className="inline-flex items-center gap-2 flex-wrap">
-        <span className="inline-flex items-center gap-2">{dot}<span>{url}</span></span>
+        <span className="inline-flex items-center gap-2">
+          {dot}
+          <a href={url} target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-2">
+            {url}
+          </a>
+        </span>
         {suffix}
       </span>
       {buildTag && <div className="text-gray-400 font-mono text-xs mt-1">{buildTag}</div>}
