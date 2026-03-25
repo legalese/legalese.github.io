@@ -124,7 +124,7 @@ function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }
           <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-yellow-400" />
         </span>
       );
-      suffix = <span className="text-gray-400 text-sm">dormant</span>;
+      suffix = <span className="text-gray-400 text-sm">idle</span>;
     } else {
       const dotColor =
         failed > 0 ? "bg-red-500"
