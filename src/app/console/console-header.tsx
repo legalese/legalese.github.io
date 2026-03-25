@@ -28,9 +28,7 @@ export function ConsoleHeader() {
             </span>
           </Link>
 
-          {loading ? (
-            <span className="text-sm text-gray-400">Console</span>
-          ) : session ? (
+          {!loading && session ? (
             <div className="flex items-center gap-3">
               {session.user.profilePictureUrl && (
                 <img
