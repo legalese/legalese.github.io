@@ -28,7 +28,7 @@ export function ConsoleHeader() {
             </span>
           </Link>
 
-          {!loading && session ? (
+          {loading ? "" : session ? (
             <div className="flex items-center gap-3">
               {session.user.profilePictureUrl && (
                 <img
