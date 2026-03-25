@@ -235,7 +235,7 @@ function ServiceDetails({ health }: { health: ServiceHealth }) {
     { label: "Evaluation timeout", value: `${cfg.evalTimeoutSeconds ?? "-"}s` },
     { label: "Compile timeout", value: `${cfg.compileTimeoutSeconds ?? "-"}s` },
     { label: "Max deployment size", value: `${cfg.maxZipSizeMb ?? "-"} MB` },
-    { label: "Idle timeout", value: `${cfg.idleTimeoutHours ?? "-"} hours` },
+    { label: "Idle timeout", value: cfg.idleTimeoutHours === 0 ? "Always on" : `${cfg.idleTimeoutHours ?? "-"} hours` },
     { label: "Daily request limit", value: String(cfg.dailyRequestLimit ?? "-") },
   ];
   return (
@@ -324,7 +324,7 @@ function UsageChart({ slug, health }: { slug: string; health: ServiceHealth }) {
       ) : (
         <div>
           <div className="flex items-end gap-px h-32">
-            {buckets.map((bucket, i) => {
+            {buckets.map((bucket) => {
               const pct = (bucket.count / maxCount) * 100;
               return (
                 <div key={bucket.label} className="flex-1 flex flex-col items-center justify-end h-full group relative">
