@@ -235,7 +235,7 @@ function LogRow({
         onClick={onToggle}
       >
         <td className="py-1.5 pr-3 whitespace-nowrap text-gray-500">
-          {timestamp.toISOString()}
+          {timestamp.toLocaleString()}
         </td>
         <td className="py-1.5 pr-3">
           <span className={`inline-block px-1.5 py-0.5 rounded text-[10px] font-medium ${levelClass}`}>
