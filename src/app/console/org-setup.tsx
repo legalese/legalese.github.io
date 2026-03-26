@@ -12,8 +12,14 @@ function toSlug(name: string): string {
     .slice(0, 39);
 }
 
-export function OrgSetup() {
-  const [expanded, setExpanded] = useState(false);
+export function OrgSetup({
+  initiallyExpanded = false,
+  onLogout,
+}: {
+  initiallyExpanded?: boolean;
+  onLogout?: () => void;
+} = {}) {
+  const [expanded, setExpanded] = useState(initiallyExpanded);
   const [name, setName] = useState("");
   const [slug, setSlug] = useState("");
   const [slugEdited, setSlugEdited] = useState(false);
@@ -149,13 +155,23 @@ export function OrgSetup() {
           >
             {submitting ? "Creating…" : "Create organization"}
           </button>
-          <button
-            type="button"
-            onClick={() => setExpanded(false)}
-            className="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
-          >
-            Cancel
-          </button>
+          {onLogout ? (
+            <button
+              type="button"
+              onClick={onLogout}
+              className="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
+            >
+              Sign out
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setExpanded(false)}
+              className="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
+            >
+              Cancel
+            </button>
+          )}
         </div>
       </form>
     </div>
