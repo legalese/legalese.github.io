@@ -15,9 +15,14 @@ export default function MembersPage() {
         {(token) => <UsersManagement authToken={token} />}
       </WidgetPage>
       {canManageDomains && (
-        <WidgetPage scope="widgets:domain-verification:manage">
-          {(token) => <AdminPortalDomainVerification authToken={token} />}
-        </WidgetPage>
+        <div className="space-y-2">
+          <WidgetPage scope="widgets:domain-verification:manage">
+            {(token) => <AdminPortalDomainVerification authToken={token} />}
+          </WidgetPage>
+          <p className="text-xs text-gray-500">
+            Verify your organization&apos;s domain by adding a DNS TXT record. Once verified, users who sign in with a matching email address are automatically added as members — no invitation required. Verified domains also unlock Single Sign-On (SSO) for your organization.
+          </p>
+        </div>
       )}
     </div>
   );
