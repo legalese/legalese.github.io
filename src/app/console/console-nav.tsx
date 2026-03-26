@@ -72,7 +72,26 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
   }
 
   if (!session.organizationId) {
-    return <OrgSetup onLogout={onLogout} />;
+    return (
+      <div className="flex flex-col items-center justify-center py-24 gap-6">
+        <h1 className="text-2xl font-bold font-merriweather">
+          No organization selected
+        </h1>
+        <p className="text-gray-600 text-center max-w-md">
+          You need to be part of an organization to use the console. Contact
+          your administrator for an invite, or create a new organization below if you want to get started fresh.
+        </p>
+        <div className="flex gap-3">
+          <button
+            onClick={onLogout}
+            className="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
+          >
+            Sign out
+          </button>
+        </div>
+        <OrgSetup />
+      </div>
+    );
   }
 
   return (

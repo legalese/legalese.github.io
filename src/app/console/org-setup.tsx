@@ -12,7 +12,8 @@ function toSlug(name: string): string {
     .slice(0, 39);
 }
 
-export function OrgSetup({ onLogout }: { onLogout: () => void }) {
+export function OrgSetup() {
+  const [expanded, setExpanded] = useState(false);
   const [name, setName] = useState("");
   const [slug, setSlug] = useState("");
   const [slugEdited, setSlugEdited] = useState(false);
@@ -68,7 +69,6 @@ export function OrgSetup({ onLogout }: { onLogout: () => void }) {
         setSubmitError(data.error ?? "Something went wrong.");
         return;
       }
-      // Re-auth into the new org to get a session with organizationId set
       window.location.href = `${AUTH_API_URL}/auth/login?organization_id=${encodeURIComponent(data.organizationId)}&return_to=${encodeURIComponent(window.location.href)}`;
     } catch {
       setSubmitError("Something went wrong. Please try again.");
@@ -89,72 +89,75 @@ export function OrgSetup({ onLogout }: { onLogout: () => void }) {
     name.trim().length > 0 &&
     slugStatus === "available";
 
+  if (!expanded) {
+    return (
+      <button
+        onClick={() => setExpanded(true)}
+        className="text-sm text-accent hover:underline"
+      >
+        Create a new organization
+      </button>
+    );
+  }
+
   return (
-    <div className="flex flex-col items-center justify-center py-24 gap-6 w-full">
-      <div className="w-full max-w-md">
-        <h1 className="text-2xl font-bold font-merriweather mb-2">
-          Create your organization
-        </h1>
-        <p className="text-gray-600 mb-8">
-          Set up your organization to access the console, manage team members,
-          and deploy rules.
-        </p>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Organization name
-            </label>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Acme Corp"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
-              disabled={submitting}
-              required
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Slug
-            </label>
-            <input
-              type="text"
-              value={slug}
-              onChange={(e) => {
-                setSlugEdited(true);
-                setSlug(e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, ""));
-              }}
-              placeholder="acme-corp"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm font-mono focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
-              disabled={submitting}
-              required
-            />
-            <p className="text-xs mt-1 text-gray-400 min-h-[1.25rem]">
-              {slugHint ?? "Used in your service URL: acme-corp.legalese.cloud"}
-            </p>
-          </div>
-          {submitError && (
-            <p className="text-sm text-red-600">{submitError}</p>
-          )}
-          <div className="flex gap-3 pt-2">
-            <button
-              type="submit"
-              disabled={!canSubmit}
-              className="flex-1 inline-flex justify-center items-center px-6 py-2.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-hover transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-            >
-              {submitting ? "Creating…" : "Create organization"}
-            </button>
-            <button
-              type="button"
-              onClick={onLogout}
-              className="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
-            >
-              Sign out
-            </button>
-          </div>
-        </form>
-      </div>
+    <div className="w-full max-w-md border border-gray-200 rounded-xl p-6 bg-white">
+      <h2 className="text-lg font-semibold mb-4">Create a new organization</h2>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Organization name
+          </label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Acme Corp"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+            disabled={submitting}
+            required
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Slug
+          </label>
+          <input
+            type="text"
+            value={slug}
+            onChange={(e) => {
+              setSlugEdited(true);
+              setSlug(e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, ""));
+            }}
+            placeholder="acme-corp"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm font-mono focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+            disabled={submitting}
+            required
+          />
+          <p className="text-xs mt-1 text-gray-400 min-h-[1.25rem]">
+            {slugHint ?? "Used in your service URL: acme-corp.legalese.cloud"}
+          </p>
+        </div>
+        {submitError && (
+          <p className="text-sm text-red-600">{submitError}</p>
+        )}
+        <div className="flex gap-3 pt-2">
+          <button
+            type="submit"
+            disabled={!canSubmit}
+            className="flex-1 inline-flex justify-center items-center px-6 py-2.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-hover transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            {submitting ? "Creating…" : "Create organization"}
+          </button>
+          <button
+            type="button"
+            onClick={() => setExpanded(false)}
+            className="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
     </div>
   );
 }
