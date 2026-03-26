@@ -78,7 +78,7 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
         </h1>
         <p className="text-gray-600 text-center max-w-md">
           You need to be part of an organization to use the console. Contact
-          your administrator for an invite, or create a new organization here.
+          your administrator for an invite, or create a new organization now if you want to start fresh.
         </p>
         <Link
           href="/console/onboarding"
