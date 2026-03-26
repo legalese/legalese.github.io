@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AUTH_API_URL } from "@/lib/constants";
 import { useConsole } from "./console-context";
-import { OrgSetup } from "./org-setup";
 
 const TABS: readonly {
   path: string;
@@ -81,15 +80,12 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
           You need to be part of an organization to use the console. Contact
           your administrator for an invite, or create a new organization below if you want to get started fresh.
         </p>
-        <div className="flex gap-3">
-          <button
-            onClick={onLogout}
-            className="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
-          >
-            Sign out
-          </button>
-        </div>
-        <OrgSetup />
+        <Link
+          href="/console/onboarding"
+          className="text-sm text-accent hover:underline"
+        >
+          Create a new organization
+        </Link>
       </div>
     );
   }

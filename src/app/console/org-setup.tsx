@@ -12,14 +12,7 @@ function toSlug(name: string): string {
     .slice(0, 39);
 }
 
-export function OrgSetup({
-  initiallyExpanded = false,
-  onLogout,
-}: {
-  initiallyExpanded?: boolean;
-  onLogout?: () => void;
-} = {}) {
-  const [expanded, setExpanded] = useState(initiallyExpanded);
+export function OrgSetup() {
   const [name, setName] = useState("");
   const [slug, setSlug] = useState("");
   const [slugEdited, setSlugEdited] = useState(false);
@@ -95,17 +88,6 @@ export function OrgSetup({
     name.trim().length > 0 &&
     slugStatus === "available";
 
-  if (!expanded) {
-    return (
-      <button
-        onClick={() => setExpanded(true)}
-        className="text-sm text-accent hover:underline"
-      >
-        Create a new organization
-      </button>
-    );
-  }
-
   return (
     <div className="w-full max-w-md border border-gray-200 rounded-xl p-6 bg-white">
       <h2 className="text-lg font-semibold mb-4">Create a new organization</h2>
@@ -147,32 +129,13 @@ export function OrgSetup({
         {submitError && (
           <p className="text-sm text-red-600">{submitError}</p>
         )}
-        <div className="flex gap-3 pt-2">
-          <button
-            type="submit"
-            disabled={!canSubmit}
-            className="flex-1 inline-flex justify-center items-center px-6 py-2.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-hover transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-          >
-            {submitting ? "Creating…" : "Create organization"}
-          </button>
-          {onLogout ? (
-            <button
-              type="button"
-              onClick={onLogout}
-              className="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
-            >
-              Sign out
-            </button>
-          ) : (
-            <button
-              type="button"
-              onClick={() => setExpanded(false)}
-              className="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
-            >
-              Cancel
-            </button>
-          )}
-        </div>
+        <button
+          type="submit"
+          disabled={!canSubmit}
+          className="inline-flex justify-center items-center px-6 py-2.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-hover transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+        >
+          {submitting ? "Creating…" : "Create organization"}
+        </button>
       </form>
     </div>
   );
