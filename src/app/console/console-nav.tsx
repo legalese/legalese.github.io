@@ -9,11 +9,12 @@ const TABS: readonly {
   path: string;
   label: string;
   permission?: string;
+  requiresDomainVerified?: boolean;
 }[] = [
   { path: "/console/organization", label: "Organization" },
   { path: "/console/logs", label: "Logs" },
   { path: "/console/members", label: "Members", permission: "widgets:users-table:manage" },
-  { path: "/console/sso", label: "SSO", permission: "widgets:sso:manage" },
+  { path: "/console/sso", label: "SSO", permission: "widgets:sso:manage", requiresDomainVerified: true },
   { path: "/console/api-keys", label: "API Keys", permission: "widgets:api-keys:manage" },
   { path: "/console/profile", label: "Profile" },
 ];
@@ -96,7 +97,10 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
       {/* Tabs */}
       <div className="overflow-x-auto -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 pr-8">
         <nav className="flex whitespace-nowrap">
-          {TABS.filter((tab) => !tab.permission || session.permissions.includes(tab.permission)).map((tab) => {
+          {TABS.filter((tab) =>
+            (!tab.permission || session.permissions.includes(tab.permission)) &&
+            (!tab.requiresDomainVerified || session.domainVerified)
+          ).map((tab) => {
             const isActive =
               pathname === tab.path ||
               (tab.path === "/console/organization" && pathname === "/console");

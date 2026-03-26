@@ -22,6 +22,7 @@ export interface ConsoleSession {
   user: SessionUser;
   organizationId: string | null;
   organization?: ConsoleOrganization;
+  domainVerified: boolean;
   permissions: string[];
 }
 
