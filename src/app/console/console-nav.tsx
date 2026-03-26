@@ -20,7 +20,7 @@ const TABS: readonly {
 ];
 
 export function ConsoleNav({ children }: { children: React.ReactNode }) {
-  const { session, loading, onLogout } = useConsole();
+  const { session, loading } = useConsole();
   const pathname = usePathname();
 
   if (loading) {
@@ -78,7 +78,7 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
         </h1>
         <p className="text-gray-600 text-center max-w-md">
           You need to be part of an organization to use the console. Contact
-          your administrator for an invite, or create a new organization below if you want to get started fresh.
+          your administrator for an invite, or create a new organization here.
         </p>
         <Link
           href="/console/onboarding"
