@@ -128,21 +128,24 @@ export default function LogsPage() {
           className="text-sm border border-gray-200 rounded px-2 py-1 w-40 focus:outline-none focus:border-gray-400"
         />
         <span className="text-xs text-gray-400 flex items-center gap-2">
-          {lastUpdated ? <>Last updated: {new Date(lastUpdated).toLocaleTimeString()}</> : <>&nbsp;</>}
-          <button
-            onClick={() => {
-              setEntries([]);
-              setLoading(true);
-              newestTsRef.current = undefined;
-              setRefreshKey((k) => k + 1);
-            }}
-            className="text-gray-400 hover:text-gray-600 transition-colors"
-            title="Refresh"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5">
-              <path fillRule="evenodd" d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H4.598a.75.75 0 0 0-.75.75v3.634a.75.75 0 0 0 1.5 0v-2.033l.312.311a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm-10.624-2.85a5.5 5.5 0 0 1 9.201-2.465l.312.311H11.768a.75.75 0 0 0 0 1.5h3.634a.75.75 0 0 0 .75-.75V3.536a.75.75 0 0 0-1.5 0v2.033l-.312-.311A7 7 0 0 0 2.628 8.396a.75.75 0 0 0 1.449.39Z" clipRule="evenodd" />
-            </svg>
-          </button>
+          {lastUpdated ?
+            <>
+              Last updated: {new Date(lastUpdated).toLocaleTimeString()}
+              <button
+              onClick={() => {
+                setEntries([]);
+                setLoading(true);
+                newestTsRef.current = undefined;
+                setRefreshKey((k) => k + 1);
+              }}
+              className="text-gray-400 hover:text-gray-600 transition-colors"
+              title="Refresh"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5">
+                <path fillRule="evenodd" d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H4.598a.75.75 0 0 0-.75.75v3.634a.75.75 0 0 0 1.5 0v-2.033l.312.311a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm-10.624-2.85a5.5 5.5 0 0 1 9.201-2.465l.312.311H11.768a.75.75 0 0 0 0 1.5h3.634a.75.75 0 0 0 .75-.75V3.536a.75.75 0 0 0-1.5 0v2.033l-.312-.311A7 7 0 0 0 2.628 8.396a.75.75 0 0 0 1.449.39Z" clipRule="evenodd" />
+              </svg>
+            </button>
+          </> : <>&nbsp;</>}
         </span>
       </div>
 
