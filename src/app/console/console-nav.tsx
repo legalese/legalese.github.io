@@ -13,6 +13,7 @@ const TABS: readonly {
   { path: "/console/organization", label: "Organization" },
   { path: "/console/logs", label: "Logs" },
   { path: "/console/members", label: "Members", permission: "widgets:users-table:manage" },
+  { path: "/console/sso", label: "SSO", permission: "widgets:sso:manage" },
   { path: "/console/api-keys", label: "API Keys", permission: "widgets:api-keys:manage" },
   { path: "/console/profile", label: "Profile" },
 ];
