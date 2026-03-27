@@ -54,17 +54,16 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
     return (
       <div className="flex flex-col items-center justify-center py-24 gap-6">
         <h1 className="text-2xl font-bold font-merriweather">
-          Sign in to continue
+          Legalese Cloud Console
         </h1>
         <p className="text-gray-600 text-center max-w-md">
-          Access your organization settings, manage team members, and create API
-          keys.
+          Check deployment activity, control your organization settings, manage team members, and API access.
         </p>
         <a
           href={`${AUTH_API_URL}/auth/login?return_to=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : "")}`}
           className="inline-flex items-center px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent-hover transition-colors"
         >
-          Sign in
+          Sign in to continue
         </a>
       </div>
     );
@@ -89,34 +88,38 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
     );
   }
 
+  const permissions = session.permissions ?? [];
+
   return (
     <div>
-      {/* Tabs */}
-      <div className="overflow-x-auto -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 pr-8">
-        <nav className="flex whitespace-nowrap">
-          {TABS.filter((tab) =>
-            (!tab.permission || session.permissions.includes(tab.permission)) &&
-            (!tab.requiresDomainVerified || session.domainVerified)
-          ).map((tab) => {
-            const isActive =
-              pathname === tab.path ||
-              (tab.path === "/console/organization" && pathname === "/console");
-            return (
-              <Link
-                key={tab.path}
-                href={tab.path}
-                className={`pb-3 mr-4 text-sm font-medium border-b-2 transition-colors ${
-                  isActive
-                    ? "border-accent text-accent"
-                    : "border-transparent text-gray-500 hover:text-gray-700"
-                }`}
-              >
-                {tab.label}
-              </Link>
-            );
-          })}
-        </nav>
-      </div>
+      {/* Tabs — only shown when user has an org context */}
+      {session.organizationId && (
+        <div className="overflow-x-auto -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 pr-8">
+          <nav className="flex whitespace-nowrap">
+            {TABS.filter((tab) =>
+              (!tab.permission || permissions.includes(tab.permission)) &&
+              (!tab.requiresDomainVerified || session.domainVerified)
+            ).map((tab) => {
+              const isActive =
+                pathname === tab.path ||
+                (tab.path === "/console/organization" && pathname === "/console");
+              return (
+                <Link
+                  key={tab.path}
+                  href={tab.path}
+                  className={`pb-3 mr-4 text-sm font-medium border-b-2 transition-colors ${
+                    isActive
+                      ? "border-accent text-accent"
+                      : "border-transparent text-gray-500 hover:text-gray-700"
+                  }`}
+                >
+                  {tab.label}
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
+      )}
 
       {/* Content area */}
       <div className="bg-white p-6 min-h-[400px] -mx-4 sm:-mx-6 lg:mx-0">
