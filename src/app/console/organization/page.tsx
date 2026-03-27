@@ -388,7 +388,7 @@ function UsageChart({ slug, health, isAdmin }: { slug: string; health: ServiceHe
               <span>
                 You have reached your daily request limit.{" "}
                 {isAdmin ? (
-                  <><a href={`mailto:support@legalese.com?subject=${encodeURIComponent(`Daily request limit - ${slug}`)}`} className="underline underline-offset-2">Contact us</a> to increase your limits.</>
+                  <>Contact <a href={`mailto:support@legalese.com?subject=${encodeURIComponent(`Increase request limit - ${slug}`)}`} className="underline underline-offset-2">support@legalese.com</a> to increase your limits.</>
                 ) : (
                   "Please contact your administrator."
                 )}
