@@ -120,18 +120,18 @@ export default function LogsPage() {
   return (
     <div className="font-sans">
       <div className="flex justify-between mb-4">
-        <input
-          type="text"
-          value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-          placeholder="Filter..."
-          className="text-sm border border-gray-200 rounded px-2 py-1 w-40 focus:outline-none focus:border-gray-400"
-        />
-        <span className="text-xs text-gray-400 flex items-center gap-2">
-          {lastUpdated ?
-            <>
-              Last updated: {new Date(lastUpdated).toLocaleTimeString()}
-              <button
+        {lastUpdated ?
+          <>
+            <input
+            type="text"
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+            placeholder="Filter..."
+            className="text-sm border border-gray-200 rounded px-2 py-1 w-40 focus:outline-none focus:border-gray-400"
+          />
+          <span className="text-xs text-gray-400 flex items-center gap-2">
+            Last updated: {new Date(lastUpdated).toLocaleTimeString()}
+            <button
               onClick={() => {
                 setEntries([]);
                 setLoading(true);
@@ -145,8 +145,8 @@ export default function LogsPage() {
                 <path fillRule="evenodd" d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H4.598a.75.75 0 0 0-.75.75v3.634a.75.75 0 0 0 1.5 0v-2.033l.312.311a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm-10.624-2.85a5.5 5.5 0 0 1 9.201-2.465l.312.311H11.768a.75.75 0 0 0 0 1.5h3.634a.75.75 0 0 0 .75-.75V3.536a.75.75 0 0 0-1.5 0v2.033l-.312-.311A7 7 0 0 0 2.628 8.396a.75.75 0 0 0 1.449.39Z" clipRule="evenodd" />
               </svg>
             </button>
-          </> : <>&nbsp;</>}
-        </span>
+          </span>
+        </> : <>&nbsp;</>}
       </div>
 
       {error && <div className="text-sm mb-4 text-center italic text-gray-500">{error}</div>}
@@ -155,7 +155,7 @@ export default function LogsPage() {
         <div className="flex items-center justify-center py-12 text-gray-400 text-sm">Loading...</div>
       ) : entries.length === 0 ? (
         <div className="flex items-center justify-center py-12 text-gray-400 text-sm">
-          No activity logged yet.
+          No activity logged in the last 24 hours.
         </div>
       ) : (
         <div className="overflow-x-auto">
