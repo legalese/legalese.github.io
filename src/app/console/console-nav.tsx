@@ -70,15 +70,14 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
     );
   }
 
-  if (!session.organizationId) {
+  if (!session.organizationId && pathname !== "/console/onboarding") {
     return (
       <div className="flex flex-col items-center justify-center py-24 gap-6">
         <h1 className="text-2xl font-bold font-merriweather">
-          No organization selected
+          Join your team on Legalese
         </h1>
         <p className="text-gray-600 text-center max-w-md">
-          You need to be part of an organization to use the console. Contact
-          your administrator for an invite, or create a new organization now if you want to start fresh.
+          Contact your administrator for an invite, or create a new organization now if you want to start fresh.
         </p>
         <Link
           href="/console/onboarding"
