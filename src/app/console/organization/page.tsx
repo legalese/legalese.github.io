@@ -68,13 +68,26 @@ function OrganizationInfo({
       value: (
         <div>
           <span>{planFromHealth(health)}</span>
-          <ServiceDetails health={health} isAdmin={isAdmin} slug={organization.slug} />
+          <ServiceDetails health={health} />
+          {health.state === "ok" && health.data.config?.suspended && (
+            <div className="mt-3 flex items-start gap-2 rounded border border-yellow-400 bg-yellow-50 px-3 py-2.5 text-sm text-yellow-800">
+              <span className="shrink-0">⚠</span>
+              <span>
+                This organization has been suspended.{" "}
+                {isAdmin ? (
+                  <>Please contact <a href={`mailto:support@legalese.com?subject=${encodeURIComponent(`Account suspended - ${organization.slug}`)}`} className="underline underline-offset-2">support@legalese.com</a>.</>
+                ) : (
+                  "Please contact your administrator."
+                )}
+              </span>
+            </div>
+          )}
         </div>
       ),
     },
     {
       label: "Usage",
-      value: <UsageChart slug={organization.slug} health={health} />,
+      value: <UsageChart slug={organization.slug} health={health} isAdmin={isAdmin} />,
     },
   ];
 
@@ -225,7 +238,7 @@ function RestartServiceButton({ slug }: { slug: string }) {
 
 // ── Service Details ─────────────────────────────────────────────────────
 
-function ServiceDetails({ health, isAdmin, slug }: { health: ServiceHealth; isAdmin: boolean; slug: string }) {
+function ServiceDetails({ health }: { health: ServiceHealth }) {
   if (health.state !== "ok" || !health.data.config) return null;
   const cfg = health.data.config;
   const instanceCount = health.data.instances.length;
@@ -243,19 +256,6 @@ function ServiceDetails({ health, isAdmin, slug }: { health: ServiceHealth; isAd
   ];
   return (
     <div>
-      {cfg.suspended && (
-        <div className="mt-3 flex items-start gap-2 rounded border border-yellow-400 bg-yellow-50 px-3 py-2.5 text-sm text-yellow-800">
-          <span className="shrink-0">⚠</span>
-          <span>
-            This organization has been suspended.{" "}
-            {isAdmin ? (
-              <>Please contact <a href={`mailto:support@legalese.com?subject=${encodeURIComponent(`Account suspended - ${slug}`)}`} className="underline underline-offset-2">support@legalese.com</a>.</>
-            ) : (
-              "Please contact your administrator."
-            )}
-          </span>
-        </div>
-      )}
       <details className="mt-1 group">
         <summary className="text-xs text-gray-400 hover:text-gray-600 cursor-pointer select-none">More info</summary>
         <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-xs">
@@ -281,7 +281,7 @@ interface Bucket {
   count: number;
 }
 
-function UsageChart({ slug, health }: { slug: string; health: ServiceHealth }) {
+function UsageChart({ slug, health, isAdmin }: { slug: string; health: ServiceHealth; isAdmin: boolean }) {
   const [period, setPeriod] = useState<Period>("daily");
   const [buckets, setBuckets] = useState<Bucket[]>([]);
   const [loading, setLoading] = useState(true);
@@ -386,8 +386,12 @@ function UsageChart({ slug, health }: { slug: string; health: ServiceHealth }) {
             <div className="mt-3 flex items-start gap-2 rounded border border-yellow-400 bg-yellow-50 px-3 py-2.5 text-sm text-yellow-800">
               <span className="shrink-0">⚠</span>
               <span>
-                You have exceeded your daily request limit.
-                <a href={`mailto:support@legalese.com?subject=${encodeURIComponent(`Daily request limit - ${slug}`)}`} className="underline underline-offset-2">Contact us</a> to increase your limits.
+                You have reached your daily request limit.{" "}
+                {isAdmin ? (
+                  <><a href={`mailto:support@legalese.com?subject=${encodeURIComponent(`Daily request limit - ${slug}`)}`} className="underline underline-offset-2">Contact us</a> to increase your limits.</>
+                ) : (
+                  "Please contact your administrator to increase your limits."
+                )}
               </span>
             </div>
           );
