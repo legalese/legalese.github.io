@@ -166,6 +166,11 @@
   @apply px-1 rounded bg-amber-200;
 }
 
+/* Widget helper text links */
+.text-xs.text-gray-500 a {
+  @apply underline underline-offset-2;
+}
+
 /* WorkOS / Radix accent color overrides — override the crimson scale
    directly since Radix maps --accent-* via var(--crimson-*). Uses
    !important to win over Radix styles.css which may load later. */
