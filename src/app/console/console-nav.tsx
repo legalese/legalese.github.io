@@ -93,38 +93,42 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
   return (
     <div>
       {/* Tabs — only shown when user has an org context */}
-      {session.organizationId && (
-        <div className="overflow-x-auto -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 pr-8">
-          <nav className="flex whitespace-nowrap">
-            {TABS.filter((tab) =>
-              (!tab.permission || permissions.includes(tab.permission)) &&
-              (!tab.requiresDomainVerified || session.domainVerified)
-            ).map((tab) => {
-              const isActive =
-                pathname === tab.path ||
-                (tab.path === "/console/organization" && pathname === "/console");
-              return (
-                <Link
-                  key={tab.path}
-                  href={tab.path}
-                  className={`pb-3 mr-4 text-sm font-medium border-b-2 transition-colors ${
-                    isActive
-                      ? "border-accent text-accent"
-                      : "border-transparent text-gray-500 hover:text-gray-700"
-                  }`}
-                >
-                  {tab.label}
-                </Link>
-              );
-            })}
-          </nav>
+      {session.organizationId && pathname !== "/console/onboarding" ? (
+        <>
+          <div className="overflow-x-auto -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 pr-8">
+            <nav className="flex whitespace-nowrap">
+              {TABS.filter((tab) =>
+                (!tab.permission || permissions.includes(tab.permission)) &&
+                (!tab.requiresDomainVerified || session.domainVerified)
+              ).map((tab) => {
+                const isActive =
+                  pathname === tab.path ||
+                  (tab.path === "/console/organization" && pathname === "/console");
+                return (
+                  <Link
+                    key={tab.path}
+                    href={tab.path}
+                    className={`pb-3 mr-4 text-sm font-medium border-b-2 transition-colors ${
+                      isActive
+                        ? "border-accent text-accent"
+                        : "border-transparent text-gray-500 hover:text-gray-700"
+                    }`}
+                  >
+                    {tab.label}
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
+          <div className="bg-white p-6 min-h-[400px] -mx-4 sm:-mx-6 lg:mx-0">
+            {children}
+          </div>
+        </>
+      ) : (
+        <div className="p-6 min-h-[400px] -mx-4 sm:-mx-6 lg:mx-0">
+          {children}
         </div>
       )}
-
-      {/* Content area */}
-      <div className="bg-white p-6 min-h-[400px] -mx-4 sm:-mx-6 lg:mx-0">
-        {children}
-      </div>
     </div>
   );
 }
