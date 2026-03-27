@@ -68,7 +68,7 @@ function OrganizationInfo({
       value: (
         <div>
           <span>{planFromHealth(health)}</span>
-          <ServiceDetails health={health} />
+          <ServiceDetails health={health} isAdmin={isAdmin} slug={organization.slug} />
         </div>
       ),
     },
@@ -225,7 +225,7 @@ function RestartServiceButton({ slug }: { slug: string }) {
 
 // ── Service Details ─────────────────────────────────────────────────────
 
-function ServiceDetails({ health }: { health: ServiceHealth }) {
+function ServiceDetails({ health, isAdmin, slug }: { health: ServiceHealth; isAdmin: boolean; slug: string }) {
   if (health.state !== "ok" || !health.data.config) return null;
   const cfg = health.data.config;
   const instanceCount = health.data.instances.length;
@@ -242,17 +242,32 @@ function ServiceDetails({ health }: { health: ServiceHealth }) {
     { label: "Daily request limit", value: String(cfg.dailyRequestLimit ?? "-") },
   ];
   return (
-    <details className="mt-1 group">
-      <summary className="text-xs text-gray-400 hover:text-gray-600 cursor-pointer select-none">More info</summary>
-      <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-xs">
-        {details.map(({ label, value }) => (
-          <div key={label} className="contents">
-            <dt className="text-gray-400">{label}</dt>
-            <dd className="text-gray-600 font-mono">{value}</dd>
-          </div>
-        ))}
-      </dl>
-    </details>
+    <div>
+      {cfg.suspended && (
+        <div className="mt-3 flex items-start gap-2 rounded border border-yellow-400 bg-yellow-50 px-3 py-2.5 text-sm text-yellow-800">
+          <span className="shrink-0">⚠</span>
+          <span>
+            This organization has been suspended.{" "}
+            {isAdmin ? (
+              <>Please contact <a href={`mailto:support@legalese.com?subject=${encodeURIComponent(`Account suspended - ${slug}`)}`} className="underline underline-offset-2">support@legalese.com</a>.</>
+            ) : (
+              "Please contact your administrator."
+            )}
+          </span>
+        </div>
+      )}
+      <details className="mt-1 group">
+        <summary className="text-xs text-gray-400 hover:text-gray-600 cursor-pointer select-none">More info</summary>
+        <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-xs">
+          {details.map(({ label, value }) => (
+            <div key={label} className="contents">
+              <dt className="text-gray-400">{label}</dt>
+              <dd className="text-gray-600 font-mono">{value}</dd>
+            </div>
+          ))}
+        </dl>
+      </details>
+    </div>
   );
 }
 
@@ -270,6 +285,7 @@ function UsageChart({ slug, health }: { slug: string; health: ServiceHealth }) {
   const [period, setPeriod] = useState<Period>("daily");
   const [buckets, setBuckets] = useState<Bucket[]>([]);
   const [loading, setLoading] = useState(true);
+  const [todayCount, setTodayCount] = useState<number | null>(null);
 
   const days = period === "daily" ? 30 : 90;
 
@@ -284,7 +300,13 @@ function UsageChart({ slug, health }: { slug: string; health: ServiceHealth }) {
     })
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => {
-        if (!cancelled && data) setBuckets(data.buckets ?? []);
+        if (!cancelled && data) {
+          const b: Bucket[] = data.buckets ?? [];
+          setBuckets(b);
+          if (period === "daily" && b.length > 0) {
+            setTodayCount(b[b.length - 1].count);
+          }
+        }
       })
       .catch(() => {})
       .finally(() => { if (!cancelled) setLoading(false); });
@@ -357,6 +379,21 @@ function UsageChart({ slug, health }: { slug: string; health: ServiceHealth }) {
           </div>
         </div>
       )}
+      {(() => {
+        const limit = health.data.config?.dailyRequestLimit ?? 0;
+        if (limit > 0 && todayCount !== null && todayCount >= limit) {
+          return (
+            <div className="mt-3 flex items-start gap-2 rounded border border-yellow-400 bg-yellow-50 px-3 py-2.5 text-sm text-yellow-800">
+              <span className="shrink-0">⚠</span>
+              <span>
+                You have exceeded your daily request limit.
+                <a href={`mailto:support@legalese.com?subject=${encodeURIComponent(`Daily request limit - ${slug}`)}`} className="underline underline-offset-2">Contact us</a> to increase your limits.
+              </span>
+            </div>
+          );
+        }
+        return null;
+      })()}
       <p className="text-xs text-gray-500 mt-2">
         These are the number of requests made to your L4 service. To get started, use an <Link href="./api-keys">API key</Link> to deploy your first L4 rules using our <a href="https://marketplace.visualstudio.com/items?itemName=Legalese.l4-vscode" target="_blank" rel="noopener">Visual Studio Code L4 Extension</a> or the <a href="https://jl4.legalese.com" target="_blank" rel="noopener">online editor</a>.
       </p>
