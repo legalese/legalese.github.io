@@ -68,20 +68,7 @@ function OrganizationInfo({
       value: (
         <div>
           <span>{planFromHealth(health)}</span>
-          <ServiceDetails health={health} />
-          {health.state === "ok" && health.data.config?.suspended && (
-            <div className="mt-3 flex items-start gap-2 rounded border border-yellow-400 bg-yellow-50 px-3 py-2.5 text-sm text-yellow-800">
-              <span className="shrink-0">⚠</span>
-              <span>
-                This organization has been suspended.{" "}
-                {isAdmin ? (
-                  <>Please contact <a href={`mailto:support@legalese.com?subject=${encodeURIComponent(`Account suspended - ${organization.slug}`)}`} className="underline underline-offset-2">support@legalese.com</a>.</>
-                ) : (
-                  "Please contact your administrator."
-                )}
-              </span>
-            </div>
-          )}
+          <ServiceDetails health={health} isAdmin={isAdmin} slug={organization.slug} />
         </div>
       ),
     },
@@ -238,7 +225,7 @@ function RestartServiceButton({ slug }: { slug: string }) {
 
 // ── Service Details ─────────────────────────────────────────────────────
 
-function ServiceDetails({ health }: { health: ServiceHealth }) {
+function ServiceDetails({ health, isAdmin, slug }: { health: ServiceHealth; isAdmin: boolean; slug: string }) {
   if (health.state !== "ok" || !health.data.config) return null;
   const cfg = health.data.config;
   const instanceCount = health.data.instances.length;
@@ -256,6 +243,19 @@ function ServiceDetails({ health }: { health: ServiceHealth }) {
   ];
   return (
     <div>
+      {cfg.suspended && (
+        <div className="mt-3 flex items-start gap-2 rounded border border-yellow-400 bg-yellow-50 px-3 py-2.5 text-sm text-yellow-800">
+          <span className="shrink-0">⚠</span>
+          <span>
+            This organization has been suspended.{" "}
+            {isAdmin ? (
+              <>Please contact <a href={`mailto:support@legalese.com?subject=${encodeURIComponent(`Account suspended - ${slug}`)}`} className="underline underline-offset-2">support@legalese.com</a>.</>
+            ) : (
+              "Please contact your administrator."
+            )}
+          </span>
+        </div>
+      )}
       <details className="mt-1 group">
         <summary className="text-xs text-gray-400 hover:text-gray-600 cursor-pointer select-none">More info</summary>
         <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-xs">
@@ -390,7 +390,7 @@ function UsageChart({ slug, health, isAdmin }: { slug: string; health: ServiceHe
                 {isAdmin ? (
                   <><a href={`mailto:support@legalese.com?subject=${encodeURIComponent(`Daily request limit - ${slug}`)}`} className="underline underline-offset-2">Contact us</a> to increase your limits.</>
                 ) : (
-                  "Please contact your administrator to increase your limits."
+                  "Please contact your administrator."
                 )}
               </span>
             </div>
