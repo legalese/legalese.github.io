@@ -56,7 +56,9 @@ function OrganizationInfo({
         <div className="w-full">
           <div className="flex items-start justify-between gap-2 flex-wrap">
             <DeploymentUrl slug={organization.slug} health={health} />
-            {isAdmin && <RestartServiceButton slug={organization.slug} />}
+            {isAdmin && health.state === "ok" && health.data.instances.some((i) => (i.deploymentStatus?.total ?? 0) > 0) && (
+              <RestartServiceButton slug={organization.slug} />
+            )}
           </div>
         </div>
       ),
