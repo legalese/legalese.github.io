@@ -239,7 +239,7 @@ function ServiceDetails({ health, isAdmin, slug }: { health: ServiceHealth; isAd
   return (
     <div>
       {cfg.suspended && (
-        <div className="mt-3 flex items-start gap-2 rounded border border-yellow-400 bg-yellow-50 px-3 py-2.5 text-sm text-yellow-800">
+        <div className="mb-3 flex items-start gap-2 rounded border border-yellow-400 bg-yellow-50 px-3 py-2.5 text-sm text-yellow-800">
           <span className="shrink-0">⚠</span>
           <span>
             This organization has been suspended.{" "}
@@ -320,6 +320,26 @@ function UsageChart({ slug, health, isAdmin }: { slug: string; health: ServiceHe
 
   return (
     <div>
+      {(() => {
+        const limit = health.data.config?.dailyRequestLimit ?? 0;
+        if (limit > 0 && todayCount !== null && todayCount >= limit) {
+          return (
+            <div className="mb-3 flex items-start gap-2 rounded border border-yellow-400 bg-yellow-50 px-3 py-2.5 text-sm text-yellow-800">
+              <span className="shrink-0">⚠</span>
+              <span>
+                You have reached your daily request limit.{" "}
+                {isAdmin ? (
+                  <>Contact <a href={`mailto:support@legalese.com?subject=${encodeURIComponent(`Increase request limit - ${slug}`)}`} className="underline underline-offset-2">support@legalese.com</a> to increase your limits.</>
+                ) : (
+                  "Please contact your administrator."
+                )}
+              </span>
+            </div>
+          );
+        }
+        return null;
+      })()}
+
       {/* Period selector */}
       <div className="flex gap-1 mb-3">
         {PERIODS.map((p) => (
@@ -344,25 +364,6 @@ function UsageChart({ slug, health, isAdmin }: { slug: string; health: ServiceHe
         <div className="h-32 flex items-center justify-center text-gray-400 text-xs">No usage data for this period</div>
       ) : (
         <div>
-          {(() => {
-            const limit = health.data.config?.dailyRequestLimit ?? 0;
-            if (limit > 0 && todayCount !== null && todayCount >= limit) {
-              return (
-                <div className="mt-3 flex items-start gap-2 rounded border border-yellow-400 bg-yellow-50 px-3 py-2.5 text-sm text-yellow-800">
-                  <span className="shrink-0">⚠</span>
-                  <span>
-                    You have reached your daily request limit.{" "}
-                    {isAdmin ? (
-                      <>Contact <a href={`mailto:support@legalese.com?subject=${encodeURIComponent(`Increase request limit - ${slug}`)}`} className="underline underline-offset-2">support@legalese.com</a> to increase your limits.</>
-                    ) : (
-                      "Please contact your administrator."
-                    )}
-                  </span>
-                </div>
-              );
-            }
-            return null;
-          })()}
           <div className="flex items-end gap-px h-32">
             {buckets.map((bucket) => {
               const pct = (bucket.count / maxCount) * 100;
