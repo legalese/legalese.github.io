@@ -54,11 +54,12 @@ export function ConsoleHeader() {
             </div>
           ) : (
             <a
-              href={`${AUTH_API_URL}/auth/login?return_to=${typeof window !== "undefined" ? encodeURIComponent(window.location.href) : ""}`}
+              href={`${AUTH_API_URL}/auth/signup?return_to=${typeof window !== "undefined" ? encodeURIComponent(window.location.href) : ""}`}
               className="text-sm font-medium text-accent hover:text-accent-hover transition-colors"
             >
-              Sign in
+              Sign up
             </a>
+            </div>
           )}
         </div>
       </div>
