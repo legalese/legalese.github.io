@@ -65,12 +65,7 @@ function OrganizationInfo({
     },
     {
       label: "Subscription",
-      value: (
-        <div>
-          <span>{planFromHealth(health)}</span>
-          <ServiceDetails health={health} isAdmin={isAdmin} slug={organization.slug} />
-        </div>
-      ),
+      value: <ServiceDetails health={health} isAdmin={isAdmin} slug={organization.slug} />,
     },
     {
       label: "Usage",
@@ -256,6 +251,7 @@ function ServiceDetails({ health, isAdmin, slug }: { health: ServiceHealth; isAd
           </span>
         </div>
       )}
+      <span>{planFromHealth(health)}</span>
       <details className="mt-1 group">
         <summary className="text-xs text-gray-400 hover:text-gray-600 cursor-pointer select-none">More info</summary>
         <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-xs">
@@ -345,9 +341,28 @@ function UsageChart({ slug, health, isAdmin }: { slug: string; health: ServiceHe
       {loading ? (
         <div className="h-32 flex items-center justify-center text-gray-400 text-xs">Loading...</div>
       ) : buckets.length === 0 ? (
-        <div className="h-32 flex items-center justify-center text-gray-400 text-xs">No data</div>
+        <div className="h-32 flex items-center justify-center text-gray-400 text-xs">No usage data for this period</div>
       ) : (
         <div>
+          {(() => {
+            const limit = health.data.config?.dailyRequestLimit ?? 0;
+            if (limit > 0 && todayCount !== null && todayCount >= limit) {
+              return (
+                <div className="mt-3 flex items-start gap-2 rounded border border-yellow-400 bg-yellow-50 px-3 py-2.5 text-sm text-yellow-800">
+                  <span className="shrink-0">⚠</span>
+                  <span>
+                    You have reached your daily request limit.{" "}
+                    {isAdmin ? (
+                      <>Contact <a href={`mailto:support@legalese.com?subject=${encodeURIComponent(`Increase request limit - ${slug}`)}`} className="underline underline-offset-2">support@legalese.com</a> to increase your limits.</>
+                    ) : (
+                      "Please contact your administrator."
+                    )}
+                  </span>
+                </div>
+              );
+            }
+            return null;
+          })()}
           <div className="flex items-end gap-px h-32">
             {buckets.map((bucket) => {
               const pct = (bucket.count / maxCount) * 100;
@@ -379,25 +394,6 @@ function UsageChart({ slug, health, isAdmin }: { slug: string; health: ServiceHe
           </div>
         </div>
       )}
-      {(() => {
-        const limit = health.data.config?.dailyRequestLimit ?? 0;
-        if (limit > 0 && todayCount !== null && todayCount >= limit) {
-          return (
-            <div className="mt-3 flex items-start gap-2 rounded border border-yellow-400 bg-yellow-50 px-3 py-2.5 text-sm text-yellow-800">
-              <span className="shrink-0">⚠</span>
-              <span>
-                You have reached your daily request limit.{" "}
-                {isAdmin ? (
-                  <>Contact <a href={`mailto:support@legalese.com?subject=${encodeURIComponent(`Increase request limit - ${slug}`)}`} className="underline underline-offset-2">support@legalese.com</a> to increase your limits.</>
-                ) : (
-                  "Please contact your administrator."
-                )}
-              </span>
-            </div>
-          );
-        }
-        return null;
-      })()}
       <p className="text-xs text-gray-500 mt-2">
         These are the number of requests made to your L4 service. To get started, use an <Link href="./api-keys">API key</Link> to deploy your first L4 rules using our <a href="https://marketplace.visualstudio.com/items?itemName=Legalese.l4-vscode" target="_blank" rel="noopener">Visual Studio Code L4 Extension</a> or the <a href="https://jl4.legalese.com" target="_blank" rel="noopener">online editor</a>.
       </p>
