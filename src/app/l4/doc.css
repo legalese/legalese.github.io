@@ -128,6 +128,11 @@
   border-radius: 0.5rem;
 }
 
+.doc-content img[src$="l4.svg"] {
+  max-width: 160px;
+  max-height: 160px;
+}
+
 /* L4 code block wrapper (added dynamically for Run code button) */
 .l4-code-wrapper pre code {
   font-size: 0.875rem;
