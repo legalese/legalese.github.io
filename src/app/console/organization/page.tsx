@@ -178,7 +178,7 @@ function RestartServiceButton({ slug }: { slug: string }) {
     setState("restarting");
     setErrorMsg("");
     try {
-      const res = await fetch(`https://${slug}.${SERVICE_DOMAIN}/service/restart`, {
+      const res = await fetch(`${AUTH_API_URL}/service/restart?org=${encodeURIComponent(slug)}`, {
         method: "POST",
         headers: authHeaders(),
       });
@@ -296,7 +296,7 @@ function UsageChart({ slug, health, isAdmin }: { slug: string; health: ServiceHe
     let cancelled = false;
     setLoading(true);
 
-    fetch(`https://${slug}.${SERVICE_DOMAIN}/billing/usage?period=${period}&days=${days}`, {
+    fetch(`${AUTH_API_URL}/billing/usage?org=${encodeURIComponent(slug)}&period=${period}&days=${days}`, {
       headers: authHeaders(),
       credentials: "include",
     })

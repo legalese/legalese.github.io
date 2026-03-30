@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useConsole } from "../console-context";
 import { authHeaders } from "../console-utils";
-import { SERVICE_DOMAIN } from "@/lib/constants";
+import { AUTH_API_URL } from "@/lib/constants";
 
 const POLL_INTERVAL_MS = 20_000;
 
@@ -49,9 +49,9 @@ export default function LogsPage() {
 
     async function fetchLogs(since?: string) {
       try {
-        const params = since ? `?since=${encodeURIComponent(since)}` : "";
+        const sinceParam = since ? `&since=${encodeURIComponent(since)}` : "";
         const res = await fetch(
-          `https://${slug}.${SERVICE_DOMAIN}/service/logs${params}`,
+          `${AUTH_API_URL}/service/logs?org=${encodeURIComponent(slug!)}${sinceParam}`,
           { headers: authHeaders(), credentials: "include" },
         );
         if (!res.ok) {

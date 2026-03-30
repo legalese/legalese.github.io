@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback, type ReactNode } from "react";
-import { AUTH_API_URL, SERVICE_DOMAIN } from "@/lib/constants";
+import { AUTH_API_URL } from "@/lib/constants";
 import { useConsole } from "./console-context";
 
 export const SESSION_TOKEN_KEY = "wos-session-token";
@@ -71,7 +71,7 @@ export function useServiceHealth(slug: string): ServiceHealth {
     }
 
     function fetchHealth() {
-      fetch(`https://${slug}.${SERVICE_DOMAIN}/service/health`, {
+      fetch(`${AUTH_API_URL}/service/health?org=${encodeURIComponent(slug)}`, {
         headers: authHeaders(),
         credentials: "include",
       })
