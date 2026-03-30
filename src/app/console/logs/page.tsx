@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useConsole } from "../console-context";
 import { authHeaders } from "../console-utils";
+import { SERVICE_DOMAIN } from "@/lib/constants";
 
 const POLL_INTERVAL_MS = 20_000;
 
@@ -50,7 +51,7 @@ export default function LogsPage() {
       try {
         const params = since ? `?since=${encodeURIComponent(since)}` : "";
         const res = await fetch(
-          `https://${slug}.legalese.cloud/service/logs${params}`,
+          `https://${slug}.${SERVICE_DOMAIN}/service/logs${params}`,
           { headers: authHeaders(), credentials: "include" },
         );
         if (!res.ok) {
