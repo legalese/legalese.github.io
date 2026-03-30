@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { AUTH_API_URL } from "@/lib/constants";
+import { AUTH_API_URL, SERVICE_DOMAIN } from "@/lib/constants";
 import { authHeaders } from "./console-utils";
 
 function toSlug(name: string): string {
@@ -123,7 +123,7 @@ export function OrgSetup() {
             required
           />
           <p className="text-xs mt-1 text-gray-400 min-h-[1.25rem]">
-            {slugHint ?? "Used in your service URL: acme-corp.legalese.cloud"}
+            {slugHint ?? `Used in your service URL: acme-corp.${SERVICE_DOMAIN}`}
           </p>
         </div>
         {submitError && (

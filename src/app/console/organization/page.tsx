@@ -7,8 +7,10 @@ import {
   authHeaders,
   useServiceHealth,
   planFromHealth,
+  SESSION_TOKEN_KEY,
   type ServiceHealth,
 } from "../console-utils";
+import { SERVICE_DOMAIN } from "@/lib/constants";
 import Link from "next/link";
 
 export default function OrganizationPage() {
@@ -92,7 +94,11 @@ function OrganizationInfo({
 // ── Deployment URL ──────────────────────────────────────────────────────
 
 function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }) {
-  const url = `https://${slug}.legalese.cloud`;
+  const url = `https://${slug}.${SERVICE_DOMAIN}`;
+  const token = typeof window !== "undefined" ? localStorage.getItem(SESSION_TOKEN_KEY) : null;
+  const redirectUrl = token
+    ? `${url}/auth/redirect?token=${encodeURIComponent(token)}&redirect_to=${encodeURIComponent(url)}`
+    : url;
   let dot: React.ReactNode;
   let suffix: React.ReactNode = null;
 
@@ -151,7 +157,7 @@ function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }
       <span className="inline-flex items-center gap-2 flex-wrap">
         <span className="inline-flex items-center gap-2">
           {dot}
-          <a href={url} target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-2">
+          <a href={redirectUrl} target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-2">
             {url}
           </a>
         </span>
@@ -172,7 +178,7 @@ function RestartServiceButton({ slug }: { slug: string }) {
     setState("restarting");
     setErrorMsg("");
     try {
-      const res = await fetch(`https://${slug}.legalese.cloud/service/restart`, {
+      const res = await fetch(`https://${slug}.${SERVICE_DOMAIN}/service/restart`, {
         method: "POST",
         headers: authHeaders(),
       });
@@ -290,7 +296,7 @@ function UsageChart({ slug, health, isAdmin }: { slug: string; health: ServiceHe
     let cancelled = false;
     setLoading(true);
 
-    fetch(`https://${slug}.legalese.cloud/billing/usage?period=${period}&days=${days}`, {
+    fetch(`https://${slug}.${SERVICE_DOMAIN}/billing/usage?period=${period}&days=${days}`, {
       headers: authHeaders(),
       credentials: "include",
     })
