@@ -154,7 +154,7 @@ export default function LogsPage() {
       {error && <div className="text-sm mb-4 text-center italic text-gray-500">{error}</div>}
 
       {loading ? (
-        <div className="flex items-center justify-center py-12"><SectionSpinner size={48} /></div>
+        <div className="flex items-center justify-center py-12"><SectionSpinner size={64} /></div>
       ) : entries.length === 0 ? (
         <div className="flex items-center justify-center py-12 text-gray-400 text-sm">
           No activity logged in the last 24 hours.
