@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L4 Loading Spinners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --fg: #6b7280;
+    --fg-light: #9ca3af;
+    --fg-faint: #d1d5db;
+    --fg-wash: #a0a7b0;
+    --bg: #ffffff;
+    --card-bg: #fafafa;
+    --card-border: #e5e7eb;
+    --label: #9ca3af;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    min-height: 100vh;
+    padding: 3rem 1rem;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: var(--label);
+    font-size: 0.875rem;
+    margin-bottom: 3rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 2.5rem 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    border: 1px solid var(--card-border);
+  }
+
+  .card-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--label);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .spinner-area {
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .s {
+    font-family: 'Merriweather', Georgia, serif;
+    font-weight: 900;
+    display: inline-block;
+    rotate: 90deg;
+    color: var(--fg);
+  }
+
+  /* ─── shimmer fill layer (CSS text behind SVG or outline) ─── */
+  .shimmer-layer {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+  }
+  .shimmer-layer span {
+    font-family: 'Merriweather', Georgia, serif;
+    font-weight: 900;
+    font-size: 3rem;
+    rotate: 90deg;
+    background: linear-gradient(
+      110deg,
+      transparent 0%,
+      transparent 30%,
+      var(--fg-wash) 45%,
+      var(--fg-wash) 55%,
+      transparent 70%,
+      transparent 100%
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: shimmer-sweep 2s linear infinite;
+  }
+  @keyframes shimmer-sweep {
+    0%   { background-position: 150% 0; }
+    100% { background-position: -150% 0; }
+  }
+
+  /* shared SVG base */
+  .svg-spinner {
+    position: relative;
+    z-index: 1;
+  }
+  .svg-spinner svg {
+    width: 72px;
+    height: 72px;
+    overflow: visible;
+    position: relative;
+    z-index: 1;
+  }
+  .svg-spinner svg text {
+    font-family: 'Merriweather', Georgia, serif;
+    font-weight: 900;
+    font-size: 3rem;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* ─── 1. Outline Draw ─── */
+  .sp-svg-draw svg text {
+    stroke: var(--fg);
+    stroke-width: 0.8;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: draw-in 3s ease-in-out infinite;
+  }
+  @keyframes draw-in {
+    0%   { stroke-dashoffset: 500; stroke: var(--fg-faint); }
+    45%  { stroke-dashoffset: 0; stroke: var(--fg); }
+    55%  { stroke-dashoffset: 0; stroke: var(--fg); }
+    100% { stroke-dashoffset: -500; stroke: var(--fg-faint); }
+  }
+
+  /* ─── 2. Draw & Fill ─── */
+  .sp-svg-draw-fill svg text.outline {
+    stroke: var(--fg);
+    stroke-width: 0.8;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: draw-fill-outline 3.5s ease-in-out infinite;
+  }
+  .sp-svg-draw-fill svg text.fill {
+    fill: var(--fg-faint);
+    stroke: none;
+    opacity: 0;
+    animation: draw-fill-solid 3.5s ease-in-out infinite;
+  }
+  @keyframes draw-fill-outline {
+    0%   { stroke-dashoffset: 500; }
+    35%  { stroke-dashoffset: 0; }
+    50%  { stroke-dashoffset: 0; opacity: 1; }
+    60%  { opacity: 0; }
+    100% { stroke-dashoffset: 500; opacity: 0; }
+  }
+  @keyframes draw-fill-solid {
+    0%, 40%  { opacity: 0; }
+    55%, 70% { opacity: 1; }
+    90%, 100% { opacity: 0; }
+  }
+
+  /* ─── 3. Dashed March ─── */
+  .sp-svg-dash svg text {
+    stroke: var(--fg);
+    stroke-width: 0.7;
+    stroke-dasharray: 8 6;
+    animation: dash-march 1.2s linear infinite;
+  }
+  @keyframes dash-march {
+    to { stroke-dashoffset: -28; }
+  }
+
+  /* ─── 4. Spotlight Trace ─── */
+  .sp-svg-spotlight svg text.bg {
+    stroke: var(--fg-faint);
+    stroke-width: 1;
+  }
+  .sp-svg-spotlight svg text.highlight {
+    stroke: var(--fg);
+    stroke-width: 1.2;
+    stroke-dasharray: 80 420;
+    animation: spotlight-run 2.5s linear infinite;
+  }
+  @keyframes spotlight-run {
+    0%   { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -500; }
+  }
+
+  /* ─── 5. Double Trace ─── */
+  .sp-svg-double svg text.a {
+    stroke: var(--fg);
+    stroke-width: 0.8;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: double-a 3s ease-in-out infinite;
+  }
+  .sp-svg-double svg text.b {
+    stroke: var(--fg-light);
+    stroke-width: 0.8;
+    stroke-dasharray: 500;
+    stroke-dashoffset: -500;
+    animation: double-b 3s ease-in-out infinite;
+  }
+  @keyframes double-a {
+    0%   { stroke-dashoffset: 500; }
+    50%  { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: 500; }
+  }
+  @keyframes double-b {
+    0%   { stroke-dashoffset: -500; }
+    50%  { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -500; }
+  }
+
+  /* ─── 6. Dotted Draw ─── */
+  .sp-svg-dotted svg text {
+    stroke: var(--fg);
+    stroke-width: 1;
+    stroke-dasharray: 2 8;
+    stroke-dashoffset: 500;
+    animation: dotted-draw 4s ease-in-out infinite;
+  }
+  @keyframes dotted-draw {
+    0%   { stroke-dashoffset: 500; stroke-dasharray: 2 8; stroke: var(--fg-faint); }
+    30%  { stroke-dashoffset: 0; stroke-dasharray: 2 8; stroke: var(--fg); }
+    50%  { stroke-dashoffset: 0; stroke-dasharray: 500 0; stroke: var(--fg); }
+    70%  { stroke-dashoffset: 0; stroke-dasharray: 2 8; stroke: var(--fg); }
+    100% { stroke-dashoffset: -500; stroke-dasharray: 2 8; stroke: var(--fg-faint); }
+  }
+
+  /* ─── 7–10 use shimmer-layer + same SVG outline styles as 1,4,3,5 ─── */
+
+  /* ─── 11. Stencil Wipe ─── */
+  .sp-stencil .s {
+    font-size: 2.8rem;
+    -webkit-text-stroke: 1px var(--fg-light);
+    -webkit-text-fill-color: transparent;
+    position: relative;
+  }
+  .sp-stencil .s::before {
+    content: '§';
+    position: absolute;
+    left: 0; top: 0;
+    -webkit-text-fill-color: var(--fg);
+    -webkit-text-stroke: 0;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    animation: stencil 2.8s ease-in-out infinite;
+  }
+  @keyframes stencil {
+    0%   { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); }
+    40%  { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    60%  { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    100% { clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); }
+  }
+
+  /* ─── 12. Breathing Outline ─── */
+  .sp-outline .s {
+    font-size: 2.8rem;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px var(--fg);
+    animation: outline-breathe 2s ease-in-out infinite;
+  }
+  @keyframes outline-breathe {
+    0%, 100% {
+      -webkit-text-stroke-color: var(--fg-faint);
+      transform: scale(0.95);
+    }
+    50% {
+      -webkit-text-stroke-color: var(--fg);
+      transform: scale(1.08);
+    }
+  }
+
+  /* ─── 13. Outline to Fill ─── */
+  .sp-outline-fill .s {
+    font-size: 2.8rem;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px var(--fg);
+    animation: outline-fill 2.5s ease-in-out infinite;
+  }
+  @keyframes outline-fill {
+    0%, 100% {
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke: 1px var(--fg-faint);
+    }
+    40%, 60% {
+      -webkit-text-fill-color: var(--fg);
+      -webkit-text-stroke: 1px var(--fg);
+    }
+  }
+
+  /* ─── 14. Outline Thicken ─── */
+  .sp-outline-thick .s {
+    font-size: 2.8rem;
+    -webkit-text-fill-color: transparent;
+    animation: outline-thicken 2s ease-in-out infinite;
+  }
+  @keyframes outline-thicken {
+    0%, 100% {
+      -webkit-text-stroke: 0.5px var(--fg-faint);
+      transform: scale(1);
+    }
+    50% {
+      -webkit-text-stroke: 2px var(--fg);
+      transform: scale(1.05);
+    }
+  }
+
+  /* ─── 15. Shadow Lift ─── */
+  .sp-outline-lift .s {
+    font-size: 2.8rem;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px var(--fg);
+    animation: outline-lift 2s ease-in-out infinite;
+  }
+  @keyframes outline-lift {
+    0%, 100% {
+      transform: translateY(0);
+      filter: drop-shadow(0 0 0 transparent);
+      -webkit-text-stroke-color: var(--fg-faint);
+    }
+    50% {
+      transform: translateY(-8px);
+      filter: drop-shadow(0 8px 6px rgba(0,0,0,0.12));
+      -webkit-text-stroke-color: var(--fg);
+    }
+  }
+
+  /* ─── 16. Flicker ─── */
+  .sp-outline-flicker .s {
+    font-size: 2.8rem;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px var(--fg);
+    animation: outline-flicker 3s ease-in-out infinite;
+  }
+  @keyframes outline-flicker {
+    0%, 100% { -webkit-text-stroke-color: var(--fg-faint); opacity: 0.4; }
+    10%  { -webkit-text-stroke-color: var(--fg); opacity: 1; }
+    12%  { -webkit-text-stroke-color: var(--fg-faint); opacity: 0.3; }
+    14%  { -webkit-text-stroke-color: var(--fg); opacity: 0.9; }
+    16%  { -webkit-text-stroke-color: var(--fg-faint); opacity: 0.5; }
+    20%, 80% { -webkit-text-stroke-color: var(--fg); opacity: 1; }
+    82%  { -webkit-text-stroke-color: var(--fg-faint); opacity: 0.4; }
+    84%  { -webkit-text-stroke-color: var(--fg); opacity: 0.8; }
+    86%  { -webkit-text-stroke-color: var(--fg-faint); opacity: 0.3; }
+    90%  { -webkit-text-stroke-color: var(--fg-faint); opacity: 0.4; }
+  }
+
+  /* ─── 17. Scan Reveal ─── */
+  .sp-scan .s {
+    font-size: 2.8rem;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px var(--fg-faint);
+    position: relative;
+  }
+  .sp-scan .s::before {
+    content: '§';
+    position: absolute;
+    left: 0; top: 0;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1.2px var(--fg);
+    clip-path: inset(0 100% 0 0);
+    animation: scan-h 2.5s ease-in-out infinite;
+  }
+  @keyframes scan-h {
+    0%   { clip-path: inset(0 100% 0 0); }
+    45%  { clip-path: inset(0 0% 0 0); }
+    55%  { clip-path: inset(0 0% 0 0); }
+    100% { clip-path: inset(0 0 0 100%); }
+  }
+
+  /* ─── 18. Breathe + Shimmer ─── */
+  .sp-breathe-shade .s {
+    font-size: 2.8rem;
+    -webkit-text-stroke: 1px var(--fg);
+    -webkit-text-fill-color: transparent;
+    animation: breathe-outline 2.5s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+  }
+  .sp-breathe-shade .shimmer-layer span { font-size: 2.8rem; }
+  @keyframes breathe-outline {
+    0%, 100% {
+      -webkit-text-stroke-color: var(--fg-faint);
+      transform: scale(0.95);
+    }
+    50% {
+      -webkit-text-stroke-color: var(--fg);
+      transform: scale(1.06);
+    }
+  }
+
+  /* ─── 19. Thicken + Shimmer ─── */
+  .sp-thick-shade .s {
+    font-size: 2.8rem;
+    -webkit-text-fill-color: transparent;
+    animation: thick-outline 2.2s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+  }
+  .sp-thick-shade .shimmer-layer span { font-size: 2.8rem; }
+  @keyframes thick-outline {
+    0%, 100% {
+      -webkit-text-stroke: 0.5px var(--fg-faint);
+    }
+    50% {
+      -webkit-text-stroke: 1.8px var(--fg);
+    }
+  }
+
+  /* ─── 20. Scan + Shimmer ─── */
+  .sp-scan-shade .s {
+    font-size: 2.8rem;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px var(--fg-faint);
+    position: relative;
+    z-index: 1;
+  }
+  .sp-scan-shade .shimmer-layer span { font-size: 2.8rem; }
+  .sp-scan-shade .s::before {
+    content: '§';
+    position: absolute;
+    left: 0; top: 0;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1.2px var(--fg);
+    clip-path: inset(0 100% 0 0);
+    animation: scan-h 2.5s ease-in-out infinite;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --fg: #d1d5db;
+      --fg-light: #9ca3af;
+      --fg-faint: #4b5563;
+      --fg-wash: #5a6475;
+      --bg: #111827;
+      --card-bg: #1f2937;
+      --card-border: #374151;
+      --label: #6b7280;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>L4 Section Sign Spinners</h1>
+<p class="subtitle">Loading indicators built from the § symbol</p>
+
+<div class="grid">
+
+  <div class="card">
+    <div class="spinner-area sp-svg-draw svg-spinner">
+      <svg viewBox="0 0 72 72"><text x="50%" y="58%" text-anchor="middle" dominant-baseline="middle" transform="rotate(90, 36, 36)">§</text></svg>
+    </div>
+    <span class="card-label">Outline Draw</span>
+  </div>
+
+  <div class="card">
+    <div class="spinner-area sp-svg-draw-fill svg-spinner">
+      <svg viewBox="0 0 72 72">
+        <text class="fill" x="50%" y="58%" text-anchor="middle" dominant-baseline="middle" transform="rotate(90, 36, 36)">§</text>
+        <text class="outline" x="50%" y="58%" text-anchor="middle" dominant-baseline="middle" transform="rotate(90, 36, 36)">§</text>
+      </svg>
+    </div>
+    <span class="card-label">Draw & Fill</span>
+  </div>
+
+  <div class="card">
+    <div class="spinner-area sp-svg-dash svg-spinner">
+      <svg viewBox="0 0 72 72"><text x="50%" y="58%" text-anchor="middle" dominant-baseline="middle" transform="rotate(90, 36, 36)">§</text></svg>
+    </div>
+    <span class="card-label">Dashed March</span>
+  </div>
+
+  <div class="card">
+    <div class="spinner-area sp-svg-spotlight svg-spinner">
+      <svg viewBox="0 0 72 72">
+        <text class="bg" x="50%" y="58%" text-anchor="middle" dominant-baseline="middle" transform="rotate(90, 36, 36)">§</text>
+        <text class="highlight" x="50%" y="58%" text-anchor="middle" dominant-baseline="middle" transform="rotate(90, 36, 36)">§</text>
+      </svg>
+    </div>
+    <span class="card-label">Spotlight Trace</span>
+  </div>
+
+  <div class="card">
+    <div class="spinner-area sp-svg-double svg-spinner">
+      <svg viewBox="0 0 72 72">
+        <text class="a" x="50%" y="58%" text-anchor="middle" dominant-baseline="middle" transform="rotate(90, 36, 36)">§</text>
+        <text class="b" x="50%" y="58%" text-anchor="middle" dominant-baseline="middle" transform="rotate(90, 36, 36)">§</text>
+      </svg>
+    </div>
+    <span class="card-label">Double Trace</span>
+  </div>
+
+  <div class="card">
+    <div class="spinner-area sp-svg-dotted svg-spinner">
+      <svg viewBox="0 0 72 72"><text x="50%" y="58%" text-anchor="middle" dominant-baseline="middle" transform="rotate(90, 36, 36)">§</text></svg>
+    </div>
+    <span class="card-label">Dotted Draw</span>
+  </div>
+
+  <!-- shimmer combos: CSS shimmer layer behind SVG outlines -->
+
+  <div class="card">
+    <div class="spinner-area sp-svg-draw svg-spinner">
+      <div class="shimmer-layer"><span>§</span></div>
+      <svg viewBox="0 0 72 72"><text x="50%" y="58%" text-anchor="middle" dominant-baseline="middle" transform="rotate(90, 36, 36)">§</text></svg>
+    </div>
+    <span class="card-label">Draw + Shimmer</span>
+  </div>
+
+  <div class="card">
+    <div class="spinner-area sp-svg-spotlight svg-spinner">
+      <div class="shimmer-layer"><span>§</span></div>
+      <svg viewBox="0 0 72 72">
+        <text class="bg" x="50%" y="58%" text-anchor="middle" dominant-baseline="middle" transform="rotate(90, 36, 36)">§</text>
+        <text class="highlight" x="50%" y="58%" text-anchor="middle" dominant-baseline="middle" transform="rotate(90, 36, 36)">§</text>
+      </svg>
+    </div>
+    <span class="card-label">Spotlight + Shimmer</span>
+  </div>
+
+  <div class="card">
+    <div class="spinner-area sp-svg-dash svg-spinner">
+      <div class="shimmer-layer"><span>§</span></div>
+      <svg viewBox="0 0 72 72"><text x="50%" y="58%" text-anchor="middle" dominant-baseline="middle" transform="rotate(90, 36, 36)">§</text></svg>
+    </div>
+    <span class="card-label">Dash + Shimmer</span>
+  </div>
+
+  <div class="card">
+    <div class="spinner-area sp-svg-double svg-spinner">
+      <div class="shimmer-layer"><span>§</span></div>
+      <svg viewBox="0 0 72 72">
+        <text class="a" x="50%" y="58%" text-anchor="middle" dominant-baseline="middle" transform="rotate(90, 36, 36)">§</text>
+        <text class="b" x="50%" y="58%" text-anchor="middle" dominant-baseline="middle" transform="rotate(90, 36, 36)">§</text>
+      </svg>
+    </div>
+    <span class="card-label">Double + Shimmer</span>
+  </div>
+
+  <!-- CSS outline spinners -->
+
+  <div class="card">
+    <div class="spinner-area sp-stencil"><span class="s">§</span></div>
+    <span class="card-label">Stencil Wipe</span>
+  </div>
+
+  <div class="card">
+    <div class="spinner-area sp-outline"><span class="s">§</span></div>
+    <span class="card-label">Breathing Outline</span>
+  </div>
+
+  <div class="card">
+    <div class="spinner-area sp-outline-fill"><span class="s">§</span></div>
+    <span class="card-label">Outline to Fill</span>
+  </div>
+
+  <div class="card">
+    <div class="spinner-area sp-outline-thick"><span class="s">§</span></div>
+    <span class="card-label">Outline Thicken</span>
+  </div>
+
+  <div class="card">
+    <div class="spinner-area sp-outline-lift"><span class="s">§</span></div>
+    <span class="card-label">Shadow Lift</span>
+  </div>
+
+  <div class="card">
+    <div class="spinner-area sp-outline-flicker"><span class="s">§</span></div>
+    <span class="card-label">Flicker</span>
+  </div>
+
+  <div class="card">
+    <div class="spinner-area sp-scan"><span class="s">§</span></div>
+    <span class="card-label">Scan Reveal</span>
+  </div>
+
+  <!-- CSS outline + shimmer combos -->
+
+  <div class="card">
+    <div class="spinner-area sp-breathe-shade">
+      <div class="shimmer-layer"><span>§</span></div>
+      <span class="s">§</span>
+    </div>
+    <span class="card-label">Breathe + Shimmer</span>
+  </div>
+
+  <div class="card">
+    <div class="spinner-area sp-thick-shade">
+      <div class="shimmer-layer"><span>§</span></div>
+      <span class="s">§</span>
+    </div>
+    <span class="card-label">Thicken + Shimmer</span>
+  </div>
+
+  <div class="card">
+    <div class="spinner-area sp-scan-shade">
+      <div class="shimmer-layer"><span>§</span></div>
+      <span class="s">§</span>
+    </div>
+    <span class="card-label">Scan + Shimmer</span>
+  </div>
+
+</div>
+
+</body>
+</html>

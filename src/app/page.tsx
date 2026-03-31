@@ -42,20 +42,20 @@ export default function Index() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <a 
-                  href="https://legalese.com/l4" 
+                  href="https://marketplace.visualstudio.com/items?itemName=Legalese.l4-vscode" 
                   target="_blank" 
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   className="bg-accent text-white px-8 py-3 rounded-lg font-medium hover:bg-accent-hover transition-colors"
                 >
-                  Explore L4
+                  L4 in VS Code
                 </a>
                 <a 
-                  href="https://jl4.legalese.com" 
+                  href="https://legalese.com/l4" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="border-2 border-gray-900 px-8 py-3 rounded-lg font-medium hover:bg-gray-900 hover:text-white transition-colors"
                 >
-                  Try the IDE
+                  Explore L4
                 </a>
               </div>
             </div>

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useConsole } from "../console-context";
 import { authHeaders } from "../console-utils";
 import { AUTH_API_URL } from "@/lib/constants";
+import { SectionSpinner } from "../section-spinner";
 
 const POLL_INTERVAL_MS = 20_000;
 
@@ -153,7 +154,7 @@ export default function LogsPage() {
       {error && <div className="text-sm mb-4 text-center italic text-gray-500">{error}</div>}
 
       {loading ? (
-        <div className="flex items-center justify-center py-12 text-gray-400 text-sm">Loading...</div>
+        <div className="flex items-center justify-center py-12"><SectionSpinner size={48} /></div>
       ) : entries.length === 0 ? (
         <div className="flex items-center justify-center py-12 text-gray-400 text-sm">
           No activity logged in the last 24 hours.
