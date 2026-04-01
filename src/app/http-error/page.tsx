@@ -1,8 +1,15 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CMS_NAME } from '@/lib/constants';
 import Footer from '../_components/footer';
 import { ErrorContent } from './error-content';
+
+export const metadata: Metadata = {
+  other: {
+    error_code: '404',
+  },
+};
 
 export default function HttpErrorPage() {
   return (
