@@ -21,7 +21,7 @@ const DEFAULT_ERROR = {
 };
 
 export function ErrorContent() {
-  const [code, setCode] = useState(500);
+  const [code, setCode] = useState(404);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -29,6 +29,13 @@ export function ErrorContent() {
     if (codeParam) {
       const parsed = parseInt(codeParam, 10);
       if (parsed >= 400 && parsed <= 599) setCode(parsed);
+    } else {
+      const meta = document.querySelector('meta[name="error_code"]');
+      const metaContent = meta?.getAttribute('content');
+      if (metaContent) {
+        const parsed = parseInt(metaContent, 10);
+        if (parsed >= 400 && parsed <= 599) setCode(parsed);
+      }
     }
   }, []);
 
