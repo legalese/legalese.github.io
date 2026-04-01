@@ -51,7 +51,7 @@ const DEFAULT_ERROR = {
   description: "An unexpected error occurred. Please try again later.",
 };
 
-export function HttpError({ code }: { code: number }) {
+export function HttpError({ code, footer }: { code: number; footer?: React.ReactNode }) {
   const validCode = code >= 400 && code <= 599 ? code : 500;
   const { title, description } = ERROR_INFO[validCode] ?? DEFAULT_ERROR;
   const is401 = validCode === 401;
@@ -100,7 +100,7 @@ export function HttpError({ code }: { code: number }) {
         </div>
       </div>
 
-      <Footer />
+      {footer ?? <Footer />}
     </div>
   );
 }
