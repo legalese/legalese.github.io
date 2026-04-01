@@ -402,7 +402,7 @@ function UsageChart({ slug, health, isAdmin }: { slug: string; health: ServiceHe
         </div>
       )}
       <p className="text-xs text-gray-500 mt-2">
-        These are the number of requests made to your L4 service. To get started, use an <Link href="./api-keys">API key</Link> to deploy your first L4 rules using our <a href="https://marketplace.visualstudio.com/items?itemName=Legalese.l4-vscode" target="_blank" rel="noopener">Visual Studio Code L4 Extension</a> or the <a href="https://jl4.legalese.com" target="_blank" rel="noopener">online editor</a>.
+        These are the number of requests made to your L4 service. To get started, deploy your first L4 rules using our <a href="https://marketplace.visualstudio.com/items?itemName=Legalese.l4-vscode" target="_blank" rel="noopener">Visual Studio Code L4 Extension</a> or try the <a href="https://jl4.legalese.com" target="_blank" rel="noopener">online editor</a>.
       </p>
     </div>
   );
