@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { CMS_NAME } from '@/lib/constants';
-import Footer from './footer';
 
 const ERROR_INFO: Record<number, { title: string; description: string }> = {
   400: {
@@ -100,7 +99,7 @@ export function HttpError({ code, footer }: { code: number; footer?: React.React
         </div>
       </div>
 
-      {footer ?? <Footer />}
+      {footer}
     </div>
   );
 }
