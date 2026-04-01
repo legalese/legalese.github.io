@@ -67,8 +67,6 @@ The tooling exists today. It is not a research prototype.
 
 ## The Feedback Loop
 
-The broader significance is structural.
-
 AI became proficient at coding through a cycle: write code, get deterministic feedback from a compiler, adjust, repeat. That loop ran at enormous scale. The same dynamic can apply to rules — if the rules have a runtime.
 
 The cycle looks like this: AI helps express rules in L4. Those rules, once codified, run deterministically. AI can then test its own legal reasoning against them. Better feedback produces better AI output, which in turn makes it easier to codify more rules.
@@ -95,4 +93,4 @@ The underlying question is not whether AI will reshape how rules are written, in
 
 That verification layer is what we are building. It is early, and there is a great deal still to do. But the tools work, the approach is sound, and the need — as anyone who has watched AI confidently misstate a legal rule can attest — is not theoretical.
 
-**[Try L4 in your browser](https://jl4.legalese.com) or [install the VS Code extension](https://marketplace.visualstudio.com/items?itemName=Legalese.l4-vscode).**
+**[Try L4 in your browser](https://jl4.legalese.com) or [install the VS Code extension](https://marketplace.visualstudio.com/items?itemName=Legalese.l4-vscode) and start codifying your rules.**
