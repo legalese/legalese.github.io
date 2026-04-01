@@ -1,12 +1,21 @@
+'use client';
+
+import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 import { HttpError } from '../_components/http-error';
 
-export default async function HttpErrorPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ code?: string }>;
-}) {
-  const { code: codeParam } = await searchParams;
+function HttpErrorContent() {
+  const searchParams = useSearchParams();
+  const codeParam = searchParams.get('code');
   const code = codeParam ? parseInt(codeParam, 10) : 500;
 
   return <HttpError code={code} />;
+}
+
+export default function HttpErrorPage() {
+  return (
+    <Suspense fallback={<HttpError code={500} />}>
+      <HttpErrorContent />
+    </Suspense>
+  );
 }
