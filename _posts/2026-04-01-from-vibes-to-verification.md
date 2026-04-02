@@ -63,7 +63,7 @@ The tooling exists today. It is not a research prototype.
 
 **AI agents as consumers of rules.** A built-in MCP (Model Context Protocol) server allows AI agents — Claude, Cursor, GitHub Copilot — to discover and invoke deployed L4 rules as callable tools. The agent does not interpret the rule; it *executes* it. The result is deterministic and verifiable. A WebMCP option extends the same capability to browser-based AI with a single script tag.
 
-**Legal building blocks included.** Standard libraries cover jurisdiction codes (ISO 3166), currencies (ISO 4217), legal person types, and ownership structures — the recurring primitives of legal logic.
+**Legal building blocks included.** Standard libraries cover jurisdiction codes (ISO 3166), currencies (ISO 4217), legal person types, and ownership structures — the recurring primitives of legal logic. And all these libraries is something we're sure our [Community](https://legalese.com/community) will expand on.
 
 ## The Feedback Loop
 
