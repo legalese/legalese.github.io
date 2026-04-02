@@ -20,7 +20,7 @@ export default function MembersPage() {
             {(token) => <AdminPortalDomainVerification authToken={token} />}
           </WidgetPage>
           <p className="text-xs text-gray-500">
-            Verify your organization&apos;s domain by adding a DNS TXT record. Once verified, users who sign in with a matching email address are automatically added as members — no invitation required. Verified domains also unlock Single Sign-On (SSO) for your organization.
+            Verify your organization&apos;s domain by adding a DNS TXT record. Once verified, users who sign in with a matching email address are automatically added as members — no invitation required. Verified domains also unlock Single Sign-On (SSO) for your organization and function as allowed cross-domain origins for requests to your L4 deployments.
           </p>
         </div>
       )}
