@@ -75,7 +75,7 @@ This is already observable in practice. When an AI agent calls an L4 rule via MC
 
 The practical consequence for organizations is that, instead of deploying AI and hoping it interprets internal policies correctly, they can deploy the policies themselves as executable services — and let any AI, or any system, call them directly. Same rules, every time, deterministically, with a full audit trail.
 
-## My Cofounder Saw This Coming
+## You Could See This Coming
 
 In January 2017, my cofounder Meng Weng Wong published a three-part series that traced the problem from [the dysfunction of legal drafting](/posts/the-problem-with-legal) through [seventy years of academic attempts](/posts/prior-art-legal-informatics) to formalize law, to [the case for computational law](/posts/computational-law).
 
