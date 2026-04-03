@@ -12,8 +12,8 @@ export default function Index() {
   return (
     <main>
       <Alert>
-          Legalese acquires Monad Solutions &nbsp;
-          <a href="posts/2026-01-01-legalese-acquires-monad-solutions" className="text-accent">Read more</a>
+          Deploy MCP and WebMCP tools now to Legalese Cloud with our
+          <a href="https://marketplace.visualstudio.com/items?itemName=Legalese.l4-vscode" className="text-accent">VSCode Extension 1.3</a>
       </Alert>
       <Container>
         <Header />
