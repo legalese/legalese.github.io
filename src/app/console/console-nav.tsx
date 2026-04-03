@@ -69,6 +69,15 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
     );
   }
 
+  // Redirect page handles its own flow — skip org check
+  if (pathname === "/console/redirect") {
+    return (
+      <div className="p-6 min-h-[400px] -mx-4 sm:-mx-6 lg:mx-0">
+        {children}
+      </div>
+    );
+  }
+
   if (!session.organizationId && pathname !== "/console/onboarding") {
     return (
       <div className="flex flex-col items-center justify-center py-24 gap-6">
