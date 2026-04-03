@@ -5,6 +5,18 @@ import { useConsole } from "../console-context";
 
 const REDIRECT_TO_KEY = "auth-redirect-to";
 
+function isValidRedirectUrl(url: string): boolean {
+  try {
+    const parsed = new URL(url);
+    // Only allow known custom protocol schemes and https
+    return ["vscode:", "vscode-insiders:", "https:", "http:"].includes(
+      parsed.protocol,
+    );
+  } catch {
+    return false;
+  }
+}
+
 function getAppLabel(url: string): string {
   try {
     const scheme = new URL(url).protocol.replace(":", "");
@@ -25,7 +37,7 @@ export default function RedirectPage() {
   useEffect(() => {
     const url = new URL(window.location.href);
     const param = url.searchParams.get("redirect_to");
-    if (param) {
+    if (param && isValidRedirectUrl(param)) {
       sessionStorage.setItem(REDIRECT_TO_KEY, param);
       setRedirectTo(param);
       // Clean up the URL

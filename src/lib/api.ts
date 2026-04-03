@@ -24,6 +24,12 @@ export function getPostBySlug(slug: string): Post | null {
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
+  // gray-matter auto-converts ISO date strings to Date objects,
+  // but our Post type expects a string for date-fns parseISO.
+  if (data.date instanceof Date) {
+    data.date = data.date.toISOString();
+  }
+
   return { ...data, slug: realSlug, content } as Post;
 }
 
