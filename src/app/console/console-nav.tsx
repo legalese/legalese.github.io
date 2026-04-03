@@ -145,7 +145,7 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
                 Continue
               </button>
               {!isVSCode && (
-                <p className="text-xs text-gray-400 break-all">
+                <p className="-mt-3 text-xs text-gray-400 break-all">
                   Redirect to{" "}
                   <span className="text-gray-500">
                     {(() => {
