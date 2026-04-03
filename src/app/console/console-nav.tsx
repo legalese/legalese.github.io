@@ -129,7 +129,7 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
             <>
               <div>
                 <h1 className="text-xl font-bold font-merriweather mb-2">
-                  Signed in
+                  Sign in {isVSCode ? "to Visual Studio Code" : "and redirect"}
                 </h1>
                 {session.organization ? (
                   <p className="text-gray-600 text-sm">
@@ -144,6 +144,21 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
               >
                 {isVSCode ? "Return to Visual Studio Code" : "Continue"}
               </button>
+              {!isVSCode && (
+                <p className="text-xs text-gray-400 break-all">
+                  Redirect to{" "}
+                  <span className="text-gray-500">
+                    {(() => {
+                      try {
+                        const u = new URL(pendingRedirect!);
+                        return u.origin + u.pathname;
+                      } catch {
+                        return pendingRedirect;
+                      }
+                    })()}
+                  </span>
+                </p>
+              )}
               <button
                 onClick={handleSwitchAccount}
                 className="text-sm text-gray-400 hover:text-gray-600 transition-colors"
