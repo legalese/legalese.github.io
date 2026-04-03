@@ -1,9 +1,11 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AUTH_API_URL } from "@/lib/constants";
 import { useConsole } from "./console-context";
+import { SESSION_TOKEN_KEY, REDIRECT_TO_KEY } from "./console-utils";
 
 const TABS: readonly {
   path: string;
@@ -19,9 +21,44 @@ const TABS: readonly {
   { path: "/console/profile", label: "Profile" },
 ];
 
+function isValidRedirectUrl(url: string): boolean {
+  try {
+    const parsed = new URL(url);
+    return ["vscode:", "vscode-insiders:", "https:", "http:"].includes(
+      parsed.protocol,
+    );
+  } catch {
+    return false;
+  }
+}
+
+function getAppLabel(url: string): string {
+  try {
+    const scheme = new URL(url).protocol.replace(":", "");
+    if (scheme === "vscode" || scheme === "vscode-insiders") {
+      return "Visual Studio Code";
+    }
+    return scheme;
+  } catch {
+    return "application";
+  }
+}
+
 export function ConsoleNav({ children }: { children: React.ReactNode }) {
-  const { session, loading } = useConsole();
+  const { session, loading, onLogout } = useConsole();
   const pathname = usePathname();
+  const [pendingRedirect, setPendingRedirect] = useState<string | null>(null);
+
+  // Check sessionStorage for a pending redirect on mount
+  useEffect(() => {
+    const stored = sessionStorage.getItem(REDIRECT_TO_KEY);
+    if (stored && isValidRedirectUrl(stored)) {
+      setPendingRedirect(stored);
+    } else if (stored) {
+      // Invalid URL — clean up
+      sessionStorage.removeItem(REDIRECT_TO_KEY);
+    }
+  }, []);
 
   if (loading) {
     return (
@@ -50,6 +87,81 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
     );
   }
 
+  // Pending redirect — show redirect UI instead of normal console
+  if (pendingRedirect) {
+    const appLabel = getAppLabel(pendingRedirect);
+    const isVSCode = appLabel === "Visual Studio Code";
+
+    function handleContinue() {
+      sessionStorage.removeItem(REDIRECT_TO_KEY);
+
+      const url = new URL(pendingRedirect!);
+      if (!url.searchParams.has("token")) {
+        const token = localStorage.getItem(SESSION_TOKEN_KEY);
+        if (token) url.searchParams.set("token", token);
+      }
+
+      window.location.href = url.toString();
+      setTimeout(() => window.close(), 500);
+    }
+
+    function handleSwitchAccount() {
+      // redirect_to stays in sessionStorage so it survives the login round-trip
+      onLogout();
+    }
+
+    return (
+      <div className="flex flex-col items-center justify-center py-24 gap-6">
+        <div className="bg-white rounded-lg border border-gray-200 p-8 max-w-md w-full text-center space-y-6">
+          {session ? (
+            <>
+              <div>
+                <h1 className="text-xl font-bold font-merriweather mb-2">
+                  Signed in
+                </h1>
+                {session.organization ? (
+                  <p className="text-gray-600 text-sm">
+                    {session.organization.name}
+                  </p>
+                ) : null}
+                <p className="text-gray-500 text-sm">{session.user.email}</p>
+              </div>
+              <button
+                onClick={handleContinue}
+                className="w-full inline-flex items-center justify-center px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent-hover transition-colors"
+              >
+                {isVSCode ? "Return to Visual Studio Code" : "Continue"}
+              </button>
+              <button
+                onClick={handleSwitchAccount}
+                className="text-sm text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                Switch account
+              </button>
+            </>
+          ) : (
+            <>
+              <div>
+                <h1 className="text-xl font-bold font-merriweather mb-2">
+                  Sign in required
+                </h1>
+                <p className="text-gray-600 text-sm">
+                  Sign in to continue to {appLabel}.
+                </p>
+              </div>
+              <a
+                href={`${AUTH_API_URL}/auth/login?return_to=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : "")}`}
+                className="w-full inline-flex items-center justify-center px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent-hover transition-colors"
+              >
+                Sign in to continue
+              </a>
+            </>
+          )}
+        </div>
+      </div>
+    );
+  }
+
   if (!session) {
     return (
       <div className="flex flex-col items-center justify-center py-24 gap-6">
@@ -65,15 +177,6 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
         >
           Sign in to continue
         </a>
-      </div>
-    );
-  }
-
-  // Redirect page handles its own flow — skip org check
-  if (pathname === "/console/redirect") {
-    return (
-      <div className="p-6 min-h-[400px] -mx-4 sm:-mx-6 lg:mx-0">
-        {children}
       </div>
     );
   }

@@ -7,41 +7,35 @@ import { WorkOsWidgets } from "@workos-inc/widgets";
 import { AUTH_API_URL } from "@/lib/constants";
 import { ConsoleContext, type ConsoleSession } from "./console-context";
 import { ConsoleHeader } from "./console-header";
-import { authHeaders, SESSION_TOKEN_KEY } from "./console-utils";
+import { authHeaders, SESSION_TOKEN_KEY, REDIRECT_TO_KEY } from "./console-utils";
 
 export function ConsoleShell({ children }: { children: React.ReactNode }) {
   const [session, setSession] = useState<ConsoleSession | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // Capture ?token= from auth callback redirect.
-  // If a redirect_to destination is stored in sessionStorage (from a prior
-  // /console/redirect visit), navigate back to the redirect page so the
-  // user can complete the flow (e.g. after switching accounts).
-  //
-  // Also, if ?redirect_to= is present on any console page, route to the
-  // redirect page (e.g. legalese.cloud/console?redirect_to=vscode://...).
+  // Capture ?token= and ?redirect_to= from query string on mount.
+  // - ?redirect_to= is stored in sessionStorage so it survives login round-trips
+  // - ?token= is stored in localStorage for API auth
   useEffect(() => {
     const url = new URL(window.location.href);
+    let dirty = false;
 
-    // If redirect_to is present on a non-redirect page, route there
     const redirectTo = url.searchParams.get("redirect_to");
-    if (redirectTo && url.pathname !== "/console/redirect") {
-      url.pathname = "/console/redirect";
-      window.location.href = url.toString();
-      return;
+    if (redirectTo) {
+      sessionStorage.setItem(REDIRECT_TO_KEY, redirectTo);
+      url.searchParams.delete("redirect_to");
+      dirty = true;
     }
 
     const token = url.searchParams.get("token");
     if (token) {
       localStorage.setItem(SESSION_TOKEN_KEY, token);
       url.searchParams.delete("token");
-      window.history.replaceState({}, "", url.pathname + url.search + url.hash);
+      dirty = true;
+    }
 
-      const pendingRedirect = sessionStorage.getItem("auth-redirect-to");
-      if (pendingRedirect && url.pathname !== "/console/redirect") {
-        window.location.href = "/console/redirect";
-        return;
-      }
+    if (dirty) {
+      window.history.replaceState({}, "", url.pathname + url.search + url.hash);
     }
   }, []);
 

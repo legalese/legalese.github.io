@@ -5,6 +5,7 @@ import { AUTH_API_URL } from "@/lib/constants";
 import { useConsole } from "./console-context";
 
 export const SESSION_TOKEN_KEY = "wos-session-token";
+export const REDIRECT_TO_KEY = "auth-redirect-to";
 
 export function authHeaders(): HeadersInit {
   const token =
