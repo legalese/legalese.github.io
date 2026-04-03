@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AUTH_API_URL } from "@/lib/constants";
@@ -59,18 +59,18 @@ function getAppLabel(url: string): string {
 export function ConsoleNav({ children }: { children: React.ReactNode }) {
   const { session, loading, onLogout } = useConsole();
   const pathname = usePathname();
-  const [pendingRedirect, setPendingRedirect] = useState<string | null>(null);
-
-  // Check sessionStorage for a pending redirect on mount
-  useEffect(() => {
+  // Resolve pending redirect synchronously on first render so it's
+  // available before any useEffect fires. Check the URL first (initial
+  // load from proxy), then fall back to sessionStorage (after re-login).
+  const [pendingRedirect] = useState<string | null>(() => {
+    if (typeof window === "undefined") return null;
+    const urlParam = new URL(window.location.href).searchParams.get("redirect_to");
+    if (urlParam && isValidRedirectUrl(urlParam)) return urlParam;
     const stored = sessionStorage.getItem(REDIRECT_TO_KEY);
-    if (stored && isValidRedirectUrl(stored)) {
-      setPendingRedirect(stored);
-    } else if (stored) {
-      // Invalid URL — clean up
-      sessionStorage.removeItem(REDIRECT_TO_KEY);
-    }
-  }, []);
+    if (stored && isValidRedirectUrl(stored)) return stored;
+    if (stored) sessionStorage.removeItem(REDIRECT_TO_KEY);
+    return null;
+  });
 
   if (loading) {
     return (
@@ -142,7 +142,7 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
                 onClick={handleContinue}
                 className="w-full inline-flex items-center justify-center px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent-hover transition-colors"
               >
-                {isVSCode ? "Return to Visual Studio Code" : "Continue"}
+                Continue
               </button>
               {!isVSCode && (
                 <p className="text-xs text-gray-400 break-all">
