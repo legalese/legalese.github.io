@@ -1,16 +1,16 @@
 ---
 title: "From Vibes to Verification: Why the Age of AI Needs Rules You Can Run"
-excerpt: "AI got good at coding because compilers don't lie. It can get just as good at law — if we give it a compiler for rules. That's what we're building."
-coverImage: "/assets/blog/content/legal-code.jpg"
-date: "2026-04-01T00:00:00.000Z"
+published: true
+excerpt: AI got good at coding because compilers don't lie. It can get just as
+  good at law — if we give it a compiler for rules. That's what we're building.
+coverImage: /assets/blog/content/legal-code.jpg
+date: 2026-04-03T00:00:00.000Z
 author:
-  name: "Thomas Gorissen"
-  picture: "/assets/blog/authors/thomas.jpg"
+  name: Thomas Gorissen
+  picture: /assets/blog/authors/thomas.jpg
 ogImage:
-  url: "/assets/blog/content/legal-code.jpg"
-published: false
+  url: /assets/blog/content/legal-code.jpg
 ---
-
 ## Code Has Compilers. Law Has Opinions.
 
 There is an underappreciated reason AI got so good at writing code so quickly: code has a **deterministic evaluator**. Write a function, run it, and the compiler will tell you — unambiguously — whether it works. That tight feedback loop, repeated billions of times across millions of programs, is what turned large language models from generators of plausible-looking code into generators of *working* code.
