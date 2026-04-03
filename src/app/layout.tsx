@@ -1,5 +1,5 @@
 import Footer from "@/app/_components/footer";
-import { CMS_NAME, SITE_DESCRIPTION, SITE_URL } from "@/lib/constants";
+import { CMS_NAME, SITE_DESCRIPTION, SITE_URL, SERVICE_DOMAIN } from "@/lib/constants";
 
 const HOME_OG_IMAGE_URL = '/opengraph/software-is-eating-law.jpg';
 import type { Metadata } from "next";
@@ -50,6 +50,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content={[
+            "default-src 'self'",
+            `script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com`,
+            "style-src 'self' 'unsafe-inline'",
+            "font-src 'self'",
+            "img-src 'self'",
+            `connect-src 'self' https://${SERVICE_DOMAIN} https://*.workos.com`,
+            "frame-src 'self' https://jl4.legalese.com https://*.workos.com",
+            "object-src 'none'",
+            "base-uri 'self'",
+          ].join("; ")}
+        />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
