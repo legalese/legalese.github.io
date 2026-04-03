@@ -12,7 +12,7 @@ export default function Index() {
   return (
     <main>
       <Alert>
-          Deploy MCP and WebMCP tools now to Legalese Cloud with our
+          Deploy MCP and WebMCP tools now to Legalese Cloud with our&nbsp;
           <a href="https://marketplace.visualstudio.com/items?itemName=Legalese.l4-vscode" className="text-accent">VSCode Extension 1.3</a>
       </Alert>
       <Container>
