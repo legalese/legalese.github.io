@@ -114,7 +114,10 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
       }
 
       window.location.href = url.toString();
-      setTimeout(() => window.close(), 500);
+      // Navigate this tab to the normal console after triggering the redirect
+      setTimeout(() => {
+        window.location.href = "/console";
+      }, 500);
     }
 
     function handleSwitchAccount() {
