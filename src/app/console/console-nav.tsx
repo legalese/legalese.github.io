@@ -190,6 +190,15 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
             </>
           )}
         </div>
+        <button
+          onClick={() => {
+            sessionStorage.removeItem(REDIRECT_TO_KEY);
+            window.location.href = "/console";
+          }}
+          className="text-sm text-accent hover:text-accent-hover transition-colors"
+        >
+          Back to your console
+        </button>
       </div>
     );
   }
