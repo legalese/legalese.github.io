@@ -138,27 +138,29 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
                 ) : null}
                 <p className="text-gray-500 text-sm">{session.user.email}</p>
               </div>
-              <button
-                onClick={handleContinue}
-                className="w-full inline-flex items-center justify-center px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent-hover transition-colors"
-              >
-                Continue
-              </button>
-              {!isVSCode && (
-                <p className="-mt-3 text-xs text-gray-400 break-all">
-                  Redirect to{" "}
-                  <span className="text-gray-500">
-                    {(() => {
-                      try {
-                        const u = new URL(pendingRedirect!);
-                        return u.origin + u.pathname;
-                      } catch {
-                        return pendingRedirect;
-                      }
-                    })()}
-                  </span>
-                </p>
-              )}
+              <div className="space-y-1">
+                <button
+                  onClick={handleContinue}
+                  className="w-full inline-flex items-center justify-center px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent-hover transition-colors"
+                >
+                  Continue
+                </button>
+                {!isVSCode && (
+                  <p className="text-xs text-gray-400 break-all">
+                    Redirect to{" "}
+                    <span className="text-gray-500">
+                      {(() => {
+                        try {
+                          const u = new URL(pendingRedirect!);
+                          return u.origin + u.pathname;
+                        } catch {
+                          return pendingRedirect;
+                        }
+                      })()}
+                    </span>
+                  </p>
+                )}
+              </div>
               <button
                 onClick={handleSwitchAccount}
                 className="text-sm text-gray-400 hover:text-gray-600 transition-colors"
