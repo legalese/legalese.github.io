@@ -24,9 +24,21 @@ const TABS: readonly {
 function isValidRedirectUrl(url: string): boolean {
   try {
     const parsed = new URL(url);
-    return ["vscode:", "vscode-insiders:", "https:", "http:"].includes(
-      parsed.protocol,
-    );
+    // VS Code extension callback (our extension only)
+    if (parsed.protocol === "vscode:" || parsed.protocol === "vscode-insiders:") {
+      return parsed.hostname === "legalese.l4-vscode";
+    }
+    // HTTPS links to our own domains only
+    if (parsed.protocol === "https:") {
+      const host = parsed.hostname;
+      return (
+        host === "legalese.com" ||
+        host === "legalese.cloud" ||
+        host.endsWith(".legalese.com") ||
+        host.endsWith(".legalese.cloud")
+      );
+    }
+    return false;
   } catch {
     return false;
   }
