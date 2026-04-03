@@ -316,7 +316,10 @@ function UsageChart({ slug, health, isAdmin }: { slug: string; health: ServiceHe
     return () => { cancelled = true; };
   }, [slug, period, days, health.state]);
 
-  if (health.state !== "ok") {
+  if (health.state === "loading") {
+    return <div className="h-32 flex items-center justify-center text-gray-400 text-xs">Loading...</div>;
+  }
+  if (health.state === "error") {
     return <span className="text-gray-400 text-sm">Service temporarily unavailable</span>;
   }
 
