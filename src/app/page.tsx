@@ -87,7 +87,7 @@ export default function Index() {
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-lg">
-                <h3 className="text-xl font-bold mb-3">Compliance tools for humans and AI</h3>
+                <h3 className="text-xl font-bold mb-3">Run compliance tools for humans &amp; AI</h3>
                 <p className="text-gray-600">
                   Deploy your rules to Legalese Cloud as MCP tools for AI agents, as WebMCP embedded in your website or as REST API's.
                 </p>
