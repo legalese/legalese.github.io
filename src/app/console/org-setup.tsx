@@ -71,7 +71,6 @@ export function OrgSetup() {
       window.location.href = `${AUTH_API_URL}/auth/login?organization_id=${encodeURIComponent(data.organizationId)}&return_to=${encodeURIComponent(`${window.location.origin}/console`)}`;
     } catch {
       setSubmitError("Something went wrong. Please try again.");
-    } finally {
       setSubmitting(false);
     }
   }
