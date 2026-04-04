@@ -9,9 +9,9 @@ type Props = {
 const Alert = ({ preview, children }: Props) => {
   return children || preview ? (
     <div
-      className={cn("border-b", {
-        "bg-neutral-800 border-neutral-800 text-white": preview,
-        "bg-neutral-50 border-neutral-200": !preview,
+      className={cn("border-b bg-gradient-to-b from-transparent", {
+        "to-neutral-800 border-neutral-800 text-white": preview,
+        "to-neutral-50 border-neutral-200": !preview,
       })}
     >
       <Container>
