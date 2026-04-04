@@ -76,8 +76,7 @@ export default function Index() {
               <div className="bg-white p-6 rounded-lg shadow-lg">
                 <h3 className="text-xl font-bold mb-3">Formalize rules with precision</h3>
                 <p className="text-gray-600">
-                  Express legal logic with mathematical precision, eliminating ambiguity 
-                  and enabling automated analysis.
+                  Express legal logic with mathematical precision, enabling automated analysis and eliminating ambiguity and contradictions.
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -88,10 +87,9 @@ export default function Index() {
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-lg">
-                <h3 className="text-xl font-bold mb-3">Find contradictions automatically</h3>
+                <h3 className="text-xl font-bold mb-3">Compliance tools for humans and AI</h3>
                 <p className="text-gray-600">
-                  Static analysis can prove that a contract is internally consistent, 
-                  free of contradiction, and complete.
+                  Deploy your rules to Legalese Cloud as MCP tools for AI agent compliance or as REST API's.
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-lg">
