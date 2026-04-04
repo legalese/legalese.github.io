@@ -7,6 +7,7 @@ import Container from "../../_components/container";
 import Header from "../../_components/header";
 import { PostBody } from "../../_components/post-body";
 import { PostHeader } from "../../_components/post-header";
+import { CtaSection } from "../../_components/cta-section";
 
 export default async function Post({ params }: Params) {
   const { slug } = await params;
@@ -31,6 +32,7 @@ export default async function Post({ params }: Params) {
           />
           <PostBody content={content} />
         </article>
+        <CtaSection />
       </Container>
     </main>
   );
