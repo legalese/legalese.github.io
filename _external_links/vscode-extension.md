@@ -1,5 +1,5 @@
 ---
-title: "L4 VSCode Extension"
+title: "L4 VS Code Extension"
 url: "https://marketplace.visualstudio.com/items?itemName=Legalese.l4-vscode"
 footerColumn: "resources"
 order: 20
