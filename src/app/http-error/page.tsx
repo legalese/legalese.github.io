@@ -36,7 +36,7 @@ export default function HttpErrorPage() {
         </div>
       </header>
 
-      <div className="flex-1 flex items-center justify-center">
+      <div className="flex-1 flex items-center justify-center pb-24">
         <ErrorContent />
       </div>
     </div>
