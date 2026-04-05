@@ -7,7 +7,6 @@ import {
   authHeaders,
   useServiceHealth,
   planFromHealth,
-  SESSION_TOKEN_KEY,
   type ServiceHealth,
 } from "../console-utils";
 import { AUTH_API_URL, SERVICE_DOMAIN } from "@/lib/constants";
@@ -95,10 +94,6 @@ function OrganizationInfo({
 
 function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }) {
   const url = `https://${slug}.${SERVICE_DOMAIN}`;
-  const token = typeof window !== "undefined" ? localStorage.getItem(SESSION_TOKEN_KEY) : null;
-  const redirectUrl = token
-    ? `${AUTH_API_URL}/auth/redirect?token=${encodeURIComponent(token)}&redirect_to=${encodeURIComponent(url)}`
-    : url;
   let dot: React.ReactNode;
   let suffix: React.ReactNode = null;
 
@@ -157,7 +152,7 @@ function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }
       <span className="inline-flex items-center gap-2 flex-wrap">
         <span className="inline-flex items-center gap-2">
           {dot}
-          <a href={redirectUrl} target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-2">
+          <a href={url} target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-2">
             {url}
           </a>
         </span>
