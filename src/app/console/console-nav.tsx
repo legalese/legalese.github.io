@@ -62,6 +62,7 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
   // Resolve pending redirect synchronously on first render so it's
   // available before any useEffect fires. Check the URL first (initial
   // load from proxy), then fall back to sessionStorage (after re-login).
+  const [redirected, setRedirected] = useState(false);
   const [pendingRedirect] = useState<string | null>(() => {
     if (typeof window === "undefined") return null;
     const urlParam = new URL(window.location.href).searchParams.get("redirect_to");
@@ -113,16 +114,30 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
         if (token) url.searchParams.set("token", token);
       }
 
+      setRedirected(true);
       window.location.href = url.toString();
-      // Navigate this tab to the normal console after triggering the redirect
-      setTimeout(() => {
-        window.location.href = "/console";
-      }, 500);
     }
 
     function handleSwitchAccount() {
       // redirect_to stays in sessionStorage so it survives the login round-trip
       onLogout();
+    }
+
+    if (redirected) {
+      return (
+        <div className="flex flex-col items-center justify-center py-24 gap-6">
+          <div className="bg-white rounded-lg border border-gray-200 p-8 max-w-md w-full text-center space-y-6">
+            <div>
+              <h1 className="text-xl font-bold font-merriweather mb-2">
+                {isVSCode ? "Signing in to Visual Studio Code ..." : "Redirecting you now ..."}
+              </h1>
+              <p className="text-gray-600 text-sm">
+                {isVSCode ? "You can close this window." : "Just a moment, please."}
+              </p>
+            </div>
+          </div>
+        </div>
+      );
     }
 
     return (
