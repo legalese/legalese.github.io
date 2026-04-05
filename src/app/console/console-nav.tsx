@@ -116,6 +116,7 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
 
       setRedirected(true);
       window.location.href = url.toString();
+      setTimeout(() => { window.close(); }, 30_000);
     }
 
     function handleSwitchAccount() {
@@ -132,7 +133,7 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
                 {isVSCode ? "Signing in to Visual Studio Code ..." : "Redirecting you now ..."}
               </h1>
               <p className="text-gray-600 text-sm">
-                {isVSCode ? "You can close this window." : "Just a moment, please."}
+                {isVSCode ? "You can close this window now." : "Just a moment, please."}
               </p>
             </div>
           </div>
