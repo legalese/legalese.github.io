@@ -57,7 +57,7 @@ export default function RootLayout({
             `script-src 'self' https://legalese.com 'unsafe-inline' https://cdnjs.cloudflare.com`,
             "style-src 'self' https://legalese.com 'unsafe-inline'",
             "font-src 'self' https://legalese.com",
-            "img-src 'self' https://legalese.com https://workoscdn.com",
+            "img-src 'self' https://legalese.com https://workoscdn.com https://*.googleusercontent.com",
             `connect-src 'self' https://legalese.com https://${SERVICE_DOMAIN} https://*.workos.com`,
             "frame-src 'self' https://legalese.com https://jl4.legalese.com https://*.workos.com",
             "object-src 'none'",
