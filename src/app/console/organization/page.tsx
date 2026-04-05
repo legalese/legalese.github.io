@@ -52,7 +52,7 @@ function OrganizationInfo({
       }),
     },
     {
-      label: "L4 deployment URL",
+      label: "L4 Deployment URL",
       value: (
         <div className="w-full">
           <div className="flex items-start justify-between gap-2 flex-wrap">
