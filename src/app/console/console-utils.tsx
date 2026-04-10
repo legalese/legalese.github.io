@@ -15,6 +15,19 @@ export function authHeaders(): HeadersInit {
   return token ? { Authorization: `Bearer ${token}` } : {};
 }
 
+// A 401 on any of the org-scoped fetches (/service/*, /auth/widget-token,
+// etc.) means the bearer we have no longer speaks for the requested org —
+// typically because the session was logged out or the account was
+// switched in another tab. Drop the stale token and reload so the shell
+// re-initialises and shows the correct (signed-out) state.
+let reloadScheduled = false;
+export function handleUnauthorized(): void {
+  if (typeof window === "undefined" || reloadScheduled) return;
+  reloadScheduled = true;
+  localStorage.removeItem(SESSION_TOKEN_KEY);
+  window.location.reload();
+}
+
 // ── Service Health ──────────────────────────────────────────────────────
 
 export interface HealthInstance {
@@ -77,6 +90,10 @@ export function useServiceHealth(slug: string): ServiceHealth {
         credentials: "include",
       })
         .then(async (res) => {
+          if (res.status === 401) {
+            handleUnauthorized();
+            return;
+          }
           if (!res.ok) {
             setHealth({ state: "error" });
             return;
@@ -145,6 +162,10 @@ export function useWidgetToken(organizationId: string | null, scope: string) {
         }),
       });
 
+      if (res.status === 401) {
+        handleUnauthorized();
+        return;
+      }
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
         setError(err.error ?? "Failed to load widget");

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useConsole } from "../console-context";
-import { authHeaders } from "../console-utils";
+import { authHeaders, handleUnauthorized } from "../console-utils";
 import { AUTH_API_URL } from "@/lib/constants";
 import { SectionSpinner } from "../section-spinner";
 
@@ -55,6 +55,10 @@ export default function LogsPage() {
           `${AUTH_API_URL}/service/logs?org=${encodeURIComponent(slug!)}${sinceParam}`,
           { headers: authHeaders(), credentials: "include" },
         );
+        if (res.status === 401) {
+          handleUnauthorized();
+          return;
+        }
         if (!res.ok) {
           if (!cancelled) setError("Service temporarily unavailable");
           return;
