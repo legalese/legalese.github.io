@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AUTH_API_URL } from "@/lib/constants";
 import { useConsole } from "./console-context";
-import { authHeaders, SESSION_TOKEN_KEY, REDIRECT_TO_KEY } from "./console-utils";
+import { SESSION_TOKEN_KEY, REDIRECT_TO_KEY } from "./console-utils";
 
 const TABS: readonly {
   path: string;
@@ -57,7 +57,7 @@ function getAppLabel(url: string): string {
 }
 
 export function ConsoleNav({ children }: { children: React.ReactNode }) {
-  const { session, loading } = useConsole();
+  const { session, loading, onLogout } = useConsole();
   const pathname = usePathname();
   // Resolve pending redirect synchronously on first render so it's
   // available before any useEffect fires. Check the URL first (initial
@@ -123,31 +123,13 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
       setTimeout(() => { window.close(); }, 30_000);
     }
 
-    // Switch account: hit /auth/logout with the current bearer so the
-    // server tears down the app session, drop the local token, then
-    // forward to the sign-in link — same URL the logged-out landing
-    // page uses. redirect_to stays in sessionStorage so the round-trip
-    // brings the user back to the Continue screen for the new account.
-    //
-    // credentials: "include" is load-bearing: without it the browser
-    // neither sends nor applies cookies on this request, so AuthKit's
-    // session cookie on legalese.cloud survives the logout — and the
-    // subsequent /auth/login navigation silently re-authenticates the
-    // same user. Including credentials lets the server's Set-Cookie
-    // clear the AuthKit session properly.
-    async function handleSwitchAccount() {
-      try {
-        await fetch(`${AUTH_API_URL}/auth/logout`, {
-          method: "POST",
-          credentials: "include",
-          headers: authHeaders(),
-        });
-      } catch {
-        // swallow — we're switching regardless
-      }
-      localStorage.removeItem(SESSION_TOKEN_KEY);
-      window.location.href = `${AUTH_API_URL}/auth/login?return_to=${encodeURIComponent(window.location.href)}`;
-    }
+    // Switch account is just a sign-out: delegate to the same handler
+    // the header uses so the browser navigates through /auth/logout and
+    // AuthKit's own logout, landing on the logged-out console. From
+    // there the user clicks "Sign in to continue" to pick a new
+    // account. redirect_to stays in sessionStorage across the round
+    // trip so the new sign-in returns them to the Continue screen.
+    const handleSwitchAccount = onLogout;
 
     if (redirected) {
       return (
