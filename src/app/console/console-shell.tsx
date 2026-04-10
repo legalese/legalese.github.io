@@ -27,7 +27,23 @@ export function ConsoleShell({ children }: { children: React.ReactNode }) {
 
     const redirectTo = url.searchParams.get("redirect_to");
     if (redirectTo) {
-      sessionStorage.setItem(REDIRECT_TO_KEY, redirectTo);
+      // Strip any ?token= baked into the redirect target before we
+      // persist it. The /auth/callback handler embeds the session
+      // token inside custom-protocol redirect URLs (vscode://…) so
+      // the native app can read it, but that token captures the
+      // account at *login time*. If we stashed it verbatim into
+      // sessionStorage and the user later switched accounts, Continue
+      // would forward the stale token from the stored string instead
+      // of the current one in localStorage. Normalize at storage time.
+      let cleaned = redirectTo;
+      try {
+        const parsed = new URL(redirectTo);
+        parsed.searchParams.delete("token");
+        cleaned = parsed.toString();
+      } catch {
+        // non-URL string — store as-is
+      }
+      sessionStorage.setItem(REDIRECT_TO_KEY, cleaned);
       url.searchParams.delete("redirect_to");
       dirty = true;
     }

@@ -113,9 +113,17 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
       sessionStorage.removeItem(REDIRECT_TO_KEY);
 
       const url = new URL(pendingRedirect!);
-      if (!url.searchParams.has("token")) {
-        const token = localStorage.getItem(SESSION_TOKEN_KEY);
-        if (token) url.searchParams.set("token", token);
+      // Always write the live localStorage token, even if the URL
+      // already carries one. pendingRedirect may be a URL that was
+      // captured before a switch-account — its embedded token would
+      // be stale. console-shell strips the token from redirect_to
+      // when it first stores it, but re-overwriting here is a cheap
+      // defensive belt-and-braces.
+      const token = localStorage.getItem(SESSION_TOKEN_KEY);
+      if (token) {
+        url.searchParams.set("token", token);
+      } else {
+        url.searchParams.delete("token");
       }
 
       setRedirected(true);
