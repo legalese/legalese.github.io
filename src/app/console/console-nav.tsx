@@ -124,14 +124,22 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
     }
 
     // Switch account: hit /auth/logout with the current bearer so the
-    // server tears down the session, drop the local token, then forward
-    // straight to the sign-in link — same URL the logged-out landing
+    // server tears down the app session, drop the local token, then
+    // forward to the sign-in link — same URL the logged-out landing
     // page uses. redirect_to stays in sessionStorage so the round-trip
     // brings the user back to the Continue screen for the new account.
+    //
+    // credentials: "include" is load-bearing: without it the browser
+    // neither sends nor applies cookies on this request, so AuthKit's
+    // session cookie on legalese.cloud survives the logout — and the
+    // subsequent /auth/login navigation silently re-authenticates the
+    // same user. Including credentials lets the server's Set-Cookie
+    // clear the AuthKit session properly.
     async function handleSwitchAccount() {
       try {
         await fetch(`${AUTH_API_URL}/auth/logout`, {
           method: "POST",
+          credentials: "include",
           headers: authHeaders(),
         });
       } catch {
