@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AUTH_API_URL } from "@/lib/constants";
 import { useConsole } from "./console-context";
-import { SESSION_TOKEN_KEY, REDIRECT_TO_KEY } from "./console-utils";
+import { authHeaders, SESSION_TOKEN_KEY, REDIRECT_TO_KEY } from "./console-utils";
 
 const TABS: readonly {
   path: string;
@@ -57,7 +57,7 @@ function getAppLabel(url: string): string {
 }
 
 export function ConsoleNav({ children }: { children: React.ReactNode }) {
-  const { session, loading, onLogout } = useConsole();
+  const { session, loading } = useConsole();
   const pathname = usePathname();
   // Resolve pending redirect synchronously on first render so it's
   // available before any useEffect fires. Check the URL first (initial
@@ -100,8 +100,12 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
     );
   }
 
-  // Pending redirect — show redirect UI instead of normal console
-  if (pendingRedirect) {
+  // Pending redirect — show redirect UI instead of normal console.
+  // We gate this on having a session: if there's no session yet (e.g.
+  // cold visit from VS Code, or after switch-account sends the user
+  // through logout) we fall through to the regular logged-out landing
+  // page, which has its own "Sign in to continue" link.
+  if (pendingRedirect && session) {
     const appLabel = getAppLabel(pendingRedirect);
     const isVSCode = appLabel === "Visual Studio Code";
 
@@ -119,9 +123,22 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
       setTimeout(() => { window.close(); }, 30_000);
     }
 
-    function handleSwitchAccount() {
-      // redirect_to stays in sessionStorage so it survives the login round-trip
-      onLogout();
+    // Switch account: hit /auth/logout with the current bearer so the
+    // server tears down the session, drop the local token, then forward
+    // straight to the sign-in link — same URL the logged-out landing
+    // page uses. redirect_to stays in sessionStorage so the round-trip
+    // brings the user back to the Continue screen for the new account.
+    async function handleSwitchAccount() {
+      try {
+        await fetch(`${AUTH_API_URL}/auth/logout`, {
+          method: "POST",
+          headers: authHeaders(),
+        });
+      } catch {
+        // swallow — we're switching regardless
+      }
+      localStorage.removeItem(SESSION_TOKEN_KEY);
+      window.location.href = `${AUTH_API_URL}/auth/login?return_to=${encodeURIComponent(window.location.href)}`;
     }
 
     if (redirected) {
@@ -144,67 +161,46 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
     return (
       <div className="flex flex-col items-center justify-center py-24 gap-6">
         <div className="bg-white rounded-lg border border-gray-200 p-8 max-w-md w-full text-center space-y-6">
-          {session ? (
-            <>
-              <div>
-                <h1 className="text-xl font-bold font-merriweather mb-2">
-                  Sign in {isVSCode ? "to Visual Studio Code" : "and redirect"}
-                </h1>
-                {session.organization ? (
-                  <p className="text-gray-600 text-sm">
-                    {session.organization.name}
-                  </p>
-                ) : null}
-                <p className="text-gray-500 text-sm">{session.user.email}</p>
-              </div>
-              <div className="space-y-1">
-                <button
-                  onClick={handleContinue}
-                  className="w-full inline-flex items-center justify-center px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent-hover transition-colors"
-                >
-                  Continue
-                </button>
-                {!isVSCode && (
-                  <p className="text-xs text-gray-400 break-all">
-                    Redirect to{" "}
-                    <span className="text-gray-500">
-                      {(() => {
-                        try {
-                          const u = new URL(pendingRedirect!);
-                          return u.origin + u.pathname;
-                        } catch {
-                          return pendingRedirect;
-                        }
-                      })()}
-                    </span>
-                  </p>
-                )}
-              </div>
-              <button
-                onClick={handleSwitchAccount}
-                className="text-sm text-gray-400 hover:text-gray-600 transition-colors"
-              >
-                Switch account
-              </button>
-            </>
-          ) : (
-            <>
-              <div>
-                <h1 className="text-xl font-bold font-merriweather mb-2">
-                  Sign in required
-                </h1>
-                <p className="text-gray-600 text-sm">
-                  Sign in to continue to {appLabel}.
-                </p>
-              </div>
-              <a
-                href={`${AUTH_API_URL}/auth/login?return_to=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : "")}`}
-                className="w-full inline-flex items-center justify-center px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent-hover transition-colors"
-              >
-                Sign in to continue
-              </a>
-            </>
-          )}
+          <div>
+            <h1 className="text-xl font-bold font-merriweather mb-2">
+              Sign in {isVSCode ? "to Visual Studio Code" : "and redirect"}
+            </h1>
+            {session.organization ? (
+              <p className="text-gray-600 text-sm">
+                {session.organization.name}
+              </p>
+            ) : null}
+            <p className="text-gray-500 text-sm">{session.user.email}</p>
+          </div>
+          <div className="space-y-1">
+            <button
+              onClick={handleContinue}
+              className="w-full inline-flex items-center justify-center px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent-hover transition-colors"
+            >
+              Continue
+            </button>
+            {!isVSCode && (
+              <p className="text-xs text-gray-400 break-all">
+                Redirect to{" "}
+                <span className="text-gray-500">
+                  {(() => {
+                    try {
+                      const u = new URL(pendingRedirect!);
+                      return u.origin + u.pathname;
+                    } catch {
+                      return pendingRedirect;
+                    }
+                  })()}
+                </span>
+              </p>
+            )}
+          </div>
+          <button
+            onClick={handleSwitchAccount}
+            className="text-sm text-gray-400 hover:text-gray-600 transition-colors"
+          >
+            Switch account
+          </button>
         </div>
         <button
           onClick={() => {
