@@ -13,23 +13,45 @@ export function ConsoleShell({ children }: { children: React.ReactNode }) {
   const [session, setSession] = useState<ConsoleSession | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // Capture ?token= and ?redirect_to= from query string on mount.
-  // - ?redirect_to= is stored in sessionStorage so it survives login round-trips
-  // - ?token= is stored in localStorage for API auth
+  // Capture ?token= and ?redirect_to= from query string on mount, then
+  // verify the session. The bearer is kept in localStorage so it's
+  // shared across tabs. Cross-domain cookies between legalese.github.io
+  // and legalese.cloud don't work, so the Bearer header is the only
+  // auth signal — the URL ?token= is the authoritative source for a
+  // fresh login and must not be overwritten by the /auth/session
+  // response (which previously clobbered the new token after
+  // switch-account and left "Continue" forwarding the old session).
   useEffect(() => {
     const url = new URL(window.location.href);
     let dirty = false;
 
     const redirectTo = url.searchParams.get("redirect_to");
     if (redirectTo) {
-      sessionStorage.setItem(REDIRECT_TO_KEY, redirectTo);
+      // Strip any ?token= baked into the redirect target before we
+      // persist it. The /auth/callback handler embeds the session
+      // token inside custom-protocol redirect URLs (vscode://…) so
+      // the native app can read it, but that token captures the
+      // account at *login time*. If we stashed it verbatim into
+      // sessionStorage and the user later switched accounts, Continue
+      // would forward the stale token from the stored string instead
+      // of the current one in localStorage. Normalize at storage time.
+      let cleaned = redirectTo;
+      try {
+        const parsed = new URL(redirectTo);
+        parsed.searchParams.delete("token");
+        cleaned = parsed.toString();
+      } catch {
+        // non-URL string — store as-is
+      }
+      sessionStorage.setItem(REDIRECT_TO_KEY, cleaned);
       url.searchParams.delete("redirect_to");
       dirty = true;
     }
 
-    const token = url.searchParams.get("token");
-    if (token) {
-      localStorage.setItem(SESSION_TOKEN_KEY, token);
+    const tokenFromUrl = url.searchParams.get("token");
+    const hasUrlToken = !!tokenFromUrl;
+    if (tokenFromUrl) {
+      localStorage.setItem(SESSION_TOKEN_KEY, tokenFromUrl);
       url.searchParams.delete("token");
       dirty = true;
     }
@@ -37,10 +59,7 @@ export function ConsoleShell({ children }: { children: React.ReactNode }) {
     if (dirty) {
       window.history.replaceState({}, "", url.pathname + url.search + url.hash);
     }
-  }, []);
 
-  // Check session on mount
-  useEffect(() => {
     fetch(`${AUTH_API_URL}/auth/session`, {
       credentials: "include",
       headers: authHeaders(),
@@ -49,10 +68,18 @@ export function ConsoleShell({ children }: { children: React.ReactNode }) {
       .then((data) => {
         if (data?.authenticated) {
           setSession(data);
-          if (data.token) {
+          // Only populate localStorage from the session response when we
+          // did NOT just capture a URL token. The URL token represents
+          // an explicit, up-to-date login and must win over whatever the
+          // server derived from cookies.
+          if (data.token && !hasUrlToken) {
             localStorage.setItem(SESSION_TOKEN_KEY, data.token);
           }
-        } else {
+        } else if (!hasUrlToken) {
+          // Server says this session is invalid — clear the stale
+          // localStorage token so stale credentials don't linger. Skip
+          // this when we just received a fresh URL token so a transient
+          // server error can't wipe a valid new login.
           localStorage.removeItem(SESSION_TOKEN_KEY);
         }
       })
