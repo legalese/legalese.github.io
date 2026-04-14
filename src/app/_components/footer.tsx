@@ -35,7 +35,7 @@ export function Footer() {
                 <h3 className="text-2xl font-bold tracking-tight ml-1">{CMS_NAME}</h3>
               </div>
               <p className="text-gray-400 text-sm mb-4">
-                Software is eating law.
+                Software is eating law
               </p>
             </div>
 
