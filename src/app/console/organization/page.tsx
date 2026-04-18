@@ -493,9 +493,7 @@ function AiUsageChart({
       <BarChart buckets={buckets} loading={loading} period={period} labelInterval={labelInterval} />
 
       <p className="text-xs text-gray-500 mt-2">
-        Token consumption from the ai-proxy chat pipelines. Pick a model to
-        compare traffic between Compose (full tool-loop) and Summize
-        (direct Haiku pass-through).
+        Token consumption for Legalese AI chat use.
       </p>
     </div>
   );
