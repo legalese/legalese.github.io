@@ -9,7 +9,7 @@ import {
   planFromHealth,
   type ServiceHealth,
 } from "../console-utils";
-import { AUTH_API_URL, SERVICE_DOMAIN } from "@/lib/constants";
+import { AI_API_URL, AUTH_API_URL, SERVICE_DOMAIN } from "@/lib/constants";
 import Link from "next/link";
 
 export default function OrganizationPage() {
@@ -39,6 +39,7 @@ function OrganizationInfo({
   permissions: string[];
 }) {
   const health = useServiceHealth(organization.slug);
+  const aiInfo = useAiOrgInfo();
   const isAdmin = permissions.includes("l4:admin");
 
   // Shared period state: flipping daily/weekly/monthly on one chart
@@ -57,7 +58,14 @@ function OrganizationInfo({
     },
     {
       label: "Subscription",
-      value: <ServiceDetails health={health} isAdmin={isAdmin} slug={organization.slug} />,
+      value: (
+        <ServiceDetails
+          health={health}
+          aiInfo={aiInfo}
+          isAdmin={isAdmin}
+          slug={organization.slug}
+        />
+      ),
     },
     {
       label: "L4 Deployment URL",
@@ -244,7 +252,17 @@ function RestartServiceButton({ slug }: { slug: string }) {
 
 // ── Service Details ─────────────────────────────────────────────────────
 
-function ServiceDetails({ health, isAdmin, slug }: { health: ServiceHealth; isAdmin: boolean; slug: string }) {
+function ServiceDetails({
+  health,
+  aiInfo,
+  isAdmin,
+  slug,
+}: {
+  health: ServiceHealth;
+  aiInfo: AiOrgInfoState;
+  isAdmin: boolean;
+  slug: string;
+}) {
   if (health.state !== "ok" || !health.data.config) return null;
   const cfg = health.data.config;
   const instanceCount = health.data.instances.length;
@@ -260,6 +278,34 @@ function ServiceDetails({ health, isAdmin, slug }: { health: ServiceHealth; isAd
     { label: "Idle timeout", value: cfg.idleTimeoutHours === 0 ? "Always on" : `${cfg.idleTimeoutHours ?? "-"} hours` },
     { label: "Daily request limit", value: String(cfg.dailyRequestLimit ?? "-") },
   ];
+
+  // Fold AI limits in when the ai-proxy responded. Empty/loading/error
+  // states just skip the rows — we don't want a green "everything ok" L4
+  // subscription panel to visibly stall on AI status.
+  if (aiInfo.state === "ok") {
+    const ai = aiInfo.data.config;
+    details.push(
+      {
+        label: "AI daily token limit",
+        value:
+          ai.dailyTokenLimit > 0
+            ? formatTokenLimit(ai.dailyTokenLimit)
+            : "Unlimited (metered)",
+      },
+      {
+        label: "AI models available",
+        value: aiInfo.data.models.join(", ") || "-",
+      },
+      {
+        label: "AI max tool rounds",
+        value: String(ai.maxToolRounds ?? "-"),
+      },
+      {
+        label: "AI conversation retention",
+        value: `${ai.conversationTtlDays ?? "-"} days`,
+      },
+    );
+  }
   return (
     <div>
       {cfg.suspended && (
@@ -587,4 +633,75 @@ function formatLabel(label: string, period: Period): string {
   // daily/weekly: "2026-03-23" → "Mar 23"
   const d = new Date(label + "T12:00:00Z");
   return d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+}
+
+// ── AI org info (ai-proxy /v1/org/info) ────────────────────────────────
+
+interface AiOrgConfig {
+  dailyTokenLimit: number;
+  maxToolRounds: number;
+  conversationTtlDays: number;
+  context: Record<string, unknown>;
+}
+
+interface AiOrgInfoData {
+  orgId: string;
+  config: AiOrgConfig;
+  models: string[];
+}
+
+type AiOrgInfoState =
+  | { state: "loading" }
+  | { state: "error" }
+  | { state: "ok"; data: AiOrgInfoData };
+
+/**
+ * Fetch the authenticated org's effective AiConfig from ai-proxy.
+ * Read-only, cached by hook lifetime. Errors are swallowed into an
+ * `error` state — missing AI info never blocks the L4 subscription
+ * panel from rendering.
+ */
+function useAiOrgInfo(): AiOrgInfoState {
+  const [info, setInfo] = useState<AiOrgInfoState>({ state: "loading" });
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch(`${AI_API_URL}/v1/org/info`, {
+      headers: authHeaders(),
+      credentials: "include",
+    })
+      .then(async (res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return (await res.json()) as AiOrgInfoData;
+      })
+      .then((data) => {
+        if (!cancelled) setInfo({ state: "ok", data });
+      })
+      .catch(() => {
+        if (!cancelled) setInfo({ state: "error" });
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  return info;
+}
+
+/**
+ * Render a token quota at human scale: "10M", "2.5M", "250K".
+ * Plain `toLocaleString()` on "10000000" is readable but long — the
+ * subscription panel is compact, so abbreviate when we can lose no
+ * meaningful precision.
+ */
+function formatTokenLimit(tokens: number): string {
+  if (tokens >= 1_000_000) {
+    const m = tokens / 1_000_000;
+    const value = Number.isInteger(m) ? m.toFixed(0) : m.toFixed(1);
+    return `${value}M tokens / day`;
+  }
+  if (tokens >= 1_000) {
+    return `${(tokens / 1_000).toFixed(0)}K tokens / day`;
+  }
+  return `${tokens} tokens / day`;
 }
