@@ -262,7 +262,7 @@ function ServiceDetails({
   if (health.state !== "ok" || !health.data.config) return null;
   const cfg = health.data.config;
   const instanceCount = health.data.instances.length;
-  const details = [
+  const hostingDetails = [
     { label: "Instances", value: String(instanceCount) },
     { label: "Max deployments", value: String(cfg.maxDeployments ?? "-") },
     { label: "Max concurrent requests", value: String(cfg.maxConcurrentRequests ?? "-") },
@@ -278,11 +278,12 @@ function ServiceDetails({
   // Fold in AI limits when auth-proxy surfaced them from the shared
   // /efs/config files (.ai block). Undefined means no `.ai` configured
   // yet — we hide the rows rather than show a half-populated panel.
+  const aiDetails: { label: string; value: string }[] = [];
   const ai = cfg.ai;
   if (ai) {
     if (typeof ai.dailyTokenLimit === "number") {
-      details.push({
-        label: "AI daily token limit",
+      aiDetails.push({
+        label: "Daily token limit",
         value:
           ai.dailyTokenLimit > 0
             ? formatTokenLimit(ai.dailyTokenLimit)
@@ -290,14 +291,14 @@ function ServiceDetails({
       });
     }
     if (typeof ai.maxToolRounds === "number") {
-      details.push({
-        label: "AI max tool rounds",
+      aiDetails.push({
+        label: "Max tool rounds",
         value: String(ai.maxToolRounds),
       });
     }
     if (typeof ai.conversationTtlDays === "number") {
-      details.push({
-        label: "AI conversation retention",
+      aiDetails.push({
+        label: "Conversation retention",
         value: `${ai.conversationTtlDays} days`,
       });
     }
@@ -320,14 +321,32 @@ function ServiceDetails({
       <span>{planFromHealth(health)}</span>
       <details className="mt-1 group">
         <summary className="text-xs text-gray-400 hover:text-gray-600 cursor-pointer select-none">More info</summary>
-        <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-xs">
-          {details.map(({ label, value }) => (
-            <div key={label} className="contents">
-              <dt className="text-gray-400">{label}</dt>
-              <dd className="text-gray-600 font-mono">{value}</dd>
+        <div className="mt-2 grid sm:grid-cols-2 gap-x-8 gap-y-4">
+          <div>
+            <h4 className="text-xs font-medium text-gray-500 mb-1.5">Hosting</h4>
+            <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-xs">
+              {hostingDetails.map(({ label, value }) => (
+                <div key={label} className="contents">
+                  <dt className="text-gray-400">{label}</dt>
+                  <dd className="text-gray-600 font-mono">{value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+          {aiDetails.length > 0 && (
+            <div>
+              <h4 className="text-xs font-medium text-gray-500 mb-1.5">Legalese AI</h4>
+              <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-xs">
+                {aiDetails.map(({ label, value }) => (
+                  <div key={label} className="contents">
+                    <dt className="text-gray-400">{label}</dt>
+                    <dd className="text-gray-600 font-mono">{value}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
-          ))}
-        </dl>
+          )}
+        </div>
       </details>
     </div>
   );
