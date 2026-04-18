@@ -9,7 +9,7 @@ import {
   planFromHealth,
   type ServiceHealth,
 } from "../console-utils";
-import { AI_API_URL, AUTH_API_URL, SERVICE_DOMAIN } from "@/lib/constants";
+import { AUTH_API_URL, SERVICE_DOMAIN } from "@/lib/constants";
 import Link from "next/link";
 
 export default function OrganizationPage() {
@@ -39,7 +39,6 @@ function OrganizationInfo({
   permissions: string[];
 }) {
   const health = useServiceHealth(organization.slug);
-  const aiInfo = useAiOrgInfo();
   const isAdmin = permissions.includes("l4:admin");
 
   // Shared period state: flipping daily/weekly/monthly on one chart
@@ -61,7 +60,6 @@ function OrganizationInfo({
       value: (
         <ServiceDetails
           health={health}
-          aiInfo={aiInfo}
           isAdmin={isAdmin}
           slug={organization.slug}
         />
@@ -254,12 +252,10 @@ function RestartServiceButton({ slug }: { slug: string }) {
 
 function ServiceDetails({
   health,
-  aiInfo,
   isAdmin,
   slug,
 }: {
   health: ServiceHealth;
-  aiInfo: AiOrgInfoState;
   isAdmin: boolean;
   slug: string;
 }) {
@@ -279,32 +275,32 @@ function ServiceDetails({
     { label: "Daily request limit", value: String(cfg.dailyRequestLimit ?? "-") },
   ];
 
-  // Fold AI limits in when the ai-proxy responded. Empty/loading/error
-  // states just skip the rows — we don't want a green "everything ok" L4
-  // subscription panel to visibly stall on AI status.
-  if (aiInfo.state === "ok") {
-    const ai = aiInfo.data.config;
-    details.push(
-      {
+  // Fold in AI limits when auth-proxy surfaced them from the shared
+  // /efs/config files (.ai block). Undefined means no `.ai` configured
+  // yet — we hide the rows rather than show a half-populated panel.
+  const ai = cfg.ai;
+  if (ai) {
+    if (typeof ai.dailyTokenLimit === "number") {
+      details.push({
         label: "AI daily token limit",
         value:
           ai.dailyTokenLimit > 0
             ? formatTokenLimit(ai.dailyTokenLimit)
             : "Unlimited (metered)",
-      },
-      {
-        label: "AI models available",
-        value: aiInfo.data.models.join(", ") || "-",
-      },
-      {
+      });
+    }
+    if (typeof ai.maxToolRounds === "number") {
+      details.push({
         label: "AI max tool rounds",
-        value: String(ai.maxToolRounds ?? "-"),
-      },
-      {
+        value: String(ai.maxToolRounds),
+      });
+    }
+    if (typeof ai.conversationTtlDays === "number") {
+      details.push({
         label: "AI conversation retention",
-        value: `${ai.conversationTtlDays ?? "-"} days`,
-      },
-    );
+        value: `${ai.conversationTtlDays} days`,
+      });
+    }
   }
   return (
     <div>
@@ -633,59 +629,6 @@ function formatLabel(label: string, period: Period): string {
   // daily/weekly: "2026-03-23" → "Mar 23"
   const d = new Date(label + "T12:00:00Z");
   return d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
-}
-
-// ── AI org info (ai-proxy /v1/org/info) ────────────────────────────────
-
-interface AiOrgConfig {
-  dailyTokenLimit: number;
-  maxToolRounds: number;
-  conversationTtlDays: number;
-  context: Record<string, unknown>;
-}
-
-interface AiOrgInfoData {
-  orgId: string;
-  config: AiOrgConfig;
-  models: string[];
-}
-
-type AiOrgInfoState =
-  | { state: "loading" }
-  | { state: "error" }
-  | { state: "ok"; data: AiOrgInfoData };
-
-/**
- * Fetch the authenticated org's effective AiConfig from ai-proxy.
- * Read-only, cached by hook lifetime. Errors are swallowed into an
- * `error` state — missing AI info never blocks the L4 subscription
- * panel from rendering.
- */
-function useAiOrgInfo(): AiOrgInfoState {
-  const [info, setInfo] = useState<AiOrgInfoState>({ state: "loading" });
-
-  useEffect(() => {
-    let cancelled = false;
-    fetch(`${AI_API_URL}/v1/org/info`, {
-      headers: authHeaders(),
-      credentials: "include",
-    })
-      .then(async (res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return (await res.json()) as AiOrgInfoData;
-      })
-      .then((data) => {
-        if (!cancelled) setInfo({ state: "ok", data });
-      })
-      .catch(() => {
-        if (!cancelled) setInfo({ state: "error" });
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  return info;
 }
 
 /**

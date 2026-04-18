@@ -57,6 +57,21 @@ export interface HealthConfig {
   idleTimeoutHours: number;
   publicDeployments: string[];
   suspended: boolean;
+  /**
+   * ai-proxy's `.ai` sub-object from the shared /efs/config files
+   * (defaults merged with per-org override). Owned by ai-proxy's
+   * schema — treat as an opaque record and read individual fields at
+   * the call site. Undefined when no `.ai` block is configured.
+   */
+  ai?: HealthAiConfig;
+}
+
+export interface HealthAiConfig {
+  dailyTokenLimit?: number;
+  maxToolRounds?: number;
+  conversationTtlDays?: number;
+  blockOnOverage?: boolean;
+  context?: Record<string, unknown>;
 }
 
 export interface HealthData {
