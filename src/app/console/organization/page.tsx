@@ -91,7 +91,7 @@ function OrganizationInfo({
       ),
     },
     {
-      label: "AI Usage",
+      label: "Legalese AI Usage",
       value: (
         <AiUsageChart
           slug={organization.slug}
@@ -318,12 +318,16 @@ function ServiceDetails({
           </span>
         </div>
       )}
-      <span>{planFromHealth(health)}</span>
-      <details className="mt-1 group">
-        <summary className="text-xs text-gray-400 hover:text-gray-600 cursor-pointer select-none">More info</summary>
-        <div className="mt-2 grid sm:grid-cols-2 gap-x-8 gap-y-4">
+      <details className="group">
+        <summary className="cursor-pointer select-none list-none">
+          <span>{planFromHealth(health)}</span>
+        </summary>
+        <div
+          className="mt-2 grid sm:grid-cols-2 gap-x-8 gap-y-4"
+          style={{ padding: "8px 12px", border: "1px solid #eee", borderRadius: "4px" }}
+        >
           <div>
-            <h4 className="text-xs font-medium text-gray-500 mb-1.5">Hosting</h4>
+            <b className="text-gray-500 mb-1.5">L4 Hosting</b>
             <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-xs">
               {hostingDetails.map(({ label, value }) => (
                 <div key={label} className="contents">
@@ -335,7 +339,7 @@ function ServiceDetails({
           </div>
           {aiDetails.length > 0 && (
             <div>
-              <h4 className="text-xs font-medium text-gray-500 mb-1.5">Legalese AI</h4>
+              <b className="text-gray-500 mb-1.5">Legalese AI</b>
               <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-xs">
                 {aiDetails.map(({ label, value }) => (
                   <div key={label} className="contents">
