@@ -319,7 +319,20 @@ function ServiceDetails({
         </div>
       )}
       <details className="group">
-        <summary className="cursor-pointer select-none list-none">
+        <summary className="inline-flex items-center gap-1.5 cursor-pointer select-none list-none text-gray-600 hover:text-gray-900">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+            className="h-3.5 w-3.5 text-gray-400 transition-transform duration-150 group-open:rotate-90"
+          >
+            <path
+              fillRule="evenodd"
+              d="M7.21 14.77a.75.75 0 0 1 .02-1.06L11.168 10 7.23 6.29a.75.75 0 1 1 1.04-1.08l4.5 4.25a.75.75 0 0 1 0 1.08l-4.5 4.25a.75.75 0 0 1-1.06-.02Z"
+              clipRule="evenodd"
+            />
+          </svg>
           <span>{planFromHealth(health)}</span>
         </summary>
         <div
@@ -327,7 +340,7 @@ function ServiceDetails({
           style={{ padding: "8px 12px", border: "1px solid #eee", borderRadius: "4px" }}
         >
           <div>
-            <b className="text-gray-500 mb-1.5">L4 Hosting</b>
+            <b className="block text-gray-500 mb-1.5">L4 Hosting</b>
             <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-xs">
               {hostingDetails.map(({ label, value }) => (
                 <div key={label} className="contents">
@@ -339,7 +352,7 @@ function ServiceDetails({
           </div>
           {aiDetails.length > 0 && (
             <div>
-              <b className="text-gray-500 mb-1.5">Legalese AI</b>
+              <b className="block text-gray-500 mb-1.5">Legalese AI</b>
               <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-xs">
                 {aiDetails.map(({ label, value }) => (
                   <div key={label} className="contents">
