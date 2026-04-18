@@ -56,6 +56,10 @@ function OrganizationInfo({
       }),
     },
     {
+      label: "Subscription",
+      value: <ServiceDetails health={health} isAdmin={isAdmin} slug={organization.slug} />,
+    },
+    {
       label: "L4 Deployment URL",
       value: (
         <div className="w-full">
@@ -69,11 +73,7 @@ function OrganizationInfo({
       ),
     },
     {
-      label: "Subscription",
-      value: <ServiceDetails health={health} isAdmin={isAdmin} slug={organization.slug} />,
-    },
-    {
-      label: "L4 requests",
+      label: "L4 Requests",
       value: (
         <UsageChart
           slug={organization.slug}
@@ -85,7 +85,7 @@ function OrganizationInfo({
       ),
     },
     {
-      label: "AI tokens",
+      label: "AI Usage",
       value: (
         <AiUsageChart
           slug={organization.slug}
