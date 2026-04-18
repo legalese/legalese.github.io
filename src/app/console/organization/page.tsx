@@ -41,6 +41,10 @@ function OrganizationInfo({
   const health = useServiceHealth(organization.slug);
   const isAdmin = permissions.includes("l4:admin");
 
+  // Shared period state: flipping daily/weekly/monthly on one chart
+  // cascades to every other usage chart in the tab.
+  const [period, setPeriod] = useState<Period>("daily");
+
   const rows: { label: string; value: React.ReactNode }[] = [
     { label: "Name", value: <strong>{organization.name}</strong> },
     {
@@ -69,8 +73,27 @@ function OrganizationInfo({
       value: <ServiceDetails health={health} isAdmin={isAdmin} slug={organization.slug} />,
     },
     {
-      label: "Usage",
-      value: <UsageChart slug={organization.slug} health={health} isAdmin={isAdmin} />,
+      label: "L4 requests",
+      value: (
+        <UsageChart
+          slug={organization.slug}
+          health={health}
+          isAdmin={isAdmin}
+          period={period}
+          onPeriodChange={setPeriod}
+        />
+      ),
+    },
+    {
+      label: "AI tokens",
+      value: (
+        <AiUsageChart
+          slug={organization.slug}
+          health={health}
+          period={period}
+          onPeriodChange={setPeriod}
+        />
+      ),
     },
   ];
 
@@ -278,8 +301,19 @@ interface Bucket {
   count: number;
 }
 
-function UsageChart({ slug, health, isAdmin }: { slug: string; health: ServiceHealth; isAdmin: boolean }) {
-  const [period, setPeriod] = useState<Period>("daily");
+function UsageChart({
+  slug,
+  health,
+  isAdmin,
+  period,
+  onPeriodChange,
+}: {
+  slug: string;
+  health: ServiceHealth;
+  isAdmin: boolean;
+  period: Period;
+  onPeriodChange: (p: Period) => void;
+}) {
   const [buckets, setBuckets] = useState<Bucket[]>([]);
   const [loading, setLoading] = useState(true);
   const [todayCount, setTodayCount] = useState<number | null>(null);
@@ -344,64 +378,204 @@ function UsageChart({ slug, health, isAdmin }: { slug: string; health: ServiceHe
         return null;
       })()}
 
-      {/* Period selector */}
-      <div className="flex gap-1 mb-3">
-        {PERIODS.map((p) => (
-          <button
-            key={p}
-            onClick={() => setPeriod(p)}
-            className={`px-2 py-0.5 text-xs rounded transition-colors ${
-              period === p
-                ? "bg-accent text-white"
-                : "bg-gray-100 text-gray-500 hover:bg-gray-200"
-            }`}
-          >
-            {p.charAt(0).toUpperCase() + p.slice(1)}
-          </button>
-        ))}
-      </div>
+      {/* Period selector (shared state — flipping here also updates sibling charts) */}
+      <PeriodSelector period={period} onChange={onPeriodChange} />
 
-      {/* Bar chart */}
-      {loading ? (
-        <div className="h-32 flex items-center justify-center text-gray-400 text-xs">Loading...</div>
-      ) : buckets.length === 0 ? (
-        <div className="h-32 flex items-center justify-center text-gray-400 text-xs">No usage data for this period</div>
-      ) : (
-        <div>
-          <div className="flex items-end gap-px h-32">
-            {buckets.map((bucket) => {
-              const pct = (bucket.count / maxCount) * 100;
-              return (
-                <div key={bucket.label} className="flex-1 flex flex-col items-center justify-end h-full group relative">
-                  <div
-                    className="w-full bg-accent/70 hover:bg-accent rounded-t transition-colors min-h-[1px]"
-                    style={{ height: `${Math.max(pct, bucket.count > 0 ? 2 : 0)}%` }}
-                  />
-                  {/* Tooltip */}
-                  <div className="absolute bottom-full mb-1 hidden group-hover:block bg-gray-800 text-white text-xs rounded px-2 py-1 whitespace-nowrap z-10">
-                    {bucket.label}: {bucket.count.toLocaleString()}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-          {/* X-axis labels */}
-          <div className="flex gap-px mt-1">
-            {buckets.map((bucket, i) => (
-              <div key={bucket.label} className="flex-1 text-center">
-                {i % labelInterval === 0 ? (
-                  <span className="text-[9px] text-gray-400 leading-none">
-                    {formatLabel(bucket.label, period)}
-                  </span>
-                ) : null}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+      <BarChart buckets={buckets} loading={loading} period={period} labelInterval={labelInterval} />
+
       <p className="text-xs text-gray-500 mt-2">
         These are the number of requests made to your L4 service. To get started, deploy your first L4 rules using our <a href="https://marketplace.visualstudio.com/items?itemName=Legalese.l4-vscode" target="_blank" rel="noopener">Visual Studio Code L4 Extension</a> or try the <a href="https://jl4.legalese.com" target="_blank" rel="noopener">online editor</a>.
       </p>
+    </div>
+  );
+}
+
+// ── AI Usage Chart ──────────────────────────────────────────────────────
+//
+// Token consumption from the ai-proxy (via auth-proxy's shared
+// /billing/usage endpoint with source=ai-chat). Filter by pipeline model
+// and by token metric; inherits the shared `period` state so flipping
+// daily/weekly/monthly moves this chart in lockstep with the L4 one.
+
+type AiMetric = "totalTokens" | "promptTokens" | "completionTokens" | "requests";
+const AI_METRICS: { value: AiMetric; label: string }[] = [
+  { value: "totalTokens", label: "Total tokens" },
+  { value: "promptTokens", label: "Prompt tokens" },
+  { value: "completionTokens", label: "Completion tokens" },
+  { value: "requests", label: "Requests" },
+];
+
+const AI_MODELS: { value: string; label: string }[] = [
+  { value: "", label: "All models" },
+  { value: "legalese-compose-4", label: "Compose" },
+  { value: "legalese-summize-4", label: "Summize" },
+];
+
+function AiUsageChart({
+  slug,
+  health,
+  period,
+  onPeriodChange,
+}: {
+  slug: string;
+  health: ServiceHealth;
+  period: Period;
+  onPeriodChange: (p: Period) => void;
+}) {
+  const [buckets, setBuckets] = useState<Bucket[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [metric, setMetric] = useState<AiMetric>("totalTokens");
+  const [model, setModel] = useState<string>("");
+
+  const days = period === "daily" ? 30 : 90;
+
+  useEffect(() => {
+    if (health.state !== "ok") return;
+    let cancelled = false;
+    setLoading(true);
+    const params = new URLSearchParams({
+      org: slug,
+      source: "ai-chat",
+      period,
+      days: String(days),
+      metric,
+    });
+    if (model) params.set("model", model);
+
+    fetch(`${AUTH_API_URL}/billing/usage?${params.toString()}`, {
+      headers: authHeaders(),
+      credentials: "include",
+    })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!cancelled && data) setBuckets(data.buckets ?? []);
+      })
+      .catch(() => {})
+      .finally(() => { if (!cancelled) setLoading(false); });
+
+    return () => { cancelled = true; };
+  }, [slug, period, days, metric, model, health.state]);
+
+  if (health.state === "loading") {
+    return <div className="h-32 flex items-center justify-center text-gray-400 text-xs">Loading...</div>;
+  }
+  if (health.state === "error") {
+    return <span className="text-gray-400 text-sm">Service temporarily unavailable</span>;
+  }
+
+  const labelInterval = period === "daily" ? 5 : 1;
+
+  return (
+    <div>
+      {/* Period + model + metric controls */}
+      <div className="flex flex-wrap items-center gap-2 mb-3">
+        <PeriodSelector period={period} onChange={onPeriodChange} />
+        <select
+          value={model}
+          onChange={(e) => setModel(e.target.value)}
+          className="text-xs rounded border border-gray-200 bg-white px-2 py-0.5 text-gray-600"
+        >
+          {AI_MODELS.map((m) => (
+            <option key={m.value} value={m.value}>{m.label}</option>
+          ))}
+        </select>
+        <select
+          value={metric}
+          onChange={(e) => setMetric(e.target.value as AiMetric)}
+          className="text-xs rounded border border-gray-200 bg-white px-2 py-0.5 text-gray-600"
+        >
+          {AI_METRICS.map((m) => (
+            <option key={m.value} value={m.value}>{m.label}</option>
+          ))}
+        </select>
+      </div>
+
+      <BarChart buckets={buckets} loading={loading} period={period} labelInterval={labelInterval} />
+
+      <p className="text-xs text-gray-500 mt-2">
+        Token consumption from the ai-proxy chat pipelines. Pick a model to
+        compare traffic between Compose (full tool-loop) and Summize
+        (direct Haiku pass-through).
+      </p>
+    </div>
+  );
+}
+
+// ── Shared chart primitives ─────────────────────────────────────────────
+
+function PeriodSelector({
+  period,
+  onChange,
+}: {
+  period: Period;
+  onChange: (p: Period) => void;
+}) {
+  return (
+    <div className="flex gap-1">
+      {PERIODS.map((p) => (
+        <button
+          key={p}
+          onClick={() => onChange(p)}
+          className={`px-2 py-0.5 text-xs rounded transition-colors ${
+            period === p
+              ? "bg-accent text-white"
+              : "bg-gray-100 text-gray-500 hover:bg-gray-200"
+          }`}
+        >
+          {p.charAt(0).toUpperCase() + p.slice(1)}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function BarChart({
+  buckets,
+  loading,
+  period,
+  labelInterval,
+}: {
+  buckets: Bucket[];
+  loading: boolean;
+  period: Period;
+  labelInterval: number;
+}) {
+  if (loading) {
+    return <div className="h-32 flex items-center justify-center text-gray-400 text-xs">Loading...</div>;
+  }
+  if (buckets.length === 0) {
+    return <div className="h-32 flex items-center justify-center text-gray-400 text-xs">No usage data for this period</div>;
+  }
+  const maxCount = Math.max(1, ...buckets.map((b) => b.count));
+  return (
+    <div>
+      <div className="flex items-end gap-px h-32">
+        {buckets.map((bucket) => {
+          const pct = (bucket.count / maxCount) * 100;
+          return (
+            <div key={bucket.label} className="flex-1 flex flex-col items-center justify-end h-full group relative">
+              <div
+                className="w-full bg-accent/70 hover:bg-accent rounded-t transition-colors min-h-[1px]"
+                style={{ height: `${Math.max(pct, bucket.count > 0 ? 2 : 0)}%` }}
+              />
+              <div className="absolute bottom-full mb-1 hidden group-hover:block bg-gray-800 text-white text-xs rounded px-2 py-1 whitespace-nowrap z-10">
+                {bucket.label}: {bucket.count.toLocaleString()}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <div className="flex gap-px mt-1">
+        {buckets.map((bucket, i) => (
+          <div key={bucket.label} className="flex-1 text-center">
+            {i % labelInterval === 0 ? (
+              <span className="text-[9px] text-gray-400 leading-none">
+                {formatLabel(bucket.label, period)}
+              </span>
+            ) : null}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
