@@ -72,7 +72,7 @@ function OrganizationInfo({
       label: "L4 Hosting",
       value: (
         <>
-          <div className="w-full mb-8">
+          <div className="w-full mb-4">
             <div className="flex items-start justify-between gap-2 flex-wrap">
               <DeploymentUrl slug={organization.slug} health={health} />
               {isAdmin && health.state === "ok" && (
