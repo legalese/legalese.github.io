@@ -760,7 +760,7 @@ function BarChart({
                 {visibleCount > 1 ? (
                   <>
                     <div>{bucket.label}</div>
-                    {series.map((s) => {
+                    {series.reverse().map((s) => {
                       const c = s.buckets[i]?.count ?? 0;
                       if (c === 0) return null;
                       return (
