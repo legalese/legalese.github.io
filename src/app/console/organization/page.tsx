@@ -69,28 +69,25 @@ function OrganizationInfo({
       ),
     },
     {
-      label: "L4 Deployment URL",
+      label: "L4 Hosting",
       value: (
-        <div className="w-full">
-          <div className="flex items-start justify-between gap-2 flex-wrap">
-            <DeploymentUrl slug={organization.slug} health={health} />
-            {isAdmin && health.state === "ok" && (
-              <RestartServiceButton slug={organization.slug} />
-            )}
+        <>
+          <div className="w-full">
+            <div className="flex items-start justify-between gap-2 flex-wrap">
+              <DeploymentUrl slug={organization.slug} health={health} />
+              {isAdmin && health.state === "ok" && (
+                <RestartServiceButton slug={organization.slug} />
+              )}
+            </div>
           </div>
-        </div>
-      ),
-    },
-    {
-      label: "L4 Requests",
-      value: (
-        <UsageChart
-          slug={organization.slug}
-          health={health}
-          isAdmin={isAdmin}
-          period={period}
-          onPeriodChange={setPeriod}
-        />
+          <UsageChart
+            slug={organization.slug}
+            health={health}
+            isAdmin={isAdmin}
+            period={period}
+            onPeriodChange={setPeriod}
+          />
+        </>
       ),
     },
     {
@@ -642,9 +639,9 @@ function AiUsageChart({
         labelInterval={labelInterval}
       />
 
-      <p className="text-xs text-gray-500 mt-2">
+      {/* <p className="text-xs text-gray-500 mt-2">
         Token consumption for Legalese AI chat use.
-      </p>
+      </p> */}
     </div>
   );
 }
@@ -760,7 +757,10 @@ function BarChart({
                 {visibleCount > 1 ? (
                   <>
                     <div>{bucket.label}</div>
-                    {series.reverse().map((s) => {
+                    {/* Reversed so the visually-topmost stack segment
+                        (the last series) is listed first in the bubble,
+                        mirroring the on-screen order of the bars. */}
+                    {[...series].reverse().map((s) => {
                       const c = s.buckets[i]?.count ?? 0;
                       if (c === 0) return null;
                       return (
@@ -775,7 +775,10 @@ function BarChart({
                   </>
                 ) : (
                   <>
-                    {bucket.label}: {total.toLocaleString()}
+                    <div>{bucket.label}</div>
+                    <div>
+                      {series[0]?.label}: {total.toLocaleString()}
+                    </div>
                   </>
                 )}
               </div>
