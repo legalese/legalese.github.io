@@ -72,7 +72,7 @@ function OrganizationInfo({
       label: "L4 Hosting",
       value: (
         <>
-          <div className="w-full">
+          <div className="w-full mb-8">
             <div className="flex items-start justify-between gap-2 flex-wrap">
               <DeploymentUrl slug={organization.slug} health={health} />
               {isAdmin && health.state === "ok" && (
@@ -791,17 +791,25 @@ function BarChart({
           Without this, cells inherit the larger ancestor line-height and
           the chart ends up ~12px taller than the loading placeholder. */}
       <div className="flex gap-px mt-1 text-[9px] leading-none">
-        {primary.map((bucket, i) => (
-          <div key={bucket.label} className="flex-1 text-center">
-            {i % labelInterval === 0 ? (
-              // -mx-[10px] lets the label overflow its narrow cell into
-              // the (empty) neighbours so "Mar 23" stays on one line.
-              <span className="text-gray-400 whitespace-nowrap inline-block -mx-[10px]">
-                {formatLabel(bucket.label, period)}
-              </span>
-            ) : null}
-          </div>
-        ))}
+        {primary.map((bucket, i) => {
+          // Daily view: first label sits on the 2nd bar, then every 4th
+          // (indices 1, 5, 9, …). Other periods: every `labelInterval`.
+          const showLabel =
+            period === "daily"
+              ? i >= 1 && (i - 1) % 4 === 0
+              : i % labelInterval === 0;
+          return (
+            <div key={bucket.label} className="flex-1 text-center">
+              {showLabel ? (
+                // -mx-[10px] lets the label overflow its narrow cell into
+                // the (empty) neighbours so "Mar 23" stays on one line.
+                <span className="text-gray-400 whitespace-nowrap inline-block -mx-[10px]">
+                  {formatLabel(bucket.label, period)}
+                </span>
+              ) : null}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
