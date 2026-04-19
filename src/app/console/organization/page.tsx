@@ -46,14 +46,17 @@ function OrganizationInfo({
   const [period, setPeriod] = useState<Period>("daily");
 
   const rows: { label: string; value: React.ReactNode }[] = [
-    { label: "Name", value: <strong>{organization.name}</strong> },
-    {
-      label: "Registered since",
-      value: new Date(organization.createdAt).toLocaleDateString(undefined, {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      }),
+    { label: "Registered as", value: (
+      <div className="flex justify-between">
+        <strong>{organization.name}</strong>
+        <span className="italic text-gray-400">{new Date(organization.createdAt).toLocaleDateString(undefined, {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          }) }
+        </span>
+      </div>
+      )
     },
     {
       label: "Subscription",
@@ -459,7 +462,18 @@ function UsageChart({
       {/* Period selector (shared state — flipping here also updates sibling charts) */}
       <PeriodSelector period={period} onChange={onPeriodChange} />
 
-      <BarChart buckets={buckets} loading={loading} period={period} labelInterval={labelInterval} />
+      <BarChart
+        series={[
+          {
+            buckets,
+            className: "bg-accent/70 hover:bg-accent",
+            label: "Requests",
+          },
+        ]}
+        loading={loading}
+        period={period}
+        labelInterval={labelInterval}
+      />
 
       <p className="text-xs text-gray-500 mt-2">
         These are the number of requests made to your L4 service. To get started, deploy your first L4 rules using our <a href="https://marketplace.visualstudio.com/items?itemName=Legalese.l4-vscode" target="_blank" rel="noopener">Visual Studio Code L4 Extension</a> or try the <a href="https://jl4.legalese.com" target="_blank" rel="noopener">online editor</a>.
@@ -500,7 +514,8 @@ function AiUsageChart({
   period: Period;
   onPeriodChange: (p: Period) => void;
 }) {
-  const [buckets, setBuckets] = useState<Bucket[]>([]);
+  const [composeBuckets, setComposeBuckets] = useState<Bucket[]>([]);
+  const [summizeBuckets, setSummizeBuckets] = useState<Bucket[]>([]);
   const [loading, setLoading] = useState(true);
   const [metric, setMetric] = useState<AiMetric>("totalTokens");
   const [model, setModel] = useState<string>("");
@@ -511,27 +526,60 @@ function AiUsageChart({
     if (health.state !== "ok") return;
     let cancelled = false;
     setLoading(true);
-    const params = new URLSearchParams({
-      org: slug,
-      source: "ai-chat",
-      period,
-      days: String(days),
-      metric,
-    });
-    if (model) params.set("model", model);
 
-    fetch(`${AUTH_API_URL}/billing/usage?${params.toString()}`, {
-      headers: authHeaders(),
-      credentials: "include",
-    })
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => {
-        if (!cancelled && data) setBuckets(data.buckets ?? []);
-      })
-      .catch(() => {})
-      .finally(() => { if (!cancelled) setLoading(false); });
+    const fetchBuckets = async (modelId: string): Promise<Bucket[]> => {
+      const params = new URLSearchParams({
+        org: slug,
+        source: "ai-chat",
+        period,
+        days: String(days),
+        metric,
+      });
+      if (modelId) params.set("model", modelId);
+      const res = await fetch(
+        `${AUTH_API_URL}/billing/usage?${params.toString()}`,
+        { headers: authHeaders(), credentials: "include" },
+      );
+      if (!res.ok) return [];
+      const data = await res.json();
+      return data.buckets ?? [];
+    };
 
-    return () => { cancelled = true; };
+    (async () => {
+      try {
+        if (model === "") {
+          // "All models" → fetch each separately so we can stack them.
+          const [c, s] = await Promise.all([
+            fetchBuckets("legalese-compose-4"),
+            fetchBuckets("legalese-summize-4"),
+          ]);
+          if (!cancelled) {
+            setComposeBuckets(c);
+            setSummizeBuckets(s);
+          }
+        } else if (model === "legalese-compose-4") {
+          const c = await fetchBuckets(model);
+          if (!cancelled) {
+            setComposeBuckets(c);
+            setSummizeBuckets([]);
+          }
+        } else {
+          const s = await fetchBuckets(model);
+          if (!cancelled) {
+            setComposeBuckets([]);
+            setSummizeBuckets(s);
+          }
+        }
+      } catch {
+        // keep previous data on failure
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
   }, [slug, period, days, metric, model, health.state]);
 
   if (health.state === "loading") {
@@ -542,6 +590,25 @@ function AiUsageChart({
   }
 
   const labelInterval = period === "daily" ? 5 : 1;
+
+  // Stack compose (base, usual color) under summize (lighter overlay).
+  // Each layer is only added when it has data, so rounded-t stays on the
+  // actually-visible topmost segment.
+  const series: Series[] = [];
+  if (composeBuckets.length > 0) {
+    series.push({
+      buckets: composeBuckets,
+      className: "bg-accent/70 hover:bg-accent",
+      label: "Compose",
+    });
+  }
+  if (summizeBuckets.length > 0) {
+    series.push({
+      buckets: summizeBuckets,
+      className: "bg-accent/35 hover:bg-accent/55",
+      label: "Summize",
+    });
+  }
 
   return (
     <div>
@@ -568,7 +635,12 @@ function AiUsageChart({
         </select>
       </div>
 
-      <BarChart buckets={buckets} loading={loading} period={period} labelInterval={labelInterval} />
+      <BarChart
+        series={series}
+        loading={loading}
+        period={period}
+        labelInterval={labelInterval}
+      />
 
       <p className="text-xs text-gray-500 mt-2">
         Token consumption for Legalese AI chat use.
@@ -605,44 +677,114 @@ function PeriodSelector({
   );
 }
 
+interface Series {
+  buckets: Bucket[];
+  /** Tailwind classes for the bar fill + hover state. */
+  className: string;
+  /** Shown in the tooltip when more than one series is visible. */
+  label: string;
+}
+
 function BarChart({
-  buckets,
+  series,
   loading,
   period,
   labelInterval,
 }: {
-  buckets: Bucket[];
+  // Series stack in caller order: series[0] is the visual base, later
+  // series layer on top. `flex-col-reverse` renders the first DOM child
+  // at the bottom, matching this order naturally.
+  series: Series[];
   loading: boolean;
   period: Period;
   labelInterval: number;
 }) {
-  if (loading) {
-    return <div className="h-32 flex items-center justify-center text-gray-400 text-xs">Loading...</div>;
+  const primary = series[0]?.buckets ?? [];
+
+  if (loading || primary.length === 0) {
+    return (
+      <div>
+        <div className="h-32 flex items-center justify-center text-gray-400 text-xs">
+          {loading ? "Loading..." : "No usage data for this period"}
+        </div>
+        {/* Spacer matches the label row height below the bars, so swapping
+            between loading/empty/data states doesn't shift page layout. */}
+        <div className="mt-1 text-[9px] leading-none invisible">&nbsp;</div>
+      </div>
+    );
   }
-  if (buckets.length === 0) {
-    return <div className="h-32 flex items-center justify-center text-gray-400 text-xs">No usage data for this period</div>;
-  }
-  const maxCount = Math.max(1, ...buckets.map((b) => b.count));
+
+  // Scale by the tallest stacked column so bars never overflow the
+  // container, regardless of how many layers each one has.
+  const totals = primary.map((_, i) =>
+    series.reduce((sum, s) => sum + (s.buckets[i]?.count ?? 0), 0),
+  );
+  const maxCount = Math.max(1, ...totals);
+
   return (
     <div>
       <div className="flex items-end gap-px h-32">
-        {buckets.map((bucket) => {
-          const pct = (bucket.count / maxCount) * 100;
+        {primary.map((bucket, i) => {
+          // Topmost visible segment = last non-zero series at this index.
+          let topIdx = -1;
+          for (let s = series.length - 1; s >= 0; s--) {
+            if ((series[s].buckets[i]?.count ?? 0) > 0) {
+              topIdx = s;
+              break;
+            }
+          }
+          const total = totals[i];
+          const visibleCount = series.reduce(
+            (n, s) => n + ((s.buckets[i]?.count ?? 0) > 0 ? 1 : 0),
+            0,
+          );
           return (
-            <div key={bucket.label} className="flex-1 flex flex-col items-center justify-end h-full group relative">
-              <div
-                className="w-full bg-accent/70 hover:bg-accent rounded-t transition-colors min-h-[1px]"
-                style={{ height: `${Math.max(pct, bucket.count > 0 ? 2 : 0)}%` }}
-              />
+            <div
+              key={bucket.label}
+              className="flex-1 flex flex-col-reverse items-stretch h-full group relative min-w-0"
+            >
+              {series.map((s, sIdx) => {
+                const count = s.buckets[i]?.count ?? 0;
+                if (count === 0) return null;
+                const pct = (count / maxCount) * 100;
+                const isTop = sIdx === topIdx;
+                return (
+                  <div
+                    key={sIdx}
+                    className={`w-full ${s.className} ${isTop ? "rounded-t" : ""} transition-colors min-h-[1px]`}
+                    style={{ height: `${Math.max(pct, 2)}%` }}
+                  />
+                );
+              })}
               <div className="absolute bottom-full mb-1 hidden group-hover:block bg-gray-800 text-white text-xs rounded px-2 py-1 whitespace-nowrap z-10">
-                {bucket.label}: {bucket.count.toLocaleString()}
+                {visibleCount > 1 ? (
+                  <>
+                    <div>{bucket.label}</div>
+                    {series.map((s) => {
+                      const c = s.buckets[i]?.count ?? 0;
+                      if (c === 0) return null;
+                      return (
+                        <div key={s.label}>
+                          {s.label}: {c.toLocaleString()}
+                        </div>
+                      );
+                    })}
+                    <div className="border-t border-gray-600 mt-0.5 pt-0.5">
+                      Total: {total.toLocaleString()}
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    {bucket.label}: {total.toLocaleString()}
+                  </>
+                )}
               </div>
             </div>
           );
         })}
       </div>
       <div className="flex gap-px mt-1">
-        {buckets.map((bucket, i) => (
+        {primary.map((bucket, i) => (
           <div key={bucket.label} className="flex-1 text-center">
             {i % labelInterval === 0 ? (
               <span className="text-[9px] text-gray-400 leading-none">
