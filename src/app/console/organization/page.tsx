@@ -756,7 +756,7 @@ function BarChart({
                   />
                 );
               })}
-              <div className="absolute bottom-full mb-1 hidden group-hover:block bg-gray-800 text-white text-xs rounded px-2 py-1 whitespace-nowrap z-10">
+              <div className="absolute bottom-full right-0 mb-1 hidden group-hover:block bg-gray-800 text-white text-xs rounded px-2 py-1 whitespace-nowrap z-10">
                 {visibleCount > 1 ? (
                   <>
                     <div>{bucket.label}</div>
@@ -783,11 +783,17 @@ function BarChart({
           );
         })}
       </div>
-      <div className="flex gap-px mt-1">
+      {/* text-[9px] leading-none on the row collapses each cell's line
+          box to exactly 9px, matching the loading-state spacer below.
+          Without this, cells inherit the larger ancestor line-height and
+          the chart ends up ~12px taller than the loading placeholder. */}
+      <div className="flex gap-px mt-1 text-[9px] leading-none">
         {primary.map((bucket, i) => (
           <div key={bucket.label} className="flex-1 text-center">
             {i % labelInterval === 0 ? (
-              <span className="text-[9px] text-gray-400 leading-none">
+              // -mx-[10px] lets the label overflow its narrow cell into
+              // the (empty) neighbours so "Mar 23" stays on one line.
+              <span className="text-gray-400 whitespace-nowrap inline-block -mx-[10px]">
                 {formatLabel(bucket.label, period)}
               </span>
             ) : null}
