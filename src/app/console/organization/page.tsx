@@ -171,7 +171,7 @@ function DeploymentUrl({ slug, health }: { slug: string; health: ServiceHealth }
     }
   }
 
-  // Extract build tag from binaryUrl (e.g. ".../releases/download/vscode-wasm-build-63/..." → "vscode-wasm-build-63")
+  // Extract build tag from binaryUrl (e.g. ".../releases/download/l4-ide-build-63/..." → "l4-ide-build-63")
   const buildTag = health.state === "ok" && health.data.config?.binaryUrl
     ? health.data.config.binaryUrl.match(/\/releases\/download\/([^/]+)\//)?.[1] ?? null
     : null;

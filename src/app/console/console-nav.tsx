@@ -158,7 +158,7 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
             }}
             className="text-sm text-accent hover:text-accent-hover transition-colors"
           >
-            Back to your console
+            &lt; Back to console
         </button>
         </div>
       );
@@ -215,7 +215,7 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
           }}
           className="text-sm text-accent hover:text-accent-hover transition-colors"
         >
-          Back to your console
+          &lt; Back to console
         </button>
       </div>
     );
