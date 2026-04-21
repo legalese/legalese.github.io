@@ -152,6 +152,14 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
               </p>
             </div>
           </div>
+          <button
+            onClick={() => {
+              window.location.href = "/console";
+            }}
+            className="text-sm text-accent hover:text-accent-hover transition-colors"
+          >
+            Back to your console
+        </button>
         </div>
       );
     }
