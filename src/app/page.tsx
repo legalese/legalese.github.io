@@ -14,7 +14,7 @@ export default function Index() {
     <main>
       <Alert>
           Compose L4 with AI and deploy MCP tools to Legalese Cloud with our&nbsp;
-          <a href="https://marketplace.visualstudio.com/items?itemName=Legalese.l4-vscode" className="text-accent">VS Code Extension 1.3</a>
+          <a href="https://marketplace.visualstudio.com/items?itemName=Legalese.l4-vscode" className="text-accent">VS Code Extension 1.4</a>
       </Alert>
       <Container>
         <Header />
