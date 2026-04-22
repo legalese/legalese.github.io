@@ -263,7 +263,7 @@ function ServiceDetails({
   const cfg = health.data.config;
   const instanceCount = health.data.instances.length;
   const hostingDetails = [
-    { label: "Instances", value: String(instanceCount) },
+    { label: "Instances", value: String(instanceCount) || "1" },
     { label: "Max deployments", value: String(cfg.maxDeployments ?? "-") },
     { label: "Max concurrent requests", value: String(cfg.maxConcurrentRequests ?? "-") },
     { label: "Max evaluation memory", value: `${cfg.maxEvalMemoryMb ?? "-"} MB` },
@@ -272,7 +272,7 @@ function ServiceDetails({
     { label: "Compile timeout", value: `${cfg.compileTimeoutSeconds ?? "-"}s` },
     { label: "Max deployment size", value: `${cfg.maxZipSizeMb ?? "-"} MB` },
     { label: "Idle timeout", value: cfg.idleTimeoutHours === 0 ? "Always on" : `${cfg.idleTimeoutHours ?? "-"} hours` },
-    { label: "Daily request limit", value: String(cfg.dailyRequestLimit ?? "-") },
+    { label: "Daily request limit", value: String((!cfg.dailyRequestLimit ? "Unlimited (metered)" : cfg.dailyRequestLimit)) },
   ];
 
   // Fold in AI limits when auth-proxy surfaced them from the shared
