@@ -96,6 +96,7 @@ function OrganizationInfo({
         <AiUsageChart
           slug={organization.slug}
           health={health}
+          isAdmin={isAdmin}
           period={period}
           onPeriodChange={setPeriod}
         />
@@ -394,7 +395,7 @@ function UsageChart({
 }) {
   const [buckets, setBuckets] = useState<Bucket[]>([]);
   const [loading, setLoading] = useState(true);
-  const [todayCount, setTodayCount] = useState<number | null>(null);
+  const [peakDailyCount, setPeakDailyCount] = useState<number | null>(null);
 
   const days = period === "daily" ? 30 : 90;
 
@@ -412,9 +413,6 @@ function UsageChart({
         if (!cancelled && data) {
           const b: Bucket[] = data.buckets ?? [];
           setBuckets(b);
-          if (period === "daily" && b.length > 0) {
-            setTodayCount(b[b.length - 1].count);
-          }
         }
       })
       .catch(() => {})
@@ -422,6 +420,26 @@ function UsageChart({
 
     return () => { cancelled = true; };
   }, [slug, period, days, health.state]);
+
+  // Separate daily fetch powers the limit-hit warning regardless of the
+  // chart's current period — "any day in the shown range" only makes sense
+  // against per-day buckets.
+  useEffect(() => {
+    if (health.state !== "ok") return;
+    let cancelled = false;
+    fetch(`${AUTH_API_URL}/billing/usage?org=${encodeURIComponent(slug)}&period=daily&days=${days}`, {
+      headers: authHeaders(),
+      credentials: "include",
+    })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (cancelled || !data) return;
+        const b: Bucket[] = data.buckets ?? [];
+        setPeakDailyCount(b.length > 0 ? Math.max(...b.map((x) => x.count)) : null);
+      })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, [slug, days, health.state]);
 
   if (health.state === "loading") {
     return <div className="h-32 flex items-center justify-center text-gray-400 text-xs">Loading...</div>;
@@ -438,7 +456,7 @@ function UsageChart({
     <div>
       {(() => {
         const limit = health.data.config?.dailyRequestLimit ?? 0;
-        if (limit > 0 && todayCount !== null && todayCount >= limit) {
+        if (limit > 0 && peakDailyCount !== null && peakDailyCount >= limit) {
           return (
             <div className="mb-3 flex items-start gap-2 rounded border border-yellow-400 bg-yellow-50 px-3 py-2.5 text-sm text-yellow-800">
               <span className="shrink-0">⚠</span>
@@ -503,11 +521,13 @@ const AI_MODELS: { value: string; label: string }[] = [
 function AiUsageChart({
   slug,
   health,
+  isAdmin,
   period,
   onPeriodChange,
 }: {
   slug: string;
   health: ServiceHealth;
+  isAdmin: boolean;
   period: Period;
   onPeriodChange: (p: Period) => void;
 }) {
@@ -516,6 +536,7 @@ function AiUsageChart({
   const [loading, setLoading] = useState(true);
   const [metric, setMetric] = useState<AiMetric>("totalTokens");
   const [model, setModel] = useState<string>("");
+  const [peakDailyTokens, setPeakDailyTokens] = useState<number | null>(null);
 
   const days = period === "daily" ? 30 : 90;
 
@@ -579,6 +600,32 @@ function AiUsageChart({
     };
   }, [slug, period, days, metric, model, health.state]);
 
+  // Peak daily totalTokens across all models — drives the limit-hit warning
+  // independently of the chart's current metric/model/period filters.
+  useEffect(() => {
+    if (health.state !== "ok") return;
+    let cancelled = false;
+    const params = new URLSearchParams({
+      org: slug,
+      source: "ai-chat",
+      period: "daily",
+      days: String(days),
+      metric: "totalTokens",
+    });
+    fetch(`${AUTH_API_URL}/billing/usage?${params.toString()}`, {
+      headers: authHeaders(),
+      credentials: "include",
+    })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (cancelled || !data) return;
+        const b: Bucket[] = data.buckets ?? [];
+        setPeakDailyTokens(b.length > 0 ? Math.max(...b.map((x) => x.count)) : null);
+      })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, [slug, days, health.state]);
+
   if (health.state === "loading") {
     return <div className="h-32 flex items-center justify-center text-gray-400 text-xs">Loading...</div>;
   }
@@ -609,6 +656,26 @@ function AiUsageChart({
 
   return (
     <div>
+      {(() => {
+        const limit = health.data.config?.ai?.dailyTokenLimit ?? 0;
+        if (limit > 0 && peakDailyTokens !== null && peakDailyTokens >= limit) {
+          return (
+            <div className="mb-3 flex items-start gap-2 rounded border border-yellow-400 bg-yellow-50 px-3 py-2.5 text-sm text-yellow-800">
+              <span className="shrink-0">⚠</span>
+              <span>
+                You have reached your daily AI token limit.{" "}
+                {isAdmin ? (
+                  <>Contact <a href={`mailto:support@legalese.com?subject=${encodeURIComponent(`Increase AI token limit - ${slug}`)}`} className="underline underline-offset-2">support@legalese.com</a> to increase your limits.</>
+                ) : (
+                  "Please contact your administrator."
+                )}
+              </span>
+            </div>
+          );
+        }
+        return null;
+      })()}
+
       {/* Period + model + metric controls */}
       <div className="flex flex-wrap items-center gap-2 mb-3">
         <PeriodSelector period={period} onChange={onPeriodChange} />
