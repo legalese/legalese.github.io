@@ -68,7 +68,6 @@ export interface HealthConfig {
 
 export interface HealthAiConfig {
   dailyTokenLimit?: number;
-  maxToolRounds?: number;
   conversationTtlDays?: number;
   blockOnOverage?: boolean;
   context?: Record<string, unknown>;

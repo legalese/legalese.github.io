@@ -291,12 +291,6 @@ function ServiceDetails({
             : "Unlimited (metered)",
       });
     }
-    if (typeof ai.maxToolRounds === "number") {
-      aiDetails.push({
-        label: "Max tool rounds",
-        value: String(ai.maxToolRounds),
-      });
-    }
     if (typeof ai.conversationTtlDays === "number") {
       aiDetails.push({
         label: "Conversation retention",
