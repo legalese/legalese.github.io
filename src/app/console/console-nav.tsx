@@ -105,7 +105,7 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
   // cold visit from VS Code, or after switch-account sends the user
   // through logout) we fall through to the regular logged-out landing
   // page, which has its own "Sign in to continue" link.
-  if (pendingRedirect && session) {
+  if (pendingRedirect && session && session.organizationId) {
     const appLabel = getAppLabel(pendingRedirect);
     const isVSCode = appLabel === "Visual Studio Code";
 
