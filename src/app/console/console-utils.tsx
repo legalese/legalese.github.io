@@ -43,7 +43,14 @@ export interface HealthInstance {
 }
 
 export interface HealthConfig {
+  /** Slug: "free", "<templateName>", or "custom" (legacy paid orgs). */
   plan: string;
+  /**
+   * Friendly display name from the template definition (e.g. "Metered Plan").
+   * Null for the "free" slug and legacy "custom" — those fall back to
+   * PLAN_LABELS in planFromHealth().
+   */
+  planName: string | null;
   binaryUrl: string | null;
   dailyRequestLimit: number;
   blockOnOverage: boolean;
@@ -85,26 +92,34 @@ export type ServiceHealth =
   | { state: "ok"; data: HealthData };
 
 /**
- * `health.config.plan` is the slug of the active plan, set by auth-proxy:
- *   "free"            — no stripeMeteredItems
- *   "<templateSlug>"  — applied via /billing/checkout (e.g. "metered")
- *   "custom"          — legacy paid orgs upgraded before the template flow
+ * Plan label rendering rule:
  *
- * For known template slugs we render the friendly name; unknown slugs
- * are title-cased so a new template still renders something readable
- * before this map is updated.
+ *  1. If `config.planName` is present, use it directly. The auth-proxy
+ *     resolves it from the template's `name` field, so adding a new
+ *     paid template = no frontend change.
+ *  2. Else fall back to PLAN_LABELS for the two slugs the backend
+ *     produces without a template lookup: "free" (no subscription)
+ *     and "custom" (legacy paid orgs upgraded before the template flow).
+ *  3. Else title-case the slug so a future backend that surfaces a
+ *     new slug still renders something legible.
+ *
+ * When the org is suspended, append " (suspended)" so the label on the
+ * Subscription row is honest about state — the page also shows a
+ * separate banner, but the row itself shouldn't claim everything's fine.
  */
 const PLAN_LABELS: Record<string, string> = {
   free: "Free plan",
-  metered: "Metered Plan",
   custom: "Custom plan",
 };
 
 export function planFromHealth(health: ServiceHealth): string {
   if (health.state !== "ok" || !health.data.config) return "Free plan";
-  const plan = health.data.config.plan;
-  if (PLAN_LABELS[plan]) return PLAN_LABELS[plan];
-  return plan.charAt(0).toUpperCase() + plan.slice(1) + " plan";
+  const cfg = health.data.config;
+  const baseLabel =
+    cfg.planName ??
+    PLAN_LABELS[cfg.plan] ??
+    cfg.plan.charAt(0).toUpperCase() + cfg.plan.slice(1) + " plan";
+  return cfg.suspended ? `${baseLabel} (suspended)` : baseLabel;
 }
 
 export function useServiceHealth(slug: string): ServiceHealth {

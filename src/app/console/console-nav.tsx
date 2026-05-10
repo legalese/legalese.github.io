@@ -19,6 +19,9 @@ const TABS: readonly {
   { path: "/console/sso", label: "SSO", permission: "widgets:sso:manage", requiresDomainVerified: true },
   { path: "/console/api-keys", label: "API Keys", permission: "widgets:api-keys:manage" },
   { path: "/console/profile", label: "Profile" },
+  // Billing tab — page exists at /console/billing but isn't linked yet.
+  // Uncomment once the upgrade flow is rolled out to all admins.
+  // { path: "/console/billing", label: "Billing", permission: "l4:admin" },
 ];
 
 function isValidRedirectUrl(url: string): boolean {
