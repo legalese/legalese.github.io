@@ -75,7 +75,7 @@ function BillingContent({
   }, [health.state, isPaid]);
 
   if (health.state === "loading") {
-    return <CenterMessage>Loading…</CenterMessage>;
+    return <CenterMessage><span className="text-gray-400">Loading…</span></CenterMessage>;
   }
   if (health.state === "error") {
     return (
