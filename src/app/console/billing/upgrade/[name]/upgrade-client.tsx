@@ -231,7 +231,7 @@ function UpgradeContent({
           .
         </div>
       ) : isAdmin ? (
-        <div className="space-y-2">
+        <div className="text-center space-y-2">
           <button
             onClick={handleUpgrade}
             disabled={submitting}
