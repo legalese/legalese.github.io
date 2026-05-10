@@ -42,13 +42,21 @@ export default function CheckoutSuccessPage() {
     );
   }
 
-  // We don't know which template the user just bought (the checkout
-  // session ID in `?cs=` doesn't tell us), so any non-free plan slug
-  // means the webhook has fired and the org is upgraded.
-  const upgraded =
-    health.state === "ok" &&
-    !!health.data.config?.plan &&
-    health.data.config.plan !== "free";
+  // The success page handles two flows:
+  //   - Fresh upgrade or resubscribe (Stripe redirects here after payment).
+  //     The query param `?plan=<slug>` tells us which template to expect;
+  //     when it's absent we accept any non-free plan as upgraded.
+  //   - In-place plan switch (frontend redirects here directly after the
+  //     /billing/checkout call returns kind: "switched"). Same logic —
+  //     we wait for the webhook to flip `cfg.plan` to the expected slug.
+  const expectedPlan =
+    typeof window !== "undefined"
+      ? new URL(window.location.href).searchParams.get("plan") ?? null
+      : null;
+  const currentPlan = health.state === "ok" ? health.data.config?.plan : null;
+  const upgraded = expectedPlan
+    ? currentPlan === expectedPlan
+    : !!currentPlan && currentPlan !== "free";
 
   if (upgraded) {
     return (

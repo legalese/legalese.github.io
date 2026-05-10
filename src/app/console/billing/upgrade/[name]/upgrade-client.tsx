@@ -141,11 +141,22 @@ function UpgradeContent({
   isAdmin: boolean;
 }) {
   const health = useServiceHealth(slug);
-  // Any non-free plan slug ("metered", a future template, or legacy "custom").
-  const alreadyPaid =
-    health.state === "ok" &&
-    !!health.data.config?.plan &&
-    health.data.config.plan !== "free";
+  const currentPlan =
+    health.state === "ok" ? health.data.config?.plan : undefined;
+  // The upgrade page handles three flows now (the backend dispatches on
+  // org state automatically):
+  //   currentPlan === undefined / "free"  → upgrade  ("Upgrade to {name}")
+  //   currentPlan === templateName        → no-op    (already on this plan)
+  //   currentPlan = some other paid slug  → switch   ("Switch to {name}")
+  const isOnThisPlan = currentPlan === templateName;
+  const isPaidElsewhere =
+    !!currentPlan && currentPlan !== "free" && !isOnThisPlan;
+  const buttonLabel = isPaidElsewhere
+    ? `Switch to ${template.name}`
+    : `Upgrade to ${template.name}`;
+  const submittingLabel = isPaidElsewhere
+    ? "Switching plan…"
+    : "Redirecting to Stripe…";
 
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -163,7 +174,8 @@ function UpgradeContent({
         },
       );
       if (res.status === 409) {
-        setError("This organization is already on a paid plan.");
+        const body = await res.json().catch(() => ({}));
+        setError(body.error ?? "This organization is already on this plan.");
         setSubmitting(false);
         return;
       }
@@ -171,9 +183,22 @@ function UpgradeContent({
         const body = await res.json().catch(() => ({}));
         throw new Error(body.error ?? `HTTP ${res.status}`);
       }
-      const { url } = await res.json();
-      if (!url) throw new Error("Checkout URL not returned");
-      window.location.href = url;
+      // Response is polymorphic on `kind`:
+      //   { kind: "redirect", url } — go to Stripe Checkout (free upgrade or
+      //                               resubscribe path)
+      //   { kind: "switched"      } — in-place plan switch via subscriptions.update;
+      //                               no Stripe page to visit. Land on the
+      //                               success page so it can poll for the
+      //                               webhook to flip the org config.
+      const body = await res.json();
+      if (body.kind === "redirect") {
+        if (!body.url) throw new Error("Checkout URL not returned");
+        window.location.href = body.url;
+      } else if (body.kind === "switched") {
+        window.location.href = `/console/billing/checkout-success?plan=${encodeURIComponent(templateName)}`;
+      } else {
+        throw new Error("Unrecognized response from checkout endpoint");
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Checkout failed");
       setSubmitting(false);
@@ -223,11 +248,11 @@ function UpgradeContent({
         </div>
       </div>
 
-      {alreadyPaid ? (
+      {isOnThisPlan ? (
         <div className="rounded border border-green-300 bg-green-50 px-4 py-3 text-sm text-green-800">
-          This organization is already on a paid plan.{" "}
-          <Link href="/console/organization" className="underline">
-            View your subscription
+          This organization is already on the {template.name} plan.{" "}
+          <Link href="/console/billing" className="underline">
+            Manage subscription
           </Link>
           .
         </div>
@@ -240,16 +265,17 @@ function UpgradeContent({
           >
             {submitting ? (
               <>
-                <Spinner /> Redirecting to Stripe…
+                <Spinner /> {submittingLabel}
               </>
             ) : (
-              <>Upgrade to {template.name}</>
+              <>{buttonLabel}</>
             )}
           </button>
           {error && <p className="text-sm text-red-600">{error}</p>}
           <p className="text-xs text-gray-400">
-            You&rsquo;ll be redirected to Stripe to enter payment details. You
-            can cancel any time from your organization page.
+            {isPaidElsewhere
+              ? "Switching takes effect immediately. We will prorate the difference and bill it on your next invoice."
+              : "You’ll be redirected to Stripe to enter payment details. You can cancel any time from your billing page."}
           </p>
         </div>
       ) : (

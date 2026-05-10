@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import { AUTH_API_URL } from "@/lib/constants";
 import { useConsole } from "../console-context";
 import {
@@ -9,6 +8,10 @@ import {
   useServiceHealth,
   planFromHealth,
 } from "../console-utils";
+
+// Hardcoded for v1: there's only one paid template ("metered").
+// When more exist, replace with a chooser or a friendlier landing.
+const DEFAULT_UPGRADE_TARGET = "/console/billing/upgrade/metered";
 
 /**
  * /console/billing — landing page for the Billing tab.
@@ -67,6 +70,15 @@ function BillingContent({
 
   const isPaid =
     !!health.data.config?.plan && health.data.config.plan !== "free";
+
+  // Free-tier orgs land here from a direct URL, the menu (eventually),
+  // or follow-on UX. Bounce them straight to the upgrade page rather
+  // than rendering a "See pricing" trampoline.
+  useEffect(() => {
+    if (health.state === "ok" && !isPaid) {
+      window.location.replace(DEFAULT_UPGRADE_TARGET);
+    }
+  }, [health.state, isPaid]);
 
   async function openPortal() {
     setError(null);
@@ -128,18 +140,9 @@ function BillingContent({
           )}
         </div>
       ) : (
-        <div className="space-y-3">
-          <p className="text-sm text-gray-700">
-            {orgName} is on the free plan. Upgrade to lift the daily request
-            limit and bill monthly via Stripe.
-          </p>
-          <Link
-            href="/console/billing/upgrade/metered"
-            className="inline-flex items-center px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent-hover transition-colors"
-          >
-            See pricing
-          </Link>
-        </div>
+        // Free tier — the useEffect above redirects to the upgrade page.
+        // This message shows only briefly while the redirect is in flight.
+        <p className="text-sm text-gray-500">Redirecting to upgrade…</p>
       )}
     </div>
   );
