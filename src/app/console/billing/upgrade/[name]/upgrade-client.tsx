@@ -315,13 +315,17 @@ function Spinner() {
  */
 function formatPrice(p: TemplatePrice): string {
   const unit = p.unitLabel ?? "unit";
-  // Prefer the decimal string (handles sub-cent prices); fall back to
-  // the integer cents value. Either way we land on a number of dollars.
+  // Prefer the decimal string (handles sub-cent prices) when it's
+  // actually present; fall back to the integer cents value. The strict
+  // `typeof === "string"` check matters: `unitAmountDecimal` will be
+  // `undefined` against an older backend that doesn't surface the
+  // field yet, and `parseFloat(undefined)` → NaN would otherwise make
+  // every price (even non-decimal ones) render as "—".
   const cents =
-    p.unitAmountDecimal !== null
+    typeof p.unitAmountDecimal === "string" && p.unitAmountDecimal.length > 0
       ? parseFloat(p.unitAmountDecimal)
       : p.unitAmount;
-  if (cents === null || Number.isNaN(cents)) {
+  if (cents == null || Number.isNaN(cents)) {
     if (p.billingScheme === "tiered") return "Tiered";
     return "—";
   }
