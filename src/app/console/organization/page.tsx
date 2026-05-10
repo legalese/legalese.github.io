@@ -263,17 +263,20 @@ function ServiceDetails({
   if (health.state !== "ok" || !health.data.config) return null;
   const cfg = health.data.config;
   const instanceCount = health.data.instances.length;
+  // jl4-service runtime knobs are namespaced under cfg.jl4 (mirrors the
+  // on-disk shape under .jl4 in /efs/config). Same pattern as cfg.ai.
+  const jl4 = cfg.jl4;
   const hostingDetails = [
     { label: "Instances", value: String(instanceCount) || "1" },
-    { label: "Max deployments", value: String(cfg.maxDeployments ?? "-") },
-    { label: "Max concurrent requests", value: String(cfg.maxConcurrentRequests ?? "-") },
-    { label: "Max evaluation memory", value: `${cfg.maxEvalMemoryMb ?? "-"} MB` },
-    { label: "Compile memory", value: `${cfg.compileMemoryMb ?? "-"} MB` },
-    { label: "Evaluation timeout", value: `${cfg.evalTimeoutSeconds ?? "-"}s` },
-    { label: "Compile timeout", value: `${cfg.compileTimeoutSeconds ?? "-"}s` },
-    { label: "Max deployment size", value: `${cfg.maxZipSizeMb ?? "-"} MB` },
-    { label: "Idle timeout", value: cfg.idleTimeoutHours === 0 ? "Always on" : `${cfg.idleTimeoutHours ?? "-"} hours` },
-    { label: "Daily request limit", value: String((!cfg.dailyRequestLimit ? "Unlimited (metered)" : cfg.dailyRequestLimit)) },
+    { label: "Max deployments", value: String(jl4?.maxDeployments ?? "-") },
+    { label: "Max concurrent requests", value: String(jl4?.maxConcurrentRequests ?? "-") },
+    { label: "Max evaluation memory", value: `${jl4?.evalMemoryMb ?? "-"} MB` },
+    { label: "Compile memory", value: `${jl4?.compileMemoryMb ?? "-"} MB` },
+    { label: "Evaluation timeout", value: `${jl4?.evalTimeoutSeconds ?? "-"}s` },
+    { label: "Compile timeout", value: `${jl4?.compileTimeoutSeconds ?? "-"}s` },
+    { label: "Max deployment size", value: `${jl4?.maxZipSizeMb ?? "-"} MB` },
+    { label: "Idle timeout", value: jl4?.idleTimeoutHours === 0 ? "Always on" : `${jl4?.idleTimeoutHours ?? "-"} hours` },
+    { label: "Daily request limit", value: String(!jl4?.dailyRequestLimit ? "Unlimited (metered)" : jl4.dailyRequestLimit) },
   ];
 
   // Fold in AI limits when auth-proxy surfaced them from the shared
@@ -449,7 +452,7 @@ function UsageChart({
   return (
     <div>
       {(() => {
-        const limit = health.data.config?.dailyRequestLimit ?? 0;
+        const limit = health.data.config?.jl4?.dailyRequestLimit ?? 0;
         if (limit > 0 && peakDailyCount !== null && peakDailyCount >= limit) {
           return (
             <div className="mb-3 flex items-start gap-2 rounded border border-yellow-400 bg-yellow-50 px-3 py-2.5 text-sm text-yellow-800">

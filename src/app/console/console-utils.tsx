@@ -57,18 +57,13 @@ export interface HealthConfig {
    */
   billingPeriod: string | null;
   binaryUrl: string | null;
-  dailyRequestLimit: number;
-  blockOnOverage: boolean;
-  maxConcurrentRequests: number;
-  maxDeployments: number;
-  maxEvalMemoryMb: number;
-  compileMemoryMb: number;
-  evalTimeoutSeconds: number;
-  compileTimeoutSeconds: number;
-  maxZipSizeMb: number;
-  idleTimeoutHours: number;
-  publicDeployments: string[];
   suspended: boolean;
+  /**
+   * jl4-service runtime knobs. Namespaced to mirror the on-disk shape
+   * in defaults.json / orgs/{slug}.json under `.jl4`. Field names match
+   * the config file directly.
+   */
+  jl4: HealthJl4Config;
   /**
    * ai-proxy's `.ai` sub-object from the shared /efs/config files
    * (defaults merged with per-org override). Owned by ai-proxy's
@@ -76,6 +71,20 @@ export interface HealthConfig {
    * the call site. Undefined when no `.ai` block is configured.
    */
   ai?: HealthAiConfig;
+}
+
+export interface HealthJl4Config {
+  dailyRequestLimit: number;
+  blockOnOverage: boolean;
+  maxConcurrentRequests: number;
+  maxDeployments: number;
+  evalMemoryMb: number;
+  compileMemoryMb: number;
+  evalTimeoutSeconds: number;
+  compileTimeoutSeconds: number;
+  maxZipSizeMb: number;
+  idleTimeoutHours: number;
+  publicDeployments: string[];
 }
 
 export interface HealthAiConfig {
