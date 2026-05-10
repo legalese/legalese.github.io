@@ -156,7 +156,7 @@ function UpgradeContent({
     : `Upgrade to ${template.name}`;
   const submittingLabel = isPaidElsewhere
     ? "Switching plan…"
-    : "Redirecting to Stripe…";
+    : "Redirecting…";
 
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);

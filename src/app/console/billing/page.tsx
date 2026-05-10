@@ -122,8 +122,7 @@ function BillingContent({
       {isPaid ? (
         <div className="space-y-3">
           <p className="text-sm text-gray-700">
-            Manage your subscription, payment method, and invoices in the
-            Stripe Customer Portal.
+            Manage your subscription, payment method, and invoices.
           </p>
           {isAdmin ? (
             <>
@@ -133,8 +132,8 @@ function BillingContent({
                 className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent-hover transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {submitting
-                  ? "Opening Stripe…"
-                  : "Manage subscription in Stripe"}
+                  ? "Redirecting…"
+                  : "Manage subscription"}
               </button>
               {error && <p className="text-sm text-red-600">{error}</p>}
             </>
