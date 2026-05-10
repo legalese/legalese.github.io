@@ -86,7 +86,11 @@ export type ServiceHealth =
 
 export function planFromHealth(health: ServiceHealth): string {
   if (health.state !== "ok" || !health.data.config) return "Free plan";
-  return health.data.config.plan === "custom" ? "Custom plan" : "Free plan";
+  // Today's only paid template is "metered", so any non-free plan = Metered.
+  // When we add more templates (enterprise, etc.) the auth-proxy should
+  // surface the template name on /service/health so this can render the
+  // friendly name from the template (template.name = "Metered Plan").
+  return health.data.config.plan === "custom" ? "Metered Plan" : "Free plan";
 }
 
 export function useServiceHealth(slug: string): ServiceHealth {

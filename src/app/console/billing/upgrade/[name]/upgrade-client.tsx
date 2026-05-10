@@ -239,7 +239,7 @@ function UpgradeContent({
           >
             {submitting ? (
               <>
-                <Spinner /> Redirecting to Stripe…
+                <Spinner /> Redirecting…
               </>
             ) : (
               <>Upgrade to {template.name}</>
