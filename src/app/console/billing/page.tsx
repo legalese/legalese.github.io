@@ -57,6 +57,23 @@ function BillingContent({
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // All hooks must run before any conditional return — React's rules of
+  // hooks. Compute the redirect-trigger state regardless of health.state
+  // and let useEffect no-op until we have an answer.
+  const isPaid =
+    health.state === "ok" &&
+    !!health.data.config?.plan &&
+    health.data.config.plan !== "free";
+
+  // Free-tier orgs land here from a direct URL, the menu (eventually),
+  // or follow-on UX. Bounce them straight to the upgrade page rather
+  // than rendering a "See pricing" trampoline.
+  useEffect(() => {
+    if (health.state === "ok" && !isPaid) {
+      window.location.replace(DEFAULT_UPGRADE_TARGET);
+    }
+  }, [health.state, isPaid]);
+
   if (health.state === "loading") {
     return <CenterMessage>Loading…</CenterMessage>;
   }
@@ -67,18 +84,6 @@ function BillingContent({
       </CenterMessage>
     );
   }
-
-  const isPaid =
-    !!health.data.config?.plan && health.data.config.plan !== "free";
-
-  // Free-tier orgs land here from a direct URL, the menu (eventually),
-  // or follow-on UX. Bounce them straight to the upgrade page rather
-  // than rendering a "See pricing" trampoline.
-  useEffect(() => {
-    if (health.state === "ok" && !isPaid) {
-      window.location.replace(DEFAULT_UPGRADE_TARGET);
-    }
-  }, [health.state, isPaid]);
 
   async function openPortal() {
     setError(null);

@@ -59,6 +59,13 @@ export default function CheckoutSuccessPage() {
     : !!currentPlan && currentPlan !== "free";
 
   if (upgraded) {
+    const cfg = health.state === "ok" ? health.data.config : null;
+    // planName / billingPeriod come from the template via /service/health.
+    // Both nullable (free / legacy plans), but in the `upgraded` branch
+    // they should always be present — fall back gracefully if they aren't
+    // (e.g. the proxy hasn't been redeployed with these fields yet).
+    const planLabel = cfg?.planName ?? "a new plan";
+    const periodLabel = cfg?.billingPeriod ?? "monthly";
     return (
       <CenterCard>
         <SuccessIcon />
@@ -66,15 +73,18 @@ export default function CheckoutSuccessPage() {
           You&rsquo;re upgraded!
         </h1>
         <p className="text-gray-600 text-sm max-w-md">
-          {session.organization.name} is now on a metered plan. Your daily
-          request limit is lifted and usage will be billed monthly via Stripe.
+          {session.organization.name} is now on the{" "}
+          <strong>{planLabel}</strong>. Usage will be billed{" "}
+          {periodLabel} via Stripe.
         </p>
-        <Link
-          href="/console/organization"
-          className="inline-flex items-center px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent-hover transition-colors"
+        <button
+          onClick={() => {
+            window.location.href = "/console";
+          }}
+          className="text-sm font-merriweather text-gray-400 hover:text-gray-600 transition-colors"
         >
-          View your subscription
-        </Link>
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="inline"><path d="M8.21192 3.09155C8.40164 2.95736 8.66555 2.96958 8.8418 3.13452C9.01806 3.29976 9.04853 3.56338 8.92676 3.76148L8.86524 3.84155L5.43555 7.49976L8.86524 11.158L8.92676 11.238C9.04853 11.4361 9.01806 11.6998 8.8418 11.865C8.66555 12.0299 8.40164 12.0422 8.21192 11.908L8.13477 11.8416L4.38477 7.84155C4.20487 7.64932 4.20487 7.35019 4.38477 7.15796L8.13477 3.15796L8.21192 3.09155Z" fill="currentColor"></path></svg> Back to console
+        </button>
       </CenterCard>
     );
   }

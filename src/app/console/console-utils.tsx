@@ -51,6 +51,11 @@ export interface HealthConfig {
    * PLAN_LABELS in planFromHealth().
    */
   planName: string | null;
+  /**
+   * Display-only billing period from the template definition
+   * ("monthly" | "yearly"). Null for free and legacy plans.
+   */
+  billingPeriod: string | null;
   binaryUrl: string | null;
   dailyRequestLimit: number;
   blockOnOverage: boolean;
