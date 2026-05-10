@@ -13,9 +13,16 @@ interface TemplatePrice {
   id: string;
   nickname: string | null;
   productName: string | null;
+  /** product.unit_label, e.g. "1k tokens", "MB". */
+  unitLabel: string | null;
+  /** Per-unit cents as integer; null for tiered or sub-cent prices. */
   unitAmount: number | null;
+  /** Sub-cent per-unit as string (e.g. "0.4"); preferred over unitAmount when present. */
+  unitAmountDecimal: string | null;
   currency: string;
   transformQuantity: { divideBy: number; round: string } | null;
+  /** "per_unit" | "tiered" | null */
+  billingScheme: string | null;
   meterEventName: string | null;
 }
 
@@ -286,30 +293,47 @@ function Spinner() {
 /**
  * Format a Stripe Price for the upgrade page.
  *
- * - `unitAmount` is null for tiered/graduated prices. Stripe doesn't
- *   return a single per-unit number when tiers are configured.
- * - `transformQuantity.divideBy` (when set) means Stripe divides
- *   incoming usage by N before applying unit_amount. The displayed
- *   price reflects that ("per N units").
+ * Stripe surfaces the per-unit price one of three ways:
+ *  1. `unitAmount` (integer cents) — used when the price is ≥ 1¢ per unit
+ *     AND the price is not tiered.
+ *  2. `unitAmountDecimal` (decimal string, e.g. "0.4") — used when the
+ *     price is sub-cent (Stripe can't represent 0.4¢ as an integer).
+ *     Always check this when `unitAmount` is null AND `billingScheme === "per_unit"`.
+ *  3. Tiered — `billingScheme === "tiered"`, no single per-unit value.
  *
- * The product name on Stripe should encode the *external* unit
- * (e.g. "Legalese Cloud Requests (per 1k requests)") — this just
- * appends a per-unit cost where one is available.
+ * `transformQuantity.divideBy` (when set on the Price) means Stripe
+ * divides incoming usage by N before applying unit_amount, so the
+ * displayed price reads "$X per N units".
+ *
+ * Falls back to `unitLabel` from the product to describe what a "unit"
+ * is (e.g. "1k tokens", "MB"). Set this on Products in Stripe to make
+ * the display self-documenting.
  */
 function formatPrice(p: TemplatePrice): string {
-  if (p.unitAmount === null) {
-    return "Tiered";
+  const unit = p.unitLabel ?? "unit";
+  // Prefer the decimal string (handles sub-cent prices); fall back to
+  // the integer cents value. Either way we land on a number of dollars.
+  const cents =
+    p.unitAmountDecimal !== null
+      ? parseFloat(p.unitAmountDecimal)
+      : p.unitAmount;
+  if (cents === null || Number.isNaN(cents)) {
+    if (p.billingScheme === "tiered") return "Tiered";
+    return "—";
   }
-  const amount = p.unitAmount / 100;
-  const dollars =
-    amount >= 1
-      ? amount.toLocaleString(undefined, {
+  const dollars = cents / 100;
+  // Sub-cent prices need 4 decimal places to be readable ($0.0040 not $0.00).
+  // Integer-dollar amounts use the locale-aware currency formatter for
+  // proper symbols/separators.
+  const formatted =
+    dollars >= 1
+      ? dollars.toLocaleString(undefined, {
           style: "currency",
           currency: p.currency.toUpperCase(),
         })
-      : `$${amount.toFixed(amount < 0.01 ? 4 : 2)}`;
+      : `$${dollars.toFixed(dollars < 0.01 ? 4 : 2)}`;
   if (p.transformQuantity?.divideBy && p.transformQuantity.divideBy > 1) {
-    return `${dollars} per ${p.transformQuantity.divideBy.toLocaleString()} units`;
+    return `${formatted} per ${p.transformQuantity.divideBy.toLocaleString()} ${unit}s`;
   }
-  return `${dollars} per unit`;
+  return `${formatted} per ${unit}`;
 }
