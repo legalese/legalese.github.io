@@ -84,13 +84,27 @@ export type ServiceHealth =
   | { state: "error" }
   | { state: "ok"; data: HealthData };
 
+/**
+ * `health.config.plan` is the slug of the active plan, set by auth-proxy:
+ *   "free"            — no stripeMeteredItems
+ *   "<templateSlug>"  — applied via /billing/checkout (e.g. "metered")
+ *   "custom"          — legacy paid orgs upgraded before the template flow
+ *
+ * For known template slugs we render the friendly name; unknown slugs
+ * are title-cased so a new template still renders something readable
+ * before this map is updated.
+ */
+const PLAN_LABELS: Record<string, string> = {
+  free: "Free plan",
+  metered: "Metered Plan",
+  custom: "Custom plan",
+};
+
 export function planFromHealth(health: ServiceHealth): string {
   if (health.state !== "ok" || !health.data.config) return "Free plan";
-  // Today's only paid template is "metered", so any non-free plan = Metered.
-  // When we add more templates (enterprise, etc.) the auth-proxy should
-  // surface the template name on /service/health so this can render the
-  // friendly name from the template (template.name = "Metered Plan").
-  return health.data.config.plan === "custom" ? "Metered Plan" : "Free plan";
+  const plan = health.data.config.plan;
+  if (PLAN_LABELS[plan]) return PLAN_LABELS[plan];
+  return plan.charAt(0).toUpperCase() + plan.slice(1) + " plan";
 }
 
 export function useServiceHealth(slug: string): ServiceHealth {
