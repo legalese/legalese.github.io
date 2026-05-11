@@ -235,21 +235,52 @@ function UpgradeContent({
         <div className="px-5 py-3 border-b border-gray-100 text-xs font-medium uppercase tracking-wider text-gray-500">
           Pricing
         </div>
-        <ul className="divide-y divide-gray-100">
-          {sortedPrices(template.prices).map((p) => (
-            <li
-              key={p.id}
-              className="px-5 py-3 flex items-center justify-between gap-4"
-            >
-              <span className="text-sm text-gray-800">
-                {p.productName ?? p.nickname ?? p.id}
-              </span>
-              <span className="text-sm text-gray-600 font-mono whitespace-nowrap">
-                {formatPrice(p, template.billingPeriod)}
-              </span>
-            </li>
-          ))}
-        </ul>
+        {(() => {
+          const sorted = sortedPrices(template.prices);
+          const licensed = sorted.filter((p) => p.meterEventName === null);
+          const metered = sorted.filter((p) => p.meterEventName !== null);
+          return (
+            <ul className="divide-y divide-gray-100">
+              {licensed.map((p) => (
+                <li
+                  key={p.id}
+                  className="px-5 py-4 flex items-end justify-between gap-4"
+                >
+                  <span className="text-sm text-gray-800">
+                    {p.productName ?? p.nickname ?? p.id}
+                  </span>
+                  <div className="flex flex-col items-end leading-none">
+                    <span className="font-merriweather text-3xl text-gray-900">
+                      {formatLicensedAmount(p)}
+                    </span>
+                    <span className="text-xs text-gray-400 mt-1.5">
+                      / {periodLabel(template.billingPeriod)}
+                    </span>
+                  </div>
+                </li>
+              ))}
+              {metered.length > 0 && (
+                <li className="px-5 py-3">
+                  <div className="space-y-1.5">
+                    {metered.map((p) => (
+                      <div
+                        key={p.id}
+                        className="flex items-baseline justify-between gap-4"
+                      >
+                        <span className="text-xs text-gray-700">
+                          {p.productName ?? p.nickname ?? p.id}
+                        </span>
+                        <span className="text-xs text-gray-600 font-mono whitespace-nowrap">
+                          {formatPrice(p, template.billingPeriod)}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </li>
+              )}
+            </ul>
+          );
+        })()}
         <div className="px-5 py-3 border-t border-gray-100 text-xs text-gray-400 space-y-1">
           {(() => {
             const credits = template.prices.filter(
@@ -438,6 +469,34 @@ function formatPrice(p: TemplatePrice, billingPeriod: string): string {
     return `${formatted} per ${p.transformQuantity.divideBy.toLocaleString()} ${unit}s`;
   }
   return `${formatted} per ${unit}`;
+}
+
+/**
+ * Format the prominent amount for a licensed (flat recurring) price.
+ *
+ * Uses `currencyDisplay: "narrowSymbol"` so the result renders as
+ * "$19.00" rather than "US$19.00" — the period label below the amount
+ * already conveys the recurring nature.
+ */
+function formatLicensedAmount(p: TemplatePrice): string {
+  const cents = p.unitAmount ?? 0;
+  const dollars = cents / 100;
+  return dollars.toLocaleString(undefined, {
+    style: "currency",
+    currency: p.currency.toUpperCase(),
+    currencyDisplay: "narrowSymbol",
+  });
+}
+
+/**
+ * Human-readable period suffix for a template's `billingPeriod`.
+ */
+function periodLabel(billingPeriod: string): string {
+  return billingPeriod === "monthly"
+    ? "month"
+    : billingPeriod === "yearly"
+    ? "year"
+    : billingPeriod;
 }
 
 function formatCents(cents: number, currency: string): string {
