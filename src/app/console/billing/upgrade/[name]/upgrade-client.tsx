@@ -241,24 +241,37 @@ function UpgradeContent({
           const metered = sorted.filter((p) => p.meterEventName !== null);
           return (
             <ul className="divide-y divide-gray-100">
-              {licensed.map((p) => (
-                <li
-                  key={p.id}
-                  className="px-5 py-4 flex items-end justify-between gap-4"
-                >
-                  <span className="text-sm text-gray-800">
-                    {p.productName ?? p.nickname ?? p.id}
-                  </span>
-                  <div className="flex flex-col items-end leading-none">
-                    <span className="font-merriweather text-3xl text-gray-900">
-                      {formatLicensedAmount(p)}
-                    </span>
-                    <span className="text-xs text-gray-400 mt-1.5">
-                      / {periodLabel(template.billingPeriod)}
-                    </span>
-                  </div>
-                </li>
-              ))}
+              {licensed.map((p) => {
+                const credit =
+                  typeof p.prepaidCreditCents === "number" && p.prepaidCreditCents > 0
+                    ? p.prepaidCreditCents
+                    : null;
+                return (
+                  <li
+                    key={p.id}
+                    className="px-5 py-4 flex items-end justify-between gap-4"
+                  >
+                    <div className="flex flex-col leading-tight">
+                      <span className="text-sm text-gray-800">
+                        {p.productName ?? p.nickname ?? p.id}
+                      </span>
+                      {credit !== null && (
+                        <span className="text-xs text-gray-400 mt-1">
+                          includes {formatCents(credit, template.currency)} of usage credit each cycle
+                        </span>
+                      )}
+                    </div>
+                    <div className="flex flex-col items-end leading-none">
+                      <span className="font-merriweather text-3xl text-gray-900">
+                        {formatLicensedAmount(p)}
+                      </span>
+                      <span className="text-xs text-gray-400 mt-1.5">
+                        / {periodLabel(template.billingPeriod)}
+                      </span>
+                    </div>
+                  </li>
+                );
+              })}
               {metered.length > 0 && (
                 <li className="px-5 py-3">
                   <div className="space-y-1.5">
@@ -281,31 +294,6 @@ function UpgradeContent({
             </ul>
           );
         })()}
-        <div className="px-5 py-3 border-t border-gray-100 text-xs text-gray-400 space-y-1">
-          {(() => {
-            const credits = template.prices.filter(
-              (p) => typeof p.prepaidCreditCents === "number" && p.prepaidCreditCents > 0,
-            );
-            if (credits.length === 0) {
-              return (
-                <span>
-                  You&rsquo;re only charged for what you use. No monthly minimum.
-                </span>
-              );
-            }
-            return credits.map((p) => (
-              <div key={p.id}>
-                <span className="text-gray-600">
-                  {p.productName ?? p.nickname ?? p.id}
-                </span>
-                <span>
-                  {" "}— includes {formatCents(p.prepaidCreditCents ?? 0, template.currency)} of
-                  usage credit each cycle
-                </span>
-              </div>
-            ));
-          })()}
-        </div>
       </div>
 
       {isOnThisPlan ? (
