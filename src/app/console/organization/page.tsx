@@ -496,7 +496,6 @@ function UsageChart({
 }) {
   const [buckets, setBuckets] = useState<Bucket[]>([]);
   const [loading, setLoading] = useState(true);
-  const [peakDailyCount, setPeakDailyCount] = useState<number | null>(null);
 
   const days = period === "daily" ? 30 : 90;
 
@@ -522,25 +521,17 @@ function UsageChart({
     return () => { cancelled = true; };
   }, [slug, period, days, health.state]);
 
-  // Separate daily fetch powers the limit-hit warning regardless of the
-  // chart's current period — "any day in the shown range" only makes sense
-  // against per-day buckets.
-  useEffect(() => {
-    if (health.state !== "ok") return;
-    let cancelled = false;
-    fetch(`${AUTH_API_URL}/billing/usage?org=${encodeURIComponent(slug)}&period=daily&days=${days}`, {
-      headers: authHeaders(),
-      credentials: "include",
-    })
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => {
-        if (cancelled || !data) return;
-        const b: Bucket[] = data.buckets ?? [];
-        setPeakDailyCount(b.length > 0 ? Math.max(...b.map((x) => x.count)) : null);
-      })
-      .catch(() => {});
-    return () => { cancelled = true; };
-  }, [slug, days, health.state]);
+  // Today's count comes straight from the chart fetch when the user is
+  // looking at the daily view — last bucket is always today (backend
+  // emits a today bucket unconditionally, see
+  // jl4-auth-proxy/src/billing/usage-api.ts:generateLabels). On
+  // weekly/monthly views the last bucket is "this week/month" and we
+  // can't infer today, so the warning hides — acceptable since the
+  // daily view is the default and where customers normally land.
+  const todayCount =
+    period === "daily" && buckets.length > 0
+      ? buckets[buckets.length - 1]!.count
+      : null;
 
   if (health.state === "loading") {
     return <div className="h-32 flex items-center justify-center text-gray-400 text-xs">Loading...</div>;
@@ -549,15 +540,13 @@ function UsageChart({
     return <span className="text-gray-400 text-sm">Service temporarily unavailable</span>;
   }
 
-  const maxCount = Math.max(1, ...buckets.map((b) => b.count));
-
   const labelInterval = period === "daily" ? 5 : 1;
 
   return (
     <div>
       {(() => {
         const limit = health.data.config?.jl4?.dailyRequestLimit ?? 0;
-        if (limit > 0 && peakDailyCount !== null && peakDailyCount >= limit) {
+        if (limit > 0 && todayCount !== null && todayCount >= limit) {
           return (
             <div className="mb-3 flex items-start gap-2 rounded border border-yellow-400 bg-yellow-50 px-3 py-2.5 text-sm text-yellow-800">
               <span className="shrink-0">⚠</span>
@@ -642,8 +631,6 @@ function AiUsageChart({
   const [loading, setLoading] = useState(true);
   const [metric, setMetric] = useState<AiMetric>("totalTokens");
   const [model, setModel] = useState<string>("");
-  const [todayTokens, setTodayTokens] = useState<number | null>(null);
-
   const days = period === "daily" ? 30 : 90;
 
   useEffect(() => {
@@ -706,38 +693,23 @@ function AiUsageChart({
     };
   }, [slug, period, days, metric, model, health.state]);
 
-  // Today's totalTokens across all models — drives the limit-hit warning.
-  // Independent of the chart's current metric/model/period filters. The
-  // warning fires only when the customer has actually hit their cap
-  // today (not earlier in the look-back window), so it disappears
-  // overnight as the UTC day rolls over.
-  useEffect(() => {
-    if (health.state !== "ok") return;
-    let cancelled = false;
-    // 1-day fetch is enough — the backend always emits a today bucket
-    // (zero-count if no usage yet), and we only care about that one.
-    const params = new URLSearchParams({
-      org: slug,
-      source: "ai-chat",
-      period: "daily",
-      days: "1",
-      metric: "totalTokens",
-    });
-    fetch(`${AUTH_API_URL}/billing/usage?${params.toString()}`, {
-      headers: authHeaders(),
-      credentials: "include",
-    })
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => {
-        if (cancelled || !data) return;
-        const b: Bucket[] = data.buckets ?? [];
-        // Last bucket = today (labels are sorted ascending and always
-        // include today, see jl4-auth-proxy/src/billing/usage-api.ts).
-        setTodayTokens(b.length > 0 ? b[b.length - 1]!.count : 0);
-      })
-      .catch(() => {});
-    return () => { cancelled = true; };
-  }, [slug, health.state]);
+  // Today's totalTokens across all models — drives the limit-hit
+  // warning. Derived from the chart fetch instead of a dedicated
+  // request: when the user is on the default view (daily +
+  // totalTokens + all models), the last bucket of each model's
+  // chart series IS today's count for that model, summed across
+  // both pipelines.
+  //
+  // Warning hides when the user has changed any of these (different
+  // metric, single-model filter, weekly/monthly period) because the
+  // chart data no longer represents today's total. Acceptable — the
+  // default view is where customers land, and where the alert
+  // matters most.
+  const todayTokens =
+    period === "daily" && metric === "totalTokens" && !model
+      ? (composeBuckets[composeBuckets.length - 1]?.count ?? 0) +
+        (summizeBuckets[summizeBuckets.length - 1]?.count ?? 0)
+      : null;
 
   if (health.state === "loading") {
     return <div className="h-32 flex items-center justify-center text-gray-400 text-xs">Loading...</div>;
