@@ -563,7 +563,14 @@ function UsageChart({
               <span className="shrink-0">⚠</span>
               <span>
                 You have reached your daily request limit.{" "}
-                {!isAdmin && (
+                {isAdmin ? (
+                  <Link
+                    href="/console/billing/upgrade/metered"
+                    className="underline underline-offset-2"
+                  >
+                    Upgrade your plan to unlock more.
+                  </Link>
+                ) : (
                   "Please contact your administrator."
                 )}
               </span>
@@ -635,7 +642,7 @@ function AiUsageChart({
   const [loading, setLoading] = useState(true);
   const [metric, setMetric] = useState<AiMetric>("totalTokens");
   const [model, setModel] = useState<string>("");
-  const [peakDailyTokens, setPeakDailyTokens] = useState<number | null>(null);
+  const [todayTokens, setTodayTokens] = useState<number | null>(null);
 
   const days = period === "daily" ? 30 : 90;
 
@@ -699,16 +706,21 @@ function AiUsageChart({
     };
   }, [slug, period, days, metric, model, health.state]);
 
-  // Peak daily totalTokens across all models — drives the limit-hit warning
-  // independently of the chart's current metric/model/period filters.
+  // Today's totalTokens across all models — drives the limit-hit warning.
+  // Independent of the chart's current metric/model/period filters. The
+  // warning fires only when the customer has actually hit their cap
+  // today (not earlier in the look-back window), so it disappears
+  // overnight as the UTC day rolls over.
   useEffect(() => {
     if (health.state !== "ok") return;
     let cancelled = false;
+    // 1-day fetch is enough — the backend always emits a today bucket
+    // (zero-count if no usage yet), and we only care about that one.
     const params = new URLSearchParams({
       org: slug,
       source: "ai-chat",
       period: "daily",
-      days: String(days),
+      days: "1",
       metric: "totalTokens",
     });
     fetch(`${AUTH_API_URL}/billing/usage?${params.toString()}`, {
@@ -719,11 +731,13 @@ function AiUsageChart({
       .then((data) => {
         if (cancelled || !data) return;
         const b: Bucket[] = data.buckets ?? [];
-        setPeakDailyTokens(b.length > 0 ? Math.max(...b.map((x) => x.count)) : null);
+        // Last bucket = today (labels are sorted ascending and always
+        // include today, see jl4-auth-proxy/src/billing/usage-api.ts).
+        setTodayTokens(b.length > 0 ? b[b.length - 1]!.count : 0);
       })
       .catch(() => {});
     return () => { cancelled = true; };
-  }, [slug, days, health.state]);
+  }, [slug, health.state]);
 
   if (health.state === "loading") {
     return <div className="h-32 flex items-center justify-center text-gray-400 text-xs">Loading...</div>;
@@ -757,13 +771,20 @@ function AiUsageChart({
     <div>
       {(() => {
         const limit = health.data.config?.ai?.dailyTokenLimit ?? 0;
-        if (limit > 0 && peakDailyTokens !== null && peakDailyTokens >= limit) {
+        if (limit > 0 && todayTokens !== null && todayTokens >= limit) {
           return (
             <div className="mb-3 flex items-start gap-2 rounded border border-yellow-400 bg-yellow-50 px-3 py-2.5 text-sm text-yellow-800">
               <span className="shrink-0">⚠</span>
               <span>
                 You have reached your daily AI token limit.{" "}
-                {!isAdmin && (
+                {isAdmin ? (
+                  <Link
+                    href="/console/billing/upgrade/metered"
+                    className="underline underline-offset-2"
+                  >
+                    Upgrade your plan to unlock more.
+                  </Link>
+                ) : (
                   "Please contact your administrator."
                 )}
               </span>
