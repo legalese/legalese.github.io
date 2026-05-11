@@ -8,6 +8,7 @@ import {
   useServiceHealth,
   planFromHealth,
   type ServiceHealth,
+  type HealthConfig,
 } from "../console-utils";
 import { AUTH_API_URL, SERVICE_DOMAIN } from "@/lib/constants";
 import Link from "next/link";
@@ -336,7 +337,7 @@ function ServiceDetails({
           </span>
           <PlanActionButton
             slug={slug}
-            isPaid={cfg.plan !== "free"}
+            mode={planActionMode(cfg)}
             isAdmin={isAdmin}
           />
         </summary>
@@ -390,19 +391,32 @@ function ServiceDetails({
 // summary's default toggle action would otherwise fire alongside the
 // client-side navigation.
 
+// Free orgs whose daily caps are both already "unlimited" (the metered
+// signal — dailyRequestLimit/dailyTokenLimit === 0) are typically
+// internal / comp'd accounts. Surfacing an Upgrade button to them would
+// be misleading: their limits already match the paid plan, they just
+// don't have a Stripe relationship. Return null in that case so the
+// summary line is clean.
+function planActionMode(cfg: HealthConfig): "upgrade" | "manage" | null {
+  if (cfg.plan !== "free") return "manage";
+  const hasRequestCap = cfg.jl4.dailyRequestLimit > 0;
+  const hasTokenCap = (cfg.ai?.dailyTokenLimit ?? 0) > 0;
+  return hasRequestCap || hasTokenCap ? "upgrade" : null;
+}
+
 function PlanActionButton({
   slug,
-  isPaid,
+  mode,
   isAdmin,
 }: {
   slug: string;
-  isPaid: boolean;
+  mode: "upgrade" | "manage" | null;
   isAdmin: boolean;
 }) {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  if (!isAdmin) return null;
+  if (!isAdmin || mode === null) return null;
 
   async function openPortal(e: React.MouseEvent) {
     e.preventDefault();
@@ -431,7 +445,7 @@ function PlanActionButton({
     }
   }
 
-  if (isPaid) {
+  if (mode === "manage") {
     return (
       <span className="inline-flex items-center gap-2">
         {error && <span className="text-xs text-red-600">{error}</span>}
