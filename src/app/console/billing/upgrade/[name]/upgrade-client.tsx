@@ -24,6 +24,13 @@ interface TemplatePrice {
   /** "per_unit" | "tiered" | null */
   billingScheme: string | null;
   meterEventName: string | null;
+  /**
+   * Positive integer cap (in smallest currency units) when this Price's
+   * Stripe Product carries `metadata.prepaidCreditCents`. The price's
+   * billed line on a subscription_cycle invoice consumes up to this
+   * many cents of the customer's other usage. NULL for regular prices.
+   */
+  prepaidCreditCents: number | null;
 }
 
 interface TemplatePublic {
@@ -243,8 +250,30 @@ function UpgradeContent({
             </li>
           ))}
         </ul>
-        <div className="px-5 py-3 border-t border-gray-100 text-xs text-gray-400">
-          You&rsquo;re only charged for what you use. No monthly minimum.
+        <div className="px-5 py-3 border-t border-gray-100 text-xs text-gray-400 space-y-1">
+          {(() => {
+            const credits = template.prices.filter(
+              (p) => typeof p.prepaidCreditCents === "number" && p.prepaidCreditCents > 0,
+            );
+            if (credits.length === 0) {
+              return (
+                <span>
+                  You&rsquo;re only charged for what you use. No monthly minimum.
+                </span>
+              );
+            }
+            return credits.map((p) => (
+              <div key={p.id}>
+                <span className="text-gray-600">
+                  {p.productName ?? p.nickname ?? p.id}
+                </span>
+                <span>
+                  {" "}— includes {formatCents(p.prepaidCreditCents ?? 0, template.currency)} of
+                  usage credit each cycle
+                </span>
+              </div>
+            ));
+          })()}
         </div>
       </div>
 
@@ -366,9 +395,17 @@ function formatPrice(p: TemplatePrice): string {
           style: "currency",
           currency: p.currency.toUpperCase(),
         })
-      : `$${dollars.toFixed(dollars < 0.01 ? 4 : 2)}`;
+      : `$${dollars.toFixed(dollars < 0.01 ? dollars < 0.001 ? dollars < 0.0001 ? 5 : 4 : 3 : 2)}`;
   if (p.transformQuantity?.divideBy && p.transformQuantity.divideBy > 1) {
     return `${formatted} per ${p.transformQuantity.divideBy.toLocaleString()} ${unit}s`;
   }
   return `${formatted} per ${unit}`;
+}
+
+function formatCents(cents: number, currency: string): string {
+  const dollars = cents / 100;
+  return dollars.toLocaleString(undefined, {
+    style: "currency",
+    currency: currency.toUpperCase(),
+  });
 }
