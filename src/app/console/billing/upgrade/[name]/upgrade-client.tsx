@@ -182,7 +182,7 @@ function UpgradeContent({
       );
       if (res.status === 409) {
         const body = await res.json().catch(() => ({}));
-        setError(body.error ?? "This organization is already on this plan.");
+        setError(body.error ?? "Upgrade not allowed for this organization right now.");
         setSubmitting(false);
         return;
       }
@@ -319,7 +319,9 @@ function UpgradeContent({
               <>{buttonLabel}</>
             )}
           </button>
-          {error && <p className="text-sm text-red-600">{error}</p>}
+          {error && (
+            <p className="text-sm text-red-600">{linkifyEmails(error)}</p>
+          )}
           <p className="text-xs text-gray-400">
             {isPaidElsewhere
               ? "Switching takes effect immediately. We will prorate the difference and bill it on your next invoice."
@@ -485,6 +487,39 @@ function periodLabel(billingPeriod: string): string {
     : billingPeriod === "yearly"
     ? "year"
     : billingPeriod;
+}
+
+/**
+ * Render plain-text error strings with any embedded email addresses
+ * wrapped in `mailto:` links. Backend error copy occasionally points
+ * customers at `support@legalese.com`; without this helper that
+ * address renders as a non-actionable string. Returns the input
+ * verbatim when no email is present so generic errors (`"Checkout
+ * failed"`, network errors, etc.) pass through unchanged.
+ */
+function linkifyEmails(text: string): React.ReactNode {
+  const emailRegex = /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  while ((match = emailRegex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+    parts.push(
+      <a
+        key={match.index}
+        href={`mailto:${match[0]}`}
+        className="underline underline-offset-2"
+      >
+        {match[0]}
+      </a>,
+    );
+    lastIndex = match.index + match[0].length;
+  }
+  if (parts.length === 0) return text;
+  if (lastIndex < text.length) parts.push(text.slice(lastIndex));
+  return <>{parts}</>;
 }
 
 function formatCents(cents: number, currency: string): string {
