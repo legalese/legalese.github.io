@@ -317,21 +317,28 @@ function ServiceDetails({
         </div>
       )}
       <details className="group">
-        <summary className="inline-flex items-center gap-1.5 cursor-pointer select-none list-none text-gray-600 hover:text-gray-900">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-            className="h-3.5 w-3.5 text-gray-400 transition-transform duration-150 group-open:rotate-90"
-          >
-            <path
-              fillRule="evenodd"
-              d="M7.21 14.77a.75.75 0 0 1 .02-1.06L11.168 10 7.23 6.29a.75.75 0 1 1 1.04-1.08l4.5 4.25a.75.75 0 0 1 0 1.08l-4.5 4.25a.75.75 0 0 1-1.06-.02Z"
-              clipRule="evenodd"
-            />
-          </svg>
-          <span>{planFromHealth(health)}</span>
+        <summary className="flex items-center justify-between gap-3 cursor-pointer select-none list-none text-gray-600 hover:text-gray-900">
+          <span className="inline-flex items-center gap-1.5">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+              className="h-3.5 w-3.5 text-gray-400 transition-transform duration-150 group-open:rotate-90"
+            >
+              <path
+                fillRule="evenodd"
+                d="M7.21 14.77a.75.75 0 0 1 .02-1.06L11.168 10 7.23 6.29a.75.75 0 1 1 1.04-1.08l4.5 4.25a.75.75 0 0 1 0 1.08l-4.5 4.25a.75.75 0 0 1-1.06-.02Z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <span>{planFromHealth(health)}</span>
+          </span>
+          <PlanActionButton
+            slug={slug}
+            isPaid={cfg.plan !== "free"}
+            isAdmin={isAdmin}
+          />
         </summary>
         <div
           className="mt-2 grid sm:grid-cols-2 gap-x-8 gap-y-4"
@@ -364,6 +371,89 @@ function ServiceDetails({
         </div>
       </details>
     </div>
+  );
+}
+
+// ── Plan Action Button ─────────────────────────────────────────────────
+//
+// Sits to the right of the plan label inside the <summary> line.
+// Free orgs see "Upgrade to Metered" → /console/billing/upgrade/metered.
+// Paid orgs see "Manage" → POSTs to /billing/portal and follows the URL
+// Stripe returns (same flow as /console/billing's manage button).
+//
+// Non-admins see nothing (the underlying endpoints require l4:admin, and
+// the upgrade page itself renders an "ask an admin" hint — no need to
+// surface a button that leads to a dead-end for them).
+//
+// stopPropagation everywhere so clicks don't also toggle the parent
+// <details> element. preventDefault on the upgrade Link because the
+// summary's default toggle action would otherwise fire alongside the
+// client-side navigation.
+
+function PlanActionButton({
+  slug,
+  isPaid,
+  isAdmin,
+}: {
+  slug: string;
+  isPaid: boolean;
+  isAdmin: boolean;
+}) {
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  if (!isAdmin) return null;
+
+  async function openPortal(e: React.MouseEvent) {
+    e.preventDefault();
+    e.stopPropagation();
+    setError(null);
+    setSubmitting(true);
+    try {
+      const res = await fetch(
+        `${AUTH_API_URL}/billing/portal?org=${encodeURIComponent(slug)}`,
+        {
+          method: "POST",
+          headers: authHeaders(),
+          credentials: "include",
+        },
+      );
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error ?? `HTTP ${res.status}`);
+      }
+      const { url } = await res.json();
+      if (!url) throw new Error("Portal URL not returned");
+      window.location.href = url;
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not open portal");
+      setSubmitting(false);
+    }
+  }
+
+  if (isPaid) {
+    return (
+      <span className="inline-flex items-center gap-2">
+        {error && <span className="text-xs text-red-600">{error}</span>}
+        <button
+          onClick={openPortal}
+          disabled={submitting}
+          className="inline-flex items-center px-3 py-1 border border-gray-300 text-gray-700 text-xs font-medium rounded hover:border-gray-400 hover:text-gray-900 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+        >
+          {submitting ? "Opening…" : "Manage"}
+        </button>
+      </span>
+    );
+  }
+
+  return (
+    <Link
+      href="/console/billing/upgrade/metered"
+      onClick={(e) => e.stopPropagation()}
+      className="inline-flex items-center px-3 py-1 bg-accent text-white text-xs font-medium rounded hover:bg-accent-hover transition-colors"
+    >
+      Upgrade to Metered
+    </Link>
   );
 }
 
@@ -459,9 +549,7 @@ function UsageChart({
               <span className="shrink-0">⚠</span>
               <span>
                 You have reached your daily request limit.{" "}
-                {isAdmin ? (
-                  <>Contact <a href={`mailto:support@legalese.com?subject=${encodeURIComponent(`Increase request limit - ${slug}`)}`} className="underline underline-offset-2">support@legalese.com</a> to increase your limits.</>
-                ) : (
+                {!isAdmin && (
                   "Please contact your administrator."
                 )}
               </span>
@@ -661,9 +749,7 @@ function AiUsageChart({
               <span className="shrink-0">⚠</span>
               <span>
                 You have reached your daily AI token limit.{" "}
-                {isAdmin ? (
-                  <>Contact <a href={`mailto:support@legalese.com?subject=${encodeURIComponent(`Increase AI token limit - ${slug}`)}`} className="underline underline-offset-2">support@legalese.com</a> to increase your limits.</>
-                ) : (
+                {!isAdmin && (
                   "Please contact your administrator."
                 )}
               </span>
