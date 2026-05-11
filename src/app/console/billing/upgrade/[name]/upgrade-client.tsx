@@ -236,7 +236,7 @@ function UpgradeContent({
           Pricing
         </div>
         <ul className="divide-y divide-gray-100">
-          {template.prices.map((p) => (
+          {sortedPrices(template.prices).map((p) => (
             <li
               key={p.id}
               className="px-5 py-3 flex items-center justify-between gap-4"
@@ -245,7 +245,7 @@ function UpgradeContent({
                 {p.productName ?? p.nickname ?? p.id}
               </span>
               <span className="text-sm text-gray-600 font-mono whitespace-nowrap">
-                {formatPrice(p)}
+                {formatPrice(p, template.billingPeriod)}
               </span>
             </li>
           ))}
@@ -351,7 +351,33 @@ function Spinner() {
 }
 
 /**
+ * Sort prices so prepaid-credit (licensed base-fee) lines come first.
+ * Within each group, preserve the template's declared order.
+ *
+ * Why credit lines on top: customers reading the price table should see
+ * the upfront fee they'll be charged (which buys the included usage
+ * credit) before the per-unit metered rates that apply on top.
+ */
+function sortedPrices(prices: TemplatePrice[]): TemplatePrice[] {
+  return [...prices].sort((a, b) => {
+    const aCredit = typeof a.prepaidCreditCents === "number" && a.prepaidCreditCents > 0;
+    const bCredit = typeof b.prepaidCreditCents === "number" && b.prepaidCreditCents > 0;
+    if (aCredit === bCredit) return 0;
+    return aCredit ? -1 : 1;
+  });
+}
+
+/**
  * Format a Stripe Price for the upgrade page.
+ *
+ * Two display modes:
+ *  - LICENSED recurring price (no meter, no transform_quantity, has a
+ *    fixed unit_amount): rendered as a flat periodic fee, e.g.
+ *    "$19.00 / month". Used for base-fee Products like the prepaid-
+ *    credit line. The trailing "per unit" suffix doesn't make sense
+ *    here because the customer doesn't buy N of them.
+ *  - METERED price (has meterEventName, optionally transformQuantity):
+ *    rendered as a per-unit rate, e.g. "$0.0040 per 1k tokens".
  *
  * Stripe surfaces the per-unit price one of three ways:
  *  1. `unitAmount` (integer cents) — used when the price is ≥ 1¢ per unit
@@ -369,7 +395,8 @@ function Spinner() {
  * is (e.g. "1k tokens", "MB"). Set this on Products in Stripe to make
  * the display self-documenting.
  */
-function formatPrice(p: TemplatePrice): string {
+function formatPrice(p: TemplatePrice, billingPeriod: string): string {
+  const isLicensed = p.meterEventName === null && !p.transformQuantity;
   const unit = p.unitLabel ?? "unit";
   // Prefer the decimal string (handles sub-cent prices) when it's
   // actually present; fall back to the integer cents value. The strict
@@ -396,6 +423,17 @@ function formatPrice(p: TemplatePrice): string {
           currency: p.currency.toUpperCase(),
         })
       : `$${dollars.toFixed(dollars < 0.01 ? dollars < 0.001 ? dollars < 0.0001 ? 5 : 4 : 3 : 2)}`;
+  if (isLicensed) {
+    // Flat recurring fee — no per-unit semantics. Render against the
+    // template's billing period (e.g. "$19.00 / month").
+    const periodSuffix =
+      billingPeriod === "monthly"
+        ? "/ month"
+        : billingPeriod === "yearly"
+        ? "/ year"
+        : `/ ${billingPeriod}`;
+    return `${formatted} ${periodSuffix}`;
+  }
   if (p.transformQuantity?.divideBy && p.transformQuantity.divideBy > 1) {
     return `${formatted} per ${p.transformQuantity.divideBy.toLocaleString()} ${unit}s`;
   }
