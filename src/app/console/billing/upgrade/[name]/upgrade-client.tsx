@@ -492,5 +492,9 @@ function formatCents(cents: number, currency: string): string {
   return dollars.toLocaleString(undefined, {
     style: "currency",
     currency: currency.toUpperCase(),
+    // Use the narrow symbol so USD renders as "$19.00" instead of
+    // "US$19.00" — locale-correct in en-* but reads as noise on
+    // an upgrade page next to "/ month" and similar copy.
+    currencyDisplay: "narrowSymbol",
   });
 }
