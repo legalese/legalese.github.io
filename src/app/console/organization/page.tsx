@@ -479,6 +479,31 @@ const PERIODS: Period[] = ["daily", "weekly", "monthly"];
 interface Bucket {
   label: string;
   count: number;
+  /** Bucket cost in cents (integer, ceiled). 0 for free orgs. */
+  costCents?: number;
+}
+
+type L4Metric = "requests" | "cost";
+
+/**
+ * Top-level currency from the /billing/usage response, derived from the
+ * org's Stripe prices. Null for free orgs — gates whether the Cost option
+ * is offered in the chart's metric dropdown.
+ */
+function isCostAvailable(currency: string | null): currency is string {
+  return currency !== null;
+}
+
+function formatCostCents(cents: number, currency: string): string {
+  // Backend already ceiled to whole cents. Display in major units.
+  try {
+    return new Intl.NumberFormat(undefined, {
+      style: "currency",
+      currency: currency.toUpperCase(),
+    }).format(cents / 100);
+  } catch {
+    return `${(cents / 100).toFixed(2)} ${currency.toUpperCase()}`;
+  }
 }
 
 function UsageChart({
@@ -495,6 +520,8 @@ function UsageChart({
   onPeriodChange: (p: Period) => void;
 }) {
   const [buckets, setBuckets] = useState<Bucket[]>([]);
+  const [currency, setCurrency] = useState<string | null>(null);
+  const [metric, setMetric] = useState<L4Metric>("requests");
   const [loading, setLoading] = useState(true);
   // Sticky today count for the limit-hit warning. Updated only when
   // the chart fetch is on the daily period (chart's last bucket =
@@ -519,6 +546,7 @@ function UsageChart({
         if (!cancelled && data) {
           const b: Bucket[] = data.buckets ?? [];
           setBuckets(b);
+          setCurrency(typeof data.currency === "string" ? data.currency : null);
         }
       })
       .catch(() => {})
@@ -526,6 +554,12 @@ function UsageChart({
 
     return () => { cancelled = true; };
   }, [slug, period, days, health.state]);
+
+  // If the cost option becomes unavailable (free plan), drop the user
+  // back to the requests view rather than rendering an empty chart.
+  useEffect(() => {
+    if (metric === "cost" && !isCostAvailable(currency)) setMetric("requests");
+  }, [metric, currency]);
 
   // Latch today's count from the daily chart fetch. Backend always
   // emits a today bucket (see
@@ -572,16 +606,38 @@ function UsageChart({
         return null;
       })()}
 
-      {/* Period selector (shared state — flipping here also updates sibling charts) */}
-      <PeriodSelector period={period} onChange={onPeriodChange} />
+      {/* Period selector + cost toggle (when the org has a paid plan) */}
+      <div className="flex flex-wrap items-center gap-2 mb-3">
+        <PeriodSelector period={period} onChange={onPeriodChange} />
+        {isCostAvailable(currency) && (
+          <select
+            value={metric}
+            onChange={(e) => setMetric(e.target.value as L4Metric)}
+            className="text-xs rounded border border-gray-200 bg-white px-2 py-0.5 text-gray-600"
+          >
+            <option value="requests">Requests</option>
+            <option value="cost">Cost</option>
+          </select>
+        )}
+      </div>
 
       <BarChart
         series={[
-          {
-            buckets,
-            className: "bg-accent/70 hover:bg-accent",
-            label: "Requests",
-          },
+          metric === "cost" && isCostAvailable(currency)
+            ? {
+                buckets: buckets.map((b) => ({
+                  label: b.label,
+                  count: b.costCents ?? 0,
+                })),
+                className: "bg-accent/70 hover:bg-accent",
+                label: "Cost",
+                formatValue: (n) => formatCostCents(n, currency),
+              }
+            : {
+                buckets,
+                className: "bg-accent/70 hover:bg-accent",
+                label: "Requests",
+              },
         ]}
         loading={loading}
         period={period}
@@ -602,12 +658,18 @@ function UsageChart({
 // and by token metric; inherits the shared `period` state so flipping
 // daily/weekly/monthly moves this chart in lockstep with the L4 one.
 
-type AiMetric = "totalTokens" | "promptTokens" | "completionTokens" | "requests";
+type AiMetric =
+  | "totalTokens"
+  | "promptTokens"
+  | "completionTokens"
+  | "requests"
+  | "cost";
 const AI_METRICS: { value: AiMetric; label: string }[] = [
   { value: "totalTokens", label: "Total tokens" },
   { value: "promptTokens", label: "Prompt tokens" },
   { value: "completionTokens", label: "Completion tokens" },
   { value: "requests", label: "Requests" },
+  { value: "cost", label: "Cost" },
 ];
 
 const AI_MODELS: { value: string; label: string }[] = [
@@ -631,6 +693,7 @@ function AiUsageChart({
 }) {
   const [composeBuckets, setComposeBuckets] = useState<Bucket[]>([]);
   const [summizeBuckets, setSummizeBuckets] = useState<Bucket[]>([]);
+  const [currency, setCurrency] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [metric, setMetric] = useState<AiMetric>("totalTokens");
   const [model, setModel] = useState<string>("");
@@ -648,22 +711,30 @@ function AiUsageChart({
     let cancelled = false;
     setLoading(true);
 
-    const fetchBuckets = async (modelId: string): Promise<Bucket[]> => {
+    const fetchUsage = async (
+      modelId: string,
+    ): Promise<{ buckets: Bucket[]; currency: string | null }> => {
       const params = new URLSearchParams({
         org: slug,
         source: "ai-chat",
         period,
         days: String(days),
-        metric,
+        // The backend returns costCents on every bucket regardless of
+        // metric, so when the user picks "Cost" we still send a valid
+        // metric param (the count field of the response is unused).
+        metric: metric === "cost" ? "requests" : metric,
       });
       if (modelId) params.set("model", modelId);
       const res = await fetch(
         `${AUTH_API_URL}/billing/usage?${params.toString()}`,
         { headers: authHeaders(), credentials: "include" },
       );
-      if (!res.ok) return [];
+      if (!res.ok) return { buckets: [], currency: null };
       const data = await res.json();
-      return data.buckets ?? [];
+      return {
+        buckets: data.buckets ?? [],
+        currency: typeof data.currency === "string" ? data.currency : null,
+      };
     };
 
     (async () => {
@@ -671,24 +742,27 @@ function AiUsageChart({
         if (model === "") {
           // "All models" → fetch each separately so we can stack them.
           const [c, s] = await Promise.all([
-            fetchBuckets("legalese-compose-4"),
-            fetchBuckets("legalese-summize-4"),
+            fetchUsage("legalese-compose-4"),
+            fetchUsage("legalese-summize-4"),
           ]);
           if (!cancelled) {
-            setComposeBuckets(c);
-            setSummizeBuckets(s);
+            setComposeBuckets(c.buckets);
+            setSummizeBuckets(s.buckets);
+            setCurrency(c.currency ?? s.currency);
           }
         } else if (model === "legalese-compose-4") {
-          const c = await fetchBuckets(model);
+          const c = await fetchUsage(model);
           if (!cancelled) {
-            setComposeBuckets(c);
+            setComposeBuckets(c.buckets);
             setSummizeBuckets([]);
+            setCurrency(c.currency);
           }
         } else {
-          const s = await fetchBuckets(model);
+          const s = await fetchUsage(model);
           if (!cancelled) {
             setComposeBuckets([]);
-            setSummizeBuckets(s);
+            setSummizeBuckets(s.buckets);
+            setCurrency(s.currency);
           }
         }
       } catch {
@@ -732,6 +806,16 @@ function AiUsageChart({
   }
 
   const labelInterval = period === "daily" ? 5 : 1;
+  const isCostView = metric === "cost" && isCostAvailable(currency);
+  const formatValue = isCostView
+    ? (n: number) => formatCostCents(n, currency)
+    : undefined;
+  // Remap to costCents when in cost mode, so the BarChart's count-based
+  // stacking math works unchanged.
+  const remap = (bs: Bucket[]): Bucket[] =>
+    isCostView
+      ? bs.map((b) => ({ label: b.label, count: b.costCents ?? 0 }))
+      : bs;
 
   // Stack compose (base, usual color) under summize (lighter overlay).
   // Each layer is only added when it has data, so rounded-t stays on the
@@ -739,16 +823,18 @@ function AiUsageChart({
   const series: Series[] = [];
   if (composeBuckets.length > 0) {
     series.push({
-      buckets: composeBuckets,
+      buckets: remap(composeBuckets),
       className: "bg-accent/70 hover:bg-accent",
       label: "Compose",
+      formatValue,
     });
   }
   if (summizeBuckets.length > 0) {
     series.push({
-      buckets: summizeBuckets,
+      buckets: remap(summizeBuckets),
       className: "bg-accent/35 hover:bg-accent/55",
       label: "Summize",
+      formatValue,
     });
   }
 
@@ -796,7 +882,9 @@ function AiUsageChart({
           onChange={(e) => setMetric(e.target.value as AiMetric)}
           className="text-xs rounded border border-gray-200 bg-white px-2 py-0.5 text-gray-600"
         >
-          {AI_METRICS.map((m) => (
+          {AI_METRICS.filter(
+            (m) => m.value !== "cost" || isCostAvailable(currency),
+          ).map((m) => (
             <option key={m.value} value={m.value}>{m.label}</option>
           ))}
         </select>
@@ -850,6 +938,11 @@ interface Series {
   className: string;
   /** Shown in the tooltip when more than one series is visible. */
   label: string;
+  /**
+   * Tooltip formatter for the series' value. Defaults to integer
+   * locale-string. Cost views pass a currency formatter.
+   */
+  formatValue?: (n: number) => string;
 }
 
 function BarChart({
@@ -933,21 +1026,22 @@ function BarChart({
                     {[...series].reverse().map((s) => {
                       const c = s.buckets[i]?.count ?? 0;
                       if (c === 0) return null;
+                      const fmt = s.formatValue ?? ((n: number) => n.toLocaleString());
                       return (
                         <div key={s.label}>
-                          {s.label}: {c.toLocaleString()}
+                          {s.label}: {fmt(c)}
                         </div>
                       );
                     })}
                     <div className="border-t border-gray-600 mt-0.5 pt-0.5">
-                      Total: {total.toLocaleString()}
+                      Total: {(series[0]?.formatValue ?? ((n: number) => n.toLocaleString()))(total)}
                     </div>
                   </>
                 ) : (
                   <>
                     <div>{bucket.label}</div>
                     <div>
-                      {series[0]?.label}: {total.toLocaleString()}
+                      {series[0]?.label}: {(series[0]?.formatValue ?? ((n: number) => n.toLocaleString()))(total)}
                     </div>
                   </>
                 )}
