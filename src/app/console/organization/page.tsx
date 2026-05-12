@@ -678,6 +678,35 @@ const AI_MODELS: { value: string; label: string }[] = [
   { value: "legalese-summize-4", label: "Summize" },
 ];
 
+interface AiModelTotals {
+  promptTokens: number;
+  completionTokens: number;
+  requests: number;
+}
+
+interface AiBucket {
+  label: string;
+  perModel: Record<string, AiModelTotals>;
+  costCents?: number;
+}
+
+function aiMetricValue(m: AiModelTotals | undefined, metric: AiMetric): number {
+  if (!m) return 0;
+  switch (metric) {
+    case "promptTokens":
+      return m.promptTokens;
+    case "completionTokens":
+      return m.completionTokens;
+    case "requests":
+      return m.requests;
+    case "totalTokens":
+      return m.promptTokens + m.completionTokens;
+    case "cost":
+      // Cost is per-bucket, not per-model — handled at the bucket level.
+      return 0;
+  }
+}
+
 function AiUsageChart({
   slug,
   health,
@@ -691,19 +720,13 @@ function AiUsageChart({
   period: Period;
   onPeriodChange: (p: Period) => void;
 }) {
-  const [composeBuckets, setComposeBuckets] = useState<Bucket[]>([]);
-  const [summizeBuckets, setSummizeBuckets] = useState<Bucket[]>([]);
+  // One fetch per (slug, period, days) — the response carries the full
+  // per-model breakdown so metric/model switching is purely client-side.
+  const [aiBuckets, setAiBuckets] = useState<AiBucket[]>([]);
   const [currency, setCurrency] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [metric, setMetric] = useState<AiMetric>("totalTokens");
   const [model, setModel] = useState<string>("");
-  // Sticky today total-tokens for the limit-hit warning. Updated only
-  // when the chart fetch is on the default view (period=daily,
-  // metric=totalTokens, all models) — those are the only filters
-  // where the chart's last bucket equals today's unfiltered total.
-  // Never overwritten back to null, so the warning persists across
-  // filter changes. Resets on full page reload.
-  const [todayTokens, setTodayTokens] = useState<number | null>(null);
   const days = period === "daily" ? 30 : 90;
 
   useEffect(() => {
@@ -711,92 +734,34 @@ function AiUsageChart({
     let cancelled = false;
     setLoading(true);
 
-    const fetchUsage = async (
-      modelId: string,
-    ): Promise<{ buckets: Bucket[]; currency: string | null }> => {
-      const params = new URLSearchParams({
-        org: slug,
-        source: "ai-chat",
-        period,
-        days: String(days),
-        // The backend returns costCents on every bucket regardless of
-        // metric, so when the user picks "Cost" we still send a valid
-        // metric param (the count field of the response is unused).
-        metric: metric === "cost" ? "requests" : metric,
-      });
-      if (modelId) params.set("model", modelId);
-      const res = await fetch(
-        `${AUTH_API_URL}/billing/usage?${params.toString()}`,
-        { headers: authHeaders(), credentials: "include" },
-      );
-      if (!res.ok) return { buckets: [], currency: null };
-      const data = await res.json();
-      return {
-        buckets: data.buckets ?? [],
-        currency: typeof data.currency === "string" ? data.currency : null,
-      };
-    };
-
-    (async () => {
-      try {
-        if (model === "") {
-          // "All models" → fetch each separately so we can stack them.
-          const [c, s] = await Promise.all([
-            fetchUsage("legalese-compose-4"),
-            fetchUsage("legalese-summize-4"),
-          ]);
-          if (!cancelled) {
-            setComposeBuckets(c.buckets);
-            setSummizeBuckets(s.buckets);
-            setCurrency(c.currency ?? s.currency);
-          }
-        } else if (model === "legalese-compose-4") {
-          const c = await fetchUsage(model);
-          if (!cancelled) {
-            setComposeBuckets(c.buckets);
-            setSummizeBuckets([]);
-            setCurrency(c.currency);
-          }
-        } else {
-          const s = await fetchUsage(model);
-          if (!cancelled) {
-            setComposeBuckets([]);
-            setSummizeBuckets(s.buckets);
-            setCurrency(s.currency);
-          }
+    const params = new URLSearchParams({
+      org: slug,
+      source: "ai-chat",
+      period,
+      days: String(days),
+    });
+    fetch(`${AUTH_API_URL}/billing/usage?${params.toString()}`, {
+      headers: authHeaders(),
+      credentials: "include",
+    })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!cancelled && data) {
+          setAiBuckets((data.buckets ?? []) as AiBucket[]);
+          setCurrency(
+            typeof data.currency === "string" ? data.currency : null,
+          );
         }
-      } catch {
-        // keep previous data on failure
-      } finally {
+      })
+      .catch(() => {})
+      .finally(() => {
         if (!cancelled) setLoading(false);
-      }
-    })();
+      });
 
     return () => {
       cancelled = true;
     };
-  }, [slug, period, days, metric, model, health.state]);
-
-  // Latch today's totalTokens from the chart fetch when the chart is
-  // on the default view (period=daily, metric=totalTokens, all
-  // models) — those are the only filters where the last bucket of
-  // each model's series equals today's unfiltered total for that
-  // model. Sum across compose+summize for the cross-model total.
-  // Gated on having at least one populated bucket array so we don't
-  // latch a spurious 0 while the fetch is still in flight.
-  useEffect(() => {
-    if (
-      period === "daily" &&
-      metric === "totalTokens" &&
-      !model &&
-      (composeBuckets.length > 0 || summizeBuckets.length > 0)
-    ) {
-      setTodayTokens(
-        (composeBuckets[composeBuckets.length - 1]?.count ?? 0) +
-          (summizeBuckets[summizeBuckets.length - 1]?.count ?? 0),
-      );
-    }
-  }, [period, metric, model, composeBuckets, summizeBuckets]);
+  }, [slug, period, days, health.state]);
 
   if (health.state === "loading") {
     return <div className="h-32 flex items-center justify-center text-gray-400 text-xs">Loading...</div>;
@@ -805,37 +770,72 @@ function AiUsageChart({
     return <span className="text-gray-400 text-sm">Service temporarily unavailable</span>;
   }
 
+  // Today's total tokens for the limit-hit warning. Cheap to derive each
+  // render from the already-fetched buckets (no useEffect/latch needed).
+  let todayTokens: number | null = null;
+  if (period === "daily" && aiBuckets.length > 0) {
+    const last = aiBuckets[aiBuckets.length - 1]!;
+    todayTokens = Object.values(last.perModel).reduce(
+      (sum, m) => sum + m.promptTokens + m.completionTokens,
+      0,
+    );
+  }
+
   const labelInterval = period === "daily" ? 5 : 1;
   const isCostView = metric === "cost" && isCostAvailable(currency);
   const formatValue = isCostView
     ? (n: number) => formatCostCents(n, currency)
     : undefined;
-  // Remap to costCents when in cost mode, so the BarChart's count-based
-  // stacking math works unchanged.
-  const remap = (bs: Bucket[]): Bucket[] =>
-    isCostView
-      ? bs.map((b) => ({ label: b.label, count: b.costCents ?? 0 }))
-      : bs;
 
-  // Stack compose (base, usual color) under summize (lighter overlay).
-  // Each layer is only added when it has data, so rounded-t stays on the
-  // actually-visible topmost segment.
+  // Build a Bucket[] for a given model (filtered or stacked) from the
+  // cached per-model breakdown. Cost mode short-circuits to a single
+  // costCents series — cost is a bucket-level property.
+  const bucketsForModel = (modelId: string): Bucket[] =>
+    aiBuckets.map((b) => ({
+      label: b.label,
+      count: aiMetricValue(b.perModel[modelId], metric),
+    }));
+  const costBuckets: Bucket[] = aiBuckets.map((b) => ({
+    label: b.label,
+    count: b.costCents ?? 0,
+  }));
+
   const series: Series[] = [];
-  if (composeBuckets.length > 0) {
+  if (isCostView) {
     series.push({
-      buckets: remap(composeBuckets),
+      buckets: costBuckets,
       className: "bg-accent/70 hover:bg-accent",
-      label: "Compose",
+      label: "Cost",
       formatValue,
     });
-  }
-  if (summizeBuckets.length > 0) {
-    series.push({
-      buckets: remap(summizeBuckets),
-      className: "bg-accent/35 hover:bg-accent/55",
-      label: "Summize",
-      formatValue,
-    });
+  } else {
+    // Stack compose (base, usual color) under summize (lighter overlay)
+    // when "All models" is selected. Filtered views show a single series.
+    const visible =
+      model === "" ? ["legalese-compose-4", "legalese-summize-4"] : [model];
+    const styles: Record<string, { className: string; label: string }> = {
+      "legalese-compose-4": {
+        className: "bg-accent/70 hover:bg-accent",
+        label: "Compose",
+      },
+      "legalese-summize-4": {
+        className:
+          model === ""
+            ? "bg-accent/35 hover:bg-accent/55"
+            : "bg-accent/70 hover:bg-accent",
+        label: "Summize",
+      },
+    };
+    for (const m of visible) {
+      const buckets = bucketsForModel(m);
+      if (buckets.some((b) => b.count > 0)) {
+        series.push({
+          buckets,
+          className: styles[m]?.className ?? "bg-accent/70 hover:bg-accent",
+          label: styles[m]?.label ?? m,
+        });
+      }
+    }
   }
 
   return (
