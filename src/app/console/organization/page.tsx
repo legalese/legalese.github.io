@@ -682,11 +682,14 @@ interface AiModelTotals {
   promptTokens: number;
   completionTokens: number;
   requests: number;
+  /** Per-model cost (whole cents). Absent when not priced. */
+  costCents?: number;
 }
 
 interface AiBucket {
   label: string;
   perModel: Record<string, AiModelTotals>;
+  /** Top-level cost — sum of per-model costs. */
   costCents?: number;
 }
 
@@ -702,8 +705,7 @@ function aiMetricValue(m: AiModelTotals | undefined, metric: AiMetric): number {
     case "totalTokens":
       return m.promptTokens + m.completionTokens;
     case "cost":
-      // Cost is per-bucket, not per-model — handled at the bucket level.
-      return 0;
+      return m.costCents ?? 0;
   }
 }
 
@@ -787,54 +789,42 @@ function AiUsageChart({
     ? (n: number) => formatCostCents(n, currency)
     : undefined;
 
-  // Build a Bucket[] for a given model (filtered or stacked) from the
-  // cached per-model breakdown. Cost mode short-circuits to a single
-  // costCents series — cost is a bucket-level property.
+  // Build a Bucket[] for a given model from the cached per-model
+  // breakdown. The same shape works for token metrics and cost — the
+  // selector lives in aiMetricValue().
   const bucketsForModel = (modelId: string): Bucket[] =>
     aiBuckets.map((b) => ({
       label: b.label,
       count: aiMetricValue(b.perModel[modelId], metric),
     }));
-  const costBuckets: Bucket[] = aiBuckets.map((b) => ({
-    label: b.label,
-    count: b.costCents ?? 0,
-  }));
 
-  const series: Series[] = [];
-  if (isCostView) {
-    series.push({
-      buckets: costBuckets,
+  // Stack compose (base, usual color) under summize (lighter overlay)
+  // when "All models" is selected. Filtered views show a single series.
+  const visible =
+    model === "" ? ["legalese-compose-4", "legalese-summize-4"] : [model];
+  const styles: Record<string, { className: string; label: string }> = {
+    "legalese-compose-4": {
       className: "bg-accent/70 hover:bg-accent",
-      label: "Cost",
-      formatValue,
-    });
-  } else {
-    // Stack compose (base, usual color) under summize (lighter overlay)
-    // when "All models" is selected. Filtered views show a single series.
-    const visible =
-      model === "" ? ["legalese-compose-4", "legalese-summize-4"] : [model];
-    const styles: Record<string, { className: string; label: string }> = {
-      "legalese-compose-4": {
-        className: "bg-accent/70 hover:bg-accent",
-        label: "Compose",
-      },
-      "legalese-summize-4": {
-        className:
-          model === ""
-            ? "bg-accent/35 hover:bg-accent/55"
-            : "bg-accent/70 hover:bg-accent",
-        label: "Summize",
-      },
-    };
-    for (const m of visible) {
-      const buckets = bucketsForModel(m);
-      if (buckets.some((b) => b.count > 0)) {
-        series.push({
-          buckets,
-          className: styles[m]?.className ?? "bg-accent/70 hover:bg-accent",
-          label: styles[m]?.label ?? m,
-        });
-      }
+      label: "Compose",
+    },
+    "legalese-summize-4": {
+      className:
+        model === ""
+          ? "bg-accent/35 hover:bg-accent/55"
+          : "bg-accent/70 hover:bg-accent",
+      label: "Summize",
+    },
+  };
+  const series: Series[] = [];
+  for (const m of visible) {
+    const buckets = bucketsForModel(m);
+    if (buckets.some((b) => b.count > 0)) {
+      series.push({
+        buckets,
+        className: styles[m]?.className ?? "bg-accent/70 hover:bg-accent",
+        label: styles[m]?.label ?? m,
+        formatValue,
+      });
     }
   }
 
