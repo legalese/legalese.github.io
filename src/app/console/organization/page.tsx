@@ -1091,6 +1091,10 @@ function formatTokenLimit(tokens: number): string {
     const m = tokens / 1_000_000;
     const value = Number.isInteger(m) ? m.toFixed(0) : m.toFixed(1);
     return `${value}M`;
+  } else if (tokens >= 1_000) {
+    const m = tokens / 1_000;
+    const value = Number.isInteger(m) ? m.toFixed(0) : m.toFixed(1);
+    return `${value}K`;
   }
   return `${tokens}`;
 }
