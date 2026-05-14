@@ -672,12 +672,26 @@ const AI_METRICS: { value: AiMetric; label: string }[] = [
   { value: "cost", label: "Cost" },
 ];
 
-const AI_MODELS: { value: string; label: string }[] = [
-  { value: "", label: "All models" },
-  { value: "legalese-compose-4", label: "Compose" },
-  { value: "legalese-summize-4", label: "Summize" },
-  { value: "legalese-comply-4", label: "Comply" },
-];
+/**
+ * Pretty labels for known model ids. The dropdown is built from the
+ * models that actually appear in the usage response; this map only
+ * decides how to label them. New models added on the proxy show up
+ * automatically with their raw id as the label until added here.
+ */
+const AI_MODEL_LABELS: Record<string, string> = {
+  "legalese-compose-4": "Compose",
+  "legalese-summize-4": "Summize",
+  "legalese-comply-4": "Comply",
+};
+
+/** Strip the `legalese-` prefix and the `-N` suffix when no label is known. */
+function aiModelLabel(id: string): string {
+  if (AI_MODEL_LABELS[id]) return AI_MODEL_LABELS[id]!;
+  const stripped = id
+    .replace(/^legalese-/i, "")
+    .replace(/-\d+$/, "");
+  return stripped.charAt(0).toUpperCase() + stripped.slice(1);
+}
 
 interface AiModelTotals {
   promptTokens: number;
@@ -766,6 +780,23 @@ function AiUsageChart({
     };
   }, [slug, period, days, health.state]);
 
+  // If the buckets refresh and no longer carry the currently-selected
+  // model (period changed, model retired, etc.), snap back to
+  // "All models" so the dropdown's value isn't an option that's not
+  // in its <option> list.
+  useEffect(() => {
+    if (!model) return;
+    if (aiBuckets.length === 0) return;
+    const stillThere = aiBuckets.some((b) => {
+      const t = b.perModel[model];
+      return (
+        t &&
+        (t.promptTokens > 0 || t.completionTokens > 0 || t.requests > 0)
+      );
+    });
+    if (!stillThere) setModel("");
+  }, [aiBuckets, model]);
+
   if (health.state === "loading") {
     return <div className="h-32 flex items-center justify-center text-gray-400 text-xs">Loading...</div>;
   }
@@ -799,44 +830,53 @@ function AiUsageChart({
       count: aiMetricValue(b.perModel[modelId], metric),
     }));
 
-  // When "All models" is selected, stack compose under summize under
-  // comply with descending opacities for visual separation. Filtered
-  // views show a single full-opacity series.
-  const visible =
-    model === ""
-      ? ["legalese-compose-4", "legalese-summize-4", "legalese-comply-4"]
-      : [model];
-  const styles: Record<string, { className: string; label: string }> = {
-    "legalese-compose-4": {
-      className: "bg-accent/70 hover:bg-accent",
-      label: "Compose",
-    },
-    "legalese-summize-4": {
-      className:
-        model === ""
-          ? "bg-accent/35 hover:bg-accent/55"
-          : "bg-accent/70 hover:bg-accent",
-      label: "Summize",
-    },
-    "legalese-comply-4": {
-      className:
-        model === ""
-          ? "bg-accent/55 hover:bg-accent/75"
-          : "bg-accent/70 hover:bg-accent",
-      label: "Comply",
-    },
-  };
+  // Models with any usage in the window, in a stable order. Drives
+  // both the filter dropdown and the "All models" series stack — so a
+  // new pipeline shipped server-side surfaces here automatically on
+  // the next refresh, no frontend deploy needed. Sorted by first
+  // appearance to keep the legend stable across re-renders.
+  const usedModels: string[] = [];
+  const seen = new Set<string>();
+  for (const b of aiBuckets) {
+    for (const [m, totals] of Object.entries(b.perModel)) {
+      if (seen.has(m)) continue;
+      if (
+        totals.promptTokens > 0 ||
+        totals.completionTokens > 0 ||
+        totals.requests > 0
+      ) {
+        seen.add(m);
+        usedModels.push(m);
+      }
+    }
+  }
+
+  // Opacity assigned by position in usedModels so the colors stay
+  // distinct as the set grows. 4+ models would start to look samey —
+  // acceptable for the foreseeable future (we have three).
+  const stackOpacities = ["bg-accent/70", "bg-accent/35", "bg-accent/55"];
+  const stackHovers = [
+    "hover:bg-accent",
+    "hover:bg-accent/55",
+    "hover:bg-accent/75",
+  ];
+
+  const visible = model === "" ? usedModels : [model];
   const series: Series[] = [];
   for (const m of visible) {
     const buckets = bucketsForModel(m);
-    if (buckets.some((b) => b.count > 0)) {
-      series.push({
-        buckets,
-        className: styles[m]?.className ?? "bg-accent/70 hover:bg-accent",
-        label: styles[m]?.label ?? m,
-        formatValue,
-      });
-    }
+    if (!buckets.some((b) => b.count > 0)) continue;
+    const idx = usedModels.indexOf(m);
+    const className =
+      model === "" && idx >= 0
+        ? `${stackOpacities[idx % stackOpacities.length]} ${stackHovers[idx % stackHovers.length]}`
+        : "bg-accent/70 hover:bg-accent";
+    series.push({
+      buckets,
+      className,
+      label: aiModelLabel(m),
+      formatValue,
+    });
   }
 
   return (
@@ -872,10 +912,12 @@ function AiUsageChart({
         <select
           value={model}
           onChange={(e) => setModel(e.target.value)}
-          className="text-xs rounded border border-gray-200 bg-white px-2 py-0.5 text-gray-600"
+          disabled={usedModels.length <= 1}
+          className="text-xs rounded border border-gray-200 bg-white px-2 py-0.5 text-gray-600 disabled:opacity-50"
         >
-          {AI_MODELS.map((m) => (
-            <option key={m.value} value={m.value}>{m.label}</option>
+          <option value="">All models</option>
+          {usedModels.map((m) => (
+            <option key={m} value={m}>{aiModelLabel(m)}</option>
           ))}
         </select>
         <select
