@@ -1081,12 +1081,27 @@ function BarChart({
                     </div>
                   </>
                 ) : (
-                  <>
-                    <div>{bucket.label}</div>
-                    <div>
-                      {series[0]?.label}: {(series[0]?.formatValue ?? ((n: number) => n.toLocaleString()))(total)}
-                    </div>
-                  </>
+                  // Exactly one series contributes to this bucket. Find
+                  // it explicitly — series[0] may not be the one with
+                  // the bar (e.g. a Comply-only day in an "All models"
+                  // window that also has compose / summize on other days).
+                  (() => {
+                    const only = series.find(
+                      (s) => (s.buckets[i]?.count ?? 0) > 0,
+                    );
+                    if (!only) return null;
+                    const c = only.buckets[i]?.count ?? 0;
+                    const fmt =
+                      only.formatValue ?? ((n: number) => n.toLocaleString());
+                    return (
+                      <>
+                        <div>{bucket.label}</div>
+                        <div>
+                          {only.label}: {fmt(c)}
+                        </div>
+                      </>
+                    );
+                  })()
                 )}
               </div>
             </div>
