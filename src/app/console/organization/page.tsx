@@ -676,6 +676,7 @@ const AI_MODELS: { value: string; label: string }[] = [
   { value: "", label: "All models" },
   { value: "legalese-compose-4", label: "Compose" },
   { value: "legalese-summize-4", label: "Summize" },
+  { value: "legalese-comply-4", label: "Comply" },
 ];
 
 interface AiModelTotals {
@@ -798,10 +799,13 @@ function AiUsageChart({
       count: aiMetricValue(b.perModel[modelId], metric),
     }));
 
-  // Stack compose (base, usual color) under summize (lighter overlay)
-  // when "All models" is selected. Filtered views show a single series.
+  // When "All models" is selected, stack compose under summize under
+  // comply with descending opacities for visual separation. Filtered
+  // views show a single full-opacity series.
   const visible =
-    model === "" ? ["legalese-compose-4", "legalese-summize-4"] : [model];
+    model === ""
+      ? ["legalese-compose-4", "legalese-summize-4", "legalese-comply-4"]
+      : [model];
   const styles: Record<string, { className: string; label: string }> = {
     "legalese-compose-4": {
       className: "bg-accent/70 hover:bg-accent",
@@ -813,6 +817,13 @@ function AiUsageChart({
           ? "bg-accent/35 hover:bg-accent/55"
           : "bg-accent/70 hover:bg-accent",
       label: "Summize",
+    },
+    "legalese-comply-4": {
+      className:
+        model === ""
+          ? "bg-accent/55 hover:bg-accent/75"
+          : "bg-accent/70 hover:bg-accent",
+      label: "Comply",
     },
   };
   const series: Series[] = [];
