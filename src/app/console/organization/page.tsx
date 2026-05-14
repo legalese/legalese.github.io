@@ -642,6 +642,7 @@ function UsageChart({
         loading={loading}
         period={period}
         labelInterval={labelInterval}
+        bucketLabels={buckets.map((b) => b.label)}
       />
 
       <p className="text-xs text-gray-500 mt-2">
@@ -672,26 +673,10 @@ const AI_METRICS: { value: AiMetric; label: string }[] = [
   { value: "cost", label: "Cost" },
 ];
 
-/**
- * Pretty labels for known model ids. The dropdown is built from the
- * models that actually appear in the usage response; this map only
- * decides how to label them. New models added on the proxy show up
- * automatically with their raw id as the label until added here.
- */
-const AI_MODEL_LABELS: Record<string, string> = {
-  "legalese-compose-4": "Compose",
-  "legalese-summize-4": "Summize",
-  "legalese-comply-4": "Comply",
-};
-
-/** Strip the `legalese-` prefix and the `-N` suffix when no label is known. */
-function aiModelLabel(id: string): string {
-  if (AI_MODEL_LABELS[id]) return AI_MODEL_LABELS[id]!;
-  const stripped = id
-    .replace(/^legalese-/i, "")
-    .replace(/-\d+$/, "");
-  return stripped.charAt(0).toUpperCase() + stripped.slice(1);
-}
+// No frontend-side mapping for model labels — we surface whatever id
+// the /billing/usage response uses (`legalese-compose-4`, etc.) so a
+// new pipeline shipped server-side surfaces here with no frontend
+// deploy needed.
 
 interface AiModelTotals {
   promptTokens: number;
@@ -874,7 +859,7 @@ function AiUsageChart({
     series.push({
       buckets,
       className,
-      label: aiModelLabel(m),
+      label: m,
       formatValue,
     });
   }
@@ -917,7 +902,7 @@ function AiUsageChart({
         >
           <option value="">All models</option>
           {usedModels.map((m) => (
-            <option key={m} value={m}>{aiModelLabel(m)}</option>
+            <option key={m} value={m}>{m}</option>
           ))}
         </select>
         <select
@@ -938,6 +923,10 @@ function AiUsageChart({
         loading={loading}
         period={period}
         labelInterval={labelInterval}
+        // Pass the full per-period label grid so an org with no AI
+        // usage in the window still sees an empty grid with hoverable
+        // "No use" cells, instead of a "No usage data" placeholder.
+        bucketLabels={aiBuckets.map((b) => b.label)}
       />
 
       {/* <p className="text-xs text-gray-500 mt-2">
@@ -993,6 +982,7 @@ function BarChart({
   loading,
   period,
   labelInterval,
+  bucketLabels,
 }: {
   // Series stack in caller order: series[0] is the visual base, later
   // series layer on top. `flex-col-reverse` renders the first DOM child
@@ -1001,10 +991,18 @@ function BarChart({
   loading: boolean;
   period: Period;
   labelInterval: number;
+  /**
+   * Authoritative grid labels (one entry per period bucket). When
+   * provided we render every cell — including those with zero across
+   * every series — so the user can hover an empty day and get a
+   * "No use" tooltip. When omitted, falls back to series[0]'s
+   * bucket labels (legacy callers).
+   */
+  bucketLabels?: string[];
 }) {
-  const primary = series[0]?.buckets ?? [];
+  const labels = bucketLabels ?? series[0]?.buckets.map((b) => b.label) ?? [];
 
-  if (loading || primary.length === 0) {
+  if (loading || labels.length === 0) {
     return (
       <div>
         <div className="h-32 flex items-center justify-center text-gray-400 text-xs">
@@ -1019,7 +1017,7 @@ function BarChart({
 
   // Scale by the tallest stacked column so bars never overflow the
   // container, regardless of how many layers each one has.
-  const totals = primary.map((_, i) =>
+  const totals = labels.map((_, i) =>
     series.reduce((sum, s) => sum + (s.buckets[i]?.count ?? 0), 0),
   );
   const maxCount = Math.max(1, ...totals);
@@ -1027,7 +1025,7 @@ function BarChart({
   return (
     <div>
       <div className="flex items-end gap-px h-32">
-        {primary.map((bucket, i) => {
+        {labels.map((bucketLabel, i) => {
           // Topmost visible segment = last non-zero series at this index.
           let topIdx = -1;
           for (let s = series.length - 1; s >= 0; s--) {
@@ -1043,7 +1041,7 @@ function BarChart({
           );
           return (
             <div
-              key={bucket.label}
+              key={bucketLabel}
               className="flex-1 flex flex-col-reverse items-stretch h-full group relative min-w-0"
             >
               {series.map((s, sIdx) => {
@@ -1060,49 +1058,66 @@ function BarChart({
                 );
               })}
               <div className="absolute bottom-full right-0 mb-1 hidden group-hover:block bg-gray-800 text-white text-xs rounded px-2 py-1 whitespace-nowrap z-10">
-                {visibleCount > 1 ? (
-                  <>
-                    <div>{bucket.label}</div>
-                    {/* Reversed so the visually-topmost stack segment
-                        (the last series) is listed first in the bubble,
-                        mirroring the on-screen order of the bars. */}
-                    {[...series].reverse().map((s) => {
-                      const c = s.buckets[i]?.count ?? 0;
-                      if (c === 0) return null;
-                      const fmt = s.formatValue ?? ((n: number) => n.toLocaleString());
-                      return (
-                        <div key={s.label}>
-                          {s.label}: {fmt(c)}
-                        </div>
-                      );
-                    })}
-                    <div className="border-t border-gray-600 mt-0.5 pt-0.5">
-                      Total: {(series[0]?.formatValue ?? ((n: number) => n.toLocaleString()))(total)}
-                    </div>
-                  </>
-                ) : (
-                  // Exactly one series contributes to this bucket. Find
-                  // it explicitly — series[0] may not be the one with
-                  // the bar (e.g. a Comply-only day in an "All models"
-                  // window that also has compose / summize on other days).
-                  (() => {
+                {(() => {
+                  if (visibleCount === 0) {
+                    // Hovering an empty bucket — still show the date
+                    // so the user can confirm which day they're
+                    // pointing at. Beats falling back to nothing,
+                    // which makes the cell feel non-interactive.
+                    return (
+                      <>
+                        <div>{bucketLabel}</div>
+                        <div className="text-gray-300">No use</div>
+                      </>
+                    );
+                  }
+                  if (visibleCount === 1) {
+                    // Find the single contributing series explicitly —
+                    // series[0] isn't always the one with the bar
+                    // (e.g. a comply-only day in an "All models" window
+                    // that also has compose / summize on other days).
                     const only = series.find(
                       (s) => (s.buckets[i]?.count ?? 0) > 0,
-                    );
-                    if (!only) return null;
+                    )!;
                     const c = only.buckets[i]?.count ?? 0;
                     const fmt =
                       only.formatValue ?? ((n: number) => n.toLocaleString());
                     return (
                       <>
-                        <div>{bucket.label}</div>
+                        <div>{bucketLabel}</div>
                         <div>
                           {only.label}: {fmt(c)}
                         </div>
                       </>
                     );
-                  })()
-                )}
+                  }
+                  return (
+                    <>
+                      <div>{bucketLabel}</div>
+                      {/* Reversed so the visually-topmost stack segment
+                          (the last series) is listed first in the
+                          bubble, mirroring the on-screen order. */}
+                      {[...series].reverse().map((s) => {
+                        const c = s.buckets[i]?.count ?? 0;
+                        if (c === 0) return null;
+                        const fmt =
+                          s.formatValue ?? ((n: number) => n.toLocaleString());
+                        return (
+                          <div key={s.label}>
+                            {s.label}: {fmt(c)}
+                          </div>
+                        );
+                      })}
+                      <div className="border-t border-gray-600 mt-0.5 pt-0.5">
+                        Total:{" "}
+                        {(
+                          series[0]?.formatValue ??
+                          ((n: number) => n.toLocaleString())
+                        )(total)}
+                      </div>
+                    </>
+                  );
+                })()}
               </div>
             </div>
           );
@@ -1113,7 +1128,7 @@ function BarChart({
           Without this, cells inherit the larger ancestor line-height and
           the chart ends up ~12px taller than the loading placeholder. */}
       <div className="flex gap-px mt-1 text-[9px] leading-none">
-        {primary.map((bucket, i) => {
+        {labels.map((label, i) => {
           // Daily view: first label sits on the 2nd bar, then every 4th
           // (indices 1, 5, 9, …). Other periods: every `labelInterval`.
           const showLabel =
@@ -1121,12 +1136,12 @@ function BarChart({
               ? i >= 1 && (i - 1) % 4 === 0
               : i % labelInterval === 0;
           return (
-            <div key={bucket.label} className="flex-1 text-center">
+            <div key={label} className="flex-1 text-center">
               {showLabel ? (
                 // -mx-[10px] lets the label overflow its narrow cell into
                 // the (empty) neighbours so "Mar 23" stays on one line.
                 <span className="text-gray-400 whitespace-nowrap inline-block -mx-[10px]">
-                  {formatLabel(bucket.label, period)}
+                  {formatLabel(label, period)}
                 </span>
               ) : null}
             </div>
