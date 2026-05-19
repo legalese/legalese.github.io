@@ -767,7 +767,7 @@ function AiUsageChart({
 
   // If the buckets refresh and no longer carry the currently-selected
   // model (period changed, model retired, etc.), snap back to
-  // "All models" so the dropdown's value isn't an option that's not
+  // "All uses" (model pipelines) so the dropdown's value isn't an option that's not
   // in its <option> list.
   useEffect(() => {
     if (!model) return;
@@ -816,7 +816,7 @@ function AiUsageChart({
     }));
 
   // Models with any usage in the window, in a stable order. Drives
-  // both the filter dropdown and the "All models" series stack — so a
+  // both the filter dropdown and the "All uses" (model pipelines) series stack — so a
   // new pipeline shipped server-side surfaces here automatically on
   // the next refresh, no frontend deploy needed. Sorted by first
   // appearance to keep the legend stable across re-renders.
@@ -900,7 +900,7 @@ function AiUsageChart({
           disabled={usedModels.length <= 1}
           className="text-xs rounded border border-gray-200 bg-white px-2 py-0.5 text-gray-600 disabled:opacity-50"
         >
-          <option value="">All models</option>
+          <option value="">All uses</option>
           {usedModels.map((m) => (
             <option key={m} value={m}>{m}</option>
           ))}
@@ -1074,7 +1074,7 @@ function BarChart({
                   if (visibleCount === 1) {
                     // Find the single contributing series explicitly —
                     // series[0] isn't always the one with the bar
-                    // (e.g. a comply-only day in an "All models" window
+                    // (e.g. a comply-only day in an "All uses" (model pipelines) window
                     // that also has compose / summize on other days).
                     const only = series.find(
                       (s) => (s.buckets[i]?.count ?? 0) > 0,
