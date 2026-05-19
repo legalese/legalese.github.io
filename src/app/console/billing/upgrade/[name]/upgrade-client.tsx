@@ -416,6 +416,28 @@ function sortedPrices(prices: TemplatePrice[]): TemplatePrice[] {
  * is (e.g. "1k tokens", "MB"). Set this on Products in Stripe to make
  * the display self-documenting.
  */
+/**
+ * Decimal places needed to render a sub-dollar amount *exactly* — never
+ * rounding, flooring, or ceiling a significant digit away.
+ *
+ * The old code bucketed by magnitude (`< 0.001 ? 4 : 3`), which meant a
+ * value like 0.0015 fell in the 3-place bucket and `toFixed(3)` rounded
+ * it to "0.002". Instead we count the value's own fractional digits and
+ * give `toFixed` exactly that many, so it has nothing to round. A floor
+ * of 2 keeps round amounts looking like prices ("$0.50", not "$0.5").
+ */
+function subDollarDecimals(n: number): number {
+  // `Number.prototype.toString` yields the shortest string that
+  // round-trips the double, so its fractional length is the exact
+  // precision the value carries. Guard the exponential form (e.g.
+  // "1e-7") which has no '.'; these prices never get that small, but
+  // falling back to a generous 6 keeps it safe rather than throwing.
+  const s = Math.abs(n).toString();
+  if (s.includes("e")) return 6;
+  const dot = s.indexOf(".");
+  return dot === -1 ? 2 : Math.max(2, s.length - dot - 1);
+}
+
 function formatPrice(p: TemplatePrice, billingPeriod: string): string {
   const isLicensed = p.meterEventName === null && !p.transformQuantity;
   const unit = p.unitLabel ?? "unit";
@@ -443,7 +465,7 @@ function formatPrice(p: TemplatePrice, billingPeriod: string): string {
           style: "currency",
           currency: p.currency.toUpperCase(),
         })
-      : `$${dollars.toFixed(dollars < 0.01 ? dollars < 0.001 ? dollars < 0.0001 ? 5 : 4 : 3 : 2)}`;
+      : `$${dollars.toFixed(subDollarDecimals(dollars))}`;
   if (isLicensed) {
     // Flat recurring fee — no per-unit semantics. Render against the
     // template's billing period (e.g. "$19.00 / month").
