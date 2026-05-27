@@ -13,7 +13,7 @@ export default function Index() {
   return (
     <main>
       <Alert>
-          Compose L4 with AI and deploy MCP tools to Legalese Cloud with our&nbsp;
+          Compose L4 with AI and deploy AI skills and MCP tools to Legalese Cloud with our&nbsp;
           <a href="https://marketplace.visualstudio.com/items?itemName=Legalese.l4-vscode" className="text-accent">VS Code Extension 1.5</a>
       </Alert>
       <Container>
@@ -34,12 +34,12 @@ export default function Index() {
             />
             <div className="relative w-full lg:w-2/3 p-8 md:p-16 lg:p-24">
               <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight mb-6">
-                Software is<br />
+                AI is<br />
                 <span className="text-accent">eating law</span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
-                L4 is a domain-specific programming language for law. 
-                We treat legal rules and contracts as executable specifications.
+                Legalese builds governance solutions for our AI future.
+                We treat legal policy and contracts as executable specifications for AI and human use.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a 
