@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'L4 Documentation',
     description: 'L4 Language Reference and Documentation - Rules as Code',
-    images: ['/opengraph/software-is-eating-law.jpg'],
+    images: ['/opengraph/ai-is-eating-law.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'L4 Documentation',
     description: 'L4 Language Reference and Documentation - Rules as Code',
-    images: ['/opengraph/software-is-eating-law.jpg'],
+    images: ['/opengraph/ai-is-eating-law.jpg'],
   },
 };
 
