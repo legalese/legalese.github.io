@@ -38,8 +38,8 @@ export default function Index() {
                 <span className="whitespace-nowrap text-accent">eating law</span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
-                Legalese builds governance solutions for our AI future.
-                We treat legal policy and contracts as executable specifications for AI and human use.
+                Legalese builds governance and compliance solutions for our AI future.
+                With L4 we treat legal policy and contracts as executable specifications for use by humans and AI.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a 
@@ -71,7 +71,7 @@ export default function Index() {
           <div className="max-w-4xl mx-auto">
             <p className="text-lg text-gray-700 mb-8 text-center">
               L4 is our domain-specific programming language for law. It treats legal rules 
-              and contracts as executable specifications, allowing you to:
+              and contracts as executable specifications (rules-as-code), allowing you to:
             </p>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white p-6 rounded-lg shadow-lg">
