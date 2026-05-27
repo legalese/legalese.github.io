@@ -34,8 +34,8 @@ export default function Index() {
             />
             <div className="relative w-full lg:w-2/3 p-8 md:p-16 lg:p-24">
               <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight mb-6">
-                AI is<br />
-                <span className="text-accent">eating law</span>
+                <span className="whitespace-nowrap">AI is</span>{' '}
+                <span className="whitespace-nowrap text-accent">eating law</span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
                 Legalese builds governance solutions for our AI future.
