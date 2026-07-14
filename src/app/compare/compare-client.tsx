@@ -6,6 +6,7 @@ import { AUTH_API_URL, SERVICE_DOMAIN } from "@/lib/constants";
 import "katex/dist/katex.min.css";
 import markdownToHtml from "./markdown-math";
 import { useConsole } from "../console/console-context";
+import { OrgSetup } from "../console/org-setup";
 import { authHeaders } from "../console/console-utils";
 import {
   buildDocumentPreamble,
@@ -727,6 +728,8 @@ export function CompareClient({
 
   async function startRun() {
     if (running) return;
+    // Runs are org-scoped; the org gate handles accounts without one.
+    if (!session?.organizationId) return;
     const slugs = models.filter(Boolean);
     if (!slugs.length) return;
     setNotice(null);
@@ -783,14 +786,48 @@ export function CompareClient({
     }
   }
 
-  // Auto-start after returning from the login redirect.
+  // Auto-start after returning from the login redirect — but only once
+  // the account has an organization; comparisons run under one.
   useEffect(() => {
-    if (!pendingAutorun || loading || !session || autorunFired.current) return;
+    if (
+      !pendingAutorun ||
+      loading ||
+      !session ||
+      !session.organizationId ||
+      autorunFired.current
+    ) {
+      return;
+    }
     autorunFired.current = true;
     setPendingAutorun(false);
     void startRun();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pendingAutorun, loading, session]);
+
+  // A fresh sign-up lands here without an organization: the org gate
+  // below replaces the form, and creating the org bounces through two
+  // more full-page redirects. Re-stash the draft so it survives them
+  // and the run auto-starts once the org-scoped session arrives.
+  const needsOrg = !!session && !session.organizationId;
+  useEffect(() => {
+    if (!pendingAutorun || !needsOrg) return;
+    const attachmentFits =
+      !attachment || attachment.dataBase64.length <= MAX_DRAFT_ATTACHMENT_CHARS;
+    const draft: Draft = {
+      doc,
+      models,
+      sections: Array.from(sectionIds),
+      attachment: attachmentFits ? attachment : null,
+      attachmentLost: !attachmentFits,
+      autorun: true,
+    };
+    try {
+      localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
+    } catch {
+      // quota exceeded — the user re-enters the text after org setup
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pendingAutorun, needsOrg]);
 
   function handleSubmit() {
     if (!canSubmit) return;
@@ -1024,7 +1061,23 @@ export function CompareClient({
 
   return (
     <div className="space-y-8">
-      {!columns && (
+      {/* ── Org gate: a signed-in account without an organization must
+             create one before comparing (runs are org-scoped) ── */}
+      {needsOrg && (
+        <div className="flex flex-col items-center justify-center py-16 gap-6 text-center">
+          <h1 className="text-2xl font-bold font-merriweather">
+            Create an organization to use Compare
+          </h1>
+          <p className="text-gray-600 max-w-md">
+            Comparisons run under your organization on Legalese Cloud.
+            Create one now — or ask your administrator for an invite if
+            your team already has one.
+          </p>
+          <OrgSetup returnTo="/compare" />
+        </div>
+      )}
+
+      {!needsOrg && !columns && (
         <div className="text-center pt-8">
           <h1 className="text-3xl font-bold font-merriweather">Compare AI Legal Interpretations</h1>
           <p className="mt-3 text-gray-600 max-w-xl mx-auto">
@@ -1066,7 +1119,7 @@ export function CompareClient({
       )}
 
       {/* ── Prompt card (input view only) ── */}
-      {!columns && (
+      {!needsOrg && !columns && (
       <div className="bg-white border border-gray-200 rounded-lg p-4 max-w-3xl mx-auto shadow-sm">
         {/* Text and file input are mutually exclusive: with a file
             attached, the field shows the attachment pill instead. */}
@@ -1205,7 +1258,7 @@ export function CompareClient({
       )}
 
       {/* ── Feedback link ── */}
-      {!columns && discordUrl && (
+      {!needsOrg && !columns && discordUrl && (
         <p className="text-center text-sm text-gray-500 max-w-3xl mx-auto">
           Feedback?{" "}
           <a
@@ -1220,7 +1273,7 @@ export function CompareClient({
       )}
 
       {/* ── Previous generations ── */}
-      {!columns && visibleHistory.length > 0 && (
+      {!needsOrg && !columns && visibleHistory.length > 0 && (
         <div className="max-w-3xl mx-auto">
           <h2 className="text-xs font-semibold tracking-wide text-gray-500 mb-2">
             Previous generations

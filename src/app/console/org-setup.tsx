@@ -12,7 +12,16 @@ function toSlug(name: string): string {
     .slice(0, 39);
 }
 
-export function OrgSetup() {
+export function OrgSetup({
+  returnTo = "/console",
+}: {
+  /**
+   * Path (on this site) the user lands on after the org is created and
+   * the session is re-issued for it. Defaults to the console; the
+   * compare page passes "/compare" so drafters return to their run.
+   */
+  returnTo?: string;
+} = {}) {
   const [name, setName] = useState("");
   const [slug, setSlug] = useState("");
   const [slugEdited, setSlugEdited] = useState(false);
@@ -68,7 +77,7 @@ export function OrgSetup() {
         setSubmitError(data.error ?? "Something went wrong.");
         return;
       }
-      window.location.href = `${AUTH_API_URL}/auth/login?organization_id=${encodeURIComponent(data.organizationId)}&return_to=${encodeURIComponent(`${window.location.origin}/console`)}`;
+      window.location.href = `${AUTH_API_URL}/auth/login?organization_id=${encodeURIComponent(data.organizationId)}&return_to=${encodeURIComponent(`${window.location.origin}${returnTo}`)}`;
     } catch {
       setSubmitError("Something went wrong. Please try again.");
       setSubmitting(false);
