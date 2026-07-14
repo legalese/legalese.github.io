@@ -70,6 +70,19 @@ export const COMPARE_SECTIONS: CompareSection[] = [
     ].join("\n"),
   },
   {
+    id: "constitutive",
+    title: "Constitutive",
+    prompt: [
+      "SECTION: CONSTITUTIVE",
+      "",
+      "Extract the rules of the legal text that are constitutive — rules that create or define institutional facts rather than directing behaviour — and implement them against the ontology you established above.",
+      "",
+      "- Constitutive rules include: definitions, statuses, powers, and counts-as relations (X counts as Y in context C).",
+      "- One paragraph per rule, starting with the provision reference in bold, expressing it as a definition, status-conferral or counts-as rule over your ontology.",
+      "- Flag borderline rules that could also be read as regulative (behaviour-directing) and say what tips the balance.",
+    ].join("\n"),
+  },
+  {
     id: "non-operative",
     title: "Non-operative",
     prompt: [
@@ -80,19 +93,6 @@ export const COMPARE_SECTIONS: CompareSection[] = [
       "- Quote each non-operative passage (condensed where long).",
       "- Label each passage in bold with the class you think it belongs to: **preamble**, **recitals**, **findings**, **purpose**, or **preliminary** (titles, commencement, interpretation aids).",
       "- Add one line per passage on why it is non-operative and what interpretive weight, if any, it carries.",
-    ].join("\n"),
-  },
-  {
-    id: "constitutive",
-    title: "Constitutive vs. Regulative",
-    prompt: [
-      "SECTION: CONSTITUTIVE VS. REGULATIVE",
-      "",
-      "Classify every rule in the legal text as constitutive or regulative.",
-      "",
-      "- **Constitutive** rules create or define institutional facts: definitions, statuses, powers, counts-as relations (X counts as Y in context C).",
-      "- **Regulative** rules direct behaviour: obligations, permissions, prohibitions.",
-      "- Produce two lists, one per class. One line per rule: provision reference, the rule in a few words, and why it falls in that class. Flag borderline rules and say what tips the balance.",
     ].join("\n"),
   },
 ];
