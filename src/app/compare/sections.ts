@@ -1,8 +1,9 @@
 /**
  * The encoding sections a drafter can run against their legal text.
- * Each section is one AI request; within a column they run in order,
- * so later prompts can refer back to the ontology the model
- * established in the same conversation.
+ * Each section is one isolated AI request (its own conversation)
+ * carrying only the document plus — for sections after Ontology — the
+ * ontology reply. Sections never see each other's outputs, so every
+ * encoding stands on its own.
  */
 export interface CompareSection {
   id: string;
@@ -40,7 +41,7 @@ export const COMPARE_SECTIONS: CompareSection[] = [
       "- List defined terms as types or attributes where appropriate.",
       "- End with a `### Constants` subsection: fixed values, thresholds, amounts, durations and dates the rules rely on, each with its source provision.",
       "",
-      "Model only the world the rules assume — the rules themselves are covered by later sections.",
+      "Model only the world the rules assume — the logic of the rules is encoded separately.",
     ].join("\n") + RESPONSE_STYLE,
   },
   {
@@ -49,7 +50,7 @@ export const COMPARE_SECTIONS: CompareSection[] = [
     prompt: [
       "SECTION: PROPOSITIONAL",
       "",
-      "Extract the rules of the legal text and express each one as purely propositional logic against the ontology you established above.",
+      "Extract the rules of the legal text and express each one as purely propositional logic against the ontology provided above.",
       "",
       "- One paragraph per rule, starting with the provision reference in bold.",
       "- Introduce named proposition letters (e.g. `P1 = the tenant is in arrears`) and then give the encoding using only propositional connectives (∧, ∨, ¬, →, ↔).",
@@ -62,10 +63,10 @@ export const COMPARE_SECTIONS: CompareSection[] = [
     prompt: [
       "SECTION: PREDICATIVE",
       "",
-      "Extract the rules again, but now implement each one as purely predicative (first-order) logic against the ontology you established above.",
+      "Extract the rules of the legal text and implement each one as purely predicative (first-order) logic against the ontology provided above.",
       "",
       "- One paragraph per rule, starting with the provision reference in bold.",
-      "- Use quantifiers (∀, ∃), predicates and functions whose names and argument types come from your ontology, followed by a one-line plain-language gloss.",
+      "- Use quantifiers (∀, ∃), predicates and functions whose names and argument types come from the ontology, followed by a one-line plain-language gloss.",
       "- Keep the encoding purely declarative, leaving deontic and temporal aspects to the Regulative section.",
     ].join("\n") + RESPONSE_STYLE,
   },
@@ -75,7 +76,7 @@ export const COMPARE_SECTIONS: CompareSection[] = [
     prompt: [
       "SECTION: REGULATIVE",
       "",
-      "Extract the rules once more, but implement them as regulative logic against your established ontology, highlighting who must do what.",
+      "Extract the rules of the legal text and implement them as regulative logic against the ontology provided above, highlighting who must do what.",
       "",
       "- One paragraph per rule, starting with the provision reference in bold.",
       "- Make the **actor** and **action** bold in each encoding.",
@@ -89,7 +90,7 @@ export const COMPARE_SECTIONS: CompareSection[] = [
     prompt: [
       "SECTION: CONSTITUTIVE",
       "",
-      "Extract the rules of the legal text that are constitutive — rules that create or define institutional facts rather than directing behaviour — and implement them against the ontology you established above.",
+      "Extract the rules of the legal text that are constitutive — rules that create or define institutional facts rather than directing behaviour — and implement them against the ontology provided above.",
       "",
       "- Constitutive rules include: definitions, statuses, powers, and counts-as relations (X counts as Y in context C).",
       "- One paragraph per rule, starting with the provision reference in bold, expressing it as a definition, status-conferral or counts-as rule over your ontology.",
@@ -114,7 +115,7 @@ export const COMPARE_SECTIONS: CompareSection[] = [
 /** Wraps the pasted/uploaded legal text for the first request of a conversation. */
 export function buildDocumentPreamble(docText: string | null): string {
   const intro =
-    "You will analyse a piece of legal drafting (legislation, regulation or contract) across several encoding sections, one request per section, in this conversation.";
+    "You are analysing a piece of legal drafting (legislation, regulation or contract).";
   if (docText === null) {
     return `${intro}\n\nThe legal text is the attached document.`;
   }

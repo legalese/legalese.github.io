@@ -83,7 +83,18 @@ interface Draft {
 
 interface HistoryColumn {
   slug: string;
-  conversationId: string | null;
+  /**
+   * Legacy (pre section-isolation): one conversation carried all
+   * sections; assistant message i mapped to section i. Kept so old
+   * entries still restore.
+   */
+  conversationId?: string | null;
+  /**
+   * One conversation per section, aligned with the entry's sectionIds.
+   * Each section runs isolated (document + ontology only), so each has
+   * its own server-side transcript.
+   */
+  conversationIds?: (string | null)[];
   servedModels: string[];
 }
 
@@ -515,10 +526,24 @@ export function CompareClient({
     );
   }
 
-  function firstMessageContent(
+  /**
+   * Single-turn message for one section. Every section runs in its own
+   * fresh conversation carrying only the document and — for sections
+   * after the first — the ontology reply. Models never see the other
+   * sections' outputs, so each encoding is independent.
+   */
+  function sectionMessageContent(
     section: CompareSection,
+    ontology: string | null,
   ): string | Array<Record<string, unknown>> {
-    const text = `${buildDocumentPreamble(doc.trim() ? doc : null)}\n\n${section.prompt}`;
+    const blocks = [buildDocumentPreamble(doc.trim() ? doc : null)];
+    if (ontology && ontology.trim()) {
+      blocks.push(
+        `Ontology previously extracted for this text:\n\n<ontology>\n${ontology}\n</ontology>`,
+      );
+    }
+    blocks.push(section.prompt);
+    const text = blocks.join("\n\n");
     if (!attachment) return text;
     return [
       { type: "text", text },
@@ -538,7 +563,9 @@ export function CompareClient({
     sections: CompareSection[],
     signal: AbortSignal,
   ): Promise<void> {
-    let conversationId: string | undefined;
+    // The ontology (section 0) reply, captured locally and provided to
+    // every later section as their only shared context.
+    let ontologyText: string | null = null;
     for (let i = 0; i < sections.length; i++) {
       const section = sections[i];
       if (signal.aborted) {
@@ -547,10 +574,10 @@ export function CompareClient({
       }
       updateSection(colIdx, i, { status: "streaming" });
 
-      const content =
-        i === 0 && !conversationId
-          ? firstMessageContent(section)
-          : `${section.prompt}\n\nApply this to the legal text and the ontology established earlier in this conversation.`;
+      const content = sectionMessageContent(
+        section,
+        i === 0 ? null : ontologyText,
+      );
 
       let res: Response;
       try {
@@ -567,7 +594,6 @@ export function CompareClient({
             stream: true,
             turnId: crypto.randomUUID(),
             messages: [{ role: "user", content }],
-            ...(conversationId ? { conversationId } : {}),
           }),
         });
       } catch {
@@ -618,6 +644,7 @@ export function CompareClient({
       }
 
       let sectionFailed = false;
+      let sectionText = "";
       try {
         for await (const frame of parseSse(res.body)) {
           if (frame.data === "[DONE]") break;
@@ -629,11 +656,14 @@ export function CompareClient({
           }
           if (frame.event === "metadata") {
             const id = json.conversationId as string | undefined;
-            if (id && id !== conversationId) {
-              conversationId = id;
-              patchHistoryColumn(currentRunId.current, colIdx, () => ({
-                conversationId: id,
-              }));
+            if (id) {
+              // Each section is its own conversation — record it at the
+              // section's slot so a restore can refetch all of them.
+              patchHistoryColumn(currentRunId.current, colIdx, (c) => {
+                const ids = [...(c.conversationIds ?? [])];
+                ids[i] = id;
+                return { conversationIds: ids };
+              });
             }
             const served = json.servedModel as string | undefined;
             if (served) {
@@ -673,6 +703,7 @@ export function CompareClient({
             )?.[0]?.delta;
             if (delta?.content) {
               const text = delta.content;
+              sectionText += text;
               updateSection(colIdx, i, (prev) => ({
                 text: prev.text + text,
               }));
@@ -687,7 +718,10 @@ export function CompareClient({
         }
         sectionFailed = true;
       }
-      if (!sectionFailed) updateSection(colIdx, i, { status: "done" });
+      if (!sectionFailed) {
+        updateSection(colIdx, i, { status: "done" });
+        if (i === 0) ontologyText = sectionText;
+      }
     }
   }
 
@@ -729,7 +763,7 @@ export function CompareClient({
         sectionIds: sections.map((s) => s.id),
         columns: slugs.map((slug) => ({
           slug,
-          conversationId: null,
+          conversationIds: sections.map(() => null),
           servedModels: [],
         })),
       },
@@ -865,44 +899,81 @@ export function CompareClient({
     const skipAll = (colIdx: number) => {
       sections.forEach((_, i) => updateSection(colIdx, i, { status: "skipped" }));
     };
+    const loadError = (status: number): string =>
+      status === 404
+        ? "Conversation expired — transcripts are kept for 7 days."
+        : status === 401
+          ? "Your session expired — please sign in again."
+          : `Failed to load the transcript (${status}).`;
+    const fetchAssistantAnswers = async (
+      conversationId: string,
+    ): Promise<string[] | { status: number }> => {
+      const res = await fetch(
+        `${AI_API_URL}/v1/conversations/${conversationId}`,
+        { headers: { ...authHeaders() } },
+      );
+      if (!res.ok) return { status: res.status };
+      const data = (await res.json()) as {
+        messages?: Array<{ role: string; content?: string }>;
+      };
+      return (data.messages ?? [])
+        .filter((m) => m.role === "assistant")
+        .map((m) => m.content ?? "");
+    };
+
     await Promise.all(
       entry.columns.map(async (c, colIdx) => {
-        if (!c.conversationId) {
-          updateColumn(colIdx, {
-            fatal: "No conversation was recorded for this model.",
-          });
-          skipAll(colIdx);
-          return;
-        }
         try {
-          const res = await fetch(
-            `${AI_API_URL}/v1/conversations/${c.conversationId}`,
-            { headers: { ...authHeaders() } },
-          );
-          if (!res.ok) {
+          if (c.conversationIds && c.conversationIds.length > 0) {
+            // Current shape: one isolated conversation per section; its
+            // first assistant message is the section's output.
+            await Promise.all(
+              sections.map(async (_, i) => {
+                const id = c.conversationIds?.[i];
+                if (!id) {
+                  updateSection(colIdx, i, { status: "skipped" });
+                  return;
+                }
+                const result = await fetchAssistantAnswers(id);
+                if (Array.isArray(result) && result[0]) {
+                  updateSection(colIdx, i, {
+                    status: "done",
+                    text: result[0],
+                  });
+                } else if (Array.isArray(result)) {
+                  updateSection(colIdx, i, { status: "skipped" });
+                } else {
+                  updateSection(colIdx, i, {
+                    status: "error",
+                    error: loadError(result.status),
+                  });
+                }
+              }),
+            );
+            return;
+          }
+
+          // Legacy shape: one conversation carried every section;
+          // assistant message i maps to section i.
+          if (!c.conversationId) {
             updateColumn(colIdx, {
-              fatal:
-                res.status === 404
-                  ? "Conversation expired — transcripts are kept for 7 days."
-                  : res.status === 401
-                    ? "Your session expired — please sign in again."
-                    : `Failed to load the transcript (${res.status}).`,
+              fatal: "No conversation was recorded for this model.",
             });
             skipAll(colIdx);
             return;
           }
-          const data = (await res.json()) as {
-            messages?: Array<{ role: string; content?: string }>;
-          };
-          const answers = (data.messages ?? [])
-            .filter((m) => m.role === "assistant")
-            .map((m) => m.content ?? "");
+          const result = await fetchAssistantAnswers(c.conversationId);
+          if (!Array.isArray(result)) {
+            updateColumn(colIdx, { fatal: loadError(result.status) });
+            skipAll(colIdx);
+            return;
+          }
           sections.forEach((_, i) => {
             updateSection(
               colIdx,
               i,
-              answers[i]
-                ? { status: "done", text: answers[i] }
+              result[i]
+                ? { status: "done", text: result[i] }
                 : { status: "skipped" },
             );
           });
