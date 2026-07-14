@@ -99,6 +99,17 @@ function slugProvider(rawSlug: string): string {
   return slug.includes("/") ? slug.slice(0, slug.indexOf("/")) : "";
 }
 
+/** First non-empty line of the pasted text, for the results header bar. */
+function docPreview(doc: string): string {
+  const firstLine =
+    doc
+      .trim()
+      .split("\n")
+      .find((l) => l.trim()) ?? "";
+  if (!firstLine) return "Untitled comparison";
+  return firstLine.length > 140 ? `${firstLine.slice(0, 140)}…` : firstLine;
+}
+
 async function* parseSse(
   body: ReadableStream<Uint8Array>,
 ): AsyncGenerator<{ event?: string; data: string }> {
@@ -473,6 +484,10 @@ export function CompareClient() {
         })),
       })),
     );
+    // The results view gets its own history entry so browser-back
+    // returns to the input form (confirm-guarded while generating)
+    // instead of leaving the page. The popstate handler below unwinds it.
+    window.history.pushState({ compareResults: true }, "");
     try {
       await Promise.all(
         slugs.map((slug, idx) => runColumn(idx, slug, sections, ac.signal)),
@@ -525,8 +540,39 @@ export function CompareClient() {
     void startRun();
   }
 
-  function handleStop() {
+  // Abort any in-flight generation and return to the input form. The
+  // form state (doc, models, sections) is preserved for editing.
+  function exitResults() {
     abortRef.current?.abort();
+    setColumns(null);
+  }
+
+  // Browser-back from the results view. While a run is generating,
+  // leaving cancels it — double-check with the user and re-push the
+  // history entry if they decline.
+  useEffect(() => {
+    function onPopState() {
+      if (columns === null) return;
+      if (
+        running &&
+        !window.confirm(
+          "Going back will cancel the comparison that is still generating. Cancel it?",
+        )
+      ) {
+        window.history.pushState({ compareResults: true }, "");
+        return;
+      }
+      exitResults();
+    }
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [columns, running]);
+
+  // The Back button routes through history.back() so the popstate
+  // handler above owns the confirm-and-cleanup in one place.
+  function handleBack() {
+    window.history.back();
   }
 
   function handleFile(file: File) {
@@ -573,18 +619,43 @@ export function CompareClient() {
         </div>
       )}
 
-      {/* ── Prompt card ── */}
-      <div
-        className={
-          columns
-            ? "bg-white border border-gray-200 rounded-lg p-4"
-            : "bg-white border border-gray-200 rounded-lg p-4 max-w-3xl mx-auto shadow-sm"
-        }
-      >
+      {/* ── Results header bar: doc identity + back ── */}
+      {columns && (
+        <div className="flex items-center gap-3 bg-white border border-gray-200 rounded-lg px-4 py-2.5">
+          <button
+            type="button"
+            onClick={handleBack}
+            className="shrink-0 rounded-md border border-gray-200 px-3 py-1.5 text-sm text-gray-600 hover:text-gray-900 transition-colors"
+          >
+            ← Back
+          </button>
+          <div className="min-w-0 flex-1">
+            <div className="text-sm font-medium truncate">
+              {attachment ? attachment.name : docPreview(doc)}
+            </div>
+            {attachment && doc.trim() !== "" && (
+              <div className="text-xs text-gray-400 truncate">
+                {docPreview(doc)}
+              </div>
+            )}
+          </div>
+          <span
+            className={`shrink-0 text-sm ${
+              running ? "text-accent animate-pulse" : "text-gray-400"
+            }`}
+          >
+            {running ? "Comparing…" : "Done"}
+          </span>
+        </div>
+      )}
+
+      {/* ── Prompt card (input view only) ── */}
+      {!columns && (
+      <div className="bg-white border border-gray-200 rounded-lg p-4 max-w-3xl mx-auto shadow-sm">
         <textarea
           value={doc}
           onChange={(e) => setDoc(e.target.value)}
-          rows={columns ? 3 : 10}
+          rows={10}
           placeholder="Paste your legal text here — legislation, regulation or contract…"
           className="w-full resize-y rounded-md border border-gray-200 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent"
         />
@@ -705,22 +776,13 @@ export function CompareClient() {
           </div>
 
           <div className="ml-auto flex gap-2">
-            {running && (
-              <button
-                type="button"
-                onClick={handleStop}
-                className="rounded-md border border-gray-200 px-4 py-1.5 text-sm text-gray-600 hover:text-gray-900"
-              >
-                Stop
-              </button>
-            )}
             <button
               type="button"
               onClick={handleSubmit}
               disabled={!canSubmit}
               className="rounded-md bg-gray-900 px-5 py-1.5 text-sm font-medium text-white hover:bg-gray-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
-              {running ? "Comparing…" : "Compare"}
+              Compare
             </button>
           </div>
         </div>
@@ -732,6 +794,7 @@ export function CompareClient() {
           </p>
         )}
       </div>
+      )}
 
       {/* ── Upgrade banner ── */}
       {anyLimitHit && (
@@ -747,8 +810,10 @@ export function CompareClient() {
         </div>
       )}
 
-      {/* ── Result columns ── */}
+      {/* ── Result columns — full window width, breaking out of the
+             ConsoleShell max-w-6xl container ── */}
       {columns && (
+        <div className="mx-[calc(50%-50vw)] px-4 sm:px-6 lg:px-8">
         <div
           className={`grid gap-4 items-start grid-cols-1 ${
             columns.length === 2
@@ -827,6 +892,7 @@ export function CompareClient() {
               </div>
             </div>
           ))}
+        </div>
         </div>
       )}
     </div>
