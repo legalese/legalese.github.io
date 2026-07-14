@@ -12,6 +12,20 @@ export interface CompareSection {
   prompt: string;
 }
 
+/**
+ * Shared response-style requirements appended to every section prompt.
+ * The audience is a legal drafter scanning three model outputs side by
+ * side — brevity and structure matter more than completeness of prose.
+ */
+const RESPONSE_STYLE = [
+  "",
+  "Response requirements:",
+  "- Be brief. No preamble, no restating of the task, no closing summary.",
+  "- Write for a legal drafter: scannable structure, short headings, the provision reference first in every item.",
+  "- Prefer tables and bullet lists over prose wherever they aid side-by-side comparison.",
+  "- Do not quote the source text beyond what identifying a provision requires, and never repeat content across items.",
+].join("\n");
+
 export const COMPARE_SECTIONS: CompareSection[] = [
   {
     id: "ontology",
@@ -27,7 +41,7 @@ export const COMPARE_SECTIONS: CompareSection[] = [
       "- End with a `### Constants` subsection: fixed values, thresholds, amounts, durations and dates the rules rely on, each with its source provision.",
       "",
       "Do not restate the rules themselves; only model the world they assume.",
-    ].join("\n"),
+    ].join("\n") + RESPONSE_STYLE,
   },
   {
     id: "propositional",
@@ -40,7 +54,7 @@ export const COMPARE_SECTIONS: CompareSection[] = [
       "- One paragraph per rule, starting with the provision reference in bold.",
       "- Introduce named proposition letters (e.g. `P1 = the tenant is in arrears`) and then give the encoding using only propositional connectives (∧, ∨, ¬, →, ↔).",
       "- No quantifiers, predicates or variables — propositional logic only. Where the natural rule needs them, note what the propositional encoding loses.",
-    ].join("\n"),
+    ].join("\n") + RESPONSE_STYLE,
   },
   {
     id: "predicative",
@@ -53,7 +67,7 @@ export const COMPARE_SECTIONS: CompareSection[] = [
       "- One paragraph per rule, starting with the provision reference in bold.",
       "- Use quantifiers (∀, ∃), predicates and functions whose names and argument types come from your ontology, followed by a one-line plain-language gloss.",
       "- Keep the encoding declarative — no deontic or temporal operators in this section.",
-    ].join("\n"),
+    ].join("\n") + RESPONSE_STYLE,
   },
   {
     id: "regulative",
@@ -67,7 +81,7 @@ export const COMPARE_SECTIONS: CompareSection[] = [
       "- Make the **actor** and **action** bold in each encoding.",
       "- State the deontic modality (OBLIGATION / PERMISSION / PROHIBITION) and treat it as defeasible: list defeaters, exceptions and priority over conflicting rules.",
       "- State the temporal requirements: deadlines, effective dates, durations, and what happens on breach or lapse.",
-    ].join("\n"),
+    ].join("\n") + RESPONSE_STYLE,
   },
   {
     id: "constitutive",
@@ -80,7 +94,7 @@ export const COMPARE_SECTIONS: CompareSection[] = [
       "- Constitutive rules include: definitions, statuses, powers, and counts-as relations (X counts as Y in context C).",
       "- One paragraph per rule, starting with the provision reference in bold, expressing it as a definition, status-conferral or counts-as rule over your ontology.",
       "- Flag borderline rules that could also be read as regulative (behaviour-directing) and say what tips the balance.",
-    ].join("\n"),
+    ].join("\n") + RESPONSE_STYLE,
   },
   {
     id: "non-operative",
@@ -93,7 +107,7 @@ export const COMPARE_SECTIONS: CompareSection[] = [
       "- Quote each non-operative passage (condensed where long).",
       "- Label each passage in bold with the class you think it belongs to: **preamble**, **recitals**, **findings**, **purpose**, or **preliminary** (titles, commencement, interpretation aids).",
       "- Add one line per passage on why it is non-operative and what interpretive weight, if any, it carries.",
-    ].join("\n"),
+    ].join("\n") + RESPONSE_STYLE,
   },
 ];
 
