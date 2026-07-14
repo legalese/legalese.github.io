@@ -334,6 +334,10 @@ export function CompareClient() {
   // ── Run state ───────────────────────────────────────────────────
   const [columns, setColumns] = useState<ColumnRun[] | null>(null);
   const [running, setRunning] = useState(false);
+  // Title shown in the results header bar. Set when a run starts (from
+  // the live form) or when a past run is restored (from its history
+  // entry) — the form state alone can't tell a restored run's name.
+  const [runTitle, setRunTitle] = useState<string | null>(null);
   const abortRef = useRef<AbortController | null>(null);
   const autorunFired = useRef(false);
 
@@ -663,10 +667,12 @@ export function CompareClient() {
     // served models are patched in as the metadata frames arrive.
     const runId = crypto.randomUUID();
     currentRunId.current = runId;
+    const title = attachment ? attachment.name : docPreview(doc);
+    setRunTitle(title);
     updateHistory((entries) => [
       {
         id: runId,
-        title: attachment ? attachment.name : docPreview(doc),
+        title,
         createdAt: new Date().toISOString(),
         sectionIds: sections.map((s) => s.id),
         columns: slugs.map((slug) => ({
@@ -781,6 +787,7 @@ export function CompareClient() {
     }
     setNotice(null);
     currentRunId.current = entry.id;
+    setRunTitle(entry.title);
     const sections: CompareSection[] = entry.sectionIds.map(
       (sid) =>
         COMPARE_SECTIONS.find((s) => s.id === sid) ?? {
@@ -913,9 +920,9 @@ export function CompareClient() {
           </button>
           <div className="min-w-0 flex-1">
             <div className="text-sm font-medium truncate">
-              {attachment ? attachment.name : docPreview(doc)}
+              {runTitle ?? "Untitled comparison"}
             </div>
-            {attachment && doc.trim() !== "" && (
+            {runTitle === attachment?.name && doc.trim() !== "" && (
               <div className="text-xs text-gray-400 truncate">
                 {docPreview(doc)}
               </div>
