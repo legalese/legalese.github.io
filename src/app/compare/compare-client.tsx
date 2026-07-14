@@ -76,6 +76,49 @@ interface Draft {
   autorun: boolean;
 }
 
+// ── Previous generations (localStorage) ───────────────────────────
+// One entry per run: the server-side conversation id of each column
+// plus enough metadata to rebuild the results view. Transcripts stay
+// server-side (7-day TTL) — only ids/titles are stored locally.
+
+interface HistoryColumn {
+  slug: string;
+  conversationId: string | null;
+  servedModels: string[];
+}
+
+interface HistoryEntry {
+  id: string;
+  title: string;
+  createdAt: string;
+  sectionIds: string[];
+  columns: HistoryColumn[];
+}
+
+const HISTORY_KEY = "compare-history";
+const HISTORY_MAX = 20;
+
+function loadHistoryEntries(): HistoryEntry[] {
+  try {
+    const raw = localStorage.getItem(HISTORY_KEY);
+    const parsed = raw ? (JSON.parse(raw) as unknown) : [];
+    return Array.isArray(parsed) ? (parsed as HistoryEntry[]) : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveHistoryEntries(entries: HistoryEntry[]): void {
+  try {
+    localStorage.setItem(
+      HISTORY_KEY,
+      JSON.stringify(entries.slice(0, HISTORY_MAX)),
+    );
+  } catch {
+    // Quota exceeded — history is best-effort.
+  }
+}
+
 /** All-caps model-family acronyms for display labels. */
 const ACRONYMS = new Set(["gpt", "glm"]);
 
@@ -294,6 +337,43 @@ export function CompareClient() {
   const abortRef = useRef<AbortController | null>(null);
   const autorunFired = useRef(false);
 
+  // ── Previous generations ─────────────────────────────────────────
+  const [history, setHistory] = useState<HistoryEntry[]>([]);
+  const currentRunId = useRef<string | null>(null);
+  useEffect(() => {
+    setHistory(loadHistoryEntries());
+  }, []);
+
+  function updateHistory(
+    mutate: (entries: HistoryEntry[]) => HistoryEntry[],
+  ): void {
+    setHistory((prev) => {
+      const next = mutate([...prev]).slice(0, HISTORY_MAX);
+      saveHistoryEntries(next);
+      return next;
+    });
+  }
+
+  function patchHistoryColumn(
+    runId: string | null,
+    colIdx: number,
+    patch: (col: HistoryColumn) => Partial<HistoryColumn>,
+  ): void {
+    if (!runId) return;
+    updateHistory((entries) =>
+      entries.map((e) =>
+        e.id !== runId
+          ? e
+          : {
+              ...e,
+              columns: e.columns.map((c, i) =>
+                i === colIdx ? { ...c, ...patch(c) } : c,
+              ),
+            },
+      ),
+    );
+  }
+
   // Live model list from the proxy. /health is unauthenticated, so the
   // pickers are populated before sign-in. Compare variants are listed
   // as "{baseName}:{openrouterSlug}".
@@ -494,7 +574,12 @@ export function CompareClient() {
           }
           if (frame.event === "metadata") {
             const id = json.conversationId as string | undefined;
-            if (id) conversationId = id;
+            if (id && id !== conversationId) {
+              conversationId = id;
+              patchHistoryColumn(currentRunId.current, colIdx, () => ({
+                conversationId: id,
+              }));
+            }
             const served = json.servedModel as string | undefined;
             if (served) {
               setColumns((prev) =>
@@ -508,6 +593,11 @@ export function CompareClient() {
                         : col,
                     )
                   : prev,
+              );
+              patchHistoryColumn(currentRunId.current, colIdx, (c) =>
+                c.servedModels.includes(served)
+                  ? {}
+                  : { servedModels: [...c.servedModels, served] },
               );
             }
           } else if (frame.event === "error") {
@@ -569,6 +659,24 @@ export function CompareClient() {
         })),
       })),
     );
+    // Record the run in "previous generations". Conversation ids and
+    // served models are patched in as the metadata frames arrive.
+    const runId = crypto.randomUUID();
+    currentRunId.current = runId;
+    updateHistory((entries) => [
+      {
+        id: runId,
+        title: attachment ? attachment.name : docPreview(doc),
+        createdAt: new Date().toISOString(),
+        sectionIds: sections.map((s) => s.id),
+        columns: slugs.map((slug) => ({
+          slug,
+          conversationId: null,
+          servedModels: [],
+        })),
+      },
+      ...entries,
+    ]);
     // The results view gets its own history entry so browser-back
     // returns to the input form (confirm-guarded while generating)
     // instead of leaving the page. The popstate handler below unwinds it.
@@ -658,6 +766,95 @@ export function CompareClient() {
   // handler above owns the confirm-and-cleanup in one place.
   function handleBack() {
     window.history.back();
+  }
+
+  // Rebuild the results view for a past run by fetching each column's
+  // stored transcript from the proxy. Assistant messages map to the
+  // run's sections in order (one request per section).
+  async function loadRun(entry: HistoryEntry) {
+    if (running) return;
+    if (!session) {
+      window.location.href = `${AUTH_API_URL}/auth/login?return_to=${encodeURIComponent(
+        window.location.href,
+      )}`;
+      return;
+    }
+    setNotice(null);
+    currentRunId.current = entry.id;
+    const sections: CompareSection[] = entry.sectionIds.map(
+      (sid) =>
+        COMPARE_SECTIONS.find((s) => s.id === sid) ?? {
+          id: sid,
+          title: sid,
+          prompt: "",
+        },
+    );
+    setColumns(
+      entry.columns.map((c) => ({
+        slug: c.slug,
+        limitHit: false,
+        servedModels: c.servedModels ?? [],
+        sections: sections.map((section) => ({
+          section,
+          status: "pending" as const,
+          text: "",
+        })),
+      })),
+    );
+    window.history.pushState({ compareResults: true }, "");
+
+    const skipAll = (colIdx: number) => {
+      sections.forEach((_, i) => updateSection(colIdx, i, { status: "skipped" }));
+    };
+    await Promise.all(
+      entry.columns.map(async (c, colIdx) => {
+        if (!c.conversationId) {
+          updateColumn(colIdx, {
+            fatal: "No conversation was recorded for this model.",
+          });
+          skipAll(colIdx);
+          return;
+        }
+        try {
+          const res = await fetch(
+            `${AI_API_URL}/v1/conversations/${c.conversationId}`,
+            { headers: { ...authHeaders() } },
+          );
+          if (!res.ok) {
+            updateColumn(colIdx, {
+              fatal:
+                res.status === 404
+                  ? "Conversation expired — transcripts are kept for 7 days."
+                  : res.status === 401
+                    ? "Your session expired — please sign in again."
+                    : `Failed to load the transcript (${res.status}).`,
+            });
+            skipAll(colIdx);
+            return;
+          }
+          const data = (await res.json()) as {
+            messages?: Array<{ role: string; content?: string }>;
+          };
+          const answers = (data.messages ?? [])
+            .filter((m) => m.role === "assistant")
+            .map((m) => m.content ?? "");
+          sections.forEach((_, i) => {
+            updateSection(
+              colIdx,
+              i,
+              answers[i]
+                ? { status: "done", text: answers[i] }
+                : { status: "skipped" },
+            );
+          });
+        } catch {
+          updateColumn(colIdx, {
+            fatal: "Network error while loading the transcript.",
+          });
+          skipAll(colIdx);
+        }
+      }),
+    );
   }
 
   function handleFile(file: File) {
@@ -863,6 +1060,47 @@ export function CompareClient() {
           </p>
         )}
       </div>
+      )}
+
+      {/* ── Previous generations ── */}
+      {!columns && history.length > 0 && (
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">
+            Previous generations
+          </h2>
+          <ul className="bg-white border border-gray-200 rounded-lg divide-y divide-gray-100">
+            {history.map((entry) => (
+              <li
+                key={entry.id}
+                className="flex items-center gap-3 px-4 py-2.5"
+              >
+                <button
+                  type="button"
+                  onClick={() => void loadRun(entry)}
+                  className="group min-w-0 flex-1 text-left"
+                >
+                  <div className="text-sm font-medium truncate group-hover:text-accent transition-colors">
+                    {entry.title}
+                  </div>
+                  <div className="text-xs text-gray-400 truncate">
+                    {new Date(entry.createdAt).toLocaleString()} ·{" "}
+                    {entry.columns.map((c) => slugLabel(c.slug)).join(" vs ")}
+                  </div>
+                </button>
+                <button
+                  type="button"
+                  onClick={() =>
+                    updateHistory((es) => es.filter((e) => e.id !== entry.id))
+                  }
+                  className="shrink-0 text-gray-300 hover:text-gray-600 transition-colors"
+                  aria-label="Remove from history"
+                >
+                  ✕
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
 
       {/* ── Upgrade banner ── */}
