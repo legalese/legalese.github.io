@@ -154,32 +154,72 @@ const MARKDOWN_CLASS =
   "[&_pre]:bg-gray-100 [&_pre]:p-2 [&_pre]:rounded [&_pre]:overflow-x-auto [&_pre]:my-2 " +
   "[&_blockquote]:border-l-2 [&_blockquote]:border-gray-300 [&_blockquote]:pl-3 [&_blockquote]:text-gray-600";
 
+/** Minimum gap between remark renders while a section streams. */
+const MARKDOWN_RENDER_INTERVAL_MS = 300;
+
 function SectionBody({ run }: { run: SectionRun }) {
   const [html, setHtml] = useState("");
-  const doneText = run.status === "done" ? run.text : null;
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const lastRenderAt = useRef(0);
+  const trailing = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const streaming = run.status === "streaming";
+  const text = run.text;
+
+  // Markdown-render the streamed text, throttled: three columns
+  // streaming in parallel would otherwise run remark on every token.
+  // The trailing timeout guarantees the final tokens always render,
+  // and a "done" transition renders immediately.
   useEffect(() => {
-    if (doneText === null) return;
     let alive = true;
-    markdownToHtml(doneText).then((h) => {
-      if (alive) setHtml(h);
-    });
+    const render = () => {
+      lastRenderAt.current = Date.now();
+      void markdownToHtml(text).then((h) => {
+        if (alive) setHtml(h);
+      });
+    };
+    if (!streaming) {
+      render();
+    } else {
+      const sinceLast = Date.now() - lastRenderAt.current;
+      if (sinceLast >= MARKDOWN_RENDER_INTERVAL_MS) {
+        render();
+      } else {
+        if (trailing.current) clearTimeout(trailing.current);
+        trailing.current = setTimeout(
+          render,
+          MARKDOWN_RENDER_INTERVAL_MS - sinceLast,
+        );
+      }
+    }
     return () => {
       alive = false;
+      if (trailing.current) clearTimeout(trailing.current);
     };
-  }, [doneText]);
+  }, [text, streaming]);
 
-  if (run.status === "done" && html) {
-    return (
-      <div
-        className={MARKDOWN_CLASS}
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
-    );
-  }
+  // Keep the view pinned to the newest content while streaming — but
+  // only when the user is already near the bottom, so scrolling up to
+  // read doesn't fight the autoscroll.
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el || !streaming) return;
+    const nearBottom = el.scrollHeight - el.scrollTop - el.clientHeight < 80;
+    if (nearBottom) el.scrollTop = el.scrollHeight;
+  }, [html, streaming]);
+
   return (
-    <div className="whitespace-pre-wrap break-words text-sm leading-relaxed text-gray-800">
-      {run.text}
-      {run.status === "streaming" && (
+    <div ref={scrollRef} className="max-h-[85vh] overflow-y-auto">
+      {html ? (
+        <div
+          className={MARKDOWN_CLASS}
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      ) : (
+        <div className="whitespace-pre-wrap break-words text-sm leading-relaxed text-gray-800">
+          {text}
+        </div>
+      )}
+      {streaming && (
         <span className="inline-block w-2 h-4 bg-gray-400 animate-pulse align-text-bottom ml-0.5" />
       )}
     </div>
@@ -828,11 +868,14 @@ export function CompareClient() {
               key={col.slug}
               className="bg-white border border-gray-200 rounded-lg min-w-0"
             >
-              <div className="border-b border-gray-200 px-4 py-3">
-                <div className="font-semibold text-sm">
+              {/* Sticky column header: 61px tall (20 + 16 text lines +
+                  2×12 padding + 1 border) — the section summaries below
+                  pin underneath at top-[61px]. */}
+              <div className="sticky top-0 z-20 bg-white rounded-t-lg border-b border-gray-200 px-4 py-3">
+                <div className="font-semibold text-sm truncate">
                   {slugLabel(col.slug)}
                 </div>
-                <div className="text-xs text-gray-500">
+                <div className="text-xs text-gray-500 truncate">
                   {col.servedModels.length > 0
                     ? col.servedModels.join(", ")
                     : "resolving model…"}
@@ -856,8 +899,11 @@ export function CompareClient() {
               )}
               <div className="divide-y divide-gray-100">
                 {col.sections.map((run, i) => (
-                  <div key={run.section.id} className="px-4 py-3">
-                    <div className="flex items-center gap-2 mb-1">
+                  <details key={run.section.id} open className="group">
+                    <summary className="sticky top-[61px] z-10 bg-white flex items-center gap-2 px-4 py-2.5 cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden">
+                      <span className="text-[10px] text-gray-400 transition-transform group-open:rotate-90">
+                        ▶
+                      </span>
                       <span className="text-xs font-semibold uppercase tracking-wide text-gray-500">
                         {i + 1}. {run.section.title}
                       </span>
@@ -872,14 +918,16 @@ export function CompareClient() {
                       {run.status === "skipped" && (
                         <span className="text-xs text-gray-300">skipped</span>
                       )}
+                    </summary>
+                    <div className="px-4 pb-3">
+                      {run.status === "error" ? (
+                        <p className="text-sm text-red-600">{run.error}</p>
+                      ) : (
+                        run.status !== "pending" &&
+                        run.status !== "skipped" && <SectionBody run={run} />
+                      )}
                     </div>
-                    {run.status === "error" ? (
-                      <p className="text-sm text-red-600">{run.error}</p>
-                    ) : (
-                      run.status !== "pending" &&
-                      run.status !== "skipped" && <SectionBody run={run} />
-                    )}
-                  </div>
+                  </details>
                 ))}
               </div>
             </div>
