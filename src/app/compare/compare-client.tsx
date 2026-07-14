@@ -926,7 +926,7 @@ export function CompareClient() {
               running ? "text-accent animate-pulse" : "text-gray-400"
             }`}
           >
-            {running ? "Comparing…" : "Generation completed"}
+            {running ? "Generation in progress…" : "Generation completed"}
           </span>
         </div>
       )}
