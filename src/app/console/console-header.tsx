@@ -93,13 +93,6 @@ export function ConsoleHeader() {
                       </Link>
                       <div className="my-1 border-t border-gray-100" />
                       <Link
-                        href="/"
-                        className={MENU_LINK_CLASS}
-                        onClick={() => setMenuOpen(false)}
-                      >
-                        Legalese Home
-                      </Link>
-                      <Link
                         href="/l4"
                         className={MENU_LINK_CLASS}
                         onClick={() => setMenuOpen(false)}
