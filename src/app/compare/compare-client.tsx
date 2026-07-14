@@ -878,8 +878,8 @@ export function CompareClient() {
 
         {notice && <p className="mt-3 text-sm text-amber-700">{notice}</p>}
         {!loading && !session && (
-          <p className="mt-3 text-xs text-gray-400">
-            You&apos;ll be asked to sign in when you press Compare.
+          <p className="mt-3 text-xs text-gray-400 text-right">
+            You&apos;ll be asked to sign in with Legalese Cloud.
           </p>
         )}
       </div>
