@@ -832,18 +832,10 @@ export function CompareClient() {
                 <div className="font-semibold text-sm">
                   {slugLabel(col.slug)}
                 </div>
-                <div className="text-xs text-gray-400">{col.slug}</div>
-                <div className="text-xs text-gray-500 mt-0.5">
-                  {col.servedModels.length > 0 ? (
-                    <>
-                      served by{" "}
-                      <span className="font-medium text-gray-600">
-                        {col.servedModels.join(", ")}
-                      </span>
-                    </>
-                  ) : (
-                    "resolving model…"
-                  )}
+                <div className="text-xs text-gray-500">
+                  {col.servedModels.length > 0
+                    ? col.servedModels.join(", ")
+                    : "resolving model…"}
                 </div>
               </div>
               {col.fatal && (
