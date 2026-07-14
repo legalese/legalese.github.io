@@ -1,12 +1,17 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { AUTH_API_URL, CMS_NAME } from "@/lib/constants";
 import { useConsole } from "./console-context";
 
+const MENU_LINK_CLASS =
+  "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors";
+
 export function ConsoleHeader() {
   const { session, loading, onLogout } = useConsole();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className="bg-white border-b border-gray-200">
@@ -45,12 +50,74 @@ export function ConsoleHeader() {
                   {session.user.email}
                 </div>
               </div>
-              <button
-                onClick={onLogout}
-                className="text-sm text-gray-400 hover:text-gray-600 transition-colors ml-2"
-              >
-                Sign out
-              </button>
+              <div className="relative ml-2">
+                <button
+                  type="button"
+                  onClick={() => setMenuOpen((o) => !o)}
+                  aria-label="Menu"
+                  aria-expanded={menuOpen}
+                  className="p-2 rounded-md text-gray-500 hover:text-gray-900 hover:bg-gray-50 transition-colors"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                  >
+                    <path d="M3 5h14M3 10h14M3 15h14" />
+                  </svg>
+                </button>
+                {menuOpen && (
+                  <>
+                    <div
+                      className="fixed inset-0 z-30"
+                      onClick={() => setMenuOpen(false)}
+                    />
+                    <nav className="absolute right-0 z-40 mt-1 w-72 rounded-md border border-gray-200 bg-white shadow-lg py-1">
+                      <Link
+                        href="/console"
+                        className={MENU_LINK_CLASS}
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        Cloud Console
+                      </Link>
+                      <Link
+                        href="/compare"
+                        className={MENU_LINK_CLASS}
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        Compare AI Legal Interpretations
+                      </Link>
+                      <div className="my-1 border-t border-gray-100" />
+                      <Link
+                        href="/"
+                        className={MENU_LINK_CLASS}
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        Legalese Home
+                      </Link>
+                      <Link
+                        href="/l4"
+                        className={MENU_LINK_CLASS}
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        L4 Documentation
+                      </Link>
+                      <div className="my-1 border-t border-gray-100" />
+                      <button
+                        type="button"
+                        onClick={onLogout}
+                        className={`${MENU_LINK_CLASS} w-full text-left`}
+                      >
+                        Sign out
+                      </button>
+                    </nav>
+                  </>
+                )}
+              </div>
             </div>
           ) : (
             <div>
