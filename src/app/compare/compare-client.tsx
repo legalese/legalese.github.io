@@ -27,14 +27,14 @@ const MAX_DRAFT_ATTACHMENT_CHARS = 3_000_000;
  */
 const FALLBACK_BASE = "legalese-compare-4";
 const FALLBACK_MODELS = [
-  "anthropic/claude-opus-4.5",
-  "anthropic/claude-sonnet-4.5",
-  "openai/gpt-5.1",
-  "google/gemini-3-pro-preview",
-  "x-ai/grok-4",
-  "meta-llama/llama-4-maverick",
-  "deepseek/deepseek-chat-v3.1",
-  "qwen/qwen3-235b-a22b",
+  // `~vendor/model-latest` are OpenRouter floating aliases; the column
+  // header shows the concrete model each turn was actually served by.
+  "~anthropic/claude-sonnet-latest",
+  "~anthropic/claude-opus-latest",
+  "~openai/gpt-latest",
+  "~google/gemini-flash-latest",
+  "~x-ai/grok-latest",
+  "z-ai/glm-5.2",
 ];
 
 interface Attachment {
@@ -57,6 +57,13 @@ interface ColumnRun {
   sections: SectionRun[];
   limitHit: boolean;
   fatal?: string;
+  /**
+   * Concrete upstream model ids that actually served this column's
+   * requests, as reported by the proxy's `servedModel` metadata frames.
+   * Matters because the "-latest" aliases float; usually one entry, but
+   * an alias can roll over mid-run.
+   */
+  servedModels: string[];
 }
 
 interface Draft {
@@ -68,16 +75,27 @@ interface Draft {
   autorun: boolean;
 }
 
-/** "anthropic/claude-opus-4.5" → "Claude Opus 4.5" */
-function slugLabel(slug: string): string {
+/** All-caps model-family acronyms for display labels. */
+const ACRONYMS = new Set(["gpt", "glm"]);
+
+/** "~anthropic/claude-opus-latest" → "Claude Opus Latest"; "z-ai/glm-5.2" → "GLM 5.2" */
+function slugLabel(rawSlug: string): string {
+  const slug = rawSlug.replace(/^~/, "");
   const name = slug.includes("/") ? slug.slice(slug.indexOf("/") + 1) : slug;
   return name
     .split("-")
-    .map((w) => (/^\d/.test(w) ? w : w.charAt(0).toUpperCase() + w.slice(1)))
+    .map((w) =>
+      ACRONYMS.has(w.toLowerCase())
+        ? w.toUpperCase()
+        : /^\d/.test(w)
+          ? w
+          : w.charAt(0).toUpperCase() + w.slice(1),
+    )
     .join(" ");
 }
 
-function slugProvider(slug: string): string {
+function slugProvider(rawSlug: string): string {
+  const slug = rawSlug.replace(/^~/, "");
   return slug.includes("/") ? slug.slice(0, slug.indexOf("/")) : "";
 }
 
@@ -381,6 +399,21 @@ export function CompareClient() {
           if (frame.event === "metadata") {
             const id = json.conversationId as string | undefined;
             if (id) conversationId = id;
+            const served = json.servedModel as string | undefined;
+            if (served) {
+              setColumns((prev) =>
+                prev
+                  ? prev.map((col, ci) =>
+                      ci === colIdx && !col.servedModels.includes(served)
+                        ? {
+                            ...col,
+                            servedModels: [...col.servedModels, served],
+                          }
+                        : col,
+                    )
+                  : prev,
+              );
+            }
           } else if (frame.event === "error") {
             updateSection(colIdx, i, {
               status: "error",
@@ -432,6 +465,7 @@ export function CompareClient() {
       slugs.map((slug) => ({
         slug,
         limitHit: false,
+        servedModels: [],
         sections: sections.map((section) => ({
           section,
           status: "pending" as const,
@@ -734,6 +768,18 @@ export function CompareClient() {
                   {slugLabel(col.slug)}
                 </div>
                 <div className="text-xs text-gray-400">{col.slug}</div>
+                <div className="text-xs text-gray-500 mt-0.5">
+                  {col.servedModels.length > 0 ? (
+                    <>
+                      served by{" "}
+                      <span className="font-medium text-gray-600">
+                        {col.servedModels.join(", ")}
+                      </span>
+                    </>
+                  ) : (
+                    "resolving model…"
+                  )}
+                </div>
               </div>
               {col.fatal && (
                 <div className="px-4 py-3 text-sm text-red-600">
