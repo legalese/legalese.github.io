@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { AUTH_API_URL, SERVICE_DOMAIN } from "@/lib/constants";
-import markdownToHtml from "@/lib/markdownToHtml";
+import "katex/dist/katex.min.css";
+import markdownToHtml from "./markdown-math";
 import { useConsole } from "../console/console-context";
 import { authHeaders } from "../console/console-utils";
 import {
@@ -152,7 +153,8 @@ const MARKDOWN_CLASS =
   "[&_td]:border [&_td]:border-gray-200 [&_td]:px-2 [&_td]:py-1 [&_td]:align-top " +
   "[&_code]:bg-gray-100 [&_code]:px-1 [&_code]:rounded [&_code]:text-xs " +
   "[&_pre]:bg-gray-100 [&_pre]:p-2 [&_pre]:rounded [&_pre]:overflow-x-auto [&_pre]:my-2 " +
-  "[&_blockquote]:border-l-2 [&_blockquote]:border-gray-300 [&_blockquote]:pl-3 [&_blockquote]:text-gray-600";
+  "[&_blockquote]:border-l-2 [&_blockquote]:border-gray-300 [&_blockquote]:pl-3 [&_blockquote]:text-gray-600 " +
+  "[&_.katex-display]:overflow-x-auto [&_.katex-display]:my-2";
 
 /** Gap between markdown render passes while a section streams. */
 const MARKDOWN_RENDER_INTERVAL_MS = 300;
@@ -727,7 +729,7 @@ export function CompareClient() {
               running ? "text-accent animate-pulse" : "text-gray-400"
             }`}
           >
-            {running ? "Comparing…" : "Done"}
+            {running ? "Comparing…" : "Generation completed"}
           </span>
         </div>
       )}
