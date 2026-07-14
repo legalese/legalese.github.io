@@ -154,48 +154,92 @@ const MARKDOWN_CLASS =
   "[&_pre]:bg-gray-100 [&_pre]:p-2 [&_pre]:rounded [&_pre]:overflow-x-auto [&_pre]:my-2 " +
   "[&_blockquote]:border-l-2 [&_blockquote]:border-gray-300 [&_blockquote]:pl-3 [&_blockquote]:text-gray-600";
 
-/** Minimum gap between remark renders while a section streams. */
+/** Gap between markdown render passes while a section streams. */
 const MARKDOWN_RENDER_INTERVAL_MS = 300;
+
+/** True when `s` ends inside an unclosed ``` / ~~~ code fence. */
+function fenceOpen(s: string): boolean {
+  const fences = s.match(/^(?:```|~~~)/gm);
+  return fences !== null && fences.length % 2 === 1;
+}
 
 function SectionBody({ run }: { run: SectionRun }) {
   const [html, setHtml] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
-  const lastRenderAt = useRef(0);
-  const trailing = useRef<ReturnType<typeof setTimeout> | null>(null);
   const streaming = run.status === "streaming";
   const text = run.text;
 
-  // Markdown-render the streamed text, throttled: three columns
-  // streaming in parallel would otherwise run remark on every token.
-  // The trailing timeout guarantees the final tokens always render,
-  // and a "done" transition renders immediately.
+  // Latest text, readable from the interval below without re-arming
+  // any effect on every token.
+  const textRef = useRef(text);
+  textRef.current = text;
+
+  // Incremental-render cache: HTML for text[0..stableLen), built from
+  // completed paragraph blocks that were each parsed exactly once.
+  const stableHtml = useRef("");
+  const stableLen = useRef(0);
+  const inFlight = useRef(false);
+
+  // Streaming: one interval per streaming section (at most one section
+  // streams per column, so ≤3 timers page-wide). Each tick parses only
+  // what's new — completed blocks (up to the last blank line that isn't
+  // inside an open code fence) are parsed once and appended to the
+  // cached HTML; only the small unfinished tail is re-parsed per tick.
+  // Cross-block constructs that a blank line would split (tables,
+  // fences) stay in the tail until complete, so they render intact.
   useEffect(() => {
-    let alive = true;
-    const render = () => {
-      lastRenderAt.current = Date.now();
-      void markdownToHtml(text).then((h) => {
-        if (alive) setHtml(h);
-      });
-    };
-    if (!streaming) {
-      render();
-    } else {
-      const sinceLast = Date.now() - lastRenderAt.current;
-      if (sinceLast >= MARKDOWN_RENDER_INTERVAL_MS) {
-        render();
-      } else {
-        if (trailing.current) clearTimeout(trailing.current);
-        trailing.current = setTimeout(
-          render,
-          MARKDOWN_RENDER_INTERVAL_MS - sinceLast,
-        );
+    if (!streaming) return;
+    let disposed = false;
+
+    const tick = async () => {
+      if (disposed || inFlight.current) return;
+      inFlight.current = true;
+      try {
+        const t = textRef.current;
+        const pending = t.slice(stableLen.current);
+        // Furthest blank-line boundary that keeps fences balanced.
+        let boundary = pending.lastIndexOf("\n\n");
+        while (boundary > 0 && fenceOpen(pending.slice(0, boundary))) {
+          boundary = pending.lastIndexOf("\n\n", boundary - 1);
+        }
+        if (boundary > 0) {
+          const flushed = pending.slice(0, boundary + 2);
+          const h = await markdownToHtml(flushed);
+          if (disposed) return;
+          stableHtml.current += h;
+          stableLen.current += flushed.length;
+        }
+        const tailHtml = await markdownToHtml(t.slice(stableLen.current));
+        if (!disposed) setHtml(stableHtml.current + tailHtml);
+      } finally {
+        inFlight.current = false;
       }
-    }
+    };
+
+    void tick();
+    const interval = setInterval(() => void tick(), MARKDOWN_RENDER_INTERVAL_MS);
+    return () => {
+      disposed = true;
+      clearInterval(interval);
+    };
+  }, [streaming]);
+
+  // Not streaming (done, or error with partial text): one authoritative
+  // full-document parse — fixes any seams the incremental preview left
+  // (e.g. a list split across flush boundaries).
+  useEffect(() => {
+    if (streaming) return;
+    let alive = true;
+    void markdownToHtml(text).then((h) => {
+      if (!alive) return;
+      stableHtml.current = h;
+      stableLen.current = text.length;
+      setHtml(h);
+    });
     return () => {
       alive = false;
-      if (trailing.current) clearTimeout(trailing.current);
     };
-  }, [text, streaming]);
+  }, [streaming, text]);
 
   // Keep the view pinned to the newest content while streaming — but
   // only when the user is already near the bottom, so scrolling up to
