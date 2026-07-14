@@ -138,9 +138,27 @@ function slugLabel(rawSlug: string): string {
     .join(" ");
 }
 
+/** Proper-cased names for providers whose branding isn't plain title case. */
+const PROVIDER_NAMES: Record<string, string> = {
+  anthropic: "Anthropic",
+  openai: "OpenAI",
+  google: "Google",
+  "x-ai": "xAI",
+  "z-ai": "Z.ai",
+  "meta-llama": "Meta",
+  deepseek: "DeepSeek",
+  mistralai: "Mistral",
+  qwen: "Qwen",
+};
+
 function slugProvider(rawSlug: string): string {
   const slug = rawSlug.replace(/^~/, "");
-  return slug.includes("/") ? slug.slice(0, slug.indexOf("/")) : "";
+  const provider = slug.includes("/") ? slug.slice(0, slug.indexOf("/")) : "";
+  if (!provider) return "";
+  return (
+    PROVIDER_NAMES[provider] ??
+    provider.charAt(0).toUpperCase() + provider.slice(1)
+  );
 }
 
 /** First non-empty line of the pasted text, for the results header bar. */
@@ -1021,10 +1039,10 @@ export function CompareClient() {
           </div>
         </div>
 
-        {/* ── Model pickers ── */}
-        <div className="mt-4 flex flex-wrap items-end gap-3">
+        {/* ── Model pickers — three equal columns across the card ── */}
+        <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
           {[0, 1, 2].map((i) => (
-            <label key={i} className="block">
+            <label key={i} className="block min-w-0">
               <span className="block text-xs text-gray-500 mb-1">
                 {i === 0 ? "Model" : `Model ${i + 1} (optional)`}
               </span>
@@ -1035,7 +1053,7 @@ export function CompareClient() {
                     prev.map((m, mi) => (mi === i ? e.target.value : m)),
                   )
                 }
-                className="rounded-md border border-gray-200 bg-white px-2 py-1.5 text-sm max-w-[220px]"
+                className="w-full rounded-md border border-gray-200 bg-white px-2 py-1.5 text-sm"
               >
                 {i > 0 && <option value="">None</option>}
                 {available.map((slug) => (
@@ -1050,17 +1068,17 @@ export function CompareClient() {
               </select>
             </label>
           ))}
+        </div>
 
-          <div className="ml-auto flex gap-2">
-            <button
-              type="button"
-              onClick={handleSubmit}
-              disabled={!canSubmit}
-              className="rounded-md bg-accent px-5 py-1.5 text-sm font-medium text-white hover:bg-accent-hover disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
-            >
-              Compare
-            </button>
-          </div>
+        <div className="mt-4 flex justify-end">
+          <button
+            type="button"
+            onClick={handleSubmit}
+            disabled={!canSubmit}
+            className="rounded-md bg-accent px-5 py-1.5 text-sm font-medium text-white hover:bg-accent-hover disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+          >
+            Compare
+          </button>
         </div>
 
         {notice && <p className="mt-3 text-sm text-amber-700">{notice}</p>}
