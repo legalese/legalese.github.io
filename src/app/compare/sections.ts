@@ -23,7 +23,7 @@ const RESPONSE_STYLE = [
   "Response requirements:",
   "- Be brief: open with the first substantive item and close with the last.",
   "- Write for a legal drafter: scannable structure, short headings, the provision reference first in every item.",
-  "- Prefer tables and bullet lists wherever they aid side-by-side comparison.",
+  "- Use tables and bullet lists to maximise readibility.",
   "- Keep quotation to the minimum needed to identify a provision, and make each point exactly once.",
 ].join("\n");
 
@@ -58,12 +58,12 @@ export const COMPARE_SECTIONS: CompareSection[] = [
     ].join("\n") + RESPONSE_STYLE,
   },
   {
-    id: "predicative",
-    title: "Predicative",
+    id: "predicate",
+    title: "Predicate",
     prompt: [
-      "SECTION: PREDICATIVE",
+      "SECTION: PREDICATE",
       "",
-      "Extract the rules of the legal text and implement each one as purely predicative (first-order) logic against the ontology provided above.",
+      "Extract the rules of the legal text and implement each one as purely predicate (first-order) logic against the ontology provided above.",
       "",
       "- One paragraph per rule, starting with the provision reference in bold.",
       "- Use quantifiers (∀, ∃), predicates and functions whose names and argument types come from the ontology, followed by a one-line plain-language gloss.",
@@ -119,5 +119,5 @@ export function buildDocumentPreamble(docText: string | null): string {
   if (docText === null) {
     return `${intro}\n\nThe legal text is the attached document.`;
   }
-  return `${intro}\n\nHere is the full legal text:\n\n<legal-text>\n${docText}\n</legal-text>`;
+  return `${intro}\n\nHer  e is the full legal text:\n\n<legal-text>\n${docText}\n</legal-text>`;
 }
