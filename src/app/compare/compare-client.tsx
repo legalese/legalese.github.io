@@ -1049,7 +1049,7 @@ export function CompareClient({
             <div className="text-sm font-medium truncate">
               {runTitle ?? "Untitled comparison"}
             </div>
-            <div className="text-xs text-gray-400 truncate">
+            <div className="text-xs text-gray-400">
               The generated output is at the discretion of the chosen models —
               variations in naming, layout, structure and order, among others,
               are choices of the model.
