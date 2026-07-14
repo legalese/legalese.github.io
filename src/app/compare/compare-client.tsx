@@ -252,7 +252,12 @@ function SectionBody({ run }: { run: SectionRun }) {
   }, [html, streaming]);
 
   return (
-    <div ref={scrollRef} className="max-h-[85vh] overflow-y-auto">
+    // The generated output sits on a subtly tinted panel so model text
+    // reads as output, distinct from the white page chrome around it.
+    <div
+      ref={scrollRef}
+      className="max-h-[85vh] overflow-y-auto bg-gray-50 rounded-md p-3"
+    >
       {html ? (
         <div
           className={MARKDOWN_CLASS}
@@ -894,12 +899,13 @@ export function CompareClient() {
         </div>
       )}
 
-      {/* ── Result columns — full window width, breaking out of the
-             ConsoleShell max-w-6xl container ── */}
+      {/* ── Result columns — edge-to-edge white strip breaking out of
+             the ConsoleShell max-w-6xl container; columns separated by
+             a hairline only ── */}
       {columns && (
-        <div className="mx-[calc(50%-50vw)] px-4 sm:px-6 lg:px-8">
+        <div className="mx-[calc(50%-50vw)] bg-white">
         <div
-          className={`grid gap-4 items-start grid-cols-1 ${
+          className={`grid items-start grid-cols-1 divide-y divide-gray-200 md:divide-y-0 md:divide-x ${
             columns.length === 2
               ? "md:grid-cols-2"
               : columns.length >= 3
@@ -908,14 +914,11 @@ export function CompareClient() {
           }`}
         >
           {columns.map((col) => (
-            <div
-              key={col.slug}
-              className="bg-white border border-gray-200 rounded-lg min-w-0"
-            >
+            <div key={col.slug} className="min-w-0">
               {/* Sticky column header: 61px tall (20 + 16 text lines +
                   2×12 padding + 1 border) — the section summaries below
                   pin underneath at top-[61px]. */}
-              <div className="sticky top-0 z-20 bg-white rounded-t-lg border-b border-gray-200 px-4 py-3">
+              <div className="sticky top-0 z-20 bg-white border-b border-gray-100 px-4 py-3">
                 <div className="font-semibold text-sm truncate">
                   {slugLabel(col.slug)}
                 </div>
@@ -941,7 +944,7 @@ export function CompareClient() {
                   </Link>
                 </div>
               )}
-              <div className="divide-y divide-gray-100">
+              <div>
                 {col.sections.map((run, i) => (
                   <details key={run.section.id} open className="group">
                     <summary className="sticky top-[61px] z-10 bg-white flex items-center gap-2 px-4 py-2.5 cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden">
