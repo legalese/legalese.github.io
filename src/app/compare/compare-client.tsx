@@ -287,7 +287,6 @@ export function CompareClient() {
   const [sectionIds, setSectionIds] = useState<Set<string>>(
     () => new Set(COMPARE_SECTIONS.map((s) => s.id)),
   );
-  const [sectionsOpen, setSectionsOpen] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
   const [pendingAutorun, setPendingAutorun] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -783,7 +782,42 @@ export function CompareClient() {
           )}
         </div>
 
-        {/* ── Model + section pickers ── */}
+        {/* ── Section checkboxes — always visible, 3-column grid ── */}
+        <div className="mt-4">
+          <span className="block text-xs text-gray-500 mb-1">Sections</span>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-4 gap-y-1">
+            {COMPARE_SECTIONS.map((s) => (
+              <label
+                key={s.id}
+                className={`flex items-center gap-2 rounded px-1 py-1 text-sm ${
+                  s.locked ? "text-gray-400" : "hover:bg-gray-50 cursor-pointer"
+                }`}
+              >
+                <input
+                  type="checkbox"
+                  checked={s.locked || sectionIds.has(s.id)}
+                  disabled={s.locked}
+                  onChange={(e) =>
+                    setSectionIds((prev) => {
+                      const next = new Set(prev);
+                      if (e.target.checked) next.add(s.id);
+                      else next.delete(s.id);
+                      return next;
+                    })
+                  }
+                />
+                <span className="truncate">{s.title}</span>
+                {s.locked && (
+                  <span className="text-[10px] uppercase tracking-wide shrink-0">
+                    required
+                  </span>
+                )}
+              </label>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Model pickers ── */}
         <div className="mt-4 flex flex-wrap items-end gap-3">
           {[0, 1, 2].map((i) => (
             <label key={i} className="block">
@@ -812,57 +846,6 @@ export function CompareClient() {
               </select>
             </label>
           ))}
-
-          <div className="relative">
-            <span className="block text-xs text-gray-500 mb-1">Sections</span>
-            <button
-              type="button"
-              onClick={() => setSectionsOpen((o) => !o)}
-              className="rounded-md border border-gray-200 bg-white px-3 py-1.5 text-sm"
-            >
-              {selectedSections.length} of {COMPARE_SECTIONS.length} selected ▾
-            </button>
-            {sectionsOpen && (
-              <>
-                <div
-                  className="fixed inset-0 z-10"
-                  onClick={() => setSectionsOpen(false)}
-                />
-                <div className="absolute z-20 mt-1 w-64 rounded-md border border-gray-200 bg-white shadow-lg p-2">
-                  {COMPARE_SECTIONS.map((s) => (
-                    <label
-                      key={s.id}
-                      className={`flex items-center gap-2 rounded px-2 py-1.5 text-sm ${
-                        s.locked
-                          ? "text-gray-400"
-                          : "hover:bg-gray-50 cursor-pointer"
-                      }`}
-                    >
-                      <input
-                        type="checkbox"
-                        checked={s.locked || sectionIds.has(s.id)}
-                        disabled={s.locked}
-                        onChange={(e) =>
-                          setSectionIds((prev) => {
-                            const next = new Set(prev);
-                            if (e.target.checked) next.add(s.id);
-                            else next.delete(s.id);
-                            return next;
-                          })
-                        }
-                      />
-                      {s.title}
-                      {s.locked && (
-                        <span className="text-[10px] uppercase tracking-wide">
-                          required
-                        </span>
-                      )}
-                    </label>
-                  ))}
-                </div>
-              </>
-            )}
-          </div>
 
           <div className="ml-auto flex gap-2">
             <button
