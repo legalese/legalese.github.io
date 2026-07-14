@@ -252,12 +252,7 @@ function SectionBody({ run }: { run: SectionRun }) {
   }, [html, streaming]);
 
   return (
-    // The generated output sits on a subtly tinted panel so model text
-    // reads as output, distinct from the white page chrome around it.
-    <div
-      ref={scrollRef}
-      className="max-h-[85vh] overflow-y-auto bg-gray-50 rounded-md p-3"
-    >
+    <div ref={scrollRef} className="max-h-[85vh] overflow-y-auto">
       {html ? (
         <div
           className={MARKDOWN_CLASS}
