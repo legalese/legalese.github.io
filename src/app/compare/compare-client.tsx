@@ -333,7 +333,11 @@ function SectionBody({ run }: { run: SectionRun }) {
   );
 }
 
-export function CompareClient() {
+export function CompareClient({
+  discordUrl,
+}: {
+  discordUrl?: string | null;
+}) {
   const { session, loading } = useConsole();
 
   // ── Input state ─────────────────────────────────────────────────
@@ -1097,6 +1101,21 @@ export function CompareClient() {
           </p>
         )}
       </div>
+      )}
+
+      {/* ── Feedback link ── */}
+      {!columns && discordUrl && (
+        <p className="text-center text-sm text-gray-500 max-w-3xl mx-auto">
+          Feedback?{" "}
+          <a
+            href={discordUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent hover:text-accent-hover underline hover:no-underline transition-colors"
+          >
+            Join our Discord
+          </a>
+        </p>
       )}
 
       {/* ── Previous generations ── */}

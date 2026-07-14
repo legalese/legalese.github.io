@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getExternalLinkBySlug } from "@/lib/api";
 import { ConsoleShell } from "../console/console-shell";
 import { CompareClient } from "./compare-client";
 
@@ -9,9 +10,10 @@ export const metadata: Metadata = {
 };
 
 export default function ComparePage() {
+  const discordUrl = getExternalLinkBySlug("discord")?.url ?? null;
   return (
     <ConsoleShell>
-      <CompareClient />
+      <CompareClient discordUrl={discordUrl} />
     </ConsoleShell>
   );
 }
