@@ -699,7 +699,7 @@ export function CompareClient() {
     <div className="space-y-8">
       {!columns && (
         <div className="text-center pt-8">
-          <h1 className="text-3xl font-bold font-merriweather">Compare</h1>
+          <h1 className="text-3xl font-bold font-merriweather">Compare AI Legal Interpretations</h1>
           <p className="mt-3 text-gray-600 max-w-xl mx-auto">
             See how your legislation is understood by different AI models.
             Paste your legal text, pick up to three models, and compare their
@@ -869,7 +869,7 @@ export function CompareClient() {
               type="button"
               onClick={handleSubmit}
               disabled={!canSubmit}
-              className="rounded-md bg-gray-900 px-5 py-1.5 text-sm font-medium text-white hover:bg-gray-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="rounded-md bg-accent px-5 py-1.5 text-sm font-medium text-white hover:bg-accent-hover disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
               Compare
             </button>
@@ -899,87 +899,104 @@ export function CompareClient() {
         </div>
       )}
 
-      {/* ── Result columns — edge-to-edge white strip breaking out of
-             the ConsoleShell max-w-6xl container; columns separated by
-             a hairline only ── */}
+      {/* ── Results — section-major: one collapsible header per section
+             (kept on the page background), each opening an edge-to-edge
+             multi-column grid of model outputs ── */}
       {columns && (
-        <div className="mx-[calc(50%-50vw)] bg-white">
-        <div
-          className={`grid items-start grid-cols-1 divide-y divide-gray-200 md:divide-y-0 md:divide-x ${
-            columns.length === 2
-              ? "md:grid-cols-2"
-              : columns.length >= 3
-                ? "md:grid-cols-3"
-                : ""
-          }`}
-        >
-          {columns.map((col) => (
-            <div key={col.slug} className="min-w-0">
-              {/* Sticky column header: 61px tall (20 + 16 text lines +
-                  2×12 padding + 1 border) — the section summaries below
-                  pin underneath at top-[61px]. */}
-              <div className="sticky top-0 z-20 bg-white border-b border-gray-100 px-4 py-3">
+        <div className="mx-[calc(50%-50vw)]">
+          {/* Sticky model-name row: 61px tall (20 + 16 text lines + 2×12
+              padding + 1 border) — the section headers pin underneath at
+              md:top-[61px]. Hidden on mobile, where the stacked cells
+              carry their own model label. A column's fatal / limit note
+              replaces its resolved-model line so the row height stays
+              fixed. */}
+          <div
+            className={`hidden md:grid sticky top-0 z-20 bg-white border-b border-gray-100 divide-x divide-gray-200 ${
+              columns.length === 2
+                ? "md:grid-cols-2"
+                : columns.length >= 3
+                  ? "md:grid-cols-3"
+                  : ""
+            }`}
+          >
+            {columns.map((col) => (
+              <div key={col.slug} className="min-w-0 px-4 py-3">
                 <div className="font-semibold text-sm truncate">
                   {slugLabel(col.slug)}
                 </div>
-                <div className="text-xs text-gray-500 truncate">
-                  {col.servedModels.length > 0
-                    ? col.servedModels.join(", ")
-                    : "resolving model…"}
+                <div
+                  className={`text-xs truncate ${
+                    col.fatal
+                      ? "text-red-600"
+                      : col.limitHit
+                        ? "text-amber-700"
+                        : "text-gray-500"
+                  }`}
+                >
+                  {col.fatal
+                    ? col.fatal
+                    : col.limitHit
+                      ? "stopped — free AI credit limit reached"
+                      : col.servedModels.length > 0
+                        ? col.servedModels.join(", ")
+                        : "resolving model…"}
                 </div>
               </div>
-              {col.fatal && (
-                <div className="px-4 py-3 text-sm text-red-600">
-                  {col.fatal}
-                </div>
-              )}
-              {col.limitHit && (
-                <div className="px-4 py-3 text-sm text-amber-800 bg-amber-50 border-b border-amber-100">
-                  Stopped — free AI credit limit reached.{" "}
-                  <Link
-                    href="/console/billing/upgrade/metered"
-                    className="font-medium underline hover:no-underline"
-                  >
-                    Upgrade
-                  </Link>
-                </div>
-              )}
-              <div>
-                {col.sections.map((run, i) => (
-                  <details key={run.section.id} open className="group">
-                    <summary className="sticky top-[61px] z-10 bg-white flex items-center gap-2 px-4 py-2.5 cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden">
-                      <span className="text-[10px] text-gray-400 transition-transform group-open:rotate-90">
-                        ▶
-                      </span>
-                      <span className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-                        {i + 1}. {run.section.title}
-                      </span>
-                      {run.status === "pending" && (
-                        <span className="text-xs text-gray-300">waiting…</span>
-                      )}
-                      {run.status === "streaming" && (
-                        <span className="text-xs text-accent animate-pulse">
-                          writing…
-                        </span>
-                      )}
-                      {run.status === "skipped" && (
-                        <span className="text-xs text-gray-300">skipped</span>
-                      )}
-                    </summary>
-                    <div className="px-4 pb-3">
+            ))}
+          </div>
+
+          {columns[0].sections.map((first, i) => {
+            const section = first.section;
+            const runs = columns.map((col) => col.sections[i]);
+            const anyStreaming = runs.some((r) => r.status === "streaming");
+            const allPending = runs.every((r) => r.status === "pending");
+            return (
+              <details key={section.id} open className="group">
+                <summary className="sticky top-0 md:top-[61px] z-10 bg-gray-50 flex items-center gap-2 px-4 py-2.5 cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden">
+                  <span className="text-[10px] text-gray-400 transition-transform group-open:rotate-90">
+                    ▶
+                  </span>
+                  <span className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                    {i + 1}. {section.title}
+                  </span>
+                  {allPending && (
+                    <span className="text-xs text-gray-300">waiting…</span>
+                  )}
+                  {anyStreaming && (
+                    <span className="text-xs text-accent animate-pulse">
+                      writing…
+                    </span>
+                  )}
+                </summary>
+                <div
+                  className={`grid items-start bg-white divide-y divide-gray-200 md:divide-y-0 md:divide-x grid-cols-1 ${
+                    columns.length === 2
+                      ? "md:grid-cols-2"
+                      : columns.length >= 3
+                        ? "md:grid-cols-3"
+                        : ""
+                  }`}
+                >
+                  {runs.map((run, ci) => (
+                    <div key={columns[ci].slug} className="min-w-0 px-4 py-3">
+                      <div className="md:hidden text-xs font-medium text-gray-500 mb-1">
+                        {slugLabel(columns[ci].slug)}
+                      </div>
                       {run.status === "error" ? (
                         <p className="text-sm text-red-600">{run.error}</p>
+                      ) : run.status === "pending" ? (
+                        <p className="text-xs text-gray-300">waiting…</p>
+                      ) : run.status === "skipped" ? (
+                        <p className="text-xs text-gray-300">skipped</p>
                       ) : (
-                        run.status !== "pending" &&
-                        run.status !== "skipped" && <SectionBody run={run} />
+                        <SectionBody run={run} />
                       )}
                     </div>
-                  </details>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+                  ))}
+                </div>
+              </details>
+            );
+          })}
         </div>
       )}
     </div>
