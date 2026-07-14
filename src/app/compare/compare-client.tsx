@@ -93,6 +93,13 @@ interface HistoryEntry {
   createdAt: string;
   sectionIds: string[];
   columns: HistoryColumn[];
+  /**
+   * `${userId}/${organizationId}` of the account that ran the
+   * comparison. The list only shows entries whose owner matches the
+   * signed-in account (and nothing when signed out) — the transcripts
+   * are account-scoped server-side anyway.
+   */
+  owner?: string;
 }
 
 const HISTORY_KEY = "compare-history";
@@ -369,6 +376,28 @@ export function CompareClient({
   useEffect(() => {
     setHistory(loadHistoryEntries());
   }, []);
+
+  // Account scope for the history list: entries belong to the
+  // user+organization that created them. Signed out → no owner → an
+  // empty list. Switching accounts recomputes the visible slice; the
+  // other account's entries stay stored but hidden.
+  const ownerKey = session
+    ? `${session.user.id}/${session.organizationId ?? ""}`
+    : null;
+  const visibleHistory = history.filter((e) => e.owner === ownerKey);
+
+  // One-time adoption of pre-scoping entries: stamp owner-less entries
+  // with the first signed-in account that loads them (they were almost
+  // certainly created by it — scoping didn't exist before).
+  useEffect(() => {
+    if (!ownerKey) return;
+    setHistory((prev) => {
+      if (!prev.some((e) => !e.owner)) return prev;
+      const next = prev.map((e) => (e.owner ? e : { ...e, owner: ownerKey }));
+      saveHistoryEntries(next);
+      return next;
+    });
+  }, [ownerKey]);
 
   function updateHistory(
     mutate: (entries: HistoryEntry[]) => HistoryEntry[],
@@ -695,6 +724,7 @@ export function CompareClient({
       {
         id: runId,
         title,
+        ...(ownerKey ? { owner: ownerKey } : {}),
         createdAt: new Date().toISOString(),
         sectionIds: sections.map((s) => s.id),
         columns: slugs.map((slug) => ({
@@ -1119,13 +1149,13 @@ export function CompareClient({
       )}
 
       {/* ── Previous generations ── */}
-      {!columns && history.length > 0 && (
+      {!columns && visibleHistory.length > 0 && (
         <div className="max-w-3xl mx-auto">
           <h2 className="text-xs font-semibold tracking-wide text-gray-500 mb-2">
             Previous generations
           </h2>
           <ul className="bg-white border border-gray-200 rounded-lg divide-y divide-gray-100">
-            {history.map((entry) => (
+            {visibleHistory.map((entry) => (
               <li
                 key={entry.id}
                 className="flex items-center gap-3 px-4 py-2.5"
