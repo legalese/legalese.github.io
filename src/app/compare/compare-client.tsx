@@ -953,7 +953,7 @@ export function CompareClient() {
           <input
             ref={fileInputRef}
             type="file"
-            accept=".pdf,.txt,.md,application/pdf,text/plain,text/markdown"
+            accept=".pdf,.txt,.md,.xml,.akn,application/pdf,text/plain,text/markdown,application/xml,text/xml,application/akn+xml"
             className="hidden"
             onChange={(e) => {
               const f = e.target.files?.[0];
@@ -966,8 +966,11 @@ export function CompareClient() {
             onClick={() => fileInputRef.current?.click()}
             className="text-sm text-gray-600 hover:text-gray-900 border border-gray-200 rounded-md px-3 py-1.5 transition-colors"
           >
-            Upload PDF / TXT / MD
+            Select a file …
           </button>
+          <span className="text-xs text-gray-400">
+            PDF, Akoma Ntoso, markdown and textfiles supported
+          </span>
           {attachment && (
             <span className="inline-flex items-center gap-1 text-xs bg-gray-100 rounded-full px-3 py-1">
               {attachment.name}
@@ -1063,7 +1066,7 @@ export function CompareClient() {
         {notice && <p className="mt-3 text-sm text-amber-700">{notice}</p>}
         {!loading && !session && (
           <p className="mt-3 text-xs text-gray-400 text-right">
-            You&apos;ll be asked to sign in with Legalese Cloud.
+            You&apos;ll be asked to sign in with Legalese Cloud
           </p>
         )}
       </div>
@@ -1072,7 +1075,7 @@ export function CompareClient() {
       {/* ── Previous generations ── */}
       {!columns && history.length > 0 && (
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">
+          <h2 className="text-xs font-semibold tracking-wide text-gray-500 mb-2">
             Previous generations
           </h2>
           <ul className="bg-white border border-gray-200 rounded-lg divide-y divide-gray-100">
