@@ -117,6 +117,16 @@ interface HistoryEntry {
 const HISTORY_KEY = "compare-history";
 const HISTORY_MAX = 20;
 
+/**
+ * Timestamp format for the history list. The locale is deliberately
+ * left undefined so the browser's / system's default localisation
+ * applies; only the verbosity is pinned (no seconds).
+ */
+const historyDateFormat = new Intl.DateTimeFormat(undefined, {
+  dateStyle: "medium",
+  timeStyle: "short",
+});
+
 function loadHistoryEntries(): HistoryEntry[] {
   try {
     const raw = localStorage.getItem(HISTORY_KEY);
@@ -1364,7 +1374,7 @@ export function CompareClient({
                     {entry.title}
                   </div>
                   <div className="text-xs text-gray-400 truncate">
-                    {new Date(entry.createdAt).toLocaleString()} ·{" "}
+                    {historyDateFormat.format(new Date(entry.createdAt))} ·{" "}
                     {entry.columns.map((c) => slugLabel(c.slug)).join(" vs ")}
                   </div>
                 </button>
