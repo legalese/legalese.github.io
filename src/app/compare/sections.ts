@@ -20,10 +20,10 @@ export interface CompareSection {
 const RESPONSE_STYLE = [
   "",
   "Response requirements:",
-  "- Be brief. No preamble, no restating of the task, no closing summary.",
+  "- Be brief: open with the first substantive item and close with the last.",
   "- Write for a legal drafter: scannable structure, short headings, the provision reference first in every item.",
-  "- Prefer tables and bullet lists over prose wherever they aid side-by-side comparison.",
-  "- Do not quote the source text beyond what identifying a provision requires, and never repeat content across items.",
+  "- Prefer tables and bullet lists wherever they aid side-by-side comparison.",
+  "- Keep quotation to the minimum needed to identify a provision, and make each point exactly once.",
 ].join("\n");
 
 export const COMPARE_SECTIONS: CompareSection[] = [
@@ -40,7 +40,7 @@ export const COMPARE_SECTIONS: CompareSection[] = [
       "- List defined terms as types or attributes where appropriate.",
       "- End with a `### Constants` subsection: fixed values, thresholds, amounts, durations and dates the rules rely on, each with its source provision.",
       "",
-      "Do not restate the rules themselves; only model the world they assume.",
+      "Model only the world the rules assume — the rules themselves are covered by later sections.",
     ].join("\n") + RESPONSE_STYLE,
   },
   {
@@ -53,7 +53,7 @@ export const COMPARE_SECTIONS: CompareSection[] = [
       "",
       "- One paragraph per rule, starting with the provision reference in bold.",
       "- Introduce named proposition letters (e.g. `P1 = the tenant is in arrears`) and then give the encoding using only propositional connectives (∧, ∨, ¬, →, ↔).",
-      "- No quantifiers, predicates or variables — propositional logic only. Where the natural rule needs them, note what the propositional encoding loses.",
+      "- Stay purely propositional; where the natural rule would call for quantifiers, predicates or variables, note what the propositional encoding loses.",
     ].join("\n") + RESPONSE_STYLE,
   },
   {
@@ -66,7 +66,7 @@ export const COMPARE_SECTIONS: CompareSection[] = [
       "",
       "- One paragraph per rule, starting with the provision reference in bold.",
       "- Use quantifiers (∀, ∃), predicates and functions whose names and argument types come from your ontology, followed by a one-line plain-language gloss.",
-      "- Keep the encoding declarative — no deontic or temporal operators in this section.",
+      "- Keep the encoding purely declarative, leaving deontic and temporal aspects to the Regulative section.",
     ].join("\n") + RESPONSE_STYLE,
   },
   {
@@ -102,7 +102,7 @@ export const COMPARE_SECTIONS: CompareSection[] = [
     prompt: [
       "SECTION: NON-OPERATIVE",
       "",
-      "Render only the content of the legal text that you determined to be non-substantive (non-operative). Do not include any operative rules.",
+      "Render only the content of the legal text that you determined to be non-substantive (non-operative), leaving every operative rule to the other sections.",
       "",
       "- Quote each non-operative passage (condensed where long).",
       "- Label each passage in bold with the class you think it belongs to: **preamble**, **recitals**, **findings**, **purpose**, or **preliminary** (titles, commencement, interpretation aids).",
