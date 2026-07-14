@@ -903,7 +903,7 @@ export function CompareClient() {
           <p className="mt-3 text-gray-600 max-w-xl mx-auto">
             See how your legislation is understood by different AI models.
             Paste your legal text, pick up to three models, and compare their
-            formal encodings side by side.
+            formal interpretations side by side.
           </p>
         </div>
       )}
