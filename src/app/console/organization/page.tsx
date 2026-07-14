@@ -479,6 +479,31 @@ const PERIODS: Period[] = ["daily", "weekly", "monthly"];
 interface Bucket {
   label: string;
   count: number;
+  /** Bucket cost in cents (integer, ceiled). 0 for free orgs. */
+  costCents?: number;
+}
+
+type L4Metric = "requests" | "cost";
+
+/**
+ * Top-level currency from the /billing/usage response, derived from the
+ * org's Stripe prices. Null for free orgs — gates whether the Cost option
+ * is offered in the chart's metric dropdown.
+ */
+function isCostAvailable(currency: string | null): currency is string {
+  return currency !== null;
+}
+
+function formatCostCents(cents: number, currency: string): string {
+  // Backend already ceiled to whole cents. Display in major units.
+  try {
+    return new Intl.NumberFormat(undefined, {
+      style: "currency",
+      currency: currency.toUpperCase(),
+    }).format(cents / 100);
+  } catch {
+    return `${(cents / 100).toFixed(2)} ${currency.toUpperCase()}`;
+  }
 }
 
 function UsageChart({
@@ -495,6 +520,8 @@ function UsageChart({
   onPeriodChange: (p: Period) => void;
 }) {
   const [buckets, setBuckets] = useState<Bucket[]>([]);
+  const [currency, setCurrency] = useState<string | null>(null);
+  const [metric, setMetric] = useState<L4Metric>("requests");
   const [loading, setLoading] = useState(true);
   // Sticky today count for the limit-hit warning. Updated only when
   // the chart fetch is on the daily period (chart's last bucket =
@@ -519,6 +546,7 @@ function UsageChart({
         if (!cancelled && data) {
           const b: Bucket[] = data.buckets ?? [];
           setBuckets(b);
+          setCurrency(typeof data.currency === "string" ? data.currency : null);
         }
       })
       .catch(() => {})
@@ -526,6 +554,12 @@ function UsageChart({
 
     return () => { cancelled = true; };
   }, [slug, period, days, health.state]);
+
+  // If the cost option becomes unavailable (free plan), drop the user
+  // back to the requests view rather than rendering an empty chart.
+  useEffect(() => {
+    if (metric === "cost" && !isCostAvailable(currency)) setMetric("requests");
+  }, [metric, currency]);
 
   // Latch today's count from the daily chart fetch. Backend always
   // emits a today bucket (see
@@ -572,20 +606,43 @@ function UsageChart({
         return null;
       })()}
 
-      {/* Period selector (shared state — flipping here also updates sibling charts) */}
-      <PeriodSelector period={period} onChange={onPeriodChange} />
+      {/* Period selector + cost toggle (when the org has a paid plan) */}
+      <div className="flex flex-wrap items-center gap-2 mb-3">
+        <PeriodSelector period={period} onChange={onPeriodChange} />
+        {isCostAvailable(currency) && (
+          <select
+            value={metric}
+            onChange={(e) => setMetric(e.target.value as L4Metric)}
+            className="text-xs rounded border border-gray-200 bg-white px-2 py-0.5 text-gray-600"
+          >
+            <option value="requests">Requests</option>
+            <option value="cost">Cost</option>
+          </select>
+        )}
+      </div>
 
       <BarChart
         series={[
-          {
-            buckets,
-            className: "bg-accent/70 hover:bg-accent",
-            label: "Requests",
-          },
+          metric === "cost" && isCostAvailable(currency)
+            ? {
+                buckets: buckets.map((b) => ({
+                  label: b.label,
+                  count: b.costCents ?? 0,
+                })),
+                className: "bg-accent/70 hover:bg-accent",
+                label: "Cost",
+                formatValue: (n) => formatCostCents(n, currency),
+              }
+            : {
+                buckets,
+                className: "bg-accent/70 hover:bg-accent",
+                label: "Requests",
+              },
         ]}
         loading={loading}
         period={period}
         labelInterval={labelInterval}
+        bucketLabels={buckets.map((b) => b.label)}
       />
 
       <p className="text-xs text-gray-500 mt-2">
@@ -602,19 +659,55 @@ function UsageChart({
 // and by token metric; inherits the shared `period` state so flipping
 // daily/weekly/monthly moves this chart in lockstep with the L4 one.
 
-type AiMetric = "totalTokens" | "promptTokens" | "completionTokens" | "requests";
+type AiMetric =
+  | "totalTokens"
+  | "promptTokens"
+  | "completionTokens"
+  | "requests"
+  | "cost";
 const AI_METRICS: { value: AiMetric; label: string }[] = [
   { value: "totalTokens", label: "Total tokens" },
   { value: "promptTokens", label: "Prompt tokens" },
   { value: "completionTokens", label: "Completion tokens" },
   { value: "requests", label: "Requests" },
+  { value: "cost", label: "Cost" },
 ];
 
-const AI_MODELS: { value: string; label: string }[] = [
-  { value: "", label: "All models" },
-  { value: "legalese-compose-4", label: "Compose" },
-  { value: "legalese-summize-4", label: "Summize" },
-];
+// No frontend-side mapping for model labels — we surface whatever id
+// the /billing/usage response uses (`legalese-compose-4`, etc.) so a
+// new pipeline shipped server-side surfaces here with no frontend
+// deploy needed.
+
+interface AiModelTotals {
+  promptTokens: number;
+  completionTokens: number;
+  requests: number;
+  /** Per-model cost (whole cents). Absent when not priced. */
+  costCents?: number;
+}
+
+interface AiBucket {
+  label: string;
+  perModel: Record<string, AiModelTotals>;
+  /** Top-level cost — sum of per-model costs. */
+  costCents?: number;
+}
+
+function aiMetricValue(m: AiModelTotals | undefined, metric: AiMetric): number {
+  if (!m) return 0;
+  switch (metric) {
+    case "promptTokens":
+      return m.promptTokens;
+    case "completionTokens":
+      return m.completionTokens;
+    case "requests":
+      return m.requests;
+    case "totalTokens":
+      return m.promptTokens + m.completionTokens;
+    case "cost":
+      return m.costCents ?? 0;
+  }
+}
 
 function AiUsageChart({
   slug,
@@ -629,18 +722,13 @@ function AiUsageChart({
   period: Period;
   onPeriodChange: (p: Period) => void;
 }) {
-  const [composeBuckets, setComposeBuckets] = useState<Bucket[]>([]);
-  const [summizeBuckets, setSummizeBuckets] = useState<Bucket[]>([]);
+  // One fetch per (slug, period, days) — the response carries the full
+  // per-model breakdown so metric/model switching is purely client-side.
+  const [aiBuckets, setAiBuckets] = useState<AiBucket[]>([]);
+  const [currency, setCurrency] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [metric, setMetric] = useState<AiMetric>("totalTokens");
   const [model, setModel] = useState<string>("");
-  // Sticky today total-tokens for the limit-hit warning. Updated only
-  // when the chart fetch is on the default view (period=daily,
-  // metric=totalTokens, all models) — those are the only filters
-  // where the chart's last bucket equals today's unfiltered total.
-  // Never overwritten back to null, so the warning persists across
-  // filter changes. Resets on full page reload.
-  const [todayTokens, setTodayTokens] = useState<number | null>(null);
   const days = period === "daily" ? 30 : 90;
 
   useEffect(() => {
@@ -648,81 +736,51 @@ function AiUsageChart({
     let cancelled = false;
     setLoading(true);
 
-    const fetchBuckets = async (modelId: string): Promise<Bucket[]> => {
-      const params = new URLSearchParams({
-        org: slug,
-        source: "ai-chat",
-        period,
-        days: String(days),
-        metric,
-      });
-      if (modelId) params.set("model", modelId);
-      const res = await fetch(
-        `${AUTH_API_URL}/billing/usage?${params.toString()}`,
-        { headers: authHeaders(), credentials: "include" },
-      );
-      if (!res.ok) return [];
-      const data = await res.json();
-      return data.buckets ?? [];
-    };
-
-    (async () => {
-      try {
-        if (model === "") {
-          // "All models" → fetch each separately so we can stack them.
-          const [c, s] = await Promise.all([
-            fetchBuckets("legalese-compose-4"),
-            fetchBuckets("legalese-summize-4"),
-          ]);
-          if (!cancelled) {
-            setComposeBuckets(c);
-            setSummizeBuckets(s);
-          }
-        } else if (model === "legalese-compose-4") {
-          const c = await fetchBuckets(model);
-          if (!cancelled) {
-            setComposeBuckets(c);
-            setSummizeBuckets([]);
-          }
-        } else {
-          const s = await fetchBuckets(model);
-          if (!cancelled) {
-            setComposeBuckets([]);
-            setSummizeBuckets(s);
-          }
+    const params = new URLSearchParams({
+      org: slug,
+      source: "ai-chat",
+      period,
+      days: String(days),
+    });
+    fetch(`${AUTH_API_URL}/billing/usage?${params.toString()}`, {
+      headers: authHeaders(),
+      credentials: "include",
+    })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!cancelled && data) {
+          setAiBuckets((data.buckets ?? []) as AiBucket[]);
+          setCurrency(
+            typeof data.currency === "string" ? data.currency : null,
+          );
         }
-      } catch {
-        // keep previous data on failure
-      } finally {
+      })
+      .catch(() => {})
+      .finally(() => {
         if (!cancelled) setLoading(false);
-      }
-    })();
+      });
 
     return () => {
       cancelled = true;
     };
-  }, [slug, period, days, metric, model, health.state]);
+  }, [slug, period, days, health.state]);
 
-  // Latch today's totalTokens from the chart fetch when the chart is
-  // on the default view (period=daily, metric=totalTokens, all
-  // models) — those are the only filters where the last bucket of
-  // each model's series equals today's unfiltered total for that
-  // model. Sum across compose+summize for the cross-model total.
-  // Gated on having at least one populated bucket array so we don't
-  // latch a spurious 0 while the fetch is still in flight.
+  // If the buckets refresh and no longer carry the currently-selected
+  // model (period changed, model retired, etc.), snap back to
+  // "All uses" (model pipelines) so the dropdown's value isn't an option that's not
+  // in its <option> list.
   useEffect(() => {
-    if (
-      period === "daily" &&
-      metric === "totalTokens" &&
-      !model &&
-      (composeBuckets.length > 0 || summizeBuckets.length > 0)
-    ) {
-      setTodayTokens(
-        (composeBuckets[composeBuckets.length - 1]?.count ?? 0) +
-          (summizeBuckets[summizeBuckets.length - 1]?.count ?? 0),
+    if (!model) return;
+    if (aiBuckets.length === 0) return;
+    const stillThere = aiBuckets.some((b) => {
+      const t = b.perModel[model];
+      return (
+        t &&
+        (t.promptTokens > 0 || t.completionTokens > 0 || t.requests > 0)
       );
-    }
-  }, [period, metric, model, composeBuckets, summizeBuckets]);
+    });
+    if (!stillThere) setModel("");
+  }, [aiBuckets, model]);
 
   if (health.state === "loading") {
     return <div className="h-32 flex items-center justify-center text-gray-400 text-xs">Loading...</div>;
@@ -731,24 +789,78 @@ function AiUsageChart({
     return <span className="text-gray-400 text-sm">Service temporarily unavailable</span>;
   }
 
-  const labelInterval = period === "daily" ? 5 : 1;
-
-  // Stack compose (base, usual color) under summize (lighter overlay).
-  // Each layer is only added when it has data, so rounded-t stays on the
-  // actually-visible topmost segment.
-  const series: Series[] = [];
-  if (composeBuckets.length > 0) {
-    series.push({
-      buckets: composeBuckets,
-      className: "bg-accent/70 hover:bg-accent",
-      label: "Compose",
-    });
+  // Today's total tokens for the limit-hit warning. Cheap to derive each
+  // render from the already-fetched buckets (no useEffect/latch needed).
+  let todayTokens: number | null = null;
+  if (period === "daily" && aiBuckets.length > 0) {
+    const last = aiBuckets[aiBuckets.length - 1]!;
+    todayTokens = Object.values(last.perModel).reduce(
+      (sum, m) => sum + m.promptTokens + m.completionTokens,
+      0,
+    );
   }
-  if (summizeBuckets.length > 0) {
+
+  const labelInterval = period === "daily" ? 5 : 1;
+  const isCostView = metric === "cost" && isCostAvailable(currency);
+  const formatValue = isCostView
+    ? (n: number) => formatCostCents(n, currency)
+    : undefined;
+
+  // Build a Bucket[] for a given model from the cached per-model
+  // breakdown. The same shape works for token metrics and cost — the
+  // selector lives in aiMetricValue().
+  const bucketsForModel = (modelId: string): Bucket[] =>
+    aiBuckets.map((b) => ({
+      label: b.label,
+      count: aiMetricValue(b.perModel[modelId], metric),
+    }));
+
+  // Models with any usage in the window, in a stable order. Drives
+  // both the filter dropdown and the "All uses" (model pipelines) series stack — so a
+  // new pipeline shipped server-side surfaces here automatically on
+  // the next refresh, no frontend deploy needed. Sorted by first
+  // appearance to keep the legend stable across re-renders.
+  const usedModels: string[] = [];
+  const seen = new Set<string>();
+  for (const b of aiBuckets) {
+    for (const [m, totals] of Object.entries(b.perModel)) {
+      if (seen.has(m)) continue;
+      if (
+        totals.promptTokens > 0 ||
+        totals.completionTokens > 0 ||
+        totals.requests > 0
+      ) {
+        seen.add(m);
+        usedModels.push(m);
+      }
+    }
+  }
+
+  // Opacity assigned by position in usedModels so the colors stay
+  // distinct as the set grows. 4+ models would start to look samey —
+  // acceptable for the foreseeable future (we have three).
+  const stackOpacities = ["bg-accent/70", "bg-accent/35", "bg-accent/55"];
+  const stackHovers = [
+    "hover:bg-accent",
+    "hover:bg-accent/55",
+    "hover:bg-accent/75",
+  ];
+
+  const visible = model === "" ? usedModels : [model];
+  const series: Series[] = [];
+  for (const m of visible) {
+    const buckets = bucketsForModel(m);
+    if (!buckets.some((b) => b.count > 0)) continue;
+    const idx = usedModels.indexOf(m);
+    const className =
+      model === "" && idx >= 0
+        ? `${stackOpacities[idx % stackOpacities.length]} ${stackHovers[idx % stackHovers.length]}`
+        : "bg-accent/70 hover:bg-accent";
     series.push({
-      buckets: summizeBuckets,
-      className: "bg-accent/35 hover:bg-accent/55",
-      label: "Summize",
+      buckets,
+      className,
+      label: m,
+      formatValue,
     });
   }
 
@@ -785,10 +897,12 @@ function AiUsageChart({
         <select
           value={model}
           onChange={(e) => setModel(e.target.value)}
-          className="text-xs rounded border border-gray-200 bg-white px-2 py-0.5 text-gray-600"
+          disabled={usedModels.length <= 1}
+          className="text-xs rounded border border-gray-200 bg-white px-2 py-0.5 text-gray-600 disabled:opacity-50"
         >
-          {AI_MODELS.map((m) => (
-            <option key={m.value} value={m.value}>{m.label}</option>
+          <option value="">All uses</option>
+          {usedModels.map((m) => (
+            <option key={m} value={m}>{m}</option>
           ))}
         </select>
         <select
@@ -796,7 +910,9 @@ function AiUsageChart({
           onChange={(e) => setMetric(e.target.value as AiMetric)}
           className="text-xs rounded border border-gray-200 bg-white px-2 py-0.5 text-gray-600"
         >
-          {AI_METRICS.map((m) => (
+          {AI_METRICS.filter(
+            (m) => m.value !== "cost" || isCostAvailable(currency),
+          ).map((m) => (
             <option key={m.value} value={m.value}>{m.label}</option>
           ))}
         </select>
@@ -807,6 +923,10 @@ function AiUsageChart({
         loading={loading}
         period={period}
         labelInterval={labelInterval}
+        // Pass the full per-period label grid so an org with no AI
+        // usage in the window still sees an empty grid with hoverable
+        // "No use" cells, instead of a "No usage data" placeholder.
+        bucketLabels={aiBuckets.map((b) => b.label)}
       />
 
       {/* <p className="text-xs text-gray-500 mt-2">
@@ -850,6 +970,11 @@ interface Series {
   className: string;
   /** Shown in the tooltip when more than one series is visible. */
   label: string;
+  /**
+   * Tooltip formatter for the series' value. Defaults to integer
+   * locale-string. Cost views pass a currency formatter.
+   */
+  formatValue?: (n: number) => string;
 }
 
 function BarChart({
@@ -857,6 +982,7 @@ function BarChart({
   loading,
   period,
   labelInterval,
+  bucketLabels,
 }: {
   // Series stack in caller order: series[0] is the visual base, later
   // series layer on top. `flex-col-reverse` renders the first DOM child
@@ -865,10 +991,18 @@ function BarChart({
   loading: boolean;
   period: Period;
   labelInterval: number;
+  /**
+   * Authoritative grid labels (one entry per period bucket). When
+   * provided we render every cell — including those with zero across
+   * every series — so the user can hover an empty day and get a
+   * "No use" tooltip. When omitted, falls back to series[0]'s
+   * bucket labels (legacy callers).
+   */
+  bucketLabels?: string[];
 }) {
-  const primary = series[0]?.buckets ?? [];
+  const labels = bucketLabels ?? series[0]?.buckets.map((b) => b.label) ?? [];
 
-  if (loading || primary.length === 0) {
+  if (loading || labels.length === 0) {
     return (
       <div>
         <div className="h-32 flex items-center justify-center text-gray-400 text-xs">
@@ -883,7 +1017,7 @@ function BarChart({
 
   // Scale by the tallest stacked column so bars never overflow the
   // container, regardless of how many layers each one has.
-  const totals = primary.map((_, i) =>
+  const totals = labels.map((_, i) =>
     series.reduce((sum, s) => sum + (s.buckets[i]?.count ?? 0), 0),
   );
   const maxCount = Math.max(1, ...totals);
@@ -891,7 +1025,7 @@ function BarChart({
   return (
     <div>
       <div className="flex items-end gap-px h-32">
-        {primary.map((bucket, i) => {
+        {labels.map((bucketLabel, i) => {
           // Topmost visible segment = last non-zero series at this index.
           let topIdx = -1;
           for (let s = series.length - 1; s >= 0; s--) {
@@ -907,7 +1041,7 @@ function BarChart({
           );
           return (
             <div
-              key={bucket.label}
+              key={bucketLabel}
               className="flex-1 flex flex-col-reverse items-stretch h-full group relative min-w-0"
             >
               {series.map((s, sIdx) => {
@@ -924,33 +1058,66 @@ function BarChart({
                 );
               })}
               <div className="absolute bottom-full right-0 mb-1 hidden group-hover:block bg-gray-800 text-white text-xs rounded px-2 py-1 whitespace-nowrap z-10">
-                {visibleCount > 1 ? (
-                  <>
-                    <div>{bucket.label}</div>
-                    {/* Reversed so the visually-topmost stack segment
-                        (the last series) is listed first in the bubble,
-                        mirroring the on-screen order of the bars. */}
-                    {[...series].reverse().map((s) => {
-                      const c = s.buckets[i]?.count ?? 0;
-                      if (c === 0) return null;
-                      return (
-                        <div key={s.label}>
-                          {s.label}: {c.toLocaleString()}
+                {(() => {
+                  if (visibleCount === 0) {
+                    // Hovering an empty bucket — still show the date
+                    // so the user can confirm which day they're
+                    // pointing at. Beats falling back to nothing,
+                    // which makes the cell feel non-interactive.
+                    return (
+                      <>
+                        <div>{bucketLabel}</div>
+                        <div className="text-gray-300">No use</div>
+                      </>
+                    );
+                  }
+                  if (visibleCount === 1) {
+                    // Find the single contributing series explicitly —
+                    // series[0] isn't always the one with the bar
+                    // (e.g. a comply-only day in an "All uses" (model pipelines) window
+                    // that also has compose / summize on other days).
+                    const only = series.find(
+                      (s) => (s.buckets[i]?.count ?? 0) > 0,
+                    )!;
+                    const c = only.buckets[i]?.count ?? 0;
+                    const fmt =
+                      only.formatValue ?? ((n: number) => n.toLocaleString());
+                    return (
+                      <>
+                        <div>{bucketLabel}</div>
+                        <div>
+                          {only.label}: {fmt(c)}
                         </div>
-                      );
-                    })}
-                    <div className="border-t border-gray-600 mt-0.5 pt-0.5">
-                      Total: {total.toLocaleString()}
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div>{bucket.label}</div>
-                    <div>
-                      {series[0]?.label}: {total.toLocaleString()}
-                    </div>
-                  </>
-                )}
+                      </>
+                    );
+                  }
+                  return (
+                    <>
+                      <div>{bucketLabel}</div>
+                      {/* Reversed so the visually-topmost stack segment
+                          (the last series) is listed first in the
+                          bubble, mirroring the on-screen order. */}
+                      {[...series].reverse().map((s) => {
+                        const c = s.buckets[i]?.count ?? 0;
+                        if (c === 0) return null;
+                        const fmt =
+                          s.formatValue ?? ((n: number) => n.toLocaleString());
+                        return (
+                          <div key={s.label}>
+                            {s.label}: {fmt(c)}
+                          </div>
+                        );
+                      })}
+                      <div className="border-t border-gray-600 mt-0.5 pt-0.5">
+                        Total:{" "}
+                        {(
+                          series[0]?.formatValue ??
+                          ((n: number) => n.toLocaleString())
+                        )(total)}
+                      </div>
+                    </>
+                  );
+                })()}
               </div>
             </div>
           );
@@ -961,7 +1128,7 @@ function BarChart({
           Without this, cells inherit the larger ancestor line-height and
           the chart ends up ~12px taller than the loading placeholder. */}
       <div className="flex gap-px mt-1 text-[9px] leading-none">
-        {primary.map((bucket, i) => {
+        {labels.map((label, i) => {
           // Daily view: first label sits on the 2nd bar, then every 4th
           // (indices 1, 5, 9, …). Other periods: every `labelInterval`.
           const showLabel =
@@ -969,12 +1136,12 @@ function BarChart({
               ? i >= 1 && (i - 1) % 4 === 0
               : i % labelInterval === 0;
           return (
-            <div key={bucket.label} className="flex-1 text-center">
+            <div key={label} className="flex-1 text-center">
               {showLabel ? (
                 // -mx-[10px] lets the label overflow its narrow cell into
                 // the (empty) neighbours so "Mar 23" stays on one line.
                 <span className="text-gray-400 whitespace-nowrap inline-block -mx-[10px]">
-                  {formatLabel(bucket.label, period)}
+                  {formatLabel(label, period)}
                 </span>
               ) : null}
             </div>
@@ -1007,6 +1174,10 @@ function formatTokenLimit(tokens: number): string {
     const m = tokens / 1_000_000;
     const value = Number.isInteger(m) ? m.toFixed(0) : m.toFixed(1);
     return `${value}M`;
+  } else if (tokens >= 1_000) {
+    const m = tokens / 1_000;
+    const value = Number.isInteger(m) ? m.toFixed(0) : m.toFixed(1);
+    return `${value}K`;
   }
   return `${tokens}`;
 }

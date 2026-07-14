@@ -13,8 +13,8 @@ export default function Index() {
   return (
     <main>
       <Alert>
-          Compose L4 with AI and deploy MCP tools to Legalese Cloud with our&nbsp;
-          <a href="https://marketplace.visualstudio.com/items?itemName=Legalese.l4-vscode" className="text-accent">VS Code Extension 1.4</a>
+          Compose L4 with AI and deploy AI skills and MCP tools to Legalese Cloud with our&nbsp;
+          <a href="https://marketplace.visualstudio.com/items?itemName=Legalese.l4-vscode" className="text-accent">VS Code Extension 1.5</a>
       </Alert>
       <Container>
         <Header />
@@ -34,12 +34,12 @@ export default function Index() {
             />
             <div className="relative w-full lg:w-2/3 p-8 md:p-16 lg:p-24">
               <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight mb-6">
-                Software is<br />
-                <span className="text-accent">eating law</span>
+                <span className="whitespace-nowrap">AI is</span>{' '}
+                <span className="whitespace-nowrap text-accent">eating law</span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
-                L4 is a domain-specific programming language for law. 
-                We treat legal rules and contracts as executable specifications.
+                Legalese builds governance and compliance solutions for our AI future.
+                With L4 we treat legal policy and contracts as executable specifications for use by humans and AI.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a 
@@ -71,7 +71,7 @@ export default function Index() {
           <div className="max-w-4xl mx-auto">
             <p className="text-lg text-gray-700 mb-8 text-center">
               L4 is our domain-specific programming language for law. It treats legal rules 
-              and contracts as executable specifications, allowing you to:
+              and contracts as executable specifications (rules-as-code), allowing you to:
             </p>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white p-6 rounded-lg shadow-lg">
