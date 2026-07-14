@@ -895,6 +895,9 @@ export function CompareClient() {
       reader.onload = () => {
         const url = String(reader.result ?? "");
         const base64 = url.slice(url.indexOf(",") + 1);
+        // Attachment replaces any pasted text — the input holds one or
+        // the other, never both.
+        setDoc("");
         setAttachment({
           name: file.name,
           mediaType: "application/pdf",
@@ -904,6 +907,7 @@ export function CompareClient() {
       reader.readAsDataURL(file);
     } else {
       void file.text().then((text) => {
+        setAttachment(null);
         setDoc((prev) => (prev.trim() ? `${prev}\n\n${text}` : text));
       });
     }
@@ -959,13 +963,31 @@ export function CompareClient() {
       {/* ── Prompt card (input view only) ── */}
       {!columns && (
       <div className="bg-white border border-gray-200 rounded-lg p-4 max-w-3xl mx-auto shadow-sm">
-        <textarea
-          value={doc}
-          onChange={(e) => setDoc(e.target.value)}
-          rows={10}
-          placeholder="Paste your legal text here — legislation, regulation or contract…"
-          className="w-full resize-y rounded-md border border-gray-200 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent"
-        />
+        {/* Text and file input are mutually exclusive: with a file
+            attached, the field shows the attachment pill instead. */}
+        {attachment ? (
+          <div className="w-full min-h-[8rem] rounded-md border border-gray-200 p-3 flex items-start">
+            <span className="inline-flex items-center gap-1 text-xs bg-gray-100 rounded-full px-3 py-1">
+              {attachment.name}
+              <button
+                type="button"
+                onClick={() => setAttachment(null)}
+                className="text-gray-400 hover:text-gray-700 ml-1"
+                aria-label="Remove attachment"
+              >
+                ✕
+              </button>
+            </span>
+          </div>
+        ) : (
+          <textarea
+            value={doc}
+            onChange={(e) => setDoc(e.target.value)}
+            rows={5}
+            placeholder="Paste your legal text here — legislation, regulation or contract…"
+            className="w-full resize-y rounded-md border border-gray-200 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent"
+          />
+        )}
 
         <div className="mt-2 flex flex-wrap items-center gap-2">
           <input
@@ -989,19 +1011,6 @@ export function CompareClient() {
           <span className="text-xs text-gray-400">
             PDF, Akoma Ntoso, markdown and textfiles supported
           </span>
-          {attachment && (
-            <span className="inline-flex items-center gap-1 text-xs bg-gray-100 rounded-full px-3 py-1">
-              {attachment.name}
-              <button
-                type="button"
-                onClick={() => setAttachment(null)}
-                className="text-gray-400 hover:text-gray-700 ml-1"
-                aria-label="Remove attachment"
-              >
-                ✕
-              </button>
-            </span>
-          )}
         </div>
 
         {/* ── Section checkboxes — always visible, 3-column grid ── */}
