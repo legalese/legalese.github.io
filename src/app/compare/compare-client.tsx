@@ -375,6 +375,10 @@ export function CompareClient({
   // ── Run state ───────────────────────────────────────────────────
   const [columns, setColumns] = useState<ColumnRun[] | null>(null);
   const [running, setRunning] = useState(false);
+  // True while the results view shows a run made in this page session
+  // (document still in the form) — the per-section Retry needs it;
+  // restored history runs can't faithfully re-request.
+  const [liveRun, setLiveRun] = useState(false);
   // Title shown in the results header bar. Set when a run starts (from
   // the live form) or when a past run is restored (from its history
   // entry) — the form state alone can't tell a restored run's name.
@@ -558,6 +562,174 @@ export function CompareClient({
     ];
   }
 
+  /**
+   * Outcome of one section request. "halt" means the whole column
+   * should stop (credit limit, auth loss, network failure — the caller
+   * already has fatal/limit state set); "error" is section-local and
+   * later sections may still succeed; "aborted" means the user
+   * cancelled the run.
+   */
+  type SectionOutcome =
+    | { kind: "done"; text: string }
+    | { kind: "error" }
+    | { kind: "halt" }
+    | { kind: "aborted" };
+
+  /**
+   * Run a single section request (its own one-turn conversation) and
+   * stream the reply into the section's cell. Used by runColumn and by
+   * the per-section Retry button.
+   */
+  async function runSectionRequest(
+    colIdx: number,
+    slug: string,
+    section: CompareSection,
+    secIdx: number,
+    ontology: string | null,
+    signal: AbortSignal,
+  ): Promise<SectionOutcome> {
+    updateSection(colIdx, secIdx, { status: "streaming", text: "" });
+    const content = sectionMessageContent(section, ontology);
+
+    let res: Response;
+    try {
+      res = await fetch(`${AI_API_URL}/v1/chat/completions`, {
+        method: "POST",
+        headers: {
+          ...authHeaders(),
+          "Content-Type": "application/json",
+          Accept: "text/event-stream",
+        },
+        signal,
+        body: JSON.stringify({
+          model: `${baseName}:${slug}`,
+          stream: true,
+          turnId: crypto.randomUUID(),
+          messages: [{ role: "user", content }],
+        }),
+      });
+    } catch {
+      if (signal.aborted) {
+        updateSection(colIdx, secIdx, { status: "skipped" });
+        return { kind: "aborted" };
+      }
+      updateColumn(colIdx, { fatal: "Network error — please retry." });
+      updateSection(colIdx, secIdx, {
+        status: "error",
+        error: "Network error",
+      });
+      return { kind: "halt" };
+    }
+
+    if (res.status === 429) {
+      updateColumn(colIdx, { limitHit: true });
+      updateSection(colIdx, secIdx, {
+        status: "error",
+        error: "Free usage limit reached",
+      });
+      return { kind: "halt" };
+    }
+    if (res.status === 401) {
+      updateColumn(colIdx, {
+        fatal: "Your session expired — please sign in again.",
+      });
+      updateSection(colIdx, secIdx, { status: "error", error: "Signed out" });
+      return { kind: "halt" };
+    }
+    if (!res.ok || !res.body) {
+      let message = `Request failed (${res.status})`;
+      try {
+        const err = (await res.json()) as {
+          error?: { message?: string };
+        };
+        if (err.error?.message) message = err.error.message;
+      } catch {
+        // keep the status-based message
+      }
+      // Section-level failure: report it but keep going — later
+      // sections may still succeed on a transient upstream error.
+      updateSection(colIdx, secIdx, { status: "error", error: message });
+      return { kind: "error" };
+    }
+
+    let sectionText = "";
+    try {
+      for await (const frame of parseSse(res.body)) {
+        if (frame.data === "[DONE]") break;
+        let json: Record<string, unknown>;
+        try {
+          json = JSON.parse(frame.data) as Record<string, unknown>;
+        } catch {
+          continue;
+        }
+        if (frame.event === "metadata") {
+          const id = json.conversationId as string | undefined;
+          if (id) {
+            // Each section is its own conversation — record it at the
+            // section's slot so a restore can refetch all of them.
+            patchHistoryColumn(currentRunId.current, colIdx, (c) => {
+              const ids = [...(c.conversationIds ?? [])];
+              ids[secIdx] = id;
+              return { conversationIds: ids };
+            });
+          }
+          const served = json.servedModel as string | undefined;
+          if (served) {
+            setColumns((prev) =>
+              prev
+                ? prev.map((col, ci) =>
+                    ci === colIdx && !col.servedModels.includes(served)
+                      ? {
+                          ...col,
+                          servedModels: [...col.servedModels, served],
+                        }
+                      : col,
+                  )
+                : prev,
+            );
+            patchHistoryColumn(currentRunId.current, colIdx, (c) =>
+              c.servedModels.includes(served)
+                ? {}
+                : { servedModels: [...c.servedModels, served] },
+            );
+          }
+        } else if (frame.event === "error") {
+          updateSection(colIdx, secIdx, {
+            status: "error",
+            error: (json.message as string) || "Upstream error",
+          });
+          return { kind: "error" };
+        } else if (frame.event === "thinking_delta") {
+          // Reasoning traces aren't part of the encoded output.
+          continue;
+        } else {
+          const delta = (
+            json.choices as Array<{ delta?: { content?: string } }> | undefined
+          )?.[0]?.delta;
+          if (delta?.content) {
+            const text = delta.content;
+            sectionText += text;
+            updateSection(colIdx, secIdx, (prev) => ({
+              text: prev.text + text,
+            }));
+          }
+        }
+      }
+    } catch {
+      if (signal.aborted) {
+        updateSection(colIdx, secIdx, { status: "skipped" });
+        return { kind: "aborted" };
+      }
+      updateSection(colIdx, secIdx, {
+        status: "error",
+        error: "Stream error",
+      });
+      return { kind: "error" };
+    }
+    updateSection(colIdx, secIdx, { status: "done" });
+    return { kind: "done", text: sectionText };
+  }
+
   async function runColumn(
     colIdx: number,
     slug: string,
@@ -568,161 +740,58 @@ export function CompareClient({
     // every later section as their only shared context.
     let ontologyText: string | null = null;
     for (let i = 0; i < sections.length; i++) {
-      const section = sections[i];
       if (signal.aborted) {
         updateSection(colIdx, i, { status: "skipped" });
         continue;
       }
-      updateSection(colIdx, i, { status: "streaming" });
-
-      const content = sectionMessageContent(
-        section,
+      const outcome = await runSectionRequest(
+        colIdx,
+        slug,
+        sections[i],
+        i,
         i === 0 ? null : ontologyText,
+        signal,
       );
-
-      let res: Response;
-      try {
-        res = await fetch(`${AI_API_URL}/v1/chat/completions`, {
-          method: "POST",
-          headers: {
-            ...authHeaders(),
-            "Content-Type": "application/json",
-            Accept: "text/event-stream",
-          },
-          signal,
-          body: JSON.stringify({
-            model: `${baseName}:${slug}`,
-            stream: true,
-            turnId: crypto.randomUUID(),
-            messages: [{ role: "user", content }],
-          }),
-        });
-      } catch {
-        if (signal.aborted) {
-          updateSection(colIdx, i, { status: "skipped" });
-          continue;
-        }
-        updateColumn(colIdx, { fatal: "Network error — please retry." });
-        updateSection(colIdx, i, { status: "error", error: "Network error" });
+      if (outcome.kind === "halt") {
         for (let j = i + 1; j < sections.length; j++)
           updateSection(colIdx, j, { status: "skipped" });
         return;
       }
+      if (outcome.kind === "done" && i === 0) ontologyText = outcome.text;
+    }
+  }
 
-      if (res.status === 429) {
-        updateColumn(colIdx, { limitHit: true });
-        updateSection(colIdx, i, {
-          status: "error",
-          error: "Free usage limit reached",
-        });
-        for (let j = i + 1; j < sections.length; j++)
-          updateSection(colIdx, j, { status: "skipped" });
-        return;
-      }
-      if (res.status === 401) {
-        updateColumn(colIdx, {
-          fatal: "Your session expired — please sign in again.",
-        });
-        updateSection(colIdx, i, { status: "error", error: "Signed out" });
-        for (let j = i + 1; j < sections.length; j++)
-          updateSection(colIdx, j, { status: "skipped" });
-        return;
-      }
-      if (!res.ok || !res.body) {
-        let message = `Request failed (${res.status})`;
-        try {
-          const err = (await res.json()) as {
-            error?: { message?: string };
-          };
-          if (err.error?.message) message = err.error.message;
-        } catch {
-          // keep the status-based message
-        }
-        // Section-level failure: report it but keep going — later
-        // sections may still succeed on a transient upstream error.
-        updateSection(colIdx, i, { status: "error", error: message });
-        continue;
-      }
-
-      let sectionFailed = false;
-      let sectionText = "";
-      try {
-        for await (const frame of parseSse(res.body)) {
-          if (frame.data === "[DONE]") break;
-          let json: Record<string, unknown>;
-          try {
-            json = JSON.parse(frame.data) as Record<string, unknown>;
-          } catch {
-            continue;
-          }
-          if (frame.event === "metadata") {
-            const id = json.conversationId as string | undefined;
-            if (id) {
-              // Each section is its own conversation — record it at the
-              // section's slot so a restore can refetch all of them.
-              patchHistoryColumn(currentRunId.current, colIdx, (c) => {
-                const ids = [...(c.conversationIds ?? [])];
-                ids[i] = id;
-                return { conversationIds: ids };
-              });
-            }
-            const served = json.servedModel as string | undefined;
-            if (served) {
-              setColumns((prev) =>
-                prev
-                  ? prev.map((col, ci) =>
-                      ci === colIdx && !col.servedModels.includes(served)
-                        ? {
-                            ...col,
-                            servedModels: [...col.servedModels, served],
-                          }
-                        : col,
-                    )
-                  : prev,
-              );
-              patchHistoryColumn(currentRunId.current, colIdx, (c) =>
-                c.servedModels.includes(served)
-                  ? {}
-                  : { servedModels: [...c.servedModels, served] },
-              );
-            }
-          } else if (frame.event === "error") {
-            updateSection(colIdx, i, {
-              status: "error",
-              error: (json.message as string) || "Upstream error",
-            });
-            sectionFailed = true;
-            break;
-          } else if (frame.event === "thinking_delta") {
-            // Reasoning traces aren't part of the encoded output.
-            continue;
-          } else {
-            const delta = (
-              json.choices as
-                | Array<{ delta?: { content?: string } }>
-                | undefined
-            )?.[0]?.delta;
-            if (delta?.content) {
-              const text = delta.content;
-              sectionText += text;
-              updateSection(colIdx, i, (prev) => ({
-                text: prev.text + text,
-              }));
-            }
-          }
-        }
-      } catch {
-        if (!signal.aborted) {
-          updateSection(colIdx, i, { status: "error", error: "Stream error" });
-        } else {
-          updateSection(colIdx, i, { status: "skipped" });
-        }
-        sectionFailed = true;
-      }
-      if (!sectionFailed) {
-        updateSection(colIdx, i, { status: "done" });
-        if (i === 0) ontologyText = sectionText;
-      }
+  /**
+   * Re-run a single failed section. Only available on live runs — a
+   * restored run no longer has the original document in the form, so a
+   * faithful re-request isn't possible there.
+   */
+  async function retrySection(colIdx: number, secIdx: number) {
+    if (running || !columns || !session?.organizationId) return;
+    const col = columns[colIdx];
+    const ontologyRun = col.sections[0];
+    const ontology =
+      secIdx > 0 &&
+      ontologyRun?.section.id === "ontology" &&
+      ontologyRun.status === "done"
+        ? ontologyRun.text
+        : null;
+    setRunning(true);
+    const ac = new AbortController();
+    abortRef.current = ac;
+    try {
+      updateColumn(colIdx, { fatal: undefined, limitHit: false });
+      await runSectionRequest(
+        colIdx,
+        col.slug,
+        col.sections[secIdx].section,
+        secIdx,
+        ontology,
+        ac.signal,
+      );
+    } finally {
+      setRunning(false);
+      abortRef.current = null;
     }
   }
 
@@ -757,6 +826,7 @@ export function CompareClient({
     currentRunId.current = runId;
     const title = attachment ? attachment.name : docPreview(doc);
     setRunTitle(title);
+    setLiveRun(true);
     updateHistory((entries) => [
       {
         id: runId,
@@ -911,6 +981,7 @@ export function CompareClient({
     setNotice(null);
     currentRunId.current = entry.id;
     setRunTitle(entry.title);
+    setLiveRun(false);
     const sections: CompareSection[] = entry.sectionIds.map(
       (sid) =>
         COMPARE_SECTIONS.find((s) => s.id === sid) ?? {
@@ -1411,7 +1482,18 @@ export function CompareClient({
                         {slugLabel(columns[ci].slug)}
                       </div>
                       {run.status === "error" ? (
-                        <p className="text-sm text-red-600">{run.error}</p>
+                        <div className="flex items-center gap-3">
+                          <p className="text-sm text-red-600">{run.error}</p>
+                          {liveRun && !running && (
+                            <button
+                              type="button"
+                              onClick={() => void retrySection(ci, i)}
+                              className="shrink-0 text-xs text-gray-600 hover:text-gray-900 border border-gray-200 rounded-md px-2.5 py-1 transition-colors"
+                            >
+                              Retry
+                            </button>
+                          )}
+                        </div>
                       ) : run.status === "pending" ? (
                         <p className="text-xs text-gray-300">waiting…</p>
                       ) : run.status === "skipped" ? (
