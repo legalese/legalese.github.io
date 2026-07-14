@@ -1187,7 +1187,7 @@ export function CompareClient() {
                   )}
                 </summary>
                 <div
-                  className={`grid items-start bg-white divide-y divide-gray-200 md:divide-y-0 md:divide-x grid-cols-1 ${
+                  className={`grid items-stretch bg-white divide-y divide-gray-200 md:divide-y-0 md:divide-x grid-cols-1 ${
                     columns.length === 2
                       ? "md:grid-cols-2"
                       : columns.length >= 3
