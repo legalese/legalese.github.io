@@ -1049,11 +1049,11 @@ export function CompareClient({
             <div className="text-sm font-medium truncate">
               {runTitle ?? "Untitled comparison"}
             </div>
-            {runTitle === attachment?.name && doc.trim() !== "" && (
-              <div className="text-xs text-gray-400 truncate">
-                {docPreview(doc)}
-              </div>
-            )}
+            <div className="text-xs text-gray-400 truncate">
+              The generated output is at the discretion of the chosen models —
+              variations in naming, layout, structure and order, among others,
+              are choices of the model.
+            </div>
           </div>
           <span
             className={`shrink-0 text-sm ${
