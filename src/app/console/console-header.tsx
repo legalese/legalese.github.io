@@ -120,10 +120,22 @@ export function ConsoleHeader() {
               </div>
             </div>
           ) : (
-            <div>
+            <div className="flex items-center gap-4 sm:gap-5">
+              <Link
+                href="/console"
+                className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                Console
+              </Link>
+              <Link
+                href="/compare"
+                className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                Compare AI
+              </Link>
               <a
                 href={`${AUTH_API_URL}/auth/signup?return_to=${typeof window !== "undefined" ? encodeURIComponent(window.location.href) : ""}`}
-                className="text-sm font-medium text-accent hover:text-accent-hover transition-colors"
+                className="text-sm font-medium text-accent border border-accent rounded-md px-4 py-1.5 hover:bg-accent hover:text-white transition-colors"
               >
                 Sign up
               </a>
