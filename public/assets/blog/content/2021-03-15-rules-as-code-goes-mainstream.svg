@@ -1,0 +1,23 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#FFFFFF"/>
+  <rect x="0" y="0" width="1200" height="10" fill="#C8376A"/>
+
+  <rect x="180" y="185" width="220" height="280" rx="8" fill="#FFFFFF" stroke="#111827" stroke-width="3"/>
+  <line x1="215" y1="240" x2="365" y2="240" stroke="#111827" stroke-width="4"/>
+  <line x1="215" y1="270" x2="365" y2="270" stroke="#E5E7EB" stroke-width="4"/>
+  <line x1="215" y1="300" x2="340" y2="300" stroke="#E5E7EB" stroke-width="4"/>
+  <line x1="215" y1="330" x2="365" y2="330" stroke="#E5E7EB" stroke-width="4"/>
+  <line x1="215" y1="360" x2="320" y2="360" stroke="#E5E7EB" stroke-width="4"/>
+  <line x1="420" y1="325" x2="520" y2="325" stroke="#111827" stroke-width="3" stroke-dasharray="2 10"/>
+  <text x="620" y="290" font-family="Menlo, monospace" font-size="120" font-weight="700" fill="#C8376A">{</text>
+  <text x="760" y="290" font-family="Menlo, monospace" font-size="120" font-weight="700" fill="#C8376A">}</text>
+  <circle cx="850" cy="150" r="10" fill="#7A2839"/>
+  <circle cx="900" cy="120" r="7" fill="#C8376A"/>
+  <circle cx="950" cy="160" r="9" fill="#7A2839"/>
+  <circle cx="1000" cy="115" r="6" fill="#C8376A"/>
+  <path d="M850 150 Q 925 90 1000 115" stroke="#E5E7EB" stroke-width="2" fill="none"/>
+
+  <!-- brand mark -->
+  <circle cx="1140" cy="570" r="26" fill="#111827"/>
+  <text x="1140" y="581" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#FFFFFF" text-anchor="middle">&#167;</text>
+</svg>
