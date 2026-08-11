@@ -1,16 +1,16 @@
 ---
 title: "Why have a rules-as-code programming language now that AI solved coding?"
-published: false
+published: true
 excerpt: AI got brilliant at code because compilers, types, and tests do the
   verifying. Strip the scaffolding and the same models look a lot less
   brilliant. Law has no such scaffolding. A rules language is how you build it.
-coverImage: /assets/blog/content/legal-code.jpg
+coverImage: /assets/blog/content/rules-as-code-future.jpg
 date: 2026-05-27T00:00:00.000Z
 author:
   name: Thomas Gorissen
   picture: /assets/blog/authors/thomas.jpg
 ogImage:
-  url: /assets/blog/content/legal-code.jpg
+  url: /assets/blog/content/rules-as-code-future.jpg
 ---
 The most reasonable question I get about L4 is some variant of: *"If AI is going to write code for everyone, why do we need a special language for rules at all? Can't a model just write the policy in Python?"*
 
