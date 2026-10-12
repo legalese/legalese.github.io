@@ -4,6 +4,7 @@ import Alert from "@/app/_components/alert";
 import { MoreStories } from "@/app/_components/more-stories";
 import { getAllPosts } from "../lib/api";
 import { CtaSection } from "@/app/_components/cta-section";
+import { HeroAscii } from "@/app/_components/hero-ascii";
 import Link from "next/link";
 
 export default function Index() {
@@ -14,30 +15,24 @@ export default function Index() {
     <main>
       <Alert>
           Compose L4 with AI and deploy AI skills and MCP tools to Legalese Cloud with our&nbsp;
-          <a href="https://marketplace.visualstudio.com/items?itemName=Legalese.l4-vscode" className="text-accent">VS Code Extension 1.5</a>
+          <a href="https://marketplace.visualstudio.com/items?itemName=Legalese.l4-vscode" className="text-accent">VS Code Extension 1.6</a>
       </Alert>
-      <Container>
-        <Header />
-        
-        {/* Hero Section */}
-        <section className="mb-4">
-          <div className="relative flex flex-col lg:flex-row items-center gap-12 bg-amber-50 rounded-2xl overflow-hidden">
-            {/* Background image - hidden on mobile/tablet */}
-            <div 
-              className="hidden lg:block absolute inset-0"
-              style={{
-                backgroundImage: 'url(/assets/images/hero.png)',
-                backgroundPosition: 'right center',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'contain',
-              }}
-            />
-            <div className="relative w-full lg:w-2/3 p-8 md:p-16 lg:p-24">
+      {/* Hero Section */}
+      <div className="relative isolate overflow-hidden bg-amber-50">
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-b from-transparent to-white" />
+        <HeroAscii />
+        <div
+          className="relative container mx-auto flex flex-col px-6 md:px-10"
+          style={{ minHeight: "clamp(540px, calc(100svh - 2.5rem), 880px)" }}
+        >
+          <Header />
+          <section className="flex flex-1 items-start pb-56 lg:items-center lg:pb-28">
+            <div data-hero-copy className="w-full max-w-[40rem]">
               <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight mb-6">
                 <span className="whitespace-nowrap">AI is</span>{' '}
                 <span className="whitespace-nowrap text-accent">eating law</span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed [text-shadow:0_0_14px_#fffbeb,0_0_4px_#fffbeb]">
                 Legalese builds governance and compliance solutions for our AI future.
                 With L4 we treat legal policy and contracts as executable specifications for use by humans and AI.
               </p>
@@ -54,15 +49,17 @@ export default function Index() {
                   href="https://legalese.com/l4" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="border-2 border-gray-900 px-8 py-3 rounded-lg font-medium hover:bg-gray-900 hover:text-white transition-colors"
+                  className="bg-amber-50 border-2 border-gray-900 px-8 py-3 rounded-lg font-medium hover:bg-gray-900 hover:text-white transition-colors"
                 >
                   Explore L4
                 </a>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
+      </div>
 
+      <Container>
         {/* What is L4 Section */}
         <section className="mb-20 py-16 -mx-5 px-5 ">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-8 text-center">
