@@ -18,7 +18,7 @@ export default function Index() {
           <a href="https://marketplace.visualstudio.com/items?itemName=Legalese.l4-vscode" className="text-accent">VS Code Extension 1.6</a>
       </Alert>
       {/* Hero Section */}
-      <div className="relative isolate overflow-hidden bg-amber-50">
+      <div className="relative isolate overflow-hidden bg-gradient-to-br from-white to-amber-50 to-60%">
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-b from-transparent to-white" />
         <HeroAscii />
         <div
@@ -49,7 +49,7 @@ export default function Index() {
                   href="https://legalese.com/l4" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-amber-50 border-2 border-gray-900 px-8 py-3 rounded-lg font-medium hover:bg-gray-900 hover:text-white transition-colors"
+                  className="border-2 border-gray-900 px-8 py-3 rounded-lg font-medium hover:bg-gray-900 hover:text-white transition-colors"
                 >
                   Explore L4
                 </a>
