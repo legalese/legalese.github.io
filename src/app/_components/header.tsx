@@ -40,7 +40,7 @@ const Header = () => {
             rel="noopener noreferrer"
             className="text-sm font-medium text-accent hover:text-accent-hover transition-colors font-merriweather"
           >
-            {link.title} →
+            {link.navTitle || link.title} →
           </a>
         ))}
       </nav>

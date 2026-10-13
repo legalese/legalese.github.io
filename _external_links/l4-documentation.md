@@ -1,5 +1,6 @@
 ---
 title: "L4 Documentation"
+navTitle: "L4 Docs"
 url: "https://legalese.com/l4"
 footerColumn: "resources"
 showInHeader: true
