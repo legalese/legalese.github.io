@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { CMS_NAME } from "@/lib/constants";
-import { getHeaderPages, getFooterExternalLinks } from "@/lib/api";
+import { getHeaderPages, getHeaderExternalLinks } from "@/lib/api";
 
 const Header = () => {
   const headerPages = getHeaderPages();
-  const headerExternalLinks = getFooterExternalLinks("resources").slice(0, 1); // Get first resource link for header
+  const headerExternalLinks = getHeaderExternalLinks();
 
   return (
     <header className="flex flex-col md:flex-row items-center justify-between py-8 mb-6">

@@ -129,3 +129,9 @@ export function getFooterExternalLinks(column: "company" | "resources" | "contac
     .filter((link) => link.footerColumn === column)
     .sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
 }
+
+export function getHeaderExternalLinks(): ExternalLink[] {
+  return getAllExternalLinks()
+    .filter((link) => link.showInHeader)
+    .sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
+}
