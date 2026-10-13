@@ -664,12 +664,14 @@ type AiMetric =
   | "promptTokens"
   | "completionTokens"
   | "requests"
+  | "audioSeconds"
   | "cost";
 const AI_METRICS: { value: AiMetric; label: string }[] = [
   { value: "totalTokens", label: "Total tokens" },
   { value: "promptTokens", label: "Prompt tokens" },
   { value: "completionTokens", label: "Completion tokens" },
   { value: "requests", label: "Requests" },
+  { value: "audioSeconds", label: "Audio minutes" },
   { value: "cost", label: "Cost" },
 ];
 
@@ -682,6 +684,12 @@ interface AiModelTotals {
   promptTokens: number;
   completionTokens: number;
   requests: number;
+  /**
+   * Seconds of audio transcribed. Only the dictation pipeline
+   * (`legalese-listen-4`) has any — its speech-to-text model is priced
+   * per second and reports no tokens, so this is its usage figure.
+   */
+  audioSeconds?: number;
   /** Per-model cost (whole cents). Absent when not priced. */
   costCents?: number;
 }
@@ -704,9 +712,20 @@ function aiMetricValue(m: AiModelTotals | undefined, metric: AiMetric): number {
       return m.requests;
     case "totalTokens":
       return m.promptTokens + m.completionTokens;
+    case "audioSeconds":
+      return m.audioSeconds ?? 0;
     case "cost":
       return m.costCents ?? 0;
   }
+}
+
+/** Tooltip text for an audio duration: "45s", "3m 05s", "1h 02m". */
+function formatAudioDuration(totalSeconds: number): string {
+  const s = Math.round(totalSeconds);
+  if (s < 60) return `${s}s`;
+  const m = Math.floor(s / 60);
+  if (m < 60) return `${m}m ${String(s % 60).padStart(2, "0")}s`;
+  return `${Math.floor(m / 60)}h ${String(m % 60).padStart(2, "0")}m`;
 }
 
 function AiUsageChart({
@@ -782,6 +801,17 @@ function AiUsageChart({
     if (!stillThere) setModel("");
   }, [aiBuckets, model]);
 
+  // "Audio minutes" is only offered while the window has dictation
+  // usage. Same snap-back as above when a refresh takes it away.
+  const hasAudio = aiBuckets.some((b) =>
+    Object.values(b.perModel).some((m) => (m.audioSeconds ?? 0) > 0),
+  );
+  useEffect(() => {
+    if (metric !== "audioSeconds") return;
+    if (aiBuckets.length === 0) return;
+    if (!hasAudio) setMetric("totalTokens");
+  }, [aiBuckets, metric, hasAudio]);
+
   if (health.state === "loading") {
     return <div className="h-32 flex items-center justify-center text-gray-400 text-xs">Loading...</div>;
   }
@@ -804,7 +834,9 @@ function AiUsageChart({
   const isCostView = metric === "cost" && isCostAvailable(currency);
   const formatValue = isCostView
     ? (n: number) => formatCostCents(n, currency)
-    : undefined;
+    : metric === "audioSeconds"
+      ? formatAudioDuration
+      : undefined;
 
   // Build a Bucket[] for a given model from the cached per-model
   // breakdown. The same shape works for token metrics and cost — the
@@ -837,13 +869,20 @@ function AiUsageChart({
   }
 
   // Opacity assigned by position in usedModels so the colors stay
-  // distinct as the set grows. 4+ models would start to look samey —
-  // acceptable for the foreseeable future (we have three).
-  const stackOpacities = ["bg-accent/70", "bg-accent/35", "bg-accent/55"];
+  // distinct as the set grows. 5+ models would start to look samey —
+  // acceptable for the foreseeable future (compose, summize, comply,
+  // listen).
+  const stackOpacities = [
+    "bg-accent/70",
+    "bg-accent/35",
+    "bg-accent/55",
+    "bg-accent/20",
+  ];
   const stackHovers = [
     "hover:bg-accent",
     "hover:bg-accent/55",
     "hover:bg-accent/75",
+    "hover:bg-accent/40",
   ];
 
   const visible = model === "" ? usedModels : [model];
@@ -911,7 +950,9 @@ function AiUsageChart({
           className="text-xs rounded border border-gray-200 bg-white px-2 py-0.5 text-gray-600"
         >
           {AI_METRICS.filter(
-            (m) => m.value !== "cost" || isCostAvailable(currency),
+            (m) =>
+              (m.value !== "cost" || isCostAvailable(currency)) &&
+              (m.value !== "audioSeconds" || hasAudio),
           ).map((m) => (
             <option key={m.value} value={m.value}>{m.label}</option>
           ))}
