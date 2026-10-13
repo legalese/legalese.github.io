@@ -90,7 +90,7 @@ const CLAUSES = [
     prose:
       "33D. (1) Where a dog attacks a person or an animal and the dog is a dangerous dog within the meaning of this Act, the owner of the dog shall be guilty of an offence and shall be liable on conviction to a fine not exceeding $10,000, or in any other case to a fine not exceeding $5,000.",
     code: [
-      "§ Maximum fine",
+      "§ `Maximum fine`",
       "",
       "GIVEN incident IS AN Incident",
       "GIVETH A NUMBER",
@@ -104,7 +104,7 @@ const CLAUSES = [
     prose:
       "11. Either party may terminate this Agreement by giving the other party notice in writing of not less than (i) one day, where the Employee has been employed for less than twenty-six weeks; (ii) one week, where the Employee has been employed for less than two years; and (iii) four weeks in any other case.",
     code: [
-      "§ Notice period",
+      "§ `Notice period`",
       "",
       "GIVEN weeks IS A NUMBER",
       "GIVETH A NUMBER",
@@ -118,7 +118,7 @@ const CLAUSES = [
     prose:
       "6. Processing shall be lawful only if and to the extent that at least one of the following applies: (a) the data subject has given consent to the processing; (b) processing is necessary for the performance of a contract to which the data subject is party; (c) processing is necessary for compliance with a legal obligation to which the controller is subject.",
     code: [
-      "§ Lawfulness of processing",
+      "§ `Lawfulness of processing`",
       "",
       "GIVEN p IS A Processing",
       "GIVETH A BOOLEAN",
@@ -132,7 +132,7 @@ const CLAUSES = [
     prose:
       "1(b) Liquidity Event. If there is a Liquidity Event before the termination of this Safe, the Investor will automatically be entitled to receive a portion of Proceeds equal to the greater of (i) the Purchase Amount (the Cash-Out Amount) or (ii) the amount payable on the number of shares of Common Stock equal to the Purchase Amount divided by the Liquidity Price (the Conversion Amount).",
     code: [
-      "§ Liquidity Event",
+      "§ `Liquidity Event`",
       "",
       "DECLARE Safe",
       "    HAS `purchase amount` IS A NUMBER",
