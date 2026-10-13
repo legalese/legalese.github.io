@@ -13,7 +13,7 @@ export function CtaSection() {
       <div className="flex flex-wrap justify-center gap-4">
         <Link
           href="/community"
-          className="bg-accent text-white px-8 py-3 rounded-lg font-medium hover:bg-accent-hover transition-colors"
+          className="bg-accent text-white border-2 border-accent px-8 py-3 rounded-lg font-medium hover:bg-accent-hover hover:border-accent-hover transition-colors"
         >
           Join the Community
         </Link>

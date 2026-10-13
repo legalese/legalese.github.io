@@ -33,7 +33,7 @@ export default function Index() {
                 <span className="whitespace-nowrap text-accent">eating law</span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed [text-shadow:0_0_14px_#fffbeb,0_0_4px_#fffbeb]">
-                Legalese builds governance and compliance solutions for our AI future.
+                Legalese builds governance &amp; compliance solutions for our AI future.
                 With L4 we treat legal policy and contracts as executable specifications for use by humans and AI.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -41,7 +41,7 @@ export default function Index() {
                   href="https://marketplace.visualstudio.com/items?itemName=Legalese.l4-vscode" 
                   target="_blank" 
                   rel="noopener"
-                  className="bg-accent text-white px-8 py-3 rounded-lg font-medium hover:bg-accent-hover transition-colors"
+                  className="bg-accent text-white border-2 border-accent px-8 py-3 rounded-lg font-medium hover:bg-accent-hover hover:border-accent-hover transition-colors"
                 >
                   L4 in VS Code
                 </a>

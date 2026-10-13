@@ -6,41 +6,49 @@ import { useEffect, useRef } from "react";
 const MONO =
   'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
 
-// gray-900, accent and accent-hover from tailwind.config.ts
+// gray-900, accent and accent-hover from tailwind.config.ts, plus a muted
+// teal and purple that only tint the L4 code
 const COLORS = {
   ink: "rgb(17, 24, 39)",
   accent: "rgb(200, 55, 106)",
   deep: "rgb(122, 40, 57)",
+  teal: "rgb(58, 122, 128)",
+  purple: "rgb(120, 98, 152)",
 };
 
 const S = {
   FAINT: 0,
   MID: 1,
-  STRONG: 2,
+  TEAL: 2,
   ACC_SOFT: 3,
   ACC: 4,
   ACC_BOLD: 5,
   DEEP_SOFT: 6,
   DEEP: 7,
+  PURPLE: 8,
+  PURPLE_SOFT: 9,
 };
 
 const STYLES: { color: keyof typeof COLORS; alpha: number; weight: number }[] = [
   { color: "ink", alpha: 0.3, weight: 400 },
   { color: "ink", alpha: 0.52, weight: 400 },
-  { color: "ink", alpha: 0.9, weight: 500 },
+  { color: "teal", alpha: 0.95, weight: 500 },
   { color: "accent", alpha: 0.5, weight: 400 },
   { color: "accent", alpha: 1, weight: 500 },
   { color: "accent", alpha: 1, weight: 600 },
   { color: "deep", alpha: 0.6, weight: 400 },
   { color: "deep", alpha: 1, weight: 600 },
+  { color: "purple", alpha: 1, weight: 500 },
+  { color: "purple", alpha: 0.9, weight: 400 },
 ];
 
 const KEYWORDS = new Set(
   (
     "GIVEN GIVETH DECIDE DECLARE IF THEN ELSE AND OR NOT MEANS IS A AN HAS ONE OF PARTY MUST MAY SHANT " +
-    "WITHIN HENCE LEST WHERE CONSIDER WHEN OTHERWISE BOOLEAN NUMBER STRING TRUE FALSE FULFILLED EXACTLY PROVIDED"
+    "WITHIN HENCE LEST WHERE CONSIDER WHEN OTHERWISE TRUE FALSE FULFILLED EXACTLY PROVIDED"
   ).split(" ")
 );
+const TYPES = new Set(["BOOLEAN", "NUMBER", "STRING"]);
 
 // Each clause of legal prose is laid out over the L4 rule it turns into
 const CLAUSES = [
@@ -252,14 +260,17 @@ function justify(line: string, width: number) {
 function styleCode(line: string) {
   const out = new Uint8Array(line.length).fill(S.MID);
   if (/^\s*§/.test(line)) return out.fill(S.DEEP);
-  const re = /`[^`]*`|\b[A-Z]+\b|\b\d+(?:\.\d+)?\b/g;
+  const re = /`[^`]*`|\b[A-Z]+\b|\b[A-Z][a-z]+\b|\b\d+(?:\.\d+)?\b/g;
   let m: RegExpExecArray | null;
   while ((m = re.exec(line))) {
     const tok = m[0];
     let s = -1;
-    if (tok[0] === "`") s = S.STRONG;
+    if (tok[0] === "`") s = S.TEAL;
     else if (tok[0] >= "0" && tok[0] <= "9") s = S.DEEP_SOFT;
+    else if (TYPES.has(tok)) s = S.PURPLE;
     else if (KEYWORDS.has(tok)) s = S.ACC;
+    // Capitalised names are types and parties
+    else if (/^[A-Z][a-z]+$/.test(tok)) s = S.PURPLE_SOFT;
     if (s >= 0) out.fill(s, m.index, m.index + tok.length);
   }
   return out;
