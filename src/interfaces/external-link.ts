@@ -5,6 +5,7 @@ export type ExternalLink = {
   url: string;
   footerColumn: "company" | "resources" | "contact" | "legal" | "none";
   showInHeader?: boolean;
+  headerOrder?: number;
   order?: number;
   description?: string;
 };

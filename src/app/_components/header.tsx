@@ -32,17 +32,25 @@ const Header = () => {
         <Link href="/posts" className="text-sm font-medium hover:text-accent transition-colors font-merriweather">
           Blog
         </Link>
-        {headerExternalLinks.map((link) => (
-          <a 
-            key={link.slug}
-            href={link.url} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-sm font-medium text-accent hover:text-accent-hover transition-colors font-merriweather"
-          >
-            {link.navTitle || link.title} →
-          </a>
-        ))}
+        {headerExternalLinks.map((link, i) => {
+          // Only the last item in the row gets the accent color and arrow
+          const isLast = i === headerExternalLinks.length - 1;
+          return (
+            <a
+              key={link.slug}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={
+                isLast
+                  ? "text-sm font-medium text-accent hover:text-accent-hover transition-colors font-merriweather"
+                  : "text-sm font-medium hover:text-accent transition-colors font-merriweather"
+              }
+            >
+              {link.navTitle || link.title}{isLast && " →"}
+            </a>
+          );
+        })}
       </nav>
     </header>
   );

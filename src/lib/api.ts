@@ -133,5 +133,5 @@ export function getFooterExternalLinks(column: "company" | "resources" | "contac
 export function getHeaderExternalLinks(): ExternalLink[] {
   return getAllExternalLinks()
     .filter((link) => link.showInHeader)
-    .sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
+    .sort((a, b) => (a.headerOrder ?? 999) - (b.headerOrder ?? 999));
 }
