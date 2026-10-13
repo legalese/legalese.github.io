@@ -120,7 +120,7 @@ export default function Index() {
               </h2>
               <p className="text-lg text-gray-700 mb-6">
                 Marc Andreessen said, "software is eating the world"; at Legalese, we say 
-                <em> software is eating law</em>. Our solution to the broken-law problem is to 
+                <em> AI is eating law</em>. Our solution to the broken-law problem is to 
                 resolve it at a fundamental level, using math, computer science, and logic.
               </p>
               <p className="text-lg text-gray-700 mb-6">

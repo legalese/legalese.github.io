@@ -11,7 +11,7 @@ effectiveDate: 2026-03-23
 ---
 ## What is Legalese?
 
-Marc Andreessen said, [software is eating the world](https://www.wsj.com/articles/SB10001424053111903480904576512250915629460); at Legalese, we say *software is eating law*. Our solution to the broken-law problem is to resolve it at a fundamental level, using math, computer science, and logic. At the core, we are an [open-source](http://producingoss.com/) complaw project working on the drafting of legal documents the way programmers develop software.
+Marc Andreessen said, [software is eating the world](https://www.wsj.com/articles/SB10001424053111903480904576512250915629460); at Legalese, we say *AI is eating law*. Our solution to the broken-law problem is to resolve it at a fundamental level, using math, computer science, and logic. At the core, we are an [open-source](http://producingoss.com/) complaw project working on the drafting of legal documents the way programmers develop software.
 
 We start by creating and implementing **L4**, a [domain-specific language (DSL)](https://en.wikipedia.org/wiki/Domain-specific_language) for *legal* that is specifically designed to capture the particularities of law, its semantics, deontics, and logic. Just as [Cadence](https://www.cadence.com/)'s [Verilog](https://en.wikipedia.org/wiki/Verilog) allows programmers to draft circuits, Legalese's *L4* will allow programmers to express law.
 

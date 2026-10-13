@@ -62,7 +62,7 @@ Find a list of our press releases here: [Legalese Press Releases](/posts?author=
 
 ## Company Overview
 
-Marc Andreessen said, "software is eating the world"; at Legalese, we say *software is eating law*. Our solution to the broken-law problem is to resolve it at a fundamental level, using math, computer science, and logic.
+Marc Andreessen said, "software is eating the world"; at Legalese, we say *AI is eating law*. Our solution to the broken-law problem is to resolve it at a fundamental level, using math, computer science, and logic.
 
 At the core, we are an open-source complaw project working on the drafting of legal documents the way programmers develop software.
 
