@@ -139,13 +139,13 @@ export async function generateMetadata({ params }: PageProps) {
     openGraph: {
       title,
       description: 'L4 Language Reference and Documentation - Rules as Code',
-      images: ['/opengraph/ai-is-eating-law.jpg'],
+      images: ['/opengraph/ai-is-eating-law-v2.jpg'],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description: 'L4 Language Reference and Documentation - Rules as Code',
-      images: ['/opengraph/ai-is-eating-law.jpg'],
+      images: ['/opengraph/ai-is-eating-law-v2.jpg'],
     },
   };
 }
