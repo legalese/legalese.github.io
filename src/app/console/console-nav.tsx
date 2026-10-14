@@ -4,12 +4,15 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useConsole } from "./console-context";
+import { AUTH_API_URL } from "@/lib/constants";
 import {
   SESSION_TOKEN_KEY,
   REDIRECT_TO_KEY,
   REDIRECT_CHALLENGE_KEY,
+  authHeaders,
+  handleUnauthorized,
 } from "./console-utils";
-import { editorLoginUrl, isS256Challenge, startLogin } from "@/lib/auth-login";
+import { isS256Challenge, startLogin } from "@/lib/auth-login";
 
 /** Editors that can host the Legalese extension, by URL scheme. */
 const EDITOR_NAMES: Record<string, string> = {
@@ -124,6 +127,7 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
     return param && isValidHandoffUrl(param) ? param : null;
   });
   const [handedOff, setHandedOff] = useState(false);
+  const [handoffError, setHandoffError] = useState<string | null>(null);
 
   if (loading) {
     return (
@@ -165,17 +169,18 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
         <div className="bg-white rounded-lg border border-gray-200 p-8 max-w-md w-full text-center space-y-6">
           <div>
             <h1 className="text-xl font-bold font-merriweather mb-2">
-              {handedOff ? `Signing in to ${appLabel} ...` : `Open ${appLabel}`}
+              {handedOff ? `Signing in to ${appLabel} ...` : `Sign in to ${appLabel}`}
             </h1>
-            {session?.organization ? (
-              <p className="text-gray-600 text-sm">{session.organization.name}</p>
-            ) : null}
-            {session ? <p className="text-gray-500 text-sm">{session.user.email}</p> : null}
-            <p className="text-gray-500 text-sm mt-2">
-              {handedOff
-                ? "You can close this window now."
-                : `Return to ${appLabel} to finish signing in. The link works once and expires in a few minutes.`}
-            </p>
+            {handedOff ? (
+              <p className="text-gray-600 text-sm">You can close this window now.</p>
+            ) : (
+              <>
+                {session?.organization ? (
+                  <p className="text-gray-600 text-sm">{session.organization.name}</p>
+                ) : null}
+                {session ? <p className="text-gray-500 text-sm">{session.user.email}</p> : null}
+              </>
+            )}
           </div>
           {!handedOff && (
             <button
@@ -185,7 +190,7 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
               }}
               className="w-full inline-flex items-center justify-center px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent-hover transition-colors"
             >
-              Open {appLabel}
+              Continue
             </button>
           )}
         </div>
@@ -219,24 +224,59 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
     function handleContinue() {
       sessionStorage.removeItem(REDIRECT_TO_KEY);
       sessionStorage.removeItem(REDIRECT_CHALLENGE_KEY);
+      setHandoffError(null);
 
-      // The editor sent a PKCE challenge: start its own sign-in, in the org
-      // shown on this screen. The editor gets its own session (signing out
-      // here doesn't sign it out), and the proxy brings the browser back
-      // with ?handoff_to= — no token in any URL.
+      // The editor sent a PKCE challenge: ask the proxy for its link with a
+      // one-time code bound to that challenge (POST /auth/handoff), so this
+      // session's token never goes into the editor link. An older proxy
+      // without the endpoint gets the legacy hand-off below.
       if (pendingChallenge) {
         const target = new URL(pendingRedirect!);
         target.searchParams.delete("token");
-        window.location.href = editorLoginUrl(
-          target.toString(),
-          pendingChallenge,
-          session?.organizationId ?? undefined,
-        );
+        void (async () => {
+          try {
+            const res = await fetch(`${AUTH_API_URL}/auth/handoff`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json", ...authHeaders() },
+              body: JSON.stringify({
+                return_to: target.toString(),
+                code_challenge: pendingChallenge,
+              }),
+            });
+            if (res.ok) {
+              const body = (await res.json()) as {
+                redirect_to?: string;
+                token?: string;
+              };
+              // The session was refreshed on the way: keep the rotated one.
+              if (body.token) localStorage.setItem(SESSION_TOKEN_KEY, body.token);
+              if (body.redirect_to) {
+                setRedirected(true);
+                window.location.href = body.redirect_to;
+                setTimeout(() => { window.close(); }, 30_000);
+                return;
+              }
+            } else if (res.status === 401) {
+              handleUnauthorized();
+              return;
+            } else if (res.status === 404) {
+              legacyContinue();
+              return;
+            }
+            setHandoffError(`Couldn't sign in to ${appLabel}. Please try again.`);
+          } catch {
+            setHandoffError("Couldn't reach Legalese Cloud. Please try again.");
+          }
+        })();
         return;
       }
 
-      // Legacy editors (no challenge): forward this console's session.
+      legacyContinue();
+    }
 
+    // Legacy hand-off (editors without a challenge, or a proxy without
+    // /auth/handoff): forward this console's session in the editor link.
+    function legacyContinue() {
       const url = new URL(pendingRedirect!);
       // Always write the live localStorage token, even if the URL
       // already carries one. pendingRedirect may be a URL that was
@@ -311,6 +351,9 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
             >
               Continue
             </button>
+            {handoffError ? (
+              <p className="text-sm text-red-600">{handoffError}</p>
+            ) : null}
             {!isEditor && (
               <p className="text-xs text-gray-400 break-all">
                 Redirect to{" "}

@@ -7,9 +7,9 @@
 // leaves this tab's sessionStorage, so a code that leaks through history or
 // a screenshot is useless.
 //
-// Editors (the VS Code extension) do the same with their own challenge: the
-// console only shows the confirmation and the "Open <editor>" button, and the
-// editor redeems its code itself.
+// Editors (the VS Code extension) send their own challenge with redirect_to;
+// the console's Continue asks the proxy for the editor link with a code bound
+// to it (POST /auth/handoff), and the editor redeems that code itself.
 
 import { AUTH_API_URL } from "@/lib/constants";
 
@@ -90,23 +90,4 @@ export async function completeLogin(code: string): Promise<string | null> {
   } catch {
     return null;
   }
-}
-
-/**
- * The URL that starts an editor's own sign-in for its challenge, in the org
- * the user confirmed. The proxy brings the browser back to the console with
- * the finished editor link (?handoff_to=…).
- */
-export function editorLoginUrl(
-  editorCallback: string,
-  challenge: string,
-  organizationId?: string,
-): string {
-  const params = new URLSearchParams({
-    return_to: editorCallback,
-    code_challenge: challenge,
-    code_challenge_method: "S256",
-  });
-  if (organizationId) params.set("organization_id", organizationId);
-  return `${AUTH_API_URL}/auth/login?${params.toString()}`;
 }
