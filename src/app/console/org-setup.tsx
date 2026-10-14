@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { AUTH_API_URL, SERVICE_DOMAIN } from "@/lib/constants";
 import { authHeaders } from "./console-utils";
+import { startLogin } from "@/lib/auth-login";
 
 function toSlug(name: string): string {
   return name
@@ -77,7 +78,10 @@ export function OrgSetup({
         setSubmitError(data.error ?? "Something went wrong.");
         return;
       }
-      window.location.href = `${AUTH_API_URL}/auth/login?organization_id=${encodeURIComponent(data.organizationId)}&return_to=${encodeURIComponent(`${window.location.origin}${returnTo}`)}`;
+      // Sign in again into the new org (lib/auth-login.ts: no token in URLs).
+      await startLogin(`${window.location.origin}${returnTo}`, {
+        organizationId: data.organizationId,
+      });
     } catch {
       setSubmitError("Something went wrong. Please try again.");
       setSubmitting(false);

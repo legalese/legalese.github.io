@@ -7,7 +7,13 @@ import { WorkOsWidgets } from "@workos-inc/widgets";
 import { AUTH_API_URL } from "@/lib/constants";
 import { ConsoleContext, type ConsoleSession } from "./console-context";
 import { ConsoleHeader } from "./console-header";
-import { authHeaders, SESSION_TOKEN_KEY, REDIRECT_TO_KEY } from "./console-utils";
+import {
+  authHeaders,
+  SESSION_TOKEN_KEY,
+  REDIRECT_TO_KEY,
+  REDIRECT_CHALLENGE_KEY,
+} from "./console-utils";
+import { completeLogin, isS256Challenge } from "@/lib/auth-login";
 
 export function ConsoleShell({ children }: { children: React.ReactNode }) {
   const [session, setSession] = useState<ConsoleSession | null>(null);
@@ -45,11 +51,36 @@ export function ConsoleShell({ children }: { children: React.ReactNode }) {
       }
       sessionStorage.setItem(REDIRECT_TO_KEY, cleaned);
       url.searchParams.delete("redirect_to");
+      // An editor that sent a PKCE challenge gets its own sign-in on
+      // Continue instead of a copy of this console's session.
+      const challenge = url.searchParams.get("code_challenge");
+      const method = url.searchParams.get("code_challenge_method") ?? "S256";
+      if (isS256Challenge(challenge) && method === "S256") {
+        sessionStorage.setItem(REDIRECT_CHALLENGE_KEY, challenge);
+      } else {
+        sessionStorage.removeItem(REDIRECT_CHALLENGE_KEY);
+      }
+      url.searchParams.delete("code_challenge");
+      url.searchParams.delete("code_challenge_method");
       dirty = true;
     }
 
+    // ConsoleNav reads ?handoff_to= on its first render; drop it from the
+    // address bar so a reload doesn't offer the used link again.
+    if (url.searchParams.has("handoff_to")) {
+      url.searchParams.delete("handoff_to");
+      dirty = true;
+    }
+
+    // The console's own sign-in comes back with a code (lib/auth-login.ts).
+    const codeFromUrl = url.searchParams.get("code");
+    if (codeFromUrl) {
+      url.searchParams.delete("code");
+      dirty = true;
+    }
+
+    // Legacy sign-in: the proxy hands the session token in the URL.
     const tokenFromUrl = url.searchParams.get("token");
-    const hasUrlToken = !!tokenFromUrl;
     if (tokenFromUrl) {
       localStorage.setItem(SESSION_TOKEN_KEY, tokenFromUrl);
       url.searchParams.delete("token");
@@ -60,31 +91,40 @@ export function ConsoleShell({ children }: { children: React.ReactNode }) {
       window.history.replaceState({}, "", url.pathname + url.search + url.hash);
     }
 
-    fetch(`${AUTH_API_URL}/auth/session`, {
-      credentials: "include",
-      headers: authHeaders(),
-    })
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => {
-        if (data?.authenticated) {
-          setSession(data);
-          // Only populate localStorage from the session response when we
-          // did NOT just capture a URL token. The URL token represents
-          // an explicit, up-to-date login and must win over whatever the
-          // server derived from cookies.
-          if (data.token && !hasUrlToken) {
-            localStorage.setItem(SESSION_TOKEN_KEY, data.token);
-          }
-        } else if (!hasUrlToken) {
-          // Server says this session is invalid — clear the stale
-          // localStorage token so stale credentials don't linger. Skip
-          // this when we just received a fresh URL token so a transient
-          // server error can't wipe a valid new login.
-          localStorage.removeItem(SESSION_TOKEN_KEY);
-        }
+    (codeFromUrl ? completeLogin(codeFromUrl) : Promise.resolve(null))
+      .then((tokenFromCode) => {
+        if (tokenFromCode) localStorage.setItem(SESSION_TOKEN_KEY, tokenFromCode);
+        return !!tokenFromUrl || !!tokenFromCode;
       })
-      .catch(() => {})
-      .finally(() => setLoading(false));
+      .then((hasUrlToken) => loadSession(hasUrlToken));
+
+    function loadSession(hasUrlToken: boolean) {
+      fetch(`${AUTH_API_URL}/auth/session`, {
+        credentials: "include",
+        headers: authHeaders(),
+      })
+        .then((res) => (res.ok ? res.json() : null))
+        .then((data) => {
+          if (data?.authenticated) {
+            setSession(data);
+            // Only populate localStorage from the session response when we
+            // did NOT just capture a URL token. The URL token represents
+            // an explicit, up-to-date login and must win over whatever the
+            // server derived from cookies.
+            if (data.token && !hasUrlToken) {
+              localStorage.setItem(SESSION_TOKEN_KEY, data.token);
+            }
+          } else if (!hasUrlToken) {
+            // Server says this session is invalid — clear the stale
+            // localStorage token so stale credentials don't linger. Skip
+            // this when we just received a fresh URL token so a transient
+            // server error can't wipe a valid new login.
+            localStorage.removeItem(SESSION_TOKEN_KEY);
+          }
+        })
+        .catch(() => {})
+        .finally(() => setLoading(false));
+    }
   }, []);
 
   function handleLogout() {

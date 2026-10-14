@@ -3,9 +3,27 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AUTH_API_URL } from "@/lib/constants";
 import { useConsole } from "./console-context";
-import { SESSION_TOKEN_KEY, REDIRECT_TO_KEY } from "./console-utils";
+import {
+  SESSION_TOKEN_KEY,
+  REDIRECT_TO_KEY,
+  REDIRECT_CHALLENGE_KEY,
+} from "./console-utils";
+import { editorLoginUrl, isS256Challenge, startLogin } from "@/lib/auth-login";
+
+/** Editors that can host the Legalese extension, by URL scheme. */
+const EDITOR_NAMES: Record<string, string> = {
+  vscode: "Visual Studio Code",
+  "vscode-insiders": "Visual Studio Code",
+  vscodium: "VSCodium",
+  cursor: "Cursor",
+  windsurf: "Windsurf",
+};
+
+function editorScheme(url: URL): string | null {
+  const scheme = url.protocol.replace(/:$/, "");
+  return scheme in EDITOR_NAMES ? scheme : null;
+}
 
 const TABS: readonly {
   path: string;
@@ -27,8 +45,8 @@ const TABS: readonly {
 function isValidRedirectUrl(url: string): boolean {
   try {
     const parsed = new URL(url);
-    // VS Code extension callback (our extension only)
-    if (parsed.protocol === "vscode:" || parsed.protocol === "vscode-insiders:") {
+    // Editor callback (our extension only)
+    if (editorScheme(parsed)) {
       return parsed.hostname === "legalese.l4-vscode";
     }
     // HTTPS links to our own domains only
@@ -50,12 +68,25 @@ function isValidRedirectUrl(url: string): boolean {
 function getAppLabel(url: string): string {
   try {
     const scheme = new URL(url).protocol.replace(":", "");
-    if (scheme === "vscode" || scheme === "vscode-insiders") {
-      return "Visual Studio Code";
-    }
-    return scheme;
+    return EDITOR_NAMES[scheme] ?? scheme;
   } catch {
     return "application";
+  }
+}
+
+/** A finished editor sign-in link from the proxy: our extension's callback
+ *  carrying a hand-off code, never a token. */
+function isValidHandoffUrl(url: string): boolean {
+  try {
+    const parsed = new URL(url);
+    return (
+      !!editorScheme(parsed) &&
+      parsed.hostname === "legalese.l4-vscode" &&
+      (parsed.searchParams.get("code") ?? "").startsWith("h1.") &&
+      !parsed.searchParams.has("token")
+    );
+  } catch {
+    return false;
   }
 }
 
@@ -75,6 +106,24 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
     if (stored) sessionStorage.removeItem(REDIRECT_TO_KEY);
     return null;
   });
+  // The editor's PKCE challenge, when it sent one with redirect_to.
+  const [pendingChallenge] = useState<string | null>(() => {
+    if (typeof window === "undefined") return null;
+    const url = new URL(window.location.href);
+    if (url.searchParams.get("redirect_to")) {
+      const c = url.searchParams.get("code_challenge");
+      return isS256Challenge(c) ? c : null;
+    }
+    const stored = sessionStorage.getItem(REDIRECT_CHALLENGE_KEY);
+    return isS256Challenge(stored) ? stored : null;
+  });
+  // A finished editor sign-in, back from the proxy: offer to open it.
+  const [handoffUrl] = useState<string | null>(() => {
+    if (typeof window === "undefined") return null;
+    const param = new URL(window.location.href).searchParams.get("handoff_to");
+    return param && isValidHandoffUrl(param) ? param : null;
+  });
+  const [handedOff, setHandedOff] = useState(false);
 
   if (loading) {
     return (
@@ -103,6 +152,55 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
     );
   }
 
+  const CHEVRON = <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="inline"><path d="M8.21192 3.09155C8.40164 2.95736 8.66555 2.96958 8.8418 3.13452C9.01806 3.29976 9.04853 3.56338 8.92676 3.76148L8.86524 3.84155L5.43555 7.49976L8.86524 11.158L8.92676 11.238C9.04853 11.4361 9.01806 11.6998 8.8418 11.865C8.66555 12.0299 8.40164 12.0422 8.21192 11.908L8.13477 11.8416L4.38477 7.84155C4.20487 7.64932 4.20487 7.35019 4.38477 7.15796L8.13477 3.15796L8.21192 3.09155Z" fill="currentColor"></path></svg>
+
+  // Editor sign-in finished: the proxy sent the browser back with the
+  // editor's link. Browsers only open an editor scheme on a click, so the
+  // console offers the button. The link carries a one-time code that only
+  // the editor that started the sign-in can redeem.
+  if (handoffUrl) {
+    const appLabel = getAppLabel(handoffUrl);
+    return (
+      <div className="flex flex-col items-center justify-center py-24 gap-6">
+        <div className="bg-white rounded-lg border border-gray-200 p-8 max-w-md w-full text-center space-y-6">
+          <div>
+            <h1 className="text-xl font-bold font-merriweather mb-2">
+              {handedOff ? `Signing in to ${appLabel} ...` : `Open ${appLabel}`}
+            </h1>
+            {session?.organization ? (
+              <p className="text-gray-600 text-sm">{session.organization.name}</p>
+            ) : null}
+            {session ? <p className="text-gray-500 text-sm">{session.user.email}</p> : null}
+            <p className="text-gray-500 text-sm mt-2">
+              {handedOff
+                ? "You can close this window now."
+                : `Return to ${appLabel} to finish signing in. The link works once and expires in a few minutes.`}
+            </p>
+          </div>
+          {!handedOff && (
+            <button
+              onClick={() => {
+                setHandedOff(true);
+                window.location.href = handoffUrl;
+              }}
+              className="w-full inline-flex items-center justify-center px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent-hover transition-colors"
+            >
+              Open {appLabel}
+            </button>
+          )}
+        </div>
+        <button
+          onClick={() => {
+            window.location.href = "/console";
+          }}
+          className="text-sm font-merriweather text-gray-400 hover:text-gray-600 transition-colors"
+        >
+          {CHEVRON} Back to console
+        </button>
+      </div>
+    );
+  }
+
   // Pending redirect — show redirect UI instead of normal console.
   // We gate this on having a session: if there's no session yet (e.g.
   // cold visit from VS Code, or after switch-account sends the user
@@ -110,10 +208,34 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
   // page, which has its own "Sign in to continue" link.
   if (pendingRedirect && session && session.organizationId) {
     const appLabel = getAppLabel(pendingRedirect);
-    const isVSCode = appLabel === "Visual Studio Code";
+    const isEditor = (() => {
+      try {
+        return !!editorScheme(new URL(pendingRedirect));
+      } catch {
+        return false;
+      }
+    })();
 
     function handleContinue() {
       sessionStorage.removeItem(REDIRECT_TO_KEY);
+      sessionStorage.removeItem(REDIRECT_CHALLENGE_KEY);
+
+      // The editor sent a PKCE challenge: start its own sign-in, in the org
+      // shown on this screen. The editor gets its own session (signing out
+      // here doesn't sign it out), and the proxy brings the browser back
+      // with ?handoff_to= — no token in any URL.
+      if (pendingChallenge) {
+        const target = new URL(pendingRedirect!);
+        target.searchParams.delete("token");
+        window.location.href = editorLoginUrl(
+          target.toString(),
+          pendingChallenge,
+          session?.organizationId ?? undefined,
+        );
+        return;
+      }
+
+      // Legacy editors (no challenge): forward this console's session.
 
       const url = new URL(pendingRedirect!);
       // Always write the live localStorage token, even if the URL
@@ -142,7 +264,6 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
     // trip so the new sign-in returns them to the Continue screen.
     const handleSwitchAccount = onLogout;
 
-    const CHEVRON = <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="inline"><path d="M8.21192 3.09155C8.40164 2.95736 8.66555 2.96958 8.8418 3.13452C9.01806 3.29976 9.04853 3.56338 8.92676 3.76148L8.86524 3.84155L5.43555 7.49976L8.86524 11.158L8.92676 11.238C9.04853 11.4361 9.01806 11.6998 8.8418 11.865C8.66555 12.0299 8.40164 12.0422 8.21192 11.908L8.13477 11.8416L4.38477 7.84155C4.20487 7.64932 4.20487 7.35019 4.38477 7.15796L8.13477 3.15796L8.21192 3.09155Z" fill="currentColor"></path></svg>
 
     if (redirected) {
       return (
@@ -150,10 +271,10 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
           <div className="bg-white rounded-lg border border-gray-200 p-8 max-w-md w-full text-center space-y-6">
             <div>
               <h1 className="text-xl font-bold font-merriweather mb-2">
-                {isVSCode ? "Signing in to Visual Studio Code ..." : "Redirecting you now ..."}
+                {isEditor ? `Signing in to ${appLabel} ...` : "Redirecting you now ..."}
               </h1>
               <p className="text-gray-600 text-sm">
-                {isVSCode ? "You can close this window now." : "Just a moment, please."}
+                {isEditor ? "You can close this window now." : "Just a moment, please."}
               </p>
             </div>
           </div>
@@ -174,7 +295,7 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
         <div className="bg-white rounded-lg border border-gray-200 p-8 max-w-md w-full text-center space-y-6">
           <div>
             <h1 className="text-xl font-bold font-merriweather mb-2">
-              Sign in {isVSCode ? "to Visual Studio Code" : "and redirect"}
+              Sign in {isEditor ? `to ${appLabel}` : "and redirect"}
             </h1>
             {session.organization ? (
               <p className="text-gray-600 text-sm">
@@ -190,7 +311,7 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
             >
               Continue
             </button>
-            {!isVSCode && (
+            {!isEditor && (
               <p className="text-xs text-gray-400 break-all">
                 Redirect to{" "}
                 <span className="text-gray-500">
@@ -216,6 +337,7 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
         <button
           onClick={() => {
             sessionStorage.removeItem(REDIRECT_TO_KEY);
+            sessionStorage.removeItem(REDIRECT_CHALLENGE_KEY);
             window.location.href = "/console";
           }}
           className="text-sm font-merriweather text-gray-400 hover:text-gray-600 transition-colors"
@@ -235,12 +357,12 @@ export function ConsoleNav({ children }: { children: React.ReactNode }) {
         <p className="text-gray-600 text-center max-w-md">
           Check deployment activity, control your organization settings, manage team members, and API access.
         </p>
-        <a
-          href={`${AUTH_API_URL}/auth/login?return_to=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : "")}`}
+        <button
+          onClick={() => void startLogin(window.location.href)}
           className="inline-flex items-center px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent-hover transition-colors"
         >
           Sign in to continue
-        </a>
+        </button>
       </div>
     );
   }

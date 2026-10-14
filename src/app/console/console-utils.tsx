@@ -6,6 +6,9 @@ import { useConsole } from "./console-context";
 
 export const SESSION_TOKEN_KEY = "wos-session-token";
 export const REDIRECT_TO_KEY = "auth-redirect-to";
+/** PKCE challenge of the editor waiting at REDIRECT_TO_KEY, when it sent one
+ *  (lib/auth-login.ts): Continue then starts the editor's own sign-in. */
+export const REDIRECT_CHALLENGE_KEY = "auth-redirect-challenge";
 
 export function authHeaders(): HeadersInit {
   const token =
