@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { AUTH_API_URL, CMS_NAME } from '@/lib/constants';
+import { CMS_NAME } from '@/lib/constants';
 import { ErrorContent } from './error-content';
+import { SignInLink } from '../_components/sign-in-link';
 
 export const metadata: Metadata = {
   other: {
@@ -26,12 +27,9 @@ export default function HttpErrorPage() {
               />
               <span className="text-lg font-bold tracking-tight font-merriweather">{CMS_NAME}</span>
             </Link>
-            <a
-              href={`${AUTH_API_URL}/auth/login`}
-              className="text-sm font-medium text-accent hover:text-accent-hover transition-colors"
-            >
+            <SignInLink className="text-sm font-medium text-accent hover:text-accent-hover transition-colors">
               Sign in
-            </a>
+            </SignInLink>
           </div>
         </div>
       </header>

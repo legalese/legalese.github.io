@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { CMS_NAME } from '@/lib/constants';
+import { SignInLink } from './sign-in-link';
 
 const ERROR_INFO: Record<number, { title: string; description: string }> = {
   400: {
@@ -81,12 +82,9 @@ export function HttpError({ code }: { code: number }) {
               {description}
             </p>
             {is401 ? (
-              <a
-                href="https://legalese.cloud/auth/login"
-                className="inline-block px-6 py-2 bg-accent text-white rounded-md hover:bg-accent-hover transition-colors"
-              >
+              <SignInLink className="inline-block px-6 py-2 bg-accent text-white rounded-md hover:bg-accent-hover transition-colors">
                 Sign in to continue
-              </a>
+              </SignInLink>
             ) : (
               <Link
                 href="/"

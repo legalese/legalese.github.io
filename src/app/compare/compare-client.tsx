@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { AUTH_API_URL, SERVICE_DOMAIN } from "@/lib/constants";
+import { SERVICE_DOMAIN } from "@/lib/constants";
 import "katex/dist/katex.min.css";
 import markdownToHtml from "./markdown-math";
 import { useConsole } from "../console/console-context";
 import { OrgSetup } from "../console/org-setup";
 import { authHeaders } from "../console/console-utils";
+import { startLogin } from "@/lib/auth-login";
 import {
   buildDocumentPreamble,
   COMPARE_SECTIONS,
@@ -934,9 +935,7 @@ export function CompareClient({
       } catch {
         // quota exceeded — proceed without the draft
       }
-      window.location.href = `${AUTH_API_URL}/auth/login?return_to=${encodeURIComponent(
-        window.location.href,
-      )}`;
+      void startLogin(window.location.href);
       return;
     }
     void startRun();
@@ -983,9 +982,7 @@ export function CompareClient({
   async function loadRun(entry: HistoryEntry) {
     if (running) return;
     if (!session) {
-      window.location.href = `${AUTH_API_URL}/auth/login?return_to=${encodeURIComponent(
-        window.location.href,
-      )}`;
+      void startLogin(window.location.href);
       return;
     }
     setNotice(null);
