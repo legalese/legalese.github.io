@@ -265,6 +265,23 @@ export function extractTitle(content: string): string | null {
 }
 
 /**
+ * The first prose paragraph after the H1, as plain text of at most
+ * `maxLength` characters, or null when the page opens with something else
+ */
+export function extractDescription(content: string, maxLength: number = 160): string | null {
+  const afterTitle = content.split(/^#\s+.+$/m)[1] ?? content;
+  const paragraph = afterTitle
+    .split(/\n\s*\n/)
+    .map((block) => block.trim())
+    .find((block) => block && !/^(#|```|~~~|[-*>|!<]|\d+\.\s|\*\*Prerequisites)/.test(block));
+  if (!paragraph) return null;
+
+  const text = stripMarkdown(paragraph.replace(/\s+/g, ' '));
+  if (text.length <= maxLength) return text;
+  return text.slice(0, text.lastIndexOf(' ', maxLength - 1)) + '…';
+}
+
+/**
  * Resolve a relative path against a current folder
  * Handles ./, ../, and plain relative paths
  */

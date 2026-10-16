@@ -8,6 +8,7 @@ import {
   findPager,
   extractTableOfContents,
   extractTitle,
+  extractDescription,
   processMarkdownContent,
   addHeadingIds,
   DOC_TABS,
@@ -119,28 +120,35 @@ export default async function L4DocPage({ params }: PageProps) {
 export async function generateMetadata({ params }: PageProps) {
   const resolvedParams = await params;
   const slug = resolvedParams.slug || [];
-
+  const doc = resolveSlugToDoc(slug);
+  
   let title = 'L4 Documentation';
   if (slug.length > 0) {
     // Name the page by its H1; fall back to the last URL segment
-    const doc = resolveSlugToDoc(slug);
     const heading = doc ? extractTitle(doc.content) : null;
     const fallback = slug[slug.length - 1].replace(/-/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
     title = `${heading || fallback} | L4 Documentation`;
   }
 
+  // Each page describes itself by its opening paragraph
+  const description =
+    (doc && extractDescription(doc.content)) || 'L4 Language Reference and Documentation - Rules as Code';
+  const url = ['/l4', ...slug].join('/');
+  
   return {
     title,
-    description: 'L4 Language Reference and Documentation - Rules as Code',
+    description,
+    alternates: { canonical: url },
     openGraph: {
       title,
-      description: 'L4 Language Reference and Documentation - Rules as Code',
+      description,
+      url,
       images: ['/opengraph/ai-is-eating-law-v2.jpg'],
     },
     twitter: {
       card: 'summary_large_image',
       title,
-      description: 'L4 Language Reference and Documentation - Rules as Code',
+      description,
       images: ['/opengraph/ai-is-eating-law-v2.jpg'],
     },
   };
