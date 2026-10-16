@@ -4,7 +4,10 @@ import DocLayout from '../_components/doc-layout';
 
 import {
   parseSummary,
+  prefixNavHrefs,
+  findPager,
   extractTableOfContents,
+  extractTitle,
   processMarkdownContent,
   addHeadingIds,
   DOC_TABS,
@@ -22,20 +25,20 @@ interface PageProps {
 // Generate static params from local documentation files at build time
 export function generateStaticParams() {
   const paths: { slug?: string[] }[] = [];
-  
+
   // Root path
   paths.push({ slug: undefined });
-  
+
   // Tab paths
   for (const tab of DOC_TABS) {
     if (tab.slug) {
       paths.push({ slug: [tab.slug] });
     }
   }
-  
+
   // Get document list from local files
   const docs = getDocumentList();
-  
+
   for (const doc of docs) {
     // Remove .md extension and split into segments
     const slug = doc.replace(/\.md$/, '').replace(/\/README$/, '').split('/').filter(Boolean);
@@ -43,7 +46,7 @@ export function generateStaticParams() {
       paths.push({ slug });
     }
   }
-  
+
   return paths;
 }
 
@@ -57,15 +60,15 @@ export default async function L4DocPage({ params }: PageProps) {
   }
 
   const { content, currentFolder, currentTab } = resolved;
-  
+
   // Read SUMMARY.md - walk up the directory tree until we find one
   let summaryContent: string | null = null;
   let summaryFolder = currentFolder;
-  
+
   while (summaryContent === null) {
     const summaryPath = summaryFolder ? `${summaryFolder}/SUMMARY.md` : 'SUMMARY.md';
     summaryContent = getDocContent(summaryPath);
-    
+
     if (summaryContent === null) {
       // Move up one directory
       if (!summaryFolder || !summaryFolder.includes('/')) {
@@ -78,47 +81,37 @@ export default async function L4DocPage({ params }: PageProps) {
       summaryFolder = summaryFolder.split('/').slice(0, -1).join('/');
     }
   }
-  
+
   let navSections: NavSection[] = [];
   if (summaryContent) {
-    navSections = parseSummary(summaryContent);
-    // Adjust nav items base path - use the folder where SUMMARY.md was found
-    const navBaseFolder = summaryFolder || currentTab;
-    if (navBaseFolder) {
-      navSections = navSections.map((section) => ({
-        ...section,
-        items: section.items.map((item) => ({
-          ...item,
-          href: item.href.startsWith('/') ? item.href : `${navBaseFolder}/${item.href}`,
-          children: item.children?.map((child) => ({
-            ...child,
-            href: child.href.startsWith('/') ? child.href : `${navBaseFolder}/${child.href}`,
-          })),
-        })),
-      }));
-    }
+    // Nav hrefs are relative to the folder where SUMMARY.md was found
+    navSections = prefixNavHrefs(parseSummary(summaryContent), summaryFolder || currentTab);
   }
-  
+
+  // Previous and next page, following the sidebar's order
+  const pager = findPager(navSections, slug.join('/'));
+
   // Extract table of contents from the content
   const toc: TableOfContentsItem[] = extractTableOfContents(content);
-  
+
   // Embed .l4 file links as code blocks (must happen before markdown processing)
   const contentWithL4 = embedL4Files(content, currentFolder);
-  
+
   // Process the markdown content (rewrite internal links)
   const processedContent = processMarkdownContent(contentWithL4, currentFolder);
-  
+
   // Convert to HTML
   let htmlContent = await markdownToHtml(processedContent, { sanitize: false });
-  
+
   // Add IDs to headings for anchor navigation
-  htmlContent = addHeadingIds(htmlContent);
-  
+  htmlContent = addHeadingIds(htmlContent, toc);
+
   return (
-    <DocLayout 
-      navSections={navSections} 
-      toc={toc} 
-      htmlContent={htmlContent} 
+    <DocLayout
+      navSections={navSections}
+      toc={toc}
+      htmlContent={htmlContent}
+      pager={pager}
     />
   );
 }
@@ -126,13 +119,16 @@ export default async function L4DocPage({ params }: PageProps) {
 export async function generateMetadata({ params }: PageProps) {
   const resolvedParams = await params;
   const slug = resolvedParams.slug || [];
-  
+
   let title = 'L4 Documentation';
   if (slug.length > 0) {
-    const docPath = slug.join('/');
-    title = `${docPath.split('/').pop()?.replace(/-/g, ' ').replace(/^\w/, (c) => c.toUpperCase())} | L4 Documentation`;
+    // Name the page by its H1; fall back to the last URL segment
+    const doc = resolveSlugToDoc(slug);
+    const heading = doc ? extractTitle(doc.content) : null;
+    const fallback = slug[slug.length - 1].replace(/-/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
+    title = `${heading || fallback} | L4 Documentation`;
   }
-  
+
   return {
     title,
     description: 'L4 Language Reference and Documentation - Rules as Code',

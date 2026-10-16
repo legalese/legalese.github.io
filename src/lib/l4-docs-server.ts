@@ -133,7 +133,8 @@ export function getDocumentList(dirPath: string = ''): string[] {
     for (const entry of entries) {
       const relativePath = dirPath ? `${dirPath}/${entry.name}` : entry.name;
       
-      if (entry.isFile() && entry.name.endsWith('.md')) {
+      // SUMMARY.md files only feed the sidebars; they are not pages
+      if (entry.isFile() && entry.name.endsWith('.md') && entry.name !== 'SUMMARY.md') {
         docs.push(relativePath);
       } else if (entry.isDirectory() && !entry.name.startsWith('.') && entry.name !== 'images') {
         // Recursively get files from subdirectories

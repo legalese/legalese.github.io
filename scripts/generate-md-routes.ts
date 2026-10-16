@@ -41,7 +41,7 @@ function getDocumentList(dirPath: string = ''): string[] {
   if (!fs.existsSync(fullPath)) return docs;
   for (const entry of fs.readdirSync(fullPath, { withFileTypes: true })) {
     const rel = dirPath ? `${dirPath}/${entry.name}` : entry.name;
-    if (entry.isFile() && entry.name.endsWith('.md')) docs.push(rel);
+    if (entry.isFile() && entry.name.endsWith('.md') && entry.name !== 'SUMMARY.md') docs.push(rel);
     else if (entry.isDirectory() && !entry.name.startsWith('.') && entry.name !== 'images')
       docs.push(...getDocumentList(rel));
   }
@@ -159,6 +159,66 @@ function main() {
   }
 
   console.log(`Generated ${count} markdown files in out/l4/`);
+
+  writeRedirects(outDir);
+}
+
+// ---------------------------------------------------------------------------
+// Redirects for pages that moved or were merged
+// ---------------------------------------------------------------------------
+
+/**
+ * doc/redirects.json maps an old slug to its new home, e.g.
+ *   "reference/functions/multi-clause-DECIDE": "reference/functions/DECIDE#several-clauses"
+ * For each one, write out/l4/<old>.html (a redirecting page) and
+ * out/l4/<old>.md (the new page's markdown, headed by a "moved" note).
+ */
+function writeRedirects(outDir: string) {
+  const raw = getDocContent('redirects.json');
+  if (!raw) return;
+
+  const redirects: Record<string, string> = JSON.parse(raw);
+  let count = 0;
+
+  for (const [from, to] of Object.entries(redirects)) {
+    const [toSlug, anchor] = to.split('#');
+    const target = resolveSlugToDoc(toSlug.split('/').filter(Boolean));
+    if (!target) {
+      console.warn(`Redirect ${from} -> ${to}: target page not found, skipped`);
+      continue;
+    }
+    if (resolveSlugToDoc(from.split('/').filter(Boolean))) {
+      console.warn(`Redirect ${from} -> ${to}: a page still exists at ${from}, skipped`);
+      continue;
+    }
+
+    const url = `/l4/${toSlug}${anchor ? `#${anchor}` : ''}`;
+    const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Moved | L4 Documentation</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://legalese.com/l4/${toSlug}">
+<meta http-equiv="refresh" content="0; url=${url}">
+<script>location.replace(${JSON.stringify(url)}${anchor ? '' : ' + location.hash'});</script>
+</head>
+<body>
+<p>This page has moved to <a href="${url}">${url}</a>.</p>
+</body>
+</html>
+`;
+    const htmlPath = path.join(outDir, `${from}.html`);
+    fs.mkdirSync(path.dirname(htmlPath), { recursive: true });
+    fs.writeFileSync(htmlPath, html, 'utf-8');
+
+    const markdown = processMarkdown(embedL4Files(target.content, target.currentFolder), target.currentFolder);
+    const note = `> This page has moved to [/l4/${toSlug}](/l4/${toSlug}.md${anchor ? `#${anchor}` : ''}).\n\n`;
+    fs.writeFileSync(path.join(outDir, `${from}.md`), note + markdown, 'utf-8');
+    count++;
+  }
+
+  console.log(`Generated ${count} redirects in out/l4/`);
 }
 
 main();

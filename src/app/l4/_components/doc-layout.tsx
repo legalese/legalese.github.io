@@ -6,15 +6,17 @@ import DocHeader from './doc-header';
 import DocSidebar from './doc-sidebar';
 import DocToc from './doc-toc';
 import DocContent from './doc-content';
-import { NavSection, TableOfContentsItem } from '@/lib/l4-docs';
+import DocPagerLinks from './doc-pager';
+import { DocPager, NavSection, TableOfContentsItem } from '@/lib/l4-docs';
 
 interface DocLayoutProps {
   navSections: NavSection[];
   toc: TableOfContentsItem[];
   htmlContent: string;
+  pager?: DocPager;
 }
 
-export default function DocLayout({ navSections, toc, htmlContent }: DocLayoutProps) {
+export default function DocLayout({ navSections, toc, htmlContent, pager = {} }: DocLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname = usePathname();
   
@@ -58,6 +60,7 @@ export default function DocLayout({ navSections, toc, htmlContent }: DocLayoutPr
         <main className="flex-1 min-w-0">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8 lg:px-8">
             <DocContent html={htmlContent} />
+            <DocPagerLinks pager={pager} />
           </div>
         </main>
         

@@ -8,8 +8,15 @@ export interface NavItem {
 }
 
 export interface NavSection {
+  /** Empty for the links a SUMMARY.md lists above its first `##` heading */
   title: string;
   items: NavItem[];
+}
+
+/** The pages before and after the current one, in SUMMARY.md order */
+export interface DocPager {
+  prev?: NavItem;
+  next?: NavItem;
 }
 
 export interface TableOfContentsItem {
@@ -51,6 +58,12 @@ export function parseSummary(content: string): NavSection[] {
 
     // Match markdown links: - [Title](path.md) or * [Title](path.md)
     const linkMatch = line.match(/^(\s*)[-*]\s*\[([^\]]+)\]\(([^)]+)\)/);
+    if (linkMatch && !currentSection) {
+      // Links above the first `##` form a group without a heading
+      currentSection = { title: '', items: [] };
+      sections.push(currentSection);
+      itemStack = [{ items: currentSection.items, indent: -1 }];
+    }
     if (linkMatch && currentSection) {
       const [, spaces, title, href] = linkMatch;
       const indent = spaces.length;
@@ -90,6 +103,38 @@ export function parseSummary(content: string): NavSection[] {
   }
 
   return sections;
+}
+
+/**
+ * Prefix every nav href, at any depth, with the folder its SUMMARY.md lives in
+ */
+export function prefixNavHrefs(sections: NavSection[], folder: string): NavSection[] {
+  const prefix = (items: NavItem[]): NavItem[] =>
+    items.map((item) => ({
+      ...item,
+      href: item.href.startsWith('/') ? item.href : [folder, item.href].filter(Boolean).join('/'),
+      children: item.children && prefix(item.children),
+    }));
+  return sections.map((section) => ({ ...section, items: prefix(section.items) }));
+}
+
+/**
+ * Find the previous and next page around `currentHref` (a nav href such as
+ * "reference/functions/DECIDE"), walking the nav depth-first.
+ */
+export function findPager(sections: NavSection[], currentHref: string): DocPager {
+  const flat: NavItem[] = [];
+  const walk = (items: NavItem[]) => {
+    for (const item of items) {
+      flat.push(item);
+      if (item.children) walk(item.children);
+    }
+  };
+  for (const section of sections) walk(section.items);
+
+  const index = flat.findIndex((item) => item.href === currentHref);
+  if (index === -1) return {};
+  return { prev: flat[index - 1], next: flat[index + 1] };
 }
 
 /**
@@ -167,24 +212,56 @@ function generateHeadingId(text: string): string {
 }
 
 /**
+ * Return a function that turns heading text into an ID, suffixing repeats
+ * ("setup", "setup-1", "setup-2") so every anchor on a page is unique.
+ */
+function createHeadingIdGenerator(): (text: string) => string {
+  const seen = new Map<string, number>();
+  return (text: string) => {
+    const base = generateHeadingId(text);
+    const count = seen.get(base) ?? 0;
+    seen.set(base, count + 1);
+    return count === 0 ? base : `${base}-${count}`;
+  };
+}
+
+/**
  * Extract table of contents from markdown content
  */
 export function extractTableOfContents(content: string): TableOfContentsItem[] {
   const headings: TableOfContentsItem[] = [];
   const lines = content.split('\n');
+  const nextId = createHeadingIdGenerator();
+  let fence: string | null = null;
 
   for (const line of lines) {
+    // Lines inside fenced code blocks are not headings
+    const fenceMatch = line.match(/^\s*(`{3,}|~{3,})/);
+    if (fenceMatch) {
+      if (!fence) fence = fenceMatch[1];
+      else if (fenceMatch[1].startsWith(fence)) fence = null;
+      continue;
+    }
+    if (fence) continue;
+
     const match = line.match(/^(#{2,4})\s+(.+)$/);
     if (match) {
       const [, hashes, rawTitle] = match;
       const level = hashes.length;
       const title = stripMarkdown(rawTitle);
-      const id = generateHeadingId(title);
-      headings.push({ id, title, level });
+      headings.push({ id: nextId(title), title, level });
     }
   }
 
   return headings;
+}
+
+/**
+ * The page's H1, as plain text, or null when it has none
+ */
+export function extractTitle(content: string): string | null {
+  const match = content.match(/^#\s+(.+)$/m);
+  return match ? stripMarkdown(match[1]) : null;
 }
 
 /**
@@ -253,19 +330,35 @@ export function processMarkdownContent(
 }
 
 /**
- * Add IDs to headings for anchor navigation
+ * Add IDs to headings for anchor navigation.
+ *
+ * When the page's table of contents lists the same headings, its IDs are
+ * used in order, so TOC links always land; otherwise IDs are derived from
+ * the rendered heading text.
  */
-export function addHeadingIds(html: string): string {
+export function addHeadingIds(html: string, toc: TableOfContentsItem[] = []): string {
+  const headingPattern = /<h([2-4])>([\s\S]*?)<\/h\1>/g;
+  const headingCount = html.match(headingPattern)?.length ?? 0;
+  const useToc = headingCount === toc.length;
+  const nextId = createHeadingIdGenerator();
+  let index = 0;
+
   // Match h2-h4 tags with any content inside (including nested HTML like links)
-  return html.replace(
-    /<h([2-4])>([\s\S]*?)<\/h\1>/g,
-    (match, level, content) => {
-      // Strip HTML to get plain text, then generate ID
-      const plainText = stripHtml(content).trim();
-      const id = generateHeadingId(plainText);
-      return `<h${level} id="${id}">${content}</h${level}>`;
-    }
-  );
+  return html.replace(headingPattern, (match, level, content) => {
+    const id = useToc ? toc[index].id : nextId(decodeEntities(stripHtml(content)).trim());
+    index++;
+    return `<h${level} id="${id}">${content}</h${level}>`;
+  });
+}
+
+function decodeEntities(text: string): string {
+  return text
+    .replace(/&#x([0-9a-f]+);/gi, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, dec) => String.fromCharCode(parseInt(dec, 10)))
+    .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&');
 }
 
 
