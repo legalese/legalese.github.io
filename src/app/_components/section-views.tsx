@@ -74,6 +74,17 @@ export async function SectionPage({ section, entry }: { section: SectionName; en
           <PageHeader title={entry.title} />
           {entry.tagline && <p className="mx-auto -mt-8 mb-10 max-w-4xl text-xl text-gray-600">{entry.tagline}</p>}
           <PageContent content={content} />
+          {entry.demo && (
+            <section className="mx-auto mt-12 max-w-6xl">
+              <h2 className="mb-2 text-2xl font-bold font-merriweather">{entry.demoTitle || "Try it"}</h2>
+              <p className="mb-4 text-sm text-gray-600">
+                {entry.demoNote || "This demo runs entirely in your browser. It uses no AI and sends nothing anywhere."}{" "}
+                <a href={entry.demo} target="_blank" rel="noopener noreferrer" className="text-accent underline">Open it full screen</a>.
+              </p>
+              <iframe src={entry.demo} title={entry.demoTitle || `${entry.title} demo`} loading="lazy"
+                className="h-[80vh] min-h-[560px] w-full rounded-lg border border-gray-200" />
+            </section>
+          )}
         </article>
       </Container>
     </main>

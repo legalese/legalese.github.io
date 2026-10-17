@@ -5,6 +5,9 @@ tagline: "Find the defects in a Bill or an Act before the people who live under 
 status: live
 published: false
 order: 10
+demo: /demos/lqa-dog-act/
+demoTitle: "Try the LQA console: Dog Act 1976 (WA)"
+demoNote: "The console runs an in-force Act forward in time: create people, dogs and local governments, play the scenarios, and watch each duty arise, fall due and be met or breached, with the section behind it. It runs entirely in your browser, uses no AI and sends nothing anywhere. The analysis is a draft, not legal advice."
 ---
 Legislate.4 is for parliamentary counsel and law revision offices. A defect in a law is found sooner or later: by a drafter, a court, or someone who falls through a gap. Many survive careful reading because they appear only when the rules run, when a date rolls over, a second person arrives, or two provisions meet. Legislate.4 looks for them while fixing one still costs a sentence.
 

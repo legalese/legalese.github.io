@@ -92,6 +92,9 @@ content:
         description: "live: has its own page. coming: listed with a Coming tag, no page."
       - { name: published, label: Published, type: boolean, default: false }
       - { name: order, label: Order, type: number, description: "Order in menus and lists (lower = first)" }
+      - { name: demo, label: Demo URL, type: string, description: "Optional: a static demo in public/, e.g. /demos/lqa-dog-act/, embedded on the page" }
+      - { name: demoTitle, label: Demo heading, type: string }
+      - { name: demoNote, label: Demo note, type: string }
       - { name: body, label: Content, type: rich-text }
   - name: solutions
     label: Solutions
@@ -113,6 +116,9 @@ content:
         description: "live: has its own page. coming: listed with a Coming tag, no page."
       - { name: published, label: Published, type: boolean, default: false }
       - { name: order, label: Order, type: number, description: "Order in menus and lists (lower = first)" }
+      - { name: demo, label: Demo URL, type: string, description: "Optional: a static demo in public/, e.g. /demos/lqa-dog-act/, embedded on the page" }
+      - { name: demoTitle, label: Demo heading, type: string }
+      - { name: demoNote, label: Demo note, type: string }
       - { name: body, label: Content, type: rich-text }
   - name: apps
     label: Apps
@@ -134,6 +140,9 @@ content:
         description: "live: has its own page. coming: listed with a Coming tag, no page."
       - { name: published, label: Published, type: boolean, default: false }
       - { name: order, label: Order, type: number, description: "Order in menus and lists (lower = first)" }
+      - { name: demo, label: Demo URL, type: string, description: "Optional: a static demo in public/, e.g. /demos/lqa-dog-act/, embedded on the page" }
+      - { name: demoTitle, label: Demo heading, type: string }
+      - { name: demoNote, label: Demo note, type: string }
       - { name: body, label: Content, type: rich-text }
 
   # Commons editorial pages at /commons/<slug> (the slug "index" is the Commons home introduction).
@@ -158,4 +167,7 @@ content:
         description: "live: has its own page. coming: listed with a Coming tag, no page."
       - { name: published, label: Published, type: boolean, default: false }
       - { name: order, label: Order, type: number, description: "Order in menus and lists (lower = first)" }
+      - { name: demo, label: Demo URL, type: string, description: "Optional: a static demo in public/, e.g. /demos/lqa-dog-act/, embedded on the page" }
+      - { name: demoTitle, label: Demo heading, type: string }
+      - { name: demoNote, label: Demo note, type: string }
       - { name: body, label: Content, type: rich-text }

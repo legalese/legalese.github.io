@@ -14,6 +14,10 @@ export type SectionEntry = {
   status: "live" | "coming";
   published: boolean;
   order?: number;
+  // a static demo served from public/ (e.g. /demos/lqa-dog-act/), embedded on the entry's page
+  demo?: string;
+  demoTitle?: string;
+  demoNote?: string;
   content: string;
 };
 
