@@ -22,8 +22,13 @@
   .status { margin-top: 8px; font-size: 12.5px; }
   .status b { font-weight: 600; }
   .status .ok { color: var(--yes); } .status .off { color: var(--no); }
-  main { display: grid; grid-template-columns: minmax(300px, 5fr) minmax(300px, 6fr); gap: 0; min-height: calc(100vh - 140px); }
-  @media (max-width: 860px) { main { grid-template-columns: 1fr; } }
+  html, body { height: 100%; }
+  body { display: flex; flex-direction: column; }
+  header, footer { flex: none; }
+  /* the two panels scroll separately */
+  main { flex: 1 1 auto; min-height: 0; display: grid; grid-template-columns: minmax(300px, 5fr) minmax(300px, 6fr); gap: 0; }
+  main > section { overflow-y: auto; min-height: 0; }
+  @media (max-width: 860px) { html, body { height: auto; } body { display: block; } main { grid-template-columns: 1fr; } main > section { overflow: visible; } }
   section { padding: 16px 20px 40px; }
   section + section { border-left: 1px solid var(--rule); background: var(--panel); }
   @media (max-width: 860px) { section + section { border-left: 0; border-top: 1px solid var(--rule); } }
@@ -73,7 +78,7 @@
   .studio-cta:hover { background: #7a2839; }
   .studio-cta small { font-weight: 400; opacity: .85; }
   body.embedded .studio-row { display: flex; justify-content: flex-end; }
-  footer { padding: 14px 20px 24px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--rule); }
+  footer { padding: 8px 20px 10px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--rule); }
 </style>
 </head>
 <body>
