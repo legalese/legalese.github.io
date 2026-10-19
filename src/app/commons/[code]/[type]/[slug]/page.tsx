@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import fs from "fs";
+import { join } from "path";
 import { COMMONS_REPO, getInstrument, getInstruments, getJurisdiction, getJurisdictions, percent, TYPE_LABELS } from "@/lib/commons";
 import Container from "../../../../_components/container";
 import Header from "../../../../_components/header";
@@ -33,6 +35,9 @@ export default async function InstrumentPage({ params }: Params) {
   const i = getInstrument(code, type, slug), j = getJurisdiction(code);
   if (!i || !j) return notFound();
   const tree = (p: string) => `${COMMONS_REPO}/tree/main/${p}`;
+  // a live form for this instrument, if one has been built: public/demos/interact/<code>/<slug>/
+  const interactPath = join(process.cwd(), "public", "demos", "interact", code, slug, "index.html");
+  const interact = fs.existsSync(interactPath) ? `/demos/interact/${code}/${slug}/` : null;
 
   return (
     <main>
@@ -48,6 +53,18 @@ export default async function InstrumentPage({ params }: Params) {
               <Stat value={i.sections ? `${i.sections}` : "—"} label="sections" />
               <Stat value={i.sections ? percent(i.encodedSections, i.sections) : i.encodings.length ? "encoded" : "—"} label="of sections encoded" />
             </div>
+
+            {interact && (
+              <section className="mb-12">
+                <h2 className="mb-2 text-2xl font-bold font-merriweather">Ask your questions</h2>
+                <p className="mb-4 text-sm text-gray-600">
+                  Answer the questions and each decision is worked out by this encoding, running live on Legalese Cloud. Open a decision to see why.{" "}
+                  <a href={interact} target="_blank" rel="noopener noreferrer" className="text-accent underline">Open it full screen</a>.
+                </p>
+                <iframe src={interact} title={`${i.title}: ask your questions`} loading="lazy"
+                  className="h-[85vh] min-h-[640px] w-full rounded-lg border border-gray-200" />
+              </section>
+            )}
 
             <section className="mb-10">
               <h2 className="mb-3 text-2xl font-bold font-merriweather">Source</h2>
