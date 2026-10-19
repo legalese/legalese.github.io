@@ -6,7 +6,6 @@ import { join } from "path";
 
 export type Encoding = {
   name: string;
-  kind: "first-pass" | "full";
   status?: string;
   gates: boolean;
   assertions?: number | null;
@@ -38,7 +37,6 @@ export type Jurisdiction = {
   acts: number;
   sourced: number;
   encoded: number;
-  fullEncoded: number;
   sections: number;
   encodedSections: number;
   pages: number;

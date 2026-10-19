@@ -8,18 +8,17 @@ type Part = { k: string; n: string; t: string; d: { n: string; t: string }[] };
 // a section: [number, heading, size, part index, division index, indices of the encodings covering it]
 type Sec = [string, string, number, number, number, number[]];
 type Act = { s: string; t: string; pg: number; pgx?: boolean; parts: Part[]; secs: Sec[]; sch: number; rows: string[] };
-type Prepared = Act & { body: number; encN: number; encFrac: number; year: number; full: boolean[] };
+type Prepared = Act & { body: number; encN: number; encFrac: number; year: number };
 
-const FIRST_PASS = new Set(["naive-2026-10"]);
 const COLORS = {
   ink: "#1d2422", muted: "#5e6a66", rule: "#d9dfdc", a: "#cfd8d4", b: "#b9c5c0",
-  sched: "#e6e2d6", enc: "#1e7a3c", first: "#a9d8a6", panel: "#ffffff", hover: "#1d2422",
+  sched: "#e6e2d6", enc: "#1e7a3c", panel: "#ffffff", hover: "#1d2422",
 };
 const LABEL_W = 280, ROW_H = 15, GAP = 4, PAD_R = 24;
 const FONT = "Inter, system-ui, sans-serif", MONO = "ui-monospace, Menlo, Consolas, monospace";
 
 function encodingLabel(r: string) {
-  return FIRST_PASS.has(r) ? "First-pass encoding" : `Encoding with pipeline (${r === "(root)" ? "main" : r})`;
+  return `Encoding (${r === "(root)" ? "main" : r})`;
 }
 
 export default function StatuteMap({ code, base }: { code: string; base: string }) {
@@ -42,8 +41,7 @@ export default function StatuteMap({ code, base }: { code: string; base: string 
           const body = a.secs.reduce((s, x) => s + x[2], 0);
           const encN = a.secs.filter((x) => x[5].length).length;
           const m = a.s.match(/(1[6-9]\d\d|20\d\d)$/);
-          return { ...a, body, encN, encFrac: a.secs.length ? encN / a.secs.length : 0, year: m ? +m[1] : 9999,
-                   full: a.rows.map((r) => !FIRST_PASS.has(r)) };
+          return { ...a, body, encN, encFrac: a.secs.length ? encN / a.secs.length : 0, year: m ? +m[1] : 9999 };
         }));
       })
       .catch(() => live && setError(true));
@@ -91,7 +89,7 @@ export default function StatuteMap({ code, base }: { code: string; base: string 
         for (let i = 0; i < a.secs.length; i++) {
           const s = a.secs[i], sw = s[2] * scale;
           if (x + sw >= LABEL_W - 1 && x <= w) {
-            ctx.fillStyle = s[5].length ? (s[5].some((k) => a.full[k]) ? COLORS.enc : COLORS.first)
+            ctx.fillStyle = s[5].length ? COLORS.enc
               : (s[3] < 0 ? 0 : s[3]) % 2 ? COLORS.b : COLORS.a;
             ctx.fillRect(Math.max(x, LABEL_W), by, Math.max(0.6, Math.min(x + sw, w) - Math.max(x, LABEL_W)), bh);
             if (s[3] !== lastP && i > 0) { ctx.fillStyle = COLORS.panel; ctx.fillRect(x - 0.5, by, 1, bh); }
@@ -200,8 +198,7 @@ export default function StatuteMap({ code, base }: { code: string; base: string 
         </label>
       </div>
       <div className="mb-3 flex flex-wrap gap-4 text-xs text-gray-600">
-        <span>{swatch(COLORS.enc)}Encoding with pipeline</span>
-        <span>{swatch(COLORS.first)}First-pass encoding</span>
+        <span>{swatch(COLORS.enc)}Encoded</span>
         <span>{swatch(COLORS.a)}Not encoded (Parts alternate in shade)</span>
         <span>{swatch(COLORS.sched)}Schedules</span>
       </div>

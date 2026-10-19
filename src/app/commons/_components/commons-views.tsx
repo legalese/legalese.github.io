@@ -56,4 +56,4 @@ export function JurisdictionCard({ j }: { j: Jurisdiction }) {
 }
 
 export const DRAFT_NOTE =
-  "Every encoding in Commons is a draft, and none has yet been verified against its source by a named reviewer. First-pass encodings are written by an AI agent in a single pass from the deposited text and checked only by their own worked cases. The figures show how much of the statute book is in executable form, not how much is verified.";
+  "Every encoding in Commons is a draft, and none has yet been verified against its source by a named reviewer. The figures show how much of the statute book is in executable form, not how much is verified.";

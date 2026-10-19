@@ -44,7 +44,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 50,
@@ -1975,7 +1974,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 57,
@@ -2601,7 +2599,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 54,
@@ -3152,7 +3149,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 58,
@@ -3613,7 +3609,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 54,
@@ -4479,7 +4474,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 53,
@@ -4805,7 +4799,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 50,
@@ -5026,7 +5019,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 57,
@@ -6927,7 +6919,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 55,
@@ -8633,7 +8624,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 55,
@@ -8884,7 +8874,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 57,
@@ -9405,7 +9394,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 57,
@@ -9626,7 +9614,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 66,
@@ -11332,7 +11319,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 50,
@@ -11568,7 +11554,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 53,
@@ -12059,7 +12044,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 53,
@@ -13555,7 +13539,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 55,
@@ -14571,7 +14554,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 50,
@@ -16727,7 +16709,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 49,
@@ -17398,7 +17379,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 51,
@@ -17439,7 +17419,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 50,
@@ -17840,7 +17819,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 52,

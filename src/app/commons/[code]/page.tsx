@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 }
 
 function InstrumentRow({ code, i }: { code: string; i: Instrument }) {
-  const full = i.encodings.some((e) => e.kind === "full"), first = i.encodings.length > 0;
+  const first = i.encodings.length > 0;
   return (
     <li className="flex break-inside-avoid items-baseline justify-between gap-4 border-b border-gray-100 py-1.5 text-sm">
       {first ? (
@@ -43,8 +43,8 @@ function InstrumentRow({ code, i }: { code: string; i: Instrument }) {
       )}
       <span className="shrink-0 text-xs text-gray-500">
         {first && (
-          <span className="mr-2 inline-block h-2 w-2 rounded-full align-middle" title={full ? "Encoding with pipeline" : "First-pass encoding"}
-            style={{ background: full ? "#1e7a3c" : "#a9d8a6" }} />
+          <span className="mr-2 inline-block h-2 w-2 rounded-full align-middle" title="Encoded"
+            style={{ background: "#1e7a3c" }} />
         )}
         {first ? (i.sections ? `${percent(i.encodedSections, i.sections)} of ${i.sections} sections` : "encoded") : i.sourced ? "sourced" : "indexed"}
       </span>

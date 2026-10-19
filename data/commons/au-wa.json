@@ -74,7 +74,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 54,
@@ -1090,7 +1089,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 55,
@@ -3126,7 +3124,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 54,
@@ -3272,7 +3269,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 54,
@@ -4528,7 +4524,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 53,
@@ -4869,7 +4864,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 50,
@@ -5870,7 +5864,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 54,
@@ -9481,7 +9474,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 52,
@@ -9942,7 +9934,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 56,
@@ -11138,7 +11129,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 58,
@@ -12034,7 +12024,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 57,
@@ -12150,7 +12139,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 56,
@@ -12236,7 +12224,6 @@
   "encodings": [
    {
     "name": "naive-2026-10",
-    "kind": "first-pass",
     "status": "draft",
     "gates": false,
     "assertions": 54,

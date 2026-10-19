@@ -69,8 +69,8 @@ export default async function InstrumentPage({ params }: Params) {
                   {i.encodings.map((e) => (
                     <div key={e.path} className="rounded-lg border border-gray-200 p-5">
                       <div className="mb-2 flex flex-wrap items-center gap-3">
-                        <span className="inline-block h-2.5 w-2.5 rounded-full" style={{ background: e.kind === "full" ? "#1e7a3c" : "#a9d8a6" }} />
-                        <h3 className="font-bold">{e.kind === "full" ? "Encoding with pipeline" : "First-pass encoding"}</h3>
+                        <span className="inline-block h-2.5 w-2.5 rounded-full" style={{ background: "#1e7a3c" }} />
+                        <h3 className="font-bold">Encoding</h3>
                         <span className="font-mono text-xs text-gray-500">{e.name}</span>
                         {e.status && <span className="rounded border border-gray-300 px-1.5 text-[10px] font-semibold uppercase tracking-wider text-gray-500">{e.status}</span>}
                       </div>
